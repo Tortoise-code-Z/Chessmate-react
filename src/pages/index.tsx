@@ -3,11 +3,12 @@ import { paths } from "../consts/paths";
 import Home from "./Home";
 import Layout from "./Layout";
 import IsAuthorized from "./IsAuthorized";
+import ErrorElement from "./ErrorElement";
 
 export const route = createBrowserRouter([
     {
         path: paths.index,
-        errorElement: <>ErrorElement</>,
+        errorElement: <ErrorElement />,
         element: <Layout />,
         children: [
             {
