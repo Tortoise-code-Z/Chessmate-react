@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { paths } from "../consts/paths";
-import { useUserAuthStore } from "../hooks/UseUserAuthStore";
+import { paths } from "../../consts/paths";
+import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 
 type Props = {};
 

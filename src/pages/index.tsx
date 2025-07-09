@@ -2,9 +2,13 @@ import { createBrowserRouter } from "react-router-dom";
 import { paths } from "../consts/paths";
 import Home from "./Home";
 import Layout from "./Layout";
-import IsAuthorized from "./IsAuthorized";
+import IsAuthorized from "./IsAutorized";
 import ErrorElement from "./ErrorElement";
 import Dashboard from "./Dashboard";
+import Courses from "./Courses";
+import CoursesDetail from "./Courses/CoursesDetail";
+import Contact from "./Contact";
+import Classroom from "./Classroom";
 
 export const route = createBrowserRouter([
     {
@@ -28,15 +32,15 @@ export const route = createBrowserRouter([
             },
             {
                 path: `/${paths.curses}`,
-                element: <>Curses</>,
+                element: <Courses />,
             },
             {
                 path: `/${paths.cursesDetail}`,
-                element: <>CursesDetail</>,
+                element: <CoursesDetail />,
             },
             {
                 path: `/${paths.contact}`,
-                element: <>Contact</>,
+                element: <Contact />,
             },
             {
                 path: `/${paths.class}`,
@@ -44,7 +48,7 @@ export const route = createBrowserRouter([
                 children: [
                     {
                         index: true,
-                        element: <>Classes</>,
+                        element: <Classroom />,
                     },
                 ],
             },

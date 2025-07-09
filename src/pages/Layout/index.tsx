@@ -1,12 +1,12 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { paths } from "../consts/paths";
+import { paths } from "../../consts/paths";
 import { BsGear } from "react-icons/bs";
 import { PiSignInBold } from "react-icons/pi";
 import { MdOutlineEmail } from "react-icons/md";
 import { CiMap } from "react-icons/ci";
 import { FaInstagram } from "react-icons/fa";
 import { AiOutlineYoutube } from "react-icons/ai";
-import { useUserAuthStore } from "../hooks/UseUserAuthStore";
+import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 
 type Props = {};
 

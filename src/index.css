@@ -1,0 +1,95 @@
+:root {
+    --bcc-color: 7, 3, 1;
+    --primary-color-050: 244, 197, 164;
+    --primary-color-100: 241, 178, 133;
+    --primary-color-200: 237, 159, 103;
+    --primary-color-300: 234, 139, 72;
+    --primary-color-400: 230, 120, 42;
+    --primary-color-500: 213, 103, 25;
+    --primary-color-600: 186, 90, 22;
+    --primary-color-700: 160, 77, 19;
+    --primary-color-800: 133, 64, 16;
+    --primary-color-900: 107, 51, 12;
+
+    --complementary-color-050: 164, 211, 244;
+    --complementary-color-100: 133, 196, 241;
+    --complementary-color-200: 103, 181, 237;
+    --complementary-color-300: 72, 167, 234;
+    --complementary-color-400: 42, 152, 230;
+    --complementary-color-500: 25, 135, 213;
+    --complementary-color-600: 23, 124, 195;
+    --complementary-color-700: 21, 112, 178;
+    --complementary-color-800: 19, 101, 160;
+    --complementary-color-900: 17, 90, 142;
+
+    --neutral-color-050: 224, 210, 200;
+    --neutral-color-100: 223, 204, 190;
+    --neutral-color-200: 222, 198, 181;
+    --neutral-color-300: 221, 192, 172;
+    --neutral-color-400: 220, 187, 163;
+    --neutral-color-500: 214, 181, 158;
+    --neutral-color-600: 206, 178, 157;
+    --neutral-color-700: 199, 174, 156;
+    --neutral-color-800: 190, 170, 155;
+    --neutral-color-900: 183, 166, 154;
+
+    --button-px: 15px;
+    --button-py: 12px;
+    --button-border-radius: 5px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url("/public/fonts/Roboto/static/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: Roboto-bold;
+    src: url("/public/fonts/Roboto/static/Roboto-Bold.ttf");
+}
+
+@font-face {
+    font-family: Roboto-medium;
+    src: url("/public/fonts/Roboto/static/Roboto-Medium.ttf");
+}
+
+@font-face {
+    font-family: Roboto-italic;
+    src: url("/public/fonts/Roboto/static/Roboto-Italic.ttf");
+}
+
+@font-face {
+    font-family: Roboto-light;
+    src: url("/public/fonts/Roboto/static/Roboto-Light.ttf");
+}
+
+@font-face {
+    font-family: Roboto-extralight;
+    src: url("/public/fonts/Roboto/static/Roboto-ExtraLight.ttf");
+}
+
+@font-face {
+    font-family: Roboto-light-italic;
+    src: url("/public/fonts/Roboto/static/Roboto-LightItalic.ttf");
+}
+
+body {
+    background-color: rgb(var(--bcc-color));
+    color: white;
+    font-family: Roboto;
+}
