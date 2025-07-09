@@ -1,8 +1,7 @@
-export type User = {
+export type BaseUser = {
     userID: number;
     username: string;
     email: string;
-    password: string;
 };
 
 export type Level =
@@ -24,7 +23,7 @@ export type ToLearnTheme = {
 
 export type ContentCurseData = {
     themes: Theme[];
-    detailDescription: string;
+    detailDescription?: string;
 };
 
 export type ToLearnCurseData = {
@@ -44,7 +43,7 @@ export type ChessLevel =
 
 export type AuthorCurseData = {
     name: string;
-    description?: string;
+    description: string;
     level?: ChessLevel;
     elo?: number;
 };
@@ -56,23 +55,34 @@ export type CourseData = {
     authors: AuthorCurseData[];
 };
 
-export type Course = {
+export type BaseCourse = {
     curseID: number;
     title: string;
-    shortDescription: string;
     level: Level;
-    price: number;
-    data: CourseData;
     thumbImg: string;
+    content: ContentCurseData;
 };
 
-export type ObtainedCourses = {
+export type DefualtCourse = BaseCourse;
+
+export type Course = BaseCourse & {
+    price: number;
+    shortDescription: string;
+    detailDescription: string;
+    authors: AuthorCurseData[];
+    toLearn?: ToLearnCurseData;
+};
+
+export type ObtainedCourse = {
+    courseID: number;
     progress: number;
     completed: boolean;
-    course: Course;
 };
 
-export type UserAuth = {
-    user: User;
-    courses: ObtainedCourses[];
+export type StorageUser = BaseUser;
+
+export type User = BaseUser & {
+    password: string;
+    defaultCurses: ObtainedCourse[];
+    courses: ObtainedCourse[];
 };

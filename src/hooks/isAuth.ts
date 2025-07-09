@@ -1,8 +1,13 @@
-import { create } from "zustand";
+import { useQuery } from "@tanstack/react-query";
 import { UserAuth } from "../types/types";
 
 type UserStore = {
     user: UserAuth;
 };
 
-const useAuth = create<UserAuth>();
+const queryFunction = ()=>
+
+const query = useQuery({
+    queryKey: ["user"],
+    queryFn: 
+});
