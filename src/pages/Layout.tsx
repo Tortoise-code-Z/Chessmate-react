@@ -6,12 +6,13 @@ import { MdOutlineEmail } from "react-icons/md";
 import { CiMap } from "react-icons/ci";
 import { FaInstagram } from "react-icons/fa";
 import { AiOutlineYoutube } from "react-icons/ai";
+import { useUserAuthStore } from "../hooks/UseUserAuthStore";
 
 type Props = {};
 
 function Layout({}: Props) {
     // Simulacion de hook
-    const isAuth = false;
+    const { user } = useUserAuthStore();
 
     const userOptions = (
         <div>
@@ -57,7 +58,7 @@ function Layout({}: Props) {
                         />
                     </figure>
                     <ul>
-                        {isAuth ? (
+                        {user ? (
                             <NavLink to={`/${paths.dashboard}`}>
                                 Mi portal
                             </NavLink>
@@ -68,7 +69,7 @@ function Layout({}: Props) {
                         <NavLink to={`/${paths.contact}`}>Contacto</NavLink>
                     </ul>
 
-                    {isAuth ? userOptions : userActions}
+                    {user ? userOptions : userActions}
                 </nav>
             </header>
             <main>
