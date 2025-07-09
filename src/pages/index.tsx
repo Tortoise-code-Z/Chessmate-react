@@ -4,6 +4,7 @@ import Home from "./Home";
 import Layout from "./Layout";
 import IsAuthorized from "./IsAuthorized";
 import ErrorElement from "./ErrorElement";
+import Dashboard from "./Dashboard";
 
 export const route = createBrowserRouter([
     {
@@ -21,7 +22,7 @@ export const route = createBrowserRouter([
                 children: [
                     {
                         index: true,
-                        element: <>Dashboard</>,
+                        element: <Dashboard />,
                     },
                 ],
             },

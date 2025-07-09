@@ -21,11 +21,6 @@ export type ToLearnTheme = {
     description: string;
 };
 
-export type ContentCurseData = {
-    themes: Theme[];
-    detailDescription?: string;
-};
-
 export type ToLearnCurseData = {
     themes: ToLearnTheme[];
     detailDescription: string;
@@ -55,6 +50,10 @@ export type CourseData = {
     authors: AuthorCurseData[];
 };
 
+export type ContentCurseData = {
+    themes: Theme[];
+    detailDescription?: string;
+};
 export type BaseCourse = {
     curseID: number;
     title: string;
@@ -86,3 +85,5 @@ export type User = BaseUser & {
     defaultCurses: ObtainedCourse[];
     courses: ObtainedCourse[];
 };
+
+export type UserAuth = BaseUser;
