@@ -1,6 +1,8 @@
 import { Navigate } from "react-router-dom";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import { paths } from "../../consts/paths";
+import Hero from "../../components/Hero";
+import CoursesDataSection from "../../components/CoursesDataSection";
 
 type Props = {};
 
@@ -10,7 +12,13 @@ function Home({}: Props) {
     if (user) {
         return <Navigate to={`/${paths.dashboard}`} replace />;
     }
-    return <div>Home</div>;
+
+    return (
+        <>
+            <Hero />
+            <CoursesDataSection />
+        </>
+    );
 }
 
 export default Home;

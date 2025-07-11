@@ -58,7 +58,6 @@ export type BaseCourse = {
     curseID: number;
     title: string;
     level: Level;
-    thumbImg: string;
     content: ContentCurseData;
 };
 
@@ -87,3 +86,22 @@ export type User = BaseUser & {
 };
 
 export type UserAuth = BaseUser;
+
+export type Folder = "courses" | "defaultCourses" | "static";
+export type TypeImage = "thumb" | "full";
+export type SizeImage = "desktop" | "mobile";
+
+export type URLImageParams = {
+    folder: Folder;
+    prefix: string;
+    size: SizeImage;
+    type: TypeImage;
+    id: number;
+};
+
+export type CourseDataItem = {
+    id: number;
+    title: string;
+    description: string;
+    url: string;
+};

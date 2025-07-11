@@ -53,6 +53,14 @@ button {
     cursor: pointer;
 }
 
+.span-pr-color {
+    color: rgb(var(--primary-color-500));
+}
+
+.upperCase {
+    text-transform: uppercase;
+}
+
 @font-face {
     font-family: Roboto;
     src: url("/public/fonts/Roboto/static/Roboto-Regular.ttf");
