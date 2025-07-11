@@ -49,7 +49,7 @@ function Layout({}: Props) {
     return (
         <>
             <header>
-                <nav>
+                <nav style={{ height: "var(--navbar-height)" }}>
                     <figure>
                         <img
                             src="#"

@@ -36,6 +36,8 @@
     --button-px: 15px;
     --button-py: 12px;
     --button-border-radius: 5px;
+
+    --navbar-height: 70px;
 }
 
 * {

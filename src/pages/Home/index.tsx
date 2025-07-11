@@ -3,6 +3,9 @@ import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import { paths } from "../../consts/paths";
 import Hero from "../../components/Hero";
 import CoursesDataSection from "../../components/CoursesDataSection";
+import SignupCallToAction from "../../components/SignupCallToAction";
+import BestSellersSection from "../../components/BestSellersSection";
+import CloseHomeSection from "../../components/CloseHomeSection";
 
 type Props = {};
 
@@ -17,6 +20,9 @@ function Home({}: Props) {
         <>
             <Hero />
             <CoursesDataSection />
+            <SignupCallToAction />
+            <BestSellersSection />
+            <CloseHomeSection />
         </>
     );
 }

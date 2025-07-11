@@ -23,7 +23,7 @@ export type ToLearnTheme = {
 
 export type ToLearnCurseData = {
     themes: ToLearnTheme[];
-    detailDescription: string;
+    detailDescription: string[];
 };
 
 export type ChessLevel =
@@ -52,13 +52,21 @@ export type CourseData = {
 
 export type ContentCurseData = {
     themes: Theme[];
-    detailDescription?: string;
+    detailDescription?: string[];
 };
+
 export type BaseCourse = {
     curseID: number;
     title: string;
     level: Level;
     content: ContentCurseData;
+    imageUrl: CourseImageUrls;
+};
+
+export type CourseImageUrls = {
+    general: string;
+    full?: string;
+    thumb?: string;
 };
 
 export type DefualtCourse = BaseCourse;

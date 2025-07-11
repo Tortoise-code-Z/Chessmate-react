@@ -31,11 +31,11 @@ export const route = createBrowserRouter([
                 ],
             },
             {
-                path: `/${paths.curses}`,
+                path: `/${paths.courses}`,
                 element: <Courses />,
             },
             {
-                path: `/${paths.cursesDetail}`,
+                path: `/${paths.coursesDetail}`,
                 element: <CoursesDetail />,
             },
             {

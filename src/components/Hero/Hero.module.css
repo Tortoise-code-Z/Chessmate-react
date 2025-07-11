@@ -1,8 +1,27 @@
 .hero {
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - var(--navbar-height));
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    background-image: url("../../assets/images/static/static-image-hero-desktop.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.hero > * {
+    position: relative;
 }
