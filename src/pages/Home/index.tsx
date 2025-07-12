@@ -6,6 +6,7 @@ import CoursesDataSection from "../../components/CoursesDataSection";
 import SignupCallToAction from "../../components/SignupCallToAction";
 import BestSellersSection from "../../components/BestSellersSection";
 import CloseHomeSection from "../../components/CloseHomeSection";
+import NewsSection from "../../components/NewsSection";
 
 type Props = {};
 
@@ -22,6 +23,7 @@ function Home({}: Props) {
             <CoursesDataSection />
             <SignupCallToAction />
             <BestSellersSection />
+            <NewsSection />
             <CloseHomeSection />
         </>
     );
