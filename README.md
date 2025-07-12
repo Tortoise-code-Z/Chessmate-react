@@ -40,3 +40,6 @@ import: "default",
     },
 
 }));
+
+https://api.chess.com/pub/leaderboards
+live_blitz
