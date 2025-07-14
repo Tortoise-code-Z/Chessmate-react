@@ -1,5 +1,6 @@
 import { Course } from "../../types/types";
 import ItemCourseColumnDisplay from "../ItemCourseColumnDisplay";
+import styles from "./CoursesColumnDisplay.module.css";
 
 type Props = {
     action?: boolean;
@@ -7,8 +8,9 @@ type Props = {
 };
 
 function CoursesColumnDisplay({ courses, action }: Props) {
+    const className = [styles.coursesColumnDisplay].join(" ");
     return (
-        <div>
+        <div className={className}>
             {courses?.map((course) => (
                 <ItemCourseColumnDisplay
                     key={course.curseID}
