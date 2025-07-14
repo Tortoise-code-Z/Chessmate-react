@@ -1,0 +1,21 @@
+.coursesDataSection {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    width: 100%;
+    padding: var(--section-vertical-padding) var(--padding-lateral);
+}
+
+.coursesDataSection h2 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.itemsContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}

@@ -1,15 +1,17 @@
-// import styles from "./Hero.module.css";
+import styles from "./Hero.module.css";
 
 type Props = {};
 
 function Hero({}: Props) {
-    // const className = [styles.hero].join(" ");
+    const className = [styles.hero].join(" ");
     return (
-        <div className={""}>
+        <div className={className}>
             <h1>
                 Chess<span className="span-pr-color">mate</span>
             </h1>
-            <p>Tu sitio web para aprender ajedrez.</p>
+            <p className={[styles.subtitle].join(" ")}>
+                Tu sitio web para aprender ajedrez.
+            </p>
         </div>
     );
 }

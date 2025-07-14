@@ -1,12 +1,11 @@
 .hero {
     width: 100%;
-    height: calc(100vh - var(--navbar-height));
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    background-image: url("../../assets/images/static/static-image-hero-desktop.jpg");
+    background-image: url("../../assets/images/static/static-image-hero_1920x1280_.jpg");
     background-position: center;
     background-size: cover;
     position: relative;
@@ -19,9 +18,20 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .hero > * {
     position: relative;
+}
+
+.hero h1 {
+    font-size: 8rem;
+    text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+    font-family: Roboto-light-italic;
+    opacity: 0.7;
+    font-size: 1.5rem;
 }

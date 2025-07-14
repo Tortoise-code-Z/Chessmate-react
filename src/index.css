@@ -39,6 +39,9 @@
     --button-font-size: 14px;
 
     --navbar-height: 70px;
+
+    --padding-lateral: 50px;
+    --section-vertical-padding: 150px;
 }
 
 * {
@@ -47,14 +50,29 @@
     box-sizing: border-box;
 }
 
+.row-reverse {
+    flex-direction: row-reverse !important;
+}
+
 a {
     text-decoration: none;
     color: white;
     font-size: var(--button-font-size);
 }
 
+section,
+article {
+    padding: 100px 0;
+}
+
 .active {
     color: rgb(var(--primary-color-500));
+    font-family: Roboto-bold-italic !important;
+}
+
+h2 {
+    font-size: 3rem;
+    color: rgb(var(--primary-color-050));
 }
 
 button,
@@ -134,6 +152,16 @@ a.button > svg {
 @font-face {
     font-family: Roboto-light-italic;
     src: url("/public/fonts/Roboto/static/Roboto-LightItalic.ttf");
+}
+
+@font-face {
+    font-family: Roboto-bold-italic;
+    src: url("/public/fonts/Roboto/static/Roboto-BoldItalic.ttf");
+}
+
+@font-face {
+    font-family: Roboto-thin;
+    src: url("/public/fonts/Roboto/static/Roboto-Thin.ttf");
 }
 
 body {

@@ -53,10 +53,7 @@ function Navbar({}: Props) {
     );
 
     return (
-        <nav
-            className={styles.navbar}
-            style={{ height: "var(--navbar-height)" }}
-        >
+        <nav className={styles.navbar}>
             <div className={[styles.linksContainer].join(" ")}>
                 <figure className={[styles.logo].join(" ")}>
                     <img

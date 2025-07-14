@@ -1,10 +1,11 @@
 .navbar {
     width: 100%;
     height: var(--navbar-height);
-    padding: 20px;
+    max-height: var(--navbar-height);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding: 0 var(--padding-lateral);
 }
 
 .navbar ul a {
@@ -36,7 +37,7 @@
 }
 
 .logo {
-    height: 100%;
+    height: 70%;
     aspect-ratio: 1/1;
 }
 
@@ -62,7 +63,7 @@
 }
 
 .userAvatar {
-    height: 100%;
+    height: 70%;
     aspect-ratio: 1/1;
 }
 

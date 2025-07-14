@@ -1,13 +1,20 @@
 import { CourseDataItem } from "../../types/types";
 import { getImage, getImageSize } from "../../utils/images";
+import styles from "./ItemCourseData.module.css";
 
 type Props = {
     item: CourseDataItem;
+    index: number;
 };
 
-function ItemCourseData({ item }: Props) {
+function ItemCourseData({ item, index }: Props) {
     return (
-        <div>
+        <div
+            className={[
+                styles.itemContainer,
+                index % 2 !== 0 ? "row-reverse" : "",
+            ].join(" ")}
+        >
             <figure>
                 <img
                     src={getImage(item.url, ["static"])}
