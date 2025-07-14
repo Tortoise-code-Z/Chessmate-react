@@ -79,6 +79,7 @@ export type Course = BaseCourse & {
     detailDescription: string;
     authors: AuthorCurseData[];
     toLearn?: ToLearnCurseData;
+    sales: number;
 };
 
 export type ObtainedCourse = {
@@ -158,4 +159,12 @@ export type Comments = {
     idUser: number;
     idCourse: number;
     text: string;
+};
+
+export type BBDD = {
+    users: User[];
+    defaultCourses: DefualtCourse[];
+    courses: Course[];
+    comments: Comments[];
+    opinions: Opinion[];
 };

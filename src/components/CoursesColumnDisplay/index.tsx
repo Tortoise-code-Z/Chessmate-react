@@ -3,7 +3,7 @@ import ItemCourseColumnDisplay from "../ItemCourseColumnDisplay";
 
 type Props = {
     action?: boolean;
-    courses: Course[];
+    courses: Course[] | null;
 };
 
 function CoursesColumnDisplay({ courses, action }: Props) {
