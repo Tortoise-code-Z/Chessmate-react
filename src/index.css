@@ -85,9 +85,10 @@ a.button {
     gap: 5px;
     font-size: var(--button-font-size);
     border-radius: var(--button-border-radius);
-    padding: var(--button-py) var(--button-px) !important;
+    padding: var(--button-py) var(--button-px);
     transition: 0.3s all ease;
     color: white;
+    font-family: Roboto-medium;
 }
 
 button > svg,
