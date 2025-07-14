@@ -13,8 +13,8 @@ function BestSellersSection({}: Props) {
             level: "beginner",
             price: 9.99,
             imageUrl: {
-                general: "course-image-thumb-desktop-6_640x360_.jpg",
-                thumb: "course-image-thumb-desktop-6_640x360_.jpg",
+                general: "course-image-thumb-6_640x360_.jpg",
+                thumb: "course-image-thumb-6_640x360_.jpg",
             },
             detailDescription:
                 "Este curso ofrece una introducción completa para quienes desean iniciarse en el ajedrez, cubriendo desde las reglas hasta las estrategias iniciales que forman la base del juego.",

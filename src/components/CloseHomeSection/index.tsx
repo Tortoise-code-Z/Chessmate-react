@@ -1,5 +1,5 @@
 type Props = {};
-import logo from "../../assets/images/static/static-image-logo.png";
+import { getImage } from "../../utils/images";
 
 function CloseHomeSection({}: Props) {
     return (
@@ -14,7 +14,10 @@ function CloseHomeSection({}: Props) {
                 Te esperamos con ilusión en <span>tu portal de alumno</span>
             </p>
             <figure>
-                <img src={logo} alt="Chessmate" />
+                <img
+                    src={getImage("static-image-logo_500x500_.png", ["static"])}
+                    alt="Chessmate"
+                />
             </figure>
         </section>
     );
