@@ -2,6 +2,8 @@ export type BaseUser = {
     userID: number;
     username: string;
     email: string;
+    elo: number | null;
+    title: ChessLevel | null;
 };
 
 export type Level =
@@ -82,10 +84,7 @@ export type Course = BaseCourse & {
 export type ObtainedCourse = {
     courseID: number;
     progress: number;
-    completed: boolean;
 };
-
-export type StorageUser = BaseUser;
 
 export type User = BaseUser & {
     password: string;
@@ -93,6 +92,7 @@ export type User = BaseUser & {
     courses: ObtainedCourse[];
 };
 
+export type StorageUser = BaseUser;
 export type UserAuth = BaseUser;
 
 export type Folder = "courses" | "defaultCourses" | "static";
@@ -114,7 +114,7 @@ export type CourseDataItem = {
     url: string;
 };
 
-export type ChessPlayers = {
+export type BestChessPlayers = {
     player_id: number;
     "@id": string;
     url: string;
@@ -138,4 +138,24 @@ export type ChessPlayers = {
     win_count: number;
     loss_count: number;
     draw_count: number;
+};
+
+export type Opinion = {
+    id: number;
+    user: UserOpinionData;
+    text: string;
+};
+
+export type UserOpinionData = {
+    userID: number;
+    username: string;
+    elo: number | null;
+    title: ChessLevel | null;
+};
+
+export type Comments = {
+    id: number;
+    idUser: number;
+    idCourse: number;
+    text: string;
 };

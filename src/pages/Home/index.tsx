@@ -7,6 +7,7 @@ import SignupCallToAction from "../../components/SignupCallToAction";
 import BestSellersSection from "../../components/BestSellersSection";
 import CloseHomeSection from "../../components/CloseHomeSection";
 import BestPlayersSection from "../../components/BestPlayersSection";
+import UsersOpinionSection from "../../components/UsersOpinionSection";
 
 type Props = {};
 
@@ -23,6 +24,7 @@ function Home({}: Props) {
             <CoursesDataSection />
             <SignupCallToAction />
             <BestSellersSection />
+            <UsersOpinionSection />
             <BestPlayersSection />
             <CloseHomeSection />
         </>

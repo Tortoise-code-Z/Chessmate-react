@@ -1,5 +1,331 @@
 {
-    "users": [],
+    "users": [
+        {
+            "userID": 1,
+            "username": "marcelo_chess",
+            "email": "marcelo.chess@example.com",
+            "password": "password1",
+            "elo": 1420,
+            "title": null,
+            "defaultCourses": [
+                { "courseId": 1, "progress": 80 },
+                { "courseId": 2, "progress": 75 },
+                { "courseId": 3, "progress": 90 },
+                { "courseId": 4, "progress": 60 },
+                { "courseId": 5, "progress": 85 },
+                { "courseId": 6, "progress": 70 },
+                { "courseId": 7, "progress": 95 }
+            ],
+            "courses": [
+                { "courseId": 1, "progress": 80 },
+                { "courseId": 2, "progress": 75 },
+                { "courseId": 3, "progress": 90 },
+                { "courseId": 4, "progress": 60 },
+                { "courseId": 5, "progress": 85 },
+                { "courseId": 6, "progress": 70 },
+                { "courseId": 7, "progress": 95 },
+                { "courseId": 9, "progress": 30 },
+                { "courseId": 12, "progress": 50 }
+            ]
+        },
+        {
+            "userID": 2,
+            "username": "anna_wgm",
+            "email": "anna.wgm@example.com",
+            "password": "password2",
+            "elo": 1580,
+            "title": null,
+            "defaultCourses": [
+                { "courseId": 1, "progress": 65 },
+                { "courseId": 2, "progress": 70 },
+                { "courseId": 3, "progress": 50 },
+                { "courseId": 4, "progress": 40 },
+                { "courseId": 5, "progress": 60 },
+                { "courseId": 6, "progress": 55 },
+                { "courseId": 7, "progress": 75 }
+            ],
+            "courses": [
+                { "courseId": 1, "progress": 65 },
+                { "courseId": 2, "progress": 70 },
+                { "courseId": 3, "progress": 50 },
+                { "courseId": 4, "progress": 40 },
+                { "courseId": 5, "progress": 60 },
+                { "courseId": 6, "progress": 55 },
+                { "courseId": 7, "progress": 75 },
+                { "courseId": 10, "progress": 25 }
+            ]
+        },
+        {
+            "userID": 3,
+            "username": "vlad_master",
+            "email": "vlad.master@example.com",
+            "password": "password3",
+            "elo": 2010,
+            "title": "GM",
+            "defaultCourses": [
+                { "courseId": 1, "progress": 100 },
+                { "courseId": 2, "progress": 100 },
+                { "courseId": 3, "progress": 100 },
+                { "courseId": 4, "progress": 100 },
+                { "courseId": 5, "progress": 100 },
+                { "courseId": 6, "progress": 100 },
+                { "courseId": 7, "progress": 100 }
+            ],
+            "courses": [
+                { "courseId": 1, "progress": 100 },
+                { "courseId": 2, "progress": 100 },
+                { "courseId": 3, "progress": 100 },
+                { "courseId": 4, "progress": 100 },
+                { "courseId": 5, "progress": 100 },
+                { "courseId": 6, "progress": 100 },
+                { "courseId": 7, "progress": 100 },
+                { "courseId": 8, "progress": 95 },
+                { "courseId": 11, "progress": 90 },
+                { "courseId": 14, "progress": 85 }
+            ]
+        },
+        {
+            "userID": 4,
+            "username": "lucia_im",
+            "email": "lucia.im@example.com",
+            "password": "password4",
+            "elo": 1940,
+            "title": "IM",
+            "defaultCourses": [
+                { "courseId": 1, "progress": 90 },
+                { "courseId": 2, "progress": 80 },
+                { "courseId": 3, "progress": 85 },
+                { "courseId": 4, "progress": 70 },
+                { "courseId": 5, "progress": 75 },
+                { "courseId": 6, "progress": 65 },
+                { "courseId": 7, "progress": 60 }
+            ],
+            "courses": [
+                { "courseId": 1, "progress": 90 },
+                { "courseId": 2, "progress": 80 },
+                { "courseId": 3, "progress": 85 },
+                { "courseId": 4, "progress": 70 },
+                { "courseId": 5, "progress": 75 },
+                { "courseId": 6, "progress": 65 },
+                { "courseId": 7, "progress": 60 },
+                { "courseId": 13, "progress": 50 }
+            ]
+        },
+        {
+            "userID": 5,
+            "username": "sami_wfm",
+            "email": "sami.wfm@example.com",
+            "password": "password5",
+            "elo": 1490,
+            "title": null,
+            "defaultCourses": [
+                { "courseId": 1, "progress": 60 },
+                { "courseId": 2, "progress": 40 },
+                { "courseId": 3, "progress": 55 },
+                { "courseId": 4, "progress": 50 },
+                { "courseId": 5, "progress": 45 },
+                { "courseId": 6, "progress": 70 },
+                { "courseId": 7, "progress": 80 }
+            ],
+            "courses": [
+                { "courseId": 1, "progress": 60 },
+                { "courseId": 2, "progress": 40 },
+                { "courseId": 3, "progress": 55 },
+                { "courseId": 4, "progress": 50 },
+                { "courseId": 5, "progress": 45 },
+                { "courseId": 6, "progress": 70 },
+                { "courseId": 7, "progress": 80 },
+                { "courseId": 8, "progress": 35 }
+            ]
+        },
+        {
+            "userID": 6,
+            "username": "leo_cm",
+            "email": "leo.cm@example.com",
+            "password": "password6",
+            "elo": 1360,
+            "title": null,
+            "defaultCourses": [
+                { "courseId": 1, "progress": 40 },
+                { "courseId": 2, "progress": 60 },
+                { "courseId": 3, "progress": 30 },
+                { "courseId": 4, "progress": 35 },
+                { "courseId": 5, "progress": 55 },
+                { "courseId": 6, "progress": 50 },
+                { "courseId": 7, "progress": 45 }
+            ],
+            "courses": [
+                { "courseId": 1, "progress": 40 },
+                { "courseId": 2, "progress": 60 },
+                { "courseId": 3, "progress": 30 },
+                { "courseId": 4, "progress": 35 },
+                { "courseId": 5, "progress": 55 },
+                { "courseId": 6, "progress": 50 },
+                { "courseId": 7, "progress": 45 },
+                { "courseId": 15, "progress": 20 }
+            ]
+        },
+        {
+            "userID": 7,
+            "username": "elena_wim",
+            "email": "elena.wim@example.com",
+            "password": "password7",
+            "elo": 2140,
+            "title": "WIM",
+            "defaultCourses": [
+                { "courseId": 1, "progress": 55 },
+                { "courseId": 2, "progress": 70 },
+                { "courseId": 3, "progress": 50 },
+                { "courseId": 4, "progress": 45 },
+                { "courseId": 5, "progress": 65 },
+                { "courseId": 6, "progress": 60 },
+                { "courseId": 7, "progress": 75 }
+            ],
+            "courses": [
+                { "courseId": 1, "progress": 55 },
+                { "courseId": 2, "progress": 70 },
+                { "courseId": 3, "progress": 50 },
+                { "courseId": 4, "progress": 45 },
+                { "courseId": 5, "progress": 65 },
+                { "courseId": 6, "progress": 60 },
+                { "courseId": 7, "progress": 75 },
+                { "courseId": 14, "progress": 30 }
+            ]
+        },
+        {
+            "userID": 8,
+            "username": "amir_fm",
+            "email": "amir.fm@example.com",
+            "password": "password8",
+            "elo": 2321,
+            "title": "FM",
+            "defaultCourses": [
+                { "courseId": 1, "progress": 75 },
+                { "courseId": 2, "progress": 80 },
+                { "courseId": 3, "progress": 85 },
+                { "courseId": 4, "progress": 70 },
+                { "courseId": 5, "progress": 65 },
+                { "courseId": 6, "progress": 90 },
+                { "courseId": 7, "progress": 95 }
+            ],
+            "courses": [
+                { "courseId": 1, "progress": 75 },
+                { "courseId": 2, "progress": 80 },
+                { "courseId": 3, "progress": 85 },
+                { "courseId": 4, "progress": 70 },
+                { "courseId": 5, "progress": 65 },
+                { "courseId": 6, "progress": 90 },
+                { "courseId": 7, "progress": 95 }
+            ]
+        },
+        {
+            "userID": 9,
+            "username": "sofia_wcm",
+            "email": "sofia.wcm@example.com",
+            "password": "password9",
+            "elo": 1250,
+            "title": null,
+            "defaultCourses": [
+                { "courseId": 1, "progress": 50 },
+                { "courseId": 2, "progress": 60 },
+                { "courseId": 3, "progress": 45 },
+                { "courseId": 4, "progress": 40 },
+                { "courseId": 5, "progress": 55 },
+                { "courseId": 6, "progress": 35 },
+                { "courseId": 7, "progress": 70 }
+            ],
+            "courses": [
+                { "courseId": 1, "progress": 50 },
+                { "courseId": 2, "progress": 60 },
+                { "courseId": 3, "progress": 45 },
+                { "courseId": 4, "progress": 40 },
+                { "courseId": 5, "progress": 55 },
+                { "courseId": 6, "progress": 35 },
+                { "courseId": 7, "progress": 70 }
+            ]
+        },
+        {
+            "userID": 10,
+            "username": "tomas_im",
+            "email": "tomas.im@example.com",
+            "password": "password10",
+            "elo": 1930,
+            "title": "IM",
+            "defaultCourses": [
+                { "courseId": 1, "progress": 85 },
+                { "courseId": 2, "progress": 90 },
+                { "courseId": 3, "progress": 80 },
+                { "courseId": 4, "progress": 75 },
+                { "courseId": 5, "progress": 70 },
+                { "courseId": 6, "progress": 95 },
+                { "courseId": 7, "progress": 100 }
+            ],
+            "courses": [
+                { "courseId": 1, "progress": 85 },
+                { "courseId": 2, "progress": 90 },
+                { "courseId": 3, "progress": 80 },
+                { "courseId": 4, "progress": 75 },
+                { "courseId": 5, "progress": 70 },
+                { "courseId": 6, "progress": 95 },
+                { "courseId": 7, "progress": 100 },
+                { "courseId": 8, "progress": 65 },
+                { "courseId": 15, "progress": 60 }
+            ]
+        },
+        {
+            "userID": 11,
+            "username": "nadia_wim",
+            "email": "nadia.wim@example.com",
+            "password": "password11",
+            "elo": 1440,
+            "title": null,
+            "defaultCourses": [
+                { "courseId": 1, "progress": 50 },
+                { "courseId": 2, "progress": 55 },
+                { "courseId": 3, "progress": 60 },
+                { "courseId": 4, "progress": 45 },
+                { "courseId": 5, "progress": 65 },
+                { "courseId": 6, "progress": 70 },
+                { "courseId": 7, "progress": 75 }
+            ],
+            "courses": [
+                { "courseId": 1, "progress": 50 },
+                { "courseId": 2, "progress": 55 },
+                { "courseId": 3, "progress": 60 },
+                { "courseId": 4, "progress": 45 },
+                { "courseId": 5, "progress": 65 },
+                { "courseId": 6, "progress": 70 },
+                { "courseId": 7, "progress": 75 }
+            ]
+        },
+        {
+            "userID": 12,
+            "username": "dario_cm",
+            "email": "dario.cm@example.com",
+            "password": "password12",
+            "elo": 2395,
+            "title": "CM",
+            "defaultCourses": [
+                { "courseId": 1, "progress": 60 },
+                { "courseId": 2, "progress": 45 },
+                { "courseId": 3, "progress": 55 },
+                { "courseId": 4, "progress": 50 },
+                { "courseId": 5, "progress": 65 },
+                { "courseId": 6, "progress": 70 },
+                { "courseId": 7, "progress": 80 }
+            ],
+            "courses": [
+                { "courseId": 1, "progress": 60 },
+                { "courseId": 2, "progress": 45 },
+                { "courseId": 3, "progress": 55 },
+                { "courseId": 4, "progress": 50 },
+                { "courseId": 5, "progress": 65 },
+                { "courseId": 6, "progress": 70 },
+                { "courseId": 7, "progress": 80 },
+                { "courseId": 13, "progress": 40 }
+            ]
+        }
+    ],
     "defaultCourses": [
         {
             "curseID": 1,
@@ -1203,5 +1529,197 @@
                 ]
             }
         }
+    ],
+    "comments": [
+        {
+            "id": 1,
+            "idUser": 3,
+            "idCourse": 1,
+            "text": "Un curso bastante bueno, fácil de seguir y con buena organización."
+        },
+        {
+            "id": 2,
+            "idUser": 7,
+            "idCourse": 1,
+            "text": "Me pareció muy útil en general, lo recomiendo para cualquier jugador."
+        },
+        {
+            "id": 3,
+            "idUser": 5,
+            "idCourse": 2,
+            "text": "Muy buen curso, cumplió con mis expectativas."
+        },
+        {
+            "id": 4,
+            "idUser": 2,
+            "idCourse": 2,
+            "text": "En general fue un curso interesante y bien planteado."
+        },
+        {
+            "id": 5,
+            "idUser": 8,
+            "idCourse": 2,
+            "text": "Me pareció excelente, ideal para seguir aprendiendo."
+        },
+        {
+            "id": 6,
+            "idUser": 1,
+            "idCourse": 3,
+            "text": "Muy recomendable, me gustó la forma en que está estructurado."
+        },
+        {
+            "id": 7,
+            "idUser": 4,
+            "idCourse": 3,
+            "text": "Un curso aceptable, aunque podría mejorar en algunos aspectos generales."
+        },
+        {
+            "id": 8,
+            "idUser": 6,
+            "idCourse": 4,
+            "text": "Está bastante bien, lo disfruté mucho."
+        },
+        {
+            "id": 9,
+            "idUser": 9,
+            "idCourse": 5,
+            "text": "Fue un buen curso, muy claro en su propósito."
+        },
+        {
+            "id": 10,
+            "idUser": 12,
+            "idCourse": 6,
+            "text": "Buena calidad general, se nota el esfuerzo detrás."
+        },
+        {
+            "id": 11,
+            "idUser": 10,
+            "idCourse": 6,
+            "text": "Me gustó bastante, cumplió lo que promete."
+        },
+        {
+            "id": 12,
+            "idUser": 11,
+            "idCourse": 7,
+            "text": "Está bien logrado, muy útil para quienes buscan mejorar."
+        },
+        {
+            "id": 13,
+            "idUser": 3,
+            "idCourse": 7,
+            "text": "Bastante completo, lo recomiendo sin duda."
+        },
+        {
+            "id": 14,
+            "idUser": 2,
+            "idCourse": 8,
+            "text": "Un curso sólido, cumple con su objetivo."
+        },
+        {
+            "id": 15,
+            "idUser": 4,
+            "idCourse": 8,
+            "text": "Fue una buena experiencia en términos generales."
+        },
+        {
+            "id": 16,
+            "idUser": 6,
+            "idCourse": 9,
+            "text": "Buena elección si buscas seguir aprendiendo."
+        },
+        {
+            "id": 17,
+            "idUser": 8,
+            "idCourse": 10,
+            "text": "Muy recomendable, bien explicado y útil."
+        },
+        {
+            "id": 18,
+            "idUser": 9,
+            "idCourse": 11,
+            "text": "No me convenció del todo, creo que podría ser más claro."
+        },
+        {
+            "id": 19,
+            "idUser": 1,
+            "idCourse": 12,
+            "text": "Un curso muy completo, ideal para cualquier nivel."
+        },
+        {
+            "id": 20,
+            "idUser": 7,
+            "idCourse": 12,
+            "text": "Fue una buena experiencia de aprendizaje."
+        },
+        {
+            "id": 21,
+            "idUser": 10,
+            "idCourse": 13,
+            "text": "Muy buen curso, bien presentado."
+        },
+        {
+            "id": 22,
+            "idUser": 11,
+            "idCourse": 14,
+            "text": "Un curso decente, aunque algo básico para mi gusto."
+        },
+        {
+            "id": 23,
+            "idUser": 5,
+            "idCourse": 15,
+            "text": "Curso recomendable para quienes están empezando."
+        },
+        {
+            "id": 24,
+            "idUser": 12,
+            "idCourse": 15,
+            "text": "Buena experiencia en general, volvería a tomar otro similar."
+        },
+        {
+            "id": 25,
+            "idUser": 6,
+            "idCourse": 15,
+            "text": "Muy bueno, cumple con lo que promete."
+        }
+    ],
+    "opinions": [
+        {
+            "id": 1,
+            "idUser": 1,
+            "text": "La plataforma es muy intuitiva y fácil de usar."
+        },
+        {
+            "id": 2,
+            "idUser": 3,
+            "text": "Excelente contenido y seguimiento de progreso."
+        },
+        {
+            "id": 3,
+            "idUser": 5,
+            "text": "Me encanta la variedad de cursos disponibles."
+        },
+        { "id": 4, "idUser": 8, "text": "Podrían mejorar el diseño visual." },
+        {
+            "id": 5,
+            "idUser": 11,
+            "text": "La sección de análisis post-partida es brillante."
+        },
+        {
+            "id": 6,
+            "idUser": 6,
+            "text": "Muy buena para jugadores intermedios."
+        },
+        {
+            "id": 7,
+            "idUser": 2,
+            "text": "Sería bueno añadir contenido en otros idiomas."
+        },
+        {
+            "id": 8,
+            "idUser": 9,
+            "text": "Los cursos están bien explicados y son útiles."
+        },
+        { "id": 9, "idUser": 12, "text": "Excelente relación calidad-precio." },
+        { "id": 10, "idUser": 7, "text": "Fácil de navegar desde el móvil." }
     ]
 }

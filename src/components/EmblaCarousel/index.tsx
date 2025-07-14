@@ -19,11 +19,23 @@ type PropType<T> = {
     slides: T[];
     options?: EmblaOptionsType;
     Component: ComponentType<SlideRendererProps<T>>;
+    arrows?: boolean;
+    playButton?: boolean;
+    fitHeight?: boolean;
+    playInit?: boolean;
 };
 
-const EmblaCarousel = <T,>({ slides, options, Component }: PropType<T>) => {
+const EmblaCarousel = <T,>({
+    slides,
+    options,
+    Component,
+    arrows = true,
+    playButton = true,
+    fitHeight = false,
+    playInit = false,
+}: PropType<T>) => {
     const [emblaRef, emblaApi] = useEmblaCarousel(options, [
-        Autoplay({ playOnInit: false, delay: 3000 }),
+        Autoplay({ playOnInit: playInit, delay: 3000 }),
     ]);
 
     const {
@@ -37,7 +49,7 @@ const EmblaCarousel = <T,>({ slides, options, Component }: PropType<T>) => {
         useAutoplay(emblaApi);
 
     return (
-        <div className="embla">
+        <div className={`embla ${fitHeight ? "embla__fitHeight" : ""}`}>
             <div className="embla__viewport" ref={emblaRef}>
                 <div className="embla__container">
                     {slides.map((data, index) => (
@@ -50,23 +62,28 @@ const EmblaCarousel = <T,>({ slides, options, Component }: PropType<T>) => {
                 </div>
             </div>
 
-            <PrevButton
-                onClick={() => onAutoplayButtonClick(onPrevButtonClick)}
-                disabled={prevBtnDisabled}
-            />
+            {arrows && (
+                <>
+                    <PrevButton
+                        onClick={() => onAutoplayButtonClick(onPrevButtonClick)}
+                        disabled={prevBtnDisabled}
+                    />
 
-            <NextButton
-                onClick={() => onAutoplayButtonClick(onNextButtonClick)}
-                disabled={nextBtnDisabled}
-            />
-
-            <button
-                className="embla__play"
-                onClick={toggleAutoplay}
-                type="button"
-            >
-                {autoplayIsPlaying ? "Stop" : "Start"}
-            </button>
+                    <NextButton
+                        onClick={() => onAutoplayButtonClick(onNextButtonClick)}
+                        disabled={nextBtnDisabled}
+                    />
+                </>
+            )}
+            {playButton && (
+                <button
+                    className="embla__play"
+                    onClick={toggleAutoplay}
+                    type="button"
+                >
+                    {autoplayIsPlaying ? "Stop" : "Start"}
+                </button>
+            )}
         </div>
     );
 };
