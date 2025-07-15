@@ -13,6 +13,7 @@ type Props = {
 
 function ItemCourseColumnDisplay({ data, action = true }: Props) {
     const navigate = useNavigate();
+
     return (
         <div
             className={[styles.itemContainer].join(" ")}
@@ -42,7 +43,10 @@ function ItemCourseColumnDisplay({ data, action = true }: Props) {
                 </div>
                 {action && (
                     <div className={[styles.actionsPrice].join(" ")}>
-                        <Button>
+                        <Button
+                            propagation={false}
+                            onClick={() => console.log("Comprando...")}
+                        >
                             <HiMiniShoppingBag />
                             Comprar
                         </Button>

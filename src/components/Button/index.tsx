@@ -1,11 +1,13 @@
 import { ReactNode } from "react";
+import { MouseEvent } from "react";
 import styles from "./Button.module.css";
 
 type Props = {
-    onClick?: () => void;
+    onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
     variant?: "Primary" | "Secondary" | "Terciary";
     children: ReactNode;
     type?: "button" | "submit";
+    propagation?: boolean;
 };
 
 function Button({
@@ -13,10 +15,18 @@ function Button({
     variant = "Primary",
     children,
     type = "button",
+    propagation = true,
 }: Props) {
     const className = ["button", `button${variant}`].join(" ");
     return (
-        <button className={className} type={type} onClick={onClick}>
+        <button
+            className={className}
+            type={type}
+            onClick={(e) => {
+                if (!propagation) e.stopPropagation();
+                onClick?.(e);
+            }}
+        >
             {children}
         </button>
     );
