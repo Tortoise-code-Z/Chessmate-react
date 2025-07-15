@@ -165,6 +165,11 @@ a.button > svg {
     src: url("/public/fonts/Roboto/static/Roboto-Thin.ttf");
 }
 
+@font-face {
+    font-family: Roboto-thin-italic;
+    src: url("/public/fonts/Roboto/static/Roboto-ThinItalic.ttf");
+}
+
 body {
     background-color: rgb(var(--bcc-color));
     color: white;

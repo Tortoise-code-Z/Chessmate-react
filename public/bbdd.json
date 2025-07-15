@@ -1788,7 +1788,11 @@
             "idUser": 5,
             "text": "Me encanta la variedad de cursos disponibles."
         },
-        { "id": 4, "idUser": 8, "text": "Podrían mejorar el diseño visual." },
+        {
+            "id": 4,
+            "idUser": 8,
+            "text": "Una excelente plataforma para aprender y mejorar tu ajedrez."
+        },
         {
             "id": 5,
             "idUser": 11,

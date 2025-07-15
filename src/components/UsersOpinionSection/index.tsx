@@ -1,21 +1,27 @@
+import { JSON_URL } from "../../consts/url";
+import useUsersOpinions from "../../hooks/useUsersOpinions";
 import { Opinion } from "../../types/types";
 import EmblaCarousel from "../EmblaCarousel";
 import OpinionsContainer from "./OpinionsContainer";
+import styles from "./UsersOpinionSection.module.css";
 
 type Props = {};
 
-const opinions: Opinion[] = [];
+// const opinions: Opinion[] = [];
 
 function UsersOpinionSection({}: Props) {
+    const { data, isLoading, error } = useUsersOpinions(JSON_URL);
+
     return (
-        <section>
+        <section className={[styles.usersOpinionSection].join(" ")}>
             <h2>
-                <span>
-                    Lo que dicen <span>nuestros alumnos</span>
+                Lo que dicen
+                <span className={["span-pr-color", "upperCase"].join(" ")}>
+                    nuestros alumnos
                 </span>
             </h2>
             <EmblaCarousel
-                slides={opinions}
+                slides={data ?? ([] as Opinion[])}
                 options={{ loop: true }}
                 Component={OpinionsContainer}
                 arrows={false}

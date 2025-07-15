@@ -1,0 +1,41 @@
+.opinionContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.userData {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.username {
+    font-size: 1.2rem;
+    font-family: Roboto-light;
+}
+
+.userTitle {
+    font-size: 1rem;
+    background-color: red;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.userElo {
+    font-size: 1.2rem;
+    font-family: Roboto-thin;
+}
+
+.userOpinion {
+    text-align: center;
+    font-size: 3.5rem;
+    font-family: Roboto-thin-italic;
+    color: white;
+    font-weight: 100;
+}

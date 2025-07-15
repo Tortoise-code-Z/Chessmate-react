@@ -1,4 +1,5 @@
 import { Opinion } from "../../../types/types";
+import styles from "./OpinionsContainer.module.css";
 
 type Props = {
     data: Opinion;
@@ -6,13 +7,23 @@ type Props = {
 
 function OpinionsContainer({ data }: Props) {
     return (
-        <div>
-            <div>
-                <p>{data.user.username}</p>
-                {data.user.title && <p>{data.user.title}</p>}
-                {data.user.elo && <p>{data.user.elo} ELO</p>}
+        <div className={[styles.opinionContainer].join(" ")}>
+            <div className={[styles.userData].join(" ")}>
+                <p className={[styles.username].join(" ")}>
+                    {data.user.username}
+                </p>
+                {data.user.title && (
+                    <p className={[styles.userTitle].join(" ")}>
+                        {data.user.title}
+                    </p>
+                )}
+                {data.user.elo && (
+                    <p className={[styles.userElo].join(" ")}>
+                        {data.user.elo} ELO
+                    </p>
+                )}
             </div>
-            <p>"{data.text}"</p>
+            <p className={[styles.userOpinion].join(" ")}>"{data.text}"</p>
         </div>
     );
 }
