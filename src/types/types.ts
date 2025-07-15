@@ -147,6 +147,12 @@ export type Opinion = {
     text: string;
 };
 
+export type JsonOpinion = {
+    id: number;
+    idUser: number;
+    text: string;
+};
+
 export type UserOpinionData = {
     userID: number;
     username: string;
@@ -154,7 +160,18 @@ export type UserOpinionData = {
     title: ChessLevel | null;
 };
 
+export type UserCommentData = {
+    userID: number;
+    username: string;
+};
+
 export type Comments = {
+    id: number;
+    user: UserCommentData;
+    idCourse: number;
+    text: string;
+};
+export type JsonComments = {
     id: number;
     idUser: number;
     idCourse: number;
@@ -166,5 +183,5 @@ export type BBDD = {
     defaultCourses: DefualtCourse[];
     courses: Course[];
     comments: Comments[];
-    opinions: Opinion[];
+    opinions: JsonOpinion[];
 };

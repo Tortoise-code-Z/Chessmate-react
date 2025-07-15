@@ -1,4 +1,4 @@
-import { Opinion } from "../../types/types";
+import { Opinion } from "../../../types/types";
 
 type Props = {
     data: Opinion;
