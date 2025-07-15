@@ -1,24 +1,35 @@
-import { BestChessPlayers } from "../../../types/types";
-import Button from "../../Button";
+import { BestPlayerChessData } from "../../../types/types";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+
 import styles from "./BestPlayersContainer.module.css";
 
 type Props = {
-    data: BestChessPlayers;
+    data: BestPlayerChessData;
 };
 
 function BestPlayersContainer({ data }: Props) {
-    const className = [styles.bestPlayersContainer].join(" ");
     return (
-        <div className={className}>
+        <div className={[styles.bestPlayersContainer].join(" ")}>
             <div>
-                <div>
-                    <p>{data.username}</p>
-                    <p>{data.title}</p>
+                <div className={[styles.userData].join(" ")}>
+                    <p className={[styles.username].join(" ")}>
+                        {data.username}
+                    </p>
+                    <p className={[styles.userTitle].join(" ")}>{data.title}</p>
                 </div>
-                <p>{data.score}</p>
-                <p>Rank: {data.rank}</p>
+                <p className={[styles.userScore].join(" ")}>{data.score}</p>
+                <p className={[styles.userRank].join(" ")}>Rank: {data.rank}</p>
             </div>
-            <Button>Ver perfil</Button>
+            <a
+                href={data.url}
+                className={["button buttonPrimary", styles.goChesscom].join(
+                    " "
+                )}
+                target="_blank"
+            >
+                <FaArrowUpRightFromSquare />
+                Ver perfil
+            </a>
         </div>
     );
 }

@@ -5,21 +5,45 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url("../../../assets/images/static/static.-image-best-players.jpg");
-    background-size: cover;
-    background-position: center;
+    gap: 50px;
 }
 
-.bestPlayersContainer::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.9);
+.bestPlayersContainer > div:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.bestPlayersContainer * {
-    position: relative;
+.userData {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.username {
+    font-size: 4rem;
+}
+
+.userTitle {
+    background-color: red;
+    padding: 5px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.userScore {
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: Roboto-thin;
+    opacity: 0.8;
+}
+
+.userRank {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.goChesscom {
+    padding: 20px 30px !important;
 }

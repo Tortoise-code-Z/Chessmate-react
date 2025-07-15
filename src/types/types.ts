@@ -115,7 +115,7 @@ export type CourseDataItem = {
     url: string;
 };
 
-export type BestChessPlayers = {
+export type BestPlayerChessData = {
     player_id: number;
     "@id": string;
     url: string;
@@ -139,6 +139,10 @@ export type BestChessPlayers = {
     win_count: number;
     loss_count: number;
     draw_count: number;
+};
+
+export type BestChessPlayers = {
+    live_blitz: BestPlayerChessData[];
 };
 
 export type Opinion = {

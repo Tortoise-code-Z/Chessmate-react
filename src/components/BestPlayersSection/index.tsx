@@ -1,25 +1,33 @@
-import { BestChessPlayers } from "../../types/types";
+import { PLAYERS_CHESS } from "../../consts/url";
+import useBestPlayersApi from "../../hooks/useBestPlayersApi";
+import { BestPlayerChessData } from "../../types/types";
 import EmblaCarousel from "../EmblaCarousel";
 import BestPlayersContainer from "./BestPlayersContainer";
+import styles from "./BestPlayersSection.module.css";
 
 type Props = {};
 
-const playersData: BestChessPlayers[] = [];
+// const playersData: BestChessPlayers[] = [];
 
 function BestPlayersSection({}: Props) {
+    const { data, isLoading, error } = useBestPlayersApi(PLAYERS_CHESS);
     return (
-        <article>
+        <article className={[styles.bestPlayersSection].join(" ")}>
             <h2>
-                <span>
-                    <span>Rating</span>players
+                <span className={["span-pr-color", "upperCase"].join(" ")}>
+                    Rating players
                 </span>
-                <span>Chess.com</span>
+                Chess.com
             </h2>
-            <EmblaCarousel
-                slides={playersData}
-                options={{ loop: true }}
-                Component={BestPlayersContainer}
-            />
+            <div className={[styles.sliderContainer].join(" ")}>
+                <EmblaCarousel
+                    slides={data ?? ([] as BestPlayerChessData[])}
+                    options={{ loop: true }}
+                    Component={BestPlayersContainer}
+                    playButton={false}
+                    playInit={true}
+                />
+            </div>
         </article>
     );
 }

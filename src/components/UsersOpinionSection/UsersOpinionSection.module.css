@@ -1,9 +1,11 @@
 .usersOpinionSection {
     width: 100%;
-    padding: var(--section-vertical-padding) var(--padding-lateral);
+    padding: 0 var(--padding-lateral);
     display: flex;
     gap: 100px;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
 }
 

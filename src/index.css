@@ -82,7 +82,7 @@ a.button {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
     font-size: var(--button-font-size);
     border-radius: var(--button-border-radius);
     padding: var(--button-py) var(--button-px);
