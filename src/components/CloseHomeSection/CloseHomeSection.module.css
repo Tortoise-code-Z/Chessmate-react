@@ -1,0 +1,33 @@
+.closeHomeSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.closeHomeSection h2 {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: Roboto-thin;
+}
+
+.closeHomeSection > p {
+    font-size: 1.3rem;
+    font-family: Roboto-thin-italic;
+}
+
+.closeHomeSection > figure {
+    width: 200px;
+}
+
+.closeHomeSection > figure img {
+    width: 100%;
+    height: 100%;
+}

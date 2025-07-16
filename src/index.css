@@ -91,6 +91,26 @@ a.button {
     font-family: Roboto-medium;
 }
 
+.size-140 {
+    font-size: 1.4em;
+}
+
+.size-110 {
+    font-size: 1.1em;
+}
+
+.size-90 {
+    font-size: 0.9em;
+}
+
+.size-80 {
+    font-size: 0.8em;
+}
+
+.text-regular {
+    font-family: Roboto;
+}
+
 button > svg,
 a.button > svg {
     font-size: 1.3em;

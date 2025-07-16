@@ -24,8 +24,8 @@ function Home({}: Props) {
             <CoursesDataSection />
             <SignupCallToAction />
             <BestSellersSection />
-            <UsersOpinionSection />
             <BestPlayersSection />
+            <UsersOpinionSection />
             <CloseHomeSection />
         </>
     );
