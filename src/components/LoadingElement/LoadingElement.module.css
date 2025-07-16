@@ -1,0 +1,11 @@
+.loadingElement {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-family: Roboto-italic;
+}

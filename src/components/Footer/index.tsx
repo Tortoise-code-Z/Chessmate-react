@@ -1,4 +1,4 @@
-import { NavLink, useLocation, useParams } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { paths } from "../../consts/paths";
 import { MdOutlineEmail } from "react-icons/md";
 import { CiMap } from "react-icons/ci";

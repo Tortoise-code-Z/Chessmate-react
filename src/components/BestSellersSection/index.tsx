@@ -1,6 +1,7 @@
 import { JSON_URL } from "../../consts/url";
 import useBestSeller from "../../hooks/useBestSellers";
 import CoursesColumnDisplay from "../CoursesColumnDisplay";
+import DataStateWrapper from "../DataStateWrapperProps";
 import LightComponent from "../LightComponent";
 import styles from "./BestSelletsSection.module.css";
 
@@ -18,7 +19,12 @@ function BestSellersSection({}: Props) {
                     vendidos
                 </span>
             </h2>
-            <CoursesColumnDisplay action={true} courses={data ? data : null} />
+            <DataStateWrapper isLoading={isLoading} error={error}>
+                <CoursesColumnDisplay
+                    action={true}
+                    courses={data ? data : null}
+                />
+            </DataStateWrapper>
         </section>
     );
 }
