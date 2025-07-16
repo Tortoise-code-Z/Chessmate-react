@@ -2,6 +2,7 @@ import { JSON_URL } from "../../consts/url";
 import useUsersOpinions from "../../hooks/useUsersOpinions";
 import { Opinion } from "../../types/types";
 import EmblaCarousel from "../EmblaCarousel";
+import LightComponent from "../LightComponent";
 import OpinionsContainer from "./OpinionsContainer";
 import styles from "./UsersOpinionSection.module.css";
 
@@ -14,6 +15,8 @@ function UsersOpinionSection({}: Props) {
 
     return (
         <section className={[styles.usersOpinionSection].join(" ")}>
+            <LightComponent top={25} right={35} />
+
             <h2>
                 Lo que dicen
                 <span className={["span-pr-color", "upperCase"].join(" ")}>

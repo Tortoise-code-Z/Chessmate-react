@@ -1,5 +1,6 @@
 import { coursesDataItem } from "../../consts/home";
 import ItemCourseData from "../ItemCourseData";
+import LightComponent from "../LightComponent";
 import styles from "./CoursesDataSection.module.css";
 
 type Props = {};
@@ -7,6 +8,8 @@ type Props = {};
 function CoursesDataSection({}: Props) {
     return (
         <section className={[styles.coursesDataSection].join(" ")}>
+            <LightComponent top={15} right={30} />
+            <LightComponent top={60} right={70} />
             <h2>
                 <span>
                     Conviértete en todo un{" "}

@@ -1,4 +1,5 @@
 import { getImage } from "../../utils/images";
+import LightComponent from "../LightComponent";
 import styles from "./CloseHomeSection.module.css";
 
 type Props = {};
@@ -6,6 +7,8 @@ type Props = {};
 function CloseHomeSection({}: Props) {
     return (
         <section className={[styles.closeHomeSection].join(" ")}>
+            <LightComponent top={35} right={65} />
+
             <h2>
                 <span className={["size-80"].join(" ")}>
                     Muchas gracias por

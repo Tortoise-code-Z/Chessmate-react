@@ -1,0 +1,7 @@
+.lightComponent {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    box-shadow: 0 0 200px 150px rgba(var(--primary-color-050), 0.1);
+    z-index: 0;
+}
