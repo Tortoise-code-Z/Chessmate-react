@@ -42,6 +42,7 @@
 
     --padding-lateral: 50px;
     --section-vertical-padding: 100px;
+    --max-width-page: 1920px;
 }
 
 * {

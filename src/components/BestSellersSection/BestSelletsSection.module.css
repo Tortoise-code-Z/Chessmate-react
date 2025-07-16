@@ -4,6 +4,8 @@
     flex-direction: column;
     gap: 100px;
     position: relative;
+    margin: 0 auto;
+    max-width: var(--max-width-page);
 }
 
 .bestSellersSection h2 {

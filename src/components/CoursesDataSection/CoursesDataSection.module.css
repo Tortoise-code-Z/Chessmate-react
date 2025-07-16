@@ -5,6 +5,8 @@
     width: 100%;
     padding: var(--section-vertical-padding) var(--padding-lateral);
     position: relative;
+    max-width: var(--max-width-page);
+    margin: 0 auto;
 }
 
 .coursesDataSection h2 {
