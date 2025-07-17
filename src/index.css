@@ -112,6 +112,10 @@ a.button {
     font-family: Roboto;
 }
 
+.text-medium {
+    font-family: Roboto-medium;
+}
+
 button > svg,
 a.button > svg {
     font-size: 1.3em;
@@ -144,6 +148,10 @@ a.button > svg {
 
 .span-pr-color {
     color: rgb(var(--primary-color-500));
+}
+
+.span-compl-color {
+    color: rgb(var(--complementary-color-500));
 }
 
 .upperCase {

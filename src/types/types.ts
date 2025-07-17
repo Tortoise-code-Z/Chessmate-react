@@ -94,7 +94,12 @@ export type User = BaseUser & {
 };
 
 export type StorageUser = BaseUser;
-export type UserAuth = BaseUser;
+
+export type UserAuth = {
+    userID: number;
+    username: string;
+    firstLogin: boolean;
+};
 
 export type Folder = "courses" | "defaultCourses" | "static";
 export type TypeImage = "thumb" | "full";
