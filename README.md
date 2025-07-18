@@ -43,3 +43,9 @@ import: "default",
 
 https://api.chess.com/pub/leaderboards
 live_blitz
+
+localStorage.setItem("userAuth", JSON.stringify({
+"userID": 1,
+"username": "marcelo_chess",
+firstLogin: false
+}))

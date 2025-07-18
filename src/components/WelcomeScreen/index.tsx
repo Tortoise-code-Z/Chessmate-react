@@ -1,14 +1,15 @@
 import { PROFESSOR_IMAGE } from "../../consts/images";
 import { FaChessPawn } from "react-icons/fa";
-
 import Button from "../Button";
 import styles from "./WelcomeScreen.module.css";
+import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 
 type Props = {
     onClick: () => void;
 };
 
 function WelcomeScreen({ onClick }: Props) {
+    const { user } = useUserAuthStore();
     return (
         <div className={[styles.welcomeScreen].join(" ")}>
             <div className={[styles.professorContainer].join(" ")}>
@@ -39,7 +40,7 @@ function WelcomeScreen({ onClick }: Props) {
                                 " "
                             )}
                         >
-                            Manolo_73.
+                            {user?.username}
                         </span>
                     </p>
                     <p>

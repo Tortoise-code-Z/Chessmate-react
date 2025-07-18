@@ -1,0 +1,29 @@
+import { useQuery } from "@tanstack/react-query";
+import { BBDD, Course, Progress } from "../types/types";
+import axios from "axios";
+
+export default function useObtainedCourses(url: string, userId: number) {
+    const queryFunction: () => Promise<(Course & Progress)[]> = async () => {
+        const response = await axios.get<BBDD>(url);
+        const user = response.data.users.find((u) => u.userID === userId);
+
+        const courses = response.data.courses;
+        const userCourses = user?.courses;
+
+        const mappingUserCourses = userCourses?.map((uc) => {
+            const id = uc.courseId;
+            const course = courses.find((c) => c.curseID === id);
+
+            const { courseId, ...rest } = uc;
+
+            return { ...uc, ...course };
+        });
+
+        return mappingUserCourses as (Course & Progress)[];
+    };
+
+    return useQuery({
+        queryKey: ["courses"],
+        queryFn: queryFunction,
+    });
+}

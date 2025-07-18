@@ -67,8 +67,8 @@ export type BaseCourse = {
 
 export type CourseImageUrls = {
     general: string;
-    full?: string;
-    thumb?: string;
+    full: string;
+    thumb: string;
 };
 
 export type DefualtCourse = BaseCourse;
@@ -79,17 +79,17 @@ export type Course = BaseCourse & {
     detailDescription: string;
     authors: AuthorCurseData[];
     toLearn?: ToLearnCurseData;
-    sales: number;
+    sales?: number;
 };
 
 export type ObtainedCourse = {
-    courseID: number;
+    courseId: number;
     progress: number;
 };
 
 export type User = BaseUser & {
     password: string;
-    defaultCurses: ObtainedCourse[];
+    defaultCourses: ObtainedCourse[];
     courses: ObtainedCourse[];
 };
 
@@ -193,4 +193,8 @@ export type BBDD = {
     courses: Course[];
     comments: Comments[];
     opinions: JsonOpinion[];
+};
+
+export type Progress = {
+    progress: number;
 };

@@ -37,7 +37,7 @@
 }
 
 .logo {
-    height: 70%;
+    height: 50%;
     aspect-ratio: 1/1;
 }
 
@@ -63,7 +63,7 @@
 }
 
 .userAvatar {
-    height: 70%;
+    height: 40%;
     aspect-ratio: 1/1;
 }
 

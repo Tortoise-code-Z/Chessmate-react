@@ -38,11 +38,15 @@
     --button-border-radius: 5px;
     --button-font-size: 14px;
 
-    --navbar-height: 70px;
+    --navbar-height: 100px;
 
     --padding-lateral: 50px;
     --section-vertical-padding: 100px;
     --max-width-page: 1920px;
+}
+
+.fit-content {
+    height: fit-content !important;
 }
 
 * {
@@ -63,7 +67,7 @@ a {
 
 section,
 article {
-    padding: 100px 0;
+    padding: var(--section-vertical-padding) 0;
 }
 
 .active {

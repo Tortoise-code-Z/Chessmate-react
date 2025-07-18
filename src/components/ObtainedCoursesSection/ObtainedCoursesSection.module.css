@@ -1,0 +1,15 @@
+.obtainedCoursesSection {
+    margin: 0 auto;
+    margin-top: var(--navbar-height);
+    padding-left: var(--padding-lateral);
+    padding-right: var(--padding-lateral);
+    width: 100%;
+    max-width: var(--max-width-page);
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-top: 20px;
+}
+
+.coursesContainer {
+}

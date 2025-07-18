@@ -1,0 +1,16 @@
+.userCourses {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.userCourses > div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.userCourses > div h3 {
+    font-family: Roboto-thin-italic;
+}

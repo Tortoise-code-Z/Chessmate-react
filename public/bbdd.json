@@ -8,10 +8,10 @@
             "elo": 1420,
             "title": null,
             "defaultCourses": [
-                { "courseId": 1, "progress": 80 },
-                { "courseId": 2, "progress": 75 },
+                { "courseId": 1, "progress": 0 },
+                { "courseId": 2, "progress": 100 },
                 { "courseId": 3, "progress": 90 },
-                { "courseId": 4, "progress": 60 },
+                { "courseId": 4, "progress": 0 },
                 { "courseId": 5, "progress": 85 },
                 { "courseId": 6, "progress": 70 },
                 { "courseId": 7, "progress": 95 }
@@ -329,6 +329,11 @@
     "defaultCourses": [
         {
             "curseID": 1,
+            "imageUrl": {
+                "general": "default-course-knights_500x500.png",
+                "thumb": "default-course-knights_500x500.png",
+                "full": "default-course-knights_500x500.png"
+            },
             "title": "Peones",
             "level": "beginner",
             "content": {
@@ -355,6 +360,11 @@
         },
         {
             "curseID": 2,
+            "imageUrl": {
+                "general": "default-course-knights_500x500.png",
+                "thumb": "default-course-knights_500x500.png",
+                "full": "default-course-knights_500x500.png"
+            },
             "title": "Caballos",
             "level": "beginner",
             "content": {
@@ -381,6 +391,11 @@
         },
         {
             "curseID": 3,
+            "imageUrl": {
+                "general": "default-course-knights_500x500.png",
+                "thumb": "default-course-knights_500x500.png",
+                "full": "default-course-knights_500x500.png"
+            },
             "title": "Alfiles",
             "level": "beginner",
             "content": {
@@ -407,6 +422,11 @@
         },
         {
             "curseID": 4,
+            "imageUrl": {
+                "general": "default-course-knights_500x500.png",
+                "thumb": "default-course-knights_500x500.png",
+                "full": "default-course-knights_500x500.png"
+            },
             "title": "Torres",
             "level": "beginner",
             "content": {
@@ -433,6 +453,11 @@
         },
         {
             "curseID": 5,
+            "imageUrl": {
+                "general": "default-course-knights_500x500.png",
+                "thumb": "default-course-knights_500x500.png",
+                "full": "default-course-knights_500x500.png"
+            },
             "title": "Reina",
             "level": "beginner",
             "content": {
@@ -459,6 +484,11 @@
         },
         {
             "curseID": 6,
+            "imageUrl": {
+                "general": "default-course-knights_500x500.png",
+                "thumb": "default-course-knights_500x500.png",
+                "full": "default-course-knights_500x500.png"
+            },
             "title": "Rey",
             "level": "beginner",
             "content": {

@@ -53,7 +53,7 @@ function Navbar({}: Props) {
     );
 
     return (
-        <nav className={styles.navbar}>
+        <nav className={[styles.navbar].join(" ")}>
             <div className={[styles.linksContainer].join(" ")}>
                 <figure className={[styles.logo].join(" ")}>
                     <img

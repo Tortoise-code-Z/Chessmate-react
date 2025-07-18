@@ -1,7 +1,17 @@
+import UserCourses from "../UserCourses";
+import styles from "./ObtainedCoursesSection.module.css";
+
 type Props = {};
 
 function ObtainedCoursesSection({}: Props) {
-    return <div>ObtainedCoursesSection</div>;
+    return (
+        <section className={[styles.obtainedCoursesSection].join(" ")}>
+            <h2>
+                Mis <span className={["span-pr-color"].join(" ")}>cursos</span>
+            </h2>
+            <UserCourses />
+        </section>
+    );
 }
 
 export default ObtainedCoursesSection;

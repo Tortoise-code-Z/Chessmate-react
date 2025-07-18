@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import BestPlayersSection from "../../components/BestPlayersSection";
 import ObtainedCoursesSection from "../../components/ObtainedCoursesSection";
 import ToBuySection from "../../components/ToBuySection";
@@ -9,7 +9,7 @@ type Props = {};
 
 function Dashboard({}: Props) {
     const { user } = useUserAuthStore();
-    const [isOpen, setIsOpen] = useState<boolean>(true);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const handleButtonClick = () => {
         setIsOpen(false);
