@@ -16,7 +16,7 @@ export default function useObtainedCourses(url: string, userId: number) {
 
             const { courseId, ...rest } = uc;
 
-            return { ...uc, ...course };
+            return { ...rest, ...course };
         });
 
         return mappingUserCourses as (Course & Progress)[];

@@ -7,7 +7,7 @@ type Props = {
 };
 
 function ErrorElement({ error, errorMsg }: Props) {
-    // console.error(error.message);
+    console.error(error.message);
     return (
         <div className={[styles.errorElement].join(" ")}>
             <FaExclamationTriangle />
