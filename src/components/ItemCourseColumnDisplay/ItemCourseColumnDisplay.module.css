@@ -6,10 +6,12 @@
     border-radius: 5px;
     min-height: 150px;
     width: 100%;
+    padding: 15px;
 }
 
 .itemContainer:hover {
     transform: scale(1.02);
+    background-color: rgba(var(--primary-color-100), 0.05);
 }
 
 .itemContainer > figure {

@@ -2,6 +2,6 @@
     position: absolute;
     width: 0px;
     height: 0px;
-    box-shadow: 0 0 200px 150px rgba(var(--primary-color-050), 0.1);
+    box-shadow: 0 0 200px 250px rgba(var(--primary-color-050), 0.03);
     z-index: 0;
 }

@@ -6,6 +6,8 @@
     position: relative;
     margin: 0 auto;
     max-width: var(--max-width-page);
+    padding-left: var(--padding-lateral);
+    padding-right: var(--padding-lateral);
 }
 
 .bestSellersSection h2 {
