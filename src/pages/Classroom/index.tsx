@@ -1,7 +1,15 @@
+import ClassZoneSection from "../../components/ClassZoneSection";
+import OtherUserCoursesSection from "../../components/OtherUserCoursesSection";
+
 type Props = {};
 
 function Classroom({}: Props) {
-    return <div>Classroom</div>;
+    return (
+        <>
+            <ClassZoneSection />
+            <OtherUserCoursesSection />
+        </>
+    );
 }
 
 export default Classroom;

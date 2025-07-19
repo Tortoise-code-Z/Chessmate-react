@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { paths } from "../../../../consts/paths";
 import { Course, Progress } from "../../../../types/types";
 import { getImage, getImageSize } from "../../../../utils/images";
@@ -32,7 +32,7 @@ function UserObtainedCoursesItem({ data }: Props) {
 
             <div>
                 <p>{data.title}</p>
-                <NavLink
+                <Link
                     className={["button", "buttonPrimary", "fit-content "].join(
                         " "
                     )}
@@ -44,7 +44,7 @@ function UserObtainedCoursesItem({ data }: Props) {
                 >
                     <FaInfoCircle />
                     Ver detalles
-                </NavLink>
+                </Link>
             </div>
         </div>
     );

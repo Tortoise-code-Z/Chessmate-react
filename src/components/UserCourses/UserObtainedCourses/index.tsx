@@ -7,14 +7,16 @@ import UserObtainedCoursesItem from "./UserObtainedCoursesItem";
 
 type Props = {
     classID?: number;
+    limit?: number;
 };
 
-function UserObtainedCourses({ classID }: Props) {
+function UserObtainedCourses({ classID, limit }: Props) {
     const { user } = useUserAuthStore();
 
     const { data, isLoading, error } = useObtainedCourses(
         JSON_URL,
-        user?.userID as number
+        user?.userID as number,
+        limit as number
     );
 
     return (

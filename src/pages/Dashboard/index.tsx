@@ -9,7 +9,7 @@ type Props = {};
 
 function Dashboard({}: Props) {
     const { user } = useUserAuthStore();
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [isOpen, setIsOpen] = useState<boolean>(true);
 
     const handleButtonClick = () => {
         setIsOpen(false);
