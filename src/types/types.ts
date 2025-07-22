@@ -14,8 +14,10 @@ export type Level =
     | "master";
 
 export type Theme = {
+    images: string[];
     title: string;
     description: string;
+    completed: boolean;
 };
 
 export type ToLearnTheme = {

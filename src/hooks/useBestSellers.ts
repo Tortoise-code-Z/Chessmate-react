@@ -7,7 +7,7 @@ export default function useBestSeller(url: string) {
         const response = await axios.get<BBDD>(url);
         const courses = response.data.courses;
         const filteredCourses = courses
-            .sort((a, b) => b.sales - a.sales)
+            .sort((a, b) => (b.sales as number) - (a.sales as number))
             .slice(0, 3);
         return filteredCourses;
     };

@@ -1,0 +1,40 @@
+.completedIcon {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    color: rgb(var(--complementary-color-500));
+}
+
+.boardContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    width: 40%;
+}
+
+.boardContainer > div:first-child {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boardContainer figure {
+    height: 100%;
+    aspect-ratio: 1/1;
+}
+
+.boardContainer figure img {
+    width: 100%;
+    height: 100%;
+}
+
+.themes {
+    display: flex;
+    gap: 15px;
+    widows: 100%;
+    justify-content: center;
+    align-items: center;
+}

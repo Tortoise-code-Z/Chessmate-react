@@ -45,6 +45,15 @@
     --max-width-page: 1920px;
 }
 
+.p-relative {
+    position: relative;
+}
+
+button:disabled {
+    opacity: 0.2;
+    pointer-events: none;
+}
+
 .fit-content {
     height: fit-content !important;
 }
@@ -148,6 +157,14 @@ a.button > svg {
 
 .buttonTerciary:hover {
     background-color: rgba(var(--neutral-color-500), 0.8);
+}
+
+.buttonComplementary {
+    background-color: rgb(var(--complementary-color-500));
+}
+
+.buttonComplementary:hover {
+    background-color: rgba(var(--complementary-color-500), 0.8);
 }
 
 .span-pr-color {

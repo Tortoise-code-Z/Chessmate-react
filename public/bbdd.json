@@ -340,18 +340,45 @@
                 "detailDescription": "Los peones son la base de toda estrategia en el ajedrez. Aunque parezcan simples, su correcto uso puede decidir una partida. Este curso te enseña lo esencial para dominar esta pieza clave.",
                 "themes": [
                     {
+                        "completed": false,
+                        "images": [
+                            "Peones-gif-posicion-1_1719x1719_.webp",
+                            "Peones-gif-posicion-2_1719x1719_.webp",
+                            "Peones-gif-posicion-3_1719x1719_.webp",
+                            "Peones-gif-posicion-4_1719x1719_.webp",
+                            "Peones-gif-posicion-5_1719x1719_.webp",
+                            "Peones-gif-posicion-6_1719x1719_.webp",
+                            "Peones-gif-posicion-7_1719x1719_.webp",
+                            "Peones-gif-posicion-8_1719x1719_.webp",
+                            "Peones-gif-posicion-9_1719x1719_.webp"
+                        ],
                         "title": "Posición inicial del peón",
                         "description": "Los peones se colocan en la segunda fila (fila 2) para las blancas y en la séptima fila (fila 7) para las negras. Forman la primera línea de defensa y controlan el centro desde el inicio."
                     },
                     {
+                        "completed": true,
+                        "images": [
+                            "default-course-1-theme-1_800x800_.png",
+                            "default-course-queens_500x500.png"
+                        ],
                         "title": "Movimiento del peón",
                         "description": "Los peones avanzan solo hacia adelante, una casilla por turno, pero pueden avanzar dos casillas en su primer movimiento desde su posición inicial."
                     },
                     {
+                        "completed": false,
+                        "images": [
+                            "default-course-1-theme-1_800x800_.png",
+                            "Peones-gif-posicion-1_1719x1719_.png"
+                        ],
                         "title": "Captura del peón",
                         "description": "A diferencia de su movimiento, los peones capturan en diagonal, una casilla hacia adelante. También existe una captura especial llamada 'al paso' que se estudia en niveles más avanzados."
                     },
                     {
+                        "completed": false,
+                        "images": [
+                            "default-course-1-theme-1_800x800_.png",
+                            "Peones-gif-posicion-1_1719x1719_.png"
+                        ],
                         "title": "La coronación del peón",
                         "description": "Cuando un peón alcanza la última fila (fila 8 para blancas o fila 1 para negras), puede convertirse en dama, torre, alfil o caballo. Generalmente se elige la dama por su poder."
                     }
@@ -371,18 +398,26 @@
                 "detailDescription": "El caballo es la única pieza que puede saltar sobre otras y moverse en forma de L. Este curso básico te enseña cómo colocarlos y sacar ventaja con ellos desde el inicio.",
                 "themes": [
                     {
+                        "completed": false,
+                        "image": "default-course-1-theme-1_800x800_.png",
                         "title": "Posición inicial del caballo",
                         "description": "Cada jugador comienza con dos caballos: las blancas los colocan en b1 y g1, y las negras en b8 y g8. Están junto a las torres en las esquinas del tablero."
                     },
                     {
+                        "completed": false,
+                        "image": "default-course-1-theme-1_800x800_.png",
                         "title": "Movimiento del caballo",
                         "description": "El caballo se mueve en forma de L: dos casillas en una dirección (horizontal o vertical) y una en dirección perpendicular. Además, puede saltar por encima de otras piezas."
                     },
                     {
+                        "completed": false,
+                        "image": "default-course-1-theme-1_800x800_.png",
                         "title": "Captura del caballo",
                         "description": "El caballo captura en la casilla donde termina su movimiento. Si hay una pieza enemiga en la casilla final de su salto en L, puede capturarla."
                     },
                     {
+                        "completed": false,
+                        "image": "default-course-1-theme-1_800x800_.png",
                         "title": "La horquilla del caballo",
                         "description": "Una de las tácticas más poderosas del caballo es la horquilla: atacar dos o más piezas al mismo tiempo. Esta técnica aparece constantemente en partidas reales."
                     }
@@ -402,18 +437,26 @@
                 "detailDescription": "Los alfiles se mueven por diagonales y son muy poderosos en posiciones abiertas. En este curso aprenderás cómo se colocan, mueven, capturan y su importancia en el juego largo.",
                 "themes": [
                     {
+                        "completed": false,
+                        "image": "default-course-1-theme-1_800x800_.png",
                         "title": "Posición inicial del alfil",
                         "description": "Las blancas colocan sus alfiles en c1 y f1; las negras en c8 y f8. Cada alfil permanece en un color específico durante toda la partida (blanco o negro)."
                     },
                     {
+                        "completed": false,
+                        "image": "default-course-1-theme-1_800x800_.png",
                         "title": "Movimiento del alfil",
                         "description": "Los alfiles se mueven en diagonal, tantas casillas como estén libres, pero siempre en una sola dirección por turno."
                     },
                     {
+                        "completed": false,
+                        "image": "default-course-1-theme-1_800x800_.png",
                         "title": "Captura del alfil",
                         "description": "El alfil captura de la misma forma en que se mueve: en línea diagonal. Puede eliminar cualquier pieza enemiga que esté en su camino."
                     },
                     {
+                        "completed": false,
+                        "image": "default-course-1-theme-1_800x800_.png",
                         "title": "Duelos de alfiles",
                         "description": "Un concepto importante es la lucha entre alfiles de colores opuestos o iguales. En posiciones cerradas pueden perder poder, pero en diagonales abiertas dominan el tablero."
                     }
@@ -433,18 +476,26 @@
                 "detailDescription": "Las torres son piezas fuertes que controlan filas y columnas. En este curso aprenderás sus movimientos básicos, cómo capturar con ellas y por qué son tan importantes en el final.",
                 "themes": [
                     {
+                        "completed": false,
+                        "image": "default-course-1-theme-1_800x800_.png",
                         "title": "Posición inicial de la torre",
                         "description": "Las torres se ubican en las esquinas del tablero. Las blancas en a1 y h1; las negras en a8 y h8. Protegen los bordes y se activan especialmente después del enroque."
                     },
                     {
+                        "completed": false,
+                        "image": "default-course-1-theme-1_800x800_.png",
                         "title": "Movimiento de la torre",
                         "description": "La torre se mueve en línea recta a través de filas (horizontal) y columnas (vertical), tantas casillas como estén disponibles."
                     },
                     {
+                        "completed": false,
+                        "image": "default-course-1-theme-1_800x800_.png",
                         "title": "Captura de la torre",
                         "description": "La torre captura igual que se mueve: puede eliminar cualquier pieza enemiga ubicada en su misma fila o columna si no hay piezas entre medio."
                     },
                     {
+                        "completed": false,
+                        "image": "default-course-1-theme-1_800x800_.png",
                         "title": "Activación de las torres",
                         "description": "Una torre es más poderosa en columnas abiertas (sin peones). Aprenderás a conectar tus torres y colocarlas en columnas donde tengan máxima actividad."
                     }
@@ -454,9 +505,9 @@
         {
             "curseID": 5,
             "imageUrl": {
-                "general": "default-course-knights_500x500.png",
-                "thumb": "default-course-knights_500x500.png",
-                "full": "default-course-knights_500x500.png"
+                "general": "default-course-queens_500x500.png",
+                "thumb": "default-course-queens_500x500.png",
+                "full": "default-course-queens_500x500.png"
             },
             "title": "Reina",
             "level": "beginner",
@@ -464,18 +515,26 @@
                 "detailDescription": "La dama es la pieza más poderosa del tablero, combinando el movimiento del alfil y la torre. Aprende cómo usarla sin exponerla demasiado.",
                 "themes": [
                     {
+                        "completed": false,
+                        "image": "default-course-1-theme-1_800x800_.png",
                         "title": "Posición inicial de la reina",
                         "description": "La reina blanca se coloca en d1 y la reina negra en d8. Siempre empieza en la casilla de su mismo color: blanca en blanca, negra en negra."
                     },
                     {
+                        "completed": false,
+                        "image": "default-course-1-theme-1_800x800_.png",
                         "title": "Movimiento de la reina",
                         "description": "La reina puede moverse en línea recta por filas, columnas y diagonales, combinando el poder de la torre y el alfil en una sola pieza."
                     },
                     {
+                        "completed": false,
+                        "image": "default-course-1-theme-1_800x800_.png",
                         "title": "Captura de la reina",
                         "description": "Captura cualquier pieza enemiga que esté en su camino de movimiento, tanto en línea recta como en diagonal."
                     },
                     {
+                        "completed": false,
+                        "image": "default-course-1-theme-1_800x800_.png",
                         "title": "Uso responsable de la reina",
                         "description": "Aunque poderosa, no conviene sacarla demasiado pronto. Aprende cuándo y cómo usarla correctamente sin exponerla a ataques innecesarios."
                     }
@@ -495,18 +554,26 @@
                 "detailDescription": "El rey es la pieza más importante: si lo atrapan, se pierde la partida. Aprende sus movimientos básicos, cómo protegerlo y cuándo puede ser activo.",
                 "themes": [
                     {
+                        "completed": false,
+                        "image": "default-course-1-theme-1_800x800_.png",
                         "title": "Posición inicial del rey",
                         "description": "El rey blanco empieza en e1 y el rey negro en e8. Siempre se coloca entre el alfil de rey y la dama."
                     },
                     {
+                        "completed": false,
+                        "image": "default-course-1-theme-1_800x800_.png",
                         "title": "Movimiento del rey",
                         "description": "El rey se mueve una casilla en cualquier dirección: horizontal, vertical o diagonal. No puede moverse a una casilla amenazada."
                     },
                     {
+                        "completed": false,
+                        "image": "default-course-1-theme-1_800x800_.png",
                         "title": "Captura del rey",
                         "description": "El rey nunca 'captura' en el sentido ofensivo: se debe mantener a salvo. Sin embargo, puede eliminar piezas enemigas si la casilla no está bajo ataque."
                     },
                     {
+                        "completed": false,
+                        "image": "default-course-1-theme-1_800x800_.png",
                         "title": "El enroque",
                         "description": "El enroque es un movimiento especial del rey junto con una torre. Aprenderás cuándo se puede hacer y por qué es vital para la seguridad del rey."
                     }
