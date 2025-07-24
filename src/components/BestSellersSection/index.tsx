@@ -9,6 +9,7 @@ type Props = {};
 
 function BestSellersSection({}: Props) {
     const { data, isLoading, error } = useBestSeller(JSON_URL);
+
     return (
         <section className={[styles.bestSellersSection].join(" ")}>
             <LightComponent top={30} right={45} />

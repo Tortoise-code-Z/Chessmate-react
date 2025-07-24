@@ -1,7 +1,16 @@
+import CourseBanner from "../../components/CourseBanner";
+
 type Props = {};
 
 function Courses({}: Props) {
-    return <div>Courses</div>;
+    return (
+        <>
+            <CourseBanner />
+            {/* <FeaturedCoursesSection /> */}
+            {/* <FeaturedCourses /> */}
+            {/* <AllCoursesSection /> */}
+        </>
+    );
 }
 
 export default Courses;

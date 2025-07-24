@@ -1,10 +1,9 @@
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 
 type Props = {};
 
 function CoursesDetail({}: Props) {
-    const params = useParams();
-    console.log(params);
+    // const params = useParams();
     return <div>CoursesDetail</div>;
 }
 
