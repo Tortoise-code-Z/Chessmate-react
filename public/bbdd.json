@@ -330,9 +330,9 @@
         {
             "curseID": 1,
             "imageUrl": {
-                "general": "default-course-knights_500x500.png",
-                "thumb": "default-course-knights_500x500.png",
-                "full": "default-course-knights_500x500.png"
+                "general": "default-course-peones_500x500_.png",
+                "thumb": "default-course-peones_500x500_.png",
+                "full": "default-course-peones_500x500_.png"
             },
             "title": "Peones",
             "level": "beginner",
@@ -358,8 +358,12 @@
                     {
                         "completed": true,
                         "images": [
-                            "default-course-1-theme-1_800x800_.png",
-                            "default-course-queens_500x500.png"
+                            "Peones-gif-movimiento-1_1719x1719_.png",
+                            "Peones-gif-movimiento-2_1719x1719_.png",
+                            "Peones-gif-movimiento-3_1719x1719_.png",
+                            "Peones-gif-movimiento-4_1719x1719_.png",
+                            "Peones-gif-movimiento-5_1719x1719_.png",
+                            "Peones-gif-movimiento-6_1719x1719_.png"
                         ],
                         "title": "Movimiento del peón",
                         "description": "Los peones avanzan solo hacia adelante, una casilla por turno, pero pueden avanzar dos casillas en su primer movimiento desde su posición inicial."
@@ -367,8 +371,13 @@
                     {
                         "completed": false,
                         "images": [
-                            "default-course-1-theme-1_800x800_.png",
-                            "Peones-gif-posicion-1_1719x1719_.png"
+                            "Peones-gif-captura-1_1719x1719_.png",
+                            "Peones-gif-captura-2_1719x1719_.png",
+                            "Peones-gif-captura-3_1719x1719_.png",
+                            "Peones-gif-captura-4_1719x1719_.png",
+                            "Peones-gif-captura-5_1719x1719_.png",
+                            "Peones-gif-captura-6_1719x1719_.png",
+                            "Peones-gif-captura-7_1719x1719_.png"
                         ],
                         "title": "Captura del peón",
                         "description": "A diferencia de su movimiento, los peones capturan en diagonal, una casilla hacia adelante. También existe una captura especial llamada 'al paso' que se estudia en niveles más avanzados."
@@ -376,8 +385,14 @@
                     {
                         "completed": false,
                         "images": [
-                            "default-course-1-theme-1_800x800_.png",
-                            "Peones-gif-posicion-1_1719x1719_.png"
+                            "Peones-gif-coronacion-1_1719x1719_.png",
+                            "Peones-gif-coronacion-2_1719x1719_.png",
+                            "Peones-gif-coronacion-3_1719x1719_.png",
+                            "Peones-gif-coronacion-4_1719x1719_.png",
+                            "Peones-gif-coronacion-5_1719x1719_.png",
+                            "Peones-gif-coronacion-6_1719x1719_.png",
+                            "Peones-gif-coronacion-7_1719x1719_.png",
+                            "Peones-gif-coronacion-8_1719x1719_.png"
                         ],
                         "title": "La coronación del peón",
                         "description": "Cuando un peón alcanza la última fila (fila 8 para blancas o fila 1 para negras), puede convertirse en dama, torre, alfil o caballo. Generalmente se elige la dama por su poder."
@@ -388,9 +403,9 @@
         {
             "curseID": 2,
             "imageUrl": {
-                "general": "default-course-knights_500x500.png",
-                "thumb": "default-course-knights_500x500.png",
-                "full": "default-course-knights_500x500.png"
+                "general": "default-course-knights_500x500_.png",
+                "thumb": "default-course-knights_500x500_.png",
+                "full": "default-course-knights_500x500_.png"
             },
             "title": "Caballos",
             "level": "beginner",
@@ -399,25 +414,49 @@
                 "themes": [
                     {
                         "completed": false,
-                        "image": "default-course-1-theme-1_800x800_.png",
+                        "images": [
+                            "Caballos-gif-posicion-1_1719x1719_.png",
+                            "Caballos-gif-posicion-2_1719x1719_.png",
+                            "Caballos-gif-posicion-3_1719x1719_.png",
+                            "Caballos-gif-posicion-4_1719x1719_.png"
+                        ],
                         "title": "Posición inicial del caballo",
                         "description": "Cada jugador comienza con dos caballos: las blancas los colocan en b1 y g1, y las negras en b8 y g8. Están junto a las torres en las esquinas del tablero."
                     },
                     {
                         "completed": false,
-                        "image": "default-course-1-theme-1_800x800_.png",
+                        "images": [
+                            "Caballos-gif-movimiento-1_1719x1719_.png",
+                            "Caballos-gif-movimiento-2_1719x1719_.png",
+                            "Caballos-gif-movimiento-3_1719x1719_.png",
+                            "Caballos-gif-movimiento-4_1719x1719_.png",
+                            "Caballos-gif-movimiento-5_1719x1719_.png",
+                            "Caballos-gif-movimiento-6_1719x1719_.png",
+                            "Caballos-gif-movimiento-7_1719x1719_.png",
+                            "Caballos-gif-movimiento-8_1719x1719_.png",
+                            "Caballos-gif-movimiento-9_1719x1719_.png",
+                            "Caballos-gif-movimiento-10_1719x1719_.png",
+                            "Caballos-gif-movimiento-11_1719x1719_.png"
+                        ],
                         "title": "Movimiento del caballo",
                         "description": "El caballo se mueve en forma de L: dos casillas en una dirección (horizontal o vertical) y una en dirección perpendicular. Además, puede saltar por encima de otras piezas."
                     },
                     {
                         "completed": false,
-                        "image": "default-course-1-theme-1_800x800_.png",
+                        "images": [
+                            "Caballos-gif-captura-1_1719x1719_.png",
+                            "Caballos-gif-captura-2_1719x1719_.png",
+                            "Caballos-gif-captura-3_1719x1719_.png"
+                        ],
                         "title": "Captura del caballo",
                         "description": "El caballo captura en la casilla donde termina su movimiento. Si hay una pieza enemiga en la casilla final de su salto en L, puede capturarla."
                     },
                     {
                         "completed": false,
-                        "image": "default-course-1-theme-1_800x800_.png",
+                        "images": [
+                            "Caballos-gif-horquilla-1_1719x1719_.png",
+                            "Caballos-gif-horquilla-2_1719x1719_.png"
+                        ],
                         "title": "La horquilla del caballo",
                         "description": "Una de las tácticas más poderosas del caballo es la horquilla: atacar dos o más piezas al mismo tiempo. Esta técnica aparece constantemente en partidas reales."
                     }
@@ -427,9 +466,9 @@
         {
             "curseID": 3,
             "imageUrl": {
-                "general": "default-course-knights_500x500.png",
-                "thumb": "default-course-knights_500x500.png",
-                "full": "default-course-knights_500x500.png"
+                "general": "default-course-alfiles_500x500_.png",
+                "thumb": "default-course-alfiles_500x500_.png",
+                "full": "default-course-alfiles_500x500_.png"
             },
             "title": "Alfiles",
             "level": "beginner",
@@ -438,27 +477,45 @@
                 "themes": [
                     {
                         "completed": false,
-                        "image": "default-course-1-theme-1_800x800_.png",
+                        "images": [
+                            "Alfiles-gif-posicion-1_1719x1719_.png",
+                            "Alfiles-gif-posicion-2_1719x1719_.png",
+                            "Alfiles-gif-posicion-3_1719x1719_.png",
+                            "Alfiles-gif-posicion-4_1719x1719_.png"
+                        ],
                         "title": "Posición inicial del alfil",
                         "description": "Las blancas colocan sus alfiles en c1 y f1; las negras en c8 y f8. Cada alfil permanece en un color específico durante toda la partida (blanco o negro)."
                     },
                     {
                         "completed": false,
-                        "image": "default-course-1-theme-1_800x800_.png",
+                        "images": [
+                            "Alfiles-gif-movimiento-1_1719x1719_.png",
+                            "Alfiles-gif-movimiento-2_1719x1719_.png",
+                            "Alfiles-gif-movimiento-3_1719x1719_.png",
+                            "Alfiles-gif-movimiento-4_1719x1719_.png"
+                        ],
                         "title": "Movimiento del alfil",
                         "description": "Los alfiles se mueven en diagonal, tantas casillas como estén libres, pero siempre en una sola dirección por turno."
                     },
                     {
                         "completed": false,
-                        "image": "default-course-1-theme-1_800x800_.png",
+                        "images": [
+                            "Alfiles-gif-captura-1_1719x1719_.png",
+                            "Alfiles-gif-captura-2_1719x1719_.png"
+                        ],
                         "title": "Captura del alfil",
                         "description": "El alfil captura de la misma forma en que se mueve: en línea diagonal. Puede eliminar cualquier pieza enemiga que esté en su camino."
                     },
                     {
                         "completed": false,
-                        "image": "default-course-1-theme-1_800x800_.png",
+                        "images": [
+                            "Alfiles-gif-fortaleza-1_1719x1719_.png",
+                            "Alfiles-gif-fortaleza-2_1719x1719_.png",
+                            "Alfiles-gif-fortaleza-3_1719x1719_.png",
+                            "Alfiles-gif-fortaleza-4_1719x1719_.png"
+                        ],
                         "title": "Duelos de alfiles",
-                        "description": "Un concepto importante es la lucha entre alfiles de colores opuestos o iguales. En posiciones cerradas pueden perder poder, pero en diagonales abiertas dominan el tablero."
+                        "description": "Un concepto importante es que los alfiles en posiciones cerradas pueden perder poder, pero en diagonales abiertas dominan el tablero. Como puedes observar, en posicines cerradas no tienen casi movimientos."
                     }
                 ]
             }
@@ -466,9 +523,9 @@
         {
             "curseID": 4,
             "imageUrl": {
-                "general": "default-course-knights_500x500.png",
-                "thumb": "default-course-knights_500x500.png",
-                "full": "default-course-knights_500x500.png"
+                "general": "default-course-torres_500x500_.png",
+                "thumb": "default-course-torres_500x500_.png",
+                "full": "default-course-torres_500x500_.png"
             },
             "title": "Torres",
             "level": "beginner",
@@ -477,25 +534,45 @@
                 "themes": [
                     {
                         "completed": false,
-                        "image": "default-course-1-theme-1_800x800_.png",
+                        "images": [
+                            "Torres-gif-posicion-1_1719x1719_.png",
+                            "Torres-gif-posicion-2_1719x1719_.png",
+                            "Torres-gif-posicion-3_1719x1719_.png",
+                            "Torres-gif-posicion-4_1719x1719_.png"
+                        ],
                         "title": "Posición inicial de la torre",
                         "description": "Las torres se ubican en las esquinas del tablero. Las blancas en a1 y h1; las negras en a8 y h8. Protegen los bordes y se activan especialmente después del enroque."
                     },
                     {
                         "completed": false,
-                        "image": "default-course-1-theme-1_800x800_.png",
+                        "images": [
+                            "Torres-gif-movimiento-1_1719x1719_.png",
+                            "Torres-gif-movimiento-2_1719x1719_.png",
+                            "Torres-gif-movimiento-3_1719x1719_.png",
+                            "Torres-gif-movimiento-4_1719x1719_.png",
+                            "Torres-gif-movimiento-5_1719x1719_.png"
+                        ],
                         "title": "Movimiento de la torre",
                         "description": "La torre se mueve en línea recta a través de filas (horizontal) y columnas (vertical), tantas casillas como estén disponibles."
                     },
                     {
                         "completed": false,
-                        "image": "default-course-1-theme-1_800x800_.png",
+                        "images": [
+                            "Torres-gif-captura-1_1719x1719_.png",
+                            "Torres-gif-captura-2_1719x1719_.png",
+                            "Torres-gif-captura-3_1719x1719_.png"
+                        ],
                         "title": "Captura de la torre",
                         "description": "La torre captura igual que se mueve: puede eliminar cualquier pieza enemiga ubicada en su misma fila o columna si no hay piezas entre medio."
                     },
                     {
                         "completed": false,
-                        "image": "default-course-1-theme-1_800x800_.png",
+                        "images": [
+                            "Torres-gif-fortaleza-1_1719x1719_.png",
+                            "Torres-gif-fortaleza-2_1719x1719_.png",
+                            "Torres-gif-fortaleza-3_1719x1719_.png",
+                            "Torres-gif-fortaleza-4_1719x1719_.png"
+                        ],
                         "title": "Activación de las torres",
                         "description": "Una torre es más poderosa en columnas abiertas (sin peones). Aprenderás a conectar tus torres y colocarlas en columnas donde tengan máxima actividad."
                     }
@@ -505,9 +582,9 @@
         {
             "curseID": 5,
             "imageUrl": {
-                "general": "default-course-queens_500x500.png",
-                "thumb": "default-course-queens_500x500.png",
-                "full": "default-course-queens_500x500.png"
+                "general": "default-course-queens_500x500_.png",
+                "thumb": "default-course-queens_500x500_.png",
+                "full": "default-course-queens_500x500_.png"
             },
             "title": "Reina",
             "level": "beginner",
@@ -516,25 +593,46 @@
                 "themes": [
                     {
                         "completed": false,
-                        "image": "default-course-1-theme-1_800x800_.png",
+                        "images": [
+                            "Reina-gif-posicion-1_1719x1719_.png",
+                            "Reina-gif-posicion-2_1719x1719_.png"
+                        ],
                         "title": "Posición inicial de la reina",
                         "description": "La reina blanca se coloca en d1 y la reina negra en d8. Siempre empieza en la casilla de su mismo color: blanca en blanca, negra en negra."
                     },
                     {
                         "completed": false,
-                        "image": "default-course-1-theme-1_800x800_.png",
+                        "images": [
+                            "Reina-gif-movimiento-1_1719x1719_.png",
+                            "Reina-gif-movimiento-2_1719x1719_.png",
+                            "Reina-gif-movimiento-3_1719x1719_.png",
+                            "Reina-gif-movimiento-4_1719x1719_.png",
+                            "Reina-gif-movimiento-5_1719x1719_.png",
+                            "Reina-gif-movimiento-6_1719x1719_.png",
+                            "Reina-gif-movimiento-7_1719x1719_.png",
+                            "Reina-gif-movimiento-8_1719x1719_.png",
+                            "Reina-gif-movimiento-9_1719x1719_.png"
+                        ],
                         "title": "Movimiento de la reina",
                         "description": "La reina puede moverse en línea recta por filas, columnas y diagonales, combinando el poder de la torre y el alfil en una sola pieza."
                     },
                     {
                         "completed": false,
-                        "image": "default-course-1-theme-1_800x800_.png",
+                        "images": [
+                            "Reina-gif-captura-1_1719x1719_.png",
+                            "Reina-gif-captura-2_1719x1719_.png",
+                            "Reina-gif-captura-3_1719x1719_.png"
+                        ],
                         "title": "Captura de la reina",
                         "description": "Captura cualquier pieza enemiga que esté en su camino de movimiento, tanto en línea recta como en diagonal."
                     },
                     {
                         "completed": false,
-                        "image": "default-course-1-theme-1_800x800_.png",
+                        "images": [
+                            "Reina-gif-warning-1_1719x1719_.png",
+                            "Reina-gif-warning-2_1719x1719_.png",
+                            "Reina-gif-warning-3_1719x1719_.png"
+                        ],
                         "title": "Uso responsable de la reina",
                         "description": "Aunque poderosa, no conviene sacarla demasiado pronto. Aprende cuándo y cómo usarla correctamente sin exponerla a ataques innecesarios."
                     }
@@ -544,9 +642,9 @@
         {
             "curseID": 6,
             "imageUrl": {
-                "general": "default-course-knights_500x500.png",
-                "thumb": "default-course-knights_500x500.png",
-                "full": "default-course-knights_500x500.png"
+                "general": "default-course-reyes_500x500_.png",
+                "thumb": "default-course-reyes_500x500_.png",
+                "full": "default-course-reyes_500x500_.png"
             },
             "title": "Rey",
             "level": "beginner",
@@ -555,27 +653,55 @@
                 "themes": [
                     {
                         "completed": false,
-                        "image": "default-course-1-theme-1_800x800_.png",
+                        "images": [
+                            "Rey-gif-posicion-1_1719x1719_.png",
+                            "Rey-gif-posicion-2_1719x1719_.png"
+                        ],
                         "title": "Posición inicial del rey",
                         "description": "El rey blanco empieza en e1 y el rey negro en e8. Siempre se coloca entre el alfil de rey y la dama."
                     },
                     {
                         "completed": false,
-                        "image": "default-course-1-theme-1_800x800_.png",
+                        "images": [
+                            "Rey-gif-movimiento-1_1719x1719_.png",
+                            "Rey-gif-movimiento-2_1719x1719_.png",
+                            "Rey-gif-movimiento-3_1719x1719_.png",
+                            "Rey-gif-movimiento-4_1719x1719_.png",
+                            "Rey-gif-movimiento-5_1719x1719_.png",
+                            "Rey-gif-movimiento-6_1719x1719_.png",
+                            "Rey-gif-movimiento-7_1719x1719_.png",
+                            "Rey-gif-movimiento-8_1719x1719_.png",
+                            "Rey-gif-movimiento-9_1719x1719_.png",
+                            "Rey-gif-movimiento-10_1719x1719_.png",
+                            "Rey-gif-movimiento-11_1719x1719_.png"
+                        ],
                         "title": "Movimiento del rey",
                         "description": "El rey se mueve una casilla en cualquier dirección: horizontal, vertical o diagonal. No puede moverse a una casilla amenazada."
                     },
                     {
                         "completed": false,
-                        "image": "default-course-1-theme-1_800x800_.png",
+                        "images": [
+                            "Rey-gif-captura-1_1719x1719_.png",
+                            "Rey-gif-captura-2_1719x1719_.png",
+                            "Rey-gif-captura-3_1719x1719_.png",
+                            "Rey-gif-captura-4_1719x1719_.png",
+                            "Rey-gif-captura-5_1719x1719_.png",
+                            "Rey-gif-captura-6_1719x1719_.png",
+                            "Rey-gif-captura-7_1719x1719_.png"
+                        ],
                         "title": "Captura del rey",
                         "description": "El rey nunca 'captura' en el sentido ofensivo: se debe mantener a salvo. Sin embargo, puede eliminar piezas enemigas si la casilla no está bajo ataque."
                     },
                     {
                         "completed": false,
-                        "image": "default-course-1-theme-1_800x800_.png",
+                        "images": [
+                            "Rey-gif-enrroque-1_1719x1719_.png",
+                            "Rey-gif-enrroque-2_1719x1719_.png",
+                            "Rey-gif-enrroque-3_1719x1719_.png",
+                            "Rey-gif-enrroque-4_1719x1719_.png"
+                        ],
                         "title": "El enroque",
-                        "description": "El enroque es un movimiento especial del rey junto con una torre. Aprenderás cuándo se puede hacer y por qué es vital para la seguridad del rey."
+                        "description": "El enroque es un movimiento especial en ajedrez donde el rey y una de las torres se mueven al mismo tiempo. Sirve para proteger al rey, llevándolo a una posición más segura, y al mismo tiempo activar la torre. Para enrocar, el rey se mueve dos casillas hacia la torre, y la torre salta al otro lado del rey."
                     }
                 ]
             }

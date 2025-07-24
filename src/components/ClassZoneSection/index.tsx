@@ -1,7 +1,7 @@
 import BoardZone from "./BoardZone";
 import styles from "./ClassZoneSection.module.css";
 import ExplanationTheme from "./ExplanationTheme";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DataStateWrapper from "../DataStateWrapperProps";
 import { DefualtCourse } from "../../types/types";
 import { JSON_URL } from "../../consts/url";
@@ -20,9 +20,10 @@ function ClassZoneSection({}: Props) {
     );
 
     const [index, setIndex] = useState<number>(0);
-
     const [imageSliderLoading, setImageSliderLoading] =
         useState<boolean>(false);
+
+    useEffect(() => setIndex(0), [params.id]);
 
     return (
         <section className={[styles.classZoneSection].join(" ")}>

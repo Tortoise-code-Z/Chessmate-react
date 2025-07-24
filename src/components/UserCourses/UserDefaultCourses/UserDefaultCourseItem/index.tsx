@@ -65,8 +65,8 @@ function UserDefaultCourseItem({ data }: Props) {
                     src={image}
                     alt={data.title}
                     title={data.title}
-                    width={getImageSize(image, "width")}
-                    height={getImageSize(image, "height")}
+                    width={getImageSize(data.imageUrl.general, "width")}
+                    height={getImageSize(data.imageUrl.general, "height")}
                 />
             </figure>
             <p className={[styles.title].join(" ")}>{data.title}</p>
