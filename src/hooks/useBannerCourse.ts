@@ -20,5 +20,9 @@ export default function useBannerCourse(url: string) {
     return useQuery({
         queryKey: ["bannerCourse"],
         queryFn: queryFunction,
+        staleTime: Infinity,
+        refetchOnWindowFocus: false,
+        refetchOnReconnect: false,
+        refetchOnMount: false,
     });
 }

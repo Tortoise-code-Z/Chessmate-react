@@ -4,6 +4,9 @@
     position: relative;
     padding: var(--padding-lateral) !important;
     padding-top: var(--navbar-height) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .courseBanner > * {
