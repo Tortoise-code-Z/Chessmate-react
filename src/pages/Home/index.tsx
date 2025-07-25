@@ -23,7 +23,13 @@ function Home({}: Props) {
             <Hero />
             <CoursesDataSection />
             <SignupCallToAction />
-            <BestSellersSection />
+            <BestSellersSection
+                limit={3}
+                display="Col"
+                titleText="Nuestros cursos más"
+                titleTextSpan="vendidos"
+                titleDisplay="Col"
+            />
             <BestPlayersSection />
             <UsersOpinionSection />
             <CloseHomeSection />

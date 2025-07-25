@@ -1,29 +1,55 @@
 import { JSON_URL } from "../../consts/url";
 import useBestSeller from "../../hooks/useBestSellers";
-import CoursesColumnDisplay from "../CoursesColumnDisplay";
+import CoursesDisplay from "../CoursesDisplay";
 import DataStateWrapper from "../DataStateWrapperProps";
 import LightComponent from "../LightComponent";
 import styles from "./BestSelletsSection.module.css";
 
-type Props = {};
+type Props = {
+    limit: number;
+    display?: "Row" | "Col";
+    titleText: string;
+    titleTextSpan?: string;
+    titleDisplay: "Row" | "Col";
+    classNames?: string[];
+};
 
-function BestSellersSection({}: Props) {
-    const { data, isLoading, error } = useBestSeller(JSON_URL);
+function BestSellersSection({
+    limit,
+    display,
+    titleText,
+    titleTextSpan,
+    titleDisplay,
+    classNames,
+}: Props) {
+    const { data, isLoading, error } = useBestSeller(JSON_URL, limit);
 
     return (
-        <section className={[styles.bestSellersSection].join(" ")}>
+        <section
+            className={[styles.bestSellersSection, ...(classNames ?? "")].join(
+                " "
+            )}
+        >
             <LightComponent top={30} right={45} />
 
-            <h2>
-                Nuestros cursos más
-                <span className={["span-pr-color", "upperCase"].join(" ")}>
-                    vendidos
-                </span>
+            <h2
+                className={[
+                    titleDisplay === "Col" ? styles.titleCol : styles.titleRow,
+                ].join(" ")}
+            >
+                {titleText} {titleDisplay === "Row" && " "}
+                {titleTextSpan && (
+                    <span className={["span-pr-color", "upperCase"].join(" ")}>
+                        {titleTextSpan}
+                    </span>
+                )}
             </h2>
+
             <DataStateWrapper isLoading={isLoading} error={error}>
-                <CoursesColumnDisplay
+                <CoursesDisplay
                     action={true}
                     courses={data ? data : null}
+                    display={display}
                 />
             </DataStateWrapper>
         </section>

@@ -2,7 +2,7 @@ import { JSON_URL } from "../../consts/url";
 import useUnpurchasedCourses from "../../hooks/useUnpurchasedCourses";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import { Course } from "../../types/types";
-import CoursesColumnDisplay from "../CoursesColumnDisplay";
+import CoursesDisplay from "../CoursesDisplay";
 import DataStateWrapper from "../DataStateWrapperProps";
 import LightComponent from "../LightComponent";
 import styles from "./ToBuySection.module.css";
@@ -27,7 +27,10 @@ function ToBuySection({}: Props) {
                 cursos
             </h2>
             <DataStateWrapper isLoading={isLoading} error={error}>
-                <CoursesColumnDisplay courses={data ?? ([] as Course[])} />
+                <CoursesDisplay
+                    courses={data ?? ([] as Course[])}
+                    display="Col"
+                />
             </DataStateWrapper>
         </section>
     );

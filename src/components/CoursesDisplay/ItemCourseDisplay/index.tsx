@@ -1,22 +1,27 @@
 import { useNavigate } from "react-router-dom";
-import { Course } from "../../types/types";
-import { getImage } from "../../utils/images";
-import Button from "../Button";
+import { Course } from "../../../types/types";
+import { getImage } from "../../../utils/images";
+import Button from "../../Button";
 import { HiMiniShoppingBag } from "react-icons/hi2";
-import { paths } from "../../consts/paths";
-import styles from "./ItemCourseColumnDisplay.module.css";
+import { paths } from "../../../consts/paths";
+import styles from "./ItemCourseDisplay.module.css";
 
 type Props = {
     action?: boolean;
     data: Course;
+    display?: "Row" | "Col";
 };
 
-function ItemCourseColumnDisplay({ data, action = true }: Props) {
+function ItemCourseDisplay({ data, action = true, display = "Col" }: Props) {
     const navigate = useNavigate();
 
     return (
         <div
-            className={[styles.itemContainer].join(" ")}
+            className={[
+                display === "Row"
+                    ? styles.itemRowContainer
+                    : styles.itemContainer,
+            ].join(" ")}
             onClick={() =>
                 navigate(
                     `/${paths.coursesDetail.replace(
@@ -60,4 +65,4 @@ function ItemCourseColumnDisplay({ data, action = true }: Props) {
     );
 }
 
-export default ItemCourseColumnDisplay;
+export default ItemCourseDisplay;

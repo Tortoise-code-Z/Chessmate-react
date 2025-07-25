@@ -82,6 +82,7 @@ export type Course = BaseCourse & {
     authors: AuthorCurseData[];
     toLearn?: ToLearnCurseData;
     sales?: number;
+    createdAt: string;
 };
 
 export type ObtainedCourse = {

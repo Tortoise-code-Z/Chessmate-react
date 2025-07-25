@@ -2,7 +2,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 100px;
+    gap: 50px;
     position: relative;
     margin: 0 auto;
     max-width: var(--max-width-page);
@@ -10,10 +10,12 @@
     padding-right: var(--padding-lateral);
 }
 
-.bestSellersSection h2 {
-    text-align: center;
+.titleCol {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.titleRow {
 }

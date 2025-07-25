@@ -1,0 +1,13 @@
+.recentCoursesSection {
+    width: 100%;
+    max-width: var(--max-width-page);
+    margin: 0 auto;
+    padding-left: var(--padding-lateral) !important;
+    padding-right: var(--padding-lateral) !important;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    position: relative;
+}
+
+/* REVISAR COMO HACER MAS FLEXIBLE EL BESTSELLERSECTION */

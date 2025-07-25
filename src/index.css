@@ -45,6 +45,29 @@
     --max-width-page: 1920px;
 }
 
+.pt-50 {
+    padding-top: 50px;
+}
+
+.t-align-center {
+    text-align: center;
+}
+.t-align-start {
+    text-align: start;
+}
+
+.f-col {
+    flex-direction: column;
+}
+
+.f-row {
+    flex-direction: row;
+}
+
+.gap-10 {
+    gap: 10px;
+}
+
 .p-relative {
     position: relative;
 }
