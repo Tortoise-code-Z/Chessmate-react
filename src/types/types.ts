@@ -7,11 +7,11 @@ export type BaseUser = {
 };
 
 export type Level =
-    | "beginner"
-    | "intermediate"
-    | "advanced"
-    | "expert"
-    | "master";
+    | "Principiante"
+    | "Intermedio"
+    | "Avanzado"
+    | "Experto"
+    | "Master";
 
 export type Theme = {
     images: string[];

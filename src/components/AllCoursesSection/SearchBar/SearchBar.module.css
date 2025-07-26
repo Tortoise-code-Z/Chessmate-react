@@ -1,0 +1,15 @@
+.searchBar form {
+    width: 50%;
+}
+
+.searchBar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.filters {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}

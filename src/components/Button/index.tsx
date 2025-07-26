@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
 import { MouseEvent } from "react";
-import styles from "./Button.module.css";
 
 type Props = {
     onClick?: (e: MouseEvent<HTMLButtonElement>) => void;

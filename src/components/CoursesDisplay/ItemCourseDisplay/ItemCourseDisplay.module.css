@@ -35,7 +35,7 @@
     padding: 15px;
     cursor: pointer;
     transition: 0.2s all ease;
-    min-width: calc(25% - 20px);
+    min-width: calc(33.33% - 20px);
     flex: 1;
     max-width: calc(33.33% - 20px);
 }

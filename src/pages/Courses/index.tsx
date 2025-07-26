@@ -1,3 +1,4 @@
+import AllCoursesSection from "../../components/AllCoursesSection";
 import BestSellersSection from "../../components/BestSellersSection";
 import CourseBanner from "../../components/CourseBanner";
 import RecentCoursesSection from "../../components/RecentCoursesSection";
@@ -17,7 +18,7 @@ function Courses({}: Props) {
                 titleDisplay="Row"
                 classNames={["pt-50"]}
             ></BestSellersSection>
-            {/* <AllCoursesSection /> */}
+            <AllCoursesSection />
         </>
     );
 }

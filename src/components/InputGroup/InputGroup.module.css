@@ -1,0 +1,5 @@
+.inpSearchContainer {
+    flex: 1;
+    display: flex;
+    gap: 15px;
+}

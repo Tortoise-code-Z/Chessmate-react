@@ -1,0 +1,13 @@
+.allCoursesSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 100%;
+    max-width: var(--max-width-page);
+    margin: 0 auto;
+    padding-left: var(--padding-lateral);
+    padding-right: var(--padding-lateral);
+    padding-top: 50px;
+    position: relative;
+}

@@ -335,7 +335,7 @@
                 "full": "default-course-peones_500x500_.png"
             },
             "title": "Peones",
-            "level": "beginner",
+            "level": "Principiante",
             "content": {
                 "detailDescription": "Los peones son la base de toda estrategia en el ajedrez. Aunque parezcan simples, su correcto uso puede decidir una partida. Este curso te enseña lo esencial para dominar esta pieza clave.",
                 "themes": [
@@ -408,7 +408,7 @@
                 "full": "default-course-knights_500x500_.png"
             },
             "title": "Caballos",
-            "level": "beginner",
+            "level": "Principiante",
             "content": {
                 "detailDescription": "El caballo es la única pieza que puede saltar sobre otras y moverse en forma de L. Este curso básico te enseña cómo colocarlos y sacar ventaja con ellos desde el inicio.",
                 "themes": [
@@ -471,7 +471,7 @@
                 "full": "default-course-alfiles_500x500_.png"
             },
             "title": "Alfiles",
-            "level": "beginner",
+            "level": "Principiante",
             "content": {
                 "detailDescription": "Los alfiles se mueven por diagonales y son muy poderosos en posiciones abiertas. En este curso aprenderás cómo se colocan, mueven, capturan y su importancia en el juego largo.",
                 "themes": [
@@ -528,7 +528,7 @@
                 "full": "default-course-torres_500x500_.png"
             },
             "title": "Torres",
-            "level": "beginner",
+            "level": "Principiante",
             "content": {
                 "detailDescription": "Las torres son piezas fuertes que controlan filas y columnas. En este curso aprenderás sus movimientos básicos, cómo capturar con ellas y por qué son tan importantes en el final.",
                 "themes": [
@@ -587,7 +587,7 @@
                 "full": "default-course-queens_500x500_.png"
             },
             "title": "Reina",
-            "level": "beginner",
+            "level": "Principiante",
             "content": {
                 "detailDescription": "La dama es la pieza más poderosa del tablero, combinando el movimiento del alfil y la torre. Aprende cómo usarla sin exponerla demasiado.",
                 "themes": [
@@ -647,7 +647,7 @@
                 "full": "default-course-reyes_500x500_.png"
             },
             "title": "Rey",
-            "level": "beginner",
+            "level": "Principiante",
             "content": {
                 "detailDescription": "El rey es la pieza más importante: si lo atrapan, se pierde la partida. Aprende sus movimientos básicos, cómo protegerlo y cuándo puede ser activo.",
                 "themes": [
@@ -719,7 +719,7 @@
             "sales": 864,
             "title": "Introducción al Ajedrez",
             "shortDescription": "Aprende las reglas básicas y los conceptos fundamentales para empezar a jugar.",
-            "level": "beginner",
+            "level": "Principiante",
             "price": 9.99,
             "data": {
                 "detailDescription": "Este curso ofrece una introducción completa para quienes desean iniciarse en el ajedrez, cubriendo desde las reglas hasta las estrategias iniciales que forman la base del juego.",
@@ -795,7 +795,7 @@
             "sales": 756,
             "title": "Aperturas Fundamentales",
             "shortDescription": "Domina las aperturas básicas que todo jugador debe conocer.",
-            "level": "beginner",
+            "level": "Principiante",
             "price": 12.5,
             "data": {
                 "detailDescription": "En este curso profundizamos en las aperturas clásicas y sus objetivos estratégicos, para que puedas iniciar tus partidas con confianza y ventaja.",
@@ -871,7 +871,7 @@
             "sales": 768,
             "title": "Errores Comunes y Cómo Evitarlos",
             "shortDescription": "Identifica y corrige los errores más frecuentes en partidas de principiantes.",
-            "level": "beginner",
+            "level": "Principiante",
             "price": 11.99,
             "data": {
                 "detailDescription": "Un curso que analiza los errores más comunes cometidos en las primeras etapas del aprendizaje del ajedrez. Aprenderás cómo evitarlos y convertirlos en oportunidades de mejora.",
@@ -948,7 +948,7 @@
             "sales": 567,
             "title": "Tácticas Intermedias",
             "shortDescription": "Da el siguiente paso en tu entrenamiento táctico con conceptos más avanzados.",
-            "level": "intermediate",
+            "level": "Intermedio",
             "price": 18.99,
             "data": {
                 "detailDescription": "Para jugadores que ya dominan las tácticas básicas y quieren mejorar su precisión en combinaciones más complejas. Este curso lleva tu visión táctica al siguiente nivel.",
@@ -1031,7 +1031,7 @@
             "sales": 1987,
             "title": "Estrategia Posicional Básica",
             "shortDescription": "Aprende los principios que rigen el ajedrez más allá de las tácticas inmediatas.",
-            "level": "intermediate",
+            "level": "Intermedio",
             "price": 16.5,
             "data": {
                 "detailDescription": "Curso esencial para aquellos que ya dominan la táctica básica y desean profundizar en los fundamentos estratégicos del ajedrez posicional.",
@@ -1107,7 +1107,7 @@
             "sales": 345,
             "title": "Finales Básicos",
             "shortDescription": "Domina los conceptos esenciales para cerrar tus partidas con éxito.",
-            "level": "beginner",
+            "level": "Principiante",
             "price": 13.5,
             "data": {
                 "detailDescription": "Este curso está diseñado para enseñarte los finales más comunes y cómo jugar con precisión en las etapas decisivas de la partida.",
@@ -1183,7 +1183,7 @@
             "sales": 987,
             "title": "Aperturas Avanzadas",
             "shortDescription": "Expande tu repertorio con aperturas complejas y dinámicas.",
-            "level": "advanced",
+            "level": "Avanzado",
             "price": 21.0,
             "data": {
                 "detailDescription": "Este curso está pensado para jugadores que buscan dominar aperturas con profundidad estratégica y variantes avanzadas para sorprender a sus rivales.",
@@ -1259,7 +1259,7 @@
             "sales": 465,
             "title": "Tácticas Avanzadas",
             "shortDescription": "Mejora tu capacidad para encontrar combinaciones complejas y decisivas.",
-            "level": "advanced",
+            "level": "Avanzado",
             "price": 22.5,
             "data": {
                 "detailDescription": "Curso orientado a jugadores que quieren perfeccionar su visión táctica y dominar maniobras que cambian el rumbo de las partidas.",
@@ -1335,7 +1335,7 @@
             "sales": 1098,
             "title": "Estrategia Posicional Avanzada",
             "shortDescription": "Perfecciona tu comprensión del juego posicional para controlar la partida.",
-            "level": "advanced",
+            "level": "Avanzado",
             "price": 20.0,
             "data": {
                 "detailDescription": "Curso destinado a jugadores que buscan profundizar en el ajedrez posicional y entender las sutilezas del control del espacio y la estructura.",
@@ -1412,7 +1412,7 @@
             "sales": 765,
             "title": "Psicología del Ajedrez",
             "shortDescription": "Controla tu mente para dominar el tablero.",
-            "level": "intermediate",
+            "level": "Intermedio",
             "price": 18.0,
             "data": {
                 "detailDescription": "En este curso, exploramos los aspectos mentales y emocionales del ajedrez, enseñándote a mantener la calma y tomar decisiones óptimas bajo presión.",
@@ -1489,7 +1489,7 @@
             "sales": 567,
             "title": "Torneos y Competición",
             "shortDescription": "Prepárate para competir y destacar en torneos de ajedrez.",
-            "level": "intermediate",
+            "level": "Intermedio",
             "price": 19.5,
             "data": {
                 "detailDescription": "Este curso te guía a través de todo lo que necesitas saber para participar con éxito en torneos, desde la preparación hasta la gestión del tiempo y la evaluación post-partida.",
@@ -1566,7 +1566,7 @@
             "sales": 276,
             "title": "Ataques y Defensa",
             "shortDescription": "Domina técnicas para atacar y defender eficazmente en cualquier posición.",
-            "level": "intermediate",
+            "level": "Intermedio",
             "price": 20.0,
             "data": {
                 "detailDescription": "Este curso te ayudará a mejorar tu capacidad para lanzar ataques potentes y defender posiciones difíciles, combinando teoría y práctica para obtener resultados inmediatos.",
@@ -1643,7 +1643,7 @@
             "sales": 876,
             "title": "Jaque Mate en 1 y 2 Movimientos",
             "shortDescription": "Ejercita y perfecciona mates rápidos para cerrar partidas con estilo.",
-            "level": "beginner",
+            "level": "Principiante",
             "price": 10.0,
             "data": {
                 "detailDescription": "En este curso descubrirás patrones de mates rápidos para sorprender a tu adversario desde las primeras jugadas y cerrar la partida eficazmente.",
@@ -1714,7 +1714,7 @@
             "sales": 987,
             "title": "Estrategias para el Medio Juego",
             "shortDescription": "Aprende a manejar el medio juego con tácticas y planes efectivos.",
-            "level": "intermediate",
+            "level": "Intermedio",
             "price": 18.5,
             "data": {
                 "detailDescription": "Este curso cubre los fundamentos del medio juego, enfocándose en la toma de decisiones, planificación estratégica y ejecución de tácticas para dominar esta fase vital.",
@@ -1791,7 +1791,7 @@
             "sales": 1045,
             "title": "Entrenamiento de Cálculo",
             "shortDescription": "Ejercita tu mente para calcular variantes y mejorar tu juego.",
-            "level": "intermediate",
+            "level": "Intermedio",
             "price": 17.5,
             "data": {
                 "detailDescription": "Este curso está diseñado para mejorar tu capacidad de cálculo y análisis, clave para prever jugadas y planificar estrategias complejas.",
