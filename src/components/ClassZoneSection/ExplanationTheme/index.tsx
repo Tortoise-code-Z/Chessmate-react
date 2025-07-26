@@ -77,11 +77,12 @@ function ExplanationTheme({
                     />
                 </figure>
                 <p>
-                    Me alegro de verte,{" "}
-                    <span className={["span-pr-color"].join(" ")}>
-                        {user?.username}
+                    Me alegro de verte de nuevo,{" "}
+                    <span
+                        className={["span-pr-color", "text-medium"].join(" ")}
+                    >
+                        {user?.username}.
                     </span>
-                    . Comencemos con la clase.
                 </p>
             </div>
         </div>
