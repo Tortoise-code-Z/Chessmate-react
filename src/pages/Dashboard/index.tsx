@@ -1,8 +1,8 @@
 import { useState } from "react";
 import BestPlayersSection from "../../components/BestPlayersSection";
-import ObtainedCoursesSection from "../../components/ObtainedCoursesSection";
-import ToBuySection from "../../components/ToBuySection";
-import WelcomeScreen from "../../components/WelcomeScreen";
+import ObtainedCoursesSection from "./ObtainedCoursesSection";
+import ToBuySection from "./ToBuySection";
+import WelcomeScreen from "./WelcomeScreen";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 
 type Props = {};
@@ -13,7 +13,6 @@ function Dashboard({}: Props) {
 
     const handleButtonClick = () => {
         setIsOpen(false);
-        // Mutacion para pasar el isFirstLogin del usuario a false
     };
 
     return (

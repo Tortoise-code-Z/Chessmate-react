@@ -1,7 +1,7 @@
-import AllCoursesSection from "../../components/AllCoursesSection";
+import AllCoursesSection from "./AllCoursesSection";
 import BestSellersSection from "../../components/BestSellersSection";
-import CourseBanner from "../../components/CourseBanner";
-import RecentCoursesSection from "../../components/RecentCoursesSection";
+import CourseBanner from "./CourseBanner";
+import RecentCoursesSection from "./RecentCoursesSection";
 
 type Props = {};
 
@@ -17,7 +17,7 @@ function Courses({}: Props) {
                 titleTextSpan="vendidos"
                 titleDisplay="Row"
                 classNames={["pt-50"]}
-            ></BestSellersSection>
+            />
             <AllCoursesSection />
         </>
     );

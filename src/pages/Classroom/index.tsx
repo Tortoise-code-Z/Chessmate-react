@@ -1,5 +1,5 @@
-import ClassZoneSection from "../../components/ClassZoneSection";
-import OtherUserCoursesSection from "../../components/OtherUserCoursesSection";
+import ClassZoneSection from "./ClassZoneSection";
+import OtherUserCoursesSection from "./OtherUserCoursesSection";
 
 type Props = {};
 

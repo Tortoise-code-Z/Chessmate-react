@@ -1,13 +1,13 @@
 import { Navigate } from "react-router-dom";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import { paths } from "../../consts/paths";
-import Hero from "../../components/Hero";
-import CoursesDataSection from "../../components/CoursesDataSection";
-import SignupCallToAction from "../../components/SignupCallToAction";
+import Hero from "./Hero";
+import CoursesDataSection from "./CoursesDataSection";
+import SignupCallToAction from "./SignupCallToAction";
 import BestSellersSection from "../../components/BestSellersSection";
-import CloseHomeSection from "../../components/CloseHomeSection";
+import CloseHomeSection from "./CloseHomeSection";
 import BestPlayersSection from "../../components/BestPlayersSection";
-import UsersOpinionSection from "../../components/UsersOpinionSection";
+import UsersOpinionSection from "./UsersOpinionSection";
 
 type Props = {};
 
