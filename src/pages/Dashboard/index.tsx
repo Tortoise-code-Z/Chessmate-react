@@ -1,7 +1,7 @@
 import { useState } from "react";
 import BestPlayersSection from "../../components/BestPlayersSection";
 import ObtainedCoursesSection from "./ObtainedCoursesSection";
-import ToBuySection from "./ToBuySection";
+import CoursesRecomended from "../../components/CoursesRecomended";
 import WelcomeScreen from "./WelcomeScreen";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 
@@ -23,7 +23,22 @@ function Dashboard({}: Props) {
                 ""
             )}
             <ObtainedCoursesSection />
-            <ToBuySection />
+            <CoursesRecomended
+                titleContain={
+                    <>
+                        <span
+                            className={["span-pr-color", "upperCase"].join(" ")}
+                        >
+                            Comprar
+                        </span>{" "}
+                        cursos
+                    </>
+                }
+                titleDisplay={"Row"}
+                titleAlign={"start"}
+                limit={5}
+                userID={user?.userID}
+            />
             <BestPlayersSection />
         </>
     );

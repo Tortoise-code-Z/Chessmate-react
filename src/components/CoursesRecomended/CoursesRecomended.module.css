@@ -1,0 +1,27 @@
+.coursesRecomended {
+    width: 100%;
+    padding-left: var(--padding-lateral);
+    padding-right: var(--padding-lateral);
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    position: relative;
+}
+
+.titleColCenter {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.titleColStart {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+.titleRowStart {
+    text-align: start;
+}
+
+.titleRowCenter {
+    text-align: center;
+}

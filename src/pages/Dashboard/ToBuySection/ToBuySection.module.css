@@ -1,9 +1,0 @@
-.toBuySection {
-    width: 100%;
-    padding-left: var(--padding-lateral);
-    padding-right: var(--padding-lateral);
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    position: relative;
-}

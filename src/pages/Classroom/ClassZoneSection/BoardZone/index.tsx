@@ -3,7 +3,7 @@ import styles from "./BoardZone.module.css";
 import { FaCheckCircle } from "react-icons/fa";
 import { DefualtCourse } from "../../../../types/types";
 import Button from "../../../../components/Button";
-import AutoSliderImages from "../../AutoSliderImages";
+import AutoSliderImages from "./AutoSliderImages";
 
 type Props = {
     data: DefualtCourse;
