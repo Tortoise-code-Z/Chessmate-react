@@ -7,7 +7,7 @@ type Props = {
 
 function CourseDescription({ data }: Props) {
     return (
-        <div className={[styles].join(" ")}>
+        <div className={[styles.descriptionSection].join(" ")}>
             <h3>Descripción</h3>
             <p>{data.detailDescription}</p>
         </div>

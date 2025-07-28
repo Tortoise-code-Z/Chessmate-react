@@ -775,7 +775,7 @@
             },
             "authors": [
                 {
-                    "name": "CM Jorge Martínez",
+                    "name": "Jorge Martínez",
                     "description": "Entrenador con amplia experiencia en enseñanza a principiantes.",
                     "level": "CM",
                     "elo": 2200,
@@ -851,7 +851,7 @@
             },
             "authors": [
                 {
-                    "name": "FM Ana López",
+                    "name": "Ana López",
                     "description": "Especialista en aperturas y jugadora activa en torneos nacionales.",
                     "level": "FM",
                     "elo": 2350,
@@ -927,7 +927,7 @@
             },
             "authors": [
                 {
-                    "name": "FM Daniel Ruiz",
+                    "name": "Daniel Ruiz",
                     "description": "Jugador fuerte especializado en análisis de partidas de principiantes.",
                     "level": "FM",
                     "elo": 2305,
@@ -1004,14 +1004,14 @@
             },
             "authors": [
                 {
-                    "name": "IM Lucía Fernández",
+                    "name": "Lucía Fernández",
                     "description": "Autora de varios libros de táctica y entrenadora de nivel nacional.",
                     "level": "IM",
                     "elo": 2420,
                     "image": ""
                 },
                 {
-                    "name": "FM Álvaro Rico",
+                    "name": "Álvaro Rico",
                     "description": "Colaborador y especialista en resolución de estudios tácticos.",
                     "level": "FM",
                     "elo": 2322,
@@ -1088,7 +1088,7 @@
             },
             "authors": [
                 {
-                    "name": "GM Pablo Torres",
+                    "name": "Pablo Torres",
                     "description": "Gran Maestro con enfoque posicional. Entrenador de selecciones juveniles.",
                     "level": "GM",
                     "elo": 2560,
@@ -1164,7 +1164,7 @@
             },
             "authors": [
                 {
-                    "name": "IM Carlos Méndez",
+                    "name": "Carlos Méndez",
                     "description": "Experto en finales y entrenador reconocido.",
                     "level": "IM",
                     "elo": 2400,
@@ -1240,7 +1240,7 @@
             },
             "authors": [
                 {
-                    "name": "GM Laura Vega",
+                    "name": "Laura Vega",
                     "description": "Gran Maestra con amplia experiencia en preparación de aperturas.",
                     "level": "GM",
                     "elo": 2550,
@@ -1316,7 +1316,7 @@
             },
             "authors": [
                 {
-                    "name": "GM Rafael Ortega",
+                    "name": "Rafael Ortega",
                     "description": "Especialista en tácticas con múltiples títulos internacionales.",
                     "level": "GM",
                     "elo": 2600,
@@ -1393,7 +1393,7 @@
             },
             "authors": [
                 {
-                    "name": "IM Sofía Pérez",
+                    "name": "Sofía Pérez",
                     "description": "Maestra Internacional experta en estrategia y planificación.",
                     "level": "IM",
                     "elo": 2450,
@@ -1470,7 +1470,7 @@
             },
             "authors": [
                 {
-                    "name": "WIM Laura Sánchez",
+                    "name": "Laura Sánchez",
                     "description": "Psicóloga deportiva y Maestra Internacional femenina.",
                     "level": "WIM",
                     "elo": 2300,
@@ -1547,7 +1547,7 @@
             },
             "authors": [
                 {
-                    "name": "FM Diego Torres",
+                    "name": "Diego Torres",
                     "description": "Jugador y entrenador con amplia experiencia en torneos internacionales.",
                     "level": "FM",
                     "elo": 2370,
@@ -1623,7 +1623,7 @@
             },
             "authors": [
                 {
-                    "name": "IM Patricia Ruiz",
+                    "name": "Patricia Ruiz",
                     "description": "Entrenadora y jugadora con especialización en estrategia dinámica.",
                     "level": "IM",
                     "elo": 2420,
@@ -1694,7 +1694,7 @@
             },
             "authors": [
                 {
-                    "name": "CM Juan Ramírez",
+                    "name": "Juan Ramírez",
                     "description": "Coach especializado en enseñanza para principiantes.",
                     "level": "CM",
                     "elo": 2150,
@@ -1771,7 +1771,7 @@
             },
             "authors": [
                 {
-                    "name": "IM Marcos Díaz",
+                    "name": "Marcos Díaz",
                     "description": "Jugador y entrenador con experiencia en entrenamiento de medio juego.",
                     "level": "IM",
                     "elo": 2430,
@@ -1848,7 +1848,7 @@
             },
             "authors": [
                 {
-                    "name": "GM Andrés Martínez",
+                    "name": "Andrés Martínez",
                     "description": "Gran Maestro y entrenador especializado en cálculo táctico.",
                     "level": "GM",
                     "elo": 2650,

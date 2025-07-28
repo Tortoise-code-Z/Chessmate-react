@@ -22,3 +22,11 @@ export const PROFESSOR_IMAGE = {
     height: getImageSize(PROFESSOR_URL_PATH, "height"),
     alt: "Professor image",
 };
+
+export const AUTHOR_DEFAULT_IMAGE_URL_PATH = "authors-alvaro-rico_640x425_.jpg";
+export const AUTHOR_DEFAULT_IMAGE = {
+    image: getImage(AUTHOR_DEFAULT_IMAGE_URL_PATH, ["authors"]),
+    width: getImageSize(AUTHOR_DEFAULT_IMAGE_URL_PATH, "width"),
+    height: getImageSize(AUTHOR_DEFAULT_IMAGE_URL_PATH, "height"),
+    alt: "Default image",
+};

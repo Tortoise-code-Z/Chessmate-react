@@ -1,0 +1,40 @@
+.detailsCourse {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.themesList {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.contentItem,
+.toLearnItem {
+    padding: 10px 15px;
+    font-family: Roboto-medium;
+    border-radius: 5px;
+    min-width: fit-content;
+}
+
+.toLearnItem {
+    background-color: rgba(var(--complementary-color-500));
+}
+
+.contentItem {
+    background-color: rgba(var(--neutral-color-500));
+    color: rgb(var(--bcc-color));
+}
+
+.description {
+    font-family: Roboto-thin;
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    line-height: 1.5em;
+}

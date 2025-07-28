@@ -3,6 +3,7 @@ import Button from "../../../../components/Button";
 import { Course } from "../../../../types/types";
 import { getImage, getImageSize } from "../../../../utils/images";
 import styles from "./GeneralCourseData.module.css";
+import LightComponent from "../../../../components/LightComponent";
 
 type Props = {
     data: Course;
@@ -10,7 +11,8 @@ type Props = {
 
 function GeneralCourseData({ data }: Props) {
     return (
-        <div className={[styles].join(" ")}>
+        <div className={[styles.generalCourseData].join(" ")}>
+            <LightComponent top={50} right={30} />
             <figure>
                 <img
                     src={getImage(data.imageUrl.thumb, ["courses"])}
@@ -23,9 +25,13 @@ function GeneralCourseData({ data }: Props) {
             <div>
                 <div>
                     <h2>{data.title}</h2>
-                    <p>{data.shortDescription}</p>
-                    <span>{data.level}</span>
-                    <p>{data.price} $</p>
+                    <p className={[styles.description].join(" ")}>
+                        {data.shortDescription}
+                    </p>
+                    <span className={[styles.level].join(" ")}>
+                        {data.level}
+                    </span>
+                    <p className={[styles.price].join(" ")}>{data.price} $</p>
                 </div>
                 <Button>
                     <HiMiniShoppingBag />

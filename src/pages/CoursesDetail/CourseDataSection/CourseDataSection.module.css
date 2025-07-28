@@ -1,0 +1,15 @@
+.courseDataSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    max-width: var(--max-width-page);
+    margin: 0 auto;
+    padding-left: var(--padding-lateral);
+    padding-right: var(--padding-lateral);
+}
+
+.courseDataSection h3 {
+    font-size: 1.5rem;
+    color: rgb(var(--primary-color-050));
+}

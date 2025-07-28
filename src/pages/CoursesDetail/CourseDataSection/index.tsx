@@ -19,7 +19,7 @@ function CourseDataSection({}: Props) {
     const { data, isLoading, error } = useCourse(JSON_URL, Number(params.id));
 
     return (
-        <section className={[styles].join(" ")}>
+        <section className={[styles.courseDataSection].join(" ")}>
             <DataStateWrapper isLoading={isLoading} error={error}>
                 <GeneralCourseData data={data ?? ({} as Course)} />
                 <Authors data={data ?? ({} as Course)} />

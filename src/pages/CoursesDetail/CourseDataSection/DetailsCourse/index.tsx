@@ -12,16 +12,27 @@ function DetailsCourse({ data, titleContain, type }: Props) {
     const typeData = type === "content" ? "content" : "toLearn";
 
     return (
-        <div className={[styles].join(" ")}>
+        <div className={[styles.detailsCourse].join(" ")}>
             <h3>{titleContain}</h3>
-            <ul>
+            <ul className={[styles.themesList].join(" ")}>
                 {data?.[typeData]?.themes.map((t) => (
-                    <li key={t.title}>{t.title}</li>
+                    <li
+                        className={[
+                            typeData === "content"
+                                ? styles.contentItem
+                                : styles.toLearnItem,
+                        ].join(" ")}
+                        key={t.title}
+                    >
+                        {t.title}
+                    </li>
                 ))}
             </ul>
-            <div>
+            <div className={[styles.description].join(" ")}>
                 {data?.[typeData]?.detailDescription?.map((t) => (
-                    <p key={t}>{t}</p>
+                    <p className={[styles.descriptionItem].join(" ")} key={t}>
+                        {t}
+                    </p>
                 ))}
             </div>
         </div>

@@ -1,0 +1,56 @@
+.generalCourseData {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    align-items: stretch;
+    gap: 30px;
+    position: relative;
+}
+
+.generalCourseData figure {
+    width: 45%;
+    aspect-ratio: 16/10;
+}
+.generalCourseData figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    object-position: center;
+}
+
+.generalCourseData > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.generalCourseData > div button {
+    width: fit-content;
+}
+
+.generalCourseData > div > div {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.description {
+    font-size: 1.2rem;
+    font-family: Roboto-thin;
+}
+
+.generalCourseData h2 {
+    color: white;
+}
+
+.level {
+    color: rgb(var(--primary-color-500));
+}
+
+.price {
+    font-size: 2rem;
+    font-family: Roboto-bold-italic;
+    color: rgb(var(--complementary-color-500));
+}
