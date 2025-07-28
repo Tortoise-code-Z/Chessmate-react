@@ -45,6 +45,7 @@ export type AuthorCurseData = {
     description: string;
     level?: ChessLevel;
     elo?: number;
+    image: string;
 };
 
 export type CourseData = {

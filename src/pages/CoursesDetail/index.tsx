@@ -2,6 +2,7 @@
 
 import CoursesRecomended from "../../components/CoursesRecomended";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
+import CourseDataSection from "./CourseDataSection";
 
 type Props = {};
 
@@ -11,7 +12,7 @@ function CoursesDetail({}: Props) {
 
     return (
         <>
-            {/* <CourseDataSection /> */}
+            <CourseDataSection />
             {/* <CourseCommentsSection /> */}
             <CoursesRecomended
                 titleContain={
