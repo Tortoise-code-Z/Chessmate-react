@@ -8,6 +8,7 @@ import {
 import InputGroup from "../../../../components/InputGroup";
 import Button from "../../../../components/Button";
 import Form from "../../../../components/Form";
+import { FaSearch } from "react-icons/fa";
 
 type Props = {
     setSearch: Dispatch<SetStateAction<string>>;
@@ -42,7 +43,9 @@ function SearchBar({ setSearch, setFilter }: Props) {
                 <InputGroup
                     errorMsg={false}
                     name={"search"}
-                    groupType="search"
+                    groupType="submit"
+                    buttonText="Buscar"
+                    buttonSVG={<FaSearch />}
                 />
             </Form>
 

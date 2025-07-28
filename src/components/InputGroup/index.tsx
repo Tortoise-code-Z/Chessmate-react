@@ -1,16 +1,22 @@
-import { FaSearch } from "react-icons/fa";
 import Button from "../Button";
 import Input from "../Input";
 import styles from "./InputGroup.module.css";
 import { FieldValues, useFormContext } from "react-hook-form";
 import Label from "../Label";
 import FieldError from "../FieldError";
+import { FaPaperPlane } from "react-icons/fa";
+import { ReactNode } from "react";
+import { ButtonVariant } from "../../types/types";
 
 type Props = {
-    groupType?: "search" | "default";
+    groupType?: "submit" | "default";
     label?: string;
     name: string;
     errorMsg?: boolean;
+    placeholder?: string;
+    buttonText?: string;
+    buttonSVG?: ReactNode;
+    buttonVariant?: ButtonVariant;
 };
 
 function InputGroup<T extends FieldValues>({
@@ -18,6 +24,10 @@ function InputGroup<T extends FieldValues>({
     groupType = "default",
     label,
     errorMsg = true,
+    placeholder,
+    buttonText = "Enviar",
+    buttonSVG = <FaPaperPlane />,
+    buttonVariant,
 }: Props) {
     const {
         formState: { errors },
@@ -26,17 +36,18 @@ function InputGroup<T extends FieldValues>({
     return (
         <div className={[styles.inputGroup].join(" ")}>
             {label && <Label text={label} inputRef={name} />}
-            {groupType === "search" ? (
+            {groupType === "submit" ? (
                 <div className={[styles.inpSearchContainer].join(" ")}>
                     <Input
+                        placeholder={placeholder}
                         name={name}
                         classNames={
                             errors?.[name]?.message ? ["inputError"] : []
                         }
                     />
-                    <Button type="submit">
-                        <FaSearch />
-                        Buscar
+                    <Button type="submit" variant={buttonVariant}>
+                        {buttonSVG}
+                        {buttonText}
                     </Button>
                 </div>
             ) : (

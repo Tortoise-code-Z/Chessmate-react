@@ -1862,151 +1862,176 @@
             "id": 1,
             "idUser": 3,
             "idCourse": 1,
-            "text": "Un curso bastante bueno, fácil de seguir y con buena organización."
+            "text": "Un curso bastante bueno, fácil de seguir y con buena organización.",
+            "createdAt": "10-05-2025"
         },
         {
             "id": 2,
             "idUser": 7,
             "idCourse": 1,
-            "text": "Me pareció muy útil en general, lo recomiendo para cualquier jugador."
+            "text": "Me pareció muy útil en general, lo recomiendo para cualquier jugador.",
+            "createdAt": "10-03-2025"
         },
         {
             "id": 3,
             "idUser": 5,
             "idCourse": 2,
-            "text": "Muy buen curso, cumplió con mis expectativas."
+            "text": "Muy buen curso, cumplió con mis expectativas.",
+            "createdAt": "01-04-2025"
         },
         {
             "id": 4,
             "idUser": 2,
             "idCourse": 2,
-            "text": "En general fue un curso interesante y bien planteado."
+            "text": "En general fue un curso interesante y bien planteado.",
+            "createdAt": "24-07-2025"
         },
         {
             "id": 5,
             "idUser": 8,
             "idCourse": 2,
-            "text": "Me pareció excelente, ideal para seguir aprendiendo."
+            "text": "Me pareció excelente, ideal para seguir aprendiendo.",
+            "createdAt": "24-03-2025"
         },
         {
             "id": 6,
             "idUser": 1,
             "idCourse": 3,
-            "text": "Muy recomendable, me gustó la forma en que está estructurado."
+            "text": "Muy recomendable, me gustó la forma en que está estructurado.",
+            "createdAt": "24-01-2025"
         },
         {
             "id": 7,
             "idUser": 4,
             "idCourse": 3,
-            "text": "Un curso aceptable, aunque podría mejorar en algunos aspectos generales."
+            "text": "Un curso aceptable, aunque podría mejorar en algunos aspectos generales.",
+            "createdAt": "24-06-2025"
         },
         {
             "id": 8,
             "idUser": 6,
             "idCourse": 4,
-            "text": "Está bastante bien, lo disfruté mucho."
+            "text": "Está bastante bien, lo disfruté mucho.",
+            "createdAt": "24-06-2025"
         },
         {
             "id": 9,
             "idUser": 9,
             "idCourse": 5,
-            "text": "Fue un buen curso, muy claro en su propósito."
+            "text": "Fue un buen curso, muy claro en su propósito.",
+            "createdAt": "24-04-2025"
         },
         {
             "id": 10,
             "idUser": 12,
             "idCourse": 6,
-            "text": "Buena calidad general, se nota el esfuerzo detrás."
+            "text": "Buena calidad general, se nota el esfuerzo detrás.",
+            "createdAt": "24-06-2025"
         },
         {
             "id": 11,
             "idUser": 10,
             "idCourse": 6,
-            "text": "Me gustó bastante, cumplió lo que promete."
+            "text": "Me gustó bastante, cumplió lo que promete.",
+            "createdAt": "14-06-2025"
         },
         {
             "id": 12,
             "idUser": 11,
             "idCourse": 7,
-            "text": "Está bien logrado, muy útil para quienes buscan mejorar."
+            "text": "Está bien logrado, muy útil para quienes buscan mejorar.",
+            "createdAt": "04-02-2025"
         },
         {
             "id": 13,
             "idUser": 3,
             "idCourse": 7,
-            "text": "Bastante completo, lo recomiendo sin duda."
+            "text": "Bastante completo, lo recomiendo sin duda.",
+            "createdAt": "24-06-2025"
         },
         {
             "id": 14,
             "idUser": 2,
             "idCourse": 8,
-            "text": "Un curso sólido, cumple con su objetivo."
+            "text": "Un curso sólido, cumple con su objetivo.",
+            "createdAt": "18-06-2025"
         },
         {
             "id": 15,
             "idUser": 4,
             "idCourse": 8,
-            "text": "Fue una buena experiencia en términos generales."
+            "text": "Fue una buena experiencia en términos generales.",
+            "createdAt": "23-001-2025"
         },
         {
             "id": 16,
             "idUser": 6,
             "idCourse": 9,
-            "text": "Buena elección si buscas seguir aprendiendo."
+            "text": "Buena elección si buscas seguir aprendiendo.",
+            "createdAt": "24-05-2025"
         },
         {
             "id": 17,
             "idUser": 8,
             "idCourse": 10,
-            "text": "Muy recomendable, bien explicado y útil."
+            "text": "Muy recomendable, bien explicado y útil.",
+            "createdAt": "12-06-2025"
         },
         {
             "id": 18,
             "idUser": 9,
             "idCourse": 11,
-            "text": "No me convenció del todo, creo que podría ser más claro."
+            "text": "No me convenció del todo, creo que podría ser más claro.",
+            "createdAt": "17-07-2025"
         },
         {
             "id": 19,
             "idUser": 1,
             "idCourse": 12,
-            "text": "Un curso muy completo, ideal para cualquier nivel."
+            "text": "Un curso muy completo, ideal para cualquier nivel.",
+            "createdAt": "12-02-2025"
         },
         {
             "id": 20,
             "idUser": 7,
             "idCourse": 12,
-            "text": "Fue una buena experiencia de aprendizaje."
+            "text": "Fue una buena experiencia de aprendizaje.",
+            "createdAt": "16-06-2025"
         },
         {
             "id": 21,
             "idUser": 10,
             "idCourse": 13,
-            "text": "Muy buen curso, bien presentado."
+            "text": "Muy buen curso, bien presentado.",
+            "createdAt": "16-02-2025"
         },
         {
             "id": 22,
             "idUser": 11,
             "idCourse": 14,
-            "text": "Un curso decente, aunque algo básico para mi gusto."
+            "text": "Un curso decente, aunque algo básico para mi gusto.",
+            "createdAt": "16-05-2025"
         },
         {
             "id": 23,
             "idUser": 5,
             "idCourse": 15,
-            "text": "Curso recomendable para quienes están empezando."
+            "text": "Curso recomendable para quienes están empezando.",
+            "createdAt": "10-06-2025"
         },
         {
             "id": 24,
             "idUser": 12,
             "idCourse": 15,
-            "text": "Buena experiencia en general, volvería a tomar otro similar."
+            "text": "Buena experiencia en general, volvería a tomar otro similar.",
+            "createdAt": "11-06-2025"
         },
         {
             "id": 25,
             "idUser": 6,
             "idCourse": 15,
-            "text": "Muy bueno, cumple con lo que promete."
+            "text": "Muy bueno, cumple con lo que promete.",
+            "createdAt": "16-01-2025"
         }
     ],
     "opinions": [

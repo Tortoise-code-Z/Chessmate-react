@@ -1,9 +1,10 @@
 import { ReactNode } from "react";
 import { MouseEvent } from "react";
+import { ButtonVariant } from "../../types/types";
 
 type Props = {
     onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
-    variant?: "Primary" | "Secondary" | "Terciary" | "Complementary";
+    variant?: ButtonVariant;
     children: ReactNode;
     type?: "button" | "submit";
     propagation?: boolean;

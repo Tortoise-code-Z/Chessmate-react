@@ -6,6 +6,12 @@ export type BaseUser = {
     title: ChessLevel | null;
 };
 
+export type ButtonVariant =
+    | "Primary"
+    | "Secondary"
+    | "Terciary"
+    | "Complementary";
+
 export type Level =
     | "Principiante"
     | "Intermedio"
@@ -154,6 +160,12 @@ export type BestChessPlayers = {
     live_blitz: BestPlayerChessData[];
 };
 
+//
+//
+//
+//
+//
+
 export type Opinion = {
     id: number;
     user: UserOpinionData;
@@ -173,29 +185,43 @@ export type UserOpinionData = {
     title: ChessLevel | null;
 };
 
-export type UserCommentData = {
-    userID: number;
-    username: string;
-};
+//
+//
+//
+//
+//
+//
 
-export type Comments = {
-    id: number;
-    user: UserCommentData;
-    idCourse: number;
-    text: string;
-};
 export type JsonComments = {
     id: number;
     idUser: number;
     idCourse: number;
     text: string;
+    createdAt: string;
 };
+
+export type Comments = {
+    id: number;
+    user: {
+        userID: number;
+        username: string;
+    };
+    idCourse: number;
+    text: string;
+    createdAt: string;
+};
+
+//
+//
+//
+//
+//
 
 export type BBDD = {
     users: User[];
     defaultCourses: DefualtCourse[];
     courses: Course[];
-    comments: Comments[];
+    comments: JsonComments[];
     opinions: JsonOpinion[];
 };
 
