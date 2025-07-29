@@ -44,6 +44,8 @@ export type ToLearnCurseData = {
     detailDescription: string[];
 };
 
+export type InputType = "text" | "password" | "checkbox";
+
 export type ChessLevel = (typeof CHESS_LEVEL)[number];
 
 export type AuthorCurseData = {

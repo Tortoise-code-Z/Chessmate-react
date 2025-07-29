@@ -11,6 +11,7 @@ import {
     commentsSchema,
     commentsSchemaValues,
 } from "../../../Schemas/commentsSchema";
+import Button from "../../../components/Button";
 
 type Props = {};
 
@@ -91,13 +92,14 @@ function CourseCommentSection({}: Props) {
                     >
                         <InputGroup<commentsSchemaValues>
                             name={"comment"}
-                            groupType="submit"
                             errorMsg={false}
-                            buttonText="Enviar"
-                            buttonSVG={<FaCommentDots />}
-                            buttonVariant="Complementary"
                             placeholder="Escribe tu opinión..."
-                        />
+                        >
+                            <Button type="submit" variant="Complementary">
+                                <FaCommentDots />
+                                Enviar
+                            </Button>
+                        </InputGroup>
                     </Form>
                 </div>
             </div>

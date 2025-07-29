@@ -1,61 +1,75 @@
-import Button from "../Button";
 import Input from "../Input";
 import styles from "./InputGroup.module.css";
 import { FieldValues, useFormContext } from "react-hook-form";
 import Label from "../Label";
 import FieldError from "../FieldError";
-import { FaPaperPlane } from "react-icons/fa";
-import { ReactNode } from "react";
-import { ButtonVariant } from "../../types/types";
+import { ReactElement } from "react";
+import { InputType } from "../../types/types";
 
 type Props = {
-    groupType?: "submit" | "default";
     label?: string;
     name: string;
     errorMsg?: boolean;
     placeholder?: string;
-    buttonText?: string;
-    buttonSVG?: ReactNode;
-    buttonVariant?: ButtonVariant;
+    children?: ReactElement<"button">;
+    inputType?: InputType;
+    labelDisplay?: "Row" | "Col";
 };
 
 function InputGroup<T extends FieldValues>({
     name,
-    groupType = "default",
     label,
     errorMsg = true,
     placeholder,
-    buttonText = "Enviar",
-    buttonSVG = <FaPaperPlane />,
-    buttonVariant,
+    children,
+    inputType,
+    labelDisplay = "Col",
 }: Props) {
     const {
         formState: { errors },
     } = useFormContext<T>();
 
-    return (
-        <div className={[styles.inputGroup].join(" ")}>
-            {label && <Label text={label} inputRef={name} />}
-            {groupType === "submit" ? (
+    const inputGroupContent = (
+        <>
+            {children ? (
                 <div className={[styles.inpSearchContainer].join(" ")}>
                     <Input
+                        type={inputType}
                         placeholder={placeholder}
                         name={name}
                         classNames={
                             errors?.[name]?.message ? ["inputError"] : []
                         }
                     />
-                    <Button type="submit" variant={buttonVariant}>
-                        {buttonSVG}
-                        {buttonText}
-                    </Button>
+                    {children}
                 </div>
             ) : (
                 <Input
+                    type={inputType}
+                    placeholder={placeholder}
                     name={name}
                     classNames={errors?.[name]?.message ? ["inputError"] : []}
                 />
             )}
+        </>
+    );
+
+    const withLabel = (
+        <div
+            className={[
+                labelDisplay === "Col" ? styles.labelCol : styles.labelRow,
+            ].join(" ")}
+        >
+            <Label text={label || ""} inputRef={name} />
+            {inputGroupContent}
+        </div>
+    );
+
+    const withoutLabel = <>{inputGroupContent}</>;
+
+    return (
+        <div className={[styles.inputGroup].join(" ")}>
+            {label ? withLabel : withoutLabel}
             {errorMsg && errors?.[name]?.message && (
                 <FieldError message={errors[name].message.toString()} />
             )}

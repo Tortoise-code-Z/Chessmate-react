@@ -43,11 +43,13 @@ function SearchBar({ setSearch, setFilter }: Props) {
                 <InputGroup
                     errorMsg={false}
                     name={"search"}
-                    groupType="submit"
-                    buttonText="Buscar"
-                    buttonSVG={<FaSearch />}
                     placeholder="Buscar..."
-                />
+                >
+                    <Button variant="Complementary" type="submit">
+                        <FaSearch />
+                        Buscar
+                    </Button>
+                </InputGroup>
             </Form>
 
             <div className={[styles.filters].join(" ")}>
