@@ -5,6 +5,7 @@ export const LOGO_IMAGE = {
     image: getImage(LOGO_URL_PATH, ["static"]),
     width: getImageSize(LOGO_URL_PATH, "width"),
     height: getImageSize(LOGO_URL_PATH, "height"),
+    alt: "Chessmate",
 };
 
 export const AVATAR_DEFAULT_URL_PATH =

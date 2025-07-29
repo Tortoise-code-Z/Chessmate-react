@@ -1,9 +1,17 @@
+import { CHESS_LEVEL } from "../consts/general";
+
 export type BaseUser = {
     userID: number;
     username: string;
     email: string;
     elo: number | null;
     title: ChessLevel | null;
+};
+
+export type User = BaseUser & {
+    password: string;
+    defaultCourses: ObtainedCourse[];
+    courses: ObtainedCourse[];
 };
 
 export type ButtonVariant =
@@ -36,15 +44,7 @@ export type ToLearnCurseData = {
     detailDescription: string[];
 };
 
-export type ChessLevel =
-    | "CM"
-    | "FM"
-    | "IM"
-    | "GM"
-    | "WCM"
-    | "WFM"
-    | "WIM"
-    | "WGM";
+export type ChessLevel = (typeof CHESS_LEVEL)[number];
 
 export type AuthorCurseData = {
     name: string;
@@ -95,12 +95,6 @@ export type Course = BaseCourse & {
 export type ObtainedCourse = {
     courseId: number;
     progress: number;
-};
-
-export type User = BaseUser & {
-    password: string;
-    defaultCourses: ObtainedCourse[];
-    courses: ObtainedCourse[];
 };
 
 export type StorageUser = BaseUser;

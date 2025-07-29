@@ -7,6 +7,7 @@
     margin: 0 auto;
     padding-left: var(--padding-lateral);
     padding-right: var(--padding-lateral);
+    position: relative;
 }
 
 .courseDataSection h3 {

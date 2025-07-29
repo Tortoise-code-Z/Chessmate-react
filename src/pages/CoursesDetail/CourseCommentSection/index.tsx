@@ -6,7 +6,7 @@ import DataStateWrapper from "../../../components/DataStateWrapperProps";
 import { AVATAR_DEFAULT_IMAGE } from "../../../consts/images";
 import Form from "../../../components/Form";
 import InputGroup from "../../../components/InputGroup";
-import { FaPaperPlane } from "react-icons/fa";
+import { FaCommentDots } from "react-icons/fa";
 import {
     commentsSchema,
     commentsSchemaValues,
@@ -28,20 +28,25 @@ function CourseCommentSection({}: Props) {
     };
 
     return (
-        <section className={[styles].join(" ")}>
+        <section className={[styles.courseCommentSection].join(" ")}>
             <h2>
                 Opiniones de los{" "}
                 <span className={["span-pr-color", "upperCase"].join(" ")}>
                     usuarios
                 </span>
             </h2>
-            <div>
-                <DataStateWrapper isLoading={isLoading} error={error}>
-                    <>
-                        <ul>
+            <div className={[styles.commentsContainer].join(" ")}>
+                <ul>
+                    <DataStateWrapper isLoading={isLoading} error={error}>
+                        <>
                             {comments?.map((c) => (
-                                <li key={c.id}>
-                                    <div>
+                                <li
+                                    className={[styles.commentItem].join(" ")}
+                                    key={c.id}
+                                >
+                                    <div
+                                        className={[styles.userData].join(" ")}
+                                    >
                                         <figure>
                                             <img
                                                 src={AVATAR_DEFAULT_IMAGE.image}
@@ -55,35 +60,46 @@ function CourseCommentSection({}: Props) {
                                                 }
                                             />
                                         </figure>
-                                        <p>{c.user.username}</p>
+                                        <p
+                                            className={[styles.username].join(
+                                                " "
+                                            )}
+                                        >
+                                            {c.user.username}
+                                        </p>
                                     </div>
-                                    <p>{c.createdAt}</p>
-                                    <p>{c.text}</p>
+                                    <p className={[styles.createdAt].join(" ")}>
+                                        {c.createdAt}
+                                    </p>
+                                    <p
+                                        className={[styles.commentText].join(
+                                            " "
+                                        )}
+                                    >
+                                        {c.text}
+                                    </p>
                                 </li>
                             ))}
-                        </ul>
-
-                        <div>
-                            <div>
-                                <p>Deja tu opinion sobre este curso</p>
-                                <Form<commentsSchemaValues>
-                                    onSubmit={handleSubmit}
-                                    schema={commentsSchema}
-                                >
-                                    <InputGroup<commentsSchemaValues>
-                                        name={"comment"}
-                                        groupType="submit"
-                                        errorMsg={false}
-                                        buttonText="Enviar"
-                                        buttonSVG={<FaPaperPlane />}
-                                        buttonVariant="Complementary"
-                                        placeholder="Escribe tu opinión..."
-                                    />
-                                </Form>
-                            </div>
-                        </div>
-                    </>
-                </DataStateWrapper>
+                        </>
+                    </DataStateWrapper>
+                </ul>
+                <div className={[styles.commentForm].join(" ")}>
+                    <p>Deja tu opinion sobre este curso</p>
+                    <Form<commentsSchemaValues>
+                        onSubmit={handleSubmit}
+                        schema={commentsSchema}
+                    >
+                        <InputGroup<commentsSchemaValues>
+                            name={"comment"}
+                            groupType="submit"
+                            errorMsg={false}
+                            buttonText="Enviar"
+                            buttonSVG={<FaCommentDots />}
+                            buttonVariant="Complementary"
+                            placeholder="Escribe tu opinión..."
+                        />
+                    </Form>
+                </div>
             </div>
         </section>
     );

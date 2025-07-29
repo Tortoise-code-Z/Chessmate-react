@@ -46,6 +46,7 @@ function SearchBar({ setSearch, setFilter }: Props) {
                     groupType="submit"
                     buttonText="Buscar"
                     buttonSVG={<FaSearch />}
+                    placeholder="Buscar..."
                 />
             </Form>
 

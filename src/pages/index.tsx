@@ -9,6 +9,8 @@ import Courses from "./Courses";
 import CoursesDetail from "./CoursesDetail";
 import Contact from "./Contact";
 import Classroom from "./Classroom";
+import Login from "./Login";
+import Register from "./Register";
 
 export const route = createBrowserRouter([
     {
@@ -56,10 +58,10 @@ export const route = createBrowserRouter([
     },
     {
         path: `/${paths.login}`,
-        element: <>Login</>,
+        element: <Login />,
     },
     {
         path: `/${paths.register}`,
-        element: <>Register</>,
+        element: <Register />,
     },
 ]);
