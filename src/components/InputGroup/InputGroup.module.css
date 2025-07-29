@@ -4,6 +4,12 @@
     gap: 15px;
 }
 
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .labelCol {
     display: flex;
     flex-direction: column;

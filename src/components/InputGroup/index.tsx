@@ -6,9 +6,9 @@ import FieldError from "../FieldError";
 import { ReactElement } from "react";
 import { InputType } from "../../types/types";
 
-type Props = {
+type Props<T extends FieldValues> = {
     label?: string;
-    name: string;
+    name: Extract<keyof T, string>;
     errorMsg?: boolean;
     placeholder?: string;
     children?: ReactElement<"button">;
@@ -24,7 +24,7 @@ function InputGroup<T extends FieldValues>({
     children,
     inputType,
     labelDisplay = "Col",
-}: Props) {
+}: Props<T>) {
     const {
         formState: { errors },
     } = useFormContext<T>();

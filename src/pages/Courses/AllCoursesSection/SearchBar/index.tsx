@@ -40,7 +40,7 @@ function SearchBar({ setSearch, setFilter }: Props) {
                 onSubmit={handleSubmit}
                 schema={searchSchema}
             >
-                <InputGroup
+                <InputGroup<searchSchemaValues>
                     errorMsg={false}
                     name={"search"}
                     placeholder="Buscar..."

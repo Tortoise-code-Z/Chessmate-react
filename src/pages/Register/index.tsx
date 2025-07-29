@@ -1,12 +1,15 @@
-import { NavLink } from "react-router-dom";
-import { LOGO_IMAGE } from "../../consts/images";
 import styles from "./Register.module.css";
-import { paths } from "../../consts/paths";
 import Form from "../../components/Form";
+import { FaPaperPlane } from "react-icons/fa";
 import {
     registerSchema,
     registerSchemaValues,
 } from "../../Schemas/registerSchema";
+import InputGroup from "../../components/InputGroup";
+import Button from "../../components/Button";
+import { NavLink } from "react-router-dom";
+import { LOGO_IMAGE } from "../../consts/images";
+import { paths } from "../../consts/paths";
 
 type Props = {};
 
@@ -23,12 +26,59 @@ function Register({}: Props) {
                 </figure>
             </NavLink>
             <Form<registerSchemaValues>
-                onSubmit={(data: registerSchemaValues) => {
-                    console.log(data);
+                onSubmit={() => {
+                    alert("enviado");
                 }}
                 schema={registerSchema}
             >
-                <div></div>
+                <div>
+                    <InputGroup<registerSchemaValues>
+                        label="Nombre de usuario"
+                        name="username"
+                        placeholder="chessmate_33..."
+                        errorMsg={true}
+                    />
+                    <InputGroup<registerSchemaValues>
+                        label="Correo electrónico"
+                        name="email"
+                        placeholder="chessmate_33@chessmate.com..."
+                        errorMsg={true}
+                    />
+                    <InputGroup<registerSchemaValues>
+                        label="ELO"
+                        name="elo"
+                        placeholder="1500..."
+                        errorMsg={true}
+                    />
+                    <InputGroup<registerSchemaValues>
+                        label="Contraseña"
+                        name="password"
+                        placeholder="Su contraseña..."
+                        errorMsg={true}
+                        inputType="password"
+                    />
+                    <InputGroup<registerSchemaValues>
+                        label="Repetir contraseña"
+                        name="repeatPassword"
+                        placeholder="Escriba de nuevo su contraseña..."
+                        errorMsg={true}
+                        inputType="password"
+                    />
+
+                    <InputGroup<registerSchemaValues>
+                        label="Acepto las condiciones y términos."
+                        labelDisplay="Row"
+                        name="terms"
+                        placeholder="Escriba de nuevo su contraseña..."
+                        errorMsg={true}
+                        inputType="checkbox"
+                    />
+                </div>
+
+                <Button type="submit">
+                    <FaPaperPlane />
+                    Registrarme
+                </Button>
             </Form>
         </div>
     );
