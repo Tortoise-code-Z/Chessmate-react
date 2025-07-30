@@ -773,15 +773,7 @@
                     "Desarrollarás habilidades de pensamiento estratégico, comenzando a planificar tus movimientos de manera anticipada y a evaluar las consecuencias de tus jugadas."
                 ]
             },
-            "authors": [
-                {
-                    "name": "Jorge Martínez",
-                    "description": "Entrenador con amplia experiencia en enseñanza a principiantes.",
-                    "level": "CM",
-                    "elo": 2200,
-                    "image": ""
-                }
-            ]
+            "authors": [1, 2]
         },
         {
             "curseID": 2,
@@ -849,15 +841,7 @@
                     "Desarrollarás un sentido más profundo del valor posicional que las aperturas buscan establecer para lograr ventaja en el medio juego."
                 ]
             },
-            "authors": [
-                {
-                    "name": "Ana López",
-                    "description": "Especialista en aperturas y jugadora activa en torneos nacionales.",
-                    "level": "FM",
-                    "elo": 2350,
-                    "image": ""
-                }
-            ]
+            "authors": [3, 4]
         },
         {
             "curseID": 3,
@@ -925,15 +909,7 @@
                     "También se destaca la importancia de la estructura de peones, mostrando cómo pequeños errores en el inicio pueden derivar en debilidades que persisten toda la partida. Aprenderás a construir posiciones sólidas y cómo castigar a quienes no lo hacen."
                 ]
             },
-            "authors": [
-                {
-                    "name": "Daniel Ruiz",
-                    "description": "Jugador fuerte especializado en análisis de partidas de principiantes.",
-                    "level": "FM",
-                    "elo": 2305,
-                    "image": ""
-                }
-            ]
+            "authors": [5, 6]
         },
 
         {
@@ -1002,22 +978,7 @@
                     "Finalmente, se promueve la reflexión post-partida como hábito clave para el crecimiento. Aprenderás a detectar qué combinaciones fallaste, por qué lo hiciste, y cómo no volver a cometer los mismos errores tácticos."
                 ]
             },
-            "authors": [
-                {
-                    "name": "Lucía Fernández",
-                    "description": "Autora de varios libros de táctica y entrenadora de nivel nacional.",
-                    "level": "IM",
-                    "elo": 2420,
-                    "image": ""
-                },
-                {
-                    "name": "Álvaro Rico",
-                    "description": "Colaborador y especialista en resolución de estudios tácticos.",
-                    "level": "FM",
-                    "elo": 2322,
-                    "image": ""
-                }
-            ]
+            "authors": [7, 8]
         },
 
         {
@@ -1086,15 +1047,7 @@
                     "Además, se trabaja la paciencia como virtud del jugador posicional. Aprenderás a maniobrar tus piezas durante varios turnos con un objetivo claro, generando ventajas sin necesidad de combinaciones tácticas inmediatas."
                 ]
             },
-            "authors": [
-                {
-                    "name": "Pablo Torres",
-                    "description": "Gran Maestro con enfoque posicional. Entrenador de selecciones juveniles.",
-                    "level": "GM",
-                    "elo": 2560,
-                    "image": ""
-                }
-            ]
+            "authors": [9, 10]
         },
         {
             "curseID": 6,
@@ -1162,15 +1115,7 @@
                     "El curso te prepara para enfrentar situaciones de presión y tomar decisiones acertadas que te acerquen a la victoria."
                 ]
             },
-            "authors": [
-                {
-                    "name": "Carlos Méndez",
-                    "description": "Experto en finales y entrenador reconocido.",
-                    "level": "IM",
-                    "elo": 2400,
-                    "image": ""
-                }
-            ]
+            "authors": [11, 12]
         },
         {
             "curseID": 7,
@@ -1238,15 +1183,7 @@
                     "Además, desarrollarás métodos para memorizar aperturas y variantes, facilitando el estudio continuo y la preparación para torneos."
                 ]
             },
-            "authors": [
-                {
-                    "name": "Laura Vega",
-                    "description": "Gran Maestra con amplia experiencia en preparación de aperturas.",
-                    "level": "GM",
-                    "elo": 2550,
-                    "image": ""
-                }
-            ]
+            "authors": [13, 14]
         },
         {
             "curseID": 8,
@@ -1314,15 +1251,7 @@
                     "Desarrollarás confianza para realizar sacrificios que aumenten tus chances de ataque o ganancia material."
                 ]
             },
-            "authors": [
-                {
-                    "name": "Rafael Ortega",
-                    "description": "Especialista en tácticas con múltiples títulos internacionales.",
-                    "level": "GM",
-                    "elo": 2600,
-                    "image": ""
-                }
-            ]
+            "authors": [15, 16]
         },
         {
             "curseID": 9,
@@ -1391,15 +1320,7 @@
                     "Aprenderás a adaptar tus maniobras para aprovechar debilidades y mantener la presión sobre el rival en todo momento."
                 ]
             },
-            "authors": [
-                {
-                    "name": "Sofía Pérez",
-                    "description": "Maestra Internacional experta en estrategia y planificación.",
-                    "level": "IM",
-                    "elo": 2450,
-                    "image": ""
-                }
-            ]
+            "authors": [1]
         },
         {
             "curseID": 10,
@@ -1468,15 +1389,7 @@
                     "Aprenderás a interpretar señales del adversario que te ayudarán a anticipar sus jugadas y ajustar tu estrategia."
                 ]
             },
-            "authors": [
-                {
-                    "name": "Laura Sánchez",
-                    "description": "Psicóloga deportiva y Maestra Internacional femenina.",
-                    "level": "WIM",
-                    "elo": 2300,
-                    "image": ""
-                }
-            ]
+            "authors": [5]
         },
         {
             "curseID": 11,
@@ -1545,15 +1458,7 @@
                     "Desarrollarás la habilidad de evaluar tus partidas de forma objetiva para crecer constantemente como jugador."
                 ]
             },
-            "authors": [
-                {
-                    "name": "Diego Torres",
-                    "description": "Jugador y entrenador con amplia experiencia en torneos internacionales.",
-                    "level": "FM",
-                    "elo": 2370,
-                    "image": ""
-                }
-            ]
+            "authors": [3, 6]
         },
         {
             "curseID": 12,
@@ -1621,15 +1526,7 @@
                     "Además, adquirirás la confianza para realizar sacrificios que te proporcionen ventajas duraderas en la partida."
                 ]
             },
-            "authors": [
-                {
-                    "name": "Patricia Ruiz",
-                    "description": "Entrenadora y jugadora con especialización en estrategia dinámica.",
-                    "level": "IM",
-                    "elo": 2420,
-                    "image": ""
-                }
-            ]
+            "authors": [8]
         },
         {
             "curseID": 13,
@@ -1692,15 +1589,7 @@
                     "Mejorarás tu velocidad y precisión para cerrar partidas con movimientos contundentes y efectivos."
                 ]
             },
-            "authors": [
-                {
-                    "name": "Juan Ramírez",
-                    "description": "Coach especializado en enseñanza para principiantes.",
-                    "level": "CM",
-                    "elo": 2150,
-                    "image": ""
-                }
-            ]
+            "authors": [10, 1]
         },
         {
             "curseID": 14,
@@ -1769,15 +1658,7 @@
                     "Desarrollarás una mayor precisión en la aplicación de tácticas para aprovechar oportunidades y evitar amenazas."
                 ]
             },
-            "authors": [
-                {
-                    "name": "Marcos Díaz",
-                    "description": "Jugador y entrenador con experiencia en entrenamiento de medio juego.",
-                    "level": "IM",
-                    "elo": 2430,
-                    "image": ""
-                }
-            ]
+            "authors": [3]
         },
         {
             "curseID": 15,
@@ -1846,15 +1727,7 @@
                     "Reducirás errores habituales durante el análisis, aumentando la confianza en tus decisiones sobre el tablero."
                 ]
             },
-            "authors": [
-                {
-                    "name": "Andrés Martínez",
-                    "description": "Gran Maestro y entrenador especializado en cálculo táctico.",
-                    "level": "GM",
-                    "elo": 2650,
-                    "image": ""
-                }
-            ]
+            "authors": [4]
         }
     ],
     "comments": [
@@ -2077,5 +1950,135 @@
         },
         { "id": 9, "idUser": 12, "text": "Excelente relación calidad-precio." },
         { "id": 10, "idUser": 7, "text": "Fácil de navegar desde el móvil." }
+    ],
+    "authors": [
+        {
+            "id": 1,
+            "name": "Laura Vega",
+            "description": "Gran Maestra con amplia experiencia en preparación de aperturas.",
+            "level": "GM",
+            "elo": 2550,
+            "image": "authors-1_640x640_.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Carlos Méndez",
+            "description": "Experto en finales y entrenador reconocido.",
+            "level": "IM",
+            "elo": 2400,
+            "image": "authors-2_640x640_.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Pablo Torres",
+            "description": "Gran Maestro con enfoque posicional. Entrenador de selecciones juveniles.",
+            "level": "GM",
+            "elo": 2560,
+            "image": "authors-3_640x640_.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Álvaro Rico",
+            "description": "Colaborador y especialista en resolución de estudios tácticos.",
+            "level": "FM",
+            "elo": 2322,
+            "image": "authors-4_640x697_.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Jorge Martínez",
+            "description": "Entrenador con amplia experiencia en enseñanza a principiantes.",
+            "level": "CM",
+            "elo": 2200,
+            "image": "authors-5_640x640_.jpg"
+        },
+        {
+            "id": 6,
+            "name": "Ana López",
+            "description": "Especialista en aperturas y jugadora activa en torneos nacionales.",
+            "level": "FM",
+            "elo": 2350,
+            "image": "authors-6_640x640_.jpg"
+        },
+        {
+            "id": 7,
+            "name": "Daniel Ruiz",
+            "description": "Jugador fuerte especializado en análisis de partidas de principiantes.",
+            "level": "FM",
+            "elo": 2305,
+            "image": "authors-7_640x640_.jpg"
+        },
+        {
+            "id": 8,
+            "name": "Andrés Martínez",
+            "description": "Gran Maestro y entrenador especializado en cálculo táctico.",
+            "level": "GM",
+            "elo": 2650,
+            "image": "authors-8_640x640_.jpg"
+        },
+        {
+            "id": 9,
+            "name": "Lucía Fernández",
+            "description": "Autora de varios libros de táctica y entrenadora de nivel nacional.",
+            "level": "IM",
+            "elo": 2420,
+            "image": "authors-9_640x603_.jpg"
+        },
+        {
+            "id": 10,
+            "name": "Rafael Ortega",
+            "description": "Especialista en tácticas con múltiples títulos internacionales.",
+            "level": "GM",
+            "elo": 2600,
+            "image": "authors-10_640x640_.jpg"
+        },
+        {
+            "id": 11,
+            "name": "Sofía Pérez",
+            "description": "Maestra Internacional experta en estrategia y planificación.",
+            "level": "IM",
+            "elo": 2450,
+            "image": "authors-11_640x425_.jpg"
+        },
+        {
+            "id": 12,
+            "name": "Laura Sánchez",
+            "description": "Psicóloga deportiva y Maestra Internacional femenina.",
+            "level": "WIM",
+            "elo": 2300,
+            "image": "authors-12_640x637_.jpg"
+        },
+        {
+            "id": 13,
+            "name": "Diego Torres",
+            "description": "Jugador y entrenador con amplia experiencia en torneos internacionales.",
+            "level": "FM",
+            "elo": 2370,
+            "image": "authors-13_640x640_.jpg"
+        },
+        {
+            "id": 14,
+            "name": "Patricia Ruiz",
+            "description": "Entrenadora y jugadora con especialización en estrategia dinámica.",
+            "level": "IM",
+            "elo": 2420,
+            "image": "authors-14_640x670_.jpg"
+        },
+        {
+            "id": 15,
+            "name": "Juan Ramírez",
+            "description": "Coach especializado en enseñanza para principiantes.",
+            "level": "CM",
+            "elo": 2150,
+            "image": "authors-15_640x640_.jpg"
+        },
+        {
+            "id": 16,
+            "name": "Marcos Díaz",
+            "description": "Jugador y entrenador con experiencia en entrenamiento de medio juego.",
+            "level": "IM",
+            "elo": 2430,
+            "image": "authors-16_640x640_.jpg"
+        }
     ]
 }

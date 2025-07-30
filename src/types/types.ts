@@ -49,18 +49,12 @@ export type InputType = "text" | "password" | "checkbox";
 export type ChessLevel = (typeof CHESS_LEVEL)[number];
 
 export type AuthorCurseData = {
+    id: number;
     name: string;
     description: string;
     level?: ChessLevel;
     elo?: number;
     image: string;
-};
-
-export type CourseData = {
-    detailDescription: string;
-    content: ContentCurseData;
-    toLearn?: ToLearnCurseData;
-    authors: AuthorCurseData[];
 };
 
 export type ContentCurseData = {
@@ -84,14 +78,31 @@ export type CourseImageUrls = {
 
 export type DefualtCourse = BaseCourse;
 
+export type CourseData = {
+    detailDescription: string;
+    content: ContentCurseData;
+    toLearn?: ToLearnCurseData;
+    authors: AuthorCurseData[];
+};
+
+export type CourseJSON = BaseCourse & {
+    price: number;
+    shortDescription: string;
+    detailDescription: string;
+    toLearn?: ToLearnCurseData;
+    sales?: number;
+    createdAt: string;
+    authors: number[];
+};
+
 export type Course = BaseCourse & {
     price: number;
     shortDescription: string;
     detailDescription: string;
-    authors: AuthorCurseData[];
     toLearn?: ToLearnCurseData;
     sales?: number;
     createdAt: string;
+    authors: AuthorCurseData[];
 };
 
 export type ObtainedCourse = {
@@ -216,9 +227,10 @@ export type Comments = {
 export type BBDD = {
     users: User[];
     defaultCourses: DefualtCourse[];
-    courses: Course[];
+    courses: CourseJSON[];
     comments: JsonComments[];
     opinions: JsonOpinion[];
+    authors: AuthorCurseData[];
 };
 
 export type Progress = {
