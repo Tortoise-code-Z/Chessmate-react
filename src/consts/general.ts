@@ -1,4 +1,5 @@
 export const CHESS_LEVEL = [
+    "Sin título",
     "CM",
     "FM",
     "IM",

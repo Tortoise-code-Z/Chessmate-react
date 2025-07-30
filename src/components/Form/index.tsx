@@ -1,5 +1,10 @@
 import { ReactNode } from "react";
-import { FieldValues, FormProvider, useForm } from "react-hook-form";
+import {
+    DefaultValues,
+    FieldValues,
+    FormProvider,
+    useForm,
+} from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
@@ -7,11 +12,18 @@ type Props<T extends FieldValues> = {
     children: ReactNode;
     onSubmit: (data: T) => void;
     schema: z.ZodType<T>;
+    defaultValues?: DefaultValues<T>;
 };
 
-function Form<T extends FieldValues>({ children, onSubmit, schema }: Props<T>) {
+function Form<T extends FieldValues>({
+    children,
+    onSubmit,
+    schema,
+    defaultValues,
+}: Props<T>) {
     const methods = useForm<T>({
         resolver: zodResolver(schema),
+        defaultValues,
     });
 
     const { handleSubmit } = methods;

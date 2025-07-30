@@ -1,6 +1,5 @@
-import { coerce, z } from "zod";
+import { z } from "zod";
 import { CHESS_LEVEL } from "../consts/general";
-import errorMap from "zod/locales/en.js";
 
 export const registerSchema = z
     .object({
@@ -47,9 +46,15 @@ export const registerSchema = z
             }),
         }),
     })
-    .refine((data) => data.password === data.repeatPassword, {
-        path: ["repeaPassword"],
-        message: "Las contraseñas no coinciden.",
-    });
+    .refine(
+        (data) => {
+            console.log("ejecutando");
+            return data.password === data.repeatPassword;
+        },
+        {
+            path: ["repeatPassword"],
+            message: "Las contraseñas no coinciden.",
+        }
+    );
 
 export type registerSchemaValues = z.infer<typeof registerSchema>;

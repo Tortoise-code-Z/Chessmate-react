@@ -10,6 +10,8 @@ import Button from "../../components/Button";
 import { NavLink } from "react-router-dom";
 import { LOGO_IMAGE } from "../../consts/images";
 import { paths } from "../../consts/paths";
+import ButtonGroupSelect from "../../components/ButtonGroupSelect";
+import { CHESS_LEVEL } from "../../consts/general";
 
 type Props = {};
 
@@ -26,10 +28,11 @@ function Register({}: Props) {
                 </figure>
             </NavLink>
             <Form<registerSchemaValues>
-                onSubmit={() => {
-                    alert("enviado");
-                }}
+                onSubmit={(data: registerSchemaValues) => console.log(data)}
                 schema={registerSchema}
+                defaultValues={{
+                    title: "Sin título",
+                }}
             >
                 <div>
                     <InputGroup<registerSchemaValues>
@@ -49,6 +52,11 @@ function Register({}: Props) {
                         name="elo"
                         placeholder="1500..."
                         errorMsg={true}
+                    />
+                    <ButtonGroupSelect
+                        label="Título"
+                        values={[...CHESS_LEVEL]}
+                        name="title"
                     />
                     <InputGroup<registerSchemaValues>
                         label="Contraseña"

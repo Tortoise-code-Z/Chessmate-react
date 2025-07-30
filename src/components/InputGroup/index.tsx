@@ -5,10 +5,11 @@ import Label from "../Label";
 import FieldError from "../FieldError";
 import { ReactElement } from "react";
 import { InputType } from "../../types/types";
+import { Path } from "react-hook-form";
 
 type Props<T extends FieldValues> = {
     label?: string;
-    name: Extract<keyof T, string>;
+    name: Path<T>;
     errorMsg?: boolean;
     placeholder?: string;
     children?: ReactElement<"button">;
