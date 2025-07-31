@@ -15,6 +15,7 @@ type Props<T extends FieldValues> = {
     children?: ReactElement<"button">;
     inputType?: InputType;
     labelDisplay?: "Row" | "Col";
+    labelReverse?: boolean;
 };
 
 function InputGroup<T extends FieldValues>({
@@ -25,6 +26,7 @@ function InputGroup<T extends FieldValues>({
     children,
     inputType,
     labelDisplay = "Col",
+    labelReverse = false,
 }: Props<T>) {
     const {
         formState: { errors },
@@ -58,10 +60,10 @@ function InputGroup<T extends FieldValues>({
     const withLabel = (
         <div
             className={[
-                labelDisplay === "Col" ? styles.labelCol : styles.labelRow,
+                styles[`label${labelDisplay}${labelReverse ? "Reverse" : ""}`],
             ].join(" ")}
         >
-            <Label text={label || ""} inputRef={name} />
+            <Label text={label || ""} inputRef={name} inputType={inputType} />
             {inputGroupContent}
         </div>
     );

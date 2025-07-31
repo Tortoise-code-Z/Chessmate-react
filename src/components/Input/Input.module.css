@@ -27,3 +27,19 @@ input:focus {
     outline: 2px solid rgb(201, 52, 52) !important;
     background-color: rgb(58, 15, 15);
 }
+
+input[type="checkbox"].inputError {
+    outline: none !important;
+}
+
+input[type="checkbox"]:focus {
+    outline: none !important;
+}
+
+input[type="checkbox"] {
+    flex: none;
+    padding: 0 !important;
+    width: 1.1rem;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+}

@@ -31,3 +31,11 @@ export const AUTHOR_DEFAULT_IMAGE = {
     height: getImageSize(AUTHOR_DEFAULT_IMAGE_URL_PATH, "height"),
     alt: "Default image",
 };
+
+export const SIGNIN_URL_PATH = "static-image-signin_1920x1280_.jpg";
+export const SIGNIN_IMAGE = {
+    image: getImage(SIGNIN_URL_PATH, ["static"]),
+    width: getImageSize(SIGNIN_URL_PATH, "width"),
+    height: getImageSize(SIGNIN_URL_PATH, "height"),
+    alt: "Registro",
+};

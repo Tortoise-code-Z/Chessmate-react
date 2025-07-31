@@ -45,6 +45,13 @@
     --max-width-page: 1920px;
 }
 
+.linkToLoginSigin {
+    text-decoration: underline;
+    color: rgb(var(--primary-color-500));
+    font-family: Roboto;
+    text-align: center;
+}
+
 ::-webkit-scrollbar {
     width: 8px;
     height: 12px;
@@ -209,7 +216,7 @@ a.button > svg {
 }
 
 .span-pr-color {
-    color: rgb(var(--primary-color-500));
+    color: rgb(var(--primary-color-500)) !important;
 }
 
 .span-compl-color {

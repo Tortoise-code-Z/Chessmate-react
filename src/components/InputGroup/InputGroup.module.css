@@ -20,3 +20,17 @@
     display: flex;
     gap: 10px;
 }
+
+.labelColRerverse {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+}
+
+.labelRowReverse {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
