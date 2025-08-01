@@ -7,14 +7,21 @@ import { JSON_URL } from "../../../consts/url";
 import LightComponent from "../../../components/LightComponent";
 import DataStateWrapper from "../../../components/DataStateWrapperProps";
 import CoursesDisplay from "../../../components/CoursesDisplay";
+import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 
 type Props = {};
 
 function AllCoursesSection({}: Props) {
     const [search, setSearch] = useState<string>("");
     const [filter, setFilter] = useState<Level | undefined>();
+    const { user } = useUserAuthStore();
 
-    const { data, isLoading, error } = useAllCourses(JSON_URL, search, filter);
+    const { data, isLoading, error } = useAllCourses(
+        JSON_URL,
+        search,
+        filter,
+        user?.userID
+    );
 
     return (
         <section className={[styles.allCoursesSection].join(" ")}>

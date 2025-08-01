@@ -134,7 +134,7 @@ article {
 
 h2 {
     font-size: 3rem;
-    color: rgb(var(--primary-color-050));
+    color: rgb(var(--primary-color-050)) !important;
 }
 
 button,

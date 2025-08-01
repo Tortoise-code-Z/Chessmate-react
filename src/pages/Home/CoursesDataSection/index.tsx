@@ -15,7 +15,7 @@ function CoursesDataSection({}: Props) {
                     Conviértete en todo un{" "}
                     <span className={["span-pr-color upperCase"].join(" ")}>
                         profesional
-                    </span>
+                    </span>{" "}
                     con
                 </span>{" "}
                 nuestros cursos

@@ -1,14 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import { Course } from "../../../types/types";
+import { CourseJSON } from "../../../types/types";
 import { getImage } from "../../../utils/images";
-import Button from "../../Button";
-import { HiMiniShoppingBag } from "react-icons/hi2";
 import { paths } from "../../../consts/paths";
 import styles from "./ItemCourseDisplay.module.css";
+import PurchaseAction from "../../PurchaseAction";
 
 type Props = {
     action?: boolean;
-    data: Course;
+    data: CourseJSON & { isObtained?: boolean };
     display?: "Row" | "Col";
 };
 
@@ -48,13 +47,15 @@ function ItemCourseDisplay({ data, action = true, display = "Col" }: Props) {
                 </div>
                 {action && (
                     <div className={[styles.actionsPrice].join(" ")}>
-                        <Button
+                        {/* <Button
                             propagation={false}
                             onClick={() => console.log("Comprando...")}
                         >
                             <HiMiniShoppingBag />
                             Comprar
-                        </Button>
+                        </Button> */}
+
+                        <PurchaseAction isObtained={data.isObtained} />
                         <p className={[styles.price].join(" ")}>
                             {data.price}$
                         </p>

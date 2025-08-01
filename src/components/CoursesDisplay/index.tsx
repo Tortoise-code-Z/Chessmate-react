@@ -1,10 +1,10 @@
-import { Course } from "../../types/types";
+import { CourseJSON } from "../../types/types";
 import ItemCourseDisplay from "./ItemCourseDisplay";
 import styles from "./CoursesDisplay.module.css";
 
 type Props = {
     action?: boolean;
-    courses: Course[] | null;
+    courses: (CourseJSON & { isObtained?: boolean })[] | null;
     display?: "Row" | "Col";
 };
 

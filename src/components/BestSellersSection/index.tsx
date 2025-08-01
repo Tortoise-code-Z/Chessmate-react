@@ -1,5 +1,6 @@
 import { JSON_URL } from "../../consts/url";
 import useBestSeller from "../../hooks/useBestSellers";
+import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import CoursesDisplay from "../CoursesDisplay";
 import DataStateWrapper from "../DataStateWrapperProps";
 import LightComponent from "../LightComponent";
@@ -22,7 +23,12 @@ function BestSellersSection({
     titleDisplay,
     classNames,
 }: Props) {
-    const { data, isLoading, error } = useBestSeller(JSON_URL, limit);
+    const { user } = useUserAuthStore();
+    const { data, isLoading, error } = useBestSeller(
+        JSON_URL,
+        limit,
+        user?.userID
+    );
 
     return (
         <section
