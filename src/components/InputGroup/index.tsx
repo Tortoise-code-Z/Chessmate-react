@@ -6,6 +6,7 @@ import FieldError from "../FieldError";
 import { ReactElement } from "react";
 import { InputType } from "../../types/types";
 import { Path } from "react-hook-form";
+import Textarea from "../Textarea";
 
 type Props<T extends FieldValues> = {
     label?: string;
@@ -16,6 +17,8 @@ type Props<T extends FieldValues> = {
     inputType?: InputType;
     labelDisplay?: "Row" | "Col";
     labelReverse?: boolean;
+    type?: "input" | "textarea";
+    disabled?: boolean;
 };
 
 function InputGroup<T extends FieldValues>({
@@ -27,32 +30,40 @@ function InputGroup<T extends FieldValues>({
     inputType,
     labelDisplay = "Col",
     labelReverse = false,
+    type = "input",
+    disabled = false,
 }: Props<T>) {
     const {
         formState: { errors },
     } = useFormContext<T>();
 
+    const inputComponent = (
+        <Input
+            type={inputType}
+            placeholder={placeholder}
+            name={name}
+            classNames={errors?.[name]?.message ? ["inputError"] : []}
+            disabled={disabled}
+        />
+    );
+
+    const textareaComponent = (
+        <Textarea
+            placeholder={placeholder}
+            name={name}
+            classNames={errors?.[name]?.message ? ["inputError"] : []}
+        />
+    );
+
     const inputGroupContent = (
         <>
             {children ? (
                 <div className={[styles.inpSearchContainer].join(" ")}>
-                    <Input
-                        type={inputType}
-                        placeholder={placeholder}
-                        name={name}
-                        classNames={
-                            errors?.[name]?.message ? ["inputError"] : []
-                        }
-                    />
+                    {type === "input" ? inputComponent : textareaComponent}
                     {children}
                 </div>
             ) : (
-                <Input
-                    type={inputType}
-                    placeholder={placeholder}
-                    name={name}
-                    classNames={errors?.[name]?.message ? ["inputError"] : []}
-                />
+                <>{type === "input" ? inputComponent : textareaComponent}</>
             )}
         </>
     );

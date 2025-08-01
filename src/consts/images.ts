@@ -39,3 +39,11 @@ export const SIGNIN_IMAGE = {
     height: getImageSize(SIGNIN_URL_PATH, "height"),
     alt: "Registro",
 };
+
+export const CONTACT_URL_PATH = "static-image-contact_1920x2687_.jpg";
+export const CONTACT_IMAGE = {
+    image: getImage(CONTACT_URL_PATH, ["static"]),
+    width: getImageSize(CONTACT_URL_PATH, "width"),
+    height: getImageSize(CONTACT_URL_PATH, "height"),
+    alt: "Registro",
+};

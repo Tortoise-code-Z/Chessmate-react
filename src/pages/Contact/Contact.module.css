@@ -1,0 +1,77 @@
+.contact {
+    padding: 0 !important;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.imageContact {
+    width: 50%;
+    background-image: url("../../assets/images/static/static-image-contact_1920x2687_.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding-top: var(--navbar-height);
+    padding-left: var(--padding-lateral);
+    padding-right: var(--padding-lateral);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.imageContact > * {
+    position: relative;
+}
+
+.imageContact::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(var(--bcc-color), 0.6);
+}
+
+h2 {
+    color: white;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    font-size: 2.5rem;
+    font-family: Roboto-Light;
+}
+
+h2 span {
+    font-size: 4rem;
+    font-family: Roboto-medium;
+}
+
+.imageContact p {
+    font-family: Roboto-Light-italic;
+    font-size: 1.3rem;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: var(--navbar-height) var(--padding-lateral);
+    padding-bottom: var(--padding-lateral);
+    width: 50%;
+}
+
+.contact form > div:first-child {
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+}
+
+.contact form button {
+    width: fit-content;
+}
