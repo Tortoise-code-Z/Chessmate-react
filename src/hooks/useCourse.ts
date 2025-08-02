@@ -1,9 +1,21 @@
 import { useQuery } from "@tanstack/react-query";
-import { AuthorCurseData, BBDD, Course, CourseJSON } from "../types/types";
+import {
+    AuthorCurseData,
+    BBDD,
+    Course,
+    CourseJSON,
+    IsObtainedCourse,
+} from "../types/types";
 import axios from "axios";
 
-export default function useCourse(url: string, courseID: number) {
-    const queryFunction: () => Promise<Course> = async () => {
+export default function useCourse(
+    url: string,
+    courseID: number,
+    userID?: number
+) {
+    const queryFunction: () => Promise<
+        Course & IsObtainedCourse
+    > = async () => {
         const response = await axios.get<BBDD>(url);
 
         const course =
@@ -16,16 +28,21 @@ export default function useCourse(url: string, courseID: number) {
                 ({} as AuthorCurseData)
         );
 
-        const { authors, ...rest } = course;
+        const userCourses = response.data.users.find(
+            (u) => u.userID === userID
+        )?.courses;
 
         return {
-            ...rest,
+            ...course,
             authors: [...authorsData],
+            isObtained: userCourses?.some(
+                (uc) => uc.courseId === course.curseID
+            ),
         };
     };
 
     return useQuery({
-        queryKey: ["useCourse", courseID],
+        queryKey: ["useCourse", courseID, userID],
         queryFn: queryFunction,
     });
 }

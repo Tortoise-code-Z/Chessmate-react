@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { BBDD, Course } from "../types/types";
+import { BBDD, CourseJSON } from "../types/types";
 import axios from "axios";
 
 export default function useUnpurchasedCourses(
@@ -7,7 +7,7 @@ export default function useUnpurchasedCourses(
     limit: number,
     userID?: number
 ) {
-    const queryFunction: () => Promise<Course[]> = async () => {
+    const queryFunction: () => Promise<CourseJSON[]> = async () => {
         const response = await axios.get<BBDD>(url);
 
         const courses = response.data.courses.sort(
@@ -39,7 +39,7 @@ export default function useUnpurchasedCourses(
     };
 
     return useQuery({
-        queryKey: ["toBuyCourses"],
+        queryKey: ["toBuyCourses", userID],
         queryFn: queryFunction,
     });
 }

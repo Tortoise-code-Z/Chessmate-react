@@ -1,34 +1,38 @@
 import { useQuery } from "@tanstack/react-query";
-import { BBDD, CourseJSON, Level, ObtainedCourse } from "../types/types";
+import {
+    BBDD,
+    CourseJSON,
+    FilterOptions,
+    IsObtainedCourse,
+} from "../types/types";
 import axios from "axios";
 
 export default function useAllCourses(
     url: string,
     search: string,
-    filter: Level | undefined,
+    filter: FilterOptions | undefined,
     userID?: number
 ) {
     const queryFunction: () => Promise<
-        (CourseJSON & { isObtained?: boolean })[]
+        (CourseJSON & IsObtainedCourse)[]
     > = async () => {
         const response = await axios.get<BBDD>(url);
 
+        const userCourses = response.data.users.find(
+            (u) => u.userID === userID
+        )?.courses;
+
         if (!search && !filter) {
-            const userCourses =
-                response.data.users.find((u) => u.userID === userID)?.courses ||
-                ([] as ObtainedCourse[]);
-            return response.data.courses.map((c) => {
-                return {
-                    ...c,
-                    isObtained: userCourses.some(
-                        (uc) => uc.courseId === c.curseID
-                    ),
-                };
-            });
+            return response.data.courses.map((c) => ({
+                ...c,
+                isObtained: userCourses?.some(
+                    (uc) => uc.courseId === c.curseID
+                ),
+            }));
         }
 
-        if (search && !filter)
-            return response.data.courses.filter(
+        if (search && !filter) {
+            const searchedCourses = response.data.courses.filter(
                 (c) =>
                     c.title.toLowerCase().includes(search.toLowerCase()) ||
                     c.shortDescription
@@ -37,10 +41,35 @@ export default function useAllCourses(
                     c.level.toLowerCase().includes(search.toLowerCase())
             );
 
-        if (filter && !search)
-            return response.data.courses.filter((c) => c.level === filter);
+            return searchedCourses.map((sc) => ({
+                ...sc,
+                isObtained: userCourses?.some(
+                    (uc) => uc.courseId === sc.curseID
+                ),
+            }));
+        }
 
-        return [] as (CourseJSON & { isObtained?: boolean })[];
+        if (filter && !search) {
+            if (filter === "Todos")
+                return response.data.courses.map((c) => ({
+                    ...c,
+                    isObtained: userCourses?.some(
+                        (uc) => uc.courseId === c.curseID
+                    ),
+                }));
+            const filteredCourses = response.data.courses.filter(
+                (c) => c.level === filter
+            );
+
+            return filteredCourses.map((fc) => ({
+                ...fc,
+                isObtained: userCourses?.some(
+                    (uc) => uc.courseId === fc.curseID
+                ),
+            }));
+        }
+
+        return [] as (CourseJSON & IsObtainedCourse)[];
     };
 
     return useQuery({

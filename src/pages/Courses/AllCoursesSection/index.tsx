@@ -1,6 +1,6 @@
 import { useState } from "react";
 import SearchBar from "./SearchBar";
-import { Level } from "../../../types/types";
+import { FilterOptions, Level } from "../../../types/types";
 import useAllCourses from "../../../hooks/useAllCourses";
 import styles from "./AllCoursesSection.module.css";
 import { JSON_URL } from "../../../consts/url";
@@ -13,7 +13,7 @@ type Props = {};
 
 function AllCoursesSection({}: Props) {
     const [search, setSearch] = useState<string>("");
-    const [filter, setFilter] = useState<Level | undefined>();
+    const [filter, setFilter] = useState<FilterOptions | undefined>();
     const { user } = useUserAuthStore();
 
     const { data, isLoading, error } = useAllCourses(

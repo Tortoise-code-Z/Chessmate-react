@@ -1,11 +1,10 @@
-import { HiMiniShoppingBag } from "react-icons/hi2";
-import Button from "../../../../components/Button";
-import { Course } from "../../../../types/types";
+import { Course, IsObtainedCourse } from "../../../../types/types";
 import { getImage, getImageSize } from "../../../../utils/images";
 import styles from "./GeneralCourseData.module.css";
+import PurchaseAction from "../../../../components/PurchaseAction";
 
 type Props = {
-    data: Course;
+    data: Course & IsObtainedCourse;
 };
 
 function GeneralCourseData({ data }: Props) {
@@ -31,10 +30,7 @@ function GeneralCourseData({ data }: Props) {
                     </span>
                     <p className={[styles.price].join(" ")}>{data.price} $</p>
                 </div>
-                <Button>
-                    <HiMiniShoppingBag />
-                    Comprar
-                </Button>
+                <PurchaseAction isObtained={data.isObtained} />
             </div>
         </div>
     );

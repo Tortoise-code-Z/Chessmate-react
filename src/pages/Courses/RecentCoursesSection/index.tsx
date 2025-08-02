@@ -3,13 +3,15 @@ import DataStateWrapper from "../../../components/DataStateWrapperProps";
 import LightComponent from "../../../components/LightComponent";
 import { JSON_URL } from "../../../consts/url";
 import useRecentCourses from "../../../hooks/useRecentCourses";
-import { Course } from "../../../types/types";
+import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
+import { CourseJSON } from "../../../types/types";
 import styles from "./RecentCoursesSection.module.css";
 
 type Props = {};
 
 function RecentCoursesSection({}: Props) {
-    const { data, isLoading, error } = useRecentCourses(JSON_URL);
+    const { user } = useUserAuthStore();
+    const { data, isLoading, error } = useRecentCourses(JSON_URL, user?.userID);
 
     return (
         <section className={[styles.recentCoursesSection].join(" ")}>
@@ -23,7 +25,7 @@ function RecentCoursesSection({}: Props) {
             </h2>
             <DataStateWrapper isLoading={isLoading} error={error}>
                 <CoursesDisplay
-                    courses={data ?? ([] as Course[])}
+                    courses={data ?? ([] as CourseJSON[])}
                     display="Row"
                 />
             </DataStateWrapper>

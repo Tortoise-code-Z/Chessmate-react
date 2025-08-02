@@ -8,6 +8,8 @@ export type BaseUser = {
     title: ChessLevel | null;
 };
 
+export type IsObtainedCourse = { isObtained?: boolean };
+
 export type User = BaseUser & {
     password: string;
     defaultCourses: ObtainedCourse[];
@@ -26,6 +28,7 @@ export type Level =
     | "Avanzado"
     | "Experto"
     | "Master";
+export type FilterOptions = Level | "Todos";
 
 export type Theme = {
     images: string[];

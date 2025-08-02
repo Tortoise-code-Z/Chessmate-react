@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import styles from "./SearchBar.module.css";
-import { Level } from "../../../../types/types";
+import { FilterOptions } from "../../../../types/types";
 import {
     searchSchema,
     searchSchemaValues,
@@ -12,11 +12,14 @@ import { FaSearch } from "react-icons/fa";
 
 type Props = {
     setSearch: Dispatch<SetStateAction<string>>;
-    setFilter: Dispatch<SetStateAction<Level | undefined>>;
+    setFilter: Dispatch<SetStateAction<FilterOptions | undefined>>;
 };
 
 function SearchBar({ setSearch, setFilter }: Props) {
-    const filters: Level[] = [
+    // Refactorizar creando constante con los filtros y tipados en base a estos
+
+    const filters: FilterOptions[] = [
+        "Todos",
         "Principiante",
         "Intermedio",
         "Avanzado",
@@ -29,7 +32,7 @@ function SearchBar({ setSearch, setFilter }: Props) {
         setSearch(data.search);
     };
 
-    const handleClick = (value: Level) => {
+    const handleClick = (value: FilterOptions) => {
         setSearch("");
         setFilter(value);
     };

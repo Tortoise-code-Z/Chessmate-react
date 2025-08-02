@@ -1,0 +1,15 @@
+.obtainedTag {
+    background-color: green;
+    font-family: Roboto-medium;
+    display: flex;
+    flex-direction: row !important;
+    font-size: var(--button-font-size);
+    border-radius: var(--button-border-radius);
+    padding: var(--button-py) var(--button-px);
+    gap: 10px;
+    width: fit-content;
+}
+
+.obtainedTag > svg {
+    font-size: 1.3em;
+}

@@ -1,5 +1,6 @@
 import { HiMiniShoppingBag } from "react-icons/hi2";
 import Button from "../Button";
+import ObtainedTag from "../ObtainedTag";
 
 type Props = {
     isObtained?: boolean;
@@ -9,7 +10,7 @@ function PurchaseAction({ isObtained = false }: Props) {
     return (
         <>
             {isObtained ? (
-                <p>Obtenido</p>
+                <ObtainedTag />
             ) : (
                 <Button
                     propagation={false}

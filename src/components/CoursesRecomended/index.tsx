@@ -3,7 +3,7 @@ import DataStateWrapper from "../DataStateWrapperProps";
 import LightComponent from "../LightComponent";
 import { JSON_URL } from "../../consts/url";
 import useUnpurchasedCourses from "../../hooks/useUnpurchasedCourses";
-import { Course } from "../../types/types";
+import { CourseJSON } from "../../types/types";
 import styles from "./CoursesRecomended.module.css";
 import { ReactNode } from "react";
 
@@ -53,7 +53,7 @@ function CoursesRecomended({
 
             <DataStateWrapper isLoading={isLoading} error={error}>
                 <CoursesDisplay
-                    courses={data ?? ([] as Course[])}
+                    courses={data ?? ([] as CourseJSON[])}
                     display="Col"
                 />
             </DataStateWrapper>

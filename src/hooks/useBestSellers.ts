@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { BBDD, CourseJSON } from "../types/types";
+import { BBDD, CourseJSON, IsObtainedCourse } from "../types/types";
 import axios from "axios";
 
 export default function useBestSeller(
@@ -8,7 +8,7 @@ export default function useBestSeller(
     userID?: number
 ) {
     const queryFunction: () => Promise<
-        (CourseJSON & { isObtained?: boolean })[]
+        (CourseJSON & IsObtainedCourse)[]
     > = async () => {
         const response = await axios.get<BBDD>(url);
         const courses = response.data.courses;
@@ -25,7 +25,7 @@ export default function useBestSeller(
     };
 
     return useQuery({
-        queryKey: ["bestSellers"],
+        queryKey: ["bestSellers", userID],
         queryFn: queryFunction,
     });
 }

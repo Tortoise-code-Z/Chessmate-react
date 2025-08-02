@@ -45,7 +45,7 @@
                 { "courseId": 7, "progress": 75 }
             ],
             "courses": [
-                { "courseId": 1, "progress": 65 },
+                { "courseId": 11, "progress": 65 },
                 { "courseId": 2, "progress": 70 },
                 { "courseId": 3, "progress": 50 },
                 { "courseId": 4, "progress": 40 },

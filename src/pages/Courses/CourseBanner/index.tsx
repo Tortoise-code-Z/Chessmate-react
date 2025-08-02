@@ -1,4 +1,3 @@
-import { HiMiniShoppingBag } from "react-icons/hi2";
 import styles from "./CourseBanner.module.css";
 import { useNavigate } from "react-router-dom";
 import useBannerCourse from "../../../hooks/useBannerCourse";
@@ -6,13 +5,15 @@ import { JSON_URL } from "../../../consts/url";
 import DataStateWrapper from "../../../components/DataStateWrapperProps";
 import { getImage, getImageSize } from "../../../utils/images";
 import { paths } from "../../../consts/paths";
-import Button from "../../../components/Button";
+import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
+import PurchaseAction from "../../../components/PurchaseAction";
 
 type Props = {};
 
 function CourseBanner({}: Props) {
+    const { user } = useUserAuthStore();
     const navigate = useNavigate();
-    const { data, isLoading, error } = useBannerCourse(JSON_URL);
+    const { data, isLoading, error } = useBannerCourse(JSON_URL, user?.userID);
 
     return (
         <section className={[styles.courseBanner].join(" ")}>
@@ -75,13 +76,15 @@ function CourseBanner({}: Props) {
                                         {data.level}
                                     </span>
                                 </div>
-                                <Button
+
+                                <PurchaseAction isObtained={data.isObtained} />
+                                {/* <Button
                                     propagation={false}
                                     onClick={() => console.log("Comprando...")}
                                 >
                                     <HiMiniShoppingBag />
                                     Comprar
-                                </Button>
+                                </Button> */}
                             </div>
                         </div>
                     </>

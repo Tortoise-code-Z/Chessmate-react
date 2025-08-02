@@ -10,14 +10,19 @@ import { JSON_URL } from "../../../consts/url";
 import DataStateWrapper from "../../../components/DataStateWrapperProps";
 import { Course } from "../../../types/types";
 import LightComponent from "../../../components/LightComponent";
+import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 
 type Props = {};
 
 function CourseDataSection({}: Props) {
-    // const { user } = useUserAuthStore();
+    const { user } = useUserAuthStore();
     const params = useParams();
 
-    const { data, isLoading, error } = useCourse(JSON_URL, Number(params.id));
+    const { data, isLoading, error } = useCourse(
+        JSON_URL,
+        Number(params.id),
+        user?.userID
+    );
 
     return (
         <section className={[styles.courseDataSection].join(" ")}>
