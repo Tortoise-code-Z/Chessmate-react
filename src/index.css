@@ -151,12 +151,16 @@ a.button {
     transition: 0.3s all ease;
     color: white;
     font-family: Roboto-medium;
+    width: fit-content;
+    height: fit-content;
 }
 
 .size-140 {
     font-size: 1.4em;
 }
-
+.size-120 {
+    font-size: 1.2em;
+}
 .size-110 {
     font-size: 1.1em;
 }
@@ -173,8 +177,16 @@ a.button {
     font-family: Roboto;
 }
 
+.text-light-italic {
+    font-family: Roboto-Light-italic;
+}
+
 .text-medium {
     font-family: Roboto-medium;
+}
+
+.text-bold-italic {
+    font-family: Roboto-bold-italic;
 }
 
 button > svg,
@@ -221,6 +233,10 @@ a.button > svg {
 
 .span-compl-color {
     color: rgb(var(--complementary-color-500));
+}
+
+.span-terc-color {
+    color: rgb(var(--neutral-color-500));
 }
 
 .upperCase {
