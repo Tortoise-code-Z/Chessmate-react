@@ -1,6 +1,6 @@
 import { useState } from "react";
 import SearchBar from "./SearchBar";
-import { FilterOptions, Level } from "../../../types/types";
+import { FilterOptions } from "../../../types/types";
 import useAllCourses from "../../../hooks/useAllCourses";
 import styles from "./AllCoursesSection.module.css";
 import { JSON_URL } from "../../../consts/url";
@@ -33,7 +33,11 @@ function AllCoursesSection({}: Props) {
                 los cursos
             </h2>
 
-            <SearchBar setSearch={setSearch} setFilter={setFilter} />
+            <SearchBar
+                setSearch={setSearch}
+                setFilter={setFilter}
+                filter={filter}
+            />
 
             <DataStateWrapper isLoading={isLoading} error={error}>
                 <CoursesDisplay

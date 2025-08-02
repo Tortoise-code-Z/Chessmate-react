@@ -13,9 +13,10 @@ import { FaSearch } from "react-icons/fa";
 type Props = {
     setSearch: Dispatch<SetStateAction<string>>;
     setFilter: Dispatch<SetStateAction<FilterOptions | undefined>>;
+    filter: FilterOptions | undefined;
 };
 
-function SearchBar({ setSearch, setFilter }: Props) {
+function SearchBar({ setSearch, setFilter, filter }: Props) {
     // Refactorizar creando constante con los filtros y tipados en base a estos
 
     const filters: FilterOptions[] = [
@@ -60,7 +61,11 @@ function SearchBar({ setSearch, setFilter }: Props) {
                     <Button
                         onClick={() => handleClick(f)}
                         key={f}
-                        variant="Terciary"
+                        variant={
+                            (!filter && f === "Todos") || filter === f
+                                ? "Primary"
+                                : "Terciary"
+                        }
                     >
                         {f}
                     </Button>
