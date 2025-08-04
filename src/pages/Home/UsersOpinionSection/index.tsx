@@ -1,7 +1,7 @@
 import DataStateWrapper from "../../../components/DataStateWrapperProps";
 import EmblaCarousel from "../../../components/EmblaCarousel";
 import LightComponent from "../../../components/LightComponent";
-import { JSON_URL } from "../../../consts/url";
+import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import useUsersOpinions from "../../../hooks/useUsersOpinions";
 import { Opinion } from "../../../types/types";
 import OpinionsContainer from "./OpinionsContainer";
@@ -10,7 +10,7 @@ import styles from "./UsersOpinionSection.module.css";
 type Props = {};
 
 function UsersOpinionSection({}: Props) {
-    const { data, isLoading, error } = useUsersOpinions(JSON_URL);
+    const { data, isLoading, error } = useUsersOpinions(DATABASE_KEY);
 
     return (
         <section className={[styles.usersOpinionSection].join(" ")}>
