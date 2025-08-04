@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import styles from "./CourseCommentSection.module.css";
 import useCourseComments from "../../../hooks/useCourseComments";
-import { JSON_URL } from "../../../consts/url";
 import DataStateWrapper from "../../../components/DataStateWrapperProps";
 import { AVATAR_DEFAULT_IMAGE } from "../../../consts/images";
 import Form from "../../../components/Form";
@@ -12,6 +11,7 @@ import {
     commentsSchemaValues,
 } from "../../../Schemas/commentsSchema";
 import Button from "../../../components/Button";
+import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 
 type Props = {};
 
@@ -22,7 +22,7 @@ function CourseCommentSection({}: Props) {
         data: comments,
         isLoading,
         error,
-    } = useCourseComments(JSON_URL, Number(params.id));
+    } = useCourseComments(DATABASE_KEY, Number(params.id));
 
     const handleSubmit = (data: commentsSchemaValues) => {
         console.log(data.comment);

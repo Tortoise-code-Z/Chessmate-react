@@ -1,27 +1,35 @@
 import { useQuery } from "@tanstack/react-query";
 import { BBDD, Comments } from "../types/types";
-import axios from "axios";
 
-export default function useCourseComments(url: string, courseID: number) {
+export default function useCourseComments(key: string, courseID: number) {
     const queryFunction: () => Promise<Comments[]> = async () => {
-        const response = await axios.get<BBDD>(url);
+        try {
+            const getData = localStorage.getItem(key);
+            if (!getData)
+                throw new Error("Ha habido un error al recuperar los datos...");
 
-        const comments = response.data.comments.map((c) => {
-            const userComment = response.data.users.find(
-                (u) => u.userID === c.idUser
-            );
+            const data: BBDD = JSON.parse(getData);
 
-            const user = {
-                userID: userComment?.userID as number,
-                username: userComment?.username as string,
-            };
+            const comments = data.comments.map((c) => {
+                const userComment = data.users.find(
+                    (u) => u.userID === c.idUser
+                );
 
-            const { idUser, ...rest } = c;
+                const user = {
+                    userID: userComment?.userID as number,
+                    username: userComment?.username as string,
+                };
 
-            return { ...rest, user };
-        });
+                const { idUser, ...rest } = c;
 
-        return comments.filter((c) => c.idCourse === courseID);
+                return { ...rest, user };
+            });
+
+            return comments.filter((c) => c.idCourse === courseID);
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
     };
 
     return useQuery({
