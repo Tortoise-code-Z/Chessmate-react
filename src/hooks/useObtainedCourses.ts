@@ -1,34 +1,51 @@
 import { useQuery } from "@tanstack/react-query";
-import { BBDD, CourseJSON, Progress } from "../types/types";
-import axios from "axios";
+import {
+    BBDD,
+    CourseJSON,
+    ObtainedCourse,
+    Progress,
+    User,
+} from "../types/types";
 
 export default function useObtainedCourses(
-    url: string,
+    key: string,
     userId: number,
     limit: number
 ) {
     const queryFunction: () => Promise<
         (CourseJSON & Progress)[]
     > = async () => {
-        const response = await axios.get<BBDD>(url);
-        const user = response.data.users.find((u) => u.userID === userId);
+        try {
+            const getData = localStorage.getItem(key);
+            if (!getData)
+                throw new Error("Ha habido un error al recuperar los datos...");
 
-        const courses = response.data.courses;
-        const userCourses = user?.courses;
+            const data: BBDD = JSON.parse(getData);
 
-        const mappingUserCourses = userCourses?.map((uc) => {
-            const id = uc.courseId;
-            const course = courses.find((c) => c.curseID === id);
+            const user =
+                data.users.find((u) => u.userID === userId) || ({} as User);
 
-            const { courseId, ...rest } = uc;
+            const courses = data.courses;
+            const userCourses = user?.courses || ([] as ObtainedCourse[]);
 
-            return { ...rest, ...course };
-        });
+            const mappingUserCourses = userCourses.map((uc) => {
+                const id = uc.courseId;
+                const course =
+                    courses.find((c) => c.curseID === id) || ({} as CourseJSON);
 
-        return mappingUserCourses?.slice(
-            0,
-            limit ?? mappingUserCourses.length
-        ) as (CourseJSON & Progress)[];
+                const { courseId, ...rest } = uc;
+
+                return { ...rest, ...course };
+            });
+
+            return mappingUserCourses.slice(
+                0,
+                limit ?? mappingUserCourses.length
+            );
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
     };
 
     return useQuery({

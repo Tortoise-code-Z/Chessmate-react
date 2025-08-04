@@ -1,4 +1,4 @@
-import { JSON_URL } from "../../../consts/url";
+import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import useObtainedCourses from "../../../hooks/useObtainedCourses";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import DataStateWrapper from "../../DataStateWrapperProps";
@@ -14,7 +14,7 @@ function UserObtainedCourses({ classID, limit }: Props) {
     const { user } = useUserAuthStore();
 
     const { data, isLoading, error } = useObtainedCourses(
-        JSON_URL,
+        DATABASE_KEY,
         user?.userID as number,
         limit as number
     );

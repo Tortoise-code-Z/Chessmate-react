@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { paths } from "../../../../consts/paths";
-import { Course, Progress } from "../../../../types/types";
+import { CourseJSON, Progress } from "../../../../types/types";
 import { getImage, getImageSize } from "../../../../utils/images";
 import styles from "./UserObtainedCoursesItem.module.css";
 import { FaInfoCircle } from "react-icons/fa";
 
 type Props = {
-    data: Course & Progress;
+    data: CourseJSON & Progress;
 };
 
 function UserObtainedCoursesItem({ data }: Props) {
