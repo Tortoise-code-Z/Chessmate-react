@@ -1,5 +1,4 @@
 import { FaExclamationTriangle } from "react-icons/fa";
-import { JSON_URL } from "../../../../consts/url";
 import { useUserAuthStore } from "../../../../hooks/UseUserAuthStore";
 import useUserDefaultCourses from "../../../../hooks/useUserDefaultCourses";
 import { DefualtCourse } from "../../../../types/types";
@@ -8,6 +7,7 @@ import DataStateWrapper from "../../../DataStateWrapperProps";
 import styles from "./UserDefaultCourseItem.module.css";
 import { Link } from "react-router-dom";
 import { paths } from "../../../../consts/paths";
+import { DATABASE_KEY } from "../../../../consts/dataBaseKey";
 
 type Props = {
     data: DefualtCourse;
@@ -20,7 +20,7 @@ function UserDefaultCourseItem({ data }: Props) {
         data: defaultCourses,
         isLoading,
         error,
-    } = useUserDefaultCourses(JSON_URL, user?.userID as number);
+    } = useUserDefaultCourses(DATABASE_KEY, user?.userID as number);
 
     const image = getImage(data.imageUrl.general, ["defaultCourses"]);
 

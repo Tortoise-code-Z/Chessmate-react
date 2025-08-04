@@ -1,12 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
 import { BBDD, ObtainedCourse } from "../types/types";
-import axios from "axios";
 
-export default function useUserDataCourses(url: string, idUser: number) {
+export default function useUserDataCourses(key: string, idUser: number) {
     const queryFunction: () => Promise<ObtainedCourse[]> = async () => {
-        const response = await axios.get<BBDD>(url);
-        const user = response.data.users.find((u) => u.userID === idUser);
-        return user?.defaultCourses ?? ([] as ObtainedCourse[]);
+        try {
+            const getData = localStorage.getItem(key);
+            if (!getData)
+                throw new Error("Ha habido un error al recuperar los datos...");
+
+            const data: BBDD = JSON.parse(getData);
+            const user = data.users.find((u) => u.userID === idUser);
+            return user?.defaultCourses ?? ([] as ObtainedCourse[]);
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
     };
 
     return useQuery({
