@@ -5,40 +5,49 @@ import {
     Course,
     CourseJSON,
     IsObtainedCourse,
+    ObtainedCourse,
 } from "../types/types";
-import axios from "axios";
 
 export default function useCourse(
-    url: string,
+    key: string,
     courseID: number,
     userID?: number
 ) {
     const queryFunction: () => Promise<
         Course & IsObtainedCourse
     > = async () => {
-        const response = await axios.get<BBDD>(url);
+        try {
+            const getData = localStorage.getItem(key);
+            if (!getData)
+                throw new Error("Ha habido un error al recuperar los datos...");
 
-        const course =
-            response.data.courses.find((c) => c.curseID === courseID) ||
-            ({} as CourseJSON);
+            const data: BBDD = JSON.parse(getData);
 
-        const authorsData = course.authors.map(
-            (c) =>
-                response.data.authors.find((a) => a.id === c) ||
-                ({} as AuthorCurseData)
-        );
+            const course =
+                data.courses.find((c) => c.curseID === courseID) ||
+                ({} as CourseJSON);
 
-        const userCourses = response.data.users.find(
-            (u) => u.userID === userID
-        )?.courses;
+            const authorsData = course.authors.map(
+                (c) =>
+                    data.authors.find((a) => a.id === c) ||
+                    ({} as AuthorCurseData)
+            );
 
-        return {
-            ...course,
-            authors: [...authorsData],
-            isObtained: userCourses?.some(
-                (uc) => uc.courseId === course.curseID
-            ),
-        };
+            const userCourses =
+                data.users.find((u) => u.userID === userID)?.courses ||
+                ([] as ObtainedCourse[]);
+
+            return {
+                ...course,
+                authors: [...authorsData],
+                isObtained: userCourses?.some(
+                    (uc) => uc.courseId === course.curseID
+                ),
+            };
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
     };
 
     return useQuery({

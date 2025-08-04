@@ -1,16 +1,15 @@
 import { useParams } from "react-router-dom";
-// import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import Authors from "./Authors";
 import styles from "./CourseDataSection.module.css";
 import CourseDescription from "./CourseDescription";
 import DetailsCourse from "./DetailsCourse";
 import GeneralCourseData from "./GeneralCourseData";
 import useCourse from "../../../hooks/useCourse";
-import { JSON_URL } from "../../../consts/url";
 import DataStateWrapper from "../../../components/DataStateWrapperProps";
 import { Course } from "../../../types/types";
 import LightComponent from "../../../components/LightComponent";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
+import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 
 type Props = {};
 
@@ -19,7 +18,7 @@ function CourseDataSection({}: Props) {
     const params = useParams();
 
     const { data, isLoading, error } = useCourse(
-        JSON_URL,
+        DATABASE_KEY,
         Number(params.id),
         user?.userID
     );
