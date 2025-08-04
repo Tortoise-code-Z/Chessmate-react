@@ -1,19 +1,22 @@
 import styles from "./CourseBanner.module.css";
 import { useNavigate } from "react-router-dom";
 import useBannerCourse from "../../../hooks/useBannerCourse";
-import { JSON_URL } from "../../../consts/url";
 import DataStateWrapper from "../../../components/DataStateWrapperProps";
 import { getImage, getImageSize } from "../../../utils/images";
 import { paths } from "../../../consts/paths";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import PurchaseAction from "../../../components/PurchaseAction";
+import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 
 type Props = {};
 
 function CourseBanner({}: Props) {
     const { user } = useUserAuthStore();
     const navigate = useNavigate();
-    const { data, isLoading, error } = useBannerCourse(JSON_URL, user?.userID);
+    const { data, isLoading, error } = useBannerCourse(
+        DATABASE_KEY,
+        user?.userID
+    );
 
     return (
         <section className={[styles.courseBanner].join(" ")}>

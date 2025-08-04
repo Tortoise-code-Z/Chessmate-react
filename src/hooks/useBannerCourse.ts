@@ -1,31 +1,48 @@
 import { useQuery } from "@tanstack/react-query";
-import { BBDD, CourseJSON, IsObtainedCourse } from "../types/types";
-import axios from "axios";
+import {
+    BBDD,
+    CourseJSON,
+    IsObtainedCourse,
+    ObtainedCourse,
+} from "../types/types";
 
-export default function useBannerCourse(url: string, userID?: number) {
+export default function useBannerCourse(key: string, userID?: number) {
     const queryFunction: () => Promise<
         CourseJSON & IsObtainedCourse
     > = async () => {
-        const response = await axios.get<BBDD>(url);
-        const courses = response.data.courses;
-        const filteredCourses = courses
-            .sort((a, b) => (b.sales as number) - (a.sales as number))
-            .slice(0, 6);
+        try {
+            const getData = localStorage.getItem(key);
+            if (!getData)
+                throw new Error("Ha habido un error al recuperar los datos...");
 
-        const userCourses = response.data.users.find(
-            (u) => u.userID === userID
-        )?.courses;
+            const data: BBDD = JSON.parse(getData);
 
-        const randomIndex = Math.floor(Math.random() * filteredCourses.length);
+            const courses = data.courses;
 
-        const bannerCourse = filteredCourses[randomIndex];
+            const filteredCourses = courses
+                .sort((a, b) => (b.sales as number) - (a.sales as number))
+                .slice(0, 6);
 
-        return {
-            ...bannerCourse,
-            isObtained: userCourses?.some(
-                (uc) => uc.courseId === bannerCourse.curseID
-            ),
-        };
+            const userCourses =
+                data.users.find((u) => u.userID === userID)?.courses ||
+                ([] as ObtainedCourse[]);
+
+            const randomIndex = Math.floor(
+                Math.random() * filteredCourses.length
+            );
+
+            const bannerCourse = filteredCourses[randomIndex];
+
+            return {
+                ...bannerCourse,
+                isObtained: userCourses.some(
+                    (uc) => uc.courseId === bannerCourse.curseID
+                ),
+            };
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
     };
 
     return useQuery({
