@@ -2,7 +2,7 @@ import Button from "../../components/Button";
 import DataStateWrapper from "../../components/DataStateWrapperProps";
 import Form from "../../components/Form";
 import InputGroup from "../../components/InputGroup";
-import { JSON_URL } from "../../consts/url";
+import { DATABASE_KEY } from "../../consts/dataBaseKey";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import useUserEmail from "../../hooks/useUserEmail";
 import {
@@ -17,7 +17,7 @@ type Props = {};
 function Contact({}: Props) {
     const { user } = useUserAuthStore();
     const { data, isLoading, error } = useUserEmail(
-        JSON_URL,
+        DATABASE_KEY,
         user?.userID as number
     );
 
