@@ -4,11 +4,11 @@ import {
     CourseJSON,
     FilterOptions,
     IsObtainedCourse,
+    ObtainedCourse,
 } from "../types/types";
-import axios from "axios";
 
 export default function useAllCourses(
-    url: string,
+    key: string,
     search: string,
     filter: FilterOptions | undefined,
     userID?: number
@@ -16,60 +16,81 @@ export default function useAllCourses(
     const queryFunction: () => Promise<
         (CourseJSON & IsObtainedCourse)[]
     > = async () => {
-        const response = await axios.get<BBDD>(url);
+        try {
+            const getData = localStorage.getItem(key);
 
-        const userCourses = response.data.users.find(
-            (u) => u.userID === userID
-        )?.courses;
+            if (!getData)
+                throw new Error("Ha habido un error al recuperar los datos...");
 
-        if (!search && !filter) {
-            return response.data.courses.map((c) => ({
-                ...c,
-                isObtained: userCourses?.some(
-                    (uc) => uc.courseId === c.curseID
-                ),
-            }));
-        }
+            const data: BBDD = JSON.parse(getData);
 
-        if (search && !filter) {
-            const searchedCourses = response.data.courses.filter(
-                (c) =>
-                    c.title.toLowerCase().includes(search.toLowerCase()) ||
-                    c.shortDescription
-                        .toLowerCase()
-                        .includes(search.toLowerCase()) ||
-                    c.level.toLowerCase().includes(search.toLowerCase())
-            );
+            const userCourses =
+                data.users.find((u) => u.userID === userID)?.courses ||
+                ([] as ObtainedCourse[]);
 
-            return searchedCourses.map((sc) => ({
-                ...sc,
-                isObtained: userCourses?.some(
-                    (uc) => uc.courseId === sc.curseID
-                ),
-            }));
-        }
-
-        if (filter && !search) {
-            if (filter === "Todos")
-                return response.data.courses.map((c) => ({
+            if (!search && !filter) {
+                const courses = data.courses.map((c) => ({
                     ...c,
-                    isObtained: userCourses?.some(
+                    isObtained: userCourses.some(
                         (uc) => uc.courseId === c.curseID
                     ),
                 }));
-            const filteredCourses = response.data.courses.filter(
-                (c) => c.level === filter
-            );
 
-            return filteredCourses.map((fc) => ({
-                ...fc,
-                isObtained: userCourses?.some(
-                    (uc) => uc.courseId === fc.curseID
-                ),
-            }));
+                return courses || ([] as (CourseJSON & IsObtainedCourse)[]);
+            }
+
+            if (search && !filter) {
+                const searchedCourses = data.courses.filter(
+                    (c) =>
+                        c.title.toLowerCase().includes(search.toLowerCase()) ||
+                        c.shortDescription
+                            .toLowerCase()
+                            .includes(search.toLowerCase()) ||
+                        c.level.toLowerCase().includes(search.toLowerCase())
+                );
+
+                const courses = searchedCourses.map((sc) => ({
+                    ...sc,
+                    isObtained: userCourses.some(
+                        (uc) => uc.courseId === sc.curseID
+                    ),
+                }));
+
+                return courses || ([] as (CourseJSON & IsObtainedCourse)[]);
+            }
+
+            if (filter && !search) {
+                let courses;
+                if (filter === "Todos") {
+                    courses = data.courses.map((c) => ({
+                        ...c,
+                        isObtained: userCourses.some(
+                            (uc) => uc.courseId === c.curseID
+                        ),
+                    }));
+
+                    return courses || ([] as (CourseJSON & IsObtainedCourse)[]);
+                }
+
+                const filteredCourses = data.courses
+                    .filter((c) => c.level === filter)
+                    .map((fc) => ({
+                        ...fc,
+                        isObtained: userCourses.some(
+                            (uc) => uc.courseId === fc.curseID
+                        ),
+                    }));
+
+                return (
+                    filteredCourses || ([] as (CourseJSON & IsObtainedCourse)[])
+                );
+            }
+
+            return [] as (CourseJSON & IsObtainedCourse)[];
+        } catch (error) {
+            console.log(error);
+            throw error;
         }
-
-        return [] as (CourseJSON & IsObtainedCourse)[];
     };
 
     return useQuery({

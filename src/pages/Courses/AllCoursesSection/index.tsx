@@ -3,11 +3,11 @@ import SearchBar from "./SearchBar";
 import { FilterOptions } from "../../../types/types";
 import useAllCourses from "../../../hooks/useAllCourses";
 import styles from "./AllCoursesSection.module.css";
-import { JSON_URL } from "../../../consts/url";
 import LightComponent from "../../../components/LightComponent";
 import DataStateWrapper from "../../../components/DataStateWrapperProps";
 import CoursesDisplay from "../../../components/CoursesDisplay";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
+import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 
 type Props = {};
 
@@ -17,7 +17,7 @@ function AllCoursesSection({}: Props) {
     const { user } = useUserAuthStore();
 
     const { data, isLoading, error } = useAllCourses(
-        JSON_URL,
+        DATABASE_KEY,
         search,
         filter,
         user?.userID
@@ -39,7 +39,11 @@ function AllCoursesSection({}: Props) {
                 filter={filter}
             />
 
-            <DataStateWrapper isLoading={isLoading} error={error}>
+            <DataStateWrapper
+                isLoading={isLoading}
+                error={error}
+                errorMsg={error?.message}
+            >
                 <CoursesDisplay
                     action={true}
                     courses={data ? data : null}
