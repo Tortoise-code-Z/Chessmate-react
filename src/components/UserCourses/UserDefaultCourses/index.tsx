@@ -1,4 +1,4 @@
-import { JSON_URL } from "../../../consts/url";
+import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import useDefaultCourses from "../../../hooks/useDefaultCourses";
 import DataStateWrapper from "../../DataStateWrapperProps";
 import UserDefaultCourseItem from "./UserDefaultCourseItem";
@@ -9,7 +9,7 @@ type Props = {
 };
 
 function UserDefaultCourses({ classID }: Props) {
-    const { data, isLoading, error } = useDefaultCourses(JSON_URL);
+    const { data, isLoading, error } = useDefaultCourses(DATABASE_KEY);
 
     return (
         <div className={[styles.userDefaultCourses].join(" ")}>
