@@ -1,7 +1,7 @@
 import CoursesDisplay from "../../../components/CoursesDisplay";
 import DataStateWrapper from "../../../components/DataStateWrapperProps";
 import LightComponent from "../../../components/LightComponent";
-import { JSON_URL } from "../../../consts/url";
+import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import useRecentCourses from "../../../hooks/useRecentCourses";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import { CourseJSON } from "../../../types/types";
@@ -11,7 +11,10 @@ type Props = {};
 
 function RecentCoursesSection({}: Props) {
     const { user } = useUserAuthStore();
-    const { data, isLoading, error } = useRecentCourses(JSON_URL, user?.userID);
+    const { data, isLoading, error } = useRecentCourses(
+        DATABASE_KEY,
+        user?.userID
+    );
 
     return (
         <section className={[styles.recentCoursesSection].join(" ")}>
