@@ -1,15 +1,46 @@
 import { RouterProvider } from "react-router-dom";
 import { route } from "./pages";
 import useUserAuth from "./hooks/UseUserAuth";
+import LoadingElement from "./components/LoadingElement";
+import { useEffect, useState } from "react";
+import { DATABASE_KEY } from "./consts/dataBaseKey";
+import { DATA_BASE } from "./consts/initBBDD";
 
 type Props = {};
 
 function App({}: Props) {
+    const [isDataBaseSent, setIsDataBaseSent] = useState<boolean>(false);
+
+    useEffect(() => {
+        const initDataBase = () => {
+            return new Promise<void>((resolve, reject) => {
+                try {
+                    if (!localStorage.getItem(DATABASE_KEY)) {
+                        localStorage.setItem(
+                            DATABASE_KEY,
+                            JSON.stringify(DATA_BASE)
+                        );
+                    }
+                    resolve();
+                } catch (err) {
+                    reject(err);
+                }
+            });
+        };
+
+        initDataBase()
+            .then(() => setIsDataBaseSent(true))
+            .catch((err) => {
+                setIsDataBaseSent(true);
+                console.log(err);
+            });
+    }, []);
+
     const {
         query: { isLoading },
     } = useUserAuth();
 
-    if (isLoading) return <p>Revisando sesion...</p>;
+    if (isLoading || !isDataBaseSent) return <LoadingElement />;
 
     return (
         <>

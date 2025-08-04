@@ -1,55 +1,19 @@
 import { CHESS_LEVEL } from "../consts/general";
 
-export type BaseUser = {
-    userID: number;
-    username: string;
-    email: string;
-    elo: number | null;
-    title: ChessLevel | null;
-};
+// GENERAL TYPES
+//
+//
 
-export type IsObtainedCourse = { isObtained?: boolean };
-
-export type User = BaseUser & {
-    password: string;
-    defaultCourses: ObtainedCourse[];
-    courses: ObtainedCourse[];
-};
-
-export type ButtonVariant =
-    | "Primary"
-    | "Secondary"
-    | "Terciary"
-    | "Complementary";
-
-export type Level =
-    | "Principiante"
-    | "Intermedio"
-    | "Avanzado"
-    | "Experto"
-    | "Master";
-export type FilterOptions = Level | "Todos";
-
-export type Theme = {
-    images: string[];
+export type CourseDataItem = {
+    id: number;
     title: string;
     description: string;
-    completed: boolean;
+    url: string;
 };
 
-export type ToLearnTheme = {
-    title: string;
-    description: string;
-};
-
-export type ToLearnCurseData = {
-    themes: ToLearnTheme[];
-    detailDescription: string[];
-};
-
-export type InputType = "text" | "password" | "checkbox";
-
-export type ChessLevel = (typeof CHESS_LEVEL)[number];
+// AUTHORS
+//
+//
 
 export type AuthorCurseData = {
     id: number;
@@ -60,60 +24,31 @@ export type AuthorCurseData = {
     image: string;
 };
 
-export type ContentCurseData = {
-    themes: Theme[];
-    detailDescription?: string[];
-};
+//
+//
 
-export type BaseCourse = {
-    curseID: number;
-    title: string;
-    level: Level;
-    content: ContentCurseData;
-    imageUrl: CourseImageUrls;
-};
-
-export type CourseImageUrls = {
-    general: string;
-    full: string;
-    thumb: string;
-};
-
-export type DefualtCourse = BaseCourse;
-
-export type CourseData = {
-    detailDescription: string;
-    content: ContentCurseData;
-    toLearn?: ToLearnCurseData;
-    authors: AuthorCurseData[];
-};
-
-export type CourseJSON = BaseCourse & {
-    price: number;
-    shortDescription: string;
-    detailDescription: string;
-    toLearn?: ToLearnCurseData;
-    sales?: number;
-    createdAt: string;
-    authors: number[];
-};
-
-export type Course = BaseCourse & {
-    price: number;
-    shortDescription: string;
-    detailDescription: string;
-    toLearn?: ToLearnCurseData;
-    sales?: number;
-    createdAt: string;
-    authors: AuthorCurseData[];
-};
+// USER
+//
+//
 
 export type ObtainedCourse = {
     courseId: number;
     progress: number;
 };
 
-export type StorageUser = BaseUser;
+export type BaseUser = {
+    userID: number;
+    username: string;
+    email: string;
+    elo: number | null;
+    title: ChessLevel | null;
+};
+
+export type User = BaseUser & {
+    password: string;
+    defaultCourses: ObtainedCourse[];
+    courses: ObtainedCourse[];
+};
 
 export type UserAuth = {
     userID: number;
@@ -121,24 +56,144 @@ export type UserAuth = {
     firstLogin: boolean;
 };
 
-export type Folder = "courses" | "defaultCourses" | "static";
-export type TypeImage = "thumb" | "full";
-export type SizeImage = "desktop" | "mobile";
+export type StorageUser = BaseUser;
 
-export type URLImageParams = {
-    folder: Folder;
-    prefix: string;
-    size: SizeImage;
-    type: TypeImage;
-    id: number;
+//
+//
+
+// ALL COURSES
+//
+//
+
+export type Progress = {
+    progress: number;
 };
 
-export type CourseDataItem = {
-    id: number;
+export type ChessLevel = (typeof CHESS_LEVEL)[number];
+
+export type CourseImageUrls = {
+    general: string;
+    full: string;
+    thumb: string;
+};
+
+export type Level =
+    | "Principiante"
+    | "Intermedio"
+    | "Avanzado"
+    | "Experto"
+    | "Master";
+
+export type BaseCourse = {
+    curseID: number;
+    title: string;
+    level: Level;
+    imageUrl: CourseImageUrls;
+};
+
+// DefaultCourses
+//
+
+export type ThemeDefaultCourses = {
+    images: string[];
     title: string;
     description: string;
-    url: string;
+    completed: boolean;
 };
+
+export type ContentDefaultCourseData = {
+    themes: ThemeDefaultCourses[];
+    detailDescription: string;
+};
+
+export type DefualtCourse = BaseCourse & {
+    content: ContentDefaultCourseData;
+};
+
+//
+
+// Courses
+//
+
+export type CourseJSON = BaseCourse & {
+    createdAt: string;
+    sales?: number;
+    shortDescription: string;
+    detailDescription: string;
+    price: number;
+    content: ContentCurseData;
+    toLearn?: ToLearnCurseData;
+    authors: number[];
+};
+
+export type Course = BaseCourse & {
+    createdAt: string;
+    sales?: number;
+    shortDescription: string;
+    detailDescription: string;
+    price: number;
+    content: ContentCurseData;
+    toLearn?: ToLearnCurseData;
+    authors: AuthorCurseData[];
+};
+
+// export type CourseData = {
+//     detailDescription: string;
+//     content: ContentCurseData;
+//     toLearn?: ToLearnCurseData;
+//     authors: AuthorCurseData[];
+// };
+
+export type ToLearnTheme = {
+    title: string;
+    description: string;
+};
+
+export type Theme = {
+    title: string;
+    description: string;
+};
+
+export type ContentCurseData = {
+    themes: Theme[];
+    detailDescription: string[];
+};
+
+export type ToLearnCurseData = {
+    themes: ToLearnTheme[];
+    detailDescription: string[];
+};
+
+//
+//
+
+export type IsObtainedCourse = { isObtained?: boolean };
+
+export type ButtonVariant =
+    | "Primary"
+    | "Secondary"
+    | "Terciary"
+    | "Complementary";
+
+export type FilterOptions = Level | "Todos";
+
+export type InputType = "text" | "password" | "checkbox";
+
+// export type Folder = "courses" | "defaultCourses" | "static";
+// export type TypeImage = "thumb" | "full";
+// export type SizeImage = "desktop" | "mobile";
+
+// export type URLImageParams = {
+//     folder: Folder;
+//     prefix: string;
+//     size: SizeImage;
+//     type: TypeImage;
+//     id: number;
+// };
+
+// API PLAYERS
+//
+//
 
 export type BestPlayerChessData = {
     player_id: number;
@@ -172,7 +227,8 @@ export type BestChessPlayers = {
 
 //
 //
-//
+
+// OPINIONS
 //
 //
 
@@ -195,10 +251,7 @@ export type UserOpinionData = {
     title: ChessLevel | null;
 };
 
-//
-//
-//
-//
+// COMMENTS
 //
 //
 
@@ -227,6 +280,10 @@ export type Comments = {
 //
 //
 
+// DATA BASE
+//
+//
+
 export type BBDD = {
     users: User[];
     defaultCourses: DefualtCourse[];
@@ -236,6 +293,5 @@ export type BBDD = {
     authors: AuthorCurseData[];
 };
 
-export type Progress = {
-    progress: number;
-};
+//
+//
