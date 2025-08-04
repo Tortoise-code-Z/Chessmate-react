@@ -1,11 +1,11 @@
 import CoursesDisplay from "../CoursesDisplay";
 import DataStateWrapper from "../DataStateWrapperProps";
 import LightComponent from "../LightComponent";
-import { JSON_URL } from "../../consts/url";
 import useUnpurchasedCourses from "../../hooks/useUnpurchasedCourses";
 import { CourseJSON } from "../../types/types";
 import styles from "./CoursesRecomended.module.css";
 import { ReactNode } from "react";
+import { DATABASE_KEY } from "../../consts/dataBaseKey";
 
 type Props = {
     titleContain: ReactNode;
@@ -23,7 +23,7 @@ function CoursesRecomended({
     userID,
 }: Props) {
     const { data, isLoading, error } = useUnpurchasedCourses(
-        JSON_URL,
+        DATABASE_KEY,
         limit,
         userID
     );

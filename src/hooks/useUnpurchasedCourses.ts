@@ -1,41 +1,53 @@
 import { useQuery } from "@tanstack/react-query";
 import { BBDD, CourseJSON } from "../types/types";
-import axios from "axios";
 
 export default function useUnpurchasedCourses(
-    url: string,
+    key: string,
     limit: number,
     userID?: number
 ) {
     const queryFunction: () => Promise<CourseJSON[]> = async () => {
-        const response = await axios.get<BBDD>(url);
+        try {
+            const getData = localStorage.getItem(key);
+            if (!getData)
+                throw new Error("Ha habido un error al recuperar los datos...");
 
-        const courses = response.data.courses.sort(
-            (a, b) => (b.sales as number) - (a.sales as number)
-        );
+            const data: BBDD = JSON.parse(getData);
 
-        if (userID) {
-            const userCoursesIds =
-                response.data.users
-                    .find((u) => u.userID === userID)
-                    ?.courses.map((item) => {
-                        const { progress, ...rest } = item;
-                        return rest.courseId;
-                    }) || ([] as number[]);
+            const courses = data.courses.sort(
+                (a, b) => (b.sales as number) - (a.sales as number)
+            );
 
-            const finalCourses = courses.filter((c) => {
-                for (let index = 0; index < userCoursesIds.length; index++) {
-                    const element = userCoursesIds[index];
-                    if (element === c.curseID) return false;
-                }
+            if (userID) {
+                const userCoursesIds =
+                    data.users
+                        .find((u) => u.userID === userID)
+                        ?.courses.map((item) => {
+                            const { progress, ...rest } = item;
+                            return rest.courseId;
+                        }) || ([] as number[]);
 
-                return true;
-            });
+                const finalCourses = courses.filter((c) => {
+                    for (
+                        let index = 0;
+                        index < userCoursesIds.length;
+                        index++
+                    ) {
+                        const element = userCoursesIds[index];
+                        if (element === c.curseID) return false;
+                    }
 
-            return finalCourses.slice(0, limit);
+                    return true;
+                });
+
+                return finalCourses.slice(0, limit);
+            }
+
+            return courses.slice(0, limit);
+        } catch (error) {
+            console.log(error);
+            throw error;
         }
-
-        return courses.slice(0, limit);
     };
 
     return useQuery({
