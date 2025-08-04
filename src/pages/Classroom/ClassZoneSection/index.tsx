@@ -1,6 +1,6 @@
 import DataStateWrapper from "../../../components/DataStateWrapperProps";
 import LightComponent from "../../../components/LightComponent";
-import { JSON_URL } from "../../../consts/url";
+import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import useDefaultCourseById from "../../../hooks/useDefaultCourseById";
 import { DefualtCourse } from "../../../types/types";
 import BoardZone from "./BoardZone";
@@ -15,7 +15,7 @@ function ClassZoneSection({}: Props) {
     const params = useParams();
 
     const { data, isLoading, error } = useDefaultCourseById(
-        JSON_URL,
+        DATABASE_KEY,
         Number(params.id)
     );
 
