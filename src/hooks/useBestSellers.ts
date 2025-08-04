@@ -1,27 +1,46 @@
 import { useQuery } from "@tanstack/react-query";
-import { BBDD, CourseJSON, IsObtainedCourse } from "../types/types";
-import axios from "axios";
+import {
+    BBDD,
+    CourseJSON,
+    IsObtainedCourse,
+    ObtainedCourse,
+} from "../types/types";
 
 export default function useBestSeller(
-    url: string,
+    key: string,
     limit: number,
     userID?: number
 ) {
     const queryFunction: () => Promise<
         (CourseJSON & IsObtainedCourse)[]
     > = async () => {
-        const response = await axios.get<BBDD>(url);
-        const courses = response.data.courses;
-        const userCourses = response.data.users.find(
-            (u) => u.userID === userID
-        )?.courses;
-        const filteredCourses = courses
-            .sort((a, b) => (b.sales as number) - (a.sales as number))
-            .slice(0, limit);
-        return filteredCourses.map((fc) => ({
-            ...fc,
-            isObtained: userCourses?.some((uc) => uc.courseId === fc.curseID),
-        }));
+        try {
+            const getData = localStorage.getItem(key);
+            if (!getData)
+                throw new Error("Ha habido un error al recuperar los datos...");
+
+            const data: BBDD = JSON.parse(getData);
+
+            const courses = data.courses;
+
+            const userCourses =
+                data.users.find((u) => u.userID === userID)?.courses ||
+                ([] as ObtainedCourse[]);
+
+            const filteredCourses = courses
+                .sort((a, b) => (b.sales as number) - (a.sales as number))
+                .slice(0, limit);
+
+            return filteredCourses.map((fc) => ({
+                ...fc,
+                isObtained: userCourses?.some(
+                    (uc) => uc.courseId === fc.curseID
+                ),
+            }));
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
     };
 
     return useQuery({

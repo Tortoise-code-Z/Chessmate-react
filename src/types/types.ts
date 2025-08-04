@@ -295,17 +295,3 @@ export type BBDD = {
 
 //
 //
-
-export type ApiResponseSuccess<T> = {
-    success: true;
-    data: T;
-};
-
-export type ApiResponseError = {
-    success: false;
-    error: {
-        code: string;
-        message: string;
-        details?: any;
-    };
-};

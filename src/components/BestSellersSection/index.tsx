@@ -1,4 +1,4 @@
-import { JSON_URL } from "../../consts/url";
+import { DATABASE_KEY } from "../../consts/dataBaseKey";
 import useBestSeller from "../../hooks/useBestSellers";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import CoursesDisplay from "../CoursesDisplay";
@@ -25,7 +25,7 @@ function BestSellersSection({
 }: Props) {
     const { user } = useUserAuthStore();
     const { data, isLoading, error } = useBestSeller(
-        JSON_URL,
+        DATABASE_KEY,
         limit,
         user?.userID
     );
