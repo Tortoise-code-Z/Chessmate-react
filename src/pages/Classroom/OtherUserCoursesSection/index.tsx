@@ -17,6 +17,7 @@ function OtherUserCoursesSection({}: Props) {
             <UserCourses
                 obtainedCoursesLimit={3}
                 defaultCourseClassID={Number(params.id)}
+                showObtainedCourses={false}
             />
         </section>
     );
