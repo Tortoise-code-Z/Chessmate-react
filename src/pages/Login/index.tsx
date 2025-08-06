@@ -7,12 +7,21 @@ import styles from "./Login.module.css";
 import { paths } from "../../consts/paths";
 import Button from "../../components/Button";
 import { FaUserLock } from "react-icons/fa";
+import { useLogin } from "../../hooks/useLogin";
+import { ClipLoader } from "react-spinners";
 
 type Props = {};
 
 function Login({}: Props) {
+    const { mutate, error, isPending } = useLogin();
+
     return (
         <section className={[styles.login].join(" ")}>
+            {error && (
+                <p className={[styles.loginError].join(" ")}>
+                    {error?.message}
+                </p>
+            )}
             <figure>
                 <img
                     src={LOGO_IMAGE.image}
@@ -22,7 +31,15 @@ function Login({}: Props) {
                     height={LOGO_IMAGE.height}
                 />
             </figure>
-            <Form<LoginSchemaValues> schema={loginSchema} onSubmit={() => {}}>
+            <Form<LoginSchemaValues>
+                schema={loginSchema}
+                onSubmit={(data) => {
+                    mutate({
+                        username: data.username,
+                        password: data.password,
+                    });
+                }}
+            >
                 <InputGroup<LoginSchemaValues>
                     name={"username"}
                     label="Nombre de usuario"
@@ -45,9 +62,18 @@ function Login({}: Props) {
                         >
                             Volver a inicio
                         </NavLink>
-                        <Button type="submit">
-                            <FaUserLock />
-                            Iniciar sesión
+                        <Button disabled={isPending} type="submit">
+                            {isPending ? (
+                                <>
+                                    <ClipLoader color="white" />
+                                    Cargando...
+                                </>
+                            ) : (
+                                <>
+                                    <FaUserLock />
+                                    Iniciar sesión
+                                </>
+                            )}
                         </Button>
                     </div>
 

@@ -12,20 +12,27 @@ import { paths } from "../../consts/paths";
 import ButtonGroupSelect from "../../components/ButtonGroupSelect";
 import { CHESS_LEVEL } from "../../consts/general";
 import { FaUserPlus } from "react-icons/fa";
+import { useRegister } from "../../hooks/useRegister";
 
 type Props = {};
 
 function Register({}: Props) {
+    const { mutate, error, isPending } = useRegister();
+
     return (
         <section className={[styles.register].join(" ")}>
             <Form<registerSchemaValues>
-                onSubmit={(data: registerSchemaValues) => console.log(data)}
+                onSubmit={(data: registerSchemaValues) => mutate(data)}
                 schema={registerSchema}
                 defaultValues={{
                     title: "Sin título",
                 }}
             >
-                {/* <LightComponent top={30} right={30} /> */}
+                {error && (
+                    <p className={[styles.registerError].join(" ")}>
+                        {error.message}
+                    </p>
+                )}
 
                 <h2>
                     Regístrate

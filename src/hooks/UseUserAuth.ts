@@ -7,7 +7,7 @@ export default function useUserAuth() {
     const { user, setUser, setIsLoading } = useUserAuthStore();
 
     const queryFunction = async (): Promise<UserAuth | null> => {
-        const stored = localStorage.getItem("userAuth");
+        const stored = localStorage.getItem("UserAuth");
         if (!stored) return null;
 
         try {

@@ -9,6 +9,7 @@ export const DATA_BASE: BBDD = {
             password: "password1",
             elo: 1420,
             title: null,
+            isFirstLogin: false,
             defaultCourses: [
                 { courseId: 1, progress: 0 },
                 { courseId: 2, progress: 100 },
@@ -37,6 +38,7 @@ export const DATA_BASE: BBDD = {
             password: "password2",
             elo: 1580,
             title: null,
+            isFirstLogin: false,
             defaultCourses: [
                 { courseId: 1, progress: 65 },
                 { courseId: 2, progress: 70 },
@@ -64,6 +66,7 @@ export const DATA_BASE: BBDD = {
             password: "password3",
             elo: 2010,
             title: "GM",
+            isFirstLogin: false,
             defaultCourses: [
                 { courseId: 1, progress: 100 },
                 { courseId: 2, progress: 100 },
@@ -93,6 +96,7 @@ export const DATA_BASE: BBDD = {
             password: "password4",
             elo: 1940,
             title: "IM",
+            isFirstLogin: false,
             defaultCourses: [
                 { courseId: 1, progress: 90 },
                 { courseId: 2, progress: 80 },
@@ -120,6 +124,7 @@ export const DATA_BASE: BBDD = {
             password: "password5",
             elo: 1490,
             title: null,
+            isFirstLogin: false,
             defaultCourses: [
                 { courseId: 1, progress: 60 },
                 { courseId: 2, progress: 40 },
@@ -147,6 +152,7 @@ export const DATA_BASE: BBDD = {
             password: "password6",
             elo: 1360,
             title: null,
+            isFirstLogin: false,
             defaultCourses: [
                 { courseId: 1, progress: 40 },
                 { courseId: 2, progress: 60 },
@@ -174,6 +180,7 @@ export const DATA_BASE: BBDD = {
             password: "password7",
             elo: 2140,
             title: "WIM",
+            isFirstLogin: false,
             defaultCourses: [
                 { courseId: 1, progress: 55 },
                 { courseId: 2, progress: 70 },
@@ -201,6 +208,7 @@ export const DATA_BASE: BBDD = {
             password: "password8",
             elo: 2321,
             title: "FM",
+            isFirstLogin: false,
             defaultCourses: [
                 { courseId: 1, progress: 75 },
                 { courseId: 2, progress: 80 },
@@ -227,6 +235,7 @@ export const DATA_BASE: BBDD = {
             password: "password9",
             elo: 1250,
             title: null,
+            isFirstLogin: false,
             defaultCourses: [
                 { courseId: 1, progress: 50 },
                 { courseId: 2, progress: 60 },
@@ -253,6 +262,7 @@ export const DATA_BASE: BBDD = {
             password: "password10",
             elo: 1930,
             title: "IM",
+            isFirstLogin: false,
             defaultCourses: [
                 { courseId: 1, progress: 85 },
                 { courseId: 2, progress: 90 },
@@ -281,6 +291,7 @@ export const DATA_BASE: BBDD = {
             password: "password11",
             elo: 1440,
             title: null,
+            isFirstLogin: false,
             defaultCourses: [
                 { courseId: 1, progress: 50 },
                 { courseId: 2, progress: 55 },
@@ -307,6 +318,7 @@ export const DATA_BASE: BBDD = {
             password: "password12",
             elo: 2395,
             title: "CM",
+            isFirstLogin: false,
             defaultCourses: [
                 { courseId: 1, progress: 60 },
                 { courseId: 2, progress: 45 },

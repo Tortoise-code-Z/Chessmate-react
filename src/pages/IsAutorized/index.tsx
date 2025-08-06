@@ -9,9 +9,11 @@ function IsAuthorized({}: Props) {
 
     if (isLoading) return <p>Cargando...</p>;
 
-    if (!user) return <Navigate to={`/${paths.login}`} />;
-
-    return <Outlet />;
+    if (!user) {
+        return <Navigate to={`/${paths.login}`} />;
+    } else {
+        return <Outlet />;
+    }
 }
 
 export default IsAuthorized;

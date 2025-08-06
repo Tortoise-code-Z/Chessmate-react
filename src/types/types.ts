@@ -42,6 +42,7 @@ export type BaseUser = {
     email: string;
     elo: number | null;
     title: ChessLevel | null;
+    isFirstLogin: boolean;
 };
 
 export type User = BaseUser & {
@@ -295,3 +296,18 @@ export type BBDD = {
 
 //
 //
+
+export type ErrorCode =
+    | "INVALID_USER"
+    | "INVALID_PASSWORD"
+    | "DB_ERROR"
+    | "UNEXPECTED_ERROR"
+    | "EMAIL_ALREADY_USED"
+    | "USERNAME_TAKEN";
+
+export type CustomError = {
+    code: ErrorCode;
+    message: string;
+    status?: number;
+    field?: string;
+};
