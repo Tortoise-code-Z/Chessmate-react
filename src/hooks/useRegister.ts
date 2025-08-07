@@ -42,6 +42,8 @@ export function useRegister() {
                 message: "El email introducido ya está en uso.",
             });
 
+        const defaultCourses = data.defaultCourses;
+
         const newUser: User = {
             username: registerData.username,
             password: registerData.password,
@@ -51,15 +53,61 @@ export function useRegister() {
                 registerData.title === "Sin título" ? null : registerData.title,
             isFirstLogin: true,
             userID: users.map((u) => u.userID).sort((a, b) => b - a)[0] + 1,
-            defaultCourses: [
-                { courseId: 1, progress: 0 },
-                { courseId: 2, progress: 0 },
-                { courseId: 3, progress: 0 },
-                { courseId: 4, progress: 0 },
-                { courseId: 5, progress: 0 },
-                { courseId: 6, progress: 0 },
-                { courseId: 7, progress: 0 },
-            ],
+            defaultCourses: defaultCourses.map((df) => ({
+                courseId: df.curseID,
+                progress: 0,
+                themes: df.content.themes.map((t) => ({
+                    themeID: t.id,
+                    completed: false,
+                })),
+            })),
+            // defaultCourses: [
+            //     {
+            //         courseId: 1,
+            //         progress: 0,
+            //         themes: Array.from(
+            //             {
+            //                 length: data.defaultCourses.find(
+            //                     (dc) => dc.curseID === 1
+            //                 )?.content.themes.length as number,
+            //             },
+            //             (_, i) => i + 1
+            //         ).map((t) => ({
+            //             themeID: t,
+            //             completed: false,
+            //         })),
+            //     },
+            //     {
+            //         courseId: 2,
+            //         progress: 0,
+            //         themes: [{ themeID: 1, completed: false }],
+            //     },
+            //     {
+            //         courseId: 3,
+            //         progress: 0,
+            //         themes: [
+            //             { themeID: 1, completed: false },
+            //             { themeID: 2, completed: false },
+            //             { themeID: 3, completed: false },
+            //             { themeID: 4, completed: false },
+            //         ],
+            //     },
+            //     {
+            //         courseId: 4,
+            //         progress: 0,
+            //         themes: [{ themeID: 1, completed: false }],
+            //     },
+            //     {
+            //         courseId: 5,
+            //         progress: 0,
+            //         themes: [{ themeID: 1, completed: false }],
+            //     },
+            //     {
+            //         courseId: 6,
+            //         progress: 0,
+            //         themes: [{ themeID: 1, completed: false }],
+            //     },
+            // ],
             courses: [],
         };
 

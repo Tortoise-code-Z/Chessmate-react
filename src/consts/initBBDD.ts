@@ -11,13 +11,139 @@ export const DATA_BASE: BBDD = {
             title: null,
             isFirstLogin: false,
             defaultCourses: [
-                { courseId: 1, progress: 0 },
-                { courseId: 2, progress: 100 },
-                { courseId: 3, progress: 90 },
-                { courseId: 4, progress: 0 },
-                { courseId: 5, progress: 85 },
-                { courseId: 6, progress: 70 },
-                { courseId: 7, progress: 95 },
+                {
+                    courseId: 1,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 2,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+
+                {
+                    courseId: 3,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 4,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 5,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 6,
+                    progress: 100,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: true,
+                        },
+                    ],
+                },
             ],
             courses: [
                 { courseId: 1, progress: 80 },
@@ -40,13 +166,139 @@ export const DATA_BASE: BBDD = {
             title: null,
             isFirstLogin: false,
             defaultCourses: [
-                { courseId: 1, progress: 65 },
-                { courseId: 2, progress: 70 },
-                { courseId: 3, progress: 50 },
-                { courseId: 4, progress: 40 },
-                { courseId: 5, progress: 60 },
-                { courseId: 6, progress: 55 },
-                { courseId: 7, progress: 75 },
+                {
+                    courseId: 1,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 2,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+
+                {
+                    courseId: 3,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 4,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 5,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 6,
+                    progress: 100,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: true,
+                        },
+                    ],
+                },
             ],
             courses: [
                 { courseId: 11, progress: 65 },
@@ -68,13 +320,139 @@ export const DATA_BASE: BBDD = {
             title: "GM",
             isFirstLogin: false,
             defaultCourses: [
-                { courseId: 1, progress: 100 },
-                { courseId: 2, progress: 100 },
-                { courseId: 3, progress: 100 },
-                { courseId: 4, progress: 100 },
-                { courseId: 5, progress: 100 },
-                { courseId: 6, progress: 100 },
-                { courseId: 7, progress: 100 },
+                {
+                    courseId: 1,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 2,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+
+                {
+                    courseId: 3,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 4,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 5,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 6,
+                    progress: 100,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: true,
+                        },
+                    ],
+                },
             ],
             courses: [
                 { courseId: 1, progress: 100 },
@@ -98,13 +476,139 @@ export const DATA_BASE: BBDD = {
             title: "IM",
             isFirstLogin: false,
             defaultCourses: [
-                { courseId: 1, progress: 90 },
-                { courseId: 2, progress: 80 },
-                { courseId: 3, progress: 85 },
-                { courseId: 4, progress: 70 },
-                { courseId: 5, progress: 75 },
-                { courseId: 6, progress: 65 },
-                { courseId: 7, progress: 60 },
+                {
+                    courseId: 1,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 2,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+
+                {
+                    courseId: 3,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 4,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 5,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 6,
+                    progress: 100,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: true,
+                        },
+                    ],
+                },
             ],
             courses: [
                 { courseId: 1, progress: 90 },
@@ -126,13 +630,139 @@ export const DATA_BASE: BBDD = {
             title: null,
             isFirstLogin: false,
             defaultCourses: [
-                { courseId: 1, progress: 60 },
-                { courseId: 2, progress: 40 },
-                { courseId: 3, progress: 55 },
-                { courseId: 4, progress: 50 },
-                { courseId: 5, progress: 45 },
-                { courseId: 6, progress: 70 },
-                { courseId: 7, progress: 80 },
+                {
+                    courseId: 1,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 2,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+
+                {
+                    courseId: 3,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 4,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 5,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 6,
+                    progress: 100,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: true,
+                        },
+                    ],
+                },
             ],
             courses: [
                 { courseId: 1, progress: 60 },
@@ -154,13 +784,139 @@ export const DATA_BASE: BBDD = {
             title: null,
             isFirstLogin: false,
             defaultCourses: [
-                { courseId: 1, progress: 40 },
-                { courseId: 2, progress: 60 },
-                { courseId: 3, progress: 30 },
-                { courseId: 4, progress: 35 },
-                { courseId: 5, progress: 55 },
-                { courseId: 6, progress: 50 },
-                { courseId: 7, progress: 45 },
+                {
+                    courseId: 1,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 2,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+
+                {
+                    courseId: 3,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 4,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 5,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 6,
+                    progress: 100,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: true,
+                        },
+                    ],
+                },
             ],
             courses: [
                 { courseId: 1, progress: 40 },
@@ -182,13 +938,139 @@ export const DATA_BASE: BBDD = {
             title: "WIM",
             isFirstLogin: false,
             defaultCourses: [
-                { courseId: 1, progress: 55 },
-                { courseId: 2, progress: 70 },
-                { courseId: 3, progress: 50 },
-                { courseId: 4, progress: 45 },
-                { courseId: 5, progress: 65 },
-                { courseId: 6, progress: 60 },
-                { courseId: 7, progress: 75 },
+                {
+                    courseId: 1,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 2,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+
+                {
+                    courseId: 3,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 4,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 5,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 6,
+                    progress: 100,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: true,
+                        },
+                    ],
+                },
             ],
             courses: [
                 { courseId: 1, progress: 55 },
@@ -210,13 +1092,139 @@ export const DATA_BASE: BBDD = {
             title: "FM",
             isFirstLogin: false,
             defaultCourses: [
-                { courseId: 1, progress: 75 },
-                { courseId: 2, progress: 80 },
-                { courseId: 3, progress: 85 },
-                { courseId: 4, progress: 70 },
-                { courseId: 5, progress: 65 },
-                { courseId: 6, progress: 90 },
-                { courseId: 7, progress: 95 },
+                {
+                    courseId: 1,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 2,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+
+                {
+                    courseId: 3,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 4,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 5,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 6,
+                    progress: 100,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: true,
+                        },
+                    ],
+                },
             ],
             courses: [
                 { courseId: 1, progress: 75 },
@@ -237,13 +1245,139 @@ export const DATA_BASE: BBDD = {
             title: null,
             isFirstLogin: false,
             defaultCourses: [
-                { courseId: 1, progress: 50 },
-                { courseId: 2, progress: 60 },
-                { courseId: 3, progress: 45 },
-                { courseId: 4, progress: 40 },
-                { courseId: 5, progress: 55 },
-                { courseId: 6, progress: 35 },
-                { courseId: 7, progress: 70 },
+                {
+                    courseId: 1,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 2,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+
+                {
+                    courseId: 3,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 4,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 5,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 6,
+                    progress: 100,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: true,
+                        },
+                    ],
+                },
             ],
             courses: [
                 { courseId: 1, progress: 50 },
@@ -264,13 +1398,139 @@ export const DATA_BASE: BBDD = {
             title: "IM",
             isFirstLogin: false,
             defaultCourses: [
-                { courseId: 1, progress: 85 },
-                { courseId: 2, progress: 90 },
-                { courseId: 3, progress: 80 },
-                { courseId: 4, progress: 75 },
-                { courseId: 5, progress: 70 },
-                { courseId: 6, progress: 95 },
-                { courseId: 7, progress: 100 },
+                {
+                    courseId: 1,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 2,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+
+                {
+                    courseId: 3,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 4,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 5,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 6,
+                    progress: 100,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: true,
+                        },
+                    ],
+                },
             ],
             courses: [
                 { courseId: 1, progress: 85 },
@@ -293,13 +1553,139 @@ export const DATA_BASE: BBDD = {
             title: null,
             isFirstLogin: false,
             defaultCourses: [
-                { courseId: 1, progress: 50 },
-                { courseId: 2, progress: 55 },
-                { courseId: 3, progress: 60 },
-                { courseId: 4, progress: 45 },
-                { courseId: 5, progress: 65 },
-                { courseId: 6, progress: 70 },
-                { courseId: 7, progress: 75 },
+                {
+                    courseId: 1,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 2,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+
+                {
+                    courseId: 3,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 4,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 5,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 6,
+                    progress: 100,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: true,
+                        },
+                    ],
+                },
             ],
             courses: [
                 { courseId: 1, progress: 50 },
@@ -320,13 +1706,139 @@ export const DATA_BASE: BBDD = {
             title: "CM",
             isFirstLogin: false,
             defaultCourses: [
-                { courseId: 1, progress: 60 },
-                { courseId: 2, progress: 45 },
-                { courseId: 3, progress: 55 },
-                { courseId: 4, progress: 50 },
-                { courseId: 5, progress: 65 },
-                { courseId: 6, progress: 70 },
-                { courseId: 7, progress: 80 },
+                {
+                    courseId: 1,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 2,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+
+                {
+                    courseId: 3,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 4,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 5,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 6,
+                    progress: 100,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: true,
+                        },
+                    ],
+                },
             ],
             courses: [
                 { courseId: 1, progress: 60 },
@@ -355,7 +1867,7 @@ export const DATA_BASE: BBDD = {
                     "Los peones son la base de toda estrategia en el ajedrez. Aunque parezcan simples, su correcto uso puede decidir una partida. Este curso te enseña lo esencial para dominar esta pieza clave.",
                 themes: [
                     {
-                        completed: false,
+                        id: 1,
                         images: [
                             "Peones-gif-posicion-1_1719x1719_.webp",
                             "Peones-gif-posicion-2_1719x1719_.webp",
@@ -372,7 +1884,7 @@ export const DATA_BASE: BBDD = {
                             "Los peones se colocan en la segunda fila (fila 2) para las blancas y en la séptima fila (fila 7) para las negras. Forman la primera línea de defensa y controlan el centro desde el inicio.",
                     },
                     {
-                        completed: true,
+                        id: 2,
                         images: [
                             "Peones-gif-movimiento-1_1719x1719_.png",
                             "Peones-gif-movimiento-2_1719x1719_.png",
@@ -386,7 +1898,7 @@ export const DATA_BASE: BBDD = {
                             "Los peones avanzan solo hacia adelante, una casilla por turno, pero pueden avanzar dos casillas en su primer movimiento desde su posición inicial.",
                     },
                     {
-                        completed: false,
+                        id: 3,
                         images: [
                             "Peones-gif-captura-1_1719x1719_.png",
                             "Peones-gif-captura-2_1719x1719_.png",
@@ -401,7 +1913,7 @@ export const DATA_BASE: BBDD = {
                             "A diferencia de su movimiento, los peones capturan en diagonal, una casilla hacia adelante. También existe una captura especial llamada 'al paso' que se estudia en niveles más avanzados.",
                     },
                     {
-                        completed: false,
+                        id: 4,
                         images: [
                             "Peones-gif-coronacion-1_1719x1719_.png",
                             "Peones-gif-coronacion-2_1719x1719_.png",
@@ -433,7 +1945,7 @@ export const DATA_BASE: BBDD = {
                     "El caballo es la única pieza que puede saltar sobre otras y moverse en forma de L. Este curso básico te enseña cómo colocarlos y sacar ventaja con ellos desde el inicio.",
                 themes: [
                     {
-                        completed: false,
+                        id: 1,
                         images: [
                             "Caballos-gif-posicion-1_1719x1719_.png",
                             "Caballos-gif-posicion-2_1719x1719_.png",
@@ -445,7 +1957,7 @@ export const DATA_BASE: BBDD = {
                             "Cada jugador comienza con dos caballos: las blancas los colocan en b1 y g1, y las negras en b8 y g8. Están junto a las torres en las esquinas del tablero.",
                     },
                     {
-                        completed: false,
+                        id: 2,
                         images: [
                             "Caballos-gif-movimiento-1_1719x1719_.png",
                             "Caballos-gif-movimiento-2_1719x1719_.png",
@@ -464,7 +1976,7 @@ export const DATA_BASE: BBDD = {
                             "El caballo se mueve en forma de L: dos casillas en una dirección (horizontal o vertical) y una en dirección perpendicular. Además, puede saltar por encima de otras piezas.",
                     },
                     {
-                        completed: false,
+                        id: 3,
                         images: [
                             "Caballos-gif-captura-1_1719x1719_.png",
                             "Caballos-gif-captura-2_1719x1719_.png",
@@ -475,7 +1987,7 @@ export const DATA_BASE: BBDD = {
                             "El caballo captura en la casilla donde termina su movimiento. Si hay una pieza enemiga en la casilla final de su salto en L, puede capturarla.",
                     },
                     {
-                        completed: false,
+                        id: 4,
                         images: [
                             "Caballos-gif-horquilla-1_1719x1719_.png",
                             "Caballos-gif-horquilla-2_1719x1719_.png",
@@ -501,7 +2013,7 @@ export const DATA_BASE: BBDD = {
                     "Los alfiles se mueven por diagonales y son muy poderosos en posiciones abiertas. En este curso aprenderás cómo se colocan, mueven, capturan y su importancia en el juego largo.",
                 themes: [
                     {
-                        completed: false,
+                        id: 1,
                         images: [
                             "Alfiles-gif-posicion-1_1719x1719_.png",
                             "Alfiles-gif-posicion-2_1719x1719_.png",
@@ -513,7 +2025,7 @@ export const DATA_BASE: BBDD = {
                             "Las blancas colocan sus alfiles en c1 y f1; las negras en c8 y f8. Cada alfil permanece en un color específico durante toda la partida (blanco o negro).",
                     },
                     {
-                        completed: false,
+                        id: 2,
                         images: [
                             "Alfiles-gif-movimiento-1_1719x1719_.png",
                             "Alfiles-gif-movimiento-2_1719x1719_.png",
@@ -525,7 +2037,7 @@ export const DATA_BASE: BBDD = {
                             "Los alfiles se mueven en diagonal, tantas casillas como estén libres, pero siempre en una sola dirección por turno.",
                     },
                     {
-                        completed: false,
+                        id: 3,
                         images: [
                             "Alfiles-gif-captura-1_1719x1719_.png",
                             "Alfiles-gif-captura-2_1719x1719_.png",
@@ -535,7 +2047,7 @@ export const DATA_BASE: BBDD = {
                             "El alfil captura de la misma forma en que se mueve: en línea diagonal. Puede eliminar cualquier pieza enemiga que esté en su camino.",
                     },
                     {
-                        completed: false,
+                        id: 4,
                         images: [
                             "Alfiles-gif-fortaleza-1_1719x1719_.png",
                             "Alfiles-gif-fortaleza-2_1719x1719_.png",
@@ -563,7 +2075,7 @@ export const DATA_BASE: BBDD = {
                     "Las torres son piezas fuertes que controlan filas y columnas. En este curso aprenderás sus movimientos básicos, cómo capturar con ellas y por qué son tan importantes en el final.",
                 themes: [
                     {
-                        completed: false,
+                        id: 1,
                         images: [
                             "Torres-gif-posicion-1_1719x1719_.png",
                             "Torres-gif-posicion-2_1719x1719_.png",
@@ -575,7 +2087,7 @@ export const DATA_BASE: BBDD = {
                             "Las torres se ubican en las esquinas del tablero. Las blancas en a1 y h1; las negras en a8 y h8. Protegen los bordes y se activan especialmente después del enroque.",
                     },
                     {
-                        completed: false,
+                        id: 2,
                         images: [
                             "Torres-gif-movimiento-1_1719x1719_.png",
                             "Torres-gif-movimiento-2_1719x1719_.png",
@@ -588,7 +2100,7 @@ export const DATA_BASE: BBDD = {
                             "La torre se mueve en línea recta a través de filas (horizontal) y columnas (vertical), tantas casillas como estén disponibles.",
                     },
                     {
-                        completed: false,
+                        id: 3,
                         images: [
                             "Torres-gif-captura-1_1719x1719_.png",
                             "Torres-gif-captura-2_1719x1719_.png",
@@ -599,7 +2111,7 @@ export const DATA_BASE: BBDD = {
                             "La torre captura igual que se mueve: puede eliminar cualquier pieza enemiga ubicada en su misma fila o columna si no hay piezas entre medio.",
                     },
                     {
-                        completed: false,
+                        id: 4,
                         images: [
                             "Torres-gif-fortaleza-1_1719x1719_.png",
                             "Torres-gif-fortaleza-2_1719x1719_.png",
@@ -627,7 +2139,7 @@ export const DATA_BASE: BBDD = {
                     "La dama es la pieza más poderosa del tablero, combinando el movimiento del alfil y la torre. Aprende cómo usarla sin exponerla demasiado.",
                 themes: [
                     {
-                        completed: false,
+                        id: 1,
                         images: [
                             "Reina-gif-posicion-1_1719x1719_.png",
                             "Reina-gif-posicion-2_1719x1719_.png",
@@ -637,7 +2149,7 @@ export const DATA_BASE: BBDD = {
                             "La reina blanca se coloca en d1 y la reina negra en d8. Siempre empieza en la casilla de su mismo color: blanca en blanca, negra en negra.",
                     },
                     {
-                        completed: false,
+                        id: 2,
                         images: [
                             "Reina-gif-movimiento-1_1719x1719_.png",
                             "Reina-gif-movimiento-2_1719x1719_.png",
@@ -654,7 +2166,7 @@ export const DATA_BASE: BBDD = {
                             "La reina puede moverse en línea recta por filas, columnas y diagonales, combinando el poder de la torre y el alfil en una sola pieza.",
                     },
                     {
-                        completed: false,
+                        id: 3,
                         images: [
                             "Reina-gif-captura-1_1719x1719_.png",
                             "Reina-gif-captura-2_1719x1719_.png",
@@ -665,7 +2177,7 @@ export const DATA_BASE: BBDD = {
                             "Captura cualquier pieza enemiga que esté en su camino de movimiento, tanto en línea recta como en diagonal.",
                     },
                     {
-                        completed: false,
+                        id: 4,
                         images: [
                             "Reina-gif-warning-1_1719x1719_.png",
                             "Reina-gif-warning-2_1719x1719_.png",
@@ -692,7 +2204,7 @@ export const DATA_BASE: BBDD = {
                     "El rey es la pieza más importante: si lo atrapan, se pierde la partida. Aprende sus movimientos básicos, cómo protegerlo y cuándo puede ser activo.",
                 themes: [
                     {
-                        completed: false,
+                        id: 1,
                         images: [
                             "Rey-gif-posicion-1_1719x1719_.png",
                             "Rey-gif-posicion-2_1719x1719_.png",
@@ -702,7 +2214,7 @@ export const DATA_BASE: BBDD = {
                             "El rey blanco empieza en e1 y el rey negro en e8. Siempre se coloca entre el alfil de rey y la dama.",
                     },
                     {
-                        completed: false,
+                        id: 2,
                         images: [
                             "Rey-gif-movimiento-1_1719x1719_.png",
                             "Rey-gif-movimiento-2_1719x1719_.png",
@@ -721,7 +2233,7 @@ export const DATA_BASE: BBDD = {
                             "El rey se mueve una casilla en cualquier dirección: horizontal, vertical o diagonal. No puede moverse a una casilla amenazada.",
                     },
                     {
-                        completed: false,
+                        id: 3,
                         images: [
                             "Rey-gif-captura-1_1719x1719_.png",
                             "Rey-gif-captura-2_1719x1719_.png",
@@ -736,7 +2248,7 @@ export const DATA_BASE: BBDD = {
                             "El rey nunca 'captura' en el sentido ofensivo: se debe mantener a salvo. Sin embargo, puede eliminar piezas enemigas si la casilla no está bajo ataque.",
                     },
                     {
-                        completed: false,
+                        id: 4,
                         images: [
                             "Rey-gif-enrroque-1_1719x1719_.png",
                             "Rey-gif-enrroque-2_1719x1719_.png",

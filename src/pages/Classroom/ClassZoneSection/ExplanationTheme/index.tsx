@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 import styles from "./ExplanationTheme.module.css";
 import { FaChevronRight } from "react-icons/fa6";
 import { FaChevronLeft } from "react-icons/fa6";
-import { DefualtCourse } from "../../../../types/types";
+import { UseCourseApiType } from "../../../../types/types";
 import { useUserAuthStore } from "../../../../hooks/UseUserAuthStore";
 import WritteMachine from "../../../../components/WritteMachine";
 import Button from "../../../../components/Button";
@@ -11,7 +11,7 @@ import { PROFESSOR_IMAGE } from "../../../../consts/images";
 type Props = {
     setIndex: Dispatch<React.SetStateAction<number>>;
     index: number;
-    data: DefualtCourse;
+    data: UseCourseApiType;
     setImageSliderLoading: Dispatch<SetStateAction<boolean>>;
 };
 
@@ -27,16 +27,26 @@ function ExplanationTheme({
         <div className={[styles.explanationTheme].join(" ")}>
             <div className={[styles.courseData].join(" ")}>
                 <div>
-                    <h2>{data.title}</h2>
-                    <h3>{data.content.themes[index].title}</h3>
+                    <h2>{data.courses.title}</h2>
+                    <h3>
+                        {
+                            data.courses.content.themes.find(
+                                (t) => t.id === index
+                            )?.title
+                        }
+                    </h3>
                     <WritteMachine
-                        data={data.content.themes[index].description}
+                        data={
+                            data.courses.content.themes.find(
+                                (t) => t.id === index
+                            )?.description || ""
+                        }
                         time={30}
                     />
                 </div>
                 <div>
                     <Button
-                        disabled={index === 0}
+                        disabled={index === 1}
                         onClick={() => {
                             setImageSliderLoading(true);
                             setIndex(index - 1);
@@ -47,7 +57,7 @@ function ExplanationTheme({
                         Anterior
                     </Button>
                     <Button
-                        disabled={index === data.content.themes.length - 1}
+                        disabled={index === data.courses.content.themes.length}
                         variant="Complementary"
                         onClick={() => {
                             setImageSliderLoading(true);
@@ -59,7 +69,11 @@ function ExplanationTheme({
                     </Button>
                     <Button
                         variant="Terciary"
-                        disabled={data.content.themes[index].completed}
+                        disabled={
+                            data.userThemeStates.find(
+                                (u) => u.themeID === index
+                            )?.completed
+                        }
                     >
                         Completar
                     </Button>

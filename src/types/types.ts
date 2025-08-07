@@ -36,6 +36,17 @@ export type ObtainedCourse = {
     progress: number;
 };
 
+export type ObtainedDefaultCourse = {
+    courseId: number;
+    progress: number;
+    themes: ThemesUserStates[];
+};
+
+export type ThemesUserStates = {
+    themeID: number;
+    completed: boolean;
+};
+
 export type BaseUser = {
     userID: number;
     username: string;
@@ -47,7 +58,7 @@ export type BaseUser = {
 
 export type User = BaseUser & {
     password: string;
-    defaultCourses: ObtainedCourse[];
+    defaultCourses: ObtainedDefaultCourse[];
     courses: ObtainedCourse[];
 };
 
@@ -96,10 +107,10 @@ export type BaseCourse = {
 //
 
 export type ThemeDefaultCourses = {
+    id: number;
     images: string[];
     title: string;
     description: string;
-    completed: boolean;
 };
 
 export type ContentDefaultCourseData = {
@@ -310,4 +321,9 @@ export type CustomError = {
     message: string;
     status?: number;
     field?: string;
+};
+
+export type UseCourseApiType = {
+    courses: DefualtCourse;
+    userThemeStates: ThemesUserStates[];
 };

@@ -1,12 +1,12 @@
 import { Dispatch, SetStateAction } from "react";
 import styles from "./BoardZone.module.css";
 import { FaCheckCircle } from "react-icons/fa";
-import { DefualtCourse } from "../../../../types/types";
+import { UseCourseApiType } from "../../../../types/types";
 import Button from "../../../../components/Button";
 import AutoSliderImages from "./AutoSliderImages";
 
 type Props = {
-    data: DefualtCourse;
+    data: UseCourseApiType;
     setIndex: Dispatch<SetStateAction<number>>;
     index: number;
     imageSliderLoading: boolean;
@@ -25,9 +25,17 @@ function BoardZone({
             <div>
                 <figure className={[styles.board].join(" ")}>
                     <AutoSliderImages
-                        images={data.content.themes[index].images}
+                        images={
+                            data.courses.content.themes.find(
+                                (t) => t.id === index
+                            )?.images || ([] as string[])
+                        }
                         time={1000}
-                        themeTitle={data.content.themes[index].title}
+                        themeTitle={
+                            data.courses.content.themes.find(
+                                (t) => t.id === index
+                            )?.title || ""
+                        }
                         loading={imageSliderLoading}
                         setLoading={setImageSliderLoading}
                     />
@@ -35,17 +43,19 @@ function BoardZone({
             </div>
 
             <div className={[styles.themes].join(" ")}>
-                {data.content.themes.map((theme, i) => (
+                {data.courses.content.themes.map((theme) => (
                     <Button
                         classNames={["p-relative"]}
-                        key={theme.title}
+                        key={theme.id}
                         onClick={() => {
                             setImageSliderLoading(true);
-                            setIndex(i);
+                            setIndex(theme.id);
                         }}
-                        variant={index === i ? "Primary" : "Secondary"}
+                        variant={index === theme.id ? "Primary" : "Secondary"}
                     >
-                        {theme.completed && (
+                        {data.userThemeStates.find(
+                            (u) => u.themeID === theme.id
+                        )?.completed && (
                             <FaCheckCircle
                                 className={[styles.completedIcon].join(" ")}
                             />
