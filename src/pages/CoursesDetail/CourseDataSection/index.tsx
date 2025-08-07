@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import Authors from "./Authors";
 import styles from "./CourseDataSection.module.css";
 import CourseDescription from "./CourseDescription";
@@ -10,6 +10,7 @@ import { Course } from "../../../types/types";
 import LightComponent from "../../../components/LightComponent";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
+import { paths } from "../../../consts/paths";
 
 type Props = {};
 
@@ -27,6 +28,11 @@ function CourseDataSection({}: Props) {
         <section className={[styles.courseDataSection].join(" ")}>
             <LightComponent top={40} right={30} />
             <LightComponent top={80} right={80} />
+            <div className={[styles.breadcrumb].join(" ")}>
+                <NavLink to={`/${paths.courses}`}>Cursos</NavLink>
+                <span>{">"}</span>
+                <p>{data?.title}</p>
+            </div>
             <DataStateWrapper isLoading={isLoading} error={error}>
                 <GeneralCourseData data={data ?? ({} as Course)} />
                 <Authors data={data ?? ({} as Course)} />

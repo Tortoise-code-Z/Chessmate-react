@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { DATABASE_KEY } from "../../consts/dataBaseKey";
 import useObtainedCourses from "../../hooks/useObtainedCourses";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
@@ -6,6 +7,8 @@ import LightComponent from "../LightComponent";
 import styles from "./UserCourses.module.css";
 import UserDefaultCourses from "./UserDefaultCourses";
 import UserObtainedCourses from "./UserObtainedCourses";
+import { paths } from "../../consts/paths";
+import { FaBook } from "react-icons/fa6";
 
 type Props = {
     defaultCourseClassID?: number;
@@ -37,7 +40,16 @@ function UserCourses({
                     classID={obtainedCourseClassID}
                 />
             ) : (
-                <p>No tienes cursos aún...</p>
+                <div className={[styles.msgNotCoursesYet].join(" ")}>
+                    <p>No tienes cursos aún...</p>
+                    <NavLink
+                        className={["button", "buttonPrimary"].join(" ")}
+                        to={`/${paths.courses}`}
+                    >
+                        <FaBook />
+                        Ir a cursos
+                    </NavLink>
+                </div>
             )}
         </>
     );

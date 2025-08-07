@@ -3,7 +3,7 @@ export const paths = {
     dashboard: "dashboard",
     class: "class/:id",
     courses: "courses",
-    coursesDetail: "courses/:id",
+    coursesDetail: "course-detail/:id",
     login: "login",
     register: "register",
     contact: "contact",

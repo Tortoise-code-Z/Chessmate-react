@@ -1,5 +1,3 @@
-// import { useParams } from "react-router-dom";
-
 import CantBuyModal from "../../components/CantBuyModal";
 import CoursesRecomended from "../../components/CoursesRecomended";
 import { useCantBuyStore } from "../../hooks/useCantBuyStore";
@@ -16,6 +14,7 @@ function CoursesDetail({}: Props) {
     return (
         <>
             {cantBuy && <CantBuyModal />}
+
             <CourseDataSection />
             <CourseCommentSection />
             <CoursesRecomended

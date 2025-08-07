@@ -3,7 +3,7 @@
     flex-direction: column;
     gap: 100px;
     width: 100%;
-    padding: var(--section-vertical-padding) var(--padding-lateral);
+    padding: var(--section-vertical-paddingx2) var(--padding-lateral);
     position: relative;
     max-width: var(--max-width-page);
     margin: 0 auto;

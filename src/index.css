@@ -41,7 +41,8 @@
     --navbar-height: 100px;
 
     --padding-lateral: 50px;
-    --section-vertical-padding: 100px;
+    --section-vertical-padding: 50px;
+    --section-vertical-paddingx2: 100px;
     --max-width-page: 1920px;
 }
 
@@ -271,6 +272,11 @@ a.button > svg {
 @font-face {
     font-family: Roboto-extralight;
     src: url("/public/fonts/Roboto/static/Roboto-ExtraLight.ttf");
+}
+
+@font-face {
+    font-family: Roboto-extralight-italic;
+    src: url("/public/fonts/Roboto/static/Roboto-ExtraLightItalic.ttf");
 }
 
 @font-face {

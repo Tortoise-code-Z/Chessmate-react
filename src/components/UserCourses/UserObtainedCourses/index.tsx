@@ -1,8 +1,4 @@
-import { DATABASE_KEY } from "../../../consts/dataBaseKey";
-import useObtainedCourses from "../../../hooks/useObtainedCourses";
-import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import { CourseJSON, Progress } from "../../../types/types";
-import DataStateWrapper from "../../DataStateWrapperProps";
 import styles from "./UserObtainedCourses.module.css";
 import UserObtainedCoursesItem from "./UserObtainedCoursesItem";
 
