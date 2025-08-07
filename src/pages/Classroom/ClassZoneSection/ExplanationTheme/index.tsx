@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import styles from "./ExplanationTheme.module.css";
 import { FaChevronRight } from "react-icons/fa6";
 import { FaChevronLeft } from "react-icons/fa6";
@@ -7,6 +7,7 @@ import { useUserAuthStore } from "../../../../hooks/UseUserAuthStore";
 import WritteMachine from "../../../../components/WritteMachine";
 import Button from "../../../../components/Button";
 import { PROFESSOR_IMAGE } from "../../../../consts/images";
+import { useCompleteTheme } from "../../../../hooks/useCompleteTheme";
 
 type Props = {
     setIndex: Dispatch<React.SetStateAction<number>>;
@@ -22,6 +23,7 @@ function ExplanationTheme({
     setImageSliderLoading,
 }: Props) {
     const { user } = useUserAuthStore();
+    const { mutate } = useCompleteTheme(index, setIndex);
 
     return (
         <div className={[styles.explanationTheme].join(" ")}>
@@ -68,6 +70,13 @@ function ExplanationTheme({
                         <FaChevronRight />
                     </Button>
                     <Button
+                        onClick={() => {
+                            mutate({
+                                courseID: data.courses.curseID,
+                                themeID: index,
+                                userID: user?.userID as number,
+                            });
+                        }}
                         variant="Terciary"
                         disabled={
                             data.userThemeStates.find(

@@ -61,53 +61,6 @@ export function useRegister() {
                     completed: false,
                 })),
             })),
-            // defaultCourses: [
-            //     {
-            //         courseId: 1,
-            //         progress: 0,
-            //         themes: Array.from(
-            //             {
-            //                 length: data.defaultCourses.find(
-            //                     (dc) => dc.curseID === 1
-            //                 )?.content.themes.length as number,
-            //             },
-            //             (_, i) => i + 1
-            //         ).map((t) => ({
-            //             themeID: t,
-            //             completed: false,
-            //         })),
-            //     },
-            //     {
-            //         courseId: 2,
-            //         progress: 0,
-            //         themes: [{ themeID: 1, completed: false }],
-            //     },
-            //     {
-            //         courseId: 3,
-            //         progress: 0,
-            //         themes: [
-            //             { themeID: 1, completed: false },
-            //             { themeID: 2, completed: false },
-            //             { themeID: 3, completed: false },
-            //             { themeID: 4, completed: false },
-            //         ],
-            //     },
-            //     {
-            //         courseId: 4,
-            //         progress: 0,
-            //         themes: [{ themeID: 1, completed: false }],
-            //     },
-            //     {
-            //         courseId: 5,
-            //         progress: 0,
-            //         themes: [{ themeID: 1, completed: false }],
-            //     },
-            //     {
-            //         courseId: 6,
-            //         progress: 0,
-            //         themes: [{ themeID: 1, completed: false }],
-            //     },
-            // ],
             courses: [],
         };
 

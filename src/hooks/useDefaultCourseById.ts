@@ -37,7 +37,7 @@ export default function useDefaultCourseById(
         }
     };
 
-    return useQuery({
+    return useQuery<UseCourseApiType>({
         queryKey: ["defaultCourseById", courseID],
         queryFn: queryFunction,
     });
