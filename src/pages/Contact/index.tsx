@@ -40,7 +40,9 @@ function Contact({}: Props) {
             <DataStateWrapper isLoading={isLoading}>
                 <Form<ContactSchemaValues>
                     schema={contactSchema}
-                    onSubmit={() => {}}
+                    onSubmit={() => {
+                        alert("Mensaje enviado!!");
+                    }}
                     defaultValues={{
                         name: user ? user.username : "",
                         email: user && !error && data ? data : "",

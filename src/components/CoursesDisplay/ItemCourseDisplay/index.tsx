@@ -9,9 +9,15 @@ type Props = {
     action?: boolean;
     data: CourseJSON & { isObtained?: boolean };
     display?: "Row" | "Col";
+    courseID: number;
 };
 
-function ItemCourseDisplay({ data, action = true, display = "Col" }: Props) {
+function ItemCourseDisplay({
+    data,
+    action = true,
+    display = "Col",
+    courseID,
+}: Props) {
     const navigate = useNavigate();
 
     return (
@@ -47,15 +53,10 @@ function ItemCourseDisplay({ data, action = true, display = "Col" }: Props) {
                 </div>
                 {action && (
                     <div className={[styles.actionsPrice].join(" ")}>
-                        {/* <Button
-                            propagation={false}
-                            onClick={() => console.log("Comprando...")}
-                        >
-                            <HiMiniShoppingBag />
-                            Comprar
-                        </Button> */}
-
-                        <PurchaseAction isObtained={data.isObtained} />
+                        <PurchaseAction
+                            courseID={courseID}
+                            isObtained={data.isObtained}
+                        />
                         <p className={[styles.price].join(" ")}>
                             {data.price}$
                         </p>

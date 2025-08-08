@@ -80,14 +80,10 @@ function CourseBanner({}: Props) {
                                     </span>
                                 </div>
 
-                                <PurchaseAction isObtained={data.isObtained} />
-                                {/* <Button
-                                    propagation={false}
-                                    onClick={() => console.log("Comprando...")}
-                                >
-                                    <HiMiniShoppingBag />
-                                    Comprar
-                                </Button> */}
+                                <PurchaseAction
+                                    courseID={data.curseID}
+                                    isObtained={data.isObtained}
+                                />
                             </div>
                         </div>
                     </>

@@ -18,6 +18,7 @@ function CoursesDisplay({ courses, action, display = "Col" }: Props) {
         <div className={className}>
             {courses?.map((course) => (
                 <ItemCourseDisplay
+                    courseID={course.curseID}
                     key={course.curseID}
                     action={action}
                     data={course}
