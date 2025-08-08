@@ -40,5 +40,6 @@ export default function useDefaultCourseById(
     return useQuery<UseCourseApiType>({
         queryKey: ["defaultCourseById", courseID],
         queryFn: queryFunction,
+        staleTime: 1000 * 60 * 5,
     });
 }

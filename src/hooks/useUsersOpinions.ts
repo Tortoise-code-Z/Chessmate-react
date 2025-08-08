@@ -27,5 +27,6 @@ export default function useUsersOpinions(key: string) {
     return useQuery({
         queryKey: ["usersOpinions"],
         queryFn: queryFunction,
+        staleTime: 1000 * 60 * 5,
     });
 }

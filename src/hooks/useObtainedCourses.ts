@@ -16,6 +16,7 @@ export default function useObtainedCourses(
         (CourseJSON & Progress)[]
     > = async () => {
         try {
+            console.log("buscando...");
             const getData = localStorage.getItem(key);
             if (!getData)
                 throw new Error("Ha habido un error al recuperar los datos...");
@@ -35,7 +36,7 @@ export default function useObtainedCourses(
 
                 const { courseId, ...rest } = uc;
 
-                return { ...rest, ...course };
+                return { ...course, ...rest };
             });
 
             return mappingUserCourses.slice(
@@ -51,5 +52,6 @@ export default function useObtainedCourses(
     return useQuery({
         queryKey: ["courses"],
         queryFn: queryFunction,
+        staleTime: 1000 * 60 * 5,
     });
 }

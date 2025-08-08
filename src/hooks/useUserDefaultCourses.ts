@@ -20,5 +20,6 @@ export default function useUserDataCourses(key: string, idUser: number) {
     return useQuery({
         queryKey: ["userDefaultCourses"],
         queryFn: queryFunction,
+        staleTime: 1000 * 60 * 5,
     });
 }

@@ -53,5 +53,6 @@ export default function useCourse(
     return useQuery({
         queryKey: ["useCourse", courseID, userID],
         queryFn: queryFunction,
+        staleTime: 1000 * 60 * 5,
     });
 }

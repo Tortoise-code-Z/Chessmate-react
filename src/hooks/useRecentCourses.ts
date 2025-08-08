@@ -40,5 +40,6 @@ export default function useRecentCourses(key: string, userID?: number) {
     return useQuery({
         queryKey: ["recentCourses", userID],
         queryFn: queryFunction,
+        staleTime: 1000 * 60 * 5,
     });
 }

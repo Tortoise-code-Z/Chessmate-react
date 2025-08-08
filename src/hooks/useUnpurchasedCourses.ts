@@ -53,5 +53,6 @@ export default function useUnpurchasedCourses(
     return useQuery({
         queryKey: ["toBuyCourses", userID],
         queryFn: queryFunction,
+        staleTime: 1000 * 60 * 5,
     });
 }

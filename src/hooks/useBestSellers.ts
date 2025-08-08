@@ -46,5 +46,6 @@ export default function useBestSeller(
     return useQuery({
         queryKey: ["bestSellers", userID],
         queryFn: queryFunction,
+        staleTime: 1000 * 60 * 5,
     });
 }

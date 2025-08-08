@@ -35,5 +35,6 @@ export default function useCourseComments(key: string, courseID: number) {
     return useQuery({
         queryKey: ["courseComments", courseID],
         queryFn: queryFunction,
+        staleTime: 1000 * 60 * 5,
     });
 }

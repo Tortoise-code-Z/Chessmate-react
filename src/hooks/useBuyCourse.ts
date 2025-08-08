@@ -41,8 +41,8 @@ export function useBuyCourse() {
                 ?.courses as ObtainedCourse[];
 
             const newUserCourses: ObtainedCourse[] = [
-                ...userCourses,
                 { courseId: courseID, progress: 0 },
+                ...userCourses,
             ];
 
             const newData: BBDD = {
@@ -78,7 +78,7 @@ export function useBuyCourse() {
                 ["courses"],
                 (old) => {
                     if (!old) return old;
-                    return [...old, { ...data.course, progress: 0 }];
+                    return [{ ...data.course, progress: 0 }, ...old];
                 }
             );
 

@@ -19,5 +19,6 @@ export default function useDefaultCourses(key: string) {
     return useQuery({
         queryKey: ["defaultCourses"],
         queryFn: queryFunction,
+        staleTime: 1000 * 60 * 5,
     });
 }

@@ -30,7 +30,10 @@ function GeneralCourseData({ data }: Props) {
                     </span>
                     <p className={[styles.price].join(" ")}>{data.price} $</p>
                 </div>
-                <PurchaseAction isObtained={data.isObtained} />
+                <PurchaseAction
+                    courseID={data.curseID}
+                    isObtained={data.isObtained}
+                />
             </div>
         </div>
     );

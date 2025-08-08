@@ -96,5 +96,6 @@ export default function useAllCourses(
     return useQuery({
         queryKey: ["allCourses", search, filter, userID],
         queryFn: queryFunction,
+        staleTime: 1000 * 60 * 5,
     });
 }

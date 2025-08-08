@@ -1,5 +1,11 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { BBDD, ObtainedDefaultCourse, UseCourseApiType } from "../types/types";
+import {
+    BBDD,
+    DefualtCourse,
+    ObtainedCourse,
+    ObtainedDefaultCourse,
+    UseCourseApiType,
+} from "../types/types";
 import { DATABASE_KEY } from "../consts/dataBaseKey";
 import { Dispatch, SetStateAction } from "react";
 
@@ -83,6 +89,19 @@ export function useCompleteTheme(
                         ...oldData,
                         userThemeStates: data.themes,
                     };
+                }
+            );
+
+            queryClient.setQueryData<ObtainedCourse[]>(
+                ["userDefaultCourses"],
+                (oldData) => {
+                    if (!oldData) return oldData;
+
+                    return oldData.map((o) =>
+                        o.courseId === data.courseId
+                            ? { ...o, progress: data.progress }
+                            : o
+                    );
                 }
             );
         },
