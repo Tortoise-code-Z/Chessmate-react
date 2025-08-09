@@ -13,11 +13,15 @@ import {
 import Button from "../../../components/Button";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import ChessTitle from "../../../components/ChessTitle";
+import { useAddComment } from "../../../hooks/useAddComment";
+import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
+import { UseFormSetValue } from "react-hook-form";
 
 type Props = {};
 
 function CourseCommentSection({}: Props) {
     const params = useParams();
+    const { user } = useUserAuthStore();
 
     const {
         data: comments,
@@ -25,8 +29,21 @@ function CourseCommentSection({}: Props) {
         error,
     } = useCourseComments(DATABASE_KEY, Number(params.id));
 
-    const handleSubmit = (data: commentsSchemaValues) => {
-        console.log(data.comment);
+    const { mutate, isPending } = useAddComment();
+
+    const handleSubmit = (
+        data: commentsSchemaValues,
+        helpers?: {
+            setValue: UseFormSetValue<commentsSchemaValues>;
+        }
+    ) => {
+        mutate({
+            userID: user?.userID as number,
+            courseID: Number(params.id),
+            text: data.comment,
+        });
+
+        helpers?.setValue("comment", "");
     };
 
     return (
@@ -103,8 +120,14 @@ function CourseCommentSection({}: Props) {
                             placeholder="Escribe tu opinión..."
                         >
                             <Button type="submit" variant="Complementary">
-                                <FaCommentDots />
-                                Enviar
+                                {isPending ? (
+                                    <>Enviando...</>
+                                ) : (
+                                    <>
+                                        <FaCommentDots />
+                                        Enviar
+                                    </>
+                                )}
                             </Button>
                         </InputGroup>
                     </Form>

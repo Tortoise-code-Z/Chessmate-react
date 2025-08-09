@@ -153,7 +153,6 @@ a.button {
     color: white;
     font-family: Roboto-medium;
     width: fit-content;
-    height: fit-content;
 }
 
 .size-140 {
@@ -226,6 +225,14 @@ a.button > svg {
 
 .buttonComplementary:hover {
     background-color: rgba(var(--complementary-color-500), 0.8);
+}
+
+.buttonRed {
+    background-color: rgb(201, 52, 52);
+}
+
+.buttonRed:hover {
+    background-color: rgba(201, 52, 52, 0.8);
 }
 
 .span-pr-color {

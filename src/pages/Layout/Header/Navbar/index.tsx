@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
 import { PiSignInBold } from "react-icons/pi";
-import { BsGear } from "react-icons/bs";
 import styles from "./Navbar.module.css";
 import { useUserAuthStore } from "../../../../hooks/UseUserAuthStore";
 import { AVATAR_DEFAULT_IMAGE, LOGO_IMAGE } from "../../../../consts/images";
 import Button from "../../../../components/Button";
 import { paths } from "../../../../consts/paths";
+import { FaSignOutAlt } from "react-icons/fa";
 
 type Props = {};
 
@@ -26,8 +26,8 @@ function Navbar({}: Props) {
                 </figure>
                 <p className={[styles.username].join(" ")}>{user?.username}</p>
             </div>
-            <Button variant="Secondary">
-                <BsGear />
+            <Button onClick={() => {}} variant="Red">
+                <FaSignOutAlt /> Cerrar sesión
             </Button>
         </div>
     );

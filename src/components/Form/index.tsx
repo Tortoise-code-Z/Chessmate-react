@@ -4,14 +4,15 @@ import {
     FieldValues,
     FormProvider,
     useForm,
+    UseFormSetValue,
 } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
 type Props<T extends FieldValues> = {
     children: ReactNode;
-    onSubmit: (data: T) => void;
     schema: z.ZodType<T>;
+    onSubmit: (data: T, helpers?: { setValue: UseFormSetValue<T> }) => void;
     defaultValues?: DefaultValues<T>;
 };
 
@@ -26,12 +27,16 @@ function Form<T extends FieldValues>({
         defaultValues,
     });
 
-    const { handleSubmit } = methods;
+    const { handleSubmit, setValue } = methods;
+
+    const submitHandler = (data: T) => {
+        onSubmit(data, { setValue });
+    };
 
     return (
         <>
             <FormProvider {...methods}>
-                <form onSubmit={handleSubmit(onSubmit)}>{children}</form>
+                <form onSubmit={handleSubmit(submitHandler)}>{children}</form>
             </FormProvider>
         </>
     );

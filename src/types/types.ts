@@ -185,7 +185,8 @@ export type ButtonVariant =
     | "Primary"
     | "Secondary"
     | "Terciary"
-    | "Complementary";
+    | "Complementary"
+    | "Red";
 
 export type FilterOptions = Level | "Todos";
 
@@ -268,6 +269,14 @@ export type UserOpinionData = {
 //
 
 export type JsonComments = {
+    id: number;
+    idUser: number;
+    idCourse: number;
+    text: string;
+    createdAt: string;
+};
+
+export type CommentsJSON = {
     id: number;
     idUser: number;
     idCourse: number;

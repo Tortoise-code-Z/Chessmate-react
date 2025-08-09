@@ -3536,6 +3536,13 @@ export const DATA_BASE: BBDD = {
             text: "Muy bueno, cumple con lo que promete.",
             createdAt: "16-01-2025",
         },
+        {
+            id: 26,
+            idUser: 1,
+            idCourse: 14,
+            text: "Muy bueno, cumple con lo que promete.",
+            createdAt: "16-01-2025",
+        },
     ],
     opinions: [
         {
