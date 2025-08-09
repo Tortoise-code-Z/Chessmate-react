@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { BBDD, Comments } from "../types/types";
+import { BBDD, Comments, User } from "../types/types";
 
 export default function useCourseComments(key: string, courseID: number) {
     const queryFunction: () => Promise<Comments[]> = async () => {
@@ -11,21 +11,22 @@ export default function useCourseComments(key: string, courseID: number) {
             const data: BBDD = JSON.parse(getData);
 
             const comments = data.comments.map((c) => {
-                const userComment = data.users.find(
-                    (u) => u.userID === c.idUser
-                );
-
-                const user = {
-                    userID: userComment?.userID as number,
-                    username: userComment?.username as string,
-                };
+                const user =
+                    data.users.find((u) => u.userID === c.idUser) ||
+                    ({} as User);
 
                 const { idUser, ...rest } = c;
 
                 return { ...rest, user };
             });
 
-            return comments.filter((c) => c.idCourse === courseID);
+            return comments
+                .filter((c) => c.idCourse === courseID)
+                .sort((a, b) => {
+                    const bData = new Date(b.createdAt).getTime();
+                    const aData = new Date(a.createdAt).getTime();
+                    return aData - bData;
+                });
         } catch (error) {
             console.log(error);
             throw error;

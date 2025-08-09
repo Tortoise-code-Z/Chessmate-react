@@ -12,5 +12,6 @@ export default function useBestPlayersApi(url: string) {
     return useQuery({
         queryKey: ["bestPlayers"],
         queryFn: queryFunction,
+        staleTime: 1000 * 60 * 10,
     });
 }

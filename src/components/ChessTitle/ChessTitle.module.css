@@ -1,0 +1,13 @@
+.userTitleDefault {
+    font-size: 1rem;
+    background-color: red;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.userTitleSmall {
+    font-size: 0.7rem;
+    background-color: red;
+    padding: 5px;
+    border-radius: 5px;
+}

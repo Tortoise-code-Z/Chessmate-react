@@ -12,6 +12,7 @@ import {
 } from "../../../Schemas/commentsSchema";
 import Button from "../../../components/Button";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
+import ChessTitle from "../../../components/ChessTitle";
 
 type Props = {};
 
@@ -68,6 +69,12 @@ function CourseCommentSection({}: Props) {
                                         >
                                             {c.user.username}
                                         </p>
+                                        <div className={[styles].join(" ")}>
+                                            <ChessTitle
+                                                size="Small"
+                                                title={c.user.title}
+                                            />
+                                        </div>
                                     </div>
                                     <p className={[styles.createdAt].join(" ")}>
                                         {c.createdAt}

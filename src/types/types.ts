@@ -277,10 +277,7 @@ export type JsonComments = {
 
 export type Comments = {
     id: number;
-    user: {
-        userID: number;
-        username: string;
-    };
+    user: User;
     idCourse: number;
     text: string;
     createdAt: string;

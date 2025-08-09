@@ -86,7 +86,11 @@ export function useBuyCourse() {
                 ["toBuyCourses", data.userID],
                 (old) => {
                     if (!old) return old;
-                    return old.filter((o) => o.curseID !== data.course.curseID);
+                    return old.map((o) =>
+                        o.curseID === data.course.curseID
+                            ? { ...o, isObtained: true }
+                            : o
+                    );
                 }
             );
 
