@@ -42,6 +42,10 @@
     height: fit-content;
 }
 
+.userOptions button svg {
+    font-size: 1.1rem;
+}
+
 .linksContainer {
     display: flex;
     height: 100%;

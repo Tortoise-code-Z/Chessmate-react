@@ -6,11 +6,14 @@ import { AVATAR_DEFAULT_IMAGE, LOGO_IMAGE } from "../../../../consts/images";
 import Button from "../../../../components/Button";
 import { paths } from "../../../../consts/paths";
 import { FaSignOutAlt } from "react-icons/fa";
+import { useSignout } from "../../../../hooks/useSignout";
 
 type Props = {};
 
 function Navbar({}: Props) {
     const { user } = useUserAuthStore();
+
+    const { mutate } = useSignout();
 
     const userOptions = (
         <div className={[styles.userOptions].join(" ")}>
@@ -26,7 +29,7 @@ function Navbar({}: Props) {
                 </figure>
                 <p className={[styles.username].join(" ")}>{user?.username}</p>
             </div>
-            <Button onClick={() => {}} variant="Red">
+            <Button onClick={() => mutate()} variant="Red">
                 <FaSignOutAlt /> Cerrar sesión
             </Button>
         </div>
