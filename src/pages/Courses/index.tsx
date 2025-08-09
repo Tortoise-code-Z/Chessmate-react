@@ -2,8 +2,8 @@ import AllCoursesSection from "./AllCoursesSection";
 import BestSellersSection from "../../components/BestSellersSection";
 import CourseBanner from "./CourseBanner";
 import RecentCoursesSection from "./RecentCoursesSection";
-import CantBuyModal from "../../components/CantBuyModal";
 import { useCantBuyStore } from "../../hooks/useCantBuyStore";
+import CantDoAction from "../../components/CantDoAction";
 // import SuccessFixedMsg from "../../components/SuccessFixedMsg";
 // import { useSuccessStore } from "../../hooks/useSuccessStore";
 // import { useErrorStore } from "../../hooks/useErrorStore";
@@ -12,13 +12,14 @@ import { useCantBuyStore } from "../../hooks/useCantBuyStore";
 type Props = {};
 
 function Courses({}: Props) {
-    const { cantBuy } = useCantBuyStore();
+    const { cantDo, setState } = useCantBuyStore();
+
     // const { isSuccess, successMsg } = useSuccessStore();
     // const { isError, errorMsg } = useErrorStore();
 
     return (
         <>
-            {cantBuy && <CantBuyModal />}
+            {cantDo && <CantDoAction setState={setState} action="buy" />}
             {/* {isSuccess && <SuccessFixedMsg successMsg={successMsg} />} */}
             {/* {isError && <ErrorFixedMsg errorMsg={errorMsg} />} */}
             <CourseBanner />

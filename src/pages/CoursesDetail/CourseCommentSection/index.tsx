@@ -16,12 +16,14 @@ import ChessTitle from "../../../components/ChessTitle";
 import { useAddComment } from "../../../hooks/useAddComment";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import { UseFormSetValue } from "react-hook-form";
+import { useCantCommentStore } from "../../../hooks/useCantCommentStore";
 
 type Props = {};
 
 function CourseCommentSection({}: Props) {
     const params = useParams();
     const { user } = useUserAuthStore();
+    const { setState } = useCantCommentStore();
 
     const {
         data: comments,
@@ -37,6 +39,11 @@ function CourseCommentSection({}: Props) {
             setValue: UseFormSetValue<commentsSchemaValues>;
         }
     ) => {
+        if (!user) {
+            setState(true);
+            helpers?.setValue("comment", "");
+            return;
+        }
         mutate({
             userID: user?.userID as number,
             courseID: Number(params.id),

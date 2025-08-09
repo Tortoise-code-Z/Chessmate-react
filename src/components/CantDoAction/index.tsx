@@ -1,17 +1,18 @@
 import { PiSignInBold } from "react-icons/pi";
 import { PROFESSOR_IMAGE } from "../../consts/images";
-import { useCantBuyStore } from "../../hooks/useCantBuyStore";
 import Button from "../Button";
-import styles from "./CantBuyModal.module.css";
+import styles from "./CantDoAction.module.css";
 import { useNavigate } from "react-router-dom";
 import { paths } from "../../consts/paths";
 import { useEffect } from "react";
 
-type Props = {};
+type Props = {
+    setState: (status: boolean) => void;
+    action: "buy" | "comment";
+};
 
-function CantBuyModal({}: Props) {
+function CantDoAction({ setState, action }: Props) {
     const navigate = useNavigate();
-    const { setState } = useCantBuyStore();
 
     useEffect(() => {
         document.body.style.overflow = "hidden";
@@ -46,7 +47,8 @@ function CantBuyModal({}: Props) {
                         >
                             ¡Hola!
                         </span>{" "}
-                        Para poder comprar un curso, necesitas{" "}
+                        Para poder {action === "buy" ? "comprar" : "comentar"}{" "}
+                        un curso, necesitas{" "}
                         <span
                             className={[
                                 "span-terc-color",
@@ -103,4 +105,4 @@ function CantBuyModal({}: Props) {
     );
 }
 
-export default CantBuyModal;
+export default CantDoAction;

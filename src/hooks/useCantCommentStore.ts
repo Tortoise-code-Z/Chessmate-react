@@ -1,11 +1,11 @@
 import { create } from "zustand";
 
-type CantBuyStore = {
+type CantCommentStore = {
     cantDo: boolean;
     setState: (status: boolean) => void;
 };
 
-export const useCantBuyStore = create<CantBuyStore>((set) => ({
+export const useCantCommentStore = create<CantCommentStore>((set) => ({
     cantDo: false,
     setState: (status) => set({ cantDo: status }),
 }));

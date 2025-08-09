@@ -9,13 +9,13 @@ import CloseHomeSection from "./CloseHomeSection";
 import BestPlayersSection from "../../components/BestPlayersSection";
 import UsersOpinionSection from "./UsersOpinionSection";
 import { useCantBuyStore } from "../../hooks/useCantBuyStore";
-import CantBuyModal from "../../components/CantBuyModal";
+import CantDoAction from "../../components/CantDoAction";
 
 type Props = {};
 
 function Home({}: Props) {
     const { user } = useUserAuthStore();
-    const { cantBuy } = useCantBuyStore();
+    const { cantDo, setState } = useCantBuyStore();
 
     if (user) {
         return <Navigate to={`/${paths.dashboard}`} replace />;
@@ -23,7 +23,7 @@ function Home({}: Props) {
 
     return (
         <>
-            {cantBuy && <CantBuyModal />}
+            {cantDo && <CantDoAction setState={setState} action="buy" />}
             <Hero />
             <CoursesDataSection />
             <SignupCallToAction />
