@@ -39,52 +39,26 @@ function CourseBanner({}: Props) {
                                 )
                             }
                         >
-                            <div
-                                className={[styles.courseImgContainer].join(
-                                    " "
-                                )}
-                            >
-                                <div className={[styles.price].join(" ")}>
-                                    <span>{data.price} $</span>
-                                </div>
-                                <figure>
-                                    <img
-                                        src={getImage(data.imageUrl.thumb, [
-                                            "courses",
-                                        ])}
-                                        alt={data?.title}
-                                        title={data?.title}
-                                        width={getImageSize(
-                                            data.imageUrl.thumb,
-                                            "width"
-                                        )}
-                                        height={getImageSize(
-                                            data.imageUrl.thumb,
-                                            "height"
-                                        )}
-                                    />
-                                </figure>
-                            </div>
-
                             <div className={[styles.courseData].join(" ")}>
-                                <div>
-                                    <h2>{data.title}</h2>
-                                    <p>{data.shortDescription}</p>
-                                    <span
-                                        className={[
-                                            "span-pr-color",
-                                            "text-medium",
-                                        ].join(" ")}
-                                    >
-                                        {data.level}
-                                    </span>
-                                </div>
-
-                                <PurchaseAction
-                                    courseID={data.curseID}
-                                    isObtained={data.isObtained}
-                                />
+                                <h2>{data.title}</h2>
+                                <p>{data.shortDescription}</p>
+                                <span
+                                    className={[
+                                        "span-pr-color",
+                                        "text-medium",
+                                    ].join(" ")}
+                                >
+                                    {data.level}
+                                </span>
+                                <p className={[styles.price].join(" ")}>
+                                    {data.price} $
+                                </p>
                             </div>
+
+                            <PurchaseAction
+                                courseID={data.curseID}
+                                isObtained={data.isObtained}
+                            />
                         </div>
                     </>
                 )}
