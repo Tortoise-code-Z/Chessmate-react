@@ -38,14 +38,14 @@
     gap: 10px;
 }
 
-.courseData > div h2 {
-    font-size: 2.7rem;
+.courseData h2 {
+    font-size: 3.5rem;
     color: white;
 }
 
-.courseData > div p {
+.courseData > p {
     font-size: 1.4rem;
-    font-family: Roboto-thin;
+    font-family: Roboto-thin-italic;
 }
 
 .bannerBackground {
@@ -133,9 +133,8 @@
         color: white;
     }
 
-    .courseData > div p {
-        font-size: 1rem;
-        font-family: Roboto-thin;
+    .courseData > p {
+        font-size: 1.2rem !important;
     }
 
     .courseBanner > div {
@@ -160,9 +159,8 @@
         gap: 10px;
     }
 
-    .courseData > div p {
+    .courseData > p {
         font-size: 1rem;
-        font-family: Roboto-thin;
     }
 
     .courseBanner > div {
