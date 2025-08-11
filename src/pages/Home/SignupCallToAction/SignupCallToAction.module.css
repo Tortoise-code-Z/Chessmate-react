@@ -10,6 +10,11 @@
     justify-content: center;
     align-items: center;
     gap: 50px;
+    padding: 0 var(--padding-lateral) !important;
+}
+
+.signUpCallToAction h2 {
+    text-align: center;
 }
 
 .signUpCallToAction > * {
@@ -63,4 +68,11 @@
 .titleContainer > :last-child {
     font-family: Roboto-thin;
     font-size: 1.5rem;
+    text-align: center;
+}
+
+@media all and (max-width: 500px) {
+    .titleContainer > :last-child {
+        font-size: 1.2rem;
+    }
 }

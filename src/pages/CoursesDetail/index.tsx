@@ -36,8 +36,8 @@ function CoursesDetail({}: Props) {
                         </span>
                     </>
                 }
-                titleDisplay={"Col"}
-                titleAlign={"center"}
+                titleDisplay={"Row"}
+                titleAlign={"start"}
                 limit={4}
                 userID={user?.userID}
             />

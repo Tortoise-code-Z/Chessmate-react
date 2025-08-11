@@ -37,10 +37,14 @@
     --button-py: 12px;
     --button-border-radius: 5px;
     --button-font-size: 14px;
+    --button-font-size-tablet: 12px;
+    --button-px-tablet: 12px;
+    --button-py-tablet: 9px;
 
     --navbar-height: 100px;
 
-    --padding-lateral: 50px;
+    --padding-lateral: 5%;
+    --padding-lateral-mobile: 7%;
     --section-vertical-padding: 50px;
     --section-vertical-paddingx2: 100px;
     --max-width-page: 1920px;
@@ -310,4 +314,14 @@ body {
     background-color: rgb(var(--bcc-color));
     color: white;
     font-family: Roboto;
+}
+
+@media all and (max-width: 426px) {
+    h2 {
+        font-size: 2rem !important;
+    }
+
+    section {
+        padding: var(--section-vertical-padding) var(--padding-lateral-mobile) !important;
+    }
 }

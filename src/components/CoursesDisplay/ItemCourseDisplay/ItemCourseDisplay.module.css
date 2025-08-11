@@ -6,7 +6,7 @@
     gap: 20px;
     transition: 0.2s all ease;
     border-radius: 5px;
-    min-height: 150px;
+    min-height: 200px;
     width: 100%;
     padding: 15px;
     cursor: pointer;
@@ -117,4 +117,50 @@
 .itemRowContainer .level {
     color: rgb(var(--primary-color-500));
     font-size: 14px;
+}
+
+@media all and (max-width: 768px) {
+    .itemContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        border-radius: 5px;
+        padding: 15px;
+        cursor: pointer;
+        transition: 0.2s all ease;
+        min-width: calc(50% - 20px);
+        max-width: 100%;
+        flex: 1;
+    }
+
+    .itemContainer > figure {
+        width: 100% !important;
+        aspect-ratio: 16/9;
+    }
+
+    .itemContainer .actionsPrice {
+        justify-content: space-between;
+    }
+
+    .itemContainer .price {
+        font-size: 1.2rem;
+    }
+
+    .itemContainer .itemDataContainer {
+        gap: 20px;
+    }
+}
+
+@media all and (max-width: 1280px) {
+    .itemContainer > figure {
+        width: 30%;
+        aspect-ratio: 16/9;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .itemContainer {
+        flex: 1;
+        min-width: 100%;
+    }
 }

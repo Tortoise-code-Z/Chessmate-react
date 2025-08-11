@@ -37,3 +37,21 @@
     line-height: 2rem;
     opacity: 0.7;
 }
+
+@media all and (max-width: 768px) {
+    .itemContainer {
+        display: flex;
+        flex-direction: column !important;
+        gap: 50px;
+    }
+
+    .itemContainer > figure {
+        min-width: 45%;
+        width: 100%;
+        aspect-ratio: 16/5 !important;
+    }
+
+    .itemContainer h3 {
+        font-size: 1.6rem;
+    }
+}

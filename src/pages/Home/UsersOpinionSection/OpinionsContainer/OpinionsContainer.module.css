@@ -40,3 +40,13 @@
     color: white;
     font-weight: 100;
 }
+
+@media all and (max-width: 500px) {
+    .opinionContainer {
+        gap: 50px !important;
+    }
+
+    .userOpinion {
+        font-size: 2rem;
+    }
+}
