@@ -1,16 +1,19 @@
 .explanationTheme {
     width: 60%;
-    height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
     gap: 20px;
+    /* border: 1px solid red; */
 }
 
 .courseData {
     display: flex;
     flex-direction: column;
-    flex: 1;
     justify-content: space-between;
+    gap: 50px;
+    flex: 1;
 }
 
 .courseData > div:first-child {
@@ -59,4 +62,21 @@
 .professorContainer figure img {
     width: 100%;
     height: 100%;
+}
+
+@media all and (max-width: 1023px) {
+    .explanationTheme {
+        width: 100%;
+        height: 50%;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .explanationTheme {
+        width: 100%;
+        height: 50%;
+    }
+    .courseData > div:last-child {
+        flex-direction: column;
+    }
 }

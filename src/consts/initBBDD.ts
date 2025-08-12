@@ -1879,7 +1879,7 @@ export const DATA_BASE: BBDD = {
                             "Peones-gif-posicion-8_1719x1719_.webp",
                             "Peones-gif-posicion-9_1719x1719_.webp",
                         ],
-                        title: "Posición inicial del peón",
+                        title: "Posición inicial",
                         description:
                             "Los peones se colocan en la segunda fila (fila 2) para las blancas y en la séptima fila (fila 7) para las negras. Forman la primera línea de defensa y controlan el centro desde el inicio.",
                     },
@@ -1893,7 +1893,7 @@ export const DATA_BASE: BBDD = {
                             "Peones-gif-movimiento-5_1719x1719_.png",
                             "Peones-gif-movimiento-6_1719x1719_.png",
                         ],
-                        title: "Movimiento del peón",
+                        title: "Movimiento",
                         description:
                             "Los peones avanzan solo hacia adelante, una casilla por turno, pero pueden avanzar dos casillas en su primer movimiento desde su posición inicial.",
                     },
@@ -1908,7 +1908,7 @@ export const DATA_BASE: BBDD = {
                             "Peones-gif-captura-6_1719x1719_.png",
                             "Peones-gif-captura-7_1719x1719_.png",
                         ],
-                        title: "Captura del peón",
+                        title: "Captura",
                         description:
                             "A diferencia de su movimiento, los peones capturan en diagonal, una casilla hacia adelante. También existe una captura especial llamada 'al paso' que se estudia en niveles más avanzados.",
                     },
@@ -1924,7 +1924,7 @@ export const DATA_BASE: BBDD = {
                             "Peones-gif-coronacion-7_1719x1719_.png",
                             "Peones-gif-coronacion-8_1719x1719_.png",
                         ],
-                        title: "La coronación del peón",
+                        title: "La coronación",
                         description:
                             "Cuando un peón alcanza la última fila (fila 8 para blancas o fila 1 para negras), puede convertirse en dama, torre, alfil o caballo. Generalmente se elige la dama por su poder.",
                     },
@@ -1952,7 +1952,7 @@ export const DATA_BASE: BBDD = {
                             "Caballos-gif-posicion-3_1719x1719_.png",
                             "Caballos-gif-posicion-4_1719x1719_.png",
                         ],
-                        title: "Posición inicial del caballo",
+                        title: "Posición inicial",
                         description:
                             "Cada jugador comienza con dos caballos: las blancas los colocan en b1 y g1, y las negras en b8 y g8. Están junto a las torres en las esquinas del tablero.",
                     },
@@ -1971,7 +1971,7 @@ export const DATA_BASE: BBDD = {
                             "Caballos-gif-movimiento-10_1719x1719_.png",
                             "Caballos-gif-movimiento-11_1719x1719_.png",
                         ],
-                        title: "Movimiento del caballo",
+                        title: "Movimiento",
                         description:
                             "El caballo se mueve en forma de L: dos casillas en una dirección (horizontal o vertical) y una en dirección perpendicular. Además, puede saltar por encima de otras piezas.",
                     },
@@ -1982,7 +1982,7 @@ export const DATA_BASE: BBDD = {
                             "Caballos-gif-captura-2_1719x1719_.png",
                             "Caballos-gif-captura-3_1719x1719_.png",
                         ],
-                        title: "Captura del caballo",
+                        title: "Captura",
                         description:
                             "El caballo captura en la casilla donde termina su movimiento. Si hay una pieza enemiga en la casilla final de su salto en L, puede capturarla.",
                     },
@@ -1992,7 +1992,7 @@ export const DATA_BASE: BBDD = {
                             "Caballos-gif-horquilla-1_1719x1719_.png",
                             "Caballos-gif-horquilla-2_1719x1719_.png",
                         ],
-                        title: "La horquilla del caballo",
+                        title: "La horquilla",
                         description:
                             "Una de las tácticas más poderosas del caballo es la horquilla: atacar dos o más piezas al mismo tiempo. Esta técnica aparece constantemente en partidas reales.",
                     },
@@ -2020,7 +2020,7 @@ export const DATA_BASE: BBDD = {
                             "Alfiles-gif-posicion-3_1719x1719_.png",
                             "Alfiles-gif-posicion-4_1719x1719_.png",
                         ],
-                        title: "Posición inicial del alfil",
+                        title: "Posición inicial",
                         description:
                             "Las blancas colocan sus alfiles en c1 y f1; las negras en c8 y f8. Cada alfil permanece en un color específico durante toda la partida (blanco o negro).",
                     },
@@ -2032,7 +2032,7 @@ export const DATA_BASE: BBDD = {
                             "Alfiles-gif-movimiento-3_1719x1719_.png",
                             "Alfiles-gif-movimiento-4_1719x1719_.png",
                         ],
-                        title: "Movimiento del alfil",
+                        title: "Movimiento",
                         description:
                             "Los alfiles se mueven en diagonal, tantas casillas como estén libres, pero siempre en una sola dirección por turno.",
                     },
@@ -2042,7 +2042,7 @@ export const DATA_BASE: BBDD = {
                             "Alfiles-gif-captura-1_1719x1719_.png",
                             "Alfiles-gif-captura-2_1719x1719_.png",
                         ],
-                        title: "Captura del alfil",
+                        title: "Captura",
                         description:
                             "El alfil captura de la misma forma en que se mueve: en línea diagonal. Puede eliminar cualquier pieza enemiga que esté en su camino.",
                     },
@@ -2082,7 +2082,7 @@ export const DATA_BASE: BBDD = {
                             "Torres-gif-posicion-3_1719x1719_.png",
                             "Torres-gif-posicion-4_1719x1719_.png",
                         ],
-                        title: "Posición inicial de la torre",
+                        title: "Posición inicial",
                         description:
                             "Las torres se ubican en las esquinas del tablero. Las blancas en a1 y h1; las negras en a8 y h8. Protegen los bordes y se activan especialmente después del enroque.",
                     },
@@ -2095,7 +2095,7 @@ export const DATA_BASE: BBDD = {
                             "Torres-gif-movimiento-4_1719x1719_.png",
                             "Torres-gif-movimiento-5_1719x1719_.png",
                         ],
-                        title: "Movimiento de la torre",
+                        title: "Movimiento",
                         description:
                             "La torre se mueve en línea recta a través de filas (horizontal) y columnas (vertical), tantas casillas como estén disponibles.",
                     },
@@ -2106,7 +2106,7 @@ export const DATA_BASE: BBDD = {
                             "Torres-gif-captura-2_1719x1719_.png",
                             "Torres-gif-captura-3_1719x1719_.png",
                         ],
-                        title: "Captura de la torre",
+                        title: "Captura",
                         description:
                             "La torre captura igual que se mueve: puede eliminar cualquier pieza enemiga ubicada en su misma fila o columna si no hay piezas entre medio.",
                     },
@@ -2118,7 +2118,7 @@ export const DATA_BASE: BBDD = {
                             "Torres-gif-fortaleza-3_1719x1719_.png",
                             "Torres-gif-fortaleza-4_1719x1719_.png",
                         ],
-                        title: "Activación de las torres",
+                        title: "Activación",
                         description:
                             "Una torre es más poderosa en columnas abiertas (sin peones). Aprenderás a conectar tus torres y colocarlas en columnas donde tengan máxima actividad.",
                     },
@@ -2144,7 +2144,7 @@ export const DATA_BASE: BBDD = {
                             "Reina-gif-posicion-1_1719x1719_.png",
                             "Reina-gif-posicion-2_1719x1719_.png",
                         ],
-                        title: "Posición inicial de la reina",
+                        title: "Posición inicial",
                         description:
                             "La reina blanca se coloca en d1 y la reina negra en d8. Siempre empieza en la casilla de su mismo color: blanca en blanca, negra en negra.",
                     },
@@ -2161,7 +2161,7 @@ export const DATA_BASE: BBDD = {
                             "Reina-gif-movimiento-8_1719x1719_.png",
                             "Reina-gif-movimiento-9_1719x1719_.png",
                         ],
-                        title: "Movimiento de la reina",
+                        title: "Movimiento",
                         description:
                             "La reina puede moverse en línea recta por filas, columnas y diagonales, combinando el poder de la torre y el alfil en una sola pieza.",
                     },
@@ -2172,7 +2172,7 @@ export const DATA_BASE: BBDD = {
                             "Reina-gif-captura-2_1719x1719_.png",
                             "Reina-gif-captura-3_1719x1719_.png",
                         ],
-                        title: "Captura de la reina",
+                        title: "Captura",
                         description:
                             "Captura cualquier pieza enemiga que esté en su camino de movimiento, tanto en línea recta como en diagonal.",
                     },
@@ -2183,7 +2183,7 @@ export const DATA_BASE: BBDD = {
                             "Reina-gif-warning-2_1719x1719_.png",
                             "Reina-gif-warning-3_1719x1719_.png",
                         ],
-                        title: "Uso responsable de la reina",
+                        title: "Uso temprano",
                         description:
                             "Aunque poderosa, no conviene sacarla demasiado pronto. Aprende cuándo y cómo usarla correctamente sin exponerla a ataques innecesarios.",
                     },
@@ -2209,7 +2209,7 @@ export const DATA_BASE: BBDD = {
                             "Rey-gif-posicion-1_1719x1719_.png",
                             "Rey-gif-posicion-2_1719x1719_.png",
                         ],
-                        title: "Posición inicial del rey",
+                        title: "Posición inicial",
                         description:
                             "El rey blanco empieza en e1 y el rey negro en e8. Siempre se coloca entre el alfil de rey y la dama.",
                     },
@@ -2228,7 +2228,7 @@ export const DATA_BASE: BBDD = {
                             "Rey-gif-movimiento-10_1719x1719_.png",
                             "Rey-gif-movimiento-11_1719x1719_.png",
                         ],
-                        title: "Movimiento del rey",
+                        title: "Movimiento",
                         description:
                             "El rey se mueve una casilla en cualquier dirección: horizontal, vertical o diagonal. No puede moverse a una casilla amenazada.",
                     },
@@ -2243,7 +2243,7 @@ export const DATA_BASE: BBDD = {
                             "Rey-gif-captura-6_1719x1719_.png",
                             "Rey-gif-captura-7_1719x1719_.png",
                         ],
-                        title: "Captura del rey",
+                        title: "Captura",
                         description:
                             "El rey nunca 'captura' en el sentido ofensivo: se debe mantener a salvo. Sin embargo, puede eliminar piezas enemigas si la casilla no está bajo ataque.",
                     },

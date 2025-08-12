@@ -46,7 +46,7 @@ function ExplanationTheme({
                         time={30}
                     />
                 </div>
-                <div>
+                <div className={[styles.actions].join(" ")}>
                     <Button
                         disabled={index === 1}
                         onClick={() => {

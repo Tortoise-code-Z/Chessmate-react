@@ -1,15 +1,44 @@
 .classZoneSection {
     display: flex;
-    gap: 50px;
-    width: 100%;
     max-width: var(--max-width-page);
     margin: 0 auto;
-    margin-top: var(--navbar-height);
+    margin-top: calc(var(--navbar-height));
+    align-items: center;
+    width: 100%;
+    min-height: calc(100vh - var(--navbar-height));
+    position: relative;
+    padding-top: 0 !important;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 50px;
+    height: fit-content;
     padding-left: var(--padding-lateral) !important;
     padding-right: var(--padding-lateral) !important;
-    padding-top: 20px !important;
-    padding-bottom: 20px !important;
+}
 
-    height: calc(100vh - var(--navbar-height));
-    position: relative;
+@media all and (max-width: 1023px) {
+    .classZoneSection {
+        width: 100%;
+        min-height: calc(100vh - var(--navbar-height));
+        height: auto;
+        align-items: normal;
+    }
+    .content {
+        flex-direction: column;
+        padding-top: 20px;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .content {
+        padding-top: 0;
+        align-items: flex-start;
+    }
 }

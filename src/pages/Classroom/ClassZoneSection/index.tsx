@@ -33,21 +33,23 @@ function ClassZoneSection({}: Props) {
     return (
         <section className={[styles.classZoneSection].join(" ")}>
             <LightComponent top={20} right={25} />
-            <DataStateWrapper isLoading={isLoading} error={error}>
-                <BoardZone
-                    data={data || ({} as UseCourseApiType)}
-                    setIndex={setIndex}
-                    index={index}
-                    imageSliderLoading={imageSliderLoading}
-                    setImageSliderLoading={setImageSliderLoading}
-                />
-                <ExplanationTheme
-                    data={data || ({} as UseCourseApiType)}
-                    setIndex={setIndex}
-                    index={index}
-                    setImageSliderLoading={setImageSliderLoading}
-                />
-            </DataStateWrapper>
+            <div className={[styles.content].join(" ")}>
+                <DataStateWrapper isLoading={isLoading} error={error}>
+                    <BoardZone
+                        data={data || ({} as UseCourseApiType)}
+                        setIndex={setIndex}
+                        index={index}
+                        imageSliderLoading={imageSliderLoading}
+                        setImageSliderLoading={setImageSliderLoading}
+                    />
+                    <ExplanationTheme
+                        data={data || ({} as UseCourseApiType)}
+                        setIndex={setIndex}
+                        index={index}
+                        setImageSliderLoading={setImageSliderLoading}
+                    />
+                </DataStateWrapper>
+            </div>
         </section>
     );
 }
