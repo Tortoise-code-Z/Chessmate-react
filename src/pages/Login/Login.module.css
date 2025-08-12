@@ -68,3 +68,14 @@
     border-radius: 5px;
     text-align: center;
 }
+
+@media all and (max-width: 500px) {
+    .login {
+        height: auto;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+    .login > figure {
+        width: 130px;
+    }
+}
