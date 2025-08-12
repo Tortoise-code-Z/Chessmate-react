@@ -316,7 +316,7 @@ body {
     font-family: Roboto;
 }
 
-@media all and (max-width: 426px) {
+@media all and (max-width: 500px) {
     h2 {
         font-size: 2rem !important;
     }

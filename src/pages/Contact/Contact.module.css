@@ -75,3 +75,61 @@
 .contact form button {
     width: fit-content;
 }
+
+@media all and (max-width: 768px) {
+    .contact {
+        padding: 0 !important;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: fit-content;
+    }
+
+    .imageContact {
+        width: 100%;
+        padding: calc(var(--navbar-height) + var(--section-vertical-padding))
+            var(--section-vertical-padding);
+        height: fit-content;
+        align-items: center;
+    }
+
+    .contact form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: var(--section-vertical-padding) var(--padding-lateral);
+        width: 100%;
+    }
+}
+
+@media all and (max-height: 500px) {
+    .contact {
+        padding: 0 !important;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: fit-content;
+    }
+
+    .imageContact {
+        width: 100%;
+        padding: calc(var(--navbar-height) + var(--section-vertical-padding))
+            var(--section-vertical-padding);
+        height: fit-content;
+        align-items: center;
+    }
+
+    .contact form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: var(--section-vertical-padding) var(--padding-lateral);
+        width: 100%;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .contact h2 {
+        text-align: center;
+    }
+}
