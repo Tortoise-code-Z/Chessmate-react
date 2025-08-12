@@ -5,6 +5,7 @@
     flex-direction: row;
     overflow: hidden;
     padding: 0 !important;
+    position: relative;
 }
 
 .register h2 {
@@ -79,4 +80,53 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+@media all and (max-width: 1023px) {
+    .bccImg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
+    .bccImg::before {
+        background: linear-gradient(
+            to right,
+            rgba(var(--bcc-color), 1),
+            rgba(var(--bcc-color), 0.8)
+        );
+    }
+
+    .register {
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        height: auto;
+    }
+
+    .register form {
+        width: 100%;
+        min-width: 0;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 10px;
+        position: relative;
+    }
+
+    .register {
+        padding: var(--padding-lateral) !important;
+        position: relative;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .register {
+        padding: var(--padding-lateral-mobile) !important;
+        position: relative;
+    }
 }
