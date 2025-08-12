@@ -8,7 +8,7 @@ type Props = {};
 function Layout({}: Props) {
     return (
         <>
-            <Header />
+            {/* <Header /> */}
             <ScrollToTop />
             <main>
                 <Outlet />
