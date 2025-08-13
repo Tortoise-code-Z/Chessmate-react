@@ -1,44 +1,36 @@
 .classZoneSection {
     display: flex;
+    flex-direction: row;
     max-width: var(--max-width-page);
     margin: 0 auto;
     margin-top: calc(var(--navbar-height));
     align-items: center;
+    justify-content: center;
     width: 100%;
-    min-height: calc(100vh - var(--navbar-height));
+    height: calc(100vh - var(--navbar-height));
     position: relative;
-    padding-top: 0 !important;
-}
-
-.content {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    gap: 50px;
-    height: fit-content;
-    padding-left: var(--padding-lateral) !important;
-    padding-right: var(--padding-lateral) !important;
+    padding: 20px !important;
+    gap: 10px;
 }
 
 @media all and (max-width: 1023px) {
     .classZoneSection {
         width: 100%;
-        min-height: calc(100vh - var(--navbar-height));
-        height: auto;
-        align-items: normal;
-    }
-    .content {
         flex-direction: column;
-        padding-top: 20px;
-        align-items: center;
-        justify-content: center;
+        gap: 20px;
     }
 }
 
-@media all and (max-width: 500px) {
-    .content {
-        padding-top: 0;
-        align-items: flex-start;
+@media all and (max-width: 767px) {
+    .classZoneSection {
+        height: fit-content;
+        flex-direction: column-reverse;
+    }
+}
+
+@media all and (max-height: 500px) {
+    .classZoneSection {
+        height: fit-content;
+        flex-direction: column-reverse;
     }
 }

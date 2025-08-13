@@ -46,6 +46,8 @@ function ExplanationTheme({
                         time={30}
                     />
                 </div>
+            </div>
+            <div className={[styles.professorAndActions].join(" ")}>
                 <div className={[styles.actions].join(" ")}>
                     <Button
                         disabled={index === 1}
@@ -87,25 +89,17 @@ function ExplanationTheme({
                         Completar
                     </Button>
                 </div>
-            </div>
-            <div className={[styles.professorContainer].join(" ")}>
-                <figure>
-                    <img
-                        src={PROFESSOR_IMAGE.image}
-                        alt={PROFESSOR_IMAGE.alt}
-                        title={PROFESSOR_IMAGE.alt}
-                        width={PROFESSOR_IMAGE.width}
-                        height={PROFESSOR_IMAGE.height}
-                    />
-                </figure>
-                <p>
-                    Me alegro de verte de nuevo,{" "}
-                    <span
-                        className={["span-pr-color", "text-medium"].join(" ")}
-                    >
-                        {user?.username}.
-                    </span>
-                </p>
+                <div className={[styles.professorContainer].join(" ")}>
+                    <figure>
+                        <img
+                            src={PROFESSOR_IMAGE.image}
+                            alt={PROFESSOR_IMAGE.alt}
+                            title={PROFESSOR_IMAGE.alt}
+                            width={PROFESSOR_IMAGE.width}
+                            height={PROFESSOR_IMAGE.height}
+                        />
+                    </figure>
+                </div>
             </div>
         </div>
     );

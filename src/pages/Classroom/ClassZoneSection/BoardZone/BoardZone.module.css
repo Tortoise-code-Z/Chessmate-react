@@ -10,8 +10,8 @@
     flex-direction: column-reverse;
     justify-content: center;
     gap: 20px;
-    max-height: 100%;
-    width: 40%;
+    height: 100%;
+    width: 50%;
     padding: 10px;
 }
 
@@ -20,11 +20,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    max-height: 100%;
 }
 
 .boardContainer figure {
-    max-height: 100%;
+    height: 100%;
     aspect-ratio: 1/1;
 }
 
@@ -38,35 +37,24 @@
     gap: 15px;
     width: 100%;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
 }
 
 .themes button {
     flex: 1;
+    padding: 10px 7px;
 }
 
 @media all and (max-width: 1023px) {
     .boardContainer {
-        display: flex;
-        flex-direction: column-reverse;
-        justify-content: center;
-        gap: 20px;
         height: 50% !important;
         width: 100%;
     }
-
-    .boardContainer figure {
-        height: 100%;
-        width: auto;
-        aspect-ratio: 1/1;
-    }
 }
 
-@media all and (max-width: 500px) {
+@media all and (max-height: 500px) {
     .boardContainer figure {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 1/1;
+        height: calc(100vh - var(--navbar-height));
     }
 }
