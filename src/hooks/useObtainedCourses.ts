@@ -50,7 +50,7 @@ export default function useObtainedCourses(
     };
 
     return useQuery({
-        queryKey: ["courses"],
+        queryKey: ["courses", limit],
         queryFn: queryFunction,
         staleTime: 1000 * 60 * 5,
     });

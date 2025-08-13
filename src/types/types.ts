@@ -216,7 +216,7 @@ export type BestPlayerChessData = {
     score: number;
     rank: number;
     country: string;
-    title: string;
+    title: string | ChessLevel;
     name: string;
     status: string;
     avatar: string;

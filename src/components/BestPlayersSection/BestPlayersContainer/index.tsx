@@ -1,7 +1,8 @@
-import { BestPlayerChessData } from "../../../types/types";
+import { BestPlayerChessData, ChessLevel } from "../../../types/types";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 import styles from "./BestPlayersContainer.module.css";
+import ChessTitle from "../../ChessTitle";
 
 type Props = {
     data: BestPlayerChessData;
@@ -15,7 +16,7 @@ function BestPlayersContainer({ data }: Props) {
                     <p className={[styles.username].join(" ")}>
                         {data.username}
                     </p>
-                    <p className={[styles.userTitle].join(" ")}>{data.title}</p>
+                    <ChessTitle title={data.title as ChessLevel} />
                 </div>
                 <p className={[styles.userScore].join(" ")}>{data.score}</p>
                 <p className={[styles.userRank].join(" ")}>Rank: {data.rank}</p>

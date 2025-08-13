@@ -4,7 +4,6 @@ import {
     CourseJSON,
     IsObtainedCourse,
     ObtainedCourse,
-    Progress,
 } from "../types/types";
 import { DATABASE_KEY } from "../consts/dataBaseKey";
 import { useErrorStore } from "./useErrorStore";
@@ -74,13 +73,10 @@ export function useBuyCourse() {
             setSuccessState(true);
             setSuccessMsg("¡¡Compra realizada con éxito!!");
 
-            queryClient.setQueryData<(CourseJSON & Progress)[]>(
-                ["courses"],
-                (old) => {
-                    if (!old) return old;
-                    return [{ ...data.course, progress: 0 }, ...old];
-                }
-            );
+            queryClient.invalidateQueries({
+                queryKey: ["courses"],
+                exact: false,
+            });
 
             queryClient.setQueryData<CourseJSON[]>(
                 ["toBuyCourses", data.userID],

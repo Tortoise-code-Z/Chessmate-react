@@ -20,6 +20,7 @@
     gap: 20px;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 .username {
     font-size: 4rem;
@@ -45,5 +46,17 @@
 }
 
 .goChesscom {
-    padding: 20px 30px !important;
+    font-family: Roboto-bold !important;
+}
+
+@media all and (max-width: 500px) {
+    .username {
+        font-size: 2rem;
+    }
+}
+
+@media all and (max-height: 500px) {
+    .username {
+        font-size: 2rem;
+    }
 }

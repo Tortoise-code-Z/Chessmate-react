@@ -118,7 +118,7 @@
     font-size: 14px;
 }
 
-@media all and (max-width: 1024px) {
+@media all and (max-width: 1023px) {
     .itemContainer {
         display: flex;
         flex-direction: column;
