@@ -1,0 +1,12 @@
+.msgNotCoursesYet {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.msgNotCoursesYet p {
+    font-family: Roboto-Light-italic;
+    font-size: 1.2rem;
+    opacity: 0.3;
+}

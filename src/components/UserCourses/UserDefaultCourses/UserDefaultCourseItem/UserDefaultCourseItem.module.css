@@ -8,16 +8,6 @@
     height: 100%;
 }
 
-.errorElement {
-    font-family: Roboto-thin-italic;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0.3;
-}
-
 .userDefaultCourseItem {
     display: flex;
     flex-direction: column;
@@ -43,34 +33,6 @@
 .title {
     font-family: Roboto-extraLight;
     font-size: 1.2rem;
-}
-
-.progress {
-    width: 60px;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    position: absolute;
-    top: -15px;
-    right: -15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.progress span {
-    position: relative;
-    top: 4px;
-    right: 4px;
-    font-family: Roboto-medium;
-    font-size: 0.9em;
-}
-
-.bccCompleted {
-    background-color: rgb(var(--complementary-color-500));
-}
-
-.bccInProgress {
-    background-color: rgb(var(--primary-color-500));
 }
 
 @media all and (max-width: 1024px) {

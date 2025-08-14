@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import { DATABASE_KEY } from "../../consts/dataBaseKey";
 import useObtainedCourses from "../../hooks/useObtainedCourses";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
@@ -6,9 +5,8 @@ import DataStateWrapper from "../DataStateWrapperProps";
 import LightComponent from "../LightComponent";
 import styles from "./UserCourses.module.css";
 import UserDefaultCourses from "./UserDefaultCourses";
-import UserObtainedCourses from "./UserObtainedCourses";
-import { paths } from "../../consts/paths";
-import { FaBook } from "react-icons/fa6";
+import UserCoursesWithEmptyState from "./UserObtainedCourses/UserCoursesWithEmptyState";
+import UserCoursesWithoutEmptyState from "./UserObtainedCourses/UserCoursesWithoutEmptyState";
 
 type Props = {
     defaultCourseClassID?: number;
@@ -31,56 +29,27 @@ function UserCourses({
         obtainedCoursesLimit as number
     );
 
-    const showObtainedCoursesItem = (
-        <>
-            <h3>Adquiridos</h3>
-            {data && data.length > 0 ? (
-                <UserObtainedCourses
-                    data={data}
-                    classID={obtainedCourseClassID}
-                />
-            ) : (
-                <div className={[styles.msgNotCoursesYet].join(" ")}>
-                    <p>No tienes cursos aún...</p>
-                    <NavLink
-                        className={["button", "buttonPrimary"].join(" ")}
-                        to={`/${paths.courses}`}
-                    >
-                        <FaBook />
-                        Ir a cursos
-                    </NavLink>
-                </div>
-            )}
-        </>
-    );
-
-    const notShowObtainesCoursesItem = (
-        <>
-            {data && data.length > 0 && (
-                <>
-                    <h3>Adquiridos</h3>
-                    <UserObtainedCourses
-                        data={data}
-                        classID={obtainedCourseClassID}
-                    />
-                </>
-            )}
-        </>
-    );
-
     return (
-        <div className={[styles.userCourses].join(" ")}>
+        <div className={styles.userCourses}>
             <LightComponent top={50} right={30} />
 
-            <div>
+            <div className={styles.userDefaultCoursesContainer}>
                 <h3>Gratuitos</h3>
                 <UserDefaultCourses classID={defaultCourseClassID} />
             </div>
-            <div>
+            <div className={styles.userObtainedCoursesContainer}>
                 <DataStateWrapper isLoading={isLoading} error={error}>
-                    {showObtainedCourses
-                        ? showObtainedCoursesItem
-                        : notShowObtainesCoursesItem}
+                    {showObtainedCourses ? (
+                        <UserCoursesWithEmptyState
+                            data={data}
+                            obtainedCourseClassID={obtainedCourseClassID}
+                        />
+                    ) : (
+                        <UserCoursesWithoutEmptyState
+                            data={data}
+                            obtainedCourseClassID={obtainedCourseClassID}
+                        />
+                    )}
                 </DataStateWrapper>
             </div>
         </div>

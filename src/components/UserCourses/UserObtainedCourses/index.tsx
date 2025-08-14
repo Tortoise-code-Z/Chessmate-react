@@ -9,7 +9,7 @@ type Props = {
 
 function UserObtainedCourses({ classID, data }: Props) {
     return (
-        <div className={[styles.userObtainedCourses].join(" ")}>
+        <div className={styles.userObtainedCourses}>
             {data.map(
                 (d) =>
                     classID !== d.curseID && (
