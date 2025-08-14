@@ -48,3 +48,66 @@
     font-family: Roboto-thin;
     font-size: 1.2rem;
 }
+
+@media all and (max-width: 1023px) {
+    .welcomeScreen {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .welcomeScreen h2 {
+        font-size: 1.8rem;
+    }
+
+    .professorMsg {
+        width: 100%;
+        height: 70%;
+        align-items: center !important;
+        gap: 20px;
+    }
+
+    .professorContainer {
+        height: 30% !important;
+        width: 100%;
+    }
+
+    .professorContainer figure {
+        height: 100%;
+        width: auto;
+    }
+
+    .respPar {
+        display: none;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .professorMsg > div {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        font-family: Roboto-thin;
+        font-size: 1rem;
+    }
+
+    .professorMsg {
+        width: 100%;
+        height: 80%;
+        align-items: center !important;
+        gap: 20px;
+    }
+
+    .professorContainer {
+        height: 20% !important;
+        width: 100%;
+    }
+}
+
+@media all and (max-height: 500px) {
+    .respPar2 {
+        display: none;
+    }
+}

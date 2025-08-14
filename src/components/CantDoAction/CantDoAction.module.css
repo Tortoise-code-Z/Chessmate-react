@@ -76,9 +76,7 @@
     .dataContainer {
         font-size: 1.4rem;
     }
-}
 
-@media all and (max-width: 1023px) {
     .imageContain {
         height: 30%;
     }

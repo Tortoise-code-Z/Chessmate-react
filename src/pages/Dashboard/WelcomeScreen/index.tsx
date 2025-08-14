@@ -3,6 +3,7 @@ import styles from "./WelcomeScreen.module.css";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import { PROFESSOR_IMAGE } from "../../../consts/images";
 import Button from "../../../components/Button";
+import { useEffect } from "react";
 
 type Props = {
     onClick: () => void;
@@ -10,6 +11,14 @@ type Props = {
 
 function WelcomeScreen({ onClick }: Props) {
     const { user } = useUserAuthStore();
+
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, []);
+
     return (
         <div className={[styles.welcomeScreen].join(" ")}>
             <div className={[styles.professorContainer].join(" ")}>
@@ -43,16 +52,15 @@ function WelcomeScreen({ onClick }: Props) {
                             {user?.username}
                         </span>
                     </p>
-                    <p>
+                    <p className={[styles.respPar2].join(" ")}>
                         Conmigo irás paso a paso convirtiéndote en un super
                         jugador de ajedrez. Soy quién te explicará cada sección
                         de tus cursos.{" "}
                     </p>
-                    <p className={["text-medium"].join(" ")}>
+                    <p className={["text-medium", styles.respPar].join(" ")}>
                         Pero bueno, no quiero marearte, espero que disfrutes de
                         la experiencia, te espero en el tablero.
                     </p>
-                    <p>¡Qué nada te pare, adelante!</p>
                 </div>
                 <Button onClick={onClick}>
                     <FaChessPawn />
