@@ -28,21 +28,6 @@ function Footer({}: Props) {
                         </NavLink>
                     </div>
                 )}
-
-                <div>
-                    <p>
-                        Calle Segunda Inventada, Isabel la Cartólica 35,
-                        Canarias
-                    </p>
-                    <a
-                        className={["button", "buttonTerciary"].join(" ")}
-                        href="#"
-                        title="Ver ubicación Chessmate"
-                    >
-                        <CiMap />
-                        Ver en mapa
-                    </a>
-                </div>
             </div>
             <div className={[styles.footerData].join(" ")}>
                 <p>+00 87 64 33 23</p>
