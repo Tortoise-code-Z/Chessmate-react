@@ -1,6 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { MdOutlineEmail } from "react-icons/md";
-import { CiMap } from "react-icons/ci";
 import { FaInstagram } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import styles from "./Footer.module.css";

@@ -1,0 +1,11 @@
+@media all and (max-width: 1023px) {
+    .respPar {
+        display: none;
+    }
+}
+
+@media all and (max-height: 500px) {
+    .respPar2 {
+        display: none;
+    }
+}
