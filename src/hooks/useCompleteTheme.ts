@@ -1,8 +1,10 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import {
     BBDD,
+    DefualtCourse,
     ObtainedCourse,
     ObtainedDefaultCourse,
+    Progress,
     UseCourseApiType,
 } from "../types/types";
 import { DATABASE_KEY } from "../consts/dataBaseKey";
@@ -91,13 +93,13 @@ export function useCompleteTheme(
                 }
             );
 
-            queryClient.setQueryData<ObtainedCourse[]>(
-                ["userDefaultCourses"],
+            queryClient.setQueryData<(DefualtCourse & Progress)[]>(
+                ["defaultCourses"],
                 (oldData) => {
                     if (!oldData) return oldData;
 
                     return oldData.map((o) =>
-                        o.courseId === data.courseId
+                        o.curseID === data.courseId
                             ? { ...o, progress: data.progress }
                             : o
                     );

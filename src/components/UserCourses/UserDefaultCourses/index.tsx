@@ -1,5 +1,6 @@
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import useDefaultCourses from "../../../hooks/useDefaultCourses";
+import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import DataStateWrapper from "../../DataStateWrapperProps";
 import UserDefaultCourseItem from "./UserDefaultCourseItem";
 import styles from "./UserDefaultCourses.module.css";
@@ -9,7 +10,11 @@ type Props = {
 };
 
 function UserDefaultCourses({ classID }: Props) {
-    const { data, isLoading, error } = useDefaultCourses(DATABASE_KEY);
+    const { user } = useUserAuthStore();
+    const { data, isLoading, error } = useDefaultCourses(
+        DATABASE_KEY,
+        user?.userID as number
+    );
 
     return (
         <div className={[styles.userDefaultCourses].join(" ")}>

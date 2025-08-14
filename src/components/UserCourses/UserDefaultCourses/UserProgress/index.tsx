@@ -1,40 +1,28 @@
-import { FaExclamationTriangle } from "react-icons/fa";
-import DataStateWrapper from "../../../DataStateWrapperProps";
 import styles from "./UserProgress.module.css";
+import { DefualtCourse, Progress } from "../../../../types/types";
 
 type Props = {
-    isLoading: boolean;
-    error: Error | null;
-    userProgress?: number;
+    data: DefualtCourse & Progress;
 };
 
-function UserProgress({ error, isLoading, userProgress }: Props) {
-    const errorComponent = (
-        <div className={[styles.errorElement].join(" ")}>
-            <FaExclamationTriangle />{" "}
-            <span>No hemos podido recuperar tu progreso.</span>
-        </div>
-    );
-
+function UserProgress({ data }: Props) {
     return (
-        <DataStateWrapper
-            isLoading={isLoading}
-            error={error}
-            errorComponent={errorComponent}
-        >
-            {userProgress && (
+        <>
+            {data.progress ? (
                 <div
                     className={[
                         styles.progress,
-                        userProgress < 100
+                        data.progress < 100
                             ? styles.bccInProgress
                             : styles.bccCompleted,
                     ].join(" ")}
                 >
-                    <span>{userProgress}%</span>
+                    <span>{data.progress}%</span>
                 </div>
+            ) : (
+                ""
             )}
-        </DataStateWrapper>
+        </>
     );
 }
 
