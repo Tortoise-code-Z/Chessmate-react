@@ -6,14 +6,17 @@ import { AVATAR_DEFAULT_IMAGE, LOGO_IMAGE } from "../../../../consts/images";
 import Button from "../../../../components/Button";
 import { paths } from "../../../../consts/paths";
 import { FaSignOutAlt } from "react-icons/fa";
-import { useSignout } from "../../../../hooks/useSignout";
+import HamburguerMenuButton from "../HamburguerMenuButton";
+import { Dispatch, SetStateAction } from "react";
+import { UseMutateFunction } from "@tanstack/react-query";
 
-type Props = {};
+type Props = {
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    mutate: UseMutateFunction<void, Error, void, unknown>;
+};
 
-function Navbar({}: Props) {
+function Navbar({ setIsOpen, mutate }: Props) {
     const { user } = useUserAuthStore();
-
-    const { mutate } = useSignout();
 
     const userOptions = (
         <div className={[styles.userOptions].join(" ")}>
@@ -29,16 +32,31 @@ function Navbar({}: Props) {
                 </figure>
                 <p className={[styles.username].join(" ")}>{user?.username}</p>
             </div>
-            <Button onClick={() => mutate()} variant="Red">
+            <Button
+                classNames={[styles.signoutButton]}
+                onClick={() => {
+                    mutate();
+                }}
+                variant="Red"
+            >
                 <FaSignOutAlt /> Cerrar sesión
             </Button>
+            <HamburguerMenuButton
+                onClick={() => {
+                    setIsOpen(true);
+                }}
+            />
         </div>
     );
 
     const userActions = (
         <div className={[styles.userActions].join(" ")}>
             <NavLink
-                className={["button", "buttonPrimary"].join(" ")}
+                className={[
+                    "button",
+                    "buttonPrimary",
+                    styles.registerLink,
+                ].join(" ")}
                 to={`/${paths.register}`}
                 title="Registrarme"
             >
@@ -46,12 +64,19 @@ function Navbar({}: Props) {
                 Registrarme
             </NavLink>
             <NavLink
-                className={["button", "buttonSecondary"].join(" ")}
+                className={["button", "buttonSecondary", styles.loginLink].join(
+                    " "
+                )}
                 to={`/${paths.login}`}
                 title="Iniciar sesion"
             >
                 Iniciar sesión
             </NavLink>
+            <HamburguerMenuButton
+                onClick={() => {
+                    setIsOpen(true);
+                }}
+            />
         </div>
     );
 

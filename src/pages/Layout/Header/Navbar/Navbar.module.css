@@ -73,3 +73,22 @@
     align-items: center;
     gap: 10px;
 }
+
+@media all and (max-width: 640px) {
+    .linksList {
+        display: none;
+    }
+
+    .signoutButton {
+        display: none;
+    }
+
+    .loginLink {
+        display: none !important;
+    }
+}
+@media all and (max-width: 320px) {
+    .username {
+        display: none;
+    }
+}

@@ -137,6 +137,10 @@ article {
     font-family: Roboto-bold-italic !important;
 }
 
+a.button.active {
+    background-color: rgb(var(--primary-color-500));
+}
+
 h2 {
     font-size: 3rem;
     color: rgb(var(--primary-color-050)) !important;
