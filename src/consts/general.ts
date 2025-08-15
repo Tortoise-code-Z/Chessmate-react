@@ -9,3 +9,13 @@ export const CHESS_LEVEL = [
     "WIM",
     "WGM",
 ] as const;
+
+export const LEVELS = [
+    "Principiante",
+    "Intermedio",
+    "Avanzado",
+    "Experto",
+    "Master",
+] as const;
+
+export const FILTERS = ["Todos", ...LEVELS] as const;

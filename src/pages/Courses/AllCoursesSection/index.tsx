@@ -24,7 +24,7 @@ function AllCoursesSection({}: Props) {
     );
 
     return (
-        <section className={[styles.allCoursesSection].join(" ")}>
+        <section className={styles.allCoursesSection}>
             <LightComponent top={20} right={40} />
             <h2>
                 <span className={["span-pr-color", "upperCase"].join(" ")}>

@@ -17,7 +17,7 @@ function RecentCoursesSection({}: Props) {
     );
 
     return (
-        <section className={[styles.recentCoursesSection].join(" ")}>
+        <section className={styles.recentCoursesSection}>
             <LightComponent top={20} right={75} />
 
             <h2>

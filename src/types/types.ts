@@ -1,4 +1,4 @@
-import { CHESS_LEVEL } from "../consts/general";
+import { CHESS_LEVEL, FILTERS, LEVELS } from "../consts/general";
 
 // GENERAL TYPES
 //
@@ -89,12 +89,8 @@ export type CourseImageUrls = {
     thumb: string;
 };
 
-export type Level =
-    | "Principiante"
-    | "Intermedio"
-    | "Avanzado"
-    | "Experto"
-    | "Master";
+export type Level = (typeof LEVELS)[number];
+export type FilterOptions = (typeof FILTERS)[number];
 
 export type BaseCourse = {
     curseID: number;
@@ -187,8 +183,6 @@ export type ButtonVariant =
     | "Terciary"
     | "Complementary"
     | "Red";
-
-export type FilterOptions = Level | "Todos";
 
 export type InputType = "text" | "password" | "checkbox";
 
