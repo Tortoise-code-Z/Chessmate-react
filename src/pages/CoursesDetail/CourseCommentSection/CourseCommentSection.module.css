@@ -7,64 +7,9 @@
     padding-right: var(--padding-lateral);
 }
 
-.courseCommentSection ul {
-    list-style-type: none;
-}
-
 .commentsContainer {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 50px;
-}
-
-.commentsContainer ul {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.commentItem {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.commentItem figure {
-    width: 45px;
-    aspect-ratio: 1/1;
-}
-
-.commentItem figure img {
-    width: 100%;
-    height: 100%;
-}
-
-.userData {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.username {
-    font-family: Roboto-bold;
-}
-
-.createdAt {
-    font-family: Roboto-medium;
-    opacity: 0.4;
-}
-
-.commentText {
-    font-family: Roboto-thin;
-}
-
-.commentForm {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.commentForm > p:first-child {
-    font-family: Roboto-Light-italic;
 }

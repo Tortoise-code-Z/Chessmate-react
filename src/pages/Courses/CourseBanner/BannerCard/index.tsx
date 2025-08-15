@@ -18,7 +18,7 @@ function BannerCard({ data }: Props) {
     return (
         <div
             className={styles.bannerCard}
-            onClick={() => bannerCardHandleClick}
+            onClick={() => bannerCardHandleClick()}
         >
             <div className={styles.courseData}>
                 <h2>{data.title}</h2>

@@ -2,6 +2,7 @@ import { Course, IsObtainedCourse } from "../../../../types/types";
 import { getImage, getImageSize } from "../../../../utils/images";
 import styles from "./GeneralCourseData.module.css";
 import PurchaseAction from "../../../../components/PurchaseAction";
+import FigureImage from "../../../../components/FigureImage";
 
 type Props = {
     data: Course & IsObtainedCourse;
@@ -9,26 +10,23 @@ type Props = {
 
 function GeneralCourseData({ data }: Props) {
     return (
-        <div className={[styles.generalCourseData].join(" ")}>
-            <figure>
-                <img
-                    src={getImage(data.imageUrl.thumb, ["courses"])}
-                    alt={data.title}
-                    title={data.title}
-                    width={getImageSize(data.imageUrl.thumb, "width")}
-                    height={getImageSize(data.imageUrl.thumb, "height")}
-                />
-            </figure>
-            <div>
-                <div>
+        <div className={styles.generalCourseData}>
+            <FigureImage
+                src={getImage(data.imageUrl.thumb, ["courses"])}
+                alt={data.title}
+                title={data.title}
+                width={getImageSize(data.imageUrl.thumb, "width")}
+                height={getImageSize(data.imageUrl.thumb, "height")}
+            />
+
+            <div className={styles.dataContainer}>
+                <div className={styles.data}>
                     <h2>{data.title}</h2>
-                    <p className={[styles.description].join(" ")}>
+                    <p className={styles.description}>
                         {data.shortDescription}
                     </p>
-                    <span className={[styles.level].join(" ")}>
-                        {data.level}
-                    </span>
-                    <p className={[styles.price].join(" ")}>{data.price} $</p>
+                    <span className={styles.level}>{data.level}</span>
+                    <p className={styles.price}>{data.price} $</p>
                 </div>
                 <PurchaseAction
                     courseID={data.curseID}

@@ -1,0 +1,9 @@
+.commentList {
+    list-style-type: none;
+}
+
+.commentList {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}

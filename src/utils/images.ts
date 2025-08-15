@@ -9,5 +9,5 @@ export const getImageSize = (
     dimension: "width" | "height"
 ) => {
     const splitNumber: number = dimension === "width" ? 0 : 1;
-    return itemToSplit.split("_")[1].split("x")[splitNumber];
+    return Number(itemToSplit.split("_")[1].split("x")[splitNumber]);
 };

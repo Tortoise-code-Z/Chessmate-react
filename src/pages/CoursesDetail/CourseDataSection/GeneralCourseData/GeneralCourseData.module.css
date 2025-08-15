@@ -19,7 +19,7 @@
     object-position: center;
 }
 
-.generalCourseData > div {
+.dataContainer {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -27,11 +27,11 @@
     gap: 20px;
 }
 
-.generalCourseData > div button {
+.dataContainer button {
     width: fit-content;
 }
 
-.generalCourseData > div > div {
+.data {
     display: flex;
     flex-direction: column;
     gap: 15px;

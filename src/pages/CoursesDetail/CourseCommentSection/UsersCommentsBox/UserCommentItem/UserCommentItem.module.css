@@ -1,0 +1,34 @@
+.commentItem {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.commentItem figure {
+    width: 45px;
+    aspect-ratio: 1/1;
+}
+
+.commentItem figure img {
+    width: 100%;
+    height: 100%;
+}
+
+.userData {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.username {
+    font-family: Roboto-bold;
+}
+
+.createdAt {
+    font-family: Roboto-medium;
+    opacity: 0.4;
+}
+
+.commentText {
+    font-family: Roboto-thin;
+}
