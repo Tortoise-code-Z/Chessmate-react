@@ -1,11 +1,11 @@
 import { Opinion } from "../../../../types/types";
-import styles from "./OpinionsContainer.module.css";
+import styles from "./OpinionsSlide.module.css";
 
 type Props = {
     data: Opinion;
 };
 
-function OpinionsContainer({ data }: Props) {
+function OpinionsSlide({ data }: Props) {
     return (
         <div className={[styles.opinionContainer].join(" ")}>
             <div className={[styles.userData].join(" ")}>
@@ -28,4 +28,4 @@ function OpinionsContainer({ data }: Props) {
     );
 }
 
-export default OpinionsContainer;
+export default OpinionsSlide;
