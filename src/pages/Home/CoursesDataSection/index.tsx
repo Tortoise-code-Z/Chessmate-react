@@ -7,7 +7,7 @@ type Props = {};
 
 function CoursesDataSection({}: Props) {
     return (
-        <section className={[styles.coursesDataSection].join(" ")}>
+        <section className={styles.coursesDataSection}>
             <LightComponent top={15} right={30} />
             <LightComponent top={60} right={70} />
             <h2>
@@ -20,7 +20,7 @@ function CoursesDataSection({}: Props) {
                 </span>{" "}
                 nuestros cursos
             </h2>
-            <div className={[styles.itemsContainer].join(" ")}>
+            <div className={styles.itemsContainer}>
                 {coursesDataItem.map((c, index) => (
                     <ItemCourseData index={index} key={c.id} item={c} />
                 ))}

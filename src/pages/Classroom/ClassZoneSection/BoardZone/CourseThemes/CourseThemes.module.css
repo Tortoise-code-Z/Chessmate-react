@@ -1,0 +1,20 @@
+.themes {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.themes button {
+    flex: 1;
+    padding: 10px 7px;
+}
+
+.completedIcon {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    color: rgb(var(--complementary-color-500));
+}

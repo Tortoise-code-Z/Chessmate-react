@@ -1,0 +1,30 @@
+.courseData {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.description {
+    font-family: Roboto-thin;
+    font-size: 1.1rem;
+    line-height: 1.5em;
+}
+
+.courseData h2 {
+    color: white;
+    font-size: 2rem;
+}
+
+.courseData h3 {
+    color: white;
+    font-family: Roboto-italic;
+    opacity: 0.5;
+    font-size: 1.1rem;
+}
+
+@media all and (max-width: 1023px) {
+    .courseData {
+        height: 50%;
+        overflow-y: auto;
+    }
+}

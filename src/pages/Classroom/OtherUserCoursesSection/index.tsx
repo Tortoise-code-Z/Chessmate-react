@@ -7,7 +7,7 @@ type Props = {};
 function OtherUserCoursesSection({}: Props) {
     const params = useParams();
     return (
-        <section className={[styles.otherUserCoursesSection].join(" ")}>
+        <section className={styles.otherUserCoursesSection}>
             <h2>
                 <span className={["span-pr-color", "upperCase"].join(" ")}>
                     Otros

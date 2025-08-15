@@ -7,23 +7,17 @@ type Props = {
 
 function OpinionsSlide({ data }: Props) {
     return (
-        <div className={[styles.opinionContainer].join(" ")}>
-            <div className={[styles.userData].join(" ")}>
-                <p className={[styles.username].join(" ")}>
-                    {data.user.username}
-                </p>
+        <div className={styles.opinionContainer}>
+            <div className={styles.userData}>
+                <p className={styles.username}>{data.user.username}</p>
                 {data.user.title && (
-                    <p className={[styles.userTitle].join(" ")}>
-                        {data.user.title}
-                    </p>
+                    <p className={styles.userTitle}>{data.user.title}</p>
                 )}
                 {data.user.elo && (
-                    <p className={[styles.userElo].join(" ")}>
-                        {data.user.elo} ELO
-                    </p>
+                    <p className={styles.userElo}>{data.user.elo} ELO</p>
                 )}
             </div>
-            <p className={[styles.userOpinion].join(" ")}>"{data.text}"</p>
+            <p className={styles.userOpinion}>"{data.text}"</p>
         </div>
     );
 }

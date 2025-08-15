@@ -7,12 +7,10 @@ type Props = {};
 
 function SignupCallToAction({}: Props) {
     return (
-        <section className={[styles.signUpCallToAction].join(" ")}>
-            <div className={[styles.titleContainer].join(" ")}>
+        <section className={styles.signUpCallToAction}>
+            <div className={styles.titleContainer}>
                 <h2>
-                    <span className={["span-pr-color"].join(" ")}>
-                        Regístrate
-                    </span>
+                    <span className={"span-pr-color"}>Regístrate</span>
                     <span>Y comimenza a aprender</span>
                 </h2>
                 <p>Accede a cursos gratuitos y lecciones exclusivas</p>

@@ -1,5 +1,5 @@
 import { Dispatch, useEffect, useRef, useState } from "react";
-import { getImage, getImageSize } from "../../../../../utils/images";
+import { getImage, getImageSize } from "../../../../../../utils/images";
 
 type Props = {
     images: string[];

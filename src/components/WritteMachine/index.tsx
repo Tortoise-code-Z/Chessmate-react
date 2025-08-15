@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 type Props = {
     data: string;
     time: number;
+    classNames?: string[];
 };
 
-function WritteMachine({ data, time }: Props) {
+function WritteMachine({ data, time, classNames = [] }: Props) {
     const [dataToWritte, setDataToWritte] = useState<string>("");
 
     useEffect(() => {
@@ -26,7 +27,7 @@ function WritteMachine({ data, time }: Props) {
         return () => clearTimeout(timeoutId);
     }, [data]);
 
-    return <p>{dataToWritte}</p>;
+    return <p className={classNames.join(" ")}>{dataToWritte}</p>;
 }
 
 export default WritteMachine;

@@ -6,13 +6,11 @@ type Props = {};
 
 function CloseHomeSection({}: Props) {
     return (
-        <section className={[styles.closeHomeSection].join(" ")}>
+        <section className={styles.closeHomeSection}>
             <LightComponent top={35} right={65} />
 
             <h2>
-                <span className={["size-80"].join(" ")}>
-                    Muchas gracias por
-                </span>
+                <span className={"size-80"}>Muchas gracias por</span>
                 <span>
                     <span
                         className={[
@@ -23,14 +21,12 @@ function CloseHomeSection({}: Props) {
                     >
                         confiar{" "}
                     </span>
-                    <span className={["size-90"].join(" ")}>en nosotros</span>
+                    <span className={"size-90"}>en nosotros</span>
                 </span>
             </h2>
             <p>
                 Te esperamos con ilusión en{" "}
-                <span className={["span-pr-color"].join(" ")}>
-                    tu portal de alumno
-                </span>
+                <span className={"span-pr-color"}>tu portal de alumno</span>
             </p>
             <figure>
                 <img

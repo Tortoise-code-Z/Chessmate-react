@@ -1,9 +1,8 @@
 import { Dispatch, SetStateAction } from "react";
 import styles from "./BoardZone.module.css";
-import { FaCheckCircle } from "react-icons/fa";
 import { UseCourseApiType } from "../../../../types/types";
-import Button from "../../../../components/Button";
-import AutoSliderImages from "./AutoSliderImages";
+import Board from "./Board";
+import CourseThemes from "./CourseThemes";
 
 type Props = {
     data: UseCourseApiType;
@@ -22,49 +21,19 @@ function BoardZone({
 }: Props) {
     return (
         <div className={[styles.boardContainer].join(" ")}>
-            <div>
-                <figure className={[styles.board].join(" ")}>
-                    <AutoSliderImages
-                        images={
-                            data.courses.content.themes.find(
-                                (t) => t.id === index
-                            )?.images || ([] as string[])
-                        }
-                        time={1000}
-                        themeTitle={
-                            data.courses.content.themes.find(
-                                (t) => t.id === index
-                            )?.title || ""
-                        }
-                        loading={imageSliderLoading}
-                        setLoading={setImageSliderLoading}
-                    />
-                </figure>
-            </div>
+            <Board
+                data={data}
+                index={index}
+                imageSliderLoading={imageSliderLoading}
+                setImageSliderLoading={setImageSliderLoading}
+            />
 
-            <div className={[styles.themes].join(" ")}>
-                {data.courses.content.themes.map((theme) => (
-                    <Button
-                        classNames={["p-relative"]}
-                        key={theme.id}
-                        onClick={() => {
-                            setImageSliderLoading(true);
-                            setIndex(theme.id);
-                        }}
-                        variant={index === theme.id ? "Primary" : "Secondary"}
-                    >
-                        {data.userThemeStates.find(
-                            (u) => u.themeID === theme.id
-                        )?.completed && (
-                            <FaCheckCircle
-                                className={[styles.completedIcon].join(" ")}
-                            />
-                        )}
-
-                        {theme.title}
-                    </Button>
-                ))}
-            </div>
+            <CourseThemes
+                data={data}
+                setIndex={setIndex}
+                index={index}
+                setImageSliderLoading={setImageSliderLoading}
+            />
         </div>
     );
 }

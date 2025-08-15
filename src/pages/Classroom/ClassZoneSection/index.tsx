@@ -22,16 +22,17 @@ function ClassZoneSection({}: Props) {
         user?.userID as number
     );
 
-    console.log(data);
-
+    // Index used to indicate what theme you are on
     const [index, setIndex] = useState<number>(1);
+
+    // A loading to avoid flickering in images when changing themes
     const [imageSliderLoading, setImageSliderLoading] =
         useState<boolean>(false);
 
     useEffect(() => setIndex(1), [params.id]);
 
     return (
-        <section className={[styles.classZoneSection].join(" ")}>
+        <section className={styles.classZoneSection}>
             <LightComponent top={20} right={25} />
             <DataStateWrapper isLoading={isLoading} error={error}>
                 <BoardZone

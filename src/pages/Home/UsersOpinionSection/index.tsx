@@ -6,7 +6,7 @@ type Props = {};
 
 function UsersOpinionSection({}: Props) {
     return (
-        <section className={[styles.usersOpinionSection].join(" ")}>
+        <section className={styles.usersOpinionSection}>
             <LightComponent top={25} right={35} />
 
             <h2>
