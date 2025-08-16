@@ -1,0 +1,23 @@
+.errorElement {
+    margin: 0 auto;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: var(--padding-lateral);
+    position: relative;
+    text-align: center;
+}
+
+.errorElement h1 {
+    font-size: 3rem;
+    font-family: Roboto-bold;
+}
+
+.message {
+    font-size: 2rem;
+    font-family: Roboto-Light-italic;
+}
