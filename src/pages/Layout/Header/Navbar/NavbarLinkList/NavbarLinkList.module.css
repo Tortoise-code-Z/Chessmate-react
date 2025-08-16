@@ -1,0 +1,22 @@
+.linksList {
+    display: flex;
+    gap: 10px;
+}
+
+.linksList a {
+    transition: 0.2s all ease;
+}
+
+.linksList a:hover {
+    opacity: 0.7;
+}
+
+@media all and (max-width: 640px) {
+    .linksList {
+        display: none;
+    }
+
+    .loginLink {
+        display: none !important;
+    }
+}

@@ -35,3 +35,9 @@
         display: none;
     }
 }
+
+@media all and (max-width: 320px) {
+    .username {
+        display: none;
+    }
+}
