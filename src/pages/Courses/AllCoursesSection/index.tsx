@@ -8,6 +8,7 @@ import DataStateWrapper from "../../../components/DataStateWrapperProps";
 import CoursesDisplay from "../../../components/CoursesDisplay";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
+import { FaHandsPraying } from "react-icons/fa6";
 
 type Props = {};
 
@@ -44,11 +45,18 @@ function AllCoursesSection({}: Props) {
                 error={error}
                 errorMsg={error?.message}
             >
-                <CoursesDisplay
-                    action={true}
-                    courses={data ? data : null}
-                    display="Row"
-                />
+                {data && data.length > 0 ? (
+                    <CoursesDisplay
+                        action={true}
+                        courses={data}
+                        display="Row"
+                    />
+                ) : (
+                    <div className={[styles.thereArentCourses].join(" ")}>
+                        <p>No se han encontrado cursos...</p>
+                        <FaHandsPraying />
+                    </div>
+                )}
             </DataStateWrapper>
         </section>
     );

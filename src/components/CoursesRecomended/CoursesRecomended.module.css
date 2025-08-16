@@ -1,4 +1,5 @@
 .coursesRecomended {
+    margin: 0 auto;
     width: 100%;
     padding-left: var(--padding-lateral);
     padding-right: var(--padding-lateral);
@@ -6,6 +7,7 @@
     flex-direction: column;
     gap: 50px;
     position: relative;
+    max-width: var(--max-width-page);
 }
 
 .titleColCenter {
