@@ -1,19 +1,18 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styles from "./HamburguerMenu.module.css";
 import { useUserAuthStore } from "../../../../hooks/UseUserAuthStore";
 import { paths } from "../../../../consts/paths";
-import { UseMutateFunction } from "@tanstack/react-query";
 import { FaSignOutAlt } from "react-icons/fa";
 import Button from "../../../../components/Button";
 import { FaXmark } from "react-icons/fa6";
 import { Dispatch, SetStateAction } from "react";
 
 type Props = {
-    mutate: UseMutateFunction<void, Error, void, unknown>;
+    handleSignOut: () => void;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
 };
 
-function HamburguerMenu({ mutate, setIsOpen }: Props) {
+function HamburguerMenu({ handleSignOut, setIsOpen }: Props) {
     const { user } = useUserAuthStore();
     return (
         <div className={[styles.container].join(" ")}>
@@ -69,7 +68,7 @@ function HamburguerMenu({ mutate, setIsOpen }: Props) {
                         <Button
                             onClick={() => {
                                 setIsOpen(false);
-                                mutate();
+                                handleSignOut();
                             }}
                             variant="Red"
                         >

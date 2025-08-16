@@ -9,12 +9,18 @@ type Props = {};
 function Header({}: Props) {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const { mutate } = useSignout();
+    const handleSignOut = () => mutate();
 
     const className = [styles.header].join(" ");
     return (
         <header className={className}>
-            {isOpen && <HamburguerMenu setIsOpen={setIsOpen} mutate={mutate} />}
-            <Navbar setIsOpen={setIsOpen} mutate={mutate} />
+            {isOpen && (
+                <HamburguerMenu
+                    setIsOpen={setIsOpen}
+                    handleSignOut={handleSignOut}
+                />
+            )}
+            <Navbar setIsOpen={setIsOpen} handleSignOut={handleSignOut} />
         </header>
     );
 }

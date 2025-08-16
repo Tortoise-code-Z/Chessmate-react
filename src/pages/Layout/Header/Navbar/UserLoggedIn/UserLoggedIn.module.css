@@ -1,0 +1,37 @@
+.userOptions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.userOptions button {
+    height: fit-content;
+}
+
+.userOptions button svg {
+    font-size: 1.1rem;
+}
+
+.userData {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+}
+
+.avatarImage {
+    height: 70% !important;
+    aspect-ratio: 1/1 !important;
+}
+
+.avatarImage img {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+@media all and (max-width: 640px) {
+    .signoutButton {
+        display: none;
+    }
+}

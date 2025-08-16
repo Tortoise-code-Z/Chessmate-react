@@ -5,6 +5,7 @@ import { FaYoutube } from "react-icons/fa";
 import styles from "./Footer.module.css";
 import { paths } from "../../../consts/paths";
 import { LOGO_IMAGE } from "../../../consts/images";
+import FigureImage from "../../../components/FigureImage";
 
 type Props = {};
 
@@ -13,8 +14,8 @@ function Footer({}: Props) {
     const isContactPage: boolean = pathname.startsWith("/contact");
 
     return (
-        <footer className={[styles.footer].join(" ")}>
-            <div className={[styles.footerActions].join(" ")}>
+        <footer className={styles.footer}>
+            <div className={styles.footerActions}>
                 {!isContactPage && (
                     <div>
                         <p>Envianos un correo personalizado</p>
@@ -28,7 +29,7 @@ function Footer({}: Props) {
                     </div>
                 )}
             </div>
-            <div className={[styles.footerData].join(" ")}>
+            <div className={styles.footerData}>
                 <p>+00 87 64 33 23</p>
                 <p>chessmate@protonmail.com</p>
                 <div>
@@ -46,21 +47,19 @@ function Footer({}: Props) {
                     </a>
                 </div>
             </div>
-            <div className={[styles.footerTerms].join(" ")}>
+            <div className={styles.footerTerms}>
                 <p>© [2025] Chessmate. Todos los derechos reservados.</p>
                 <p>
                     Desarrollado con pasión por el ajedrez | Política de
                     privacidad | Términos y condiciones
                 </p>
-                <figure>
-                    <img
-                        src={LOGO_IMAGE.image}
-                        alt="Logo Chessmate"
-                        title="Logo Chessmate"
-                        width={LOGO_IMAGE.width}
-                        height={LOGO_IMAGE.height}
-                    />
-                </figure>
+                <FigureImage
+                    src={LOGO_IMAGE.image}
+                    alt={LOGO_IMAGE.alt}
+                    title={LOGO_IMAGE.alt}
+                    width={LOGO_IMAGE.width}
+                    height={LOGO_IMAGE.height}
+                />
             </div>
         </footer>
     );
