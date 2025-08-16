@@ -10,12 +10,12 @@ function ErrorElement({ error, errorMsg }: Props) {
     console.error(error.message);
     return (
         <div className={[styles.errorElement].join(" ")}>
-            <FaExclamationTriangle />
             <span>
-                Lo sentimos mucho, ha ocurrido un error
+                Lo sentimos mucho, ha ocurrido un error al recuperar los
+                datos...
                 {errorMsg && `: ${errorMsg.toLowerCase()}`}
             </span>
-            <span>Trataremos de solucionarlo lo antes posible.</span>
+            <FaExclamationTriangle />
         </div>
     );
 }

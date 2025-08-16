@@ -8,7 +8,7 @@ type Props = {
 function UserProgress({ data }: Props) {
     return (
         <>
-            {data.progress ? (
+            {data.progress && data.progress > 0 ? (
                 <div
                     className={[
                         styles.progress,

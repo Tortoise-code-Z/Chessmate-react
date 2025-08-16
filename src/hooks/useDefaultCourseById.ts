@@ -1,10 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import {
-    BBDD,
-    DefualtCourse,
-    ThemesUserStates,
-    UseCourseApiType,
-} from "../types/types";
+import { BBDD, UseCourseApiType } from "../types/types";
+import { getDefaultCourse, getUserDefaultCourseThemes } from "../api";
 
 export default function useDefaultCourseById(
     key: string,
@@ -18,18 +14,17 @@ export default function useDefaultCourseById(
                 throw new Error("Ha habido un error al recuperar los datos...");
 
             const data: BBDD = JSON.parse(getData);
-            const courses =
-                data.defaultCourses.find((dc) => dc.curseID === courseID) ||
-                ({} as DefualtCourse);
-            const userThemesStates =
-                data.users
-                    .find((u) => u.userID === userID)
-                    ?.defaultCourses.find((dc) => dc.courseId === courseID)
-                    ?.themes || ([] as ThemesUserStates[]);
+
+            const courses = getDefaultCourse(data, courseID);
+            const userDefaultCourseThemes = getUserDefaultCourseThemes(
+                data,
+                userID,
+                courseID
+            );
 
             return {
                 courses: courses,
-                userThemeStates: userThemesStates,
+                userThemeStates: userDefaultCourseThemes,
             };
         } catch (error) {
             console.log(error);

@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { BBDD, Comments, CommentsJSON, User } from "../types/types";
+import { BBDD, Comments, CommentsJSON } from "../types/types";
 import { DATABASE_KEY } from "../consts/dataBaseKey";
+import { getUserById } from "../api";
 
 type AddCommentApi = {
     courseID: number;
@@ -24,8 +25,7 @@ export function useAddComment() {
 
             const data: BBDD = JSON.parse(getData);
 
-            const user =
-                data.users.find((u) => u.userID === userID) || ({} as User);
+            const user = getUserById(userID, data);
 
             const idComment: number =
                 data.comments.sort((a, b) => b.id - a.id)[0].id + 1;

@@ -6,9 +6,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 1.7rem;
     text-align: center;
     gap: 30px;
     opacity: 0.4;
-    font-family: Roboto-light-italic;
+    font-family: Roboto-Light-italic;
+}
+
+@media all and (max-width: 500px) {
+    .errorElement {
+        width: 90%;
+        font-size: 1.3rem;
+    }
 }

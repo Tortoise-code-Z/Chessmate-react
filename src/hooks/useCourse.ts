@@ -3,10 +3,9 @@ import {
     AuthorCurseData,
     BBDD,
     Course,
-    CourseJSON,
     IsObtainedCourse,
-    ObtainedCourse,
 } from "../types/types";
+import { getCourseById, getUserObtainedCourses } from "../api";
 
 export default function useCourse(
     key: string,
@@ -23,25 +22,21 @@ export default function useCourse(
 
             const data: BBDD = JSON.parse(getData);
 
-            const course =
-                data.courses.find((c) => c.curseID === courseID) ||
-                ({} as CourseJSON);
+            const userObtainedCourse = getCourseById(data, courseID);
 
-            const authorsData = course.authors.map(
+            const courseAuthorsData = userObtainedCourse.authors.map(
                 (c) =>
                     data.authors.find((a) => a.id === c) ||
                     ({} as AuthorCurseData)
             );
 
-            const userCourses =
-                data.users.find((u) => u.userID === userID)?.courses ||
-                ([] as ObtainedCourse[]);
+            const userCourses = getUserObtainedCourses(userID, data);
 
             return {
-                ...course,
-                authors: [...authorsData],
+                ...userObtainedCourse,
+                authors: [...courseAuthorsData],
                 isObtained: userCourses?.some(
-                    (uc) => uc.courseId === course.curseID
+                    (uc) => uc.courseId === userObtainedCourse.curseID
                 ),
             };
         } catch (error) {

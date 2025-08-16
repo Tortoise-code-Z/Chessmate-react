@@ -34,6 +34,13 @@ export default function ErrorElement() {
             >
                 Volver al inicio
             </NavLink>
+            <div className={[styles.contactMessage].join(" ")}>
+                <p>
+                    Si el problema persiste, contacte con nuestro equipo por
+                    correo:
+                </p>
+                <p>chessmate@protonmail.com</p>
+            </div>
         </section>
     );
 }

@@ -8,6 +8,7 @@ import {
 import { DATABASE_KEY } from "../consts/dataBaseKey";
 import { useErrorStore } from "./useErrorStore";
 import { useSuccessStore } from "./useSuccessStore";
+import { getCourseById, getUserObtainedCourses } from "../api";
 
 type BuyCourseApi = {
     course: CourseJSON;
@@ -36,8 +37,7 @@ export function useBuyCourse() {
 
             const data: BBDD = JSON.parse(getData);
 
-            const userCourses = data.users.find((u) => u.userID === userID)
-                ?.courses as ObtainedCourse[];
+            const userCourses = getUserObtainedCourses(userID, data);
 
             const newUserCourses: ObtainedCourse[] = [
                 { courseId: courseID, progress: 0 },
@@ -52,10 +52,7 @@ export function useBuyCourse() {
             };
 
             localStorage.setItem(DATABASE_KEY, JSON.stringify(newData));
-
-            const course =
-                data.courses.find((c) => c.curseID === courseID) ||
-                ({} as CourseJSON);
+            const course = getCourseById(data, courseID);
 
             return {
                 userID: userID,

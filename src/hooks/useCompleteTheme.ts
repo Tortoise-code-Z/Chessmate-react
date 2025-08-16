@@ -8,6 +8,7 @@ import {
 } from "../types/types";
 import { DATABASE_KEY } from "../consts/dataBaseKey";
 import { Dispatch, SetStateAction } from "react";
+import { getUserDefaultCourse } from "../api";
 
 type Variables = {
     themeID: number;
@@ -29,15 +30,15 @@ export function useCompleteTheme(
 
             const data: BBDD = JSON.parse(getData);
 
-            const courseThemeData =
-                data.users
-                    .find((u) => u.userID === userID)
-                    ?.defaultCourses.find((df) => df.courseId === courseID) ||
-                ({} as ObtainedDefaultCourse);
+            const userDefaultCourse = getUserDefaultCourse(
+                userID,
+                courseID,
+                data
+            );
 
             const newCourseData = {
-                ...courseThemeData,
-                themes: courseThemeData?.themes.map((t) =>
+                ...userDefaultCourse,
+                themes: userDefaultCourse?.themes.map((t) =>
                     t.themeID === themeID ? { ...t, completed: true } : t
                 ),
             };

@@ -1,10 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import {
-    BBDD,
-    CourseJSON,
-    IsObtainedCourse,
-    ObtainedCourse,
-} from "../types/types";
+import { BBDD, CourseJSON, IsObtainedCourse } from "../types/types";
+import { getCourses, getUserObtainedCourses } from "../api";
 
 export default function useBestSeller(
     key: string,
@@ -21,11 +17,8 @@ export default function useBestSeller(
 
             const data: BBDD = JSON.parse(getData);
 
-            const courses = data.courses;
-
-            const userCourses =
-                data.users.find((u) => u.userID === userID)?.courses ||
-                ([] as ObtainedCourse[]);
+            const courses = getCourses(data);
+            const userCourses = getUserObtainedCourses(userID, data);
 
             const filteredCourses = courses
                 .sort((a, b) => (b.sales as number) - (a.sales as number))

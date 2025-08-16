@@ -21,3 +21,16 @@
     font-size: 2rem;
     font-family: Roboto-Light-italic;
 }
+
+.contactMessage {
+    font-family: Roboto-thin;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contactMessage p:last-child {
+    color: rgb(var(--primary-color-500));
+    font-family: Roboto-medium;
+    font-size: 1.2rem;
+}

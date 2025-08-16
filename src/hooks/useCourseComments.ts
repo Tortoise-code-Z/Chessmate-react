@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { BBDD, Comments, User } from "../types/types";
+import { BBDD, Comments } from "../types/types";
+import { getUserById } from "../api";
 
 export default function useCourseComments(key: string, courseID: number) {
     const queryFunction: () => Promise<Comments[]> = async () => {
@@ -11,9 +12,7 @@ export default function useCourseComments(key: string, courseID: number) {
             const data: BBDD = JSON.parse(getData);
 
             const comments = data.comments.map((c) => {
-                const user =
-                    data.users.find((u) => u.userID === c.idUser) ||
-                    ({} as User);
+                const user = getUserById(c.idUser, data);
 
                 const { idUser, ...rest } = c;
 
