@@ -1,0 +1,40 @@
+.contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: var(--navbar-height) var(--padding-lateral);
+    padding-bottom: var(--padding-lateral);
+    width: 50%;
+}
+
+.contactForm > div:first-child {
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+}
+
+.contactForm button {
+    width: fit-content;
+}
+
+@media all and (max-width: 768px) {
+    .contactForm {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: var(--section-vertical-padding) var(--padding-lateral);
+        width: 100%;
+    }
+}
+
+@media all and (max-height: 500px) {
+    .contactForm {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: var(--section-vertical-padding) var(--padding-lateral);
+        width: 100%;
+    }
+}

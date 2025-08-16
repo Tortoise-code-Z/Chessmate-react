@@ -10,6 +10,7 @@ import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import useUserEmail from "../../../hooks/useUserEmail";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import Form from "../../../components/Form";
+import styles from "./ContactForm.module.css";
 
 type Props = {};
 
@@ -30,6 +31,7 @@ function ContactForm({}: Props) {
                     name: user ? user.username : "",
                     email: user && !error && data ? data : "",
                 }}
+                classNames={[styles.contactForm]}
             >
                 <div>
                     <InputGroup<ContactSchemaValues>

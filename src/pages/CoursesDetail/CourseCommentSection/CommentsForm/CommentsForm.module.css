@@ -1,9 +1,9 @@
-.commentForm {
+.commentFormContainer {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.commentForm > p:first-child {
+.commentFormContainer > p:first-child {
     font-family: Roboto-Light-italic;
 }

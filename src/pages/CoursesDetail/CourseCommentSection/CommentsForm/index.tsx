@@ -42,11 +42,12 @@ function CommentForm({}: Props) {
     };
 
     return (
-        <div className={styles.commentForm}>
+        <div className={styles.commentFormContainer}>
             <p>Deja tu opinion sobre este curso</p>
             <Form<commentsSchemaValues>
                 onSubmit={handleSubmit}
                 schema={commentsSchema}
+                classNames={[styles.commentForm]}
             >
                 <InputGroup<commentsSchemaValues>
                     name={"comment"}

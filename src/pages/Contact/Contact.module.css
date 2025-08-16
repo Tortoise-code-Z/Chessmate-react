@@ -55,27 +55,6 @@
     font-size: 1.3rem;
 }
 
-.contact form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: var(--navbar-height) var(--padding-lateral);
-    padding-bottom: var(--padding-lateral);
-    width: 50%;
-}
-
-.contact form > div:first-child {
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 10px;
-}
-
-.contact form button {
-    width: fit-content;
-}
-
 @media all and (max-width: 768px) {
     .contact {
         padding: 0 !important;
@@ -91,14 +70,6 @@
             var(--section-vertical-padding);
         height: fit-content;
         align-items: center;
-    }
-
-    .contact form {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding: var(--section-vertical-padding) var(--padding-lateral);
-        width: 100%;
     }
 }
 
@@ -117,14 +88,6 @@
             var(--section-vertical-padding);
         height: fit-content;
         align-items: center;
-    }
-
-    .contact form {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding: var(--section-vertical-padding) var(--padding-lateral);
-        width: 100%;
     }
 }
 
