@@ -14,6 +14,7 @@ type Props<T extends FieldValues> = {
     schema: z.ZodType<T>;
     onSubmit: (data: T, helpers?: { setValue: UseFormSetValue<T> }) => void;
     defaultValues?: DefaultValues<T>;
+    classNames?: string[];
 };
 
 function Form<T extends FieldValues>({
@@ -21,6 +22,7 @@ function Form<T extends FieldValues>({
     onSubmit,
     schema,
     defaultValues,
+    classNames = [],
 }: Props<T>) {
     const methods = useForm<T>({
         resolver: zodResolver(schema),
@@ -36,7 +38,12 @@ function Form<T extends FieldValues>({
     return (
         <>
             <FormProvider {...methods}>
-                <form onSubmit={handleSubmit(submitHandler)}>{children}</form>
+                <form
+                    className={[...classNames].join(" ")}
+                    onSubmit={handleSubmit(submitHandler)}
+                >
+                    {children}
+                </form>
             </FormProvider>
         </>
     );

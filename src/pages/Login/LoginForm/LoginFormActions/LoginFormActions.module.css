@@ -1,0 +1,11 @@
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.actionBtns {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}

@@ -1,0 +1,7 @@
+.loginForm {
+    width: 30%;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

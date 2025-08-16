@@ -3,12 +3,32 @@
     height: 100vh;
     display: flex;
     flex-direction: row;
-    overflow: hidden;
     padding: 0 !important;
     position: relative;
 }
 
-.register h2 {
+.registerError {
+    position: fixed !important;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: fit-content;
+    padding: 20px;
+    background-color: rgb(201, 52, 52);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    width: 60%;
+    height: calc(100% - 50px);
+}
+
+.formContainer h2 {
     font-size: 3.5em;
     display: flex;
     flex-direction: column;
@@ -17,43 +37,11 @@
     font-family: Roboto-italic;
 }
 
-.register h2 span {
+.formContainer h2 span {
     color: rgb(var(--primary-color-050));
     font-size: 1.1rem;
     font-family: Roboto-thin-italic;
     opacity: 0.9;
-}
-
-.register form {
-    width: 40%;
-    min-width: 500px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding: 40px;
-    position: relative;
-}
-
-.formContent {
-    padding: 0 20px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    overflow-y: scroll;
-}
-
-.actions {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.actionBtns {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
 }
 
 .bccImg {
@@ -107,20 +95,14 @@
         height: auto;
     }
 
-    .register form {
-        width: 100%;
-        min-width: 0;
-        height: fit-content;
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-        padding: 10px;
-        position: relative;
-    }
-
     .register {
         padding: var(--padding-lateral) !important;
         position: relative;
+    }
+
+    .formContainer {
+        padding: 20px;
+        width: 80%;
     }
 }
 
@@ -128,5 +110,10 @@
     .register {
         padding: var(--padding-lateral-mobile) !important;
         position: relative;
+    }
+
+    .formContainer {
+        padding: 20px;
+        width: 100%;
     }
 }

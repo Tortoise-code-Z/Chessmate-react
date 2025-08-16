@@ -4,11 +4,19 @@ type Props = {
     title: string;
     width: number;
     height: number;
+    classNames?: string[];
 };
 
-function FigureImage({ alt, height, src, title, width }: Props) {
+function FigureImage({
+    alt,
+    height,
+    src,
+    title,
+    width,
+    classNames = [],
+}: Props) {
     return (
-        <figure>
+        <figure className={[...classNames].join(" ")}>
             <img
                 src={src}
                 alt={alt}
