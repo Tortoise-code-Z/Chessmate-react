@@ -9,7 +9,7 @@ type Props = {
 
 function AuthorsItem({ author }: Props) {
     return (
-        <div className={styles.authorsItem} key={author.id}>
+        <div className={styles.authorsItem}>
             <FigureImage
                 src={getImage(author.image, ["authors"])}
                 alt={author.name}

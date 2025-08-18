@@ -1,7 +1,15 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { BBDD, Comments, CommentsJSON } from "../types/types";
 import { DATABASE_KEY } from "../consts/dataBaseKey";
-import { getUserById } from "../api";
+import {
+    deleteKey,
+    getDataLocalStorage,
+    getLastId,
+    getTodayDate,
+    getUserById,
+    orderedMenorToMayorByKey,
+    setItemLocalStorage,
+} from "../api";
 
 type AddCommentApi = {
     courseID: number;
@@ -18,24 +26,23 @@ export function useAddComment() {
         text,
     }: AddCommentApi): Promise<Comments> => {
         try {
-            const getData = localStorage.getItem(DATABASE_KEY);
+            const data = getDataLocalStorage(DATABASE_KEY);
 
-            if (!getData)
+            if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
 
-            const data: BBDD = JSON.parse(getData);
-
             const user = getUserById(userID, data);
+            if (!user)
+                throw new Error("Ha habido un error al recuperar los datos...");
 
-            const idComment: number =
-                data.comments.sort((a, b) => b.id - a.id)[0].id + 1;
+            const orderedComments = orderedMenorToMayorByKey(
+                data.comments,
+                "id"
+            );
 
-            const date = new Date()
-                .toISOString()
-                .split("T")[0]
-                .split("-")
-                .reverse()
-                .join("-");
+            const idComment = getLastId(orderedComments, "id");
+
+            const date = getTodayDate();
 
             const newComment: CommentsJSON = {
                 id: idComment,
@@ -50,9 +57,10 @@ export function useAddComment() {
                 comments: [...data.comments, { ...newComment }],
             };
 
-            localStorage.setItem(DATABASE_KEY, JSON.stringify(newData));
+            setItemLocalStorage<BBDD>(DATABASE_KEY, newData);
 
-            const { idUser, ...rest } = newComment;
+            const rest = deleteKey(newComment, "idUser");
+
             return { ...rest, user };
         } catch (error) {
             console.error(error);

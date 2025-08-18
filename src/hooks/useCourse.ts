@@ -1,11 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
+import { AuthorCurseData, Course, IsObtainedCourse } from "../types/types";
 import {
-    AuthorCurseData,
-    BBDD,
-    Course,
-    IsObtainedCourse,
-} from "../types/types";
-import { getCourseById, getUserObtainedCourses } from "../api";
+    getCourseById,
+    getDataLocalStorage,
+    getUserObtainedCourses,
+} from "../api";
 
 export default function useCourse(
     key: string,
@@ -16,17 +15,15 @@ export default function useCourse(
         Course & IsObtainedCourse
     > = async () => {
         try {
-            const getData = localStorage.getItem(key);
-            if (!getData)
+            const data = getDataLocalStorage(key);
+            if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
-
-            const data: BBDD = JSON.parse(getData);
 
             const userObtainedCourse = getCourseById(data, courseID);
 
             const courseAuthorsData = userObtainedCourse.authors.map(
-                (c) =>
-                    data.authors.find((a) => a.id === c) ||
+                (courseAuthorID) =>
+                    data.authors.find((a) => a.id === courseAuthorID) ||
                     ({} as AuthorCurseData)
             );
 

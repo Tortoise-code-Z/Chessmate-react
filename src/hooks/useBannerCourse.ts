@@ -1,31 +1,33 @@
 import { useQuery } from "@tanstack/react-query";
-import { BBDD, CourseJSON, IsObtainedCourse } from "../types/types";
-import { getCourses, getUserObtainedCourses } from "../api";
+import { CourseJSON, IsObtainedCourse } from "../types/types";
+import {
+    getCourses,
+    getDataLocalStorage,
+    getRandom,
+    getUserObtainedCourses,
+    orderedMayorToMenorByKey,
+} from "../api";
 
 export default function useBannerCourse(key: string, userID?: number) {
     const queryFunction: () => Promise<
         CourseJSON & IsObtainedCourse
     > = async () => {
         try {
-            const getData = localStorage.getItem(key);
-            if (!getData)
-                throw new Error("Ha habido un error al recuperar los datos...");
+            const data = getDataLocalStorage(key);
 
-            const data: BBDD = JSON.parse(getData);
+            if (!data)
+                throw new Error("Ha habido un error al recuperar los datos...");
 
             const courses = getCourses(data);
 
-            const filteredCourses = courses
-                .sort((a, b) => (b.sales as number) - (a.sales as number))
-                .slice(0, 6);
+            const filteredCourses = orderedMayorToMenorByKey(
+                courses,
+                "sales"
+            ).slice(0, 6);
 
             const userCourses = getUserObtainedCourses(userID, data);
 
-            const randomIndex = Math.floor(
-                Math.random() * filteredCourses.length
-            );
-
-            const bannerCourse = filteredCourses[randomIndex];
+            const bannerCourse = getRandom(filteredCourses);
 
             return {
                 ...bannerCourse,

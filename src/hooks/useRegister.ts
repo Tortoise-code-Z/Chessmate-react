@@ -6,6 +6,15 @@ import { useNavigate } from "react-router-dom";
 import { paths } from "../consts/paths";
 import { customError } from "../utils/errors";
 import { registerSchemaValues } from "../Schemas/registerSchema";
+import {
+    getDataLocalStorage,
+    getDefaultCourses,
+    getEmail,
+    getLastId,
+    getUserByUsername,
+    getUsers,
+    setItemLocalStorage,
+} from "../api";
 
 export function useRegister() {
     const { setUser } = useUserAuthStore();
@@ -14,19 +23,15 @@ export function useRegister() {
     const register = async (
         registerData: registerSchemaValues
     ): Promise<UserAuth> => {
-        const getData = localStorage.getItem(DATABASE_KEY);
+        const data = getDataLocalStorage(DATABASE_KEY);
 
-        if (!getData)
+        if (!data)
             throw customError({
                 code: "DB_ERROR",
                 message: "Ha habido un error al recuperar los datos...",
             });
 
-        const data: BBDD = JSON.parse(getData);
-
-        const users = data.users;
-        console.log(users);
-        const user = users.find((u) => u.username === registerData.username);
+        const user = getUserByUsername(registerData.username, data);
 
         if (user)
             throw customError({
@@ -34,7 +39,7 @@ export function useRegister() {
                 message: "El nombre de usuario ya existe. Pruebe con otro.",
             });
 
-        const emailFound = users.find((u) => u.email === registerData.email);
+        const emailFound = getEmail(data, registerData.email);
 
         if (emailFound)
             throw customError({
@@ -42,8 +47,9 @@ export function useRegister() {
                 message: "El email introducido ya está en uso.",
             });
 
-        const defaultCourses = data.defaultCourses;
+        const defaultCourses = getDefaultCourses(data);
 
+        const users = getUsers(data);
         const newUser: User = {
             username: registerData.username,
             password: registerData.password,
@@ -52,7 +58,7 @@ export function useRegister() {
             title:
                 registerData.title === "Sin título" ? null : registerData.title,
             isFirstLogin: true,
-            userID: users.map((u) => u.userID).sort((a, b) => b - a)[0] + 1,
+            userID: getLastId(users, "userID"),
             defaultCourses: defaultCourses.map((df) => ({
                 courseId: df.curseID,
                 progress: 0,
@@ -66,7 +72,7 @@ export function useRegister() {
 
         const newData: BBDD = { ...data, users: [...users, { ...newUser }] };
 
-        localStorage.setItem(DATABASE_KEY, JSON.stringify(newData));
+        setItemLocalStorage<BBDD>(DATABASE_KEY, newData);
 
         return {
             username: newUser.username,
@@ -78,7 +84,7 @@ export function useRegister() {
     return useMutation<UserAuth, CustomError, registerSchemaValues>({
         mutationFn: register,
         onSuccess: (data: UserAuth) => {
-            localStorage.setItem(USER_AUTH_KEY, JSON.stringify(data));
+            setItemLocalStorage<UserAuth>(USER_AUTH_KEY, data);
             setUser(data);
             navigate(`/${paths.dashboard}`);
         },

@@ -1,6 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import { BBDD, CourseJSON, IsObtainedCourse } from "../types/types";
-import { getCourses, getUserObtainedCourses } from "../api";
+import { CourseJSON, IsObtainedCourse } from "../types/types";
+import {
+    getCourses,
+    getDataLocalStorage,
+    getUserObtainedCourses,
+    orderedMayorToMenorByKey,
+} from "../api";
 
 export default function useBestSeller(
     key: string,
@@ -11,18 +16,18 @@ export default function useBestSeller(
         (CourseJSON & IsObtainedCourse)[]
     > = async () => {
         try {
-            const getData = localStorage.getItem(key);
-            if (!getData)
-                throw new Error("Ha habido un error al recuperar los datos...");
+            const data = getDataLocalStorage(key);
 
-            const data: BBDD = JSON.parse(getData);
+            if (!data)
+                throw new Error("Ha habido un error al recuperar los datos...");
 
             const courses = getCourses(data);
             const userCourses = getUserObtainedCourses(userID, data);
 
-            const filteredCourses = courses
-                .sort((a, b) => (b.sales as number) - (a.sales as number))
-                .slice(0, limit);
+            const filteredCourses = orderedMayorToMenorByKey(
+                courses,
+                "sales"
+            ).slice(0, limit);
 
             return filteredCourses.map((fc) => ({
                 ...fc,

@@ -1,6 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { BBDD, UseCourseApiType } from "../types/types";
-import { getDefaultCourse, getUserDefaultCourseThemes } from "../api";
+import { UseCourseApiType } from "../types/types";
+import {
+    getDataLocalStorage,
+    getDefaultCourse,
+    getUserDefaultCourseThemes,
+} from "../api";
 
 export default function useDefaultCourseById(
     key: string,
@@ -9,11 +13,9 @@ export default function useDefaultCourseById(
 ) {
     const queryFunction: () => Promise<UseCourseApiType> = async () => {
         try {
-            const getData = localStorage.getItem(key);
-            if (!getData)
+            const data = getDataLocalStorage(key);
+            if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
-
-            const data: BBDD = JSON.parse(getData);
 
             const courses = getDefaultCourse(data, courseID);
             const userDefaultCourseThemes = getUserDefaultCourseThemes(

@@ -1,18 +1,21 @@
 import { useQuery } from "@tanstack/react-query";
-import { BBDD, DefualtCourse, Progress } from "../types/types";
-import { getUserById } from "../api";
+import { DefualtCourse, Progress } from "../types/types";
+import { getDataLocalStorage, getUserById } from "../api";
 
 export default function useDefaultCourses(key: string, userID: number) {
     const queryFunction: () => Promise<
         (DefualtCourse & Progress)[]
     > = async () => {
         try {
-            const getData = localStorage.getItem(key);
-            if (!getData)
+            const data = getDataLocalStorage(key);
+            if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
 
-            const data: BBDD = JSON.parse(getData);
             const user = getUserById(userID, data);
+
+            if (!user)
+                throw new Error("Ha habido un error al recuperar los datos...");
+
             const defaultCourses = data.defaultCourses.map((df) => {
                 return {
                     ...df,

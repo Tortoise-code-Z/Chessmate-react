@@ -19,7 +19,7 @@ function UsersCommentBox({}: Props) {
             <DataStateWrapper isLoading={isLoading} error={error}>
                 <>
                     {comments?.map((c) => (
-                        <UserCommentItem comment={c} />
+                        <UserCommentItem key={c.id} comment={c} />
                     ))}
                 </>
             </DataStateWrapper>

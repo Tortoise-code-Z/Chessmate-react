@@ -1,22 +1,20 @@
 import { useMutation } from "@tanstack/react-query";
 import { DATABASE_KEY, USER_AUTH_KEY } from "../consts/dataBaseKey";
-import { BBDD, CustomError, UserAuth } from "../types/types";
+import { UserAuth, CustomError, BBDD } from "../types/types";
 import { useUserAuthStore } from "./UseUserAuthStore";
 import { customError } from "../utils/errors";
+import { getDataLocalStorage, setItemLocalStorage } from "../api";
 
 export function useFirstLogin() {
     const { setUser } = useUserAuthStore();
 
     const firstLogin = async (userID: number): Promise<UserAuth> => {
-        const getData = localStorage.getItem(DATABASE_KEY);
-
-        if (!getData)
+        const data = getDataLocalStorage(DATABASE_KEY);
+        if (!data)
             throw customError({
                 code: "DB_ERROR",
                 message: "Ha habido un error al recuperar los datos...",
             });
-
-        const data: BBDD = JSON.parse(getData);
 
         const currentUser = data.users.find((u) => u.userID === userID);
 
@@ -24,7 +22,7 @@ export function useFirstLogin() {
             throw customError({
                 code: "INVALID_USER",
                 message:
-                    "Ha habidoun problema al intentar recuperar el usuario.",
+                    "Ha habido un problema al intentar recuperar el usuario.",
             });
         }
 
@@ -39,8 +37,7 @@ export function useFirstLogin() {
             ],
         };
 
-        localStorage.setItem(DATABASE_KEY, JSON.stringify(newData));
-
+        setItemLocalStorage<BBDD>(DATABASE_KEY, newData);
         return {
             username: modifyUser.username,
             userID: modifyUser.userID,

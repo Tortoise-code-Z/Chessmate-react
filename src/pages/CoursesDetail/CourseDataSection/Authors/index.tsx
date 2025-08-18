@@ -13,7 +13,7 @@ function Authors({ data }: Props) {
             <h3>Autores</h3>
             <div className={styles.authorsItemsContainer}>
                 {data.authors.map((a) => (
-                    <AuthorsItem author={a} />
+                    <AuthorsItem key={a.id} author={a} />
                 ))}
             </div>
         </div>

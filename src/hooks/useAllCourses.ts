@@ -1,12 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import {
-    BBDD,
-    CourseJSON,
-    FilterOptions,
-    IsObtainedCourse,
-} from "../types/types";
+import { CourseJSON, FilterOptions, IsObtainedCourse } from "../types/types";
 import {
     getAllCourses,
+    getDataLocalStorage,
     getFilteredCourses,
     getSearchedCourses,
     getUserObtainedCourses,
@@ -22,12 +18,10 @@ export default function useAllCourses(
         (CourseJSON & IsObtainedCourse)[]
     > = async () => {
         try {
-            const getData = localStorage.getItem(key);
+            const data = getDataLocalStorage(key);
 
-            if (!getData)
+            if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
-
-            const data: BBDD = JSON.parse(getData);
 
             const userCourses = getUserObtainedCourses(userID, data);
 

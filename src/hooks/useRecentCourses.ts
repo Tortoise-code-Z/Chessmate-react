@@ -1,18 +1,22 @@
 import { useQuery } from "@tanstack/react-query";
 import { BBDD, CourseJSON, IsObtainedCourse } from "../types/types";
+import {
+    getCourses,
+    getDataLocalStorage,
+    getUserObtainedCourses,
+} from "../api";
 
 export default function useRecentCourses(key: string, userID?: number) {
     const queryFunction: () => Promise<
         (CourseJSON & IsObtainedCourse)[]
     > = async () => {
         try {
-            const getData = localStorage.getItem(key);
-            if (!getData)
+            const data = getDataLocalStorage(key);
+            if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
 
-            const data: BBDD = JSON.parse(getData);
+            const courses = getCourses(data);
 
-            const courses = data.courses;
             const filteredCourses = courses
                 .sort((a, b) => {
                     const courseDateA = new Date(a.createdAt).getTime();
@@ -21,9 +25,7 @@ export default function useRecentCourses(key: string, userID?: number) {
                 })
                 .slice(0, 3);
 
-            const userCourses = data.users.find(
-                (u) => u.userID === userID
-            )?.courses;
+            const userCourses = getUserObtainedCourses(userID, data);
 
             return filteredCourses.map((c) => ({
                 ...c,

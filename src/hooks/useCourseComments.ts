@@ -1,24 +1,26 @@
 import { useQuery } from "@tanstack/react-query";
-import { BBDD, Comments } from "../types/types";
-import { getUserById } from "../api";
+import { Comments } from "../types/types";
+import { deleteKey, getDataLocalStorage, getUserById } from "../api";
 
 export default function useCourseComments(key: string, courseID: number) {
     const queryFunction: () => Promise<Comments[]> = async () => {
         try {
-            const getData = localStorage.getItem(key);
-            if (!getData)
+            const data = getDataLocalStorage(key);
+            if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
-
-            const data: BBDD = JSON.parse(getData);
 
             const comments = data.comments.map((c) => {
                 const user = getUserById(c.idUser, data);
-
-                const { idUser, ...rest } = c;
+                if (!user)
+                    throw new Error(
+                        "Ha habido un error al recuperar los datos..."
+                    );
+                const rest = deleteKey(c, "idUser");
 
                 return { ...rest, user };
             });
 
+            // Ordered by time, more recents to minor recents
             return comments
                 .filter((c) => c.idCourse === courseID)
                 .sort((a, b) => {

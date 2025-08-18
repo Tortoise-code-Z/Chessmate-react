@@ -18,15 +18,32 @@ export const getUsers: (data: BBDD) => User[] = (data) => {
     return data.users;
 };
 
-export const getUserById: (id: number, data: BBDD) => User = (id, data) => {
-    return data.users.find((u) => u.userID === id) || ({} as User);
+export const getEmail: (data: BBDD, email: string) => boolean = (
+    data,
+    email
+) => {
+    return data.users.some((u) => u.email === email);
 };
 
-export const getUserByUsername: (username: string, data: BBDD) => User = (
-    username,
+export const checkPassword: (
+    password1: string,
+    password2: string
+) => boolean = (password1, password2) => {
+    return password1 === password2;
+};
+
+export const getUserById: (id: number, data: BBDD) => User | undefined = (
+    id,
     data
 ) => {
-    return data.users.find((u) => u.username === username) || ({} as User);
+    return data.users.find((u) => u.userID === id);
+};
+
+export const getUserByUsername: (
+    username: string,
+    data: BBDD
+) => User | undefined = (username, data) => {
+    return data.users.find((u) => u.username === username);
 };
 
 export const getUserObtainedCourses: (
@@ -38,16 +55,6 @@ export const getUserObtainedCourses: (
         ([] as ObtainedCourse[])
     );
 };
-
-// export const getUserDefaultCourses: (
-//     userID: number | undefined,
-//     data: BBDD
-// ) => DefualtCourse[] = (userID, data) => {
-//     return (
-//         data.users?.find((u) => u.userID === userID)?.defaultCourses ||
-//         ([] as DefualtCourse[])
-//     );
-// };
 
 export const getUserDefaultCourse: (
     userID: number | undefined,
@@ -113,61 +120,46 @@ export const getOpinions: (data: BBDD) => JsonOpinion[] = (data) => {
 
 // General
 
-export const getSearchedCourses: (
-    search: string,
-    userCourses: ObtainedCourse[],
-    data: BBDD
-) => (CourseJSON & IsObtainedCourse)[] = (search, userCourses, data) => {
-    const searchedCourses: CourseJSON[] = data.courses.filter(
-        (c) =>
-            c.title.toLowerCase().includes(search.toLowerCase()) ||
-            c.shortDescription.toLowerCase().includes(search.toLowerCase()) ||
-            c.level.toLowerCase().includes(search.toLowerCase())
-    );
-
-    const courses: (CourseJSON & IsObtainedCourse)[] = searchedCourses.map(
-        (sc) => ({
-            ...sc,
-            isObtained: userCourses.some((uc) => uc.courseId === sc.curseID),
-        })
-    );
-
-    return courses;
-};
-
-export const getFilteredCourses: (
-    filter: FilterOptions | undefined,
-    userCourses: ObtainedCourse[],
-    data: BBDD
-) => (CourseJSON & IsObtainedCourse)[] = (filter, userCourses, data) => {
-    let courses;
-    if (filter === "Todos") {
-        courses = data.courses.map((c) => ({
-            ...c,
-            isObtained: userCourses.some((uc) => uc.courseId === c.curseID),
-        }));
-        return courses || ([] as (CourseJSON & IsObtainedCourse)[]);
-    }
-    const filteredCourses = data.courses
-        .filter((c) => c.level === filter)
-        .map((fc) => ({
-            ...fc,
-            isObtained: userCourses.some((uc) => uc.courseId === fc.curseID),
-        }));
-
-    return filteredCourses || ([] as (CourseJSON & IsObtainedCourse)[]);
-};
-
-export const getAllCourses: (
-    userCourses: ObtainedCourse[],
-    data: BBDD
-) => (CourseJSON & IsObtainedCourse)[] = (userCourses, data) => {
-    const courses = data.courses.map((c) => ({
+const addIsObtained = (
+    courses: CourseJSON[],
+    userCourses: ObtainedCourse[]
+): (CourseJSON & IsObtainedCourse)[] =>
+    courses.map((c) => ({
         ...c,
         isObtained: userCourses.some((uc) => uc.courseId === c.curseID),
     }));
 
-    return courses || ([] as (CourseJSON & IsObtainedCourse)[]);
+export const getAllCourses = (
+    userCourses: ObtainedCourse[],
+    data: BBDD
+): (CourseJSON & IsObtainedCourse)[] =>
+    addIsObtained(data.courses, userCourses);
+
+export const getFilteredCourses = (
+    filter: FilterOptions | undefined,
+    userCourses: ObtainedCourse[],
+    data: BBDD
+): (CourseJSON & IsObtainedCourse)[] => {
+    const coursesToMap =
+        filter === "Todos"
+            ? data.courses
+            : data.courses.filter((c) => c.level === filter);
+    return addIsObtained(coursesToMap, userCourses);
+};
+
+export const getSearchedCourses = (
+    search: string,
+    userCourses: ObtainedCourse[],
+    data: BBDD
+): (CourseJSON & IsObtainedCourse)[] => {
+    const searchLower = search.toLowerCase();
+    const searchedCourses = data.courses.filter(
+        (c) =>
+            c.title.toLowerCase().includes(searchLower) ||
+            c.shortDescription.toLowerCase().includes(searchLower) ||
+            c.level.toLowerCase().includes(searchLower)
+    );
+    return addIsObtained(searchedCourses, userCourses);
 };
 
 export const getCourseById: (data: BBDD, courseID: number) => CourseJSON = (
@@ -177,4 +169,84 @@ export const getCourseById: (data: BBDD, courseID: number) => CourseJSON = (
     return (
         data.courses.find((c) => c.curseID === courseID) || ({} as CourseJSON)
     );
+};
+
+export const getDataLocalStorage: (key: string) => BBDD | null = (key) => {
+    const getData = localStorage.getItem(key);
+    if (getData) return JSON.parse(getData);
+    return null;
+};
+
+export const setItemLocalStorage: <T>(key: string, data: T) => void = (
+    key,
+    data
+) => {
+    localStorage.setItem(key, JSON.stringify(data));
+};
+
+export const removeItemLocalStorage: (key: string) => void = (key) => {
+    localStorage.removeItem(key);
+};
+
+export const getTodayDate: () => string = () => {
+    return new Date()
+        .toISOString()
+        .split("T")[0]
+        .split("-")
+        .reverse()
+        .join("-");
+};
+
+export const orderedMenorToMayorByNumber = (data: number[]) =>
+    [...data].sort((a, b) => a - b);
+
+export const orderedMenorToMayorByKey = <T>(
+    data: T[],
+    key: {
+        [K in keyof T]: T[K] extends number ? K : never;
+    }[keyof T]
+): T[] => {
+    return [...data].sort((a, b) => (a[key] as number) - (b[key] as number));
+};
+
+export const orderedMayorToMenorByKey = <T>(
+    data: T[],
+    key: {
+        [K in keyof T]: T[K] extends number ? K : never;
+    }[keyof T]
+): T[] => {
+    return [...data].sort((a, b) => (b[key] as number) - (a[key] as number));
+};
+
+export const getRandom = <T>(data: T[]): T => {
+    const randomIndex: number = Math.floor(Math.random() * data.length);
+    return data[randomIndex];
+};
+
+export const getLastId = <
+    T extends number | Record<string, any>,
+    K extends T extends number
+        ? never
+        : {
+              [P in keyof T]: T[P] extends number ? P : never;
+          }[keyof T] = never
+>(
+    data: T[],
+    key?: K
+): number => {
+    if (data.length === 0) return 1;
+
+    if (key && typeof data[0] === "object") {
+        return (data[data.length - 1] as Record<string, any>)[key] + 1;
+    }
+
+    return (data[data.length - 1] as number) + 1;
+};
+
+export const deleteKey: <T extends Record<string, any>, K extends keyof T>(
+    data: T,
+    key: K
+) => Omit<T, K> = (data, key) => {
+    const { [key]: _, ...rest } = data;
+    return rest;
 };

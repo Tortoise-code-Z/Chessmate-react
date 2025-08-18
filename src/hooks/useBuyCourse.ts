@@ -8,7 +8,12 @@ import {
 import { DATABASE_KEY } from "../consts/dataBaseKey";
 import { useErrorStore } from "./useErrorStore";
 import { useSuccessStore } from "./useSuccessStore";
-import { getCourseById, getUserObtainedCourses } from "../api";
+import {
+    getCourseById,
+    getDataLocalStorage,
+    getUserObtainedCourses,
+    setItemLocalStorage,
+} from "../api";
 
 type BuyCourseApi = {
     course: CourseJSON;
@@ -31,11 +36,9 @@ export function useBuyCourse() {
         userID,
     }: Variables): Promise<BuyCourseApi> => {
         try {
-            const getData = localStorage.getItem(DATABASE_KEY);
-            if (!getData)
+            const data = getDataLocalStorage(DATABASE_KEY);
+            if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
-
-            const data: BBDD = JSON.parse(getData);
 
             const userCourses = getUserObtainedCourses(userID, data);
 
@@ -51,7 +54,7 @@ export function useBuyCourse() {
                 ),
             };
 
-            localStorage.setItem(DATABASE_KEY, JSON.stringify(newData));
+            setItemLocalStorage<BBDD>(DATABASE_KEY, newData);
             const course = getCourseById(data, courseID);
 
             return {

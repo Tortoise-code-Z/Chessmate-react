@@ -125,7 +125,7 @@ export type DefualtCourse = BaseCourse & {
 
 export type CourseJSON = BaseCourse & {
     createdAt: string;
-    sales?: number;
+    sales: number;
     shortDescription: string;
     detailDescription: string;
     price: number;
@@ -136,7 +136,7 @@ export type CourseJSON = BaseCourse & {
 
 export type Course = BaseCourse & {
     createdAt: string;
-    sales?: number;
+    sales: number;
     shortDescription: string;
     detailDescription: string;
     price: number;

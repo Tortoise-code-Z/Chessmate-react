@@ -21,7 +21,7 @@ function AllCoursesSection({}: Props) {
         DATABASE_KEY,
         search,
         filter,
-        user?.userID
+        user?.userID as number
     );
 
     return (

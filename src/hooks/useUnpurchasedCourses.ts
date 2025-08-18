@@ -1,5 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import { BBDD, CourseJSON } from "../types/types";
+import { CourseJSON } from "../types/types";
+import {
+    deleteKey,
+    getDataLocalStorage,
+    getUserById,
+    orderedMayorToMenorByKey,
+} from "../api";
 
 export default function useUnpurchasedCourses(
     key: string,
@@ -8,37 +14,27 @@ export default function useUnpurchasedCourses(
 ) {
     const queryFunction: () => Promise<CourseJSON[]> = async () => {
         try {
-            const getData = localStorage.getItem(key);
-            if (!getData)
+            const data = getDataLocalStorage(key);
+            if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
 
-            const data: BBDD = JSON.parse(getData);
-
-            const courses = data.courses.sort(
-                (a, b) => (b.sales as number) - (a.sales as number)
-            );
+            const courses = orderedMayorToMenorByKey(data.courses, "sales");
 
             if (userID) {
-                const userCoursesIds =
-                    data.users
-                        .find((u) => u.userID === userID)
-                        ?.courses.map((item) => {
-                            const { progress, ...rest } = item;
-                            return rest.courseId;
-                        }) || ([] as number[]);
+                const user = getUserById(userID, data);
+                if (!user)
+                    throw new Error(
+                        "Ha habido un error al recuperar los datos..."
+                    );
 
-                const finalCourses = courses.filter((c) => {
-                    for (
-                        let index = 0;
-                        index < userCoursesIds.length;
-                        index++
-                    ) {
-                        const element = userCoursesIds[index];
-                        if (element === c.curseID) return false;
-                    }
-
-                    return true;
+                const userCoursesIds = user.courses.map((item) => {
+                    const rest = deleteKey(item, "progress");
+                    return rest.courseId;
                 });
+
+                const finalCourses = courses.filter((c) =>
+                    userCoursesIds.some((uc) => uc === c.curseID)
+                );
 
                 return finalCourses.slice(0, limit);
             }

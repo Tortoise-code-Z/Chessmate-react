@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
+import { CourseJSON, Progress } from "../types/types";
 import {
-    BBDD,
-    CourseJSON,
-    ObtainedCourse,
-    Progress,
-    User,
-} from "../types/types";
+    deleteKey,
+    getCourseById,
+    getDataLocalStorage,
+    getUserObtainedCourses,
+} from "../api";
 
 export default function useObtainedCourses(
     key: string,
@@ -16,25 +16,16 @@ export default function useObtainedCourses(
         (CourseJSON & Progress)[]
     > = async () => {
         try {
-            console.log("buscando...");
-            const getData = localStorage.getItem(key);
-            if (!getData)
+            const data = getDataLocalStorage(key);
+            if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
 
-            const data: BBDD = JSON.parse(getData);
-
-            const user =
-                data.users.find((u) => u.userID === userId) || ({} as User);
-
-            const courses = data.courses;
-            const userCourses = user?.courses || ([] as ObtainedCourse[]);
+            const userCourses = getUserObtainedCourses(userId, data);
 
             const mappingUserCourses = userCourses.map((uc) => {
                 const id = uc.courseId;
-                const course =
-                    courses.find((c) => c.curseID === id) || ({} as CourseJSON);
-
-                const { courseId, ...rest } = uc;
+                const course = getCourseById(data, id);
+                const rest = deleteKey(uc, "courseId");
 
                 return { ...course, ...rest };
             });

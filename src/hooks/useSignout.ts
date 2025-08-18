@@ -3,6 +3,7 @@ import { USER_AUTH_KEY } from "../consts/dataBaseKey";
 import { useUserAuthStore } from "./UseUserAuthStore";
 import { useNavigate } from "react-router-dom";
 import { paths } from "../consts/paths";
+import { removeItemLocalStorage } from "../api";
 
 export function useSignout() {
     const { setUser } = useUserAuthStore();
@@ -10,7 +11,7 @@ export function useSignout() {
 
     const login = async (): Promise<void> => {
         try {
-            localStorage.removeItem(USER_AUTH_KEY);
+            removeItemLocalStorage(USER_AUTH_KEY);
         } catch (error) {
             console.error(error);
             throw error;

@@ -8,7 +8,11 @@ import {
 } from "../types/types";
 import { DATABASE_KEY } from "../consts/dataBaseKey";
 import { Dispatch, SetStateAction } from "react";
-import { getUserDefaultCourse } from "../api";
+import {
+    getDataLocalStorage,
+    getUserDefaultCourse,
+    setItemLocalStorage,
+} from "../api";
 
 type Variables = {
     themeID: number;
@@ -24,11 +28,9 @@ export function useCompleteTheme(
 
     const completeTheme = async ({ courseID, themeID, userID }: Variables) => {
         try {
-            const getData = localStorage.getItem(DATABASE_KEY);
-            if (!getData)
+            const data = getDataLocalStorage(DATABASE_KEY);
+            if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
-
-            const data: BBDD = JSON.parse(getData);
 
             const userDefaultCourse = getUserDefaultCourse(
                 userID,
@@ -67,7 +69,7 @@ export function useCompleteTheme(
                 ),
             };
 
-            localStorage.setItem(DATABASE_KEY, JSON.stringify(newData));
+            setItemLocalStorage<BBDD>(DATABASE_KEY, newData);
             return finalCourseData;
         } catch (error) {
             console.error(error);
