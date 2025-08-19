@@ -2,13 +2,13 @@ import { useParams } from "react-router-dom";
 import AboutAuthor from "./AboutAuthor";
 import CourseClassroomBanner from "./CourseClassroomBanner";
 import DescriptionCourseSection from "./DescriptionCourseSection";
-import styles from "./ObtaindeCourseClassroom.module.css";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import { DATABASE_KEY } from "../../consts/dataBaseKey";
 import useCourse from "../../hooks/useCourse";
 import { Course, IsObtainedCourse } from "../../types/types";
 import DataStateWrapper from "../../components/DataStateWrapperProps";
 import UserCoursesSection from "../../components/UserCoursesSection";
+import CourseClassroomContent from "./CourseClassroomContent";
 
 type Props = {};
 
@@ -23,13 +23,15 @@ function ObtaindeCourseClassroom({}: Props) {
     );
 
     return (
-        <section className={styles.obtaindeCourseClassroom}>
+        <>
             <DataStateWrapper isLoading={isLoading} error={error}>
-                <CourseClassroomBanner />
+                <CourseClassroomBanner
+                    data={data ?? ({} as Course & IsObtainedCourse)}
+                />
                 <DescriptionCourseSection
                     data={data ?? ({} as Course & IsObtainedCourse)}
                 />
-                {/* <CourseContent /> */}
+                <CourseClassroomContent />
                 <AboutAuthor data={data ?? ({} as Course & IsObtainedCourse)} />
                 <UserCoursesSection
                     obtainedCoursesLimit={3}
@@ -49,7 +51,7 @@ function ObtaindeCourseClassroom({}: Props) {
                     </>
                 </UserCoursesSection>
             </DataStateWrapper>
-        </section>
+        </>
     );
 }
 
