@@ -10,7 +10,7 @@ type Props = {
 
 function UserCommentItem({ comment }: Props) {
     return (
-        <li className={styles.commentItem} key={comment.id}>
+        <li className={styles.commentItem}>
             <div className={styles.userData}>
                 <FigureImage
                     src={AVATAR_DEFAULT_IMAGE.image}

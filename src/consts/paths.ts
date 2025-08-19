@@ -7,4 +7,5 @@ export const paths = {
     login: "login",
     register: "register",
     contact: "contact",
+    obtainedCourseClassroom: "course-classroom/:id",
 } as const;

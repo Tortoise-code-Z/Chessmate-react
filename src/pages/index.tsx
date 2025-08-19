@@ -11,6 +11,7 @@ import Contact from "./Contact";
 import Classroom from "./Classroom";
 import Login from "./Login";
 import Register from "./Register";
+import ObtaindeCourseClassroom from "./ObtainedCourseClassroom";
 
 export const route = createBrowserRouter([
     {
@@ -51,6 +52,16 @@ export const route = createBrowserRouter([
                     {
                         index: true,
                         element: <Classroom />,
+                    },
+                ],
+            },
+            {
+                path: `/${paths.obtainedCourseClassroom}`,
+                element: <IsAuthorized />,
+                children: [
+                    {
+                        index: true,
+                        element: <ObtaindeCourseClassroom />,
                     },
                 ],
             },

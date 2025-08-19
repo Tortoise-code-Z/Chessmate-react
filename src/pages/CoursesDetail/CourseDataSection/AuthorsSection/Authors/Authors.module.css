@@ -1,0 +1,12 @@
+.authorsItemsContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+@media all and (max-width: 768px) {
+    .authorsItemsContainer {
+        flex-direction: column !important;
+    }
+}

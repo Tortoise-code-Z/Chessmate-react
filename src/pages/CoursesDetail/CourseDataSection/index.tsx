@@ -1,5 +1,5 @@
 import { NavLink, useParams } from "react-router-dom";
-import Authors from "./Authors";
+import AuthorsSection from "./AuthorsSection";
 import styles from "./CourseDataSection.module.css";
 import CourseDescription from "./CourseDescription";
 import DetailsCourse from "./DetailsCourse";
@@ -38,7 +38,7 @@ function CourseDataSection({}: Props) {
                     <p>{data?.title}</p>
                 </div>
                 <GeneralCourseData data={data ?? ({} as Course)} />
-                <Authors data={data ?? ({} as Course)} />
+                <AuthorsSection data={data ?? ({} as Course)} />
                 <CourseDescription data={data ?? ({} as Course)} />
                 <DetailsCourse
                     data={data ?? ({} as Course)}

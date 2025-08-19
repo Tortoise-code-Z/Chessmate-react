@@ -6,25 +6,6 @@
     flex-wrap: wrap;
 }
 
-.authorsItemsContainer {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-@media all and (max-width: 768px) {
-    .authorsItemsContainer {
-        flex-direction: column !important;
-    }
-
-    .authorsItem {
-        width: 100%;
-        display: flex;
-        gap: 10px;
-    }
-}
-
 @media all and (max-width: 500px) {
     .authorsItem {
         width: 100%;
