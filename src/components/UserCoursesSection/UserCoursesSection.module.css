@@ -1,0 +1,13 @@
+.userCoursesSection {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 100%;
+    margin: 0 auto;
+    max-width: var(--max-width-page);
+    padding: var(--section-vertical-padding) var(--padding-lateral);
+}
+
+.paddingNavbar {
+    padding: var(--navbar-height) var(--padding-lateral) !important;
+}

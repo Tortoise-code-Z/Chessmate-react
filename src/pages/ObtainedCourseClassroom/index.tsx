@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import OtherUserCoursesSection from "../Classroom/OtherUserCoursesSection";
 import AboutAuthor from "./AboutAuthor";
 import CourseClassroomBanner from "./CourseClassroomBanner";
 import DescriptionCourseSection from "./DescriptionCourseSection";
@@ -9,6 +8,7 @@ import { DATABASE_KEY } from "../../consts/dataBaseKey";
 import useCourse from "../../hooks/useCourse";
 import { Course, IsObtainedCourse } from "../../types/types";
 import DataStateWrapper from "../../components/DataStateWrapperProps";
+import UserCoursesSection from "../../components/UserCoursesSection";
 
 type Props = {};
 
@@ -31,7 +31,23 @@ function ObtaindeCourseClassroom({}: Props) {
                 />
                 {/* <CourseContent /> */}
                 <AboutAuthor data={data ?? ({} as Course & IsObtainedCourse)} />
-                <OtherUserCoursesSection />
+                <UserCoursesSection
+                    obtainedCoursesLimit={3}
+                    showDefaultCourses={false}
+                >
+                    <>
+                        <h2>
+                            <span
+                                className={["upperCase", "span-pr-color"].join(
+                                    " "
+                                )}
+                            >
+                                otros
+                            </span>{" "}
+                            de mis cursos
+                        </h2>
+                    </>
+                </UserCoursesSection>
             </DataStateWrapper>
         </section>
     );

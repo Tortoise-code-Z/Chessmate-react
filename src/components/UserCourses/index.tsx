@@ -13,6 +13,7 @@ type Props = {
     obtainedCourseClassID?: number;
     obtainedCoursesLimit?: number;
     showObtainedCourses?: boolean;
+    showDefaultCourses?: boolean;
 };
 
 function UserCourses({
@@ -20,6 +21,7 @@ function UserCourses({
     obtainedCourseClassID,
     obtainedCoursesLimit,
     showObtainedCourses = true,
+    showDefaultCourses = true,
 }: Props) {
     const { user } = useUserAuthStore();
 
@@ -32,11 +34,15 @@ function UserCourses({
     return (
         <div className={styles.userCourses}>
             <LightComponent top={50} right={30} />
+            {showDefaultCourses && (
+                <>
+                    <div className={styles.userDefaultCoursesContainer}>
+                        <h3>Gratuitos</h3>
+                        <UserDefaultCourses classID={defaultCourseClassID} />
+                    </div>
+                </>
+            )}
 
-            <div className={styles.userDefaultCoursesContainer}>
-                <h3>Gratuitos</h3>
-                <UserDefaultCourses classID={defaultCourseClassID} />
-            </div>
             <div className={styles.userObtainedCoursesContainer}>
                 <DataStateWrapper isLoading={isLoading} error={error}>
                     {showObtainedCourses ? (
