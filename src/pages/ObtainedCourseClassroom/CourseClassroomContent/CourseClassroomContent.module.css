@@ -1,0 +1,72 @@
+.courseClassroomContent {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 100%;
+    max-width: var(--max-width-page);
+    margin: 0 auto;
+    padding: var(--section-vertical-padding) var(--padding-lateral);
+}
+
+.themesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.themeBtn {
+    width: 100% !important;
+    justify-content: space-between;
+    align-items: center;
+    text-align: start;
+}
+
+.themeData {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.themeTitle {
+    font-family: Roboto-medium;
+    font-size: 1.2rem;
+}
+.themeDescription {
+    font-family: Roboto-ExtraLight;
+}
+.videosContainer {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.videoButton {
+    width: fit-content !important;
+    flex: 1 0 auto;
+    max-width: calc((100% / 3) - (20px * (3 - 1) / 3));
+    flex-direction: column;
+    gap: 20px;
+}
+
+.videoCardImage {
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+.videoCardImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.title {
+    font-size: 1.2rem;
+    font-family: Roboto-Light;
+}
+
+.videoItem {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16/9 !important;
+    cursor: pointer;
+}

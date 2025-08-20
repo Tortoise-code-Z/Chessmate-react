@@ -2283,27 +2283,108 @@ export const DATA_BASE: BBDD = {
             content: {
                 themes: [
                     {
+                        id: 1,
                         title: "Reglas del ajedrez",
                         description:
                             "Conoce el movimiento y captura de cada pieza.",
+                        content: [
+                            {
+                                id: 1,
+                                title: "Movimiento de piezas",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 2,
+                                title: "Captura de piezas",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 2,
                         title: "Objetivo del juego",
                         description: "Comprende qué significa dar jaque mate.",
+                        content: [
+                            {
+                                id: 3,
+                                title: "Concepto de jaque",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 4,
+                                title: "Definición de jaque mate",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 3,
                         title: "Movimientos especiales",
                         description: "Enroque, captura al paso y promoción.",
+                        content: [
+                            {
+                                id: 5,
+                                title: "Enroque",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 6,
+                                title: "Captura al paso",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 7,
+                                title: "Promoción de peones",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 4,
                         title: "Principios básicos de apertura",
                         description:
                             "Desarrollar piezas y controlar el centro.",
+                        content: [
+                            {
+                                id: 8,
+                                title: "Desarrollo de piezas",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 9,
+                                title: "Control del centro",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 5,
                         title: "Errores comunes",
                         description:
                             "Evita los fallos frecuentes de principiantes.",
+                        content: [
+                            {
+                                id: 10,
+                                title: "Errores de principiantes",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 11,
+                                title: "Cómo evitarlos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                 ],
                 detailDescription: [
@@ -2316,16 +2397,19 @@ export const DATA_BASE: BBDD = {
             toLearn: {
                 themes: [
                     {
+                        id: 1,
                         title: "Bases sólidas",
                         description:
                             "Establecer un fundamento robusto para progresar en ajedrez.",
                     },
                     {
+                        id: 2,
                         title: "Tácticas iniciales",
                         description:
                             "Reconocer patrones básicos de ataque y defensa.",
                     },
                     {
+                        id: 3,
                         title: "Pensamiento estratégico",
                         description: "Comenzar a planear jugadas anticipadas.",
                     },
@@ -2358,25 +2442,100 @@ export const DATA_BASE: BBDD = {
             content: {
                 themes: [
                     {
+                        id: 1,
                         title: "Apertura Española",
                         description: "Control y presión en el centro.",
+                        content: [
+                            {
+                                id: 1,
+                                title: "Ideas principales",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 2,
+                                title: "Planes típicos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 2,
                         title: "Apertura Italiana",
                         description: "Desarrollo rápido y ataques tempranos.",
+                        content: [
+                            {
+                                id: 3,
+                                title: "Líneas principales",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 4,
+                                title: "Ataques comunes",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 3,
                         title: "Defensa Siciliana",
                         description: "Contraataque y dinámica.",
+                        content: [
+                            {
+                                id: 5,
+                                title: "Estructuras típicas",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 6,
+                                title: "Planes de negras",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 4,
                         title: "Defensa Francesa",
                         description: "Solidez y estructura.",
+                        content: [
+                            {
+                                id: 7,
+                                title: "Planes de blancas",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 8,
+                                title: "Planes de negras",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 5,
                         title: "Estrategias de apertura",
                         description:
                             "Ideas comunes para consolidar la posición.",
+                        content: [
+                            {
+                                id: 9,
+                                title: "Principios básicos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 10,
+                                title: "Errores comunes",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                 ],
                 detailDescription: [
@@ -2389,16 +2548,19 @@ export const DATA_BASE: BBDD = {
             toLearn: {
                 themes: [
                     {
+                        id: 1,
                         title: "Reconocer aperturas",
                         description:
                             "Identificar las principales líneas de juego.",
                     },
                     {
+                        id: 2,
                         title: "Adaptar estrategia",
                         description:
                             "Modificar planes según la respuesta del rival.",
                     },
                     {
+                        id: 3,
                         title: "Control del centro",
                         description: "Fundamento para una apertura exitosa.",
                     },
@@ -2431,28 +2593,103 @@ export const DATA_BASE: BBDD = {
             content: {
                 themes: [
                     {
+                        id: 1,
                         title: "Mover la misma pieza varias veces",
                         description:
                             "Cómo desperdiciar tiempos y perder la iniciativa.",
+                        content: [
+                            {
+                                id: 1,
+                                title: "Errores al repetir piezas",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 2,
+                                title: "Consecuencias del retraso",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 2,
                         title: "Olvidar el desarrollo",
                         description:
                             "Errores estratégicos al no sacar piezas menores a tiempo.",
+                        content: [
+                            {
+                                id: 3,
+                                title: "Importancia del desarrollo",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 4,
+                                title: "Errores típicos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 3,
                         title: "No enrocarse",
                         description: "Por qué la seguridad del rey es crucial.",
+                        content: [
+                            {
+                                id: 5,
+                                title: "Riesgos de no enrocar",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 6,
+                                title: "Ejemplos prácticos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 4,
                         title: "Abrir líneas sin control",
                         description:
                             "Errores de peones que debilitan la posición.",
+                        content: [
+                            {
+                                id: 7,
+                                title: "Debilidades de peones",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 8,
+                                title: "Consecuencias estratégicas",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 5,
                         title: "Ignorar amenazas del rival",
                         description:
                             "Falta de cálculo o sobreconfianza en posiciones aparentemente seguras.",
+                        content: [
+                            {
+                                id: 9,
+                                title: "Ejemplos de amenazas",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 10,
+                                title: "Cómo detectarlas",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                 ],
                 detailDescription: [
@@ -2465,16 +2702,19 @@ export const DATA_BASE: BBDD = {
             toLearn: {
                 themes: [
                     {
+                        id: 1,
                         title: "Desarrollo eficiente",
                         description:
                             "Aplicar principios de apertura con lógica.",
                     },
                     {
+                        id: 2,
                         title: "Pensamiento reactivo",
                         description:
                             "Aprender a detectar amenazas y responder correctamente.",
                     },
                     {
+                        id: 3,
                         title: "Disciplina estructural",
                         description: "Mantener estructuras de peones sólidas.",
                     },
@@ -2508,27 +2748,102 @@ export const DATA_BASE: BBDD = {
             content: {
                 themes: [
                     {
+                        id: 1,
                         title: "Combinaciones múltiples",
                         description: "Secuencias de táctica encadenada.",
+                        content: [
+                            {
+                                id: 1,
+                                title: "Secuencias largas",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 2,
+                                title: "Ejercicios prácticos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 2,
                         title: "Desviación avanzada",
                         description:
                             "Forzar piezas fuera de su posición crítica.",
+                        content: [
+                            {
+                                id: 3,
+                                title: "Conceptos de desviación",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 4,
+                                title: "Ejemplos tácticos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 3,
                         title: "Sacrificios posicionales",
                         description:
                             "Ofrecer material por iniciativa o ataque.",
+                        content: [
+                            {
+                                id: 5,
+                                title: "Cuándo sacrificar",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 6,
+                                title: "Ejemplos históricos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 4,
                         title: "Doble amenaza con rayos X",
                         description: "Amenazas ocultas a través de piezas.",
+                        content: [
+                            {
+                                id: 7,
+                                title: "Rayos X básicos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 8,
+                                title: "Aplicaciones prácticas",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 5,
                         title: "Transposición táctica",
                         description:
                             "Alterar el orden natural para obtener ventaja.",
+                        content: [
+                            {
+                                id: 9,
+                                title: "Concepto de transposición",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 10,
+                                title: "Ejercicios prácticos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                 ],
                 detailDescription: [
@@ -2541,15 +2856,18 @@ export const DATA_BASE: BBDD = {
             toLearn: {
                 themes: [
                     {
+                        id: 1,
                         title: "Cálculo profundo",
                         description: "Visualizar combinaciones con precisión.",
                     },
                     {
+                        id: 2,
                         title: "Sacrificios intuitivos",
                         description:
                             "Confiar en la iniciativa aún sin evaluación concreta.",
                     },
                     {
+                        id: 3,
                         title: "Análisis post-partida",
                         description:
                             "Revisar tácticas fallidas y aprender de ellas.",
@@ -2584,26 +2902,101 @@ export const DATA_BASE: BBDD = {
             content: {
                 themes: [
                     {
+                        id: 1,
                         title: "Casillas débiles",
                         description:
                             "Identificar y explotar puntos vulnerables.",
+                        content: [
+                            {
+                                id: 1,
+                                title: "Detectar casillas débiles",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 2,
+                                title: "Explotación práctica",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 2,
                         title: "Mayoría de peones",
                         description: "Cómo utilizarla para generar ventajas.",
+                        content: [
+                            {
+                                id: 3,
+                                title: "Conceptos básicos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 4,
+                                title: "Ejemplos de uso",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 3,
                         title: "Buenas y malas piezas",
                         description: "Diferenciar piezas activas y pasivas.",
+                        content: [
+                            {
+                                id: 5,
+                                title: "Buenas piezas",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 6,
+                                title: "Piezas pasivas",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 4,
                         title: "Control de columnas abiertas",
                         description: "Cómo usar las torres estratégicamente.",
+                        content: [
+                            {
+                                id: 7,
+                                title: "Columna abierta",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 8,
+                                title: "Ejemplos con torres",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 5,
                         title: "Planes a largo plazo",
                         description:
                             "Tomar decisiones más allá de la táctica inmediata.",
+                        content: [
+                            {
+                                id: 9,
+                                title: "Planificación estratégica",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 10,
+                                title: "Errores comunes",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                 ],
                 detailDescription: [
@@ -2616,15 +3009,18 @@ export const DATA_BASE: BBDD = {
             toLearn: {
                 themes: [
                     {
+                        id: 1,
                         title: "Pensamiento estratégico",
                         description: "Planear en función del tipo de posición.",
                     },
                     {
+                        id: 2,
                         title: "Gestión del material",
                         description:
                             "Cambiar o conservar piezas según su función.",
                     },
                     {
+                        id: 3,
                         title: "Paciencia y maniobras",
                         description: "Aprender a ganar con lentitud y lógica.",
                     },
@@ -2657,27 +3053,102 @@ export const DATA_BASE: BBDD = {
             content: {
                 themes: [
                     {
+                        id: 1,
                         title: "Finales de rey y peón",
                         description: "Técnicas para coronar peones y defender.",
+                        content: [
+                            {
+                                id: 1,
+                                title: "Coronación",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 2,
+                                title: "Oposición",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 2,
                         title: "Finales de torre",
                         description:
                             "Cómo usar la torre para dominar en el final.",
+                        content: [
+                            {
+                                id: 3,
+                                title: "Principios básicos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 4,
+                                title: "Ejercicios prácticos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 3,
                         title: "Finales de alfil y caballo",
                         description:
                             "Ventajas y desventajas en los finales menores.",
+                        content: [
+                            {
+                                id: 5,
+                                title: "Final de alfil",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 6,
+                                title: "Final de caballo",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 4,
                         title: "Reglas de oposición",
                         description:
                             "Conceptos clave para el movimiento del rey.",
+                        content: [
+                            {
+                                id: 7,
+                                title: "Oposición directa",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 8,
+                                title: "Ejercicios",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 5,
                         title: "Finales teóricos importantes",
                         description: "Estudio de posiciones clásicas.",
+                        content: [
+                            {
+                                id: 9,
+                                title: "Posiciones básicas",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 10,
+                                title: "Estudio avanzado",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                 ],
                 detailDescription: [
@@ -2690,14 +3161,17 @@ export const DATA_BASE: BBDD = {
             toLearn: {
                 themes: [
                     {
+                        id: 1,
                         title: "Precisión en finales",
                         description: "Tomar decisiones correctas bajo presión.",
                     },
                     {
+                        id: 2,
                         title: "Conservación de material",
                         description: "Cómo mantener la ventaja en el final.",
                     },
                     {
+                        id: 3,
                         title: "Planificación del final",
                         description: "Visualizar y ejecutar planes de cierre.",
                     },
@@ -2730,25 +3204,100 @@ export const DATA_BASE: BBDD = {
             content: {
                 themes: [
                     {
+                        id: 1,
                         title: "Defensa Nimzoindia",
                         description: "Control del centro y flexibilidad.",
+                        content: [
+                            {
+                                id: 1,
+                                title: "Líneas principales",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 2,
+                                title: "Ideas típicas",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 2,
                         title: "Defensa Grünfeld",
                         description:
                             "Contraataque dinámico y control posicional.",
+                        content: [
+                            {
+                                id: 3,
+                                title: "Planes de blancas",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 4,
+                                title: "Planes de negras",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 3,
                         title: "Apertura Reti",
                         description: "Fianchetto y presión indirecta.",
+                        content: [
+                            {
+                                id: 5,
+                                title: "Introducción",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 6,
+                                title: "Ideas estratégicas",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
-                        title: "Gambito de dama aceptado y rechazado",
+                        id: 4,
+                        title: "Gambito de dama",
                         description: "Opciones y planes estratégicos.",
+                        content: [
+                            {
+                                id: 7,
+                                title: "Aceptado",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 8,
+                                title: "Rechazado",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 5,
                         title: "Preparación y estudio de líneas",
                         description: "Cómo construir un repertorio sólido.",
+                        content: [
+                            {
+                                id: 9,
+                                title: "Preparación previa",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 10,
+                                title: "Métodos de estudio",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                 ],
                 detailDescription: [
@@ -2761,15 +3310,18 @@ export const DATA_BASE: BBDD = {
             toLearn: {
                 themes: [
                     {
+                        id: 1,
                         title: "Análisis profundo",
                         description:
                             "Comprender las ideas detrás de las jugadas.",
                     },
                     {
+                        id: 2,
                         title: "Flexibilidad estratégica",
                         description: "Adaptar planes según el desarrollo.",
                     },
                     {
+                        id: 3,
                         title: "Memorización efectiva",
                         description: "Técnicas para retener variantes.",
                     },
@@ -2802,24 +3354,99 @@ export const DATA_BASE: BBDD = {
             content: {
                 themes: [
                     {
+                        id: 1,
                         title: "Clavadas y ataques dobles",
                         description: "Identificar oportunidades tácticas.",
+                        content: [
+                            {
+                                id: 1,
+                                title: "Clavadas típicas",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 2,
+                                title: "Ataques dobles",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 2,
                         title: "Redirección y desvío",
                         description: "Manipular las piezas rivales.",
+                        content: [
+                            {
+                                id: 3,
+                                title: "Redirección básica",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 4,
+                                title: "Ejercicios prácticos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 3,
                         title: "Sacrificios tácticos",
                         description: "Ofrecer material por ventaja inmediata.",
+                        content: [
+                            {
+                                id: 5,
+                                title: "Cuándo sacrificar",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 6,
+                                title: "Ejemplos históricos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 4,
                         title: "Ataques descubiertos",
                         description: "Maximizar la presión.",
+                        content: [
+                            {
+                                id: 7,
+                                title: "Ataque descubierto básico",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 8,
+                                title: "Ejercicios prácticos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 5,
                         title: "Patrones combinatorios",
                         description: "Reconocer patrones recurrentes.",
+                        content: [
+                            {
+                                id: 9,
+                                title: "Patrones típicos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 10,
+                                title: "Ejercicios de práctica",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                 ],
                 detailDescription: [
@@ -2832,14 +3459,17 @@ export const DATA_BASE: BBDD = {
             toLearn: {
                 themes: [
                     {
+                        id: 1,
                         title: "Visualización avanzada",
                         description: "Mejorar la capacidad de cálculo.",
                     },
                     {
+                        id: 2,
                         title: "Reconocimiento de patrones",
                         description: "Aprender a identificar señales tácticas.",
                     },
                     {
+                        id: 3,
                         title: "Confianza en sacrificios",
                         description: "Evaluar cuándo y cómo sacrificar.",
                     },
@@ -2872,24 +3502,99 @@ export const DATA_BASE: BBDD = {
             content: {
                 themes: [
                     {
+                        id: 1,
                         title: "Casillas fuertes y débiles",
                         description: "Análisis detallado del terreno.",
+                        content: [
+                            {
+                                id: 1,
+                                title: "Identificar casillas",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 2,
+                                title: "Explotación práctica",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 2,
                         title: "Planes de expansión",
                         description: "Incrementar el espacio y la influencia.",
+                        content: [
+                            {
+                                id: 3,
+                                title: "Expansión en flancos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 4,
+                                title: "Ejemplos estratégicos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 3,
                         title: "Control de columnas y diagonales",
                         description: "Optimización de piezas.",
+                        content: [
+                            {
+                                id: 5,
+                                title: "Control de columnas",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 6,
+                                title: "Control de diagonales",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 4,
                         title: "Bloqueos y maniobras",
                         description: "Manipulación de la posición rival.",
+                        content: [
+                            {
+                                id: 7,
+                                title: "Técnicas de bloqueo",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 8,
+                                title: "Ejercicios prácticos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 5,
                         title: "Evaluación posicional",
                         description: "Cómo valorar ventajas y desventajas.",
+                        content: [
+                            {
+                                id: 9,
+                                title: "Métodos de evaluación",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 10,
+                                title: "Ejercicios prácticos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                 ],
                 detailDescription: [
@@ -2903,15 +3608,18 @@ export const DATA_BASE: BBDD = {
             toLearn: {
                 themes: [
                     {
+                        id: 1,
                         title: "Análisis avanzado",
                         description:
                             "Valorar posiciones complejas con precisión.",
                     },
                     {
+                        id: 2,
                         title: "Planificación a largo plazo",
                         description: "Diseñar planes coherentes y flexibles.",
                     },
                     {
+                        id: 3,
                         title: "Adaptación y maniobras",
                         description:
                             "Modificar planes según evolución de la partida.",
@@ -2944,27 +3652,102 @@ export const DATA_BASE: BBDD = {
             content: {
                 themes: [
                     {
+                        id: 1,
                         title: "Gestión del estrés",
                         description:
                             "Técnicas para controlar la ansiedad durante la partida.",
+                        content: [
+                            {
+                                id: 1,
+                                title: "Métodos prácticos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 2,
+                                title: "Ejercicios",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 2,
                         title: "Concentración y foco",
                         description:
                             "Mejorar la atención y evitar distracciones.",
+                        content: [
+                            {
+                                id: 3,
+                                title: "Ejercicios de concentración",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 4,
+                                title: "Errores comunes",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 3,
                         title: "Manejo de la frustración",
                         description: "Aprender a recuperarse de errores.",
+                        content: [
+                            {
+                                id: 5,
+                                title: "Control emocional",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 6,
+                                title: "Ejercicios prácticos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 4,
                         title: "Psicología del rival",
                         description: "Leer comportamientos y patrones.",
+                        content: [
+                            {
+                                id: 7,
+                                title: "Interpretación básica",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 8,
+                                title: "Ejemplos prácticos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 5,
                         title: "Preparación mental para torneos",
                         description:
                             "Estrategias para mantener la calma y confianza.",
+                        content: [
+                            {
+                                id: 9,
+                                title: "Preparación previa",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 10,
+                                title: "Métodos de confianza",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                 ],
                 detailDescription: [
@@ -2978,16 +3761,19 @@ export const DATA_BASE: BBDD = {
             toLearn: {
                 themes: [
                     {
+                        id: 1,
                         title: "Control emocional",
                         description:
                             "Mantener la calma en situaciones difíciles.",
                     },
                     {
+                        id: 2,
                         title: "Mejora del enfoque",
                         description:
                             "Incrementar la concentración y claridad mental.",
                     },
                     {
+                        id: 3,
                         title: "Lectura del adversario",
                         description:
                             "Interpretar señales y patrones psicológicos.",
@@ -3021,27 +3807,102 @@ export const DATA_BASE: BBDD = {
             content: {
                 themes: [
                     {
+                        id: 1,
                         title: "Reglas de torneos",
                         description: "Normativas y formatos comunes.",
+                        content: [
+                            {
+                                id: 1,
+                                title: "Reglamento básico",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 2,
+                                title: "Errores comunes",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 2,
                         title: "Preparación previa",
                         description:
                             "Cómo estudiar y mentalizarse para competir.",
+                        content: [
+                            {
+                                id: 3,
+                                title: "Preparación física",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 4,
+                                title: "Preparación mental",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 3,
                         title: "Gestión del tiempo",
                         description:
                             "Uso efectivo del reloj en partidas rápidas y clásicas.",
+                        content: [
+                            {
+                                id: 5,
+                                title: "Blitz y rápidas",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 6,
+                                title: "Clásicas",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 4,
                         title: "Análisis post-partida",
                         description: "Aprender de tus errores y aciertos.",
+                        content: [
+                            {
+                                id: 7,
+                                title: "Métodos de análisis",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 8,
+                                title: "Ejemplos prácticos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 5,
                         title: "Estrategias psicológicas",
                         description:
                             "Mantener la calma y controlar el nerviosismo.",
+                        content: [
+                            {
+                                id: 9,
+                                title: "Control del nerviosismo",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 10,
+                                title: "Ejercicios prácticos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                 ],
                 detailDescription: [
@@ -3055,14 +3916,17 @@ export const DATA_BASE: BBDD = {
             toLearn: {
                 themes: [
                     {
+                        id: 1,
                         title: "Disciplina en torneos",
                         description: "Conocer y respetar las reglas.",
                     },
                     {
+                        id: 2,
                         title: "Preparación integral",
                         description: "Combinar estudio, mente y cuerpo.",
                     },
                     {
+                        id: 3,
                         title: "Autocrítica constructiva",
                         description: "Usar el análisis para mejorar.",
                     },
@@ -3094,26 +3958,101 @@ export const DATA_BASE: BBDD = {
             content: {
                 themes: [
                     {
+                        id: 1,
                         title: "Ataques directos",
                         description: "Técnicas para penetrar la defensa rival.",
+                        content: [
+                            {
+                                id: 1,
+                                title: "Ataque al rey",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 2,
+                                title: "Ejemplos prácticos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 2,
                         title: "Defensas activas",
                         description:
                             "Cómo neutralizar amenazas y contraatacar.",
+                        content: [
+                            {
+                                id: 3,
+                                title: "Defensa activa básica",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 4,
+                                title: "Ejercicios prácticos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 3,
                         title: "Sacrificios estratégicos",
                         description: "Cuándo y cómo ofrecer material.",
+                        content: [
+                            {
+                                id: 5,
+                                title: "Sacrificios comunes",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 6,
+                                title: "Errores frecuentes",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 4,
                         title: "Contraataques tácticos",
                         description: "Transformar la defensa en ataque.",
+                        content: [
+                            {
+                                id: 7,
+                                title: "Ejemplos prácticos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 8,
+                                title: "Errores comunes",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 5,
                         title: "Evaluación dinámica",
                         description:
                             "Reconocer momentos para atacar o defender.",
+                        content: [
+                            {
+                                id: 9,
+                                title: "Métodos de evaluación",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 10,
+                                title: "Ejercicios prácticos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                 ],
                 detailDescription: [
@@ -3127,15 +4066,18 @@ export const DATA_BASE: BBDD = {
             toLearn: {
                 themes: [
                     {
+                        id: 1,
                         title: "Timing perfecto",
                         description:
                             "Reconocer el momento ideal para acciones tácticas.",
                     },
                     {
+                        id: 2,
                         title: "Equilibrio entre ataque y defensa",
                         description: "Mantener el control en la partida.",
                     },
                     {
+                        id: 3,
                         title: "Sacrificios calculados",
                         description: "Maximizar el impacto de tus movimientos.",
                     },
@@ -3168,24 +4110,99 @@ export const DATA_BASE: BBDD = {
             content: {
                 themes: [
                     {
+                        id: 1,
                         title: "Patrones básicos de jaque mate",
                         description: "Formas comunes de dar mate.",
+                        content: [
+                            {
+                                id: 1,
+                                title: "Mate del pasillo",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 2,
+                                title: "Mate de la escalera",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 2,
                         title: "Jaque mate en 1 movimiento",
                         description: "Ejercicios y ejemplos prácticos.",
+                        content: [
+                            {
+                                id: 3,
+                                title: "Ejercicios básicos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 4,
+                                title: "Ejercicios avanzados",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 3,
                         title: "Jaque mate en 2 movimientos",
                         description: "Combinaciones y trucos.",
+                        content: [
+                            {
+                                id: 5,
+                                title: "Ejemplos básicos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 6,
+                                title: "Ejercicios prácticos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 4,
                         title: "Errores que facilitan mate rápido",
                         description: "Cómo evitarlos.",
+                        content: [
+                            {
+                                id: 7,
+                                title: "Errores típicos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 8,
+                                title: "Prevención",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 5,
                         title: "Práctica con problemas tácticos",
                         description: "Ejercicios para reforzar habilidades.",
+                        content: [
+                            {
+                                id: 9,
+                                title: "Ejercicios prácticos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 10,
+                                title: "Ejercicios avanzados",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                 ],
                 detailDescription: [
@@ -3198,10 +4215,12 @@ export const DATA_BASE: BBDD = {
             toLearn: {
                 themes: [
                     {
+                        id: 1,
                         title: "Reconocimiento de patrones",
                         description: "Detectar mates rápidos en el tablero.",
                     },
                     {
+                        id: 2,
                         title: "Velocidad y precisión",
                         description: "Ejecutar mates sin errores.",
                     },
@@ -3233,25 +4252,100 @@ export const DATA_BASE: BBDD = {
             content: {
                 themes: [
                     {
+                        id: 1,
                         title: "Evaluación de la posición",
                         description: "Cómo analizar la estructura y piezas.",
+                        content: [
+                            {
+                                id: 1,
+                                title: "Factores clave",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 2,
+                                title: "Ejemplos prácticos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 2,
                         title: "Planes comunes",
                         description:
                             "Desarrollo de estrategias según la posición.",
+                        content: [
+                            {
+                                id: 3,
+                                title: "Planes en flanco de rey",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 4,
+                                title: "Planes en flanco de dama",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 3,
                         title: "Tácticas para el medio juego",
                         description: "Identificación y aplicación.",
+                        content: [
+                            {
+                                id: 5,
+                                title: "Ejercicios básicos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 6,
+                                title: "Ejercicios avanzados",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 4,
                         title: "Intercambios y transformaciones",
                         description: "Decidir qué piezas cambiar.",
+                        content: [
+                            {
+                                id: 7,
+                                title: "Cuándo cambiar piezas",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 8,
+                                title: "Errores comunes",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 5,
                         title: "Errores frecuentes",
                         description: "Evitar fallos típicos en esta fase.",
+                        content: [
+                            {
+                                id: 9,
+                                title: "Errores comunes",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 10,
+                                title: "Cómo evitarlos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                 ],
                 detailDescription: [
@@ -3265,14 +4359,17 @@ export const DATA_BASE: BBDD = {
             toLearn: {
                 themes: [
                     {
+                        id: 1,
                         title: "Toma de decisiones",
                         description: "Mejorar la elección de jugadas.",
                     },
                     {
+                        id: 2,
                         title: "Planificación estratégica",
                         description: "Diseñar y ejecutar planes coherentes.",
                     },
                     {
+                        id: 3,
                         title: "Precisión táctica",
                         description: "Aplicar tácticas con efectividad.",
                     },
@@ -3305,25 +4402,100 @@ export const DATA_BASE: BBDD = {
             content: {
                 themes: [
                     {
+                        id: 1,
                         title: "Técnicas de cálculo",
                         description: "Métodos para analizar variantes.",
+                        content: [
+                            {
+                                id: 1,
+                                title: "Método paso a paso",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 2,
+                                title: "Errores frecuentes",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 2,
                         title: "Visualización de movimientos",
                         description: "Entrenamiento para ver jugadas futuras.",
+                        content: [
+                            {
+                                id: 3,
+                                title: "Ejercicios básicos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 4,
+                                title: "Ejercicios avanzados",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 3,
                         title: "Evaluación de posiciones",
                         description: "Decidir el mejor camino a seguir.",
+                        content: [
+                            {
+                                id: 5,
+                                title: "Métodos prácticos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 6,
+                                title: "Ejemplos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 4,
                         title: "Ejercicios prácticos",
                         description:
                             "Problemas para fortalecer la capacidad de cálculo.",
+                        content: [
+                            {
+                                id: 7,
+                                title: "Ejercicios básicos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 8,
+                                title: "Ejercicios complejos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                     {
+                        id: 5,
                         title: "Control del error",
                         description: "Reducir errores durante el análisis.",
+                        content: [
+                            {
+                                id: 9,
+                                title: "Errores típicos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                            {
+                                id: 10,
+                                title: "Cómo evitarlos",
+                                cover: "static-image-muestra-subtemas_1143x547_.png",
+                                video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
+                            },
+                        ],
                     },
                 ],
                 detailDescription: [
@@ -3337,15 +4509,18 @@ export const DATA_BASE: BBDD = {
             toLearn: {
                 themes: [
                     {
+                        id: 1,
                         title: "Cálculo eficiente",
                         description: "Mejorar la velocidad y precisión.",
                     },
                     {
+                        id: 2,
                         title: "Visualización mental",
                         description:
                             "Fortalecer la capacidad de imaginar jugadas.",
                     },
                     {
+                        id: 3,
                         title: "Reducción de errores",
                         description:
                             "Evitar fallos comunes durante el análisis.",

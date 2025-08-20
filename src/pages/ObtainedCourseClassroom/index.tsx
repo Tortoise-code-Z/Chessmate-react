@@ -31,7 +31,9 @@ function ObtaindeCourseClassroom({}: Props) {
                 <DescriptionCourseSection
                     data={data ?? ({} as Course & IsObtainedCourse)}
                 />
-                <CourseClassroomContent />
+                <CourseClassroomContent
+                    data={data ?? ({} as Course & IsObtainedCourse)}
+                />
                 <AboutAuthor data={data ?? ({} as Course & IsObtainedCourse)} />
                 <UserCoursesSection
                     obtainedCoursesLimit={3}

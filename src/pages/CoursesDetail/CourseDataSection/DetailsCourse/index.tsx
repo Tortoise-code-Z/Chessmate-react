@@ -23,7 +23,7 @@ function DetailsCourse({ data, titleContain, type }: Props) {
                                 ? styles.contentItem
                                 : styles.toLearnItem
                         }
-                        key={t.title}
+                        key={t.id}
                     >
                         {t.title}
                     </li>

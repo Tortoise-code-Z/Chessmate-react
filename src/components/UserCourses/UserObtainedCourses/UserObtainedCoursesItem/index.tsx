@@ -2,6 +2,8 @@ import { CourseJSON, Progress } from "../../../../types/types";
 import styles from "./UserObtainedCoursesItem.module.css";
 import ImageLevelProgress from "./ImageLevelProgress";
 import CourseTitleAndDetail from "./CourseTitleAndDetail";
+import { Link } from "react-router-dom";
+import { paths } from "../../../../consts/paths";
 
 type Props = {
     data: CourseJSON & Progress;
@@ -9,10 +11,16 @@ type Props = {
 
 function UserObtainedCoursesItem({ data }: Props) {
     return (
-        <div className={styles.userObtainedCoursesItem}>
+        <Link
+            to={`/${paths.obtainedCourseClassroom.replace(
+                ":id",
+                data.curseID.toString()
+            )}`}
+            className={styles.userObtainedCoursesItem}
+        >
             <ImageLevelProgress data={data} />
             <CourseTitleAndDetail data={data} />
-        </div>
+        </Link>
     );
 }
 

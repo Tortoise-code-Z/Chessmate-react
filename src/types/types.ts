@@ -153,13 +153,23 @@ export type Course = BaseCourse & {
 // };
 
 export type ToLearnTheme = {
+    id: number;
     title: string;
     description: string;
 };
 
+export type ThemeContent = {
+    id: number;
+    title: string;
+    cover: string;
+    video: string;
+};
+
 export type Theme = {
+    id: number;
     title: string;
     description: string;
+    content: ThemeContent[];
 };
 
 export type ContentCurseData = {
@@ -182,7 +192,8 @@ export type ButtonVariant =
     | "Secondary"
     | "Terciary"
     | "Complementary"
-    | "Red";
+    | "Red"
+    | "Card";
 
 export type InputType = "text" | "password" | "checkbox";
 
