@@ -1,0 +1,24 @@
+.themesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.introductionContainer {
+    background-color: rgba(var(--primary-color-100), 0.1);
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.introduction {
+    font-family: Roboto-Light-italic;
+    font-size: 1.2rem;
+    line-height: 1.5em;
+    text-align: center;
+}

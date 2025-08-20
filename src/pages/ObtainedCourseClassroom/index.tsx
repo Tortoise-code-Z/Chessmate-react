@@ -28,10 +28,10 @@ function ObtaindeCourseClassroom({}: Props) {
                 <CourseClassroomBanner
                     data={data ?? ({} as Course & IsObtainedCourse)}
                 />
-                <DescriptionCourseSection
+                <CourseClassroomContent
                     data={data ?? ({} as Course & IsObtainedCourse)}
                 />
-                <CourseClassroomContent
+                <DescriptionCourseSection
                     data={data ?? ({} as Course & IsObtainedCourse)}
                 />
                 <AboutAuthor data={data ?? ({} as Course & IsObtainedCourse)} />

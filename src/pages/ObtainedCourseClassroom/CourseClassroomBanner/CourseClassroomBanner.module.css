@@ -4,7 +4,7 @@ section.courseClassroomBanner {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 !important;
+    padding: 0 var(--padding-lateral) !important;
     position: relative;
 }
 
@@ -20,6 +20,7 @@ section.courseClassroomBanner {
     align-items: center;
     font-size: 3rem;
     gap: 20px;
+    text-align: center;
 }
 
 .titleContainer p {
@@ -49,4 +50,20 @@ section.courseClassroomBanner {
     width: 100%;
     height: 100%;
     background-color: rgba(var(--bcc-color), 0.7);
+}
+
+@media all and (max-width: 500px) {
+    .titleContainer p {
+        font-size: 2rem;
+    }
+}
+
+@media all and (max-height: 500px) {
+    .titleContainer p {
+        font-size: 2rem;
+    }
+
+    .courseClassroomBanner h2 {
+        font-size: 2.2rem;
+    }
 }

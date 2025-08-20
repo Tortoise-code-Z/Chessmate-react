@@ -1,3 +1,4 @@
+import LightComponent from "../../../components/LightComponent";
 import { Course, IsObtainedCourse } from "../../../types/types";
 import CourseDescription from "../../CoursesDetail/CourseDataSection/CourseDescription";
 import DetailsCourse from "../../CoursesDetail/CourseDataSection/DetailsCourse";
@@ -10,6 +11,7 @@ type Props = {
 function DescriptionCourseSection({ data }: Props) {
     return (
         <section className={styles.descriptionCourseSection}>
+            <LightComponent top={50} right={40} />
             <h2>
                 <span className={["upperCase", "span-pr-color"].join(" ")}>
                     sobre
