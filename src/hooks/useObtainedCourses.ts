@@ -10,7 +10,8 @@ import {
 export default function useObtainedCourses(
     key: string,
     userId: number,
-    limit: number
+    limit: number,
+    courseID?: number
 ) {
     const queryFunction: () => Promise<
         (CourseJSON & Progress)[]
@@ -22,13 +23,18 @@ export default function useObtainedCourses(
 
             const userCourses = getUserObtainedCourses(userId, data);
 
-            const mappingUserCourses = userCourses.map((uc) => {
+            let mappingUserCourses = userCourses.map((uc) => {
                 const id = uc.courseId;
                 const course = getCourseById(data, id);
                 const rest = deleteKey(uc, "courseId");
 
                 return { ...course, ...rest };
             });
+
+            if (courseID)
+                mappingUserCourses = mappingUserCourses.filter(
+                    (c) => c.curseID !== courseID
+                );
 
             return mappingUserCourses.slice(
                 0,

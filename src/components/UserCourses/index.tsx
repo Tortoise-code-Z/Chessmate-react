@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 import { DATABASE_KEY } from "../../consts/dataBaseKey";
 import useObtainedCourses from "../../hooks/useObtainedCourses";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
@@ -14,6 +15,7 @@ type Props = {
     obtainedCoursesLimit?: number;
     showObtainedCourses?: boolean;
     showDefaultCourses?: boolean;
+    msg?: string;
 };
 
 function UserCourses({
@@ -22,13 +24,16 @@ function UserCourses({
     obtainedCoursesLimit,
     showObtainedCourses = true,
     showDefaultCourses = true,
+    msg,
 }: Props) {
+    const params = useParams();
     const { user } = useUserAuthStore();
 
     const { data, isLoading, error } = useObtainedCourses(
         DATABASE_KEY,
         user?.userID as number,
-        obtainedCoursesLimit as number
+        obtainedCoursesLimit as number,
+        Number(params.id)
     );
 
     return (
@@ -49,6 +54,7 @@ function UserCourses({
                         <UserCoursesWithEmptyState
                             data={data}
                             obtainedCourseClassID={obtainedCourseClassID}
+                            msg={msg}
                         />
                     ) : (
                         <UserCoursesWithoutEmptyState

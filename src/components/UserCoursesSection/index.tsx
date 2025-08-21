@@ -10,6 +10,7 @@ type Props = {
     showObtainedCourses?: boolean;
     showDefaultCourses?: boolean;
     navbarHeight?: boolean;
+    msg?: string;
 };
 
 function UserCoursesSection({
@@ -20,6 +21,7 @@ function UserCoursesSection({
     showObtainedCourses = true,
     showDefaultCourses = true,
     navbarHeight = false,
+    msg,
 }: Props) {
     return (
         <section
@@ -35,6 +37,7 @@ function UserCoursesSection({
                 obtainedCoursesLimit={obtainedCoursesLimit}
                 showObtainedCourses={showObtainedCourses}
                 showDefaultCourses={showDefaultCourses}
+                msg={msg}
             />
         </section>
     );

@@ -5,9 +5,15 @@ import ThereArentCourses from "../ThereArentCourses";
 type Props = {
     data?: (CourseJSON & Progress)[];
     obtainedCourseClassID?: number;
+    msg?: string;
 };
 
-function UserCoursesWithEmptyState({ data, obtainedCourseClassID }: Props) {
+function UserCoursesWithEmptyState({
+    data,
+    obtainedCourseClassID,
+    msg,
+}: Props) {
+    console.log(msg);
     return (
         <>
             <h3>Adquiridos</h3>
@@ -17,7 +23,7 @@ function UserCoursesWithEmptyState({ data, obtainedCourseClassID }: Props) {
                     classID={obtainedCourseClassID}
                 />
             ) : (
-                <ThereArentCourses />
+                <ThereArentCourses msg={msg} />
             )}
         </>
     );

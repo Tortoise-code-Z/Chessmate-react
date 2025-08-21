@@ -39,6 +39,7 @@ function ObtaindeCourseClassroom({}: Props) {
                     obtainedCoursesLimit={3}
                     showDefaultCourses={false}
                     obtainedCourseClassID={Number(params.id)}
+                    msg="Parece que no tienes más cursos..."
                 >
                     <>
                         <h2>
