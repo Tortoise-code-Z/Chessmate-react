@@ -44,6 +44,7 @@ function CourseThemes({ data, setShowVideo }: Props) {
 
             {data.content.themes?.map((theme) => (
                 <CourseThemeItem
+                    key={theme.id}
                     setShowVideo={setShowVideo}
                     theme={theme}
                     setVideosIndex={setVideosIndex}

@@ -38,6 +38,7 @@ function ObtaindeCourseClassroom({}: Props) {
                 <UserCoursesSection
                     obtainedCoursesLimit={3}
                     showDefaultCourses={false}
+                    obtainedCourseClassID={Number(params.id)}
                 >
                     <>
                         <h2>

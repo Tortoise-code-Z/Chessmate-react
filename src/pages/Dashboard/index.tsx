@@ -32,10 +32,10 @@ function Dashboard({}: Props) {
             )}
             <UserCoursesSection navbarHeight={true}>
                 <h2>
+                    Mis{" "}
                     <span className={["span-pr-color", "upperCase"].join(" ")}>
-                        Otros
-                    </span>{" "}
-                    de mis cursos
+                        cursos
+                    </span>
                 </h2>
             </UserCoursesSection>
             <CoursesRecomended

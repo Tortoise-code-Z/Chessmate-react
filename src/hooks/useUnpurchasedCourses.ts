@@ -32,9 +32,12 @@ export default function useUnpurchasedCourses(
                     return rest.courseId;
                 });
 
-                const finalCourses = courses.filter((c) =>
-                    userCoursesIds.some((uc) => uc === c.curseID)
-                );
+                const finalCourses =
+                    userCoursesIds.length > 0
+                        ? courses.filter((c) =>
+                              userCoursesIds.some((uc) => uc === c.curseID)
+                          )
+                        : courses;
 
                 return finalCourses.slice(0, limit);
             }

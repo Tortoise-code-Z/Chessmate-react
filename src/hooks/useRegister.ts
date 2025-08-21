@@ -10,9 +10,9 @@ import {
     getDataLocalStorage,
     getDefaultCourses,
     getEmail,
-    getLastId,
     getUserByUsername,
     getUsers,
+    orderedMayorToMenorByKey,
     setItemLocalStorage,
 } from "../api";
 
@@ -48,8 +48,10 @@ export function useRegister() {
             });
 
         const defaultCourses = getDefaultCourses(data);
-
         const users = getUsers(data);
+        const orderedUsers = orderedMayorToMenorByKey(users, "userID");
+        const newUserId = orderedUsers[0].userID + 1;
+
         const newUser: User = {
             username: registerData.username,
             password: registerData.password,
@@ -58,7 +60,7 @@ export function useRegister() {
             title:
                 registerData.title === "Sin título" ? null : registerData.title,
             isFirstLogin: true,
-            userID: getLastId(users, "userID"),
+            userID: newUserId,
             defaultCourses: defaultCourses.map((df) => ({
                 courseId: df.curseID,
                 progress: 0,

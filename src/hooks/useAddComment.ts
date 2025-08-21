@@ -4,10 +4,9 @@ import { DATABASE_KEY } from "../consts/dataBaseKey";
 import {
     deleteKey,
     getDataLocalStorage,
-    getLastId,
     getTodayDate,
     getUserById,
-    orderedMenorToMayorByKey,
+    orderedMayorToMenorByKey,
     setItemLocalStorage,
 } from "../api";
 
@@ -35,17 +34,17 @@ export function useAddComment() {
             if (!user)
                 throw new Error("Ha habido un error al recuperar los datos...");
 
-            const orderedComments = orderedMenorToMayorByKey(
+            const orderedComments = orderedMayorToMenorByKey(
                 data.comments,
                 "id"
             );
 
-            const idComment = getLastId(orderedComments, "id");
+            const newIdComment = orderedComments[0].id + 1;
 
             const date = getTodayDate();
 
             const newComment: CommentsJSON = {
-                id: idComment,
+                id: newIdComment,
                 createdAt: date,
                 idCourse: courseID,
                 text: text,
