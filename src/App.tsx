@@ -1,10 +1,10 @@
 import { RouterProvider } from "react-router-dom";
 import { route } from "./pages";
 import useUserAuth from "./hooks/UseUserAuth";
-import LoadingElement from "./components/LoadingElement";
 import { useEffect, useState } from "react";
 import { DATABASE_KEY } from "./consts/dataBaseKey";
 import { DATA_BASE } from "./consts/initBBDD";
+import LoadingPage from "./components/LoadingPage";
 
 type Props = {};
 
@@ -40,7 +40,8 @@ function App({}: Props) {
         query: { isLoading },
     } = useUserAuth();
 
-    if (isLoading || !isDataBaseSent) return <LoadingElement />;
+    if (isLoading || !isDataBaseSent)
+        return <LoadingPage msg="Revisando sesión..." />;
 
     return (
         <>

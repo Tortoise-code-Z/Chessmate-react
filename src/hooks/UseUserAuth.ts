@@ -11,7 +11,9 @@ export default function useUserAuth() {
         if (!stored) return null;
 
         try {
-            return JSON.parse(stored) as UserAuth;
+            const user: UserAuth = JSON.parse(stored);
+            setUser(user);
+            return user;
         } catch {
             return null;
         }
