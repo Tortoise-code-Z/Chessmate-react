@@ -34,8 +34,9 @@ export default function useUnpurchasedCourses(
 
                 const finalCourses =
                     userCoursesIds.length > 0
-                        ? courses.filter((c) =>
-                              userCoursesIds.some((uc) => uc === c.curseID)
+                        ? courses.filter(
+                              (c) =>
+                                  !userCoursesIds.some((uc) => uc === c.curseID)
                           )
                         : courses;
 
@@ -52,6 +53,5 @@ export default function useUnpurchasedCourses(
     return useQuery({
         queryKey: ["toBuyCourses", userID],
         queryFn: queryFunction,
-        staleTime: 1000 * 60 * 5,
     });
 }

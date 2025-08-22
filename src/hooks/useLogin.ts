@@ -1,4 +1,4 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { LoginSchemaValues } from "../Schemas/loginSchema";
 import { DATABASE_KEY, USER_AUTH_KEY } from "../consts/dataBaseKey";
 import { CustomError, UserAuth } from "../types/types";
@@ -16,7 +16,6 @@ import {
 export function useLogin() {
     const { setUser } = useUserAuthStore();
     const navigate = useNavigate();
-    const queryClient = useQueryClient();
 
     const login = async (loginData: LoginSchemaValues): Promise<UserAuth> => {
         const data = getDataLocalStorage(DATABASE_KEY);
@@ -59,7 +58,6 @@ export function useLogin() {
             setItemLocalStorage<UserAuth>(USER_AUTH_KEY, data);
             setUser(data);
             navigate(`/${paths.dashboard}`);
-            queryClient.clear();
         },
         onError: (error) => {
             console.log(error);

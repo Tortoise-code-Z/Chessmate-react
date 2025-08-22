@@ -15,8 +15,6 @@ type Props = {
 
 function UserCoursesSection({
     children,
-    defaultCourseClassID,
-    obtainedCourseClassID,
     obtainedCoursesLimit,
     showObtainedCourses = true,
     showDefaultCourses = true,
@@ -32,8 +30,6 @@ function UserCoursesSection({
         >
             {children}
             <UserCourses
-                defaultCourseClassID={defaultCourseClassID}
-                obtainedCourseClassID={obtainedCourseClassID}
                 obtainedCoursesLimit={obtainedCoursesLimit}
                 showObtainedCourses={showObtainedCourses}
                 showDefaultCourses={showDefaultCourses}

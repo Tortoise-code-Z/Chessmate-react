@@ -11,7 +11,7 @@ export default function useObtainedCourses(
     key: string,
     userId: number,
     limit: number,
-    courseID?: number
+    currentCourseID?: number
 ) {
     const queryFunction: () => Promise<
         (CourseJSON & Progress)[]
@@ -31,10 +31,11 @@ export default function useObtainedCourses(
                 return { ...course, ...rest };
             });
 
-            if (courseID)
+            if (currentCourseID) {
                 mappingUserCourses = mappingUserCourses.filter(
-                    (c) => c.curseID !== courseID
+                    (c) => c.curseID !== currentCourseID
                 );
+            }
 
             return mappingUserCourses.slice(
                 0,
@@ -47,8 +48,7 @@ export default function useObtainedCourses(
     };
 
     return useQuery({
-        queryKey: ["courses", limit],
+        queryKey: ["courses", limit, currentCourseID],
         queryFn: queryFunction,
-        staleTime: 1000 * 60 * 5,
     });
 }

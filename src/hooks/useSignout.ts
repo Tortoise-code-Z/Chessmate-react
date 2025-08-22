@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { USER_AUTH_KEY } from "../consts/dataBaseKey";
 import { useUserAuthStore } from "./UseUserAuthStore";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +8,7 @@ import { removeItemLocalStorage } from "../api";
 export function useSignout() {
     const { setUser } = useUserAuthStore();
     const navigate = useNavigate();
+    const queryClient = useQueryClient();
 
     const login = async (): Promise<void> => {
         try {
@@ -21,6 +22,7 @@ export function useSignout() {
     return useMutation({
         mutationFn: login,
         onSuccess: () => {
+            queryClient.clear();
             setUser(null);
             navigate(`${paths.index}`);
         },

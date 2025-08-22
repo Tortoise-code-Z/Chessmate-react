@@ -2,7 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import { DefualtCourse, Progress } from "../types/types";
 import { getDataLocalStorage, getUserById } from "../api";
 
-export default function useDefaultCourses(key: string, userID: number) {
+export default function useDefaultCourses(
+    key: string,
+    userID: number,
+    currentCourseID?: number
+) {
     const queryFunction: () => Promise<
         (DefualtCourse & Progress)[]
     > = async () => {
@@ -16,7 +20,7 @@ export default function useDefaultCourses(key: string, userID: number) {
             if (!user)
                 throw new Error("Ha habido un error al recuperar los datos...");
 
-            const defaultCourses = data.defaultCourses.map((df) => {
+            let defaultCourses = data.defaultCourses.map((df) => {
                 return {
                     ...df,
                     progress:
@@ -26,6 +30,12 @@ export default function useDefaultCourses(key: string, userID: number) {
                 };
             });
 
+            if (currentCourseID) {
+                defaultCourses = defaultCourses.filter(
+                    (c) => c.curseID !== currentCourseID
+                );
+            }
+
             return defaultCourses;
         } catch (error) {
             console.log(error);
@@ -34,7 +44,7 @@ export default function useDefaultCourses(key: string, userID: number) {
     };
 
     return useQuery({
-        queryKey: ["defaultCourses"],
+        queryKey: ["defaultCourses", currentCourseID],
         queryFn: queryFunction,
     });
 }

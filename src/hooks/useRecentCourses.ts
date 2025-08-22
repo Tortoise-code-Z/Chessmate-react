@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { BBDD, CourseJSON, IsObtainedCourse } from "../types/types";
+import { CourseJSON, IsObtainedCourse } from "../types/types";
 import {
     getCourses,
     getDataLocalStorage,

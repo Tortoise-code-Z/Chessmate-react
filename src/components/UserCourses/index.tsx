@@ -19,15 +19,13 @@ type Props = {
 };
 
 function UserCourses({
-    defaultCourseClassID,
-    obtainedCourseClassID,
     obtainedCoursesLimit,
     showObtainedCourses = true,
     showDefaultCourses = true,
     msg,
 }: Props) {
-    const params = useParams();
     const { user } = useUserAuthStore();
+    const params = useParams();
 
     const { data, isLoading, error } = useObtainedCourses(
         DATABASE_KEY,
@@ -43,7 +41,7 @@ function UserCourses({
                 <>
                     <div className={styles.userDefaultCoursesContainer}>
                         <h3>Gratuitos</h3>
-                        <UserDefaultCourses classID={defaultCourseClassID} />
+                        <UserDefaultCourses />
                     </div>
                 </>
             )}
@@ -51,16 +49,9 @@ function UserCourses({
             <div className={styles.userObtainedCoursesContainer}>
                 <DataStateWrapper isLoading={isLoading} error={error}>
                     {showObtainedCourses ? (
-                        <UserCoursesWithEmptyState
-                            data={data}
-                            obtainedCourseClassID={obtainedCourseClassID}
-                            msg={msg}
-                        />
+                        <UserCoursesWithEmptyState data={data} msg={msg} />
                     ) : (
-                        <UserCoursesWithoutEmptyState
-                            data={data}
-                            obtainedCourseClassID={obtainedCourseClassID}
-                        />
+                        <UserCoursesWithoutEmptyState data={data} />
                     )}
                 </DataStateWrapper>
             </div>
