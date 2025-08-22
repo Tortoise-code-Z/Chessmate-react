@@ -11,6 +11,7 @@ import useUserEmail from "../../../hooks/useUserEmail";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import Form from "../../../components/Form";
 import styles from "./ContactForm.module.css";
+import { useFeedbackMessageStore } from "../../../hooks/useFeedbackMesssageStore";
 
 type Props = {};
 
@@ -20,12 +21,20 @@ function ContactForm({}: Props) {
         DATABASE_KEY,
         user?.userID as number
     );
+
+    const {
+        setState: setFeedbackState,
+        setType,
+        setMsg,
+    } = useFeedbackMessageStore();
     return (
         <DataStateWrapper isLoading={isLoading}>
             <Form<ContactSchemaValues>
                 schema={contactSchema}
                 onSubmit={() => {
-                    alert("Mensaje enviado!!");
+                    setFeedbackState(true);
+                    setType("success");
+                    setMsg("Comentario enviado con éxito");
                 }}
                 defaultValues={{
                     name: user ? user.username : "",

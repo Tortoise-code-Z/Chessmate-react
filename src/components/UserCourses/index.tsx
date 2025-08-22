@@ -10,8 +10,6 @@ import UserCoursesWithEmptyState from "./UserObtainedCourses/UserCoursesWithEmpt
 import UserCoursesWithoutEmptyState from "./UserObtainedCourses/UserCoursesWithoutEmptyState";
 
 type Props = {
-    defaultCourseClassID?: number;
-    obtainedCourseClassID?: number;
     obtainedCoursesLimit?: number;
     showObtainedCourses?: boolean;
     showDefaultCourses?: boolean;
