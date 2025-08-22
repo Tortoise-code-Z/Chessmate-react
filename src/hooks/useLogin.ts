@@ -12,10 +12,16 @@ import {
     getUserByUsername,
     setItemLocalStorage,
 } from "../api";
+import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
 
 export function useLogin() {
     const { setUser } = useUserAuthStore();
     const navigate = useNavigate();
+    const {
+        setState: setFeedbackState,
+        setMsg,
+        setType,
+    } = useFeedbackMessageStore();
 
     const login = async (loginData: LoginSchemaValues): Promise<UserAuth> => {
         const data = getDataLocalStorage(DATABASE_KEY);
@@ -61,6 +67,9 @@ export function useLogin() {
         },
         onError: (error) => {
             console.log(error);
+            setFeedbackState(true);
+            setMsg(error.message);
+            setType("error");
         },
     });
 }

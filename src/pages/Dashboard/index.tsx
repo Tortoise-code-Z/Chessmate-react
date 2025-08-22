@@ -5,6 +5,8 @@ import WelcomeScreen from "./WelcomeScreen";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import { useFirstLogin } from "../../hooks/useFirstLogin";
 import UserCoursesSection from "../../components/UserCoursesSection";
+import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
+import FeedbackMessage from "../../components/FeedbackMessage";
 
 type Props = {};
 
@@ -23,12 +25,27 @@ function Dashboard({}: Props) {
         if (user?.userID) mutate(user.userID);
     };
 
+    const {
+        state: feedBackState,
+        msg,
+        setState: setFeedbackState,
+        type,
+    } = useFeedbackMessageStore();
+
     return (
         <>
             {user?.firstLogin && isOpen ? (
                 <WelcomeScreen onClick={handleButtonClick} />
             ) : (
                 ""
+            )}
+
+            {feedBackState && (
+                <FeedbackMessage
+                    onClose={() => setFeedbackState(false)}
+                    msg={msg}
+                    type={type}
+                />
             )}
             <UserCoursesSection navbarHeight={true}>
                 <h2>

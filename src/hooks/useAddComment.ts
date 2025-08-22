@@ -9,6 +9,7 @@ import {
     orderedMayorToMenorByKey,
     setItemLocalStorage,
 } from "../api";
+import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
 
 type AddCommentApi = {
     courseID: number;
@@ -18,6 +19,11 @@ type AddCommentApi = {
 
 export function useAddComment() {
     const queryClient = useQueryClient();
+    const {
+        setState: setFeedbackState,
+        setMsg,
+        setType,
+    } = useFeedbackMessageStore();
 
     const addComment = async ({
         courseID,
@@ -70,6 +76,9 @@ export function useAddComment() {
     return useMutation<Comments, Error, AddCommentApi>({
         mutationFn: addComment,
         onSuccess: (data: Comments) => {
+            setFeedbackState(true);
+            setType("success");
+            setMsg("Comentario enviado con éxito");
             queryClient.setQueryData<Comments[]>(
                 ["courseComments", data.idCourse],
                 (old) => {
@@ -78,6 +87,11 @@ export function useAddComment() {
                 }
             );
         },
-        onError: () => {},
+        onError: (error) => {
+            console.error(error);
+            setFeedbackState(true);
+            setType("error");
+            setMsg("No se ha podido enviar el comentario...");
+        },
     });
 }

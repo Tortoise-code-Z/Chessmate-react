@@ -1,16 +1,17 @@
 .successFixedMsg {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
     height: fit-content;
     padding: 20px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-radius: 10px;
     background-color: rgb(52, 201, 69);
     display: flex;
     justify-content: center;
     z-index: 999;
     align-items: center;
     box-shadow: 10px 0px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
 }

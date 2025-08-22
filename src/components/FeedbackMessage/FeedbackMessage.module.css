@@ -1,4 +1,4 @@
-.errorFixedMsg {
+.fixedMsg {
     position: fixed;
     bottom: 2%;
     left: 50%;
@@ -7,11 +7,26 @@
     height: fit-content;
     padding: 20px;
     border-radius: 10px;
-    background-color: rgb(201, 52, 52);
     display: flex;
     justify-content: center;
     z-index: 999;
     align-items: center;
     box-shadow: 10px 0px 5px rgba(0, 0, 0, 0.3);
     text-align: center;
+}
+
+.successFixedMsg {
+    background-color: rgb(52, 201, 69);
+}
+
+.errorFixedMsg {
+    background-color: rgb(201, 52, 52);
+}
+
+.msgTop {
+    top: 2% !important;
+}
+
+.msgBottom {
+    bottom: 2% !important;
 }

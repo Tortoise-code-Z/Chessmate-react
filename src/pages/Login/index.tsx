@@ -4,11 +4,20 @@ import styles from "./Login.module.css";
 import { useLogin } from "../../hooks/useLogin";
 import FigureImage from "../../components/FigureImage";
 import LoginForm from "./LoginForm";
+import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
+import FeedbackMessage from "../../components/FeedbackMessage";
 
 type Props = {};
 
 function Login({}: Props) {
-    const { mutate, error, isPending } = useLogin();
+    const { mutate, isPending } = useLogin();
+
+    const {
+        state: feedBackState,
+        msg,
+        setState: setFeedbackState,
+        type,
+    } = useFeedbackMessageStore();
 
     const handleSubmit = (data: LoginSchemaValues) => {
         mutate({
@@ -18,19 +27,27 @@ function Login({}: Props) {
     };
 
     return (
-        <section className={styles.login}>
-            {error && <p className={styles.loginError}>{error?.message}</p>}
+        <>
+            {feedBackState && (
+                <FeedbackMessage
+                    onClose={() => setFeedbackState(false)}
+                    msg={msg}
+                    type={type}
+                    position="top"
+                />
+            )}
+            <section className={styles.login}>
+                <FigureImage
+                    src={LOGO_IMAGE.image}
+                    alt={LOGO_IMAGE.alt}
+                    title={LOGO_IMAGE.alt}
+                    width={LOGO_IMAGE.width}
+                    height={LOGO_IMAGE.height}
+                />
 
-            <FigureImage
-                src={LOGO_IMAGE.image}
-                alt={LOGO_IMAGE.alt}
-                title={LOGO_IMAGE.alt}
-                width={LOGO_IMAGE.width}
-                height={LOGO_IMAGE.height}
-            />
-
-            <LoginForm handleSubmit={handleSubmit} isPending={isPending} />
-        </section>
+                <LoginForm handleSubmit={handleSubmit} isPending={isPending} />
+            </section>
+        </>
     );
 }
 

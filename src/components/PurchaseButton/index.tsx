@@ -26,19 +26,21 @@ function PurchaseButton({ courseID }: Props) {
     };
 
     return (
-        <Button
-            propagation={false}
-            onClick={user ? buyCourseAction : cantBuyCourse}
-        >
-            {isPending ? (
-                "Comprando..."
-            ) : (
-                <>
-                    <HiMiniShoppingBag />
-                    Comprar
-                </>
-            )}
-        </Button>
+        <>
+            <Button
+                propagation={false}
+                onClick={user ? buyCourseAction : cantBuyCourse}
+            >
+                {isPending ? (
+                    "Comprando..."
+                ) : (
+                    <>
+                        <HiMiniShoppingBag />
+                        Comprar
+                    </>
+                )}
+            </Button>
+        </>
     );
 }
 

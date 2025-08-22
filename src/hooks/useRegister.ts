@@ -15,11 +15,16 @@ import {
     orderedMayorToMenorByKey,
     setItemLocalStorage,
 } from "../api";
+import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
 
 export function useRegister() {
     const { setUser } = useUserAuthStore();
     const navigate = useNavigate();
-
+    const {
+        setState: setFeedbackState,
+        setMsg,
+        setType,
+    } = useFeedbackMessageStore();
     const register = async (
         registerData: registerSchemaValues
     ): Promise<UserAuth> => {
@@ -92,6 +97,9 @@ export function useRegister() {
         },
         onError: (error) => {
             console.log(error);
+            setFeedbackState(true);
+            setMsg(error.message);
+            setType("error");
         },
     });
 }

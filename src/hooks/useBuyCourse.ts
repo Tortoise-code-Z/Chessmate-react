@@ -6,14 +6,13 @@ import {
     ObtainedCourse,
 } from "../types/types";
 import { DATABASE_KEY } from "../consts/dataBaseKey";
-import { useErrorStore } from "./useErrorStore";
-import { useSuccessStore } from "./useSuccessStore";
 import {
     getCourseById,
     getDataLocalStorage,
     getUserObtainedCourses,
     setItemLocalStorage,
 } from "../api";
+import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
 
 type BuyCourseApi = {
     course: CourseJSON;
@@ -28,8 +27,11 @@ type Variables = {
 export function useBuyCourse() {
     const queryClient = useQueryClient();
 
-    const { setState: setSuccessState, setSuccessMsg } = useSuccessStore();
-    const { setState: setErrorState, setErrorMsg } = useErrorStore();
+    const {
+        setState: setFeedbackState,
+        setMsg,
+        setType,
+    } = useFeedbackMessageStore();
 
     const buyCourse = async ({
         courseID,
@@ -70,8 +72,9 @@ export function useBuyCourse() {
     return useMutation<BuyCourseApi, Error, Variables>({
         mutationFn: buyCourse,
         onSuccess: (data: BuyCourseApi) => {
-            setSuccessState(true);
-            setSuccessMsg("¡¡Compra realizada con éxito!!");
+            setFeedbackState(true);
+            setMsg("¡¡Compra realizada con éxito!!");
+            setType("success");
 
             queryClient.invalidateQueries({
                 queryKey: ["courses"],
@@ -148,8 +151,9 @@ export function useBuyCourse() {
         },
         onError: (error) => {
             console.error(error);
-            setErrorState(true);
-            setErrorMsg("Error al realizar la compra");
+            setFeedbackState(true);
+            setMsg("Error al realizar la compra");
+            setType("error");
         },
     });
 }

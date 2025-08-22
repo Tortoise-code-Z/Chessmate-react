@@ -5,6 +5,8 @@ import CourseCommentSection from "./CourseCommentSection";
 import CourseDataSection from "./CourseDataSection";
 import CantDoAction from "../../components/CantDoAction";
 import { useCantCommentStore } from "../../hooks/useCantCommentStore";
+import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
+import FeedbackMessage from "../../components/FeedbackMessage";
 
 type Props = {};
 
@@ -14,12 +16,26 @@ function CoursesDetail({}: Props) {
     const { cantDo: cantComment, setState: setCantCommentState } =
         useCantCommentStore();
 
+    const {
+        state: feedBackState,
+        msg,
+        setState: setFeedbackState,
+        type,
+    } = useFeedbackMessageStore();
+
     return (
         <>
             {(cantBuy || cantComment) && (
                 <CantDoAction
                     setState={cantBuy ? setCantBuyState : setCantCommentState}
                     action={cantBuy ? "buy" : "comment"}
+                />
+            )}
+            {feedBackState && (
+                <FeedbackMessage
+                    onClose={() => setFeedbackState(false)}
+                    msg={msg}
+                    type={type}
                 />
             )}
 

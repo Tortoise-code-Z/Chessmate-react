@@ -13,6 +13,7 @@ import {
     getUserDefaultCourse,
     setItemLocalStorage,
 } from "../api";
+import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
 
 type Variables = {
     themeID: number;
@@ -25,6 +26,11 @@ export function useCompleteTheme(
     setIndex: Dispatch<SetStateAction<number>>
 ) {
     const queryClient = useQueryClient();
+    const {
+        setState: setFeedbackState,
+        setMsg,
+        setType,
+    } = useFeedbackMessageStore();
 
     const completeTheme = async ({ courseID, themeID, userID }: Variables) => {
         try {
@@ -110,6 +116,9 @@ export function useCompleteTheme(
         },
         onError: (error) => {
             console.log(error);
+            setFeedbackState(true);
+            setMsg("Error al completar el tema");
+            setType("error");
         },
     });
 }

@@ -4,6 +4,8 @@ import CourseBanner from "./CourseBanner";
 import RecentCoursesSection from "./RecentCoursesSection";
 import { useCantBuyStore } from "../../hooks/useCantBuyStore";
 import CantDoAction from "../../components/CantDoAction";
+import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
+import FeedbackMessage from "../../components/FeedbackMessage";
 // import SuccessFixedMsg from "../../components/SuccessFixedMsg";
 // import { useSuccessStore } from "../../hooks/useSuccessStore";
 // import { useErrorStore } from "../../hooks/useErrorStore";
@@ -13,15 +15,25 @@ type Props = {};
 
 function Courses({}: Props) {
     const { cantDo, setState } = useCantBuyStore();
-
-    // const { isSuccess, successMsg } = useSuccessStore();
-    // const { isError, errorMsg } = useErrorStore();
+    const {
+        state: feedBackState,
+        msg,
+        setState: setFeedbackState,
+        type,
+    } = useFeedbackMessageStore();
 
     return (
         <>
             {cantDo && <CantDoAction setState={setState} action="buy" />}
-            {/* {isSuccess && <SuccessFixedMsg successMsg={successMsg} />} */}
-            {/* {isError && <ErrorFixedMsg errorMsg={errorMsg} />} */}
+
+            {feedBackState && (
+                <FeedbackMessage
+                    onClose={() => setFeedbackState(false)}
+                    msg={msg}
+                    type={type}
+                />
+            )}
+
             <CourseBanner />
             <RecentCoursesSection />
             <BestSellersSection
