@@ -2,12 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import { useUserAuthStore } from "./UseUserAuthStore";
 import { UserAuth } from "../types/types";
 import { useEffect } from "react";
+import { USER_AUTH_KEY } from "../consts/dataBaseKey";
 
 export default function useUserAuth() {
     const { user, setUser, setIsLoading } = useUserAuthStore();
 
     const queryFunction = async (): Promise<UserAuth | null> => {
-        const stored = localStorage.getItem("UserAuth");
+        const stored = localStorage.getItem(USER_AUTH_KEY);
         if (!stored) return null;
 
         try {
