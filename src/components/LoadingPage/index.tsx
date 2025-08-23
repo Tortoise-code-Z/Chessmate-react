@@ -14,8 +14,6 @@ function LoadingPage({ msg }: Props) {
         };
     }, []);
 
-    console.log("mensaje recibido: ", msg);
-
     return (
         <div className={[styles.loadingPage].join(" ")}>
             <p className={[styles.msg].join(" ")}>{msg}</p>

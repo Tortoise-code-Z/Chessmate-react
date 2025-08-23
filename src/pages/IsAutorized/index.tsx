@@ -1,20 +1,21 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { paths } from "../../consts/paths";
 import LoadingPage from "../../components/LoadingPage";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
+import { ReactNode } from "react";
 
-type Props = {};
+type Props = { children: ReactNode };
 
-function IsAuthorized({}: Props) {
-    const { user, isLoading } = useUserAuthStore();
+function IsAuthorized({ children }: Props) {
+    const { user } = useUserAuthStore();
 
-    if (isLoading) return <LoadingPage msg="Revisando autorización..." />;
+    <LoadingPage msg="Revisando autorización..." />;
 
     if (!user) {
         return <Navigate to={`/${paths.login}`} />;
-    } else {
-        return <Outlet />;
     }
+
+    return <>{children}</>;
 }
 
 export default IsAuthorized;

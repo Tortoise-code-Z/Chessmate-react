@@ -48,7 +48,6 @@ export const registerSchema = z
     })
     .refine(
         (data) => {
-            console.log("ejecutando");
             return data.password === data.repeatPassword;
         },
         {

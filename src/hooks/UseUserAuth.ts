@@ -13,7 +13,6 @@ export default function useUserAuth() {
 
         try {
             const user: UserAuth = JSON.parse(stored);
-            setUser(user);
             return user;
         } catch {
             return null;
