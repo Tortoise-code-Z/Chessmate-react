@@ -145,13 +145,6 @@ export type Course = BaseCourse & {
     authors: AuthorCurseData[];
 };
 
-// export type CourseData = {
-//     detailDescription: string;
-//     content: ContentCurseData;
-//     toLearn?: ToLearnCurseData;
-//     authors: AuthorCurseData[];
-// };
-
 export type ToLearnTheme = {
     id: number;
     title: string;
@@ -196,18 +189,6 @@ export type ButtonVariant =
     | "Card";
 
 export type InputType = "text" | "password" | "checkbox";
-
-// export type Folder = "courses" | "defaultCourses" | "static";
-// export type TypeImage = "thumb" | "full";
-// export type SizeImage = "desktop" | "mobile";
-
-// export type URLImageParams = {
-//     folder: Folder;
-//     prefix: string;
-//     size: SizeImage;
-//     type: TypeImage;
-//     id: number;
-// };
 
 // API PLAYERS
 //

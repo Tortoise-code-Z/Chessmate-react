@@ -12,6 +12,7 @@ import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import Form from "../../../components/Form";
 import styles from "./ContactForm.module.css";
 import { useFeedbackMessageStore } from "../../../hooks/useFeedbackMesssageStore";
+import { UseFormSetValue } from "react-hook-form";
 
 type Props = {};
 
@@ -27,15 +28,27 @@ function ContactForm({}: Props) {
         setType,
         setMsg,
     } = useFeedbackMessageStore();
+
+    const handleSubmit = (
+        data: ContactSchemaValues,
+        helpers?: {
+            setValue: UseFormSetValue<ContactSchemaValues>;
+        }
+    ) => {
+        setFeedbackState(true);
+        setType("success");
+        setMsg("Mensaje enviado con éxito");
+
+        helpers?.setValue("body", "");
+        helpers?.setValue("subject", "");
+
+        console.log(data);
+    };
     return (
         <DataStateWrapper isLoading={isLoading}>
             <Form<ContactSchemaValues>
                 schema={contactSchema}
-                onSubmit={() => {
-                    setFeedbackState(true);
-                    setType("success");
-                    setMsg("Comentario enviado con éxito");
-                }}
+                onSubmit={handleSubmit}
                 defaultValues={{
                     name: user ? user.username : "",
                     email: user && !error && data ? data : "",
