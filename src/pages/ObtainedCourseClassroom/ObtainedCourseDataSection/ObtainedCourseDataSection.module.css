@@ -1,0 +1,11 @@
+.obtainedCourseDataSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 0 !important;
+}
+
+.obtainedCourseDataSection h3 {
+    font-size: 2rem;
+}

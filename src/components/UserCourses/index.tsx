@@ -8,6 +8,7 @@ import styles from "./UserCourses.module.css";
 import UserDefaultCourses from "./UserDefaultCourses";
 import UserCoursesWithEmptyState from "./UserObtainedCourses/UserCoursesWithEmptyState";
 import UserCoursesWithoutEmptyState from "./UserObtainedCourses/UserCoursesWithoutEmptyState";
+import TitleHx from "../TitleHx";
 
 type Props = {
     obtainedCoursesLimit?: number;
@@ -38,7 +39,7 @@ function UserCourses({
             {showDefaultCourses && (
                 <>
                     <div className={styles.userDefaultCoursesContainer}>
-                        <h3>Gratuitos</h3>
+                        <TitleHx level={3}>Gratuitos</TitleHx>
                         <UserDefaultCourses />
                     </div>
                 </>

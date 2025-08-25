@@ -5,6 +5,7 @@ import { paths } from "../../../../../consts/paths";
 
 import styles from "./CourseTitleAndDetail.module.css";
 import Button from "../../../../Button";
+import TitleHx from "../../../../TitleHx";
 
 type Props = {
     data: CourseJSON & Progress;
@@ -14,7 +15,10 @@ function CourseTitleAndDetail({ data }: Props) {
     const navigate = useNavigate();
     return (
         <div className={[styles.container].join(" ")}>
-            <p className={[styles.title].join(" ")}>{data.title}</p>
+            <TitleHx level={4} classNames={[styles.title]}>
+                {data.title}
+            </TitleHx>
+
             <Button
                 onClick={(e) => {
                     e.preventDefault();

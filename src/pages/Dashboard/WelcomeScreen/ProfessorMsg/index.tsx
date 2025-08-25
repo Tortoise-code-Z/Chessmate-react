@@ -1,3 +1,4 @@
+import TitleHx from "../../../../components/TitleHx";
 import styles from "./ProfessorMsg.module.css";
 
 type Props = {
@@ -7,13 +8,14 @@ type Props = {
 function ProfessorMsg({ username }: Props) {
     return (
         <>
-            <h2>
+            <TitleHx level={2}>
                 ¡Hola!{" "}
                 <span className={["span-pr-color", "upperCase"].join(" ")}>
                     Bienvenido a tu portal
                 </span>{" "}
                 de Chessmate
-            </h2>
+            </TitleHx>
+
             <div>
                 <p>
                     Me presento, soy Mate-o tu guía y profesor. Es un placer

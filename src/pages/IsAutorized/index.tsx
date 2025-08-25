@@ -7,9 +7,12 @@ import { ReactNode } from "react";
 type Props = { children: ReactNode };
 
 function IsAuthorized({ children }: Props) {
-    const { user } = useUserAuthStore();
+    const { user, isLoading } = useUserAuthStore();
 
-    <LoadingPage msg="Revisando autorización..." />;
+    console.log(isLoading, user);
+
+    if (isLoading && !user)
+        return <LoadingPage msg="Revisando autorización..." />;
 
     if (!user) {
         return <Navigate to={`/${paths.login}`} />;

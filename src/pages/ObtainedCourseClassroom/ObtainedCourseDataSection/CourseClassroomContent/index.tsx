@@ -1,9 +1,14 @@
 import { useState } from "react";
-import { Course, IsObtainedCourse, ThemeContent } from "../../../types/types";
 import styles from "./CourseClassroomContent.module.css";
-import VideoReproductor from "../VideoReproductor";
-import LightComponent from "../../../components/LightComponent";
 import CourseThemes from "./CourseThemes";
+import {
+    Course,
+    IsObtainedCourse,
+    ThemeContent,
+} from "../../../../types/types";
+import TitleHx from "../../../../components/TitleHx";
+import LightComponent from "../../../../components/LightComponent";
+import VideoReproductor from "../VideoReproductor";
 
 type Props = {
     data: Course & IsObtainedCourse;
@@ -13,15 +18,14 @@ function CourseClassroomContent({ data }: Props) {
     const [showVideo, setShowVideo] = useState<ThemeContent | null>(null);
 
     return (
-        <section className={styles.courseClassroomContent}>
+        <div className={styles.courseClassroomContent}>
             <LightComponent top={50} right={60} />
-
-            <h2>
+            <TitleHx level={2}>
                 <span className={["upperCase", "span-pr-color"].join(" ")}>
                     contenido
                 </span>{" "}
                 del curso
-            </h2>
+            </TitleHx>
 
             <CourseThemes data={data} setShowVideo={setShowVideo} />
 
@@ -33,7 +37,7 @@ function CourseClassroomContent({ data }: Props) {
                     src={showVideo.video}
                 />
             )}
-        </section>
+        </div>
     );
 }
 

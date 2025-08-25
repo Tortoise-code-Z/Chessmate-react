@@ -6,6 +6,7 @@ import FigureImage from "../../components/FigureImage";
 import RegisterForm from "./RegisterForm";
 import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
 import FeedbackMessage from "../../components/FeedbackMessage";
+import TitleHx from "../../components/TitleHx";
 
 type Props = {};
 
@@ -30,14 +31,14 @@ function Register({}: Props) {
             )}
             <section className={styles.register}>
                 <div className={styles.formContainer}>
-                    <h2>
+                    <TitleHx>
                         Regístrate
                         <span>
                             ... y{" "}
                             <span className={"span-pr-color"}>comienza</span> tu
                             aventura
                         </span>
-                    </h2>
+                    </TitleHx>
 
                     <RegisterForm
                         handleSubmit={handleSubmit}

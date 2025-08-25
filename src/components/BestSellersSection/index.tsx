@@ -4,6 +4,7 @@ import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import CoursesDisplay from "../CoursesDisplay";
 import DataStateWrapper from "../DataStateWrapperProps";
 import LightComponent from "../LightComponent";
+import TitleHx from "../TitleHx";
 import styles from "./BestSelletsSection.module.css";
 
 type Props = {
@@ -38,10 +39,11 @@ function BestSellersSection({
         >
             <LightComponent top={30} right={45} />
 
-            <h2
-                className={[
+            <TitleHx
+                classNames={[
                     titleDisplay === "Col" ? styles.titleCol : styles.titleRow,
-                ].join(" ")}
+                ]}
+                level={2}
             >
                 {titleText} {titleDisplay === "Row" && " "}
                 {titleTextSpan && (
@@ -49,7 +51,7 @@ function BestSellersSection({
                         {titleTextSpan}
                     </span>
                 )}
-            </h2>
+            </TitleHx>
 
             <DataStateWrapper isLoading={isLoading} error={error}>
                 <CoursesDisplay

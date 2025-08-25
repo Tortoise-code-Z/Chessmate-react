@@ -1,5 +1,6 @@
 import UserObtainedCourses from "..";
 import { CourseJSON, Progress } from "../../../../types/types";
+import TitleHx from "../../../TitleHx";
 import ThereArentCourses from "../ThereArentCourses";
 
 type Props = {
@@ -8,10 +9,10 @@ type Props = {
 };
 
 function UserCoursesWithEmptyState({ data, msg }: Props) {
-    console.log(msg);
     return (
         <>
-            <h3>Adquiridos</h3>
+            <TitleHx level={3}>Adquiridos</TitleHx>
+
             {data && data.length > 0 ? (
                 <UserObtainedCourses data={data} msg={msg} />
             ) : (

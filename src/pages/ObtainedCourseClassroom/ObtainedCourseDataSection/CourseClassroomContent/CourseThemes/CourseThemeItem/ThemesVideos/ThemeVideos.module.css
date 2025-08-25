@@ -11,8 +11,8 @@
 }
 
 .title {
-    font-size: 1.2rem;
-    font-family: Roboto-Light;
+    font-size: 1.2rem !important;
+    font-family: Roboto-thin;
 }
 
 .videosContainer {

@@ -319,3 +319,5 @@ export type UseCourseApiType = {
     courses: DefualtCourse;
     userThemeStates: ThemesUserStates[];
 };
+
+export type TitleLevel = 1 | 2 | 3 | 4 | 5 | 6;

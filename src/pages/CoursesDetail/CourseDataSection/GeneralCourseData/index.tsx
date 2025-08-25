@@ -3,6 +3,7 @@ import { getImage, getImageSize } from "../../../../utils/images";
 import styles from "./GeneralCourseData.module.css";
 import PurchaseAction from "../../../../components/PurchaseAction";
 import FigureImage from "../../../../components/FigureImage";
+import TitleHx from "../../../../components/TitleHx";
 
 type Props = {
     data: Course & IsObtainedCourse;
@@ -21,7 +22,7 @@ function GeneralCourseData({ data }: Props) {
 
             <div className={styles.dataContainer}>
                 <div className={styles.data}>
-                    <h2>{data.title}</h2>
+                    <TitleHx>{data.title}</TitleHx>
                     <p className={styles.description}>
                         {data.shortDescription}
                     </p>

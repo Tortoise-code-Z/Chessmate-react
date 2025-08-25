@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import styles from "./VideoReproductor.module.css";
 import ReactPlayer from "react-player";
-import Button from "../../../components/Button";
+import TitleHx from "../../../../components/TitleHx";
+import Button from "../../../../components/Button";
 type Props = {
     src: string;
     classNames?: string[];
@@ -28,7 +29,9 @@ function VideoReproductor({ src, classNames = [], title, onClick }: Props) {
                     <Button onClick={onClick} variant="Secondary">
                         Volver
                     </Button>
-                    <span className={[styles.title].join(" ")}>{title}</span>
+                    <TitleHx classNames={[styles.title]} level={3}>
+                        {title}
+                    </TitleHx>
                 </div>
             </div>
         </div>

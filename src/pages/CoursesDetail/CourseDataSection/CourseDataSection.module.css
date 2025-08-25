@@ -10,7 +10,7 @@
     position: relative;
 }
 
-.courseDataSection h3 {
+.courseDataSection h2 {
     font-size: 1.5rem;
     color: rgb(var(--primary-color-050));
 }

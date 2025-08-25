@@ -28,11 +28,11 @@ function ErrorElement({
     console.error(error.message);
     return (
         <div className={[styles.errorElement, ...classNames].join(" ")}>
-            <span>
-                Lo sentimos mucho, ha ocurrido un error al recuperar los
-                datos...
+            <span className={[styles.errorMsg].join(" ")}>
+                Lo sentimos mucho, ha ocurrido un error
                 {errorMsg && `: ${errorMsg.toLowerCase()}`}
             </span>
+            <FaExclamationTriangle />
             {buttonAction && (
                 <Button onClick={buttonAction.onClick}>
                     {buttonAction.text}
@@ -46,8 +46,6 @@ function ErrorElement({
                     {linkAction.text}
                 </NavLink>
             )}
-
-            <FaExclamationTriangle />
         </div>
     );
 }

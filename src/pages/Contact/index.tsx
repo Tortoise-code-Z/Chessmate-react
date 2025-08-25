@@ -1,4 +1,5 @@
 import FeedbackMessage from "../../components/FeedbackMessage";
+import TitleHx from "../../components/TitleHx";
 import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
 import styles from "./Contact.module.css";
 import ContactForm from "./ContactForm";
@@ -24,10 +25,10 @@ function Contact({}: Props) {
             (
             <section className={styles.contact}>
                 <div className={styles.imageContact}>
-                    <h2>
+                    <TitleHx level={1}>
                         Envíanos tu duda de{" "}
                         <span className={"span-pr-color"}>forma directa</span>
-                    </h2>
+                    </TitleHx>
                     <p>
                         ¡Nuestro equipo se encargará de contestarla lo antes
                         posible!

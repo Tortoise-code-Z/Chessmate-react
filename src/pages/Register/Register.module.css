@@ -28,8 +28,8 @@
     height: calc(100% - 50px);
 }
 
-.formContainer h2 {
-    font-size: 3.5em;
+.formContainer h1 {
+    font-size: 3.5rem;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -37,10 +37,10 @@
     font-family: Roboto-italic;
 }
 
-.formContainer h2 span {
+.formContainer h1 span {
     color: rgb(var(--primary-color-050));
     font-size: 1.1rem;
-    font-family: Roboto-thin-italic;
+    font-family: Roboto-light-italic;
     opacity: 0.9;
 }
 

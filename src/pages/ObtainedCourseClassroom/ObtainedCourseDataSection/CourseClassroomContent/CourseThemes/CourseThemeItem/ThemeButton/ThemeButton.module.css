@@ -12,8 +12,8 @@
 }
 
 .themeTitle {
-    font-family: Roboto-medium;
-    font-size: 1.2rem;
+    font-family: Roboto-light;
+    font-size: 1.2rem !important;
 }
 .themeDescription {
     font-family: Roboto-ExtraLight;

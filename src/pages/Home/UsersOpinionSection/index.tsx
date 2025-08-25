@@ -1,4 +1,5 @@
 import LightComponent from "../../../components/LightComponent";
+import TitleHx from "../../../components/TitleHx";
 import OpinionsCarrousel from "./OpinionsCarrousel";
 import styles from "./UsersOpinionSection.module.css";
 
@@ -9,12 +10,13 @@ function UsersOpinionSection({}: Props) {
         <section className={styles.usersOpinionSection}>
             <LightComponent top={25} right={35} />
 
-            <h2>
+            <TitleHx level={2}>
                 Lo que dicen
                 <span className={["span-pr-color", "upperCase"].join(" ")}>
                     nuestros alumnos
                 </span>
-            </h2>
+            </TitleHx>
+
             <OpinionsCarrousel />
         </section>
     );

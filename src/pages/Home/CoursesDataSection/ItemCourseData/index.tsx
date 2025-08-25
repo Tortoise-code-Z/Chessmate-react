@@ -1,3 +1,4 @@
+import TitleHx from "../../../../components/TitleHx";
 import { CourseDataItem } from "../../../../types/types";
 import { getImage, getImageSize } from "../../../../utils/images";
 import styles from "./ItemCourseData.module.css";
@@ -24,7 +25,7 @@ function ItemCourseData({ item, index }: Props) {
                 />
             </figure>
             <div>
-                <h3>{item.title}</h3>
+                <TitleHx level={3}>{item.title}</TitleHx>
                 <p>{item.description}</p>
             </div>
         </div>

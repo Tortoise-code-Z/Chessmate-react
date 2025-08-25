@@ -11,12 +11,25 @@
     text-align: center;
 }
 
-.login > figure {
+.logoContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.login h1 {
+    font-size: 1.8rem;
+    font-family: Roboto-italic;
+}
+
+.login figure {
     width: 200px;
     aspect-ratio: 1/1;
 }
 
-.login > figure > img {
+.login figure > img {
     width: 100%;
     height: 100%;
 }
@@ -55,7 +68,7 @@
         min-height: 100vh;
         flex-direction: column;
     }
-    .login > figure {
+    .login figure {
         width: 130px;
     }
 }

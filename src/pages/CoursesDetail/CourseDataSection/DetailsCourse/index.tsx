@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { Course } from "../../../../types/types";
 import styles from "./DetailsCourse.module.css";
+import TitleHx from "../../../../components/TitleHx";
 
 type Props = {
     data: Course;
@@ -13,7 +14,8 @@ function DetailsCourse({ data, titleContain, type }: Props) {
 
     return (
         <div className={styles.detailsCourse}>
-            <h3>{titleContain}</h3>
+            <TitleHx level={2}>{titleContain}</TitleHx>
+
             {/* Themes / Content list */}
             <ul className={styles.themesList}>
                 {data?.[typeData]?.themes.map((t) => (

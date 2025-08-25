@@ -10,6 +10,7 @@ type Props = {
     children: ReactNode;
     errorMsg?: string;
     errorClassName?: string[];
+    loadingClassName?: string[];
     errorButtonAction?: {
         text: string;
         onClick: () => void;
@@ -30,8 +31,16 @@ export default function DataStateWrapper({
     errorClassName = [],
     errorButtonAction,
     errorLinkAction,
+    loadingClassName = [],
 }: Props) {
-    if (isLoading) return <>{loadingComponent || <LoadingElement />}</>;
+    if (isLoading)
+        return (
+            <>
+                {loadingComponent || (
+                    <LoadingElement classNames={[...loadingClassName]} />
+                )}
+            </>
+        );
     if (error)
         return (
             <>

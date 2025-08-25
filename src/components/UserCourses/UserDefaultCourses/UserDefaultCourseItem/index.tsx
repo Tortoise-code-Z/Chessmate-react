@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { paths } from "../../../../consts/paths";
 import UserProgress from "../UserProgress";
 import DefaultCourseImage from "../DefaultCourseImage";
+import TitleHx from "../../../TitleHx";
 
 type Props = {
     data: DefualtCourse & Progress;
@@ -17,7 +18,9 @@ function UserDefaultCourseItem({ data }: Props) {
         >
             <UserProgress data={data} />
             <DefaultCourseImage data={data} />
-            <p className={[styles.title].join(" ")}>{data.title}</p>
+            <TitleHx classNames={[styles.title]} level={4}>
+                {data.title}
+            </TitleHx>
         </Link>
     );
 }

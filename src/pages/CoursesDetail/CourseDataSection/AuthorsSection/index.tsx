@@ -1,3 +1,4 @@
+import TitleHx from "../../../../components/TitleHx";
 import { Course } from "../../../../types/types";
 import Authors from "./Authors";
 import styles from "./AuthorsSection.module.css";
@@ -9,7 +10,7 @@ type Props = {
 function AuthorsSection({ data }: Props) {
     return (
         <div className={styles.authors}>
-            <h3>Autores</h3>
+            <TitleHx level={2}>Autores</TitleHx>
             <Authors data={data} />
         </div>
     );

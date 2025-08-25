@@ -9,8 +9,20 @@
     font-size: 1.7rem;
     text-align: center;
     gap: 30px;
-    opacity: 0.4;
     font-family: Roboto-Light-italic;
+}
+
+.errorMsg,
+.errorElement svg {
+    opacity: 0.5;
+}
+
+.errorElement button {
+    opacity: 1 !important;
+}
+
+.errorElement a {
+    opacity: 1 !important;
 }
 
 @media all and (max-width: 500px) {

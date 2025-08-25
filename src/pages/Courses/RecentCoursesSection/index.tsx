@@ -1,6 +1,7 @@
 import CoursesDisplay from "../../../components/CoursesDisplay";
 import DataStateWrapper from "../../../components/DataStateWrapperProps";
 import LightComponent from "../../../components/LightComponent";
+import TitleHx from "../../../components/TitleHx";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import useRecentCourses from "../../../hooks/useRecentCourses";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
@@ -20,12 +21,13 @@ function RecentCoursesSection({}: Props) {
         <section className={styles.recentCoursesSection}>
             <LightComponent top={20} right={75} />
 
-            <h2>
+            <TitleHx level={2}>
                 Recién{" "}
                 <span className={["span-pr-color", "upperCase"].join(" ")}>
                     llegados
                 </span>
-            </h2>
+            </TitleHx>
+
             <DataStateWrapper isLoading={isLoading} error={error}>
                 <CoursesDisplay
                     courses={data ?? ([] as CourseJSON[])}

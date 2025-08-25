@@ -5,7 +5,7 @@ import {
     Course,
     IsObtainedCourse,
     ThemeContent,
-} from "../../../../types/types";
+} from "../../../../../types/types";
 
 type Props = {
     data: Course & IsObtainedCourse;

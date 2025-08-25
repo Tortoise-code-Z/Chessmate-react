@@ -7,7 +7,7 @@ import {
     getUserObtainedCourses,
 } from "../api";
 
-export default function useCourse(
+export default function useCourseClassroom(
     key: string,
     courseID: number,
     userID?: number
@@ -46,7 +46,7 @@ export default function useCourse(
     };
 
     const query = useQuery({
-        queryKey: ["useCourse", courseID, userID],
+        queryKey: ["useCourseClassroom", courseID, userID],
         queryFn: queryFunction,
         staleTime: 1000 * 60 * 5,
     });

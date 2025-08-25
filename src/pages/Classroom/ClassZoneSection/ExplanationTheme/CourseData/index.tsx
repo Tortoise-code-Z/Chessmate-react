@@ -1,3 +1,4 @@
+import TitleHx from "../../../../../components/TitleHx";
 import WritteMachine from "../../../../../components/WritteMachine";
 import { UseCourseApiType } from "../../../../../types/types";
 import styles from "./CourseData.module.css";
@@ -13,10 +14,11 @@ function CourseData({ data, index }: Props) {
         "";
     return (
         <div className={styles.courseData}>
-            <h2>{data.courses.title}</h2>
-            <h3>
+            <TitleHx>{data.courses.title}</TitleHx>
+            <TitleHx level={2}>
                 {data.courses.content.themes.find((t) => t.id === index)?.title}
-            </h3>
+            </TitleHx>
+
             <WritteMachine
                 data={description}
                 time={30}

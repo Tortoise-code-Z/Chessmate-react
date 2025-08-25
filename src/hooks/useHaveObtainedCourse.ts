@@ -1,5 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getDataLocalStorage, getUserObtainedCourses } from "../api";
+import { useEffect } from "react";
+import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
 
 export default function useHaveObtainedCourse(
     courseID: number,
@@ -20,8 +22,20 @@ export default function useHaveObtainedCourse(
         return haveCourse;
     };
 
-    return useQuery({
+    const { setMsg, setState, setType } = useFeedbackMessageStore();
+
+    const query = useQuery({
         queryKey: ["haveCourse", userID, courseID],
         queryFn: queryFunction,
     });
+
+    useEffect(() => {
+        if (query.isSuccess && !query.data) {
+            setType("error");
+            setMsg("No tienes este curso obtenido...");
+            setState(true);
+        }
+    }, [query.isSuccess, query.data, setType, setMsg, setState]);
+
+    return query;
 }

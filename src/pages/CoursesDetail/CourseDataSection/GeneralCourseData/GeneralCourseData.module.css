@@ -42,8 +42,9 @@
     font-family: Roboto-thin;
 }
 
-.generalCourseData h2 {
+.generalCourseData h1 {
     color: white;
+    font-size: 2.5rem;
 }
 
 .level {

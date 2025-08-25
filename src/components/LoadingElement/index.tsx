@@ -3,9 +3,10 @@ import styles from "./LoadingElement.module.css";
 
 type Props = {
     height?: "fit" | "all";
+    classNames?: string[];
 };
 
-function LoadingElement({ height = "all" }: Props) {
+function LoadingElement({ height = "all", classNames = [] }: Props) {
     return (
         <div
             className={[
@@ -13,6 +14,7 @@ function LoadingElement({ height = "all" }: Props) {
                 height === "all"
                     ? styles.loadingElement
                     : styles.loadingElementFit,
+                ...classNames,
             ].join(" ")}
         >
             <ClipLoader color="white" />

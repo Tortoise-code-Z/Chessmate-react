@@ -10,15 +10,14 @@
     line-height: 1.5em;
 }
 
-.courseData h2 {
+.courseData h1 {
     color: white;
     font-size: 2rem;
 }
 
-.courseData h3 {
+.courseData h2 {
     color: white;
     font-family: Roboto-italic;
-    opacity: 0.5;
     font-size: 1.1rem;
 }
 

@@ -1,10 +1,10 @@
-section.courseClassroomBanner {
+.courseClassroomBanner {
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 var(--padding-lateral) !important;
+    padding: var(--navbar-height) var(--padding-lateral) !important;
     position: relative;
 }
 

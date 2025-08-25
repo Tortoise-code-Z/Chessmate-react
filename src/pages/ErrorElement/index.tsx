@@ -3,6 +3,7 @@ import { paths } from "../../consts/paths";
 import styles from "./ErrorElement.module.css";
 import LightComponent from "../../components/LightComponent";
 import Button from "../../components/Button";
+import TitleHx from "../../components/TitleHx";
 
 type Props = {
     msg?: string;
@@ -32,7 +33,8 @@ export default function ErrorElement({ msg }: Props) {
         <section className={[styles.errorElement].join(" ")}>
             <LightComponent top={20} right={75} />
             <LightComponent top={80} right={25} />
-            <h1>{title}</h1>
+            <TitleHx>{title}</TitleHx>
+
             <p className={[styles.message].join(" ")}>{message}</p>
 
             {!msg && (

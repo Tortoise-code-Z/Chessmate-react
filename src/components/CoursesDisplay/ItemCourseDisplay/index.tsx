@@ -4,6 +4,7 @@ import { getImage } from "../../../utils/images";
 import { paths } from "../../../consts/paths";
 import styles from "./ItemCourseDisplay.module.css";
 import PurchaseAction from "../../PurchaseAction";
+import TitleHx from "../../TitleHx";
 
 type Props = {
     action?: boolean;
@@ -45,7 +46,7 @@ function ItemCourseDisplay({
             </figure>
             <div className={[styles.itemDataContainer].join(" ")}>
                 <div className={[styles.itemData].join(" ")}>
-                    <h3>{data.title}</h3>
+                    <TitleHx level={3}>{data.title}</TitleHx>
                     <p className={[styles.description].join(" ")}>
                         {data.shortDescription}
                     </p>

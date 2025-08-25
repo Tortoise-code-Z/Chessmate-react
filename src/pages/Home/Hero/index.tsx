@@ -1,3 +1,4 @@
+import TitleHx from "../../../components/TitleHx";
 import styles from "./Hero.module.css";
 
 type Props = {};
@@ -5,9 +6,10 @@ type Props = {};
 function Hero({}: Props) {
     return (
         <div className={styles.hero}>
-            <h1>
+            <TitleHx>
                 Chess<span className="span-pr-color">mate</span>
-            </h1>
+            </TitleHx>
+
             <p className={styles.subtitle}>
                 Tu sitio web para aprender ajedrez.
             </p>

@@ -15,7 +15,7 @@
 }
 
 .title {
-    font-size: 1.3rem;
+    font-size: 1.3rem !important;
     font-family: Roboto-bold;
     text-transform: capitalize;
     text-align: start !important;

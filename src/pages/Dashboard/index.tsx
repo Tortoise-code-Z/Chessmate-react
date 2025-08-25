@@ -7,6 +7,7 @@ import { useFirstLogin } from "../../hooks/useFirstLogin";
 import UserCoursesSection from "../../components/UserCoursesSection";
 import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
 import FeedbackMessage from "../../components/FeedbackMessage";
+import TitleHx from "../../components/TitleHx";
 
 type Props = {};
 
@@ -48,12 +49,12 @@ function Dashboard({}: Props) {
                 />
             )}
             <UserCoursesSection navbarHeight={true}>
-                <h2>
+                <TitleHx level={2}>
                     Mis{" "}
                     <span className={["span-pr-color", "upperCase"].join(" ")}>
                         cursos
                     </span>
-                </h2>
+                </TitleHx>
             </UserCoursesSection>
             <CoursesRecomended
                 titleContain={

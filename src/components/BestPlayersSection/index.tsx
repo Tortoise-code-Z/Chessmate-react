@@ -4,6 +4,7 @@ import { BestPlayerChessData } from "../../types/types";
 import DataStateWrapper from "../DataStateWrapperProps";
 import EmblaCarousel from "../EmblaCarousel";
 import LightComponent from "../LightComponent";
+import TitleHx from "../TitleHx";
 import BestPlayersContainer from "./BestPlayersContainer";
 import styles from "./BestPlayersSection.module.css";
 
@@ -15,12 +16,14 @@ function BestPlayersSection({}: Props) {
     return (
         <article className={[styles.bestPlayersSection].join(" ")}>
             <LightComponent top={5} right={65} />
-            <h2>
+
+            <TitleHx level={2}>
                 <span className={["span-pr-color", "upperCase"].join(" ")}>
                     Rating players
                 </span>
                 Chess.com
-            </h2>
+            </TitleHx>
+
             <DataStateWrapper
                 isLoading={isLoading}
                 error={error}

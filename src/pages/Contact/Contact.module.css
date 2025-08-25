@@ -36,7 +36,7 @@
     background-color: rgba(var(--bcc-color), 0.6);
 }
 
-.contact h2 {
+.contact h1 {
     color: white;
     text-transform: uppercase;
     display: flex;
@@ -45,7 +45,7 @@
     font-family: Roboto-Light;
 }
 
-.contact h2 span {
+.contact h1 span {
     font-size: 4rem;
     font-family: Roboto-medium;
 }
@@ -92,7 +92,7 @@
 }
 
 @media all and (max-width: 500px) {
-    .contact h2 {
+    .contact h1 {
         text-align: center;
     }
 }

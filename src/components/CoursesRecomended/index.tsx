@@ -6,6 +6,7 @@ import { CourseJSON } from "../../types/types";
 import styles from "./CoursesRecomended.module.css";
 import { ReactNode } from "react";
 import { DATABASE_KEY } from "../../consts/dataBaseKey";
+import TitleHx from "../TitleHx";
 
 type Props = {
     titleContain: ReactNode;
@@ -42,14 +43,12 @@ function CoursesRecomended({
     return (
         <section className={[styles.coursesRecomended].join(" ")}>
             <LightComponent top={40} right={30} />
-
-            <h2
-                className={[
-                    styles[titleClassMap[titleDisplay][titleAlign]],
-                ].join(" ")}
+            <TitleHx
+                classNames={[styles[titleClassMap[titleDisplay][titleAlign]]]}
+                level={2}
             >
                 {titleContain}
-            </h2>
+            </TitleHx>
 
             <DataStateWrapper isLoading={isLoading} error={error}>
                 <CoursesDisplay

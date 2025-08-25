@@ -9,6 +9,7 @@ import CoursesDisplay from "../../../components/CoursesDisplay";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import { FaHandsPraying } from "react-icons/fa6";
+import TitleHx from "../../../components/TitleHx";
 
 type Props = {};
 
@@ -27,12 +28,12 @@ function AllCoursesSection({}: Props) {
     return (
         <section className={styles.allCoursesSection}>
             <LightComponent top={20} right={40} />
-            <h2>
+            <TitleHx level={2}>
                 <span className={["span-pr-color", "upperCase"].join(" ")}>
                     todos
                 </span>{" "}
                 los cursos
-            </h2>
+            </TitleHx>
 
             <SearchBar
                 setSearch={setSearch}

@@ -1,9 +1,10 @@
 import { Dispatch, SetStateAction } from "react";
 import styles from "./ThemeVideos.module.css";
-import { Theme, ThemeContent } from "../../../../../../types/types";
-import Button from "../../../../../../components/Button";
-import FigureImage from "../../../../../../components/FigureImage";
-import { getImage, getImageSize } from "../../../../../../utils/images";
+import { Theme, ThemeContent } from "../../../../../../../types/types";
+import Button from "../../../../../../../components/Button";
+import FigureImage from "../../../../../../../components/FigureImage";
+import { getImage, getImageSize } from "../../../../../../../utils/images";
+import TitleHx from "../../../../../../../components/TitleHx";
 
 type Props = {
     theme: Theme;
@@ -28,9 +29,9 @@ function ThemeVideos({ setShowVideo, theme }: Props) {
                             width={getImageSize(subtheme.cover, "width")}
                             height={getImageSize(subtheme.cover, "height")}
                         />
-                        <p className={[styles.title].join(" ")}>
+                        <TitleHx level={3} classNames={[styles.title]}>
                             {subtheme.title}
-                        </p>
+                        </TitleHx>
                     </Button>
                 </>
             ))}

@@ -10,10 +10,10 @@ import Contact from "./Contact";
 import Classroom from "./Classroom";
 import Login from "./Login";
 import Register from "./Register";
-import ObtaindeCourseClassroom from "./ObtainedCourseClassroom";
 import ProtectedLayout from "./ProtectedLayout";
 import ProtectedCourse from "./ProtectedCourse";
 import CourseExists from "./CourseExists";
+import ObtainedCourseClassroom from "./ObtainedCourseClassroom";
 
 export const route = createBrowserRouter([
     {
@@ -34,27 +34,38 @@ export const route = createBrowserRouter([
 
     {
         path: `/${paths.dashboard}`,
+        errorElement: <ErrorElement />,
         element: <ProtectedLayout />,
         children: [{ index: true, element: <Dashboard /> }],
     },
     {
         path: `/${paths.class}`,
+        errorElement: <ErrorElement />,
         element: <ProtectedLayout />,
         children: [{ index: true, element: <Classroom /> }],
     },
     {
         path: `/${paths.obtainedCourseClassroom}`,
+        errorElement: <ErrorElement />,
         element: <ProtectedLayout />,
         children: [
             {
                 element: <ProtectedCourse />,
                 children: [
-                    { index: true, element: <ObtaindeCourseClassroom /> },
+                    { index: true, element: <ObtainedCourseClassroom /> },
                 ],
             },
         ],
     },
 
-    { path: `/${paths.login}`, element: <Login /> },
-    { path: `/${paths.register}`, element: <Register /> },
+    {
+        path: `/${paths.login}`,
+        element: <Login />,
+        errorElement: <ErrorElement />,
+    },
+    {
+        path: `/${paths.register}`,
+        element: <Register />,
+        errorElement: <ErrorElement />,
+    },
 ]);

@@ -3,6 +3,7 @@ import UserCoursesSection from "../../components/UserCoursesSection";
 import ClassZoneSection from "./ClassZoneSection";
 import { useErrorStore } from "../../hooks/useErrorStore";
 import ErrorFixedMsg from "../../components/ErrorElement/ErrorFixedMsg";
+import TitleHx from "../../components/TitleHx";
 
 type Props = {};
 
@@ -24,12 +25,12 @@ function Classroom({}: Props) {
                 defaultCourseClassID={Number(params.id)}
                 showObtainedCourses={false}
             >
-                <h2>
+                <TitleHx level={2}>
                     <span className={["span-pr-color", "upperCase"].join(" ")}>
                         Otros
                     </span>{" "}
                     de mis cursos
-                </h2>
+                </TitleHx>
             </UserCoursesSection>
         </>
     );

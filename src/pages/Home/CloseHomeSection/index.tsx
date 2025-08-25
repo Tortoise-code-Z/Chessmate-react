@@ -1,4 +1,5 @@
 import LightComponent from "../../../components/LightComponent";
+import TitleHx from "../../../components/TitleHx";
 import { getImage } from "../../../utils/images";
 import styles from "./CloseHomeSection.module.css";
 
@@ -8,8 +9,7 @@ function CloseHomeSection({}: Props) {
     return (
         <section className={styles.closeHomeSection}>
             <LightComponent top={35} right={65} />
-
-            <h2>
+            <TitleHx level={2}>
                 <span className={"size-80"}>Muchas gracias por</span>
                 <span>
                     <span
@@ -23,7 +23,7 @@ function CloseHomeSection({}: Props) {
                     </span>
                     <span className={"size-90"}>en nosotros</span>
                 </span>
-            </h2>
+            </TitleHx>
             <p>
                 Te esperamos con ilusión en{" "}
                 <span className={"span-pr-color"}>tu portal de alumno</span>

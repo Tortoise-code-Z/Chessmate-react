@@ -6,6 +6,7 @@ import FigureImage from "../../components/FigureImage";
 import LoginForm from "./LoginForm";
 import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
 import FeedbackMessage from "../../components/FeedbackMessage";
+import TitleHx from "../../components/TitleHx";
 
 type Props = {};
 
@@ -37,13 +38,16 @@ function Login({}: Props) {
                 />
             )}
             <section className={styles.login}>
-                <FigureImage
-                    src={LOGO_IMAGE.image}
-                    alt={LOGO_IMAGE.alt}
-                    title={LOGO_IMAGE.alt}
-                    width={LOGO_IMAGE.width}
-                    height={LOGO_IMAGE.height}
-                />
+                <div className={[styles.logoContainer].join(" ")}>
+                    <TitleHx>Iniciar sesión</TitleHx>
+                    <FigureImage
+                        src={LOGO_IMAGE.image}
+                        alt={LOGO_IMAGE.alt}
+                        title={LOGO_IMAGE.alt}
+                        width={LOGO_IMAGE.width}
+                        height={LOGO_IMAGE.height}
+                    />
+                </div>
 
                 <LoginForm handleSubmit={handleSubmit} isPending={isPending} />
             </section>

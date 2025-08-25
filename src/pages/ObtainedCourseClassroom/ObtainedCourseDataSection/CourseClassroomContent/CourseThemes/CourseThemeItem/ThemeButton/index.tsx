@@ -1,8 +1,9 @@
 import { FaChevronDown } from "react-icons/fa";
 import styles from "./ThemeButton.module.css";
 import { Dispatch, SetStateAction } from "react";
-import Button from "../../../../../../components/Button";
-import { Theme } from "../../../../../../types/types";
+import Button from "../../../../../../../components/Button";
+import { Theme } from "../../../../../../../types/types";
+import TitleHx from "../../../../../../../components/TitleHx";
 
 type Props = {
     theme: Theme;
@@ -23,7 +24,9 @@ function ThemeButton({ setVideosIndex, theme, videosIndex }: Props) {
             }
         >
             <div className={[styles.themeData].join(" ")}>
-                <p className={[styles.themeTitle].join(" ")}>{theme.title}</p>
+                <TitleHx classNames={[styles.themeTitle]} level={3}>
+                    {theme.title}
+                </TitleHx>
                 <p className={[styles.themeDescription].join(" ")}>
                     {theme.description}
                 </p>

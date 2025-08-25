@@ -39,7 +39,7 @@ function CourseDataSection({}: Props) {
                 </div>
                 <GeneralCourseData data={data ?? ({} as Course)} />
                 <AuthorsSection data={data ?? ({} as Course)} />
-                <CourseDescription data={data ?? ({} as Course)} />
+                <CourseDescription level={2} data={data ?? ({} as Course)} />
                 <DetailsCourse
                     data={data ?? ({} as Course)}
                     type={"content"}
