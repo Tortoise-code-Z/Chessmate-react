@@ -32,7 +32,7 @@ export default function useBannerCourse(key: string, userID?: number) {
             return {
                 ...bannerCourse,
                 isObtained: userCourses.some(
-                    (uc) => uc.courseId === bannerCourse.curseID
+                    (userCourse) => userCourse.courseId === bannerCourse.curseID
                 ),
             };
         } catch (error) {

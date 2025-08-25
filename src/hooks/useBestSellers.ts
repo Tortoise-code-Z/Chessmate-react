@@ -29,10 +29,10 @@ export default function useBestSeller(
                 "sales"
             ).slice(0, limit);
 
-            return filteredCourses.map((fc) => ({
-                ...fc,
+            return filteredCourses.map((course) => ({
+                ...course,
                 isObtained: userCourses?.some(
-                    (uc) => uc.courseId === fc.curseID
+                    (uc) => uc.courseId === course.curseID
                 ),
             }));
         } catch (error) {

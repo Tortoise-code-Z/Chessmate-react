@@ -1,6 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { Comments } from "../types/types";
-import { deleteKey, getDataLocalStorage, getUserById } from "../api";
+import {
+    deleteKey,
+    getComments,
+    getDataLocalStorage,
+    getUserById,
+} from "../api";
 
 export default function useCourseComments(key: string, courseID: number) {
     const queryFunction: () => Promise<Comments[]> = async () => {
@@ -9,7 +14,9 @@ export default function useCourseComments(key: string, courseID: number) {
             if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
 
-            const comments = data.comments.map((c) => {
+            const dataComments = getComments(data);
+
+            const comments = dataComments.map((c) => {
                 const user = getUserById(c.idUser, data);
                 if (!user)
                     throw new Error(
@@ -20,9 +27,8 @@ export default function useCourseComments(key: string, courseID: number) {
                 return { ...rest, user };
             });
 
-            // Ordered by time, more recents to minor recents
             return comments
-                .filter((c) => c.idCourse === courseID)
+                .filter((comment) => comment.idCourse === courseID)
                 .sort((a, b) => {
                     const bData = new Date(b.createdAt).getTime();
                     const aData = new Date(a.createdAt).getTime();

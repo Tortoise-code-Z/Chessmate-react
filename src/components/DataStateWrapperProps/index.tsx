@@ -9,6 +9,15 @@ type Props = {
     errorComponent?: ReactNode;
     children: ReactNode;
     errorMsg?: string;
+    errorClassName?: string[];
+    errorButtonAction?: {
+        text: string;
+        onClick: () => void;
+    };
+    errorLinkAction?: {
+        text: string;
+        to: string;
+    };
 };
 
 export default function DataStateWrapper({
@@ -18,13 +27,22 @@ export default function DataStateWrapper({
     errorComponent,
     children,
     errorMsg = "",
+    errorClassName = [],
+    errorButtonAction,
+    errorLinkAction,
 }: Props) {
     if (isLoading) return <>{loadingComponent || <LoadingElement />}</>;
     if (error)
         return (
             <>
                 {errorComponent || (
-                    <ErrorElement errorMsg={errorMsg} error={error} />
+                    <ErrorElement
+                        errorMsg={errorMsg}
+                        error={error}
+                        classNames={errorClassName}
+                        buttonAction={errorButtonAction}
+                        linkAction={errorLinkAction}
+                    />
                 )}
             </>
         );

@@ -37,6 +37,7 @@ export function useAddComment() {
                 throw new Error("Ha habido un error al recuperar los datos...");
 
             const user = getUserById(userID, data);
+
             if (!user)
                 throw new Error("Ha habido un error al recuperar los datos...");
 

@@ -9,6 +9,7 @@ import {
     JsonOpinion,
     ObtainedCourse,
     ObtainedDefaultCourse,
+    Progress,
     ThemesUserStates,
     User,
 } from "../types/types";
@@ -23,6 +24,20 @@ export const getEmail: (data: BBDD, email: string) => boolean = (
     email
 ) => {
     return data.users.some((u) => u.email === email);
+};
+
+export const getDefaultCoursesWithProgress: (
+    data: BBDD,
+    user: User
+) => (DefualtCourse & Progress)[] = (data, user) => {
+    return data.defaultCourses.map((df) => {
+        return {
+            ...df,
+            progress:
+                user.defaultCourses.find((udf) => udf.courseId === df.curseID)
+                    ?.progress || 0,
+        };
+    });
 };
 
 export const checkPassword: (
@@ -56,6 +71,16 @@ export const getUserObtainedCourses: (
     );
 };
 
+export const getUserDefaultCourses: (
+    userID: number | undefined,
+    data: BBDD
+) => ObtainedDefaultCourse[] = (userID, data) => {
+    return (
+        data.users?.find((u) => u.userID === userID)?.defaultCourses ||
+        ([] as ObtainedDefaultCourse[])
+    );
+};
+
 export const getUserDefaultCourse: (
     userID: number | undefined,
     courseID: number,
@@ -66,6 +91,18 @@ export const getUserDefaultCourse: (
             ?.find((u) => u.userID === userID)
             ?.defaultCourses.find((df) => df.courseId === courseID) ||
         ({} as ObtainedDefaultCourse)
+    );
+};
+
+export const getUserObtainedCourse: (
+    userID: number | undefined,
+    courseID: number,
+    data: BBDD
+) => ObtainedCourse | null = (userID, courseID, data) => {
+    return (
+        data.users
+            ?.find((u) => u.userID === userID)
+            ?.courses.find((course) => course.courseId === courseID) || null
     );
 };
 

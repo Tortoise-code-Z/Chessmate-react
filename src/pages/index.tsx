@@ -12,6 +12,8 @@ import Login from "./Login";
 import Register from "./Register";
 import ObtaindeCourseClassroom from "./ObtainedCourseClassroom";
 import ProtectedLayout from "./ProtectedLayout";
+import ProtectedCourse from "./ProtectedCourse";
+import CourseExists from "./CourseExists";
 
 export const route = createBrowserRouter([
     {
@@ -21,7 +23,11 @@ export const route = createBrowserRouter([
         children: [
             { index: true, element: <Home /> },
             { path: `/${paths.courses}`, element: <Courses /> },
-            { path: `/${paths.coursesDetail}`, element: <CoursesDetail /> },
+            {
+                path: `/${paths.coursesDetail}`,
+                element: <CourseExists />,
+                children: [{ index: true, element: <CoursesDetail /> }],
+            },
             { path: `/${paths.contact}`, element: <Contact /> },
         ],
     },
@@ -39,7 +45,14 @@ export const route = createBrowserRouter([
     {
         path: `/${paths.obtainedCourseClassroom}`,
         element: <ProtectedLayout />,
-        children: [{ index: true, element: <ObtaindeCourseClassroom /> }],
+        children: [
+            {
+                element: <ProtectedCourse />,
+                children: [
+                    { index: true, element: <ObtaindeCourseClassroom /> },
+                ],
+            },
+        ],
     },
 
     { path: `/${paths.login}`, element: <Login /> },

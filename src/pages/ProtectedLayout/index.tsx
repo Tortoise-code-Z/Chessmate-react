@@ -1,5 +1,5 @@
-import Layout from "../Layout";
 import IsAuthorized from "../IsAutorized";
+import Layout from "../Layout";
 
 export default function ProtectedLayout() {
     return (

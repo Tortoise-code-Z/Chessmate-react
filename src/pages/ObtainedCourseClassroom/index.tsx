@@ -9,6 +9,7 @@ import { Course, IsObtainedCourse } from "../../types/types";
 import DataStateWrapper from "../../components/DataStateWrapperProps";
 import UserCoursesSection from "../../components/UserCoursesSection";
 import CourseClassroomContent from "./CourseClassroomContent";
+import { paths } from "../../consts/paths";
 
 type Props = {};
 
@@ -24,7 +25,19 @@ function ObtaindeCourseClassroom({}: Props) {
 
     return (
         <>
-            <DataStateWrapper isLoading={isLoading} error={error}>
+            <DataStateWrapper
+                isLoading={isLoading}
+                error={error}
+                errorMsg={error?.message}
+                errorClassName={["paddign-top-navbar-height"]}
+                errorLinkAction={{
+                    text: "Ver al curso",
+                    to: `/${paths.coursesDetail.replace(
+                        ":id",
+                        `${params.id}`
+                    )}`,
+                }}
+            >
                 <CourseClassroomBanner
                     data={data ?? ({} as Course & IsObtainedCourse)}
                 />

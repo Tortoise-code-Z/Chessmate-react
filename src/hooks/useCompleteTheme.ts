@@ -11,6 +11,8 @@ import { Dispatch, SetStateAction } from "react";
 import {
     getDataLocalStorage,
     getUserDefaultCourse,
+    getUserDefaultCourses,
+    getUsers,
     setItemLocalStorage,
 } from "../api";
 import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
@@ -43,35 +45,40 @@ export function useCompleteTheme(
                 courseID,
                 data
             );
+            const userDefaultCourses = getUserDefaultCourses(userID, data);
+            const users = getUsers(data);
 
             const newCourseData = {
                 ...userDefaultCourse,
-                themes: userDefaultCourse?.themes.map((t) =>
-                    t.themeID === themeID ? { ...t, completed: true } : t
+                themes: userDefaultCourse?.themes.map((theme) =>
+                    theme.themeID === themeID
+                        ? { ...theme, completed: true }
+                        : theme
                 ),
             };
 
             const finalCourseData = {
                 ...newCourseData,
                 progress:
-                    (newCourseData.themes?.filter((t) => t.completed).length /
+                    (newCourseData.themes?.filter((theme) => theme.completed)
+                        .length /
                         newCourseData?.themes.length) *
                     100,
             };
 
             const newData: BBDD = {
                 ...data,
-                users: data.users.map((u) =>
-                    u.userID === userID
+                users: users.map((user) =>
+                    user.userID === userID
                         ? {
-                              ...u,
-                              defaultCourses: u.defaultCourses.map((df) =>
-                                  df.courseId === courseID
+                              ...user,
+                              defaultCourses: userDefaultCourses.map((course) =>
+                                  course.courseId === courseID
                                       ? finalCourseData
-                                      : df
+                                      : course
                               ),
                           }
-                        : u
+                        : user
                 ),
             };
 
