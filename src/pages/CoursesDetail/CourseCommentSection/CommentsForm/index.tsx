@@ -32,6 +32,7 @@ function CommentForm({}: Props) {
             helpers?.setValue("comment", "");
             return;
         }
+
         mutate({
             userID: user?.userID as number,
             courseID: Number(params.id),

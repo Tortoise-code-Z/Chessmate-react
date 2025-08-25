@@ -13,8 +13,11 @@ type Props = {};
 function CoursesDetail({}: Props) {
     const { user } = useUserAuthStore();
     const { cantDo: cantBuy, setState: setCantBuyState } = useCantBuyStore();
-    const { cantDo: cantComment, setState: setCantCommentState } =
-        useCantCommentStore();
+    const {
+        cantDo: cantComment,
+        setState: setCantCommentState,
+        value,
+    } = useCantCommentStore();
 
     const {
         state: feedBackState,
@@ -28,7 +31,7 @@ function CoursesDetail({}: Props) {
             {(cantBuy || cantComment) && (
                 <CantDoAction
                     setState={cantBuy ? setCantBuyState : setCantCommentState}
-                    action={cantBuy ? "buy" : "comment"}
+                    action={cantBuy ? "buy" : value}
                 />
             )}
             {feedBackState && (

@@ -3,13 +3,16 @@ import { BBDD, Comments, CommentsJSON } from "../types/types";
 import { DATABASE_KEY } from "../consts/dataBaseKey";
 import {
     deleteKey,
+    getCourses,
     getDataLocalStorage,
     getTodayDate,
     getUserById,
+    getUserObtainedCourses,
     orderedMayorToMenorByKey,
     setItemLocalStorage,
 } from "../api";
 import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
+import { useCantCommentStore } from "./useCantCommentStore";
 
 type AddCommentApi = {
     courseID: number;
@@ -24,6 +27,8 @@ export function useAddComment() {
         setMsg,
         setType,
     } = useFeedbackMessageStore();
+
+    const { setState, setValue } = useCantCommentStore();
 
     const addComment = async ({
         courseID,
@@ -40,6 +45,20 @@ export function useAddComment() {
 
             if (!user)
                 throw new Error("Ha habido un error al recuperar los datos...");
+
+            const userCourses = getUserObtainedCourses(userID, data);
+
+            const haveCourse = userCourses.some(
+                (course) => course.courseId === courseID
+            );
+
+            if (!haveCourse && user) {
+                const error = new Error(
+                    "El usuario no tiene el curso en compra..."
+                );
+                error.name = "noCourse";
+                throw error;
+            }
 
             const orderedComments = orderedMayorToMenorByKey(
                 data.comments,
@@ -90,9 +109,16 @@ export function useAddComment() {
         },
         onError: (error) => {
             console.error(error);
-            setFeedbackState(true);
-            setType("error");
-            setMsg("No se ha podido enviar el comentario...");
+            if (error.name === "noCourse") {
+                setState(true);
+                setValue("noCourse");
+            } else {
+                setFeedbackState(true);
+                setType("error");
+                setMsg("No se ha podido enviar el comentario...");
+                setState(true);
+                setValue("noSesion");
+            }
         },
     });
 }

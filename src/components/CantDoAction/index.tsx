@@ -8,7 +8,7 @@ import { useEffect } from "react";
 
 type Props = {
     setState: (status: boolean) => void;
-    action: "buy" | "comment";
+    action: "buy" | "noSesion" | "noCourse";
 };
 
 function CantDoAction({ setState, action }: Props) {
@@ -51,54 +51,74 @@ function CantDoAction({ setState, action }: Props) {
                         un curso, necesitas{" "}
                         <span
                             className={[
-                                "span-terc-color",
-                                "text-bold-italic",
-                            ].join(" ")}
-                        >
-                            iniciar sesión
-                        </span>{" "}
-                        o{" "}
-                        <span
-                            className={[
                                 "span-compl-color",
                                 "text-bold-italic",
                             ].join(" ")}
                         >
-                            registrarte.
-                        </span>{" "}
+                            {action === "noCourse" && "comprarlo"}
+                            {action === "buy" && "iniciar sesion o registrarte"}
+                            {action === "noSesion" &&
+                                "iniciar sesion o registrarte"}
+                        </span>
+                        .
                     </p>
-                    <p className={[styles.dataCallToAction].join(" ")}>
-                        ¡Y es completamente gratuito! Si decides registrarte, te
-                        estaré esperando en tu portal de estudiante.
-                    </p>
-                    <p className={[styles.dataBye].join(" ")}>
-                        ¡Espero verte pronto!
-                    </p>
+                    {action === "noCourse" && (
+                        <>
+                            <p className={[styles.dataCallToAction].join(" ")}>
+                                Es por seguridad de todos. Para mantener el
+                                orden en los comentarios.
+                            </p>
+                            <p className={[styles.dataBye].join(" ")}>
+                                ¡Espero compres el curso y te guste!
+                            </p>
+                        </>
+                    )}
+                    {action !== "noCourse" && (
+                        <>
+                            <p className={[styles.dataCallToAction].join(" ")}>
+                                ¡Y es completamente gratuito! Si decides
+                                registrarte, te estaré esperando en tu portal de
+                                estudiante.
+                            </p>
+                            <p className={[styles.dataBye].join(" ")}>
+                                ¡Espero verte pronto!
+                            </p>
+                        </>
+                    )}
                 </div>
 
                 <div className={[styles.actions].join(" ")}>
-                    <Button variant="Secondary" onClick={() => setState(false)}>
+                    <Button
+                        variant={
+                            action === "noCourse" ? "Primary" : "Secondary"
+                        }
+                        onClick={() => setState(false)}
+                    >
                         Cerrar y volver
                     </Button>
-                    <Button
-                        variant="Complementary"
-                        onClick={() => {
-                            setState(false);
-                            navigate(`/${paths.login}`);
-                        }}
-                    >
-                        Iniciar sesión
-                    </Button>
-                    <Button
-                        variant="Primary"
-                        onClick={() => {
-                            setState(false);
-                            navigate(`/${paths.register}`);
-                        }}
-                    >
-                        <PiSignInBold />
-                        Registrarme
-                    </Button>
+                    {action !== "noCourse" && (
+                        <>
+                            <Button
+                                variant="Complementary"
+                                onClick={() => {
+                                    setState(false);
+                                    navigate(`/${paths.login}`);
+                                }}
+                            >
+                                Iniciar sesión
+                            </Button>
+                            <Button
+                                variant="Primary"
+                                onClick={() => {
+                                    setState(false);
+                                    navigate(`/${paths.register}`);
+                                }}
+                            >
+                                <PiSignInBold />
+                                Registrarme
+                            </Button>
+                        </>
+                    )}
                 </div>
             </div>
         </div>
