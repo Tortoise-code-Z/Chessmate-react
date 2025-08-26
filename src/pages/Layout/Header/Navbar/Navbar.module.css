@@ -4,10 +4,7 @@
     display: flex;
     justify-content: space-between;
     height: var(--navbar-height);
-    padding-left: var(--padding-lateral);
-    padding-right: var(--padding-lateral);
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px var(--padding-lateral) !important;
     background: linear-gradient(rgba(var(--bcc-color), 0.3), rgba(0, 0, 0, 0));
     backdrop-filter: blur(4px);
 }
@@ -28,4 +25,10 @@
     justify-content: center;
     align-items: center;
     gap: 15px;
+}
+
+@media all and (max-width: 500px) {
+    .navbar {
+        padding: 20px var(--padding-lateral-mobile) !important;
+    }
 }

@@ -1,8 +1,7 @@
 .coursesRecomended {
     margin: 0 auto;
     width: 100%;
-    padding-left: var(--padding-lateral);
-    padding-right: var(--padding-lateral);
+    padding: var(--section-vertical-padding) var(--padding-lateral) !important;
     display: flex;
     flex-direction: column;
     gap: 50px;
@@ -26,4 +25,10 @@
 
 .titleRowCenter {
     text-align: center;
+}
+
+@media all and (max-width: 500px) {
+    .coursesRecomended {
+        padding: var(--section-vertical-padding) var(--padding-lateral-mobile) !important;
+    }
 }

@@ -67,6 +67,12 @@
     }
 }
 
+@media all and (max-width: 500px) {
+    .cantBuyModal {
+        padding: 0 var(--padding-lateral-mobile) !important;
+    }
+}
+
 @media all and (max-height: 500px) {
     .textActions {
         gap: 20px;

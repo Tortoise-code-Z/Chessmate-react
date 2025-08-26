@@ -1,19 +1,15 @@
 import { useEffect } from "react";
 import styles from "./FeedbackMessage.module.css";
+import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
 
 type Props = {
     onClose: () => void;
-    msg: string;
-    type?: "error" | "success";
     position?: "top" | "bottom";
 };
 
-function FeedbackMessage({
-    onClose,
-    msg,
-    type = "error",
-    position = "bottom",
-}: Props) {
+function FeedbackMessage({ onClose, position = "bottom" }: Props) {
+    const { msg, type } = useFeedbackMessageStore();
+
     useEffect(() => {
         const timeout = setTimeout(() => {
             onClose();

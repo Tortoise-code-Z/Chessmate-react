@@ -7,22 +7,14 @@ import ContactForm from "./ContactForm";
 type Props = {};
 
 function Contact({}: Props) {
-    const {
-        state: feedBackState,
-        msg,
-        setState: setFeedbackState,
-        type,
-    } = useFeedbackMessageStore();
+    const { state: feedBackState, setState: setFeedbackState } =
+        useFeedbackMessageStore();
     return (
         <>
             {feedBackState && (
-                <FeedbackMessage
-                    onClose={() => setFeedbackState(false)}
-                    msg={msg}
-                    type={type}
-                />
+                <FeedbackMessage onClose={() => setFeedbackState(false)} />
             )}
-            (
+
             <section className={styles.contact}>
                 <div className={styles.imageContact}>
                     <TitleHx level={1}>
@@ -36,7 +28,6 @@ function Contact({}: Props) {
                 </div>
                 <ContactForm />
             </section>
-            )
         </>
     );
 }

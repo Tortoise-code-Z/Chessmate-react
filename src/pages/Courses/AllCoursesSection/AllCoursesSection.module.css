@@ -6,8 +6,7 @@
     width: 100%;
     max-width: var(--max-width-page);
     margin: 0 auto;
-    padding-left: var(--padding-lateral);
-    padding-right: var(--padding-lateral);
+    padding: var(--section-vertical-padding) var(--padding-lateral) !important;
     padding-top: 50px;
     position: relative;
 }
@@ -24,4 +23,10 @@
     opacity: 0.3;
     color: rgb(var(--primary-color-050));
     font-family: Roboto-Light-italic;
+}
+
+@media all and (max-width: 500px) {
+    .allCoursesSection {
+        padding: var(--section-vertical-padding) var(--padding-lateral-mobile) !important;
+    }
 }

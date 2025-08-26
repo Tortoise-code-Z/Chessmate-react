@@ -13,25 +13,19 @@ type Props = {};
 function Register({}: Props) {
     const { mutate, isPending } = useRegister();
     const handleSubmit = (data: registerSchemaValues) => mutate(data);
-    const {
-        state: feedBackState,
-        msg,
-        setState: setFeedbackState,
-        type,
-    } = useFeedbackMessageStore();
+    const { state: feedBackState, setState: setFeedbackState } =
+        useFeedbackMessageStore();
     return (
         <>
             {feedBackState && (
                 <FeedbackMessage
                     onClose={() => setFeedbackState(false)}
-                    msg={msg}
-                    type={type}
                     position="top"
                 />
             )}
             <section className={styles.register}>
                 <div className={styles.formContainer}>
-                    <TitleHx>
+                    <TitleHx classNames={[styles.title]}>
                         Regístrate
                         <span>
                             ... y{" "}

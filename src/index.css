@@ -133,7 +133,7 @@ a {
 
 section,
 article {
-    padding: var(--section-vertical-padding) 0;
+    padding: var(--section-vertical-padding) var(--padding-lateral);
 }
 
 .active {

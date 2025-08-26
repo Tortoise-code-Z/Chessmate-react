@@ -4,6 +4,7 @@
     flex-direction: column;
     gap: 50px;
     position: relative;
+    padding: 0 !important;
 }
 
 .bestPlayersSection h2 {

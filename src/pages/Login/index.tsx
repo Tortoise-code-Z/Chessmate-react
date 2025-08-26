@@ -13,12 +13,8 @@ type Props = {};
 function Login({}: Props) {
     const { mutate, isPending } = useLogin();
 
-    const {
-        state: feedBackState,
-        msg,
-        setState: setFeedbackState,
-        type,
-    } = useFeedbackMessageStore();
+    const { state: feedBackState, setState: setFeedbackState } =
+        useFeedbackMessageStore();
 
     const handleSubmit = (data: LoginSchemaValues) => {
         mutate({
@@ -32,8 +28,6 @@ function Login({}: Props) {
             {feedBackState && (
                 <FeedbackMessage
                     onClose={() => setFeedbackState(false)}
-                    msg={msg}
-                    type={type}
                     position="top"
                 />
             )}

@@ -1,23 +1,21 @@
 import { useParams } from "react-router-dom";
 import UserCoursesSection from "../../components/UserCoursesSection";
 import ClassZoneSection from "./ClassZoneSection";
-import { useErrorStore } from "../../hooks/useErrorStore";
-import ErrorFixedMsg from "../../components/ErrorElement/ErrorFixedMsg";
 import TitleHx from "../../components/TitleHx";
+import FeedbackMessage from "../../components/FeedbackMessage";
+import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
 
 type Props = {};
 
 function Classroom({}: Props) {
     const params = useParams();
-    const { isError, errorMsg, setState: setError } = useErrorStore();
+    const { state: feedBackState, setState: setFeedbackState } =
+        useFeedbackMessageStore();
 
     return (
         <>
-            {isError && (
-                <ErrorFixedMsg
-                    onClose={() => setError(false)}
-                    errorMsg={errorMsg}
-                />
+            {feedBackState && (
+                <FeedbackMessage onClose={() => setFeedbackState(false)} />
             )}
             <ClassZoneSection />
             <UserCoursesSection

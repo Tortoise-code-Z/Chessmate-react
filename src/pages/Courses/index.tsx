@@ -12,23 +12,15 @@ type Props = {};
 function Courses({}: Props) {
     const { state } = useProfessorMsgStore();
 
-    const {
-        state: feedBackState,
-        msg,
-        setState: setFeedbackState,
-        type,
-    } = useFeedbackMessageStore();
+    const { state: feedBackState, setState: setFeedbackState } =
+        useFeedbackMessageStore();
 
     return (
         <>
             {state && <ProfessorFixedMessage />}
 
             {feedBackState && (
-                <FeedbackMessage
-                    onClose={() => setFeedbackState(false)}
-                    msg={msg}
-                    type={type}
-                />
+                <FeedbackMessage onClose={() => setFeedbackState(false)} />
             )}
 
             <CourseBanner />

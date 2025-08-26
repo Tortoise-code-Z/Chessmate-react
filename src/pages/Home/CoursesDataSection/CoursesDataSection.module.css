@@ -3,7 +3,8 @@
     flex-direction: column;
     gap: 100px;
     width: 100%;
-    padding: var(--section-vertical-paddingx2) var(--padding-lateral);
+    padding: var(--section-vertical-paddingx2) var(--padding-lateral) !important;
+
     position: relative;
     max-width: var(--max-width-page);
     margin: 0 auto;
@@ -29,5 +30,11 @@
         display: flex;
         flex-direction: column;
         gap: 50px;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .coursesDataSection {
+        padding: var(--section-vertical-paddingx2) var(--padding-lateral-mobile) !important;
     }
 }

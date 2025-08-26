@@ -3,14 +3,13 @@
     flex-direction: row;
     max-width: var(--max-width-page);
     margin: 0 auto;
-    margin-top: calc(var(--navbar-height));
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: calc(100vh - var(--navbar-height));
+    height: 100vh;
     position: relative;
-    padding: 20px !important;
     gap: 10px;
+    padding-top: var(--navbar-height) !important;
 }
 
 @media all and (max-width: 1023px) {
@@ -24,7 +23,13 @@
 @media all and (max-width: 767px) {
     .classZoneSection {
         height: fit-content;
-        flex-direction: column-reverse;
+        flex-direction: column;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .classZoneSection {
+        padding: var(--navbar-height) var(--padding-lateral-mobile) !important;
     }
 }
 

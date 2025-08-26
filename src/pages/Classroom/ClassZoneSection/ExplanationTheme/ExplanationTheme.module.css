@@ -21,7 +21,7 @@
 @media all and (max-width: 767px) {
     .explanationTheme {
         height: fit-content;
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
 }
 

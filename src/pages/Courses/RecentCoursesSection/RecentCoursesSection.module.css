@@ -3,8 +3,15 @@
     max-width: var(--max-width-page);
     margin: 0 auto;
     padding: var(--section-vertical-paddingx2) var(--padding-lateral) !important;
+    padding-bottom: var(--section-vertical-padding) !important;
     display: flex;
     flex-direction: column;
     gap: 50px;
     position: relative;
+}
+
+@media all and (max-width: 500px) {
+    .recentCoursesSection {
+        padding: var(--section-vertical-paddingx2) var(--padding-lateral-mobile) !important;
+    }
 }

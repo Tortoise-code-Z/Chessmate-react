@@ -6,7 +6,7 @@
     align-items: center;
     gap: 50px;
     text-align: center;
-    padding: var(--section-vertical-padding) var(--padding-lateral);
+    padding: var(--section-vertical-padding) var(--padding-lateral) !important;
 }
 
 .footerActions {
@@ -74,5 +74,9 @@
 @media all and (max-width: 500px) {
     .footerActions {
         flex-wrap: wrap;
+    }
+
+    .footer {
+        padding: var(--section-vertical-padding) var(--padding-lateral-mobile) !important;
     }
 }

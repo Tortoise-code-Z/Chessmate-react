@@ -39,4 +39,8 @@
     .closeHomeSection h2 {
         font-size: 2.5rem;
     }
+
+    .closeHomeSection {
+        padding: var(--section-vertical-padding) var(--padding-lateral-mobile) !important;
+    }
 }

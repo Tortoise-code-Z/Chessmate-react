@@ -12,12 +12,8 @@ type Props = {};
 function CoursesDetail({}: Props) {
     const { user } = useUserAuthStore();
 
-    const {
-        state: feedBackState,
-        msg,
-        setState: setFeedbackState,
-        type,
-    } = useFeedbackMessageStore();
+    const { state: feedBackState, setState: setFeedbackState } =
+        useFeedbackMessageStore();
 
     const { state } = useProfessorMsgStore();
 
@@ -25,11 +21,7 @@ function CoursesDetail({}: Props) {
         <>
             {state && <ProfessorFixedMessage />}
             {feedBackState && (
-                <FeedbackMessage
-                    onClose={() => setFeedbackState(false)}
-                    msg={msg}
-                    type={type}
-                />
+                <FeedbackMessage onClose={() => setFeedbackState(false)} />
             )}
 
             <CourseDataSection />

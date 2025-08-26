@@ -4,11 +4,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: var(--navbar-height) var(--padding-lateral) !important;
+    padding: var(--padding-lateral) !important;
     position: relative;
 }
 
-.courseClassroomBanner h2 {
+.courseClassroomBanner h1 {
     color: white !important;
     font-size: 4rem;
 }
@@ -56,14 +56,28 @@
     .titleContainer p {
         font-size: 2rem;
     }
+
+    .titleContainer h1 {
+        color: white !important;
+        font-size: 3rem;
+    }
+
+    .courseClassroomBanner {
+        padding: var(--padding-lateral-mobile) !important;
+    }
 }
 
 @media all and (max-height: 500px) {
     .titleContainer p {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
-    .courseClassroomBanner h2 {
-        font-size: 2.2rem;
+    .courseClassroomBanner h1 {
+        font-size: 2.5rem !important;
+    }
+
+    .courseClassroomBanner {
+        padding: var(--padding-lateral-mobile) !important;
+        padding-top: var(--navbar-height) !important;
     }
 }

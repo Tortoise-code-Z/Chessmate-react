@@ -11,9 +11,8 @@
     background-size: cover;
     background-position: center;
     position: relative;
+    padding: var(--section-vertical-padding) var(--padding-lateral) !important;
     padding-top: var(--navbar-height);
-    padding-left: var(--padding-lateral);
-    padding-right: var(--padding-lateral);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -55,21 +54,33 @@
     font-size: 1.3rem;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
     .contact {
-        padding: 0 !important;
-        display: flex;
         flex-direction: column;
-        width: 100%;
         height: fit-content;
     }
 
     .imageContact {
         width: 100%;
-        padding: calc(var(--navbar-height) + var(--section-vertical-padding))
-            var(--section-vertical-padding);
+        padding: var(--navbar-height) var(--padding-lateral) !important;
         height: fit-content;
         align-items: center;
+        text-align: center;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .contact h1 {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    .contact h1 span {
+        font-size: 2rem;
+    }
+
+    .imageContact {
+        padding: var(--navbar-height) var(--padding-lateral-mobile) !important;
     }
 }
 
@@ -88,11 +99,5 @@
             var(--section-vertical-padding);
         height: fit-content;
         align-items: center;
-    }
-}
-
-@media all and (max-width: 500px) {
-    .contact h1 {
-        text-align: center;
     }
 }

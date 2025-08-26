@@ -5,9 +5,17 @@
     width: 100%;
     margin: 0 auto;
     max-width: var(--max-width-page);
-    padding: var(--section-vertical-padding) var(--padding-lateral);
+    padding: var(--navbar-height) var(--padding-lateral);
+    padding-bottom: var(--section-vertical-padding) !important;
 }
 
 .paddingNavbar {
-    padding: var(--navbar-height) var(--padding-lateral) !important;
+    padding-top: var(--navbar-height);
+}
+
+@media all and (max-width: 500px) {
+    .paddingNavbar {
+        padding: var(--navbar-height) var(--padding-lateral-mobile) !important;
+        padding-bottom: var(--section-vertical-padding) !important;
+    }
 }

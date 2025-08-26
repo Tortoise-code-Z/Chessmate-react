@@ -21,7 +21,7 @@ function HamburguerMenuLinkList({ handleSignOut, setIsOpen }: Props) {
                     onClick={() => {
                         setIsOpen(false);
                     }}
-                    to={`${paths.dashboard}`}
+                    to={`/${paths.dashboard}`}
                 >
                     Mi portal
                 </NavLink>
@@ -38,7 +38,7 @@ function HamburguerMenuLinkList({ handleSignOut, setIsOpen }: Props) {
             )}
             <NavLink
                 className={["button", "buttonSecondary"].join(" ")}
-                to={`${paths.courses}`}
+                to={`/${paths.courses}`}
                 onClick={() => {
                     setIsOpen(false);
                 }}
@@ -47,7 +47,7 @@ function HamburguerMenuLinkList({ handleSignOut, setIsOpen }: Props) {
             </NavLink>
             <NavLink
                 className={["button", "buttonSecondary"].join(" ")}
-                to={`${paths.contact}`}
+                to={`/${paths.contact}`}
                 onClick={() => {
                     setIsOpen(false);
                 }}
@@ -69,7 +69,7 @@ function HamburguerMenuLinkList({ handleSignOut, setIsOpen }: Props) {
             {!user && (
                 <NavLink
                     className={["button", "buttonSecondary"].join(" ")}
-                    to={`${paths.login}`}
+                    to={`/${paths.login}`}
                     onClick={() => {
                         setIsOpen(false);
                     }}

@@ -7,7 +7,7 @@
     align-items: center;
     min-height: 100vh;
     position: relative;
-    padding: var(--section-vertical-padding) var(--padding-lateral);
+    padding: var(--section-vertical-padding) var(--padding-lateral) !important;
 }
 
 .usersOpinionSection h2 {
@@ -23,5 +23,6 @@
     .usersOpinionSection {
         width: 100%;
         gap: 100px;
+        padding: var(--section-vertical-padding) var(--padding-lateral-mobile) !important;
     }
 }

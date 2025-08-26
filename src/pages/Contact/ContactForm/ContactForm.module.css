@@ -19,13 +19,19 @@
     width: fit-content;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
     .contactForm {
         display: flex;
         flex-direction: column;
         gap: 20px;
-        padding: var(--section-vertical-padding) var(--padding-lateral);
+        padding: var(--section-vertical-padding) var(--padding-lateral) !important;
         width: 100%;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .contactForm {
+        padding: var(--section-vertical-padding) var(--padding-lateral-mobile) !important;
     }
 }
 

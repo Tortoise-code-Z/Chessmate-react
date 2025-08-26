@@ -22,24 +22,17 @@ function Dashboard({}: Props) {
         }
     }, [user?.firstLogin]);
 
-    const {
-        state: feedBackState,
-        msg,
-        setState: setFeedbackState,
-        type,
-    } = useFeedbackMessageStore();
+    const { state: feedBackState, setState: setFeedbackState } =
+        useFeedbackMessageStore();
 
     return (
         <>
             {user?.firstLogin && state && <ProfessorFixedMessage />}
 
             {feedBackState && (
-                <FeedbackMessage
-                    onClose={() => setFeedbackState(false)}
-                    msg={msg}
-                    type={type}
-                />
+                <FeedbackMessage onClose={() => setFeedbackState(false)} />
             )}
+
             <UserCoursesSection navbarHeight={true}>
                 <TitleHx level={2}>
                     Mis{" "}
