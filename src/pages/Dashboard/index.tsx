@@ -1,30 +1,26 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import BestPlayersSection from "../../components/BestPlayersSection";
 import CoursesRecomended from "../../components/CoursesRecomended";
-import WelcomeScreen from "./WelcomeScreen";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
-import { useFirstLogin } from "../../hooks/useFirstLogin";
 import UserCoursesSection from "../../components/UserCoursesSection";
 import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
 import FeedbackMessage from "../../components/FeedbackMessage";
 import TitleHx from "../../components/TitleHx";
+import { useProfessorMsgStore } from "../../hooks/useProfessorMsgStore";
+import ProfessorFixedMessage from "../../components/ProfessorFixedMessage";
 
 type Props = {};
 
 function Dashboard({}: Props) {
     const { user } = useUserAuthStore();
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const { setState, state, setValue } = useProfessorMsgStore();
 
     useEffect(() => {
-        if (user?.firstLogin) setIsOpen(user.firstLogin);
+        if (user?.firstLogin) {
+            setValue("firstLogin");
+            setState(user.firstLogin);
+        }
     }, [user?.firstLogin]);
-
-    const { mutate } = useFirstLogin();
-
-    const handleButtonClick = () => {
-        setIsOpen(false);
-        if (user?.userID) mutate(user.userID);
-    };
 
     const {
         state: feedBackState,
@@ -35,11 +31,7 @@ function Dashboard({}: Props) {
 
     return (
         <>
-            {user?.firstLogin && isOpen ? (
-                <WelcomeScreen onClick={handleButtonClick} />
-            ) : (
-                ""
-            )}
+            {user?.firstLogin && state && <ProfessorFixedMessage />}
 
             {feedBackState && (
                 <FeedbackMessage

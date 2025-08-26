@@ -1,23 +1,16 @@
 import CoursesRecomended from "../../components/CoursesRecomended";
-import { useCantBuyStore } from "../../hooks/useCantBuyStore";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import CourseCommentSection from "./CourseCommentSection";
 import CourseDataSection from "./CourseDataSection";
-import CantDoAction from "../../components/CantDoAction";
-import { useCantCommentStore } from "../../hooks/useCantCommentStore";
 import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
 import FeedbackMessage from "../../components/FeedbackMessage";
+import { useProfessorMsgStore } from "../../hooks/useProfessorMsgStore";
+import ProfessorFixedMessage from "../../components/ProfessorFixedMessage";
 
 type Props = {};
 
 function CoursesDetail({}: Props) {
     const { user } = useUserAuthStore();
-    const { cantDo: cantBuy, setState: setCantBuyState } = useCantBuyStore();
-    const {
-        cantDo: cantComment,
-        setState: setCantCommentState,
-        value,
-    } = useCantCommentStore();
 
     const {
         state: feedBackState,
@@ -26,14 +19,11 @@ function CoursesDetail({}: Props) {
         type,
     } = useFeedbackMessageStore();
 
+    const { state } = useProfessorMsgStore();
+
     return (
         <>
-            {(cantBuy || cantComment) && (
-                <CantDoAction
-                    setState={cantBuy ? setCantBuyState : setCantCommentState}
-                    action={cantBuy ? "buy" : value}
-                />
-            )}
+            {state && <ProfessorFixedMessage />}
             {feedBackState && (
                 <FeedbackMessage
                     onClose={() => setFeedbackState(false)}

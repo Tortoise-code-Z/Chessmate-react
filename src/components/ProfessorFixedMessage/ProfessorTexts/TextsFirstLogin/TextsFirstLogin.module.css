@@ -1,0 +1,22 @@
+.msgContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: Roboto-light;
+    font-size: 1.2rem;
+}
+
+@media all and (max-width: 1023px) {
+    .respPar {
+        display: none !important;
+    }
+    .welcomeTitle {
+        font-size: 1.8rem;
+    }
+}
+
+@media all and (max-height: 500px) {
+    .respPar2 {
+        display: none !important;
+    }
+}

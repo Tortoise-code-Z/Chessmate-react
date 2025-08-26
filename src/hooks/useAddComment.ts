@@ -3,7 +3,6 @@ import { BBDD, Comments, CommentsJSON } from "../types/types";
 import { DATABASE_KEY } from "../consts/dataBaseKey";
 import {
     deleteKey,
-    getCourses,
     getDataLocalStorage,
     getTodayDate,
     getUserById,
@@ -12,7 +11,7 @@ import {
     setItemLocalStorage,
 } from "../api";
 import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
-import { useCantCommentStore } from "./useCantCommentStore";
+import { useProfessorMsgStore } from "./useProfessorMsgStore";
 
 type AddCommentApi = {
     courseID: number;
@@ -28,7 +27,7 @@ export function useAddComment() {
         setType,
     } = useFeedbackMessageStore();
 
-    const { setState, setValue } = useCantCommentStore();
+    const { setState, setValue } = useProfessorMsgStore();
 
     const addComment = async ({
         courseID,
@@ -111,13 +110,11 @@ export function useAddComment() {
             console.error(error);
             if (error.name === "noCourse") {
                 setState(true);
-                setValue("noCourse");
+                setValue("cantCommentHasntBuyCourse");
             } else {
                 setFeedbackState(true);
                 setType("error");
                 setMsg("No se ha podido enviar el comentario...");
-                setState(true);
-                setValue("noSesion");
             }
         },
     });

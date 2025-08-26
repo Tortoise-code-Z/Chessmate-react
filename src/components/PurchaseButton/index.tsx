@@ -1,8 +1,8 @@
 import { HiMiniShoppingBag } from "react-icons/hi2";
 import Button from "../Button";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
-import { useCantBuyStore } from "../../hooks/useCantBuyStore";
 import { useBuyCourse } from "../../hooks/useBuyCourse";
+import { useProfessorMsgStore } from "../../hooks/useProfessorMsgStore";
 
 type Props = {
     courseID: number;
@@ -10,12 +10,12 @@ type Props = {
 
 function PurchaseButton({ courseID }: Props) {
     const { user } = useUserAuthStore();
-    const { setState } = useCantBuyStore();
-
+    const { setState, setValue } = useProfessorMsgStore();
     const { mutate, isPending } = useBuyCourse();
 
     const cantBuyCourse = () => {
         setState(true);
+        setValue("cantBuySesion");
     };
 
     const buyCourseAction = () => {

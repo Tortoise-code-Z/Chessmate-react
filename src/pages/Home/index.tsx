@@ -8,14 +8,14 @@ import BestSellersSection from "../../components/BestSellersSection";
 import CloseHomeSection from "./CloseHomeSection";
 import BestPlayersSection from "../../components/BestPlayersSection";
 import UsersOpinionSection from "./UsersOpinionSection";
-import { useCantBuyStore } from "../../hooks/useCantBuyStore";
-import CantDoAction from "../../components/CantDoAction";
+import { useProfessorMsgStore } from "../../hooks/useProfessorMsgStore";
+import ProfessorFixedMessage from "../../components/ProfessorFixedMessage";
 
 type Props = {};
 
 function Home({}: Props) {
     const { user } = useUserAuthStore();
-    const { cantDo, setState } = useCantBuyStore();
+    const { state } = useProfessorMsgStore();
 
     if (user) {
         return <Navigate to={`/${paths.dashboard}`} replace />;
@@ -23,7 +23,7 @@ function Home({}: Props) {
 
     return (
         <>
-            {cantDo && <CantDoAction setState={setState} action="buy" />}
+            {state && <ProfessorFixedMessage />}
             <Hero />
             <CoursesDataSection />
             <SignupCallToAction />

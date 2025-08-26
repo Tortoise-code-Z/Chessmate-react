@@ -9,16 +9,18 @@ import {
 import styles from "./CommentsForm.module.css";
 import { UseFormSetValue } from "react-hook-form";
 import { useUserAuthStore } from "../../../../hooks/UseUserAuthStore";
-import { useCantCommentStore } from "../../../../hooks/useCantCommentStore";
 import { useAddComment } from "../../../../hooks/useAddComment";
 import { useParams } from "react-router-dom";
+import { useProfessorMsgStore } from "../../../../hooks/useProfessorMsgStore";
 
 type Props = {};
 
 function CommentForm({}: Props) {
     const params = useParams();
     const { user } = useUserAuthStore();
-    const { setState } = useCantCommentStore();
+
+    const { setState, setValue } = useProfessorMsgStore();
+
     const { mutate, isPending } = useAddComment();
 
     const handleSubmit = (
@@ -29,6 +31,7 @@ function CommentForm({}: Props) {
     ) => {
         if (!user) {
             setState(true);
+            setValue("cantCommentSesion");
             helpers?.setValue("comment", "");
             return;
         }

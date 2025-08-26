@@ -2,19 +2,16 @@ import AllCoursesSection from "./AllCoursesSection";
 import BestSellersSection from "../../components/BestSellersSection";
 import CourseBanner from "./CourseBanner";
 import RecentCoursesSection from "./RecentCoursesSection";
-import { useCantBuyStore } from "../../hooks/useCantBuyStore";
-import CantDoAction from "../../components/CantDoAction";
 import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
 import FeedbackMessage from "../../components/FeedbackMessage";
-// import SuccessFixedMsg from "../../components/SuccessFixedMsg";
-// import { useSuccessStore } from "../../hooks/useSuccessStore";
-// import { useErrorStore } from "../../hooks/useErrorStore";
-// import ErrorFixedMsg from "../../components/ErrorElement/ErrorFixedMsg";
+import { useProfessorMsgStore } from "../../hooks/useProfessorMsgStore";
+import ProfessorFixedMessage from "../../components/ProfessorFixedMessage";
 
 type Props = {};
 
 function Courses({}: Props) {
-    const { cantDo, setState } = useCantBuyStore();
+    const { state } = useProfessorMsgStore();
+
     const {
         state: feedBackState,
         msg,
@@ -24,7 +21,7 @@ function Courses({}: Props) {
 
     return (
         <>
-            {cantDo && <CantDoAction setState={setState} action="buy" />}
+            {state && <ProfessorFixedMessage />}
 
             {feedBackState && (
                 <FeedbackMessage
