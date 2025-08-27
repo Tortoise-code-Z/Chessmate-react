@@ -2,12 +2,15 @@ import { useQuery } from "@tanstack/react-query";
 import { getDataLocalStorage, getUserObtainedCourses } from "../api";
 import { useEffect } from "react";
 import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
+import { PATHS } from "../consts/paths";
 
 export default function useHaveObtainedCourse(
     courseID: number,
     userID: number,
     key: string
 ) {
+    const { setPath, setReset } = useFeedbackMessageStore();
+
     const queryFunction = async (): Promise<boolean> => {
         const data = getDataLocalStorage(key);
         if (!data)
@@ -32,8 +35,12 @@ export default function useHaveObtainedCourse(
     useEffect(() => {
         if (query.isSuccess && !query.data) {
             setType("error");
-            setMsg("No tienes este curso obtenido...");
+            setMsg("Para acceder al curso primero debes comprarlo...");
             setState(true);
+            setReset(false);
+            setPath(
+                `/${PATHS.coursesDetail.replace(":id", courseID.toString())}`
+            );
         }
     }, [query.isSuccess, query.data, setType, setMsg, setState]);
 

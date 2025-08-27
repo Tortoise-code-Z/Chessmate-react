@@ -19,11 +19,14 @@ function Courses({}: Props) {
         setState: setFeedbackState,
         path,
         setPath,
+        reset,
+        setReset,
     } = useFeedbackMessageStore();
+
     const location = useLocation();
 
     useEffect(() => {
-        setPath("");
+        if (reset) setPath("");
     }, [location.pathname]);
 
     return (
@@ -34,6 +37,7 @@ function Courses({}: Props) {
                 <FeedbackMessage
                     onClose={() => {
                         setFeedbackState(false);
+                        setReset(true);
                     }}
                 />
             )}
