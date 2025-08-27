@@ -1,48 +1,59 @@
 import { z } from "zod";
 import { CHESS_LEVEL } from "../consts/general";
+import {
+    EMAIL_REGULAR_EXPRESSION,
+    MSG_EMPTY,
+    MSG_FORMAT_EMAIL_INCORRECT,
+    MSG_FORMAT_PASSWORD_INCORRECT,
+    MSG_FORMAT_REPEAT_PASSWORD_INCORRECT,
+    MSG_FORMAT_USERNAME_INCORRECT,
+    MSG_ONLY_NUMBERS,
+    MSG_TERMS,
+    msgMaxCharacters,
+    msgMaxELO,
+    msgMinCharacters,
+    msgMinELO,
+    PASSWORD_REGULAR_EXPRESSION,
+    USERNAME_REGULAR_EXPRESSION,
+} from "../consts/schemas";
 
 export const registerSchema = z
     .object({
         username: z
             .string()
-            .min(1, { message: "No puede dejar este espacio vacío..." })
-            .min(3, { message: "Debe ser mayor a 3 caracteres" })
-            .regex(/^[a-z0-9_]+$/, {
-                message: "Solo minúsculas, números y '_'.",
+            .min(1, { message: MSG_EMPTY })
+            .min(3, { message: msgMinCharacters(3) })
+            .regex(USERNAME_REGULAR_EXPRESSION, {
+                message: MSG_FORMAT_USERNAME_INCORRECT,
             })
 
-            .max(15, { message: "No puede superar los 15 caracteres." }),
+            .max(15, { message: msgMaxCharacters(15) }),
         email: z
             .string()
-            .min(1, { message: "No puede dejar este espacio vacío..." })
-            .regex(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, {
-                message:
-                    "Por favor, cíñase al formato correcto: example@example.com",
+            .min(1, { message: MSG_EMPTY })
+            .regex(EMAIL_REGULAR_EXPRESSION, {
+                message: MSG_FORMAT_EMAIL_INCORRECT,
             }),
         elo: z
             .number({
                 coerce: true,
-                invalid_type_error: "Debe ser un número...",
+                invalid_type_error: MSG_ONLY_NUMBERS,
             })
-            .min(0, { message: "Debes tener al menos 1 punto ELO..." })
-            .max(3600, { message: "No puedes superar 3600 ELO.." })
+            .min(0, { message: msgMinELO(1) })
+            .max(3600, { message: msgMaxELO(3600) })
             .optional(),
         title: z.enum(CHESS_LEVEL),
         password: z
             .string()
-            .min(8, { message: "Mínimo de 8 caracteres" })
-            .regex(
-                /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=]).*$/,
-                {
-                    message:
-                        "Debe tener al menos una mayúsucla, número y símbolo.",
-                }
-            ),
+            .min(8, { message: msgMinCharacters(8) })
+            .regex(PASSWORD_REGULAR_EXPRESSION, {
+                message: MSG_FORMAT_PASSWORD_INCORRECT,
+            }),
 
         repeatPassword: z.string(),
         terms: z.literal(true, {
             errorMap: () => ({
-                message: "Debes aceptar los términos y condiciones.",
+                message: MSG_TERMS,
             }),
         }),
     })
@@ -52,7 +63,7 @@ export const registerSchema = z
         },
         {
             path: ["repeatPassword"],
-            message: "Las contraseñas no coinciden.",
+            message: MSG_FORMAT_REPEAT_PASSWORD_INCORRECT,
         }
     );
 

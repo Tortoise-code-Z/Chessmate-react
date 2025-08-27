@@ -1,4 +1,17 @@
+.bannerCard {
+    width: 100%;
+    max-width: var(--max-width-page) !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    cursor: pointer;
+    padding: 0 var(--padding-lateral) !important;
+}
+
 .courseData {
+    width: 100%;
     display: flex;
     gap: 10px;
     flex-direction: column;
@@ -23,16 +36,6 @@
     font-size: 2rem !important;
 }
 
-.bannerCard {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 20px;
-    cursor: pointer;
-}
-
 @media all and (max-width: 768px) {
     .courseData {
         gap: 20px;
@@ -51,7 +54,7 @@
     }
 
     .bannerCard {
-        gap: 20px;
+        padding: var(--padding-lateral-mobile) !important;
     }
 
     .price {
@@ -61,7 +64,7 @@
 
 @media all and (max-height: 500px) {
     .courseData h1 {
-        font-size: 1.8rem !important;
+        font-size: 1.5rem !important;
     }
 
     .courseData {
@@ -69,6 +72,9 @@
     }
 
     .description {
-        font-size: 1rem;
+        font-size: 0.9rem;
+    }
+    .price {
+        font-size: 1.2rem !important;
     }
 }

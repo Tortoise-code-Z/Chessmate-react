@@ -16,7 +16,7 @@ function ProfessorFixedMessage({}: Props) {
     }, []);
 
     return (
-        <div className={styles.cantBuyModal}>
+        <div className={styles.professorFixedMessage}>
             <div className={styles.imageContain}>
                 <FigureImage
                     src={PROFESSOR_IMAGE.image}

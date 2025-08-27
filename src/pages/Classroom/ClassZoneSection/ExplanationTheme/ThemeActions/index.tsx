@@ -1,11 +1,12 @@
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Button from "../../../../../components/Button";
 import styles from "./ThemeActions.module.css";
-import ProfessorImage from "../../../../../components/ProfessorImage";
 import { Dispatch, SetStateAction } from "react";
 import { UseCourseApiType } from "../../../../../types/types";
 import { useCompleteTheme } from "../../../../../hooks/useCompleteTheme";
 import { useUserAuthStore } from "../../../../../hooks/UseUserAuthStore";
+import FigureImage from "../../../../../components/FigureImage";
+import { PROFESSOR_IMAGE } from "../../../../../consts/images";
 
 type Props = {
     setIndex: Dispatch<React.SetStateAction<number>>;
@@ -61,7 +62,13 @@ function ThemeActions({ data, index, setImageSliderLoading, setIndex }: Props) {
                 </Button>
             </div>
             <div className={styles.professorContainer}>
-                <ProfessorImage />
+                <FigureImage
+                    src={PROFESSOR_IMAGE.image}
+                    alt={PROFESSOR_IMAGE.alt}
+                    title={PROFESSOR_IMAGE.alt}
+                    width={PROFESSOR_IMAGE.width}
+                    height={PROFESSOR_IMAGE.height}
+                />
             </div>
         </div>
     );

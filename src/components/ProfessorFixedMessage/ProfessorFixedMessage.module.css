@@ -1,4 +1,4 @@
-.cantBuyModal {
+.professorFixedMessage {
     position: fixed;
     top: 0;
     left: 0;
@@ -41,7 +41,7 @@
 }
 
 @media all and (max-width: 1023px) {
-    .cantBuyModal {
+    .professorFixedMessage {
         flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
@@ -68,7 +68,7 @@
 }
 
 @media all and (max-width: 500px) {
-    .cantBuyModal {
+    .professorFixedMessage {
         padding: 0 var(--padding-lateral-mobile) !important;
     }
 }
