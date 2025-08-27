@@ -1,17 +1,18 @@
 import { FaCommentDots } from "react-icons/fa";
-import Button from "../../../../components/Button";
-import Form from "../../../../components/Form";
-import InputGroup from "../../../../components/InputGroup";
+
+import styles from "./CommentsForm.module.css";
+import { UseFormSetValue } from "react-hook-form";
+import { useParams } from "react-router-dom";
+import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
+import { useProfessorMsgStore } from "../../../hooks/useProfessorMsgStore";
+import { useAddComment } from "../../../hooks/useAddComment";
 import {
     commentsSchema,
     commentsSchemaValues,
-} from "../../../../Schemas/commentsSchema";
-import styles from "./CommentsForm.module.css";
-import { UseFormSetValue } from "react-hook-form";
-import { useUserAuthStore } from "../../../../hooks/UseUserAuthStore";
-import { useAddComment } from "../../../../hooks/useAddComment";
-import { useParams } from "react-router-dom";
-import { useProfessorMsgStore } from "../../../../hooks/useProfessorMsgStore";
+} from "../../../Schemas/commentsSchema";
+import Form from "../../Form";
+import InputGroup from "../../InputGroup";
+import Button from "../../Button";
 
 type Props = {};
 

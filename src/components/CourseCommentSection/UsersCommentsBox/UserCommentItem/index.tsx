@@ -1,7 +1,7 @@
-import ChessTitle from "../../../../../components/ChessTitle";
-import FigureImage from "../../../../../components/FigureImage";
-import { AVATAR_DEFAULT_IMAGE } from "../../../../../consts/images";
-import { Comments } from "../../../../../types/types";
+import { AVATAR_DEFAULT_IMAGE } from "../../../../consts/images";
+import { Comments } from "../../../../types/types";
+import ChessTitle from "../../../ChessTitle";
+import FigureImage from "../../../FigureImage";
 import styles from "./UserCommentItem.module.css";
 
 type Props = {

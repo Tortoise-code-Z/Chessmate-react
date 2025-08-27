@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
-import DataStateWrapper from "../../../../components/DataStateWrapperProps";
-import { DATABASE_KEY } from "../../../../consts/dataBaseKey";
-import useCourseComments from "../../../../hooks/useCourseComments";
 import UserCommentItem from "./UserCommentItem";
 import styles from "./UserCommentBox.module.css";
+import useCourseComments from "../../../hooks/useCourseComments";
+import { DATABASE_KEY } from "../../../consts/dataBaseKey";
+import DataStateWrapper from "../../DataStateWrapperProps";
 type Props = {};
 
 function UsersCommentBox({}: Props) {

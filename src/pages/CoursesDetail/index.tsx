@@ -1,11 +1,11 @@
 import CoursesRecomended from "../../components/CoursesRecomended";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
-import CourseCommentSection from "./CourseCommentSection";
 import CourseDataSection from "./CourseDataSection";
 import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
 import FeedbackMessage from "../../components/FeedbackMessage";
 import { useProfessorMsgStore } from "../../hooks/useProfessorMsgStore";
 import ProfessorFixedMessage from "../../components/ProfessorFixedMessage";
+import CourseCommentSection from "../../components/CourseCommentSection";
 
 type Props = {};
 

@@ -1,7 +1,7 @@
 import styles from "./CourseCommentSection.module.css";
 import UsersCommentBox from "./UsersCommentsBox";
 import CommentForm from "./CommentsForm";
-import TitleHx from "../../../components/TitleHx";
+import TitleHx from "../TitleHx";
 
 type Props = {};
 
