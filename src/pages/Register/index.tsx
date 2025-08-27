@@ -15,28 +15,21 @@ type Props = {};
 function Register({}: Props) {
     const { mutate, isPending } = useRegister();
     const handleSubmit = (data: registerSchemaValues) => mutate(data);
+    const location = useLocation();
     const {
         state: feedBackState,
-        setState: setFeedbackState,
         path,
+        reset,
         setPath,
     } = useFeedbackMessageStore();
-    const location = useLocation();
-
     useEffect(() => {
-        setPath("");
+        if (reset) setPath("");
     }, [location.pathname]);
 
     return (
         <>
             {feedBackState && path === location.pathname && (
-                <FeedbackMessage
-                    position="top"
-                    time="fixed"
-                    onClose={() => {
-                        setFeedbackState(false);
-                    }}
-                />
+                <FeedbackMessage position="top" time="fixed" />
             )}
             <section className={styles.register}>
                 <div className={styles.formContainer}>

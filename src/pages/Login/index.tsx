@@ -14,18 +14,15 @@ type Props = {};
 
 function Login({}: Props) {
     const { mutate, isPending } = useLogin();
-
+    const location = useLocation();
     const {
         state: feedBackState,
-        setState: setFeedbackState,
         path,
+        reset,
         setPath,
     } = useFeedbackMessageStore();
-
-    const location = useLocation();
-
     useEffect(() => {
-        setPath("");
+        if (reset) setPath("");
     }, [location.pathname]);
 
     const handleSubmit = (data: LoginSchemaValues) => {
@@ -37,13 +34,7 @@ function Login({}: Props) {
     return (
         <>
             {feedBackState && path === location.pathname && (
-                <FeedbackMessage
-                    position="top"
-                    time="fixed"
-                    onClose={() => {
-                        setFeedbackState(false);
-                    }}
-                />
+                <FeedbackMessage position="top" time="fixed" />
             )}
             <section className={styles.login}>
                 <div className={styles.logoContainer}>

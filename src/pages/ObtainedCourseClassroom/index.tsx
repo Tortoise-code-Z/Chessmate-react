@@ -13,30 +13,23 @@ type Props = {};
 
 function ObtainedCourseClassroom({}: Props) {
     const params = useParams();
+    const location = useLocation();
     const {
         state: feedBackState,
-        setState: setFeedbackState,
         path,
+        reset,
         setPath,
     } = useFeedbackMessageStore();
-    const location = useLocation();
-
     useEffect(() => {
-        setPath("");
+        if (reset) setPath("");
     }, [location.pathname]);
-
     const { state } = useProfessorMsgStore();
 
     return (
         <>
             {state && <ProfessorFixedMessage />}
-            {feedBackState && path === location.pathname && (
-                <FeedbackMessage
-                    onClose={() => {
-                        setFeedbackState(false);
-                    }}
-                />
-            )}
+            {feedBackState && path === location.pathname && <FeedbackMessage />}
+
             <ObtainedCourseDataSection />
             <CourseCommentSection />
             <UserCoursesSection

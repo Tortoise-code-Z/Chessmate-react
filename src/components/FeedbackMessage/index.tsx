@@ -1,22 +1,27 @@
 import { useEffect } from "react";
 import styles from "./FeedbackMessage.module.css";
 import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
+import { useLocation } from "react-router-dom";
 
 type Props = {
-    onClose: () => void;
     position?: "top" | "bottom";
     time?: number | "fixed";
 };
 
-function FeedbackMessage({ onClose, position = "bottom", time = 5000 }: Props) {
-    const { msg, type } = useFeedbackMessageStore();
+function FeedbackMessage({ position = "bottom", time = 5000 }: Props) {
+    const { msg, type, reset, setPath, setMsg, setReset, setState, setType } =
+        useFeedbackMessageStore();
+    const location = useLocation();
 
     useEffect(() => {
         let timeout: ReturnType<typeof setTimeout>;
 
         if (time !== "fixed") {
             timeout = setTimeout(() => {
-                onClose();
+                setState(false);
+                if (!reset) setReset(true);
+                setMsg("");
+                setType(null);
             }, time);
         }
 

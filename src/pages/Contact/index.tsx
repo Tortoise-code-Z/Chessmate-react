@@ -11,26 +11,19 @@ type Props = {};
 function Contact({}: Props) {
     const {
         state: feedBackState,
-        setState: setFeedbackState,
         path,
+        reset,
         setPath,
     } = useFeedbackMessageStore();
-
     const location = useLocation();
 
     useEffect(() => {
-        setPath("");
+        if (reset) setPath("");
     }, [location.pathname]);
 
     return (
         <>
-            {feedBackState && path === location.pathname && (
-                <FeedbackMessage
-                    onClose={() => {
-                        setFeedbackState(false);
-                    }}
-                />
-            )}
+            {feedBackState && path === location.pathname && <FeedbackMessage />}
 
             <section className={styles.contact}>
                 <div className={styles.imageContact}>

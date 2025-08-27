@@ -13,35 +13,28 @@ type Props = {};
 
 function CoursesDetail({}: Props) {
     const { user } = useUserAuthStore();
-
+    const location = useLocation();
     const {
         state: feedBackState,
-        setState: setFeedbackState,
         path,
-        setPath,
         reset,
+        setPath,
         setReset,
     } = useFeedbackMessageStore();
 
-    const location = useLocation();
-
     useEffect(() => {
-        if (reset) setPath("");
+        if (reset) {
+            setPath("");
+        } else {
+            setReset(true);
+        }
     }, [location.pathname]);
-
     const { state } = useProfessorMsgStore();
 
     return (
         <>
             {state && <ProfessorFixedMessage />}
-            {feedBackState && path === location.pathname && (
-                <FeedbackMessage
-                    onClose={() => {
-                        setFeedbackState(false);
-                        setReset(true);
-                    }}
-                />
-            )}
+            {feedBackState && path === location.pathname && <FeedbackMessage />}
 
             <CourseDataSection />
             <CourseCommentSection />

@@ -3,20 +3,20 @@ import { create } from "zustand";
 type FeedbackMessage = {
     state: boolean;
     msg: string;
-    type: "error" | "success";
+    type: "error" | "success" | null;
     path: string;
     reset: boolean;
     setState: (status: boolean) => void;
     setReset: (status: boolean) => void;
     setPath: (value: string) => void;
     setMsg: (msg: string) => void;
-    setType: (type: "error" | "success") => void;
+    setType: (type: "error" | "success" | null) => void;
 };
 
 export const useFeedbackMessageStore = create<FeedbackMessage>((set) => ({
     state: false,
     msg: "",
-    type: "error",
+    type: null,
     path: "",
     reset: true,
     setPath: (value) => set({ path: value }),

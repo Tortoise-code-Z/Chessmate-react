@@ -15,6 +15,18 @@ type Props = {};
 function Dashboard({}: Props) {
     const { user } = useUserAuthStore();
     const { setState, state, setValue } = useProfessorMsgStore();
+    const {
+        state: feedBackState,
+        path,
+        reset,
+        setPath,
+    } = useFeedbackMessageStore();
+
+    const location = useLocation();
+
+    useEffect(() => {
+        if (reset) setPath("");
+    }, [location.pathname]);
 
     useEffect(() => {
         if (user?.firstLogin) {
@@ -23,30 +35,10 @@ function Dashboard({}: Props) {
         }
     }, [user?.firstLogin]);
 
-    const {
-        state: feedBackState,
-        setState: setFeedbackState,
-        path,
-        setPath,
-    } = useFeedbackMessageStore();
-
-    const location = useLocation();
-
-    useEffect(() => {
-        setPath("");
-    }, [location.pathname]);
-
     return (
         <>
             {user?.firstLogin && state && <ProfessorFixedMessage />}
-
-            {feedBackState && path === location.pathname && (
-                <FeedbackMessage
-                    onClose={() => {
-                        setFeedbackState(false);
-                    }}
-                />
-            )}
+            {feedBackState && path === location.pathname && <FeedbackMessage />}
 
             <UserCoursesSection navbarHeight={true}>
                 <TitleHx level={2}>
