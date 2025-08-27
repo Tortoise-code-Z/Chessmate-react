@@ -1,3 +1,4 @@
+import FigureImage from "../../../../components/FigureImage";
 import TitleHx from "../../../../components/TitleHx";
 import { CourseDataItem } from "../../../../types/types";
 import { getImage, getImageSize } from "../../../../utils/images";
@@ -16,14 +17,14 @@ function ItemCourseData({ item, index }: Props) {
                 index % 2 !== 0 ? "row-reverse" : "",
             ].join(" ")}
         >
-            <figure>
-                <img
-                    src={getImage(item.url, ["static"])}
-                    alt={item.title}
-                    width={getImageSize(item.url, "width")}
-                    height={getImageSize(item.url, "height")}
-                />
-            </figure>
+            <FigureImage
+                src={getImage(item.url, ["static"])}
+                alt={item.title}
+                title={item.title}
+                width={getImageSize(item.url, "width")}
+                height={getImageSize(item.url, "height")}
+            />
+
             <div>
                 <TitleHx level={3}>{item.title}</TitleHx>
                 <p>{item.description}</p>

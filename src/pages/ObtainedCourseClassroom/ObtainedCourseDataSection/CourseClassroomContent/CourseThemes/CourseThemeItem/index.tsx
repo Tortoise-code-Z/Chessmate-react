@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 import styles from "./CourseThemeItem.module.css";
 import ThemeVideos from "./ThemesVideos";
 import ThemeButton from "./ThemeButton";
-import { Theme, ThemeContent } from "../../../../../types/types";
+import { Theme, ThemeContent } from "../../../../../../types/types";
 
 type Props = {
     videosIndex: number | null;

@@ -1,4 +1,4 @@
-export const paths = {
+export const PATHS = {
     index: "/",
     dashboard: "dashboard",
     class: "class/:id",

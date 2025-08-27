@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { USER_AUTH_KEY } from "../consts/dataBaseKey";
 import { useUserAuthStore } from "./UseUserAuthStore";
 import { useNavigate } from "react-router-dom";
-import { paths } from "../consts/paths";
+import { PATHS } from "../consts/paths";
 import { removeItemLocalStorage } from "../api";
 import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
 
@@ -30,7 +30,7 @@ export function useSignout() {
         onSuccess: () => {
             queryClient.clear();
             setUser(null);
-            navigate(`${paths.index}`);
+            navigate(`${PATHS.index}`);
         },
         onError: (error) => {
             console.log(error);

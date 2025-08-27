@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { paths } from "../consts/paths";
+import { PATHS } from "../consts/paths";
 import Home from "./Home";
 import Layout from "./Layout";
 import ErrorElement from "./ErrorElement";
@@ -17,35 +17,35 @@ import ObtainedCourseClassroom from "./ObtainedCourseClassroom";
 
 export const route = createBrowserRouter([
     {
-        path: paths.index,
+        path: PATHS.index,
         errorElement: <ErrorElement />,
         element: <Layout />,
         children: [
             { index: true, element: <Home /> },
-            { path: `/${paths.courses}`, element: <Courses /> },
+            { path: `/${PATHS.courses}`, element: <Courses /> },
             {
-                path: `/${paths.coursesDetail}`,
+                path: `/${PATHS.coursesDetail}`,
                 element: <CourseExists />,
                 children: [{ index: true, element: <CoursesDetail /> }],
             },
-            { path: `/${paths.contact}`, element: <Contact /> },
+            { path: `/${PATHS.contact}`, element: <Contact /> },
         ],
     },
 
     {
-        path: `/${paths.dashboard}`,
+        path: `/${PATHS.dashboard}`,
         errorElement: <ErrorElement />,
         element: <ProtectedLayout />,
         children: [{ index: true, element: <Dashboard /> }],
     },
     {
-        path: `/${paths.class}`,
+        path: `/${PATHS.class}`,
         errorElement: <ErrorElement />,
         element: <ProtectedLayout />,
         children: [{ index: true, element: <Classroom /> }],
     },
     {
-        path: `/${paths.obtainedCourseClassroom}`,
+        path: `/${PATHS.obtainedCourseClassroom}`,
         errorElement: <ErrorElement />,
         element: <ProtectedLayout />,
         children: [
@@ -59,12 +59,12 @@ export const route = createBrowserRouter([
     },
 
     {
-        path: `/${paths.login}`,
+        path: `/${PATHS.login}`,
         element: <Login />,
         errorElement: <ErrorElement />,
     },
     {
-        path: `/${paths.register}`,
+        path: `/${PATHS.register}`,
         element: <Register />,
         errorElement: <ErrorElement />,
     },

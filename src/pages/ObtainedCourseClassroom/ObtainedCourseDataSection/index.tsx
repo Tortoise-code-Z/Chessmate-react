@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import DataStateWrapper from "../../../components/DataStateWrapperProps";
-import { paths } from "../../../consts/paths";
+import { PATHS } from "../../../consts/paths";
 import { Course, IsObtainedCourse } from "../../../types/types";
 import CourseClassroomBanner from "./CourseClassroomBanner";
 import CourseClassroomContent from "./CourseClassroomContent";
@@ -31,7 +31,7 @@ function ObtainedCourseDataSection({}: Props) {
                 errorClassName={["paddign-top-navbar-height"]}
                 errorLinkAction={{
                     text: "Volver al portal",
-                    to: `/${paths.dashboard}`,
+                    to: `/${PATHS.dashboard}`,
                 }}
             >
                 <CourseClassroomBanner

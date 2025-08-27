@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styles from "./UserSesionActions.module.css";
-import { paths } from "../../../../../consts/paths";
+import { PATHS } from "../../../../../consts/paths";
 import { PiSignInBold } from "react-icons/pi";
 import { Dispatch, SetStateAction } from "react";
 import HamburguerMenuButton from "../../HamburguerMenuButton";
@@ -18,7 +18,7 @@ function UserSesionActions({ setIsOpen }: Props) {
                     "buttonPrimary",
                     styles.registerLink,
                 ].join(" ")}
-                to={`/${paths.register}`}
+                to={`/${PATHS.register}`}
                 title="Registrarme"
             >
                 <PiSignInBold />
@@ -28,7 +28,7 @@ function UserSesionActions({ setIsOpen }: Props) {
                 className={["button", "buttonSecondary", styles.loginLink].join(
                     " "
                 )}
-                to={`/${paths.login}`}
+                to={`/${PATHS.login}`}
                 title="Iniciar sesion"
             >
                 Iniciar sesión

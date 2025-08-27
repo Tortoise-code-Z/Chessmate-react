@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import styles from "./NavbarLinkList.module.css";
 import { useUserAuthStore } from "../../../../../hooks/UseUserAuthStore";
-import { paths } from "../../../../../consts/paths";
+import { PATHS } from "../../../../../consts/paths";
 
 type Props = {};
 
@@ -10,18 +10,18 @@ function NavbarLinkList({}: Props) {
     return (
         <ul className={styles.linksList}>
             {user ? (
-                <NavLink to={`/${paths.dashboard}`} title="Ir a mi portal">
+                <NavLink to={`/${PATHS.dashboard}`} title="Ir a mi portal">
                     Mi portal
                 </NavLink>
             ) : (
-                <NavLink to={paths.index} title="Inicio">
+                <NavLink to={PATHS.index} title="Inicio">
                     Inicio
                 </NavLink>
             )}
-            <NavLink to={`/${paths.courses}`} title="Ver cursos">
+            <NavLink to={`/${PATHS.courses}`} title="Ver cursos">
                 Cursos
             </NavLink>
-            <NavLink to={`/${paths.contact}`} title="Contactar">
+            <NavLink to={`/${PATHS.contact}`} title="Contactar">
                 Contacto
             </NavLink>
         </ul>

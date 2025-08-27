@@ -4,7 +4,7 @@ import { DATABASE_KEY, USER_AUTH_KEY } from "../consts/dataBaseKey";
 import { CustomError, UserAuth } from "../types/types";
 import { useUserAuthStore } from "./UseUserAuthStore";
 import { useNavigate } from "react-router-dom";
-import { paths } from "../consts/paths";
+import { PATHS } from "../consts/paths";
 import { customError } from "../utils/errors";
 import {
     checkPassword,
@@ -63,7 +63,7 @@ export function useLogin() {
         onSuccess: (data: UserAuth) => {
             setItemLocalStorage<UserAuth>(USER_AUTH_KEY, data);
             setUser(data);
-            navigate(`/${paths.dashboard}`);
+            navigate(`/${PATHS.dashboard}`);
         },
         onError: (error) => {
             console.log(error);

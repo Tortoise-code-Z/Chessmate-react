@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useUserAuthStore } from "../../../../../hooks/UseUserAuthStore";
 import styles from "./HamburguerMenuLinkList.module.css";
-import { paths } from "../../../../../consts/paths";
+import { PATHS } from "../../../../../consts/paths";
 import Button from "../../../../../components/Button";
 import { FaSignOutAlt } from "react-icons/fa";
 import { Dispatch, SetStateAction } from "react";
@@ -21,7 +21,7 @@ function HamburguerMenuLinkList({ handleSignOut, setIsOpen }: Props) {
                     onClick={() => {
                         setIsOpen(false);
                     }}
-                    to={`/${paths.dashboard}`}
+                    to={`/${PATHS.dashboard}`}
                 >
                     Mi portal
                 </NavLink>
@@ -31,14 +31,14 @@ function HamburguerMenuLinkList({ handleSignOut, setIsOpen }: Props) {
                     onClick={() => {
                         setIsOpen(false);
                     }}
-                    to={`${paths.index}`}
+                    to={`${PATHS.index}`}
                 >
                     Inicio
                 </NavLink>
             )}
             <NavLink
                 className={["button", "buttonSecondary"].join(" ")}
-                to={`/${paths.courses}`}
+                to={`/${PATHS.courses}`}
                 onClick={() => {
                     setIsOpen(false);
                 }}
@@ -47,7 +47,7 @@ function HamburguerMenuLinkList({ handleSignOut, setIsOpen }: Props) {
             </NavLink>
             <NavLink
                 className={["button", "buttonSecondary"].join(" ")}
-                to={`/${paths.contact}`}
+                to={`/${PATHS.contact}`}
                 onClick={() => {
                     setIsOpen(false);
                 }}
@@ -69,7 +69,7 @@ function HamburguerMenuLinkList({ handleSignOut, setIsOpen }: Props) {
             {!user && (
                 <NavLink
                     className={["button", "buttonSecondary"].join(" ")}
-                    to={`/${paths.login}`}
+                    to={`/${PATHS.login}`}
                     onClick={() => {
                         setIsOpen(false);
                     }}

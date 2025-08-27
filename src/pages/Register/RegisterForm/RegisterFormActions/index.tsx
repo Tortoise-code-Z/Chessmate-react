@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import InputGroup from "../../../../components/InputGroup";
 import { registerSchemaValues } from "../../../../Schemas/registerSchema";
 import styles from "./RegisterFormActions.module.css";
-import { paths } from "../../../../consts/paths";
+import { PATHS } from "../../../../consts/paths";
 import Button from "../../../../components/Button";
 import { ClipLoader } from "react-spinners";
 import { FaUserPlus } from "react-icons/fa";
@@ -27,7 +27,7 @@ function RegisterFormActions({ isPending }: Props) {
             <div className={styles.actionBtns}>
                 <NavLink
                     className={["button", "buttonSecondary"].join(" ")}
-                    to={`${paths.index}`}
+                    to={`${PATHS.index}`}
                 >
                     Volver a inicio
                 </NavLink>
@@ -48,7 +48,7 @@ function RegisterFormActions({ isPending }: Props) {
 
             <NavLink
                 className={["linkToLoginSigin"].join(" ")}
-                to={`/${paths.login}`}
+                to={`/${PATHS.login}`}
             >
                 ¿Ya tienes una cuenta? Inicia sesión aquí.
             </NavLink>

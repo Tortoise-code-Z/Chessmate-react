@@ -1,6 +1,7 @@
+import FigureImage from "../../../components/FigureImage";
 import LightComponent from "../../../components/LightComponent";
 import TitleHx from "../../../components/TitleHx";
-import { getImage } from "../../../utils/images";
+import { LOGO_IMAGE } from "../../../consts/images";
 import styles from "./CloseHomeSection.module.css";
 
 type Props = {};
@@ -28,12 +29,13 @@ function CloseHomeSection({}: Props) {
                 Te esperamos con ilusión en{" "}
                 <span className={"span-pr-color"}>tu portal de alumno</span>
             </p>
-            <figure>
-                <img
-                    src={getImage("static-image-logo_500x500_.png", ["static"])}
-                    alt="Chessmate"
-                />
-            </figure>
+            <FigureImage
+                src={LOGO_IMAGE.image}
+                alt={LOGO_IMAGE.alt}
+                title={LOGO_IMAGE.alt}
+                width={LOGO_IMAGE.width}
+                height={LOGO_IMAGE.height}
+            />
         </section>
     );
 }

@@ -3,7 +3,7 @@ import { DATABASE_KEY, USER_AUTH_KEY } from "../consts/dataBaseKey";
 import { BBDD, CustomError, User, UserAuth } from "../types/types";
 import { useUserAuthStore } from "./UseUserAuthStore";
 import { useNavigate } from "react-router-dom";
-import { paths } from "../consts/paths";
+import { PATHS } from "../consts/paths";
 import { customError } from "../utils/errors";
 import { registerSchemaValues } from "../Schemas/registerSchema";
 import {
@@ -93,7 +93,7 @@ export function useRegister() {
         onSuccess: (data: UserAuth) => {
             setItemLocalStorage<UserAuth>(USER_AUTH_KEY, data);
             setUser(data);
-            navigate(`/${paths.dashboard}`);
+            navigate(`/${PATHS.dashboard}`);
         },
         onError: (error) => {
             console.log(error);

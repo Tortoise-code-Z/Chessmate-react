@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { PiSignInBold } from "react-icons/pi";
 import styles from "./SignupCallToAction.module.css";
-import { paths } from "../../../consts/paths";
+import { PATHS } from "../../../consts/paths";
 import TitleHx from "../../../components/TitleHx";
 
 type Props = {};
@@ -21,7 +21,7 @@ function SignupCallToAction({}: Props) {
                 className={["button buttonPrimary", styles.signinAction].join(
                     " "
                 )}
-                to={`/${paths.register}`}
+                to={`/${PATHS.register}`}
             >
                 <PiSignInBold />
                 Registrarme

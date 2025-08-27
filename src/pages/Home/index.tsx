@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
-import { paths } from "../../consts/paths";
+import { PATHS } from "../../consts/paths";
 import Hero from "./Hero";
 import CoursesDataSection from "./CoursesDataSection";
 import SignupCallToAction from "./SignupCallToAction";
@@ -18,7 +18,7 @@ function Home({}: Props) {
     const { state } = useProfessorMsgStore();
 
     if (user) {
-        return <Navigate to={`/${paths.dashboard}`} replace />;
+        return <Navigate to={`/${PATHS.dashboard}`} replace />;
     }
 
     return (

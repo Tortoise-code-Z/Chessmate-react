@@ -3,7 +3,7 @@ import { MdOutlineEmail } from "react-icons/md";
 import { FaInstagram } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import styles from "./Footer.module.css";
-import { paths } from "../../../consts/paths";
+import { PATHS } from "../../../consts/paths";
 import { LOGO_IMAGE } from "../../../consts/images";
 import FigureImage from "../../../components/FigureImage";
 
@@ -21,7 +21,7 @@ function Footer({}: Props) {
                         <p>Envianos un correo personalizado</p>
                         <NavLink
                             className={["button", "buttonTerciary"].join(" ")}
-                            to={`/${paths.contact}`}
+                            to={`/${PATHS.contact}`}
                         >
                             <MdOutlineEmail />
                             Contacto

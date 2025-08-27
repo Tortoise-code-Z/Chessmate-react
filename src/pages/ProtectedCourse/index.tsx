@@ -1,6 +1,6 @@
 import { Navigate, Outlet, useParams } from "react-router-dom";
 import LoadingPage from "../../components/LoadingPage";
-import { paths } from "../../consts/paths";
+import { PATHS } from "../../consts/paths";
 import useHaveObtainedCourse from "../../hooks/useHaveObtainedCourse";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import { DATABASE_KEY } from "../../consts/dataBaseKey";
@@ -22,7 +22,7 @@ function ProtectedCourse({}: Props) {
     if (!data) {
         return (
             <Navigate
-                to={`/${paths.coursesDetail.replace(
+                to={`/${PATHS.coursesDetail.replace(
                     ":id",
                     `${Number(params.id)}`
                 )}`}

@@ -1,6 +1,6 @@
 import { Navigate, Outlet, useParams } from "react-router-dom";
 import LoadingPage from "../../components/LoadingPage";
-import { paths } from "../../consts/paths";
+import { PATHS } from "../../consts/paths";
 import { DATABASE_KEY } from "../../consts/dataBaseKey";
 import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
 import useCourseExists from "../../hooks/useExistsCourse";
@@ -23,7 +23,7 @@ function CourseExists({}: Props) {
         setType("error");
         setMsg("No se ha encontrado el curso que buscas...");
         setState(true);
-        return <Navigate to={`/${paths.courses}`} />;
+        return <Navigate to={`/${PATHS.courses}`} />;
     }
 
     return <Outlet />;

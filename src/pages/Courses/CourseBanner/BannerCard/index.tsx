@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import PurchaseAction from "../../../../components/PurchaseAction";
-import { paths } from "../../../../consts/paths";
+import { PATHS } from "../../../../consts/paths";
 import { CourseJSON, IsObtainedCourse } from "../../../../types/types";
 import styles from "./BannerCard.module.css";
 import TitleHx from "../../../../components/TitleHx";
@@ -13,7 +13,7 @@ function BannerCard({ data }: Props) {
     const navigate = useNavigate();
     const bannerCardHandleClick = () => {
         navigate(
-            `/${paths.coursesDetail.replace(":id", data.curseID.toString())}`
+            `/${PATHS.coursesDetail.replace(":id", data.curseID.toString())}`
         );
     };
     return (

@@ -1,5 +1,5 @@
 import { useRouteError, isRouteErrorResponse, NavLink } from "react-router-dom";
-import { paths } from "../../consts/paths";
+import { PATHS } from "../../consts/paths";
 import styles from "./ErrorElement.module.css";
 import LightComponent from "../../components/LightComponent";
 import Button from "../../components/Button";
@@ -39,7 +39,7 @@ export default function ErrorElement({ msg }: Props) {
 
             {!msg && (
                 <NavLink
-                    to={`${paths.index}`}
+                    to={`${PATHS.index}`}
                     className={["button", "buttonSecondary"].join(" ")}
                 >
                     Volver al inicio

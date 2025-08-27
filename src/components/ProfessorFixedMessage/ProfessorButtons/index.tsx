@@ -3,7 +3,7 @@ import Button from "../../Button";
 import styles from "./ProfessorButtons.module.css";
 import { useProfessorMsgStore } from "../../../hooks/useProfessorMsgStore";
 import { useNavigate } from "react-router-dom";
-import { paths } from "../../../consts/paths";
+import { PATHS } from "../../../consts/paths";
 import { useFirstLogin } from "../../../hooks/useFirstLogin";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import { FaChessPawn } from "react-icons/fa";
@@ -24,7 +24,7 @@ function ProfessorButtons({}: Props) {
                         variant="Complementary"
                         onClick={() => {
                             setState(false);
-                            navigate(`/${paths.login}`);
+                            navigate(`/${PATHS.login}`);
                         }}
                     >
                         Iniciar sesión
@@ -32,7 +32,7 @@ function ProfessorButtons({}: Props) {
                     <Button
                         onClick={() => {
                             setState(false);
-                            navigate(`/${paths.register}`);
+                            navigate(`/${PATHS.register}`);
                         }}
                     >
                         <PiSignInBold />

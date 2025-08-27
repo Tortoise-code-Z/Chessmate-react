@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { CourseJSON } from "../../../types/types";
-import { getImage } from "../../../utils/images";
-import { paths } from "../../../consts/paths";
+import { getImage, getImageSize } from "../../../utils/images";
+import { PATHS } from "../../../consts/paths";
 import styles from "./ItemCourseDisplay.module.css";
 import PurchaseAction from "../../PurchaseAction";
 import TitleHx from "../../TitleHx";
+import FigureImage from "../../FigureImage";
 
 type Props = {
     action?: boolean;
@@ -30,20 +31,21 @@ function ItemCourseDisplay({
             ].join(" ")}
             onClick={() =>
                 navigate(
-                    `/${paths.coursesDetail.replace(
+                    `/${PATHS.coursesDetail.replace(
                         ":id",
                         data.curseID.toString()
                     )}`
                 )
             }
         >
-            <figure>
-                <img
-                    src={getImage(data.imageUrl.thumb ?? "", ["courses"])}
-                    alt={data.title}
-                    title={data.title}
-                />
-            </figure>
+            <FigureImage
+                src={getImage(data.imageUrl.thumb, ["courses"])}
+                alt={data.title}
+                title={data.title}
+                width={getImageSize(data.imageUrl.thumb, "width")}
+                height={getImageSize(data.imageUrl.thumb, "height")}
+            />
+
             <div className={[styles.itemDataContainer].join(" ")}>
                 <div className={[styles.itemData].join(" ")}>
                     <TitleHx level={3}>{data.title}</TitleHx>

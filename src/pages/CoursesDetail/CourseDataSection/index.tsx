@@ -10,7 +10,7 @@ import { Course } from "../../../types/types";
 import LightComponent from "../../../components/LightComponent";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
-import { paths } from "../../../consts/paths";
+import { PATHS } from "../../../consts/paths";
 
 type Props = {};
 
@@ -33,7 +33,7 @@ function CourseDataSection({}: Props) {
 
             <DataStateWrapper isLoading={isLoading} error={error}>
                 <div className={styles.breadcrumb}>
-                    <NavLink to={`/${paths.courses}`}>Cursos</NavLink>
+                    <NavLink to={`/${PATHS.courses}`}>Cursos</NavLink>
                     <span>{">"}</span>
                     <p>{data?.title}</p>
                 </div>

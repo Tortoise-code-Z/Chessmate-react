@@ -1,7 +1,7 @@
 import { FaInfoCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { CourseJSON, Progress } from "../../../../../types/types";
-import { paths } from "../../../../../consts/paths";
+import { PATHS } from "../../../../../consts/paths";
 
 import styles from "./CourseTitleAndDetail.module.css";
 import Button from "../../../../Button";
@@ -23,7 +23,7 @@ function CourseTitleAndDetail({ data }: Props) {
                 onClick={(e) => {
                     e.preventDefault();
                     navigate(
-                        `/${paths.coursesDetail.replace(
+                        `/${PATHS.coursesDetail.replace(
                             ":id",
                             data.curseID.toString()
                         )}`
