@@ -19,7 +19,7 @@ function RecentCoursesSection({}: Props) {
 
     return (
         <section className={styles.recentCoursesSection}>
-            <LightComponent top={20} right={75} />
+            <LightComponent top={50} right={80} />
 
             <TitleHx level={2}>
                 Recién{" "}

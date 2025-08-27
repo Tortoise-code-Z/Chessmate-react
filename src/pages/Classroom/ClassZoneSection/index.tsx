@@ -33,7 +33,7 @@ function ClassZoneSection({}: Props) {
 
     return (
         <section className={styles.classZoneSection}>
-            <LightComponent top={20} right={25} />
+            <LightComponent top={50} right={25} />
             <DataStateWrapper isLoading={isLoading} error={error}>
                 <BoardZone
                     data={data || ({} as UseCourseApiType)}

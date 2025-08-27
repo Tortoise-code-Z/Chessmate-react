@@ -13,6 +13,7 @@ import Form from "../../../components/Form";
 import styles from "./ContactForm.module.css";
 import { useFeedbackMessageStore } from "../../../hooks/useFeedbackMesssageStore";
 import { UseFormSetValue } from "react-hook-form";
+import LightComponent from "../../../components/LightComponent";
 
 type Props = {};
 
@@ -45,55 +46,58 @@ function ContactForm({}: Props) {
         console.log(data);
     };
     return (
-        <DataStateWrapper isLoading={isLoading}>
-            <Form<ContactSchemaValues>
-                schema={contactSchema}
-                onSubmit={handleSubmit}
-                defaultValues={{
-                    name: user ? user.username : "",
-                    email: user && !error && data ? data : "",
-                }}
-                classNames={[styles.contactForm]}
-            >
-                <div>
-                    <InputGroup<ContactSchemaValues>
-                        name="name"
-                        errorMsg={true}
-                        inputType="text"
-                        label="Nombre"
-                        placeholder="Escriba su nombre..."
-                        disabled={user ? true : false}
-                    />
-                    <InputGroup<ContactSchemaValues>
-                        name="email"
-                        errorMsg={true}
-                        inputType="text"
-                        label="Correo electrónico"
-                        placeholder="Escriba su email..."
-                        disabled={user && !error && data ? true : false}
-                    />
-                    <InputGroup<ContactSchemaValues>
-                        name="subject"
-                        errorMsg={true}
-                        inputType="text"
-                        label="Asunto"
-                        placeholder="Escriba su asunto..."
-                    />
+        <>
+            <LightComponent top={50} right={20} />
+            <DataStateWrapper isLoading={isLoading}>
+                <Form<ContactSchemaValues>
+                    schema={contactSchema}
+                    onSubmit={handleSubmit}
+                    defaultValues={{
+                        name: user ? user.username : "",
+                        email: user && !error && data ? data : "",
+                    }}
+                    classNames={[styles.contactForm]}
+                >
+                    <div>
+                        <InputGroup<ContactSchemaValues>
+                            name="name"
+                            errorMsg={true}
+                            inputType="text"
+                            label="Nombre"
+                            placeholder="Escriba su nombre..."
+                            disabled={user ? true : false}
+                        />
+                        <InputGroup<ContactSchemaValues>
+                            name="email"
+                            errorMsg={true}
+                            inputType="text"
+                            label="Correo electrónico"
+                            placeholder="Escriba su email..."
+                            disabled={user && !error && data ? true : false}
+                        />
+                        <InputGroup<ContactSchemaValues>
+                            name="subject"
+                            errorMsg={true}
+                            inputType="text"
+                            label="Asunto"
+                            placeholder="Escriba su asunto..."
+                        />
 
-                    <InputGroup<ContactSchemaValues>
-                        name="body"
-                        errorMsg={true}
-                        label="Cuerpo del mensaje"
-                        placeholder="Escriba su consulta..."
-                        type="textarea"
-                    />
-                </div>
+                        <InputGroup<ContactSchemaValues>
+                            name="body"
+                            errorMsg={true}
+                            label="Cuerpo del mensaje"
+                            placeholder="Escriba su consulta..."
+                            type="textarea"
+                        />
+                    </div>
 
-                <Button type="submit">
-                    <FaPaperPlane /> Enviar
-                </Button>
-            </Form>
-        </DataStateWrapper>
+                    <Button type="submit">
+                        <FaPaperPlane /> Enviar
+                    </Button>
+                </Form>
+            </DataStateWrapper>
+        </>
     );
 }
 

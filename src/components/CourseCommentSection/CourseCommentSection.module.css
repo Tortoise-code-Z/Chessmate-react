@@ -6,6 +6,7 @@
     width: 100%;
     padding: var(--section-vertical-padding) var(--padding-lateral) !important;
     max-width: var(--max-width-page);
+    position: relative;
 }
 
 .commentsContainer {
