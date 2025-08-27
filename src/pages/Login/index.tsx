@@ -32,7 +32,7 @@ function Login({}: Props) {
                 />
             )}
             <section className={styles.login}>
-                <div className={[styles.logoContainer].join(" ")}>
+                <div className={styles.logoContainer}>
                     <TitleHx>Iniciar sesión</TitleHx>
                     <FigureImage
                         src={LOGO_IMAGE.image}

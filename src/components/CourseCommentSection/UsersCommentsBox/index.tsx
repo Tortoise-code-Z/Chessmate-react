@@ -15,7 +15,7 @@ function UsersCommentBox({}: Props) {
     } = useCourseComments(DATABASE_KEY, Number(params.id));
 
     return (
-        <ul className={[styles.commentList].join(" ")}>
+        <ul className={styles.commentList}>
             <DataStateWrapper isLoading={isLoading} error={error}>
                 <>
                     {comments?.map((c) => (

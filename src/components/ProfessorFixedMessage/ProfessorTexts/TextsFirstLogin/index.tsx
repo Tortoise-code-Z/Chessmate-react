@@ -16,7 +16,7 @@ function TextsFirstLogin({}: Props) {
                 de Chessmate
             </TitleHx>
 
-            <div className={[styles.msgContainer].join(" ")}>
+            <div className={styles.msgContainer}>
                 <p>
                     Me presento, soy Mate-o tu guía y profesor. Es un placer
                     conocerte{" "}

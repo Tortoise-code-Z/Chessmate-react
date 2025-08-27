@@ -5,7 +5,7 @@ type Props = {
 };
 
 function FieldError({ message }: Props) {
-    return <span className={[styles.fieldError].join(" ")}>{message}</span>;
+    return <span className={styles.fieldError}>{message}</span>;
 }
 
 export default FieldError;

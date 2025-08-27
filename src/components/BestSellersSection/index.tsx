@@ -22,7 +22,7 @@ function BestSellersSection({
     titleText,
     titleTextSpan,
     titleDisplay,
-    classNames,
+    classNames = [],
 }: Props) {
     const { user } = useUserAuthStore();
     const { data, isLoading, error } = useBestSeller(
@@ -33,9 +33,7 @@ function BestSellersSection({
 
     return (
         <section
-            className={[styles.bestSellersSection, ...(classNames ?? "")].join(
-                " "
-            )}
+            className={[styles.bestSellersSection, ...classNames].join(" ")}
         >
             <LightComponent top={30} right={45} />
 

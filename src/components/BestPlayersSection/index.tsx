@@ -14,7 +14,7 @@ function BestPlayersSection({}: Props) {
     const { data, isLoading, error } = useBestPlayersApi(PLAYERS_CHESS);
 
     return (
-        <article className={[styles.bestPlayersSection].join(" ")}>
+        <article className={styles.bestPlayersSection}>
             <LightComponent top={5} right={65} />
 
             <TitleHx level={2}>
@@ -29,7 +29,7 @@ function BestPlayersSection({}: Props) {
                 error={error}
                 errorMsg={"No se ha podido recuperar los cursos"}
             >
-                <div className={[styles.sliderContainer].join(" ")}>
+                <div className={styles.sliderContainer}>
                     <EmblaCarousel
                         slides={data ?? ([] as BestPlayerChessData[])}
                         options={{ loop: true }}

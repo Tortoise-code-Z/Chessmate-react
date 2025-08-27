@@ -15,8 +15,8 @@ function LoadingPage({ msg }: Props) {
     }, []);
 
     return (
-        <div className={[styles.loadingPage].join(" ")}>
-            <p className={[styles.msg].join(" ")}>{msg}</p>
+        <div className={styles.loadingPage}>
+            <p className={styles.msg}>{msg}</p>
             <LoadingElement height="fit" />
         </div>
     );

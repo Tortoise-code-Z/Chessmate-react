@@ -26,7 +26,7 @@ function ProfessorFixedMessage({}: Props) {
                     height={PROFESSOR_IMAGE.height}
                 />
             </div>
-            <div className={[styles.textActions].join(" ")}>
+            <div className={styles.textActions}>
                 <ProfessorTexts />
                 <ProfessorButtons />
             </div>

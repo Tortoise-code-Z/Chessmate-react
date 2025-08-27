@@ -28,7 +28,7 @@ function ErrorElement({
     console.error(error.message);
     return (
         <div className={[styles.errorElement, ...classNames].join(" ")}>
-            <span className={[styles.errorMsg].join(" ")}>
+            <span className={styles.errorMsg}>
                 Lo sentimos mucho, ha ocurrido un error
                 {errorMsg && `: ${errorMsg.toLowerCase()}`}
             </span>

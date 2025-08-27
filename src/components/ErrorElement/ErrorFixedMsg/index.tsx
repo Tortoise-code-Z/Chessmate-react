@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import styles from "./ErrorFixedMsg.module.css";
+// import { useFeedbackMessageStore } from "../../../hooks/useFeedbackMesssageStore";
 
 type Props = {
     errorMsg: string;
@@ -7,6 +8,8 @@ type Props = {
 };
 
 function ErrorFixedMsg({ errorMsg, onClose }: Props) {
+    // const { state } = useFeedbackMessageStore();
+
     useEffect(() => {
         const timeout = setTimeout(() => {
             onClose();
@@ -16,7 +19,7 @@ function ErrorFixedMsg({ errorMsg, onClose }: Props) {
     }, []);
 
     return (
-        <div className={[styles.errorFixedMsg].join(" ")}>
+        <div className={styles.errorFixedMsg}>
             <span>{errorMsg}</span>
         </div>
     );

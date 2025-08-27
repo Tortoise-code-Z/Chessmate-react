@@ -23,13 +23,11 @@ function ThemeButton({ setVideosIndex, theme, videosIndex }: Props) {
                     : setVideosIndex(theme.id)
             }
         >
-            <div className={[styles.themeData].join(" ")}>
+            <div className={styles.themeData}>
                 <TitleHx classNames={[styles.themeTitle]} level={3}>
                     {theme.title}
                 </TitleHx>
-                <p className={[styles.themeDescription].join(" ")}>
-                    {theme.description}
-                </p>
+                <p className={styles.themeDescription}>{theme.description}</p>
             </div>
             <FaChevronDown
                 style={{

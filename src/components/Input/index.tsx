@@ -13,7 +13,7 @@ type Props = {
 function Input({
     placeholder,
     name,
-    classNames,
+    classNames = [],
     type = "text",
     disabled = false,
 }: Props) {
@@ -24,10 +24,9 @@ function Input({
             id={name}
             type={type}
             placeholder={placeholder}
-            className={[
-                styles.input,
-                ...(classNames?.map((c) => styles[c]) ?? []),
-            ].join(" ")}
+            className={[styles.input, ...classNames.map((c) => styles[c])].join(
+                " "
+            )}
             disabled={disabled}
         />
     );

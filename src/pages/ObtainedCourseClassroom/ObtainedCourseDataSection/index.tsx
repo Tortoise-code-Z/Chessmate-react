@@ -22,7 +22,7 @@ function ObtainedCourseDataSection({}: Props) {
     );
 
     return (
-        <section className={[styles.obtainedCourseDataSection].join(" ")}>
+        <section className={styles.obtainedCourseDataSection}>
             <DataStateWrapper
                 isLoading={isLoading}
                 loadingClassName={["paddign-top-navbar-height"]}

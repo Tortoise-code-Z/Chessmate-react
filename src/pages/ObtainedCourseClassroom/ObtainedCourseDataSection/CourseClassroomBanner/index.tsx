@@ -16,7 +16,7 @@ function CourseClassroomBanner({ data }: Props) {
             </div>
 
             <img
-                className={[styles.bannerBackground].join(" ")}
+                className={styles.bannerBackground}
                 src={getImage(data.imageUrl.full, ["courses"])}
                 width={getImageSize(data.imageUrl.full, "width")}
                 height={getImageSize(data.imageUrl.full, "height")}

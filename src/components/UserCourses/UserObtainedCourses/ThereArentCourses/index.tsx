@@ -9,7 +9,7 @@ type Props = {
 
 function ThereArentCourses({ msg = "No tienes cursos aún..." }: Props) {
     return (
-        <div className={[styles.msgNotCoursesYet].join(" ")}>
+        <div className={styles.msgNotCoursesYet}>
             <p>{msg}</p>
             <NavLink
                 className={["button", "buttonPrimary"].join(" ")}

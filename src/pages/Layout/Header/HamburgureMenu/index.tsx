@@ -11,8 +11,8 @@ type Props = {
 
 function HamburguerMenu({ handleSignOut, setIsOpen }: Props) {
     return (
-        <div className={[styles.container].join(" ")}>
-            <nav className={[styles.hamburguerMenu].join(" ")}>
+        <div className={styles.container}>
+            <nav className={styles.hamburguerMenu}>
                 <Button
                     classNames={[styles.close]}
                     onClick={() => setIsOpen(false)}

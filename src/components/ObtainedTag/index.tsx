@@ -5,7 +5,7 @@ type Props = {};
 
 function ObtainedTag({}: Props) {
     return (
-        <div className={[styles.obtainedTag].join(" ")}>
+        <div className={styles.obtainedTag}>
             <FaCheckCircle />
             Obtenido
         </div>

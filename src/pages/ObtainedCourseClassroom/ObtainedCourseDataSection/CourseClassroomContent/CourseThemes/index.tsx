@@ -17,8 +17,8 @@ function CourseThemes({ data, setShowVideo }: Props) {
 
     return (
         <div className={styles.themesContainer}>
-            <div className={[styles.introductionContainer].join(" ")}>
-                <p className={[styles.introduction].join(" ")}>
+            <div className={styles.introductionContainer}>
+                <p className={styles.introduction}>
                     En esta sección encontrarás una serie de temas organizados,
                     sobre el curso{" "}
                     <span

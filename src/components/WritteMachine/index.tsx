@@ -10,7 +10,7 @@ function WritteMachine({ data, time, classNames = [] }: Props) {
     const [dataToWritte, setDataToWritte] = useState<string>("");
 
     useEffect(() => {
-        setDataToWritte(""); // Reiniciar texto
+        setDataToWritte("");
         let timeoutId: ReturnType<typeof setTimeout>;
 
         const writeNext = (index: number) => {
@@ -20,9 +20,7 @@ function WritteMachine({ data, time, classNames = [] }: Props) {
             }
         };
 
-        writeNext(0); // ✅ Empezar correctamente desde la primera letra
-
-        return () => clearTimeout(timeoutId); // Limpiar en desmontaje
+        writeNext(0);
 
         return () => clearTimeout(timeoutId);
     }, [data]);

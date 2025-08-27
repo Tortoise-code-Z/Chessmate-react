@@ -11,7 +11,7 @@ function Header({}: Props) {
     const { mutate } = useSignout();
     const handleSignOut = () => mutate();
 
-    const className = [styles.header].join(" ");
+    const className = styles.header;
     return (
         <header className={className}>
             {isOpen && (

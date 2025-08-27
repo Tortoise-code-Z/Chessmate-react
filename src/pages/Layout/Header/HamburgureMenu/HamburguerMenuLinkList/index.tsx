@@ -14,7 +14,7 @@ type Props = {
 function HamburguerMenuLinkList({ handleSignOut, setIsOpen }: Props) {
     const { user } = useUserAuthStore();
     return (
-        <ul className={[styles.linksList].join(" ")}>
+        <ul className={styles.linksList}>
             {user ? (
                 <NavLink
                     className={["button", "buttonSecondary"].join(" ")}

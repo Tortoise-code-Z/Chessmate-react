@@ -18,14 +18,14 @@ function VideoReproductor({ src, classNames = [], title, onClick }: Props) {
         };
     }, []);
     return (
-        <div className={[styles.videoReproductor].join(" ")}>
-            <div className={[styles.container].join(" ")}>
+        <div className={styles.videoReproductor}>
+            <div className={styles.container}>
                 <ReactPlayer
-                    className={[...classNames].join(" ")}
+                    className={classNames.join(" ")}
                     src={src}
                     controls
                 />
-                <div className={[styles.actions].join(" ")}>
+                <div className={styles.actions}>
                     <Button onClick={onClick} variant="Secondary">
                         Volver
                     </Button>

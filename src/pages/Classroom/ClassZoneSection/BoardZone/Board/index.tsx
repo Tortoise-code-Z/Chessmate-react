@@ -17,7 +17,7 @@ function Board({
     setImageSliderLoading,
 }: Props) {
     return (
-        <div className={[styles.boardZone].join(" ")}>
+        <div className={styles.boardZone}>
             <figure className={styles.board}>
                 <AutoSliderImages
                     images={

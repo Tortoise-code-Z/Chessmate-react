@@ -25,7 +25,7 @@ function CourseDataSection({}: Props) {
     );
 
     return (
-        <section className={[styles.courseDataSection].join(" ")}>
+        <section className={styles.courseDataSection}>
             {/* --- */}
             <LightComponent top={40} right={30} />
             <LightComponent top={80} right={80} />

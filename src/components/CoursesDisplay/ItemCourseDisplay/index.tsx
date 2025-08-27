@@ -24,11 +24,11 @@ function ItemCourseDisplay({
 
     return (
         <div
-            className={[
+            className={
                 display === "Row"
                     ? styles.itemRowContainer
-                    : styles.itemContainer,
-            ].join(" ")}
+                    : styles.itemContainer
+            }
             onClick={() =>
                 navigate(
                     `/${PATHS.coursesDetail.replace(
@@ -46,23 +46,21 @@ function ItemCourseDisplay({
                 height={getImageSize(data.imageUrl.thumb, "height")}
             />
 
-            <div className={[styles.itemDataContainer].join(" ")}>
-                <div className={[styles.itemData].join(" ")}>
+            <div className={styles.itemDataContainer}>
+                <div className={styles.itemData}>
                     <TitleHx level={3}>{data.title}</TitleHx>
-                    <p className={[styles.description].join(" ")}>
+                    <p className={styles.description}>
                         {data.shortDescription}
                     </p>
-                    <p className={[styles.level].join(" ")}>{data.level}</p>
+                    <p className={styles.level}>{data.level}</p>
                 </div>
                 {action && (
-                    <div className={[styles.actionsPrice].join(" ")}>
+                    <div className={styles.actionsPrice}>
                         <PurchaseAction
                             courseID={courseID}
                             isObtained={data.isObtained}
                         />
-                        <p className={[styles.price].join(" ")}>
-                            {data.price}$
-                        </p>
+                        <p className={styles.price}>{data.price}$</p>
                     </div>
                 )}
             </div>

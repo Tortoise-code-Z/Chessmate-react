@@ -12,7 +12,7 @@ function LightComponent({ top = 0, right = 0 }: Props) {
                 top: `${top}%`,
                 right: `${right}%`,
             }}
-            className={[styles.lightComponent].join(" ")}
+            className={styles.lightComponent}
         ></div>
     );
 }

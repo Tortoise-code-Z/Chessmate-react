@@ -58,7 +58,7 @@ function InputGroup<T extends FieldValues>({
     const inputGroupContent = (
         <>
             {children ? (
-                <div className={[styles.inpSearchContainer].join(" ")}>
+                <div className={styles.inpSearchContainer}>
                     {type === "input" ? inputComponent : textareaComponent}
                     {children}
                 </div>
@@ -82,7 +82,7 @@ function InputGroup<T extends FieldValues>({
     const withoutLabel = <>{inputGroupContent}</>;
 
     return (
-        <div className={[styles.inputGroup].join(" ")}>
+        <div className={styles.inputGroup}>
             {label ? withLabel : withoutLabel}
             {errorMsg && errors?.[name]?.message && (
                 <FieldError message={errors[name].message.toString()} />

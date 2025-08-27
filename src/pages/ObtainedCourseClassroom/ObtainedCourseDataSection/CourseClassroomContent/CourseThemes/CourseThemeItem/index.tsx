@@ -18,7 +18,7 @@ function CourseThemeItem({
     setShowVideo,
 }: Props) {
     return (
-        <div className={[styles.themeContainer].join(" ")}>
+        <div className={styles.themeContainer}>
             <ThemeButton
                 setVideosIndex={setVideosIndex}
                 videosIndex={videosIndex}

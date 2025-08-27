@@ -8,7 +8,7 @@ type Props = {};
 
 function CourseCommentSection({}: Props) {
     return (
-        <section className={[styles.courseCommentSection].join(" ")}>
+        <section className={styles.courseCommentSection}>
             <LightComponent top={80} right={50} />
             <TitleHx level={2}>
                 Opiniones de los{" "}
@@ -17,7 +17,7 @@ function CourseCommentSection({}: Props) {
                 </span>
             </TitleHx>
 
-            <div className={[styles.commentsContainer].join(" ")}>
+            <div className={styles.commentsContainer}>
                 <UsersCommentBox />
                 <CommentForm />
             </div>

@@ -41,7 +41,7 @@ function CoursesRecomended({
     };
 
     return (
-        <section className={[styles.coursesRecomended].join(" ")}>
+        <section className={styles.coursesRecomended}>
             <LightComponent top={40} right={30} />
             <TitleHx
                 classNames={[styles[titleClassMap[titleDisplay][titleAlign]]]}

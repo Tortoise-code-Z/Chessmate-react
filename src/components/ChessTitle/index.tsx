@@ -8,13 +8,7 @@ type Props = {
 
 function ChessTitle({ title, size = "Default" }: Props) {
     return (
-        <>
-            {title && (
-                <p className={[styles[`userTitle${size}`]].join(" ")}>
-                    {title}
-                </p>
-            )}
-        </>
+        <>{title && <p className={styles[`userTitle${size}`]}>{title}</p>}</>
     );
 }
 

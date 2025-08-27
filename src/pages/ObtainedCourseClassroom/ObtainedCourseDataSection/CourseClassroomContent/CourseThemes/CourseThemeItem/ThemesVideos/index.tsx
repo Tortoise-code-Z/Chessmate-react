@@ -13,7 +13,7 @@ type Props = {
 
 function ThemeVideos({ setShowVideo, theme }: Props) {
     return (
-        <div className={[styles.videosContainer].join(" ")}>
+        <div className={styles.videosContainer}>
             {theme.content.map((subtheme) => (
                 <>
                     <Button

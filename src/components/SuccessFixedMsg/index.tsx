@@ -16,7 +16,7 @@ function SuccessFixedMsg({ successMsg, onClose }: Props) {
     }, []);
 
     return (
-        <div className={[styles.successFixedMsg].join(" ")}>
+        <div className={styles.successFixedMsg}>
             <span>{successMsg}</span>
         </div>
     );

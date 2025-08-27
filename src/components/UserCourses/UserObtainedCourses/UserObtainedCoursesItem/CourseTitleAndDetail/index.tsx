@@ -14,7 +14,7 @@ type Props = {
 function CourseTitleAndDetail({ data }: Props) {
     const navigate = useNavigate();
     return (
-        <div className={[styles.container].join(" ")}>
+        <div className={styles.container}>
             <TitleHx level={4} classNames={[styles.title]}>
                 {data.title}
             </TitleHx>

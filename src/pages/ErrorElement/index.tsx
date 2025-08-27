@@ -30,12 +30,12 @@ export default function ErrorElement({ msg }: Props) {
     if (msg) message = msg;
 
     return (
-        <section className={[styles.errorElement].join(" ")}>
+        <section className={styles.errorElement}>
             <LightComponent top={20} right={75} />
             <LightComponent top={80} right={25} />
             <TitleHx>{title}</TitleHx>
 
-            <p className={[styles.message].join(" ")}>{message}</p>
+            <p className={styles.message}>{message}</p>
 
             {!msg && (
                 <NavLink
@@ -55,7 +55,7 @@ export default function ErrorElement({ msg }: Props) {
                 </Button>
             )}
 
-            <div className={[styles.contactMessage].join(" ")}>
+            <div className={styles.contactMessage}>
                 <p>
                     Si el problema persiste, contacte con nuestro equipo por
                     correo:

@@ -19,11 +19,9 @@ function ImageLevelProgress({ data }: Props) {
                 height={getImageSize(image, "height")}
             />
 
-            <div className={[styles.data].join(" ")}>
-                <p className={[styles.level].join(" ")}>{data.level}</p>
-                <p className={[styles.progress].join(" ")}>
-                    Progress: {data.progress}%
-                </p>
+            <div className={styles.data}>
+                <p className={styles.level}>{data.level}</p>
+                <p className={styles.progress}>Progress: {data.progress}%</p>
             </div>
         </div>
     );

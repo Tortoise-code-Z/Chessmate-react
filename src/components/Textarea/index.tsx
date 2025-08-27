@@ -7,7 +7,7 @@ type Props = {
     classNames?: string[];
 };
 
-function Textarea({ placeholder, name, classNames }: Props) {
+function Textarea({ placeholder, name, classNames = [] }: Props) {
     const { register } = useFormContext();
     return (
         <textarea
@@ -16,7 +16,7 @@ function Textarea({ placeholder, name, classNames }: Props) {
             placeholder={placeholder}
             className={[
                 styles.textarea,
-                ...(classNames?.map((c) => styles[c]) ?? []),
+                ...classNames?.map((c) => styles[c]),
             ].join(" ")}
             rows={8}
         />
