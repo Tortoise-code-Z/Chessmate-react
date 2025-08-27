@@ -5,17 +5,24 @@ import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
 type Props = {
     onClose: () => void;
     position?: "top" | "bottom";
+    time?: number | "fixed";
 };
 
-function FeedbackMessage({ onClose, position = "bottom" }: Props) {
+function FeedbackMessage({ onClose, position = "bottom", time = 5000 }: Props) {
     const { msg, type } = useFeedbackMessageStore();
 
     useEffect(() => {
-        const timeout = setTimeout(() => {
-            onClose();
-        }, 3000);
+        let timeout: ReturnType<typeof setTimeout>;
 
-        return () => clearTimeout(timeout);
+        if (time !== "fixed") {
+            timeout = setTimeout(() => {
+                onClose();
+            }, time);
+        }
+
+        return () => {
+            clearTimeout(timeout);
+        };
     }, []);
 
     return (

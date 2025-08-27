@@ -14,6 +14,7 @@ import styles from "./ContactForm.module.css";
 import { useFeedbackMessageStore } from "../../../hooks/useFeedbackMesssageStore";
 import { UseFormSetValue } from "react-hook-form";
 import LightComponent from "../../../components/LightComponent";
+import { useLocation } from "react-router-dom";
 
 type Props = {};
 
@@ -24,10 +25,13 @@ function ContactForm({}: Props) {
         user?.userID as number
     );
 
+    const location = useLocation();
+
     const {
         setState: setFeedbackState,
         setType,
         setMsg,
+        setPath,
     } = useFeedbackMessageStore();
 
     const handleSubmit = (
@@ -37,6 +41,7 @@ function ContactForm({}: Props) {
         }
     ) => {
         setFeedbackState(true);
+        setPath(location.pathname);
         setType("success");
         setMsg("Mensaje enviado con éxito");
 

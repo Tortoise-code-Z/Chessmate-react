@@ -2,7 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import { DATABASE_KEY, USER_AUTH_KEY } from "../consts/dataBaseKey";
 import { BBDD, CustomError, User, UserAuth } from "../types/types";
 import { useUserAuthStore } from "./UseUserAuthStore";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { PATHS } from "../consts/paths";
 import { customError } from "../utils/errors";
 import { registerSchemaValues } from "../Schemas/registerSchema";
@@ -24,7 +24,11 @@ export function useRegister() {
         setState: setFeedbackState,
         setMsg,
         setType,
+        setPath,
     } = useFeedbackMessageStore();
+
+    const location = useLocation();
+
     const register = async (
         registerData: registerSchemaValues
     ): Promise<UserAuth> => {
@@ -98,6 +102,7 @@ export function useRegister() {
         onError: (error) => {
             console.log(error);
             setFeedbackState(true);
+            setPath(location.pathname);
             setMsg(error.message);
             setType("error");
         },

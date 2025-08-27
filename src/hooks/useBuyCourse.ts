@@ -13,6 +13,7 @@ import {
     setItemLocalStorage,
 } from "../api";
 import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
+import { useLocation } from "react-router-dom";
 
 type BuyCourseApi = {
     course: CourseJSON;
@@ -31,7 +32,10 @@ export function useBuyCourse() {
         setState: setFeedbackState,
         setMsg,
         setType,
+        setPath,
     } = useFeedbackMessageStore();
+
+    const location = useLocation();
 
     const buyCourse = async ({
         courseID,
@@ -73,6 +77,7 @@ export function useBuyCourse() {
         mutationFn: buyCourse,
         onSuccess: (data: BuyCourseApi) => {
             setFeedbackState(true);
+            setPath(location.pathname);
             setMsg("¡¡Compra realizada con éxito!!");
             setType("success");
 
@@ -152,6 +157,7 @@ export function useBuyCourse() {
         onError: (error) => {
             console.error(error);
             setFeedbackState(true);
+            setPath(location.pathname);
             setMsg("Error al realizar la compra");
             setType("error");
         },

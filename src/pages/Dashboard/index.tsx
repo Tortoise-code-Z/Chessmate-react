@@ -8,6 +8,7 @@ import FeedbackMessage from "../../components/FeedbackMessage";
 import TitleHx from "../../components/TitleHx";
 import { useProfessorMsgStore } from "../../hooks/useProfessorMsgStore";
 import ProfessorFixedMessage from "../../components/ProfessorFixedMessage";
+import { useLocation } from "react-router-dom";
 
 type Props = {};
 
@@ -22,15 +23,29 @@ function Dashboard({}: Props) {
         }
     }, [user?.firstLogin]);
 
-    const { state: feedBackState, setState: setFeedbackState } =
-        useFeedbackMessageStore();
+    const {
+        state: feedBackState,
+        setState: setFeedbackState,
+        path,
+        setPath,
+    } = useFeedbackMessageStore();
+
+    const location = useLocation();
+
+    useEffect(() => {
+        setPath("");
+    }, [location.pathname]);
 
     return (
         <>
             {user?.firstLogin && state && <ProfessorFixedMessage />}
 
-            {feedBackState && (
-                <FeedbackMessage onClose={() => setFeedbackState(false)} />
+            {feedBackState && path === location.pathname && (
+                <FeedbackMessage
+                    onClose={() => {
+                        setFeedbackState(false);
+                    }}
+                />
             )}
 
             <UserCoursesSection navbarHeight={true}>

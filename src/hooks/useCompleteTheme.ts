@@ -16,6 +16,7 @@ import {
     setItemLocalStorage,
 } from "../api";
 import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
+import { useLocation } from "react-router-dom";
 
 type Variables = {
     themeID: number;
@@ -32,7 +33,10 @@ export function useCompleteTheme(
         setState: setFeedbackState,
         setMsg,
         setType,
+        setPath,
     } = useFeedbackMessageStore();
+
+    const location = useLocation();
 
     const completeTheme = async ({ courseID, themeID, userID }: Variables) => {
         try {
@@ -124,6 +128,7 @@ export function useCompleteTheme(
         onError: (error) => {
             console.log(error);
             setFeedbackState(true);
+            setPath(location.pathname);
             setMsg("Error al completar el tema");
             setType("error");
         },

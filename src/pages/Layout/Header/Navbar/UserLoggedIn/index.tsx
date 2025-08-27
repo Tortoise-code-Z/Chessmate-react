@@ -14,6 +14,7 @@ type Props = {
 
 function UserLoggedIn({ handleSignOut, setIsOpen }: Props) {
     const { user } = useUserAuthStore();
+
     return (
         <div className={styles.userOptions}>
             <div className={styles.userData}>

@@ -12,6 +12,7 @@ import {
 } from "../api";
 import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
 import { useProfessorMsgStore } from "./useProfessorMsgStore";
+import { useLocation } from "react-router-dom";
 
 type AddCommentApi = {
     courseID: number;
@@ -25,7 +26,10 @@ export function useAddComment() {
         setState: setFeedbackState,
         setMsg,
         setType,
+        setPath,
     } = useFeedbackMessageStore();
+
+    const location = useLocation();
 
     const { setState, setValue } = useProfessorMsgStore();
 
@@ -97,6 +101,7 @@ export function useAddComment() {
         onSuccess: (data: Comments) => {
             console.log("ejecutado");
             setFeedbackState(true);
+            setPath(location.pathname);
             setType("success");
             setMsg("Comentario enviado con éxito");
             queryClient.setQueryData<Comments[]>(
@@ -114,6 +119,7 @@ export function useAddComment() {
                 setValue("cantCommentHasntBuyCourse");
             } else {
                 setFeedbackState(true);
+                setPath(location.pathname);
                 setType("error");
                 setMsg("No se ha podido enviar el comentario...");
             }

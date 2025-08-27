@@ -6,22 +6,37 @@ import FeedbackMessage from "../../components/FeedbackMessage";
 import { useProfessorMsgStore } from "../../hooks/useProfessorMsgStore";
 import ProfessorFixedMessage from "../../components/ProfessorFixedMessage";
 import CourseCommentSection from "../../components/CourseCommentSection";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 type Props = {};
 
 function CoursesDetail({}: Props) {
     const { user } = useUserAuthStore();
 
-    const { state: feedBackState, setState: setFeedbackState } =
-        useFeedbackMessageStore();
+    const {
+        state: feedBackState,
+        setState: setFeedbackState,
+        path,
+        setPath,
+    } = useFeedbackMessageStore();
+    const location = useLocation();
+
+    useEffect(() => {
+        setPath("");
+    }, [location.pathname]);
 
     const { state } = useProfessorMsgStore();
 
     return (
         <>
             {state && <ProfessorFixedMessage />}
-            {feedBackState && (
-                <FeedbackMessage onClose={() => setFeedbackState(false)} />
+            {feedBackState && path === location.pathname && (
+                <FeedbackMessage
+                    onClose={() => {
+                        setFeedbackState(false);
+                    }}
+                />
             )}
 
             <CourseDataSection />

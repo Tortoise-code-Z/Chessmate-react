@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { USER_AUTH_KEY } from "../consts/dataBaseKey";
 import { useUserAuthStore } from "./UseUserAuthStore";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { PATHS } from "../consts/paths";
 import { removeItemLocalStorage } from "../api";
 import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
@@ -14,7 +14,10 @@ export function useSignout() {
         setState: setFeedbackState,
         setMsg,
         setType,
+        setPath,
     } = useFeedbackMessageStore();
+
+    const location = useLocation();
 
     const login = async (): Promise<void> => {
         try {
@@ -35,6 +38,7 @@ export function useSignout() {
         onError: (error) => {
             console.log(error);
             setFeedbackState(true);
+            setPath(location.pathname);
             setMsg(
                 "No se ha podido cerrar sesión. Contacte con nuestro equipo."
             );

@@ -7,14 +7,26 @@ import LoginForm from "./LoginForm";
 import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
 import FeedbackMessage from "../../components/FeedbackMessage";
 import TitleHx from "../../components/TitleHx";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 type Props = {};
 
 function Login({}: Props) {
     const { mutate, isPending } = useLogin();
 
-    const { state: feedBackState, setState: setFeedbackState } =
-        useFeedbackMessageStore();
+    const {
+        state: feedBackState,
+        setState: setFeedbackState,
+        path,
+        setPath,
+    } = useFeedbackMessageStore();
+
+    const location = useLocation();
+
+    useEffect(() => {
+        setPath("");
+    }, [location.pathname]);
 
     const handleSubmit = (data: LoginSchemaValues) => {
         mutate({
@@ -22,13 +34,15 @@ function Login({}: Props) {
             password: data.password,
         });
     };
-
     return (
         <>
-            {feedBackState && (
+            {feedBackState && path === location.pathname && (
                 <FeedbackMessage
-                    onClose={() => setFeedbackState(false)}
                     position="top"
+                    time="fixed"
+                    onClose={() => {
+                        setFeedbackState(false);
+                    }}
                 />
             )}
             <section className={styles.login}>

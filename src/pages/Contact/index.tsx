@@ -1,18 +1,35 @@
+import { useLocation } from "react-router-dom";
 import FeedbackMessage from "../../components/FeedbackMessage";
 import TitleHx from "../../components/TitleHx";
 import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
 import styles from "./Contact.module.css";
 import ContactForm from "./ContactForm";
+import { useEffect } from "react";
 
 type Props = {};
 
 function Contact({}: Props) {
-    const { state: feedBackState, setState: setFeedbackState } =
-        useFeedbackMessageStore();
+    const {
+        state: feedBackState,
+        setState: setFeedbackState,
+        path,
+        setPath,
+    } = useFeedbackMessageStore();
+
+    const location = useLocation();
+
+    useEffect(() => {
+        setPath("");
+    }, [location.pathname]);
+
     return (
         <>
-            {feedBackState && (
-                <FeedbackMessage onClose={() => setFeedbackState(false)} />
+            {feedBackState && path === location.pathname && (
+                <FeedbackMessage
+                    onClose={() => {
+                        setFeedbackState(false);
+                    }}
+                />
             )}
 
             <section className={styles.contact}>

@@ -7,20 +7,35 @@ import RegisterForm from "./RegisterForm";
 import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
 import FeedbackMessage from "../../components/FeedbackMessage";
 import TitleHx from "../../components/TitleHx";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 type Props = {};
 
 function Register({}: Props) {
     const { mutate, isPending } = useRegister();
     const handleSubmit = (data: registerSchemaValues) => mutate(data);
-    const { state: feedBackState, setState: setFeedbackState } =
-        useFeedbackMessageStore();
+    const {
+        state: feedBackState,
+        setState: setFeedbackState,
+        path,
+        setPath,
+    } = useFeedbackMessageStore();
+    const location = useLocation();
+
+    useEffect(() => {
+        setPath("");
+    }, [location.pathname]);
+
     return (
         <>
-            {feedBackState && (
+            {feedBackState && path === location.pathname && (
                 <FeedbackMessage
-                    onClose={() => setFeedbackState(false)}
                     position="top"
+                    time="fixed"
+                    onClose={() => {
+                        setFeedbackState(false);
+                    }}
                 />
             )}
             <section className={styles.register}>
