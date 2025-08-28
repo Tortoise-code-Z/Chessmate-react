@@ -11,6 +11,15 @@ type Props = {
     userCondition?: boolean;
 };
 
+/**
+ * Displays a fixed professor message overlay when certain conditions are met,
+ * optionally based on user state, and disables page scrolling while visible.
+ *
+ * @param userCondition - Optional condition to determine if the message should show on first login. Defaults to false.
+ *
+ * @returns The rendered professor fixed message component.
+ */
+
 function ProfessorFixedMessage({ userCondition = false }: Props) {
     const { user } = useUserAuthStore();
     const { setState, state, setValue } = useProfessorMsgStore();

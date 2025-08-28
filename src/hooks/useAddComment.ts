@@ -20,6 +20,23 @@ type AddCommentApi = {
     text: string;
 };
 
+/**
+ * useAddComment - Custom React hook for adding a comment to a course.
+ *
+ * This hook:
+ * - Uses React Query's `useMutation` to perform the add-comment operation.
+ * - Updates local storage and the query cache on success.
+ * - Interacts with global state stores:
+ *    - `useFeedbackMessageStore` for showing success/error messages.
+ *    - `useProfessorMsgStore` for handling professor-related message states.
+ * - Validates that the user has purchased the course before allowing a comment.
+ *
+ * @returns A mutation object from `useMutation` with properties:
+ * - `mutate` function to trigger the comment addition.
+ * - `isLoading`, `isError`, `isSuccess` flags.
+ * - Handles `onSuccess` and `onError` callbacks automatically.
+ */
+
 export function useAddComment() {
     const queryClient = useQueryClient();
     const {

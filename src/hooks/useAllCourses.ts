@@ -8,6 +8,19 @@ import {
     getUserObtainedCourses,
 } from "../api";
 
+/**
+ * Custom hook to fetch all courses from local storage, optionally filtered by search or filter criteria.
+ *
+ * - Uses `@tanstack/react-query` to manage caching and loading states.
+ * - Combines user-obtained courses with general course data.
+ *
+ * @param key - The localStorage key to retrieve the database.
+ * @param search - Optional search string to filter courses by title or content.
+ * @param filter - Optional filter object to filter courses.
+ * @param userID - Optional ID of the user to mark obtained courses.
+ * @returns React Query object with `data`, `isLoading`, `error`, etc., containing the list of courses with obtained status.
+ */
+
 export default function useAllCourses(
     key: string,
     search: string,

@@ -7,6 +7,17 @@ type Props = {
     classNames?: string[];
 };
 
+/**
+ * Renders a textarea element connected to react-hook-form, with optional
+ * placeholder and custom class names.
+ *
+ * @param placeholder - Optional placeholder text for the textarea.
+ * @param name - The name of the field for react-hook-form registration.
+ * @param classNames - Optional array of additional class names for styling.
+ *
+ * @returns The rendered textarea element.
+ */
+
 function Textarea({ placeholder, name, classNames = [] }: Props) {
     const { register } = useFormContext();
     return (

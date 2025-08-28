@@ -12,6 +12,21 @@ type Props = {
     msg?: string;
 };
 
+/**
+ * Displays the list of courses the user has already obtained.
+ *
+ * - Fetches obtained courses using `useObtainedCourses`.
+ * - Shows a loading or error state via `DataStateWrapper`.
+ * - If the user has obtained courses, renders a `UserObtainedCoursesItem` for each.
+ * - If there are no obtained courses, shows a `ThereArentCourses` message.
+ *
+ * Props:
+ * - `obtainedCoursesLimit` → Optional limit on how many obtained courses to display.
+ * - `msg` → Optional message to show if there are no obtained courses.
+ *
+ * @returns The rendered obtained courses section.
+ */
+
 function UserObtainedCourses({ obtainedCoursesLimit, msg }: Props) {
     const { user } = useUserAuthStore();
     const params = useParams();

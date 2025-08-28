@@ -11,6 +11,24 @@ type Props = {
     msg?: string;
 };
 
+/**
+ * Component that displays a user's courses, separated into default (free) and obtained courses.
+ *
+ * - Renders a decorative `LightComponent` for visual effect.
+ * - Conditionally displays default courses with the `UserDefaultCourses` component.
+ * - Conditionally displays obtained courses with the `UserObtainedCourses` component,
+ *   optionally limiting the number shown and displaying a message.
+ * - Uses `TitleHx` to display section headings for "Gratuitos" and "Adquiridos".
+ *
+ * Props:
+ * - `obtainedCoursesLimit` → Optional. Maximum number of obtained courses to display.
+ * - `showObtainedCourses` → Optional. Whether to show the obtained courses section. Defaults to true.
+ * - `showDefaultCourses` → Optional. Whether to show the default courses section. Defaults to true.
+ * - `msg` → Optional message to display above obtained courses.
+ *
+ * @returns A container div displaying the user's courses with optional decorative and heading elements.
+ */
+
 function UserCourses({
     obtainedCoursesLimit,
     showObtainedCourses = true,

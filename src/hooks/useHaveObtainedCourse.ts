@@ -4,6 +4,21 @@ import { useEffect } from "react";
 import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
 import { PATHS } from "../consts/paths";
 
+/**
+ * Custom hook to check if a user has obtained a specific course.
+ *
+ * - Uses React Query's `useQuery` to handle caching, loading, and error states.
+ * - Retrieves course data from local storage using the provided `key`.
+ * - Checks if the user with `userID` has obtained the course with `courseID`.
+ * - Triggers a feedback message via `useFeedbackMessageStore` if the user hasn't obtained the course.
+ *
+ * @param courseID The ID of the course to check.
+ * @param userID The ID of the user whose courses are being checked.
+ * @param key The local storage key where user course data is stored.
+ *
+ * @returns React Query's query object containing `data` (boolean), `isLoading`, `error`, etc.
+ */
+
 export default function useHaveObtainedCourse(
     courseID: number,
     userID: number,

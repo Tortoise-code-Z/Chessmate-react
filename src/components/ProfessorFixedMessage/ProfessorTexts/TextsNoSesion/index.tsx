@@ -2,6 +2,20 @@ import { useProfessorMsgStore } from "../../../../hooks/useProfessorMsgStore";
 
 type Props = {};
 
+/**
+ * Component that displays a message to users who try to buy or comment on a course
+ * without being logged in.
+ *
+ * - Uses `useProfessorMsgStore` to determine the specific scenario.
+ * - Informs the user whether they need to log in, register, or buy the course.
+ * - Provides a friendly, encouraging message about joining the platform.
+ *
+ * Props:
+ * - None.
+ *
+ * @returns A set of paragraphs guiding the user on the required actions to interact with the course.
+ */
+
 function TextsNoSesion({}: Props) {
     const { value } = useProfessorMsgStore();
 

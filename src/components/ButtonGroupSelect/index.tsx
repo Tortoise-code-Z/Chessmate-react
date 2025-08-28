@@ -1,14 +1,30 @@
 import { FieldValues, Path, PathValue, useFormContext } from "react-hook-form";
-import Button from "../Button";
 import styles from "./ButtonGroupSelect.module.css";
-import FieldError from "../FieldError";
 import Label from "../Label";
+import Button from "../Button";
+import FieldError from "../FieldError";
 
 type Props<T extends FieldValues> = {
     values: PathValue<T, Path<T>>[];
     label?: string;
     name: Path<T>;
 };
+
+/**
+ * ButtonGroupSelect component integrated with react-hook-form.
+ *
+ * - Renders a group of buttons representing selectable values for a form field.
+ * - Updates the form state when a button is clicked using `setValue`.
+ * - Highlights the selected value and displays validation errors if present.
+ * - Optionally shows a label for the group.
+ *
+ * Props:
+ * - `values` → Array of possible values for the button group.
+ * - `name` → Form field name associated with this group.
+ * - `label` → Optional label text displayed above the buttons.
+ *
+ * @returns A set of styled buttons bound to a form field, with error messages and optional label.
+ */
 
 function ButtonGroupSelect<T extends FieldValues>({
     values,
@@ -27,7 +43,7 @@ function ButtonGroupSelect<T extends FieldValues>({
     return (
         <>
             {label && <Label text={label} inputRef={name} />}
-            <div className={[styles.buttonGroupSelect].join(" ")}>
+            <div className={styles.buttonGroupSelect}>
                 {values.map((v, i) => (
                     <Button
                         key={i}

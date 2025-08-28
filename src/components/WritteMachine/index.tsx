@@ -6,6 +6,19 @@ type Props = {
     classNames?: string[];
 };
 
+/**
+ * Component that simulates a typewriter effect by progressively displaying text.
+ *
+ * - `data` is the string to be "typed".
+ * - `time` sets the interval (ms) between each character.
+ * - `classNames` allows passing custom CSS classes.
+ *
+ * @param data - The text to display with a typewriter animation.
+ * @param time - Delay in milliseconds between each character.
+ * @param classNames - Optional array of CSS class names to apply.
+ * @returns A paragraph element showing the animated text.
+ */
+
 function WritteMachine({ data, time, classNames = [] }: Props) {
     const [dataToWritte, setDataToWritte] = useState<string>("");
 

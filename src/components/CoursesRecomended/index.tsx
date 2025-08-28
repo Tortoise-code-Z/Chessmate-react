@@ -16,6 +16,19 @@ type Props = {
     userID: number | undefined;
 };
 
+/**
+ * CoursesRecomended - Component to display a list of recommended courses.
+ *
+ * Fetches unpurchased courses for a given user and displays them in a column layout.
+ * Includes a customizable title with alignment and layout options, and a light visual effect.
+ *
+ * @param titleContain - ReactNode content to display as the section title.
+ * @param titleDisplay - Layout type of the title: "Row" or "Col".
+ * @param titleAlign - Alignment of the title: "start" or "center".
+ * @param limit - Maximum number of courses to fetch and display.
+ * @param userID - ID of the current user (optional), used to filter unpurchased courses.
+ */
+
 function CoursesRecomended({
     titleContain,
     titleAlign,
@@ -58,12 +71,6 @@ function CoursesRecomended({
             </DataStateWrapper>
         </section>
     );
-}
-
-{
-    /* <h2>
-                
-            </h2> */
 }
 
 export default CoursesRecomended;

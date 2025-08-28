@@ -21,6 +21,25 @@ type Props = {
     };
 };
 
+/**
+ * DataStateWrapper - A wrapper component that handles loading and error states for async data.
+ *
+ * Displays a loading component while data is being fetched, an error component if an error occurs,
+ * or renders the children when data is successfully loaded.
+ *
+ * @param isLoading - Boolean indicating if the data is currently loading.
+ * @param error - Optional error object to display when an error occurs.
+ * @param loadingComponent - Optional custom component to render during loading.
+ * @param errorComponent - Optional custom component to render when an error occurs.
+ * @param children - Content to render when there is no loading or error state.
+ * @param errorMsg - Optional error message to display.
+ * @param errorClassName - Optional CSS classes for the error component.
+ * @param loadingClassName - Optional CSS classes for the loading component.
+ * @param errorButtonAction - Optional action button for the error component.
+ * @param errorLinkAction - Optional link action for the error component.
+ * @returns A React element representing the current state (loading, error, or children).
+ */
+
 export default function DataStateWrapper({
     isLoading,
     error,

@@ -4,6 +4,20 @@ import styles from "./TextsFirstLogin.module.css";
 
 type Props = {};
 
+/**
+ * Component that displays a welcome message for users on their first login.
+ *
+ * - Uses `useUserAuthStore` to retrieve the current user's information.
+ * - Greets the user by name (or "Estudiante" if no username is available).
+ * - Introduces Mate-o, the guide and professor, and explains their role.
+ * - Provides an encouraging and friendly message about the learning experience.
+ *
+ * Props:
+ * - None.
+ *
+ * @returns A set of elements with a welcome title and descriptive messages for first-time users.
+ */
+
 function TextsFirstLogin({}: Props) {
     const { user } = useUserAuthStore();
     return (

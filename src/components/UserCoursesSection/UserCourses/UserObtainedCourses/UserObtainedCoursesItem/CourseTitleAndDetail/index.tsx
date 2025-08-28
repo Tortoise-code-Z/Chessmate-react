@@ -11,6 +11,16 @@ type Props = {
     data: CourseJSON & Progress;
 };
 
+/**
+ * Component displaying a course's title and a button to navigate to its detail page.
+ *
+ * - Shows the course title using `TitleHx`.
+ * - Provides a "Ver detalles" button that navigates to the course details page when clicked.
+ *
+ * @param data - The course data including title and ID.
+ * @returns A container with the course title and a details button.
+ */
+
 function CourseTitleAndDetail({ data }: Props) {
     const navigate = useNavigate();
     return (

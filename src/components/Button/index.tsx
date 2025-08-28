@@ -12,6 +12,25 @@ type Props = {
     classNames?: string[];
 };
 
+/**
+ * Reusable Button component.
+ *
+ * - Renders a button element with optional styling variants.
+ * - Handles click events and can optionally stop event propagation.
+ * - Supports additional CSS classes and disables state.
+ *
+ * Props:
+ * - `onClick` → Optional click handler function `(e: MouseEvent<HTMLButtonElement>) => void`.
+ * - `variant` → Optional visual style of the button (default: `"Primary"`).
+ * - `children` → Button content, can be text or JSX elements.
+ * - `type` → Button type: `"button"` or `"submit"` (default: `"button"`).
+ * - `propagation` → Whether the click event should propagate (default: `true`).
+ * - `disabled` → Whether the button is disabled (default: `false`).
+ * - `classNames` → Optional array of additional CSS classes.
+ *
+ * @returns A styled button element.
+ */
+
 function Button({
     onClick,
     variant = "Primary",

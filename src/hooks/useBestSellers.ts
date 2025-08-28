@@ -7,6 +7,20 @@ import {
     orderedMayorToMenorByKey,
 } from "../api";
 
+/**
+ * Hook that fetches the “Best Seller” courses.
+ *
+ * - Retrieves course data from local storage using the provided key.
+ * - Filters the courses by sales, orders them from highest to lowest, and limits the results.
+ * - Checks which courses have been obtained by the user (if userID is provided).
+ * - Handles errors and manages caching via React Query.
+ *
+ * @param key Local storage key where courses are stored.
+ * @param limit Maximum number of courses to return.
+ * @param userID Optional ID of the user to check obtained courses.
+ * @returns Object with React Query states and data: `{ data, isLoading, error, ... }`.
+ */
+
 export default function useBestSeller(
     key: string,
     limit: number,

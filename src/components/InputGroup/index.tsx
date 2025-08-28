@@ -21,6 +21,24 @@ type Props<T extends FieldValues> = {
     disabled?: boolean;
 };
 
+/**
+ * A form input group that can render an input or textarea with an optional label,
+ * error message, and extra child elements like buttons.
+ *
+ * @param name - The name of the input field (used by react-hook-form).
+ * @param label - Optional label text for the input.
+ * @param errorMsg - Whether to show the field error message. Defaults to true.
+ * @param placeholder - Placeholder text for the input/textarea.
+ * @param children - Optional child element, e.g., a button inside the input group.
+ * @param inputType - The type of the input (text, number, etc.).
+ * @param labelDisplay - Layout direction of the label. Defaults to "Col".
+ * @param labelReverse - Whether to reverse the label and input order. Defaults to false.
+ * @param type - Whether to render an input or textarea. Defaults to "input".
+ * @param disabled - Whether the input is disabled. Defaults to false.
+ *
+ * @returns The rendered input group component.
+ */
+
 function InputGroup<T extends FieldValues>({
     name,
     label,

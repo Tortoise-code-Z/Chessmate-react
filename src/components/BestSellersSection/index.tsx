@@ -16,6 +16,25 @@ type Props = {
     classNames?: string[];
 };
 
+/**
+ * Section that displays “Best Seller” courses.
+ *
+ * - Fetches courses from the database using `useBestSeller`.
+ * - Manages loading and error states via `DataStateWrapper`.
+ * - Renders courses using `CoursesDisplay`.
+ * - Includes decorative elements like the title (`TitleHx`) and light effect (`LightComponent`).
+ *
+ * Props:
+ * - `limit` → Maximum number of courses to display.
+ * - `display` → Optional. Layout mode for courses: `"Row"` or `"Col"`.
+ * - `titleText` → Main text for the section title.
+ * - `titleTextSpan` → Optional. Highlighted text inside the title.
+ * - `titleDisplay` → Orientation of the title: `"Row"` or `"Col"`.
+ * - `classNames` → Optional. Additional CSS classes for the section.
+ *
+ * @returns Section with title, courses, and loading/error state management.
+ */
+
 function BestSellersSection({
     limit,
     display,

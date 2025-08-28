@@ -6,6 +6,20 @@ import {
     getUserObtainedCourses,
 } from "../api";
 
+/**
+ * Custom hook to fetch the most recent courses.
+ *
+ * - Uses React Query's `useQuery` to handle caching, loading, and error states.
+ * - Retrieves course data from local storage using the provided `key`.
+ * - Sorts courses by creation date and returns the top 3 most recent courses.
+ * - Marks courses as obtained based on the optional `userID`.
+ *
+ * @param key The local storage key where course data is stored.
+ * @param userID (Optional) The ID of the user to check which courses they have obtained.
+ *
+ * @returns React Query's query object containing `data` (array of recent courses with obtained status), `isLoading`, `error`, etc.
+ */
+
 export default function useRecentCourses(key: string, userID?: number) {
     const queryFunction: () => Promise<
         (CourseJSON & IsObtainedCourse)[]

@@ -16,10 +16,24 @@ import Button from "../../Button";
 
 type Props = {};
 
+/**
+ * CommentForm component for submitting user comments on a course.
+ *
+ * - Renders a form where users can write and submit their comment.
+ * - Uses `react-hook-form` with `commentsSchema` for validation.
+ * - Checks if the user is authenticated via `useUserAuthStore`; if not, triggers a feedback message using `useProfessorMsgStore`.
+ * - Submits the comment via the `useAddComment` hook and clears the input after submission.
+ * - Displays a button with a loading state while the comment is being sent.
+ *
+ * Props:
+ * - None
+ *
+ * @returns A div containing the comment form, input field, and submit button.
+ */
+
 function CommentForm({}: Props) {
     const params = useParams();
     const { user } = useUserAuthStore();
-
     const { setState, setValue } = useProfessorMsgStore();
 
     const { mutate, isPending } = useAddComment();

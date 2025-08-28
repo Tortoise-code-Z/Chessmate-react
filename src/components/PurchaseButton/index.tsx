@@ -8,6 +8,20 @@ type Props = {
     courseID: number;
 };
 
+/**
+ * Component that renders a purchase button for a course.
+ *
+ * - Uses `useUserAuthStore` to check if the user is logged in.
+ * - Uses `useBuyCourse` to handle the purchase mutation.
+ * - Uses `useProfessorMsgStore` to show a message if the user is not logged in.
+ * - Displays a loading state ("Comprando...") while the purchase is pending.
+ *
+ * Props:
+ * - `courseID` → The ID of the course to be purchased.
+ *
+ * @returns A button that either triggers a purchase or prompts the user to log in.
+ */
+
 function PurchaseButton({ courseID }: Props) {
     const { user } = useUserAuthStore();
     const { setState, setValue } = useProfessorMsgStore();

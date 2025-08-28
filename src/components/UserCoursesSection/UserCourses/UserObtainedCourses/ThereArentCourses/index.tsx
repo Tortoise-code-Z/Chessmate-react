@@ -7,6 +7,16 @@ type Props = {
     msg?: string;
 };
 
+/**
+ * Component displayed when the user has no courses to show.
+ *
+ * - Shows a message indicating no courses are available.
+ * - Provides a link button to navigate to the courses page.
+ *
+ * @param msg - Optional custom message to display. Defaults to "No tienes cursos aún...".
+ * @returns A div containing the message and a navigation button to the courses page.
+ */
+
 function ThereArentCourses({ msg = "No tienes cursos aún..." }: Props) {
     return (
         <div className={styles.msgNotCoursesYet}>

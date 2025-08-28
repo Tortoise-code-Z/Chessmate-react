@@ -7,6 +7,19 @@ import {
     orderedMayorToMenorByKey,
 } from "../api";
 
+/**
+ * useUnpurchasedCourses - Custom hook to fetch courses that a user has not purchased.
+ *
+ * Retrieves courses from local storage, ordered by sales in descending order.
+ * Optionally filters out courses the specified user already owns.
+ * Limits the number of returned courses.
+ *
+ * @param key - Local storage key where the courses data is stored.
+ * @param limit - Maximum number of courses to return.
+ * @param userID - Optional ID of the user to filter out already purchased courses.
+ * @returns A React Query result object with properties like `data`, `isLoading`, `error`, etc.
+ */
+
 export default function useUnpurchasedCourses(
     key: string,
     limit: number,

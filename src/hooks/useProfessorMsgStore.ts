@@ -8,6 +8,17 @@ type ProfessorMsgStore = {
     setState: (status: boolean) => void;
 };
 
+/**
+ * useProfessorMsgStore - Zustand store for managing professor-related feedback messages.
+ *
+ * - Holds the current `value` of the message (type `ProfessorValues`).
+ * - Holds the `state` to indicate whether the message is visible or not.
+ * - Provides `setValue` to update the message content.
+ * - Provides `setState` to toggle the visibility of the message.
+ *
+ * @returns The store object containing `value`, `state`, and the setter functions.
+ */
+
 export const useProfessorMsgStore = create<ProfessorMsgStore>((set) => ({
     state: false,
     value: "cantBuySesion",

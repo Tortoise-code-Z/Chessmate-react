@@ -11,6 +11,20 @@ type Props = {
     data: DefualtCourse & Progress;
 };
 
+/**
+ * Component that renders an individual default course item for a user.
+ *
+ * - Wraps the course in a `Link` to navigate to the course's class page.
+ * - Displays the user's progress with `UserProgress`.
+ * - Shows the course image using `FigureImage`, with dynamic sizing.
+ * - Displays the course title using `TitleHx`.
+ *
+ * Props:
+ * - `data` → The default course data combined with the user's progress.
+ *
+ * @returns A linked course item displaying progress, image, and title.
+ */
+
 function UserDefaultCourseItem({ data }: Props) {
     return (
         <Link

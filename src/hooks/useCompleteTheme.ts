@@ -24,6 +24,27 @@ type Variables = {
     userID: number;
 };
 
+/**
+ * useCompleteTheme - Custom hook to mark a theme as completed for a user in a default course.
+ *
+ * This hook handles updating the user's progress for a specific theme, persisting the change
+ * in local storage, and updating React Query caches for reactive UI updates. It also provides
+ * feedback in case of errors.
+ *
+ * @param index - Current theme index, used to update the active theme after completion.
+ * @param setIndex - State setter function to update the theme index.
+ *
+ * @returns A mutation object from React Query, including `mutate` and `mutateAsync` functions
+ *          to trigger theme completion, along with status flags like `isLoading`, `isError`, `isSuccess`.
+ *
+ * @remarks
+ * - Updates the theme's `completed` property to `true`.
+ * - Recalculates course progress based on completed themes.
+ * - Persists the updated course data to localStorage under `DATABASE_KEY`.
+ * - Updates related React Query caches for `defaultCourseById` and `defaultCourses`.
+ * - Displays an error feedback message if the mutation fails.
+ */
+
 export function useCompleteTheme(
     index: number,
     setIndex: Dispatch<SetStateAction<number>>

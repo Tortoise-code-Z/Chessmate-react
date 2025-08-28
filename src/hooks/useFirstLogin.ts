@@ -5,6 +5,20 @@ import { useUserAuthStore } from "./UseUserAuthStore";
 import { customError } from "../utils/errors";
 import { getDataLocalStorage, setItemLocalStorage } from "../api";
 
+/**
+ * useFirstLogin - Custom React hook to mark a user as having completed their first login.
+ *
+ * This hook:
+ * - Retrieves the application database from local storage.
+ * - Finds the user by the provided userID.
+ * - Updates the user's `isFirstLogin` flag to `false`.
+ * - Saves the updated database back to local storage.
+ * - Updates the global user authentication state and stores it under `USER_AUTH_KEY`.
+ * - Uses React Query's `useMutation` to manage the asynchronous mutation.
+ *
+ * @returns A React Query mutation object containing `mutate`, `data`, `error`, and `status`.
+ */
+
 export function useFirstLogin() {
     const { setUser } = useUserAuthStore();
 

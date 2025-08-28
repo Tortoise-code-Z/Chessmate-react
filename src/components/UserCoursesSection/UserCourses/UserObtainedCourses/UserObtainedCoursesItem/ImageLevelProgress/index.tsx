@@ -7,6 +7,16 @@ type Props = {
     data: CourseJSON & Progress;
 };
 
+/**
+ * Component displaying a course's thumbnail image, level, and progress.
+ *
+ * - Uses `FigureImage` to show the course's thumbnail.
+ * - Displays the course's level and completion percentage.
+ *
+ * @param data - The course data including title, image URL, level, and progress.
+ * @returns A styled container showing the course image and progress information.
+ */
+
 function ImageLevelProgress({ data }: Props) {
     const image = getImage(data.imageUrl.thumb, ["courses"]);
     return (

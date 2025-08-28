@@ -6,6 +6,18 @@ import { PATHS } from "../consts/paths";
 import { removeItemLocalStorage } from "../api";
 import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
 
+/**
+ * Custom hook to handle user sign-out functionality.
+ *
+ * - Uses React Query's `useMutation` to manage the sign-out process and handle errors.
+ * - Removes authenticated user data from local storage.
+ * - Clears React Query cache and resets global user state on success.
+ * - Navigates to the index page after signing out.
+ * - Triggers feedback messages via `useFeedbackMessageStore` if sign-out fails.
+ *
+ * @returns React Query's mutation object with methods like `mutate`, `mutateAsync`, and state properties (`isLoading`, `error`, etc.).
+ */
+
 export function useSignout() {
     const { setUser } = useUserAuthStore();
     const navigate = useNavigate();

@@ -4,6 +4,20 @@ import { useEffect } from "react";
 import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
 import { PATHS } from "../consts/paths";
 
+/**
+ * Custom hook to check if a course exists for a user based on local storage data.
+ *
+ * - Uses React Query's `useQuery` to handle caching, loading, and error states.
+ * - Retrieves course data from local storage using the provided `key`.
+ * - Checks if a course with the specified `courseID` exists.
+ * - Triggers a feedback message via `useFeedbackMessageStore` if the course is not found.
+ *
+ * @param courseID The ID of the course to check for existence.
+ * @param key The local storage key where course data is stored.
+ *
+ * @returns React Query's query object containing `data` (boolean), `isLoading`, `error`, etc.
+ */
+
 export default function useCourseExists(courseID: number, key: string) {
     const { setPath, setReset, setType, setMsg, setState } =
         useFeedbackMessageStore();

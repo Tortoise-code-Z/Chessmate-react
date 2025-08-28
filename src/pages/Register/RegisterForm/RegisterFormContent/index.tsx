@@ -1,4 +1,4 @@
-import ButtonGroupSelect from "../../../../components/ButtonGroupSelect";
+import ButtonGroupSelect from "../../../../components/CourseCommentSection/ButtonGroupSelect";
 import InputGroup from "../../../../components/InputGroup";
 import { CHESS_LEVEL } from "../../../../consts/general";
 import { registerSchemaValues } from "../../../../Schemas/registerSchema";

@@ -17,6 +17,18 @@ type Props<T extends FieldValues> = {
     classNames?: string[];
 };
 
+/**
+ * Form - A reusable form component using react-hook-form and Zod for validation.
+ *
+ * @template T - The type of the form values, extending FieldValues.
+ * @param children - The form fields or components to render inside the form.
+ * @param schema - A Zod schema used for form validation.
+ * @param onSubmit - Function called when the form is submitted. Receives the form data and optional helpers.
+ * @param defaultValues - Optional default values for the form fields.
+ * @param classNames - Optional array of additional CSS class names to apply to the form element.
+ * @returns A React element wrapping the children with a validated form.
+ */
+
 function Form<T extends FieldValues>({
     children,
     onSubmit,

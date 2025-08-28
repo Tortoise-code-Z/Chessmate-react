@@ -7,6 +7,29 @@ import {
     getUserObtainedCourses,
 } from "../api";
 
+/**
+ * useCourseClassroom - Custom hook to fetch detailed classroom data for a single course.
+ *
+ * This hook retrieves a course from local storage, enriches it with its authors' data,
+ * and checks if the user has obtained the course.
+ *
+ * @param key - Local storage key where course and user data is stored.
+ * @param courseID - ID of the course to fetch.
+ * @param userID - Optional user ID to determine if the user has obtained this course.
+ *
+ * @returns A React Query object containing:
+ *  - `data`: The course with `authors` populated and `isObtained` flag.
+ *  - `isLoading`: Whether the query is currently loading.
+ *  - `error`: Any error encountered while fetching.
+ *  - `refetch`: Function to manually refetch the course data.
+ *
+ * @remarks
+ * - Authors are mapped based on their IDs from the stored data.
+ * - `isObtained` is true if the user has already obtained the course.
+ * - Data is cached for 5 minutes (`staleTime`) to reduce unnecessary reads.
+ *
+ */
+
 export default function useCourseClassroom(
     key: string,
     courseID: number,

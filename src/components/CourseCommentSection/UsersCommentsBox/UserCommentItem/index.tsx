@@ -8,6 +8,18 @@ type Props = {
     comment: Comments;
 };
 
+/**
+ * UserCommentItem - Component to render a single user's comment.
+ *
+ * Displays:
+ * - The user's avatar (default image if none provided).
+ * - Username and chess title.
+ * - The date the comment was created.
+ * - The comment text.
+ *
+ * @param comment - A comment object containing user info, creation date, and text.
+ */
+
 function UserCommentItem({ comment }: Props) {
     return (
         <li className={styles.commentItem}>

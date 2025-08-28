@@ -6,6 +6,19 @@ import LightComponent from "../LightComponent";
 
 type Props = {};
 
+/**
+ * CourseCommentSection component.
+ *
+ * - Displays a section containing user comments for a course.
+ * - Includes a decorative light element (`LightComponent`) and a section title (`TitleHx`).
+ * - Renders the list of user comments (`UsersCommentBox`) and the comment submission form (`CommentForm`).
+ *
+ * Props:
+ * - None
+ *
+ * @returns A section element containing user comments and a comment form.
+ */
+
 function CourseCommentSection({}: Props) {
     return (
         <section className={styles.courseCommentSection}>

@@ -7,6 +7,20 @@ import {
     getUserObtainedCourses,
 } from "../api";
 
+/**
+ * Custom hook to fetch the list of courses a user has already obtained.
+ *
+ * - Retrieves user data from local storage.
+ * - Maps each obtained course to include full course information.
+ * - Optionally excludes a specific course (`currentCourseID`) and limits the number of courses returned.
+ *
+ * @param key - The localStorage key to fetch the database from.
+ * @param userId - The ID of the user whose obtained courses are fetched.
+ * @param limit - Optional maximum number of courses to return.
+ * @param currentCourseID - Optional course ID to exclude from the results.
+ * @returns A `react-query` object containing `data`, `isLoading`, `error`, etc.
+ */
+
 export default function useObtainedCourses(
     key: string,
     userId: number,

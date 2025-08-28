@@ -25,6 +25,24 @@ type Variables = {
     userID: number;
 };
 
+/**
+ * useBuyCourse - Custom React hook to handle purchasing a course for a user.
+ *
+ * This hook:
+ * - Retrieves the current database from local storage.
+ * - Adds the selected course to the user's obtained courses.
+ * - Updates local storage with the modified user data.
+ * - Uses React Query's `useMutation` to manage the asynchronous purchase.
+ * - On success:
+ *   - Shows a success feedback message.
+ *   - Invalidates and updates relevant queries for course lists and individual courses
+ *     to reflect the purchased state.
+ * - On error:
+ *   - Logs the error and shows an error feedback message.
+ *
+ * @returns A React Query mutation object containing `mutate`, `data`, `error`, and `status`.
+ */
+
 export function useBuyCourse() {
     const queryClient = useQueryClient();
 

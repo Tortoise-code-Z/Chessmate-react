@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { CourseJSON } from "../../../types/types";
+import { CourseJSON, IsObtainedCourse } from "../../../types/types";
 import { getImage, getImageSize } from "../../../utils/images";
 import { PATHS } from "../../../consts/paths";
 import styles from "./ItemCourseDisplay.module.css";
@@ -9,10 +9,22 @@ import FigureImage from "../../FigureImage";
 
 type Props = {
     action?: boolean;
-    data: CourseJSON & { isObtained?: boolean };
+    data: CourseJSON & IsObtainedCourse;
     display?: "Row" | "Col";
     courseID: number;
 };
+
+/**
+ * ItemCourseDisplay - Component to display a single course item.
+ *
+ * Renders course image, title, description, level, and optionally purchase action with price.
+ * Clicking the component navigates to the course detail page.
+ *
+ * @param data - The course data, may include an `isObtained` flag to indicate if the user owns it.
+ * @param action - Optional boolean to show purchase actions (default: true).
+ * @param display - Layout type: "Row" or "Col" (default: "Col").
+ * @param courseID - Unique identifier for the course, used in purchase actions and navigation.
+ */
 
 function ItemCourseDisplay({
     data,

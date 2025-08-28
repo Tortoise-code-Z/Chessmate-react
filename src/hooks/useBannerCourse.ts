@@ -8,6 +8,21 @@ import {
     orderedMayorToMenorByKey,
 } from "../api";
 
+/**
+ * useBannerCourse - Custom React hook to fetch a single course for a banner display.
+ *
+ * This hook:
+ * - Retrieves course data from local storage using a provided key.
+ * - Sorts courses by sales in descending order and selects the top 6.
+ * - Picks a random course from these top courses.
+ * - Checks if the user has already obtained this course.
+ * - Returns a React Query object with the banner course and its obtained status.
+ *
+ * @param key - Local storage key to fetch course data.
+ * @param userID - Optional user ID to determine if the course is already obtained.
+ * @returns A React Query object containing the banner course with `isObtained`, `data`, `isLoading`, `error`, etc.
+ */
+
 export default function useBannerCourse(key: string, userID?: number) {
     const queryFunction: () => Promise<
         CourseJSON & IsObtainedCourse
