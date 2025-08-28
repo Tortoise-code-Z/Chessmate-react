@@ -1,9 +1,9 @@
-import { CourseJSON, Progress } from "../../../../types/types";
 import styles from "./UserObtainedCoursesItem.module.css";
 import ImageLevelProgress from "./ImageLevelProgress";
 import CourseTitleAndDetail from "./CourseTitleAndDetail";
 import { Link } from "react-router-dom";
-import { PATHS } from "../../../../consts/paths";
+import { CourseJSON, Progress } from "../../../../../types/types";
+import { PATHS } from "../../../../../consts/paths";
 
 type Props = {
     data: CourseJSON & Progress;

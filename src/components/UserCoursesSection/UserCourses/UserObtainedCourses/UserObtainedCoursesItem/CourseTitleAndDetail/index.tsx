@@ -1,11 +1,11 @@
 import { FaInfoCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { CourseJSON, Progress } from "../../../../../types/types";
-import { PATHS } from "../../../../../consts/paths";
 
 import styles from "./CourseTitleAndDetail.module.css";
-import Button from "../../../../Button";
-import TitleHx from "../../../../TitleHx";
+import { CourseJSON, Progress } from "../../../../../../types/types";
+import TitleHx from "../../../../../TitleHx";
+import Button from "../../../../../Button";
+import { PATHS } from "../../../../../../consts/paths";
 
 type Props = {
     data: CourseJSON & Progress;

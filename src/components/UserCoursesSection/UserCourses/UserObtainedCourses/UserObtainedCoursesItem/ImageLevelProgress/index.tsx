@@ -1,6 +1,6 @@
-import { CourseJSON, Progress } from "../../../../../types/types";
-import { getImage, getImageSize } from "../../../../../utils/images";
-import FigureImage from "../../../../FigureImage";
+import { CourseJSON, Progress } from "../../../../../../types/types";
+import { getImage, getImageSize } from "../../../../../../utils/images";
+import FigureImage from "../../../../../FigureImage";
 import styles from "./ImageLevelProgress.module.css";
 
 type Props = {

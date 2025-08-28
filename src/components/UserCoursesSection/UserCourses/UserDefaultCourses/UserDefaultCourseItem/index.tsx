@@ -1,10 +1,11 @@
-import { DefualtCourse, Progress } from "../../../../types/types";
 import styles from "./UserDefaultCourseItem.module.css";
 import { Link } from "react-router-dom";
-import { PATHS } from "../../../../consts/paths";
 import UserProgress from "../UserProgress";
-import DefaultCourseImage from "../DefaultCourseImage";
-import TitleHx from "../../../TitleHx";
+import { DefualtCourse, Progress } from "../../../../../types/types";
+import { PATHS } from "../../../../../consts/paths";
+import TitleHx from "../../../../TitleHx";
+import FigureImage from "../../../../FigureImage";
+import { getImage, getImageSize } from "../../../../../utils/images";
 
 type Props = {
     data: DefualtCourse & Progress;
@@ -17,7 +18,13 @@ function UserDefaultCourseItem({ data }: Props) {
             className={[styles.userDefaultCourseItem].join(" ")}
         >
             <UserProgress data={data} />
-            <DefaultCourseImage data={data} />
+            <FigureImage
+                src={getImage(data.imageUrl.general, ["defaultCourses"])}
+                alt={data.title}
+                title={data.title}
+                width={getImageSize(data.imageUrl.general, "width")}
+                height={getImageSize(data.imageUrl.general, "height")}
+            />
             <TitleHx classNames={[styles.title]} level={4}>
                 {data.title}
             </TitleHx>

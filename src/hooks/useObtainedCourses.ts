@@ -10,7 +10,7 @@ import {
 export default function useObtainedCourses(
     key: string,
     userId: number,
-    limit: number,
+    limit?: number,
     currentCourseID?: number
 ) {
     const queryFunction: () => Promise<

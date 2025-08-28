@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-import { PATHS } from "../../../../consts/paths";
 import { FaBook } from "react-icons/fa";
 import styles from "./ThereArentCourses.module.css";
+import { PATHS } from "../../../../../consts/paths";
 
 type Props = {
     msg?: string;

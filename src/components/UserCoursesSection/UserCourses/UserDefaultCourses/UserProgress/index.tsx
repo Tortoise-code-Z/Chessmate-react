@@ -1,5 +1,5 @@
+import { DefualtCourse, Progress } from "../../../../../types/types";
 import styles from "./UserProgress.module.css";
-import { DefualtCourse, Progress } from "../../../../types/types";
 
 type Props = {
     data: DefualtCourse & Progress;

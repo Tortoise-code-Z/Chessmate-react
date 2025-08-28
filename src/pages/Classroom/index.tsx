@@ -16,7 +16,6 @@ function Classroom({}: Props) {
             <UserCoursesSection
                 obtainedCoursesLimit={3}
                 defaultCourseClassID={Number(params.id)}
-                showObtainedCourses={false}
             >
                 <TitleHx level={2}>
                     <span className={["span-pr-color", "upperCase"].join(" ")}>

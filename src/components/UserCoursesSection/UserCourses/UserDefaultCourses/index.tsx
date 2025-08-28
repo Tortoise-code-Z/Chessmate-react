@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
-import { DATABASE_KEY } from "../../../consts/dataBaseKey";
-import useDefaultCourses from "../../../hooks/useDefaultCourses";
-import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
-import DataStateWrapper from "../../DataStateWrapperProps";
 import UserDefaultCourseItem from "./UserDefaultCourseItem";
 import styles from "./UserDefaultCourses.module.css";
+import { useUserAuthStore } from "../../../../hooks/UseUserAuthStore";
+import useDefaultCourses from "../../../../hooks/useDefaultCourses";
+import { DATABASE_KEY } from "../../../../consts/dataBaseKey";
+import DataStateWrapper from "../../../DataStateWrapperProps";
 
 type Props = {};
 

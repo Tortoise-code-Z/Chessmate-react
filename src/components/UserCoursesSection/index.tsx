@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import UserCourses from "../UserCourses";
+import UserCourses from "./UserCourses";
 import styles from "./UserCoursesSection.module.css";
 
 type Props = {
