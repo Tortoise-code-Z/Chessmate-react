@@ -8,14 +8,12 @@ import BestSellersSection from "../../components/BestSellersSection";
 import CloseHomeSection from "./CloseHomeSection";
 import BestPlayersSection from "../../components/BestPlayersSection";
 import UsersOpinionSection from "./UsersOpinionSection";
-import { useProfessorMsgStore } from "../../hooks/useProfessorMsgStore";
 import ProfessorFixedMessage from "../../components/ProfessorFixedMessage";
 
 type Props = {};
 
 function Home({}: Props) {
     const { user } = useUserAuthStore();
-    const { state } = useProfessorMsgStore();
 
     if (user) {
         return <Navigate to={`/${PATHS.dashboard}`} replace />;
@@ -23,7 +21,7 @@ function Home({}: Props) {
 
     return (
         <>
-            {state && <ProfessorFixedMessage />}
+            <ProfessorFixedMessage />
             <Hero />
             <CoursesDataSection />
             <SignupCallToAction />
