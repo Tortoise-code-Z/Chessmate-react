@@ -5,6 +5,16 @@ import ContactForm from "./ContactForm";
 
 type Props = {};
 
+/**
+ * Contact page component allowing users to send inquiries directly.
+ *
+ * - Displays a global `FeedbackMessage` component for status messages.
+ * - Shows a header and description encouraging users to submit questions.
+ * - Renders the `ContactForm` component for submitting inquiries.
+ *
+ * @returns JSX element representing the Contact page.
+ */
+
 function Contact({}: Props) {
     return (
         <>

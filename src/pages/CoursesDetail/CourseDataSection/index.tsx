@@ -14,6 +14,30 @@ import { PATHS } from "../../../consts/paths";
 
 type Props = {};
 
+/**
+ * CourseDataSection component that displays detailed information about a specific course.
+ *
+ * Features:
+ * - Light decorative components positioned at top-right.
+ * - Breadcrumb navigation linking back to the courses list.
+ * - `GeneralCourseData`: Shows main course information.
+ * - `AuthorsSection`: Displays course authors.
+ * - `CourseDescription`: Displays the course description with a customizable heading level.
+ * - `DetailsCourse`: Shows detailed sections for course content and learning outcomes.
+ * - `DataStateWrapper`: Handles loading and error states when fetching course data.
+ *
+ * State: none
+ *
+ * Hooks:
+ * - `useCourse`: Fetches course details based on the course ID and current user.
+ * - `useUserAuthStore`: Retrieves the current authenticated user's ID.
+ * - `useParams`: Accesses route parameters to get the course ID.
+ *
+ * Props: none
+ *
+ * @returns JSX element rendering the complete course data section with all details and authors.
+ */
+
 function CourseDataSection({}: Props) {
     const { user } = useUserAuthStore();
     const params = useParams();
@@ -26,11 +50,8 @@ function CourseDataSection({}: Props) {
 
     return (
         <section className={styles.courseDataSection}>
-            {/* --- */}
             <LightComponent top={40} right={30} />
             <LightComponent top={80} right={80} />
-            {/* --- */}
-
             <DataStateWrapper isLoading={isLoading} error={error}>
                 <div className={styles.breadcrumb}>
                     <NavLink to={`/${PATHS.courses}`}>Cursos</NavLink>

@@ -9,6 +9,21 @@ import FigureImage from "../../../components/FigureImage";
 
 type Props = {};
 
+/**
+ * Footer component that displays the website footer with contact information, social links, and legal notices.
+ *
+ * Features:
+ * - Conditional contact section with email link, hidden on the contact page.
+ * - Footer data section showing phone, email, and social media links (Instagram, YouTube).
+ * - Footer terms section with copyright, privacy policy, terms, and logo image.
+ * - `FigureImage`: Displays the site logo with proper sizing and alt/title attributes.
+ *
+ * Hooks:
+ * - `useLocation`: Determines the current route to conditionally render the contact section.
+ *
+ * @returns JSX element rendering the website footer with contact info, social links, and legal information.
+ */
+
 function Footer({}: Props) {
     const { pathname } = useLocation();
     const isContactPage: boolean = pathname.startsWith("/contact");

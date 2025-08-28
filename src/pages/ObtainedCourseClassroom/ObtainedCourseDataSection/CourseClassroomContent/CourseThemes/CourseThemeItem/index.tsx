@@ -11,6 +11,22 @@ type Props = {
     theme: Theme;
 };
 
+/**
+ * CourseThemeItem component that renders a single theme item within the course themes list.
+ *
+ * Features:
+ * - ThemeButton to toggle the display of the theme's videos.
+ * - ThemeVideos displaying the list of videos for the theme when it is active.
+ *
+ * Props:
+ * - videosIndex: Index of the currently active theme's videos.
+ * - setVideosIndex: Function to update the currently active theme index.
+ * - setShowVideo: Function to set the currently selected video for playback.
+ * - theme: Object containing the theme details and associated videos.
+ *
+ * @returns JSX element rendering a single course theme with toggleable video list.
+ */
+
 function CourseThemeItem({
     videosIndex,
     theme,

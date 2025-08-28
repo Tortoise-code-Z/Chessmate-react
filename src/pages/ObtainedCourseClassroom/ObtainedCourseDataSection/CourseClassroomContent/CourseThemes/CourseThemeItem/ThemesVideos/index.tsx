@@ -11,6 +11,22 @@ type Props = {
     setShowVideo: Dispatch<SetStateAction<ThemeContent | null>>;
 };
 
+/**
+ * ThemeVideos component that renders the list of video subthemes for a given theme.
+ *
+ * Features:
+ * - Displays each subtheme as a clickable card button.
+ * - FigureImage showing the subtheme's cover image with proper dimensions.
+ * - TitleHx displaying the subtheme title.
+ * - Clicking a subtheme sets it as the currently active video for playback.
+ *
+ * Props:
+ * - theme: Object containing the theme details and its subtheme content.
+ * - setShowVideo: Function to set the currently selected subtheme for video playback.
+ *
+ * @returns JSX element rendering all video subthemes for a course theme.
+ */
+
 function ThemeVideos({ setShowVideo, theme }: Props) {
     return (
         <div className={styles.videosContainer}>

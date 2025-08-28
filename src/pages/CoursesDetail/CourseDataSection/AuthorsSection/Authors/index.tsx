@@ -6,6 +6,18 @@ type Props = {
     data: Course & IsObtainedCourse;
 };
 
+/**
+ * Authors component that renders a list of course authors.
+ *
+ * Features:
+ * - Maps through the `authors` array of a course and renders an `AuthorsItem` for each author.
+ *
+ * Props:
+ * - `data` (Course & IsObtainedCourse): Course object containing author information and obtained course status.
+ *
+ * @returns JSX element rendering a container with all authors of the course.
+ */
+
 function Authors({ data }: Props) {
     return (
         <div className={styles.authorsItemsContainer}>

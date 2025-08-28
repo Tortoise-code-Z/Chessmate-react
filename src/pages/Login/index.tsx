@@ -9,6 +9,26 @@ import TitleHx from "../../components/TitleHx";
 
 type Props = {};
 
+/**
+ * Login page component for the Chessmate application.
+ *
+ * Features:
+ * - Displays the application logo and page title.
+ * - Renders the login form and handles submission.
+ * - Shows a persistent feedback message at the top of the page.
+ *
+ * Hooks:
+ * - `useLogin`: Custom hook to handle login mutation.
+ *
+ * State:
+ * - `isPending`: Indicates if the login request is currently processing.
+ *
+ * Functions:
+ * - `handleSubmit(data: LoginSchemaValues)`: Calls `mutate` from `useLogin` with username and password.
+ *
+ * @returns JSX element rendering the login page.
+ */
+
 function Login({}: Props) {
     const { mutate, isPending } = useLogin();
 
@@ -19,21 +39,23 @@ function Login({}: Props) {
         });
     };
     return (
-        <section className={styles.login}>
+        <>
             <FeedbackMessage position="top" time="infinite" />
-            <div className={styles.logoContainer}>
-                <TitleHx>Iniciar sesión</TitleHx>
-                <FigureImage
-                    src={LOGO_IMAGE.image}
-                    alt={LOGO_IMAGE.alt}
-                    title={LOGO_IMAGE.alt}
-                    width={LOGO_IMAGE.width}
-                    height={LOGO_IMAGE.height}
-                />
-            </div>
+            <section className={styles.login}>
+                <div className={styles.logoContainer}>
+                    <TitleHx>Iniciar sesión</TitleHx>
+                    <FigureImage
+                        src={LOGO_IMAGE.image}
+                        alt={LOGO_IMAGE.alt}
+                        title={LOGO_IMAGE.alt}
+                        width={LOGO_IMAGE.width}
+                        height={LOGO_IMAGE.height}
+                    />
+                </div>
 
-            <LoginForm handleSubmit={handleSubmit} isPending={isPending} />
-        </section>
+                <LoginForm handleSubmit={handleSubmit} isPending={isPending} />
+            </section>
+        </>
     );
 }
 

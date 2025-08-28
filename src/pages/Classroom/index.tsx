@@ -6,6 +6,17 @@ import FeedbackMessage from "../../components/FeedbackMessage";
 
 type Props = {};
 
+/**
+ * Classroom page component displaying the class zone and user's courses.
+ *
+ * - Retrieves the `id` parameter from the URL using `useParams`.
+ * - Displays a global `FeedbackMessage` component.
+ * - Renders the `ClassZoneSection` for the current class content.
+ * - Renders `UserCoursesSection` showing up to 3 obtained courses, highlighting other courses.
+ *
+ * @returns JSX element representing the Classroom page.
+ */
+
 function Classroom({}: Props) {
     const params = useParams();
 

@@ -11,6 +11,21 @@ type Props = {
     isPending: boolean;
 };
 
+/**
+ * RegisterFormActions component that renders the action buttons and terms checkbox for the registration form.
+ *
+ * Features:
+ * - InputGroup checkbox for accepting terms and conditions with label displayed in row format.
+ * - "Volver a inicio" button navigating to the main index page.
+ * - Submit button for registration showing a loading spinner and disabled state when pending.
+ * - Link to the login page for users who already have an account.
+ *
+ * Props:
+ * - isPending: Boolean indicating if the registration request is in progress.
+ *
+ * @returns JSX element rendering the registration form actions, terms checkbox, and navigation links.
+ */
+
 function RegisterFormActions({ isPending }: Props) {
     return (
         <div className={styles.actions}>

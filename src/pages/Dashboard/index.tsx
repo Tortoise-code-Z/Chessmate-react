@@ -8,6 +8,24 @@ import ProfessorFixedMessage from "../../components/ProfessorFixedMessage";
 
 type Props = {};
 
+/**
+ * Dashboard component that serves as the main user dashboard displaying courses, recommendations, and top players.
+ *
+ * Features:
+ * - `ProfessorFixedMessage`: Displays a fixed message from the professor with conditional rendering.
+ * - `FeedbackMessage`: Shows user feedback or notifications.
+ * - `UserCoursesSection`: Displays the current user's courses with a customizable navbar height.
+ * - `CoursesRecomended`: Suggests courses for the user to purchase with a customizable title and layout.
+ * - `BestPlayersSection`: Displays a section highlighting top players.
+ *
+ * Hooks:
+ * - `useUserAuthStore`: Retrieves the current authenticated user's ID.
+ *
+ * Props: none
+ *
+ * @returns JSX element rendering the full user dashboard with courses, recommendations, and best players.
+ */
+
 function Dashboard({}: Props) {
     const { user } = useUserAuthStore();
 

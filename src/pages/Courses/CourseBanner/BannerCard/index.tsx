@@ -9,6 +9,19 @@ type Props = {
     data: CourseJSON & IsObtainedCourse;
 };
 
+/**
+ * BannerCard component
+ *
+ * Displays an individual course card for the banner section.
+ * Clicking anywhere on the card navigates to the course details page.
+ * Includes course title, short description, level, price, and purchase action.
+ *
+ * Props:
+ * - data: CourseJSON & IsObtainedCourse — contains course information and whether the user has obtained it.
+ *
+ * @returns JSX element for the course banner card.
+ */
+
 function BannerCard({ data }: Props) {
     const navigate = useNavigate();
     const bannerCardHandleClick = () => {

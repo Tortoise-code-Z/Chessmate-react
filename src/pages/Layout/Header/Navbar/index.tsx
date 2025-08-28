@@ -12,6 +12,26 @@ type Props = {
     handleSignOut: () => void;
 };
 
+/**
+ * Navbar component that renders the main site navigation bar.
+ *
+ * Features:
+ * - `FigureImage`: Displays the site logo with proper sizing and alt/title attributes.
+ * - `NavbarLinkList`: Renders the list of navigation links.
+ * - Conditional user section:
+ *   - `UserLoggedIn`: Shows user options and sign-out if authenticated.
+ *   - `UserSesionActions`: Shows login/register actions if unauthenticated.
+ *
+ * Hooks:
+ * - `useUserAuthStore`: Retrieves the current authenticated user's information.
+ *
+ * Props:
+ * - `setIsOpen` (Dispatch<SetStateAction<boolean>>): Function to toggle hamburger menu state for mobile.
+ * - `handleSignOut` (function): Function to execute user sign-out.
+ *
+ * @returns JSX element rendering the navigation bar with logo, links, and user actions.
+ */
+
 function Navbar({ setIsOpen, handleSignOut }: Props) {
     const { user } = useUserAuthStore();
 

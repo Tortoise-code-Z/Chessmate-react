@@ -6,6 +6,17 @@ import TitleHx from "../../../components/TitleHx";
 
 type Props = {};
 
+/**
+ * CoursesDataSection component that displays a selection of cards on the homepage.
+ *
+ * Features:
+ * - Light decorative components positioned top-right.
+ * - `TitleHx`: Section title encouraging users to become professionals with the courses.
+ * - Maps through `coursesDataItem` to render `ItemCourseData` for each course.
+ *
+ * @returns JSX element rendering a section of featured course items with decorative styling.
+ */
+
 function CoursesDataSection({}: Props) {
     return (
         <section className={styles.coursesDataSection}>

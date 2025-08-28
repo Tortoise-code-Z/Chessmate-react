@@ -11,6 +11,22 @@ type Props = {
     setVideosIndex: Dispatch<SetStateAction<number | null>>;
 };
 
+/**
+ * ThemeButton component that renders a button for a single course theme.
+ *
+ * Features:
+ * - Displays the theme title and description.
+ * - Chevron icon rotates based on whether the theme's videos are expanded.
+ * - Toggles the active theme index on click to show or hide associated videos.
+ *
+ * Props:
+ * - theme: Object containing theme details including title and description.
+ * - videosIndex: Index of the currently active theme.
+ * - setVideosIndex: Function to update the currently active theme index.
+ *
+ * @returns JSX element rendering a button for a course theme with toggleable video display.
+ */
+
 function ThemeButton({ setVideosIndex, theme, videosIndex }: Props) {
     return (
         <Button

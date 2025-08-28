@@ -11,6 +11,18 @@ type Props = {
     handleSubmit: (data: searchSchemaValues) => void;
 };
 
+/**
+ * SearchForm component
+ *
+ * Renders a form with an input field and a submit button for performing search queries.
+ * Uses a schema for validation and integrates with the parent component via `handleSubmit`.
+ *
+ * Props:
+ * - `handleSubmit` → Function called with the search data when the form is submitted.
+ *
+ * @returns JSX element containing the search input and submit button.
+ */
+
 function SearchForm({ handleSubmit }: Props) {
     return (
         <Form<searchSchemaValues> onSubmit={handleSubmit} schema={searchSchema}>

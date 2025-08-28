@@ -10,6 +10,26 @@ import styles from "./RecentCoursesSection.module.css";
 
 type Props = {};
 
+/**
+ * RecentCoursesSection component that displays the most recently added courses.
+ *
+ * Features:
+ * - Light decorative component positioned top-right.
+ * - Title highlighting "Recién llegados".
+ * - `DataStateWrapper`: Handles loading and error states when fetching recent courses.
+ * - `CoursesDisplay`: Displays the recent courses in a row layout when data is available.
+ *
+ * State: none
+ *
+ * Hooks:
+ * - `useRecentCourses`: Fetches recent courses based on the current user ID.
+ * - `useUserAuthStore`: Retrieves the current authenticated user's ID.
+ *
+ * Props: none
+ *
+ * @returns JSX element rendering the "Recent Courses" section.
+ */
+
 function RecentCoursesSection({}: Props) {
     const { user } = useUserAuthStore();
     const { data, isLoading, error } = useRecentCourses(

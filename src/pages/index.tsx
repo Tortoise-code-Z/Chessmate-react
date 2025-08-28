@@ -15,6 +15,24 @@ import ProtectedCourse from "./ProtectedCourse";
 import CourseExists from "./CourseExists";
 import ObtainedCourseClassroom from "./ObtainedCourseClassroom";
 
+/**
+ * Defines the application's routing structure using `createBrowserRouter`.
+ *
+ * Features:
+ * - Main layout routes with error handling (Home, Courses, CoursesDetail, Contact).
+ * - Protected layouts for authenticated areas (Dashboard, Classroom, ObtainedCourseClassroom).
+ * - Nested route structure with components wrapped by protection logic (ProtectedLayout, ProtectedCourse, CourseExists).
+ * - Authentication routes (Login, Register) with error handling.
+ *
+ * Each route includes:
+ * - path: URL path for the route.
+ * - element: React component to render.
+ * - errorElement: Component to render when an error occurs.
+ * - children: Optional nested routes for hierarchical routing.
+ *
+ * @returns BrowserRouter object defining all app routes.
+ */
+
 export const route = createBrowserRouter([
     {
         path: PATHS.index,

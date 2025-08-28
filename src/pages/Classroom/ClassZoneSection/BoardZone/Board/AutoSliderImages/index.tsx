@@ -9,6 +9,24 @@ type Props = {
     loading: boolean;
 };
 
+/**
+ * AutoSliderImages component that automatically cycles through an array of images for a course theme.
+ *
+ * - Automatically transitions between images at the interval specified by `time`.
+ * - Resets to the first image when the theme title or image array changes.
+ * - Displays a placeholder image while loading to prevent flickering.
+ * - Dynamically sets image dimensions using `getImageSize`.
+ *
+ * Props:
+ *  - `images`: Array of image URLs for the current theme.
+ *  - `time`: Time in milliseconds between image transitions.
+ *  - `themeTitle`: Title of the current theme, used for `alt` and `title` attributes.
+ *  - `loading`: Boolean indicating if images are still loading.
+ *  - `setLoading`: Function to update the loading state.
+ *
+ * @returns JSX element displaying the current image of the automatic slider.
+ */
+
 function AutoSliderImages({
     images,
     time,

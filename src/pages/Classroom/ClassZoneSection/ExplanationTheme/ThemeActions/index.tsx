@@ -15,6 +15,23 @@ type Props = {
     setImageSliderLoading: Dispatch<SetStateAction<boolean>>;
 };
 
+/**
+ * ThemeActions component providing navigation and completion actions for a course theme.
+ *
+ * - Renders "Previous" and "Next" buttons to navigate between themes, updating the theme index and image slider loading state.
+ * - Renders a "Complete" button to mark the current theme as completed, using `useCompleteTheme`.
+ * - Disables navigation buttons at the first and last themes, and disables the complete button if the theme is already completed.
+ * - Displays a professor image using `FigureImage`.
+ *
+ * Props:
+ *  - `data`: Course data of type `UseCourseApiType`.
+ *  - `index`: Current theme index.
+ *  - `setIndex`: Function to update the current theme index.
+ *  - `setImageSliderLoading`: Function to update the image slider loading state.
+ *
+ * @returns JSX element representing the theme actions section.
+ */
+
 function ThemeActions({ data, index, setImageSliderLoading, setIndex }: Props) {
     const { user } = useUserAuthStore();
     const { mutate } = useCompleteTheme(index, setIndex);

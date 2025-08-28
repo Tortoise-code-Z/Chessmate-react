@@ -7,6 +7,26 @@ import CourseCommentSection from "../../components/CourseCommentSection";
 
 type Props = {};
 
+/**
+ * CoursesDetail component that displays detailed information about a course along with related interactions.
+ *
+ * Features:
+ * - `ProfessorFixedMessage`: Shows a fixed message from the professor.
+ * - `FeedbackMessage`: Displays feedback or notifications related to the course.
+ * - `CourseDataSection`: Shows detailed course information.
+ * - `CourseCommentSection`: Displays user comments for the course.
+ * - `CoursesRecomended`: Suggests other courses the user might be interested in, with customizable title and layout.
+ *
+ * State: none
+ *
+ * Hooks:
+ * - `useUserAuthStore`: Retrieves the current authenticated user's ID.
+ *
+ * Props: none
+ *
+ * @returns JSX element rendering the full course detail view with comments and recommended courses.
+ */
+
 function CoursesDetail({}: Props) {
     const { user } = useUserAuthStore();
 

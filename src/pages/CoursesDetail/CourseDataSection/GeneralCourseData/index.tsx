@@ -9,6 +9,24 @@ type Props = {
     data: Course & IsObtainedCourse;
 };
 
+/**
+ * GeneralCourseData component that displays main information about a course.
+ *
+ * Features:
+ * - `FigureImage`: Displays the course thumbnail image with proper sizing and alt/title attributes.
+ * - Course data section showing:
+ *   - Title
+ *   - Short description
+ *   - Level
+ *   - Price
+ * - `PurchaseAction`: Button or component for purchasing the course, considering if it's already obtained.
+ *
+ * Props:
+ * - `data` (Course & IsObtainedCourse): Course object containing all necessary information including purchase status.
+ *
+ * @returns JSX element rendering the general course information section with image and purchase action.
+ */
+
 function GeneralCourseData({ data }: Props) {
     return (
         <div className={styles.generalCourseData}>

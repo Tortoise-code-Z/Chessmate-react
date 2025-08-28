@@ -11,6 +11,22 @@ type Props = {
     setImageSliderLoading: Dispatch<SetStateAction<boolean>>;
 };
 
+/**
+ * ExplanationTheme component displaying detailed information and actions for the current course theme.
+ *
+ * - Renders `CourseData` to show the content of the selected theme.
+ * - Renders `ThemeActions` to provide user interactions related to the theme.
+ * - Manages theme index and image slider loading state via props.
+ *
+ * Props:
+ *  - `data`: Course data of type `UseCourseApiType`.
+ *  - `index`: Current theme index.
+ *  - `setIndex`: Function to update the current theme index.
+ *  - `setImageSliderLoading`: Function to update the image slider loading state.
+ *
+ * @returns JSX element representing the explanation section for a course theme.
+ */
+
 function ExplanationTheme({
     data,
     setIndex,

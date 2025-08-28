@@ -12,6 +12,25 @@ type Props = {
     setIsOpen: Dispatch<SetStateAction<boolean>>;
 };
 
+/**
+ * UserLoggedIn component that displays user information and actions for authenticated users.
+ *
+ * Features:
+ * - `FigureImage`: Shows the user's avatar with default fallback and proper sizing.
+ * - Displays the username of the authenticated user.
+ * - `Button` with `FaSignOutAlt` icon for signing out.
+ * - `HamburguerMenuButton` to open the mobile hamburger menu.
+ *
+ * Hooks:
+ * - `useUserAuthStore`: Retrieves the current authenticated user's information.
+ *
+ * Props:
+ * - `handleSignOut` (function): Function to execute user sign-out.
+ * - `setIsOpen` (Dispatch<SetStateAction<boolean>>): Function to open the hamburger menu.
+ *
+ * @returns JSX element rendering user information, sign-out button, and mobile menu button for authenticated users.
+ */
+
 function UserLoggedIn({ handleSignOut, setIsOpen }: Props) {
     const { user } = useUserAuthStore();
 

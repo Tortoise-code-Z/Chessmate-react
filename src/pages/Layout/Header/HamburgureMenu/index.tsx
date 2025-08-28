@@ -9,6 +9,21 @@ type Props = {
     setIsOpen: Dispatch<SetStateAction<boolean>>;
 };
 
+/**
+ * HamburguerMenu component that renders the full hamburger menu for mobile navigation.
+ *
+ * Features:
+ * - `Button` with `FaXmark` icon to close the menu.
+ * - `HamburguerMenuLinkList`: Displays the list of navigation links inside the menu.
+ * - Calls `handleSignOut` for sign-out actions and toggles menu visibility via `setIsOpen`.
+ *
+ * Props:
+ * - `handleSignOut` (function): Function to execute user sign-out.
+ * - `setIsOpen` (Dispatch<SetStateAction<boolean>>): Function to toggle the menu open/close state.
+ *
+ * @returns JSX element rendering the hamburger menu with close button and navigation links.
+ */
+
 function HamburguerMenu({ handleSignOut, setIsOpen }: Props) {
     return (
         <div className={styles.container}>

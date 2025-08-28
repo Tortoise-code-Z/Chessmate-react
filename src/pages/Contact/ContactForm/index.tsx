@@ -18,6 +18,19 @@ import { useLocation } from "react-router-dom";
 
 type Props = {};
 
+/**
+ * Contact form component for sending messages.
+ *
+ * - Prefills `name` and `email` if the user is logged in.
+ * - Validates form input using `contactSchema`.
+ * - Shows a `LightComponent` visual effect in the form area.
+ * - Displays a global `FeedbackMessage` when the form is successfully submitted.
+ *
+ * Props: none
+ *
+ * @returns JSX element rendering the contact form.
+ */
+
 function ContactForm({}: Props) {
     const { user } = useUserAuthStore();
     const { data, isLoading, error } = useUserEmail(

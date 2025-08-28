@@ -8,6 +8,20 @@ type Props = {
     data: UseCourseApiType;
 };
 
+/**
+ * CourseData component displaying the title and description of the current course theme.
+ *
+ * - Shows the main course title and the selected theme's title using `TitleHx`.
+ * - Displays the theme description with a typewriter effect using `WritteMachine`.
+ * - Retrieves the current theme's description based on the `index` prop.
+ *
+ * Props:
+ *  - `data`: Course data of type `UseCourseApiType`.
+ *  - `index`: Current theme index.
+ *
+ * @returns JSX element representing the course data section for the selected theme.
+ */
+
 function CourseData({ data, index }: Props) {
     const description =
         data.courses.content.themes.find((t) => t.id === index)?.description ||

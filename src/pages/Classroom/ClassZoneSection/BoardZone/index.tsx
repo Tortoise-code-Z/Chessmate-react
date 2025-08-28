@@ -12,6 +12,23 @@ type Props = {
     setImageSliderLoading: Dispatch<SetStateAction<boolean>>;
 };
 
+/**
+ * BoardZone component that organizes the main course content and theme navigation.
+ *
+ * - Renders the `Board` component to display the current theme's content.
+ * - Renders the `CourseThemes` component for theme navigation and selection.
+ * - Manages theme index and image slider loading state via props.
+ *
+ * Props:
+ *  - `data`: Course data of type `UseCourseApiType`.
+ *  - `setIndex`: Function to update the current theme index.
+ *  - `index`: Current theme index.
+ *  - `imageSliderLoading`: Boolean indicating if the image slider is loading.
+ *  - `setImageSliderLoading`: Function to update the image slider loading state.
+ *
+ * @returns JSX element representing the board zone for course content.
+ */
+
 function BoardZone({
     setIndex,
     index,
@@ -20,7 +37,7 @@ function BoardZone({
     setImageSliderLoading,
 }: Props) {
     return (
-        <div className={[styles.boardContainer].join(" ")}>
+        <div className={styles.boardContainer}>
             <Board
                 data={data}
                 index={index}

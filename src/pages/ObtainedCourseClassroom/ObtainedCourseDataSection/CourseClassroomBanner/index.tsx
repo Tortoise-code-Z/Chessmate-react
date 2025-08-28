@@ -7,6 +7,20 @@ type Props = {
     data: Course & IsObtainedCourse;
 };
 
+/**
+ * CourseClassroomBanner component that renders the banner for a specific course classroom.
+ *
+ * Features:
+ * - Displays a welcome message for the user.
+ * - TitleHx component showing the course title.
+ * - Banner background image with dynamic source and dimensions based on course data.
+ *
+ * Props:
+ * - data: Object containing course details, including title and full image URL.
+ *
+ * @returns JSX element rendering the course classroom banner.
+ */
+
 function CourseClassroomBanner({ data }: Props) {
     return (
         <div className={styles.courseClassroomBanner}>

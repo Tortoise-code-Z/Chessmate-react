@@ -10,6 +10,22 @@ type Props = {
     setImageSliderLoading: Dispatch<SetStateAction<boolean>>;
 };
 
+/**
+ * Board component displaying images for the current course theme with an automatic slider.
+ *
+ * - Uses `AutoSliderImages` to show theme-related images with automatic transitions.
+ * - Updates loading state for images to avoid flickering when changing themes.
+ * - Retrieves the current theme's images and title based on the `index` prop.
+ *
+ * Props:
+ *  - `data`: Course data of type `UseCourseApiType`.
+ *  - `index`: Current theme index to display.
+ *  - `imageSliderLoading`: Boolean indicating if the image slider is loading.
+ *  - `setImageSliderLoading`: Function to update the image slider loading state.
+ *
+ * @returns JSX element representing the board with theme images.
+ */
+
 function Board({
     data,
     imageSliderLoading,

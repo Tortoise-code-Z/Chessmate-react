@@ -9,6 +9,21 @@ import TitleHx from "../../components/TitleHx";
 
 type Props = {};
 
+/**
+ * Register component that renders the user registration page.
+ *
+ * Features:
+ * - FeedbackMessage component displayed at the top for notifications.
+ * - TitleHx displaying the registration title with styled text.
+ * - RegisterForm handling user input and submission.
+ * - FigureImage displaying a decorative image for the registration page.
+ *
+ * Hooks:
+ * - useRegister: Handles the registration mutation and provides pending state.
+ *
+ * @returns JSX element rendering the complete registration page with form, feedback, and image.
+ */
+
 function Register({}: Props) {
     const { mutate, isPending } = useRegister();
     const handleSubmit = (data: registerSchemaValues) => mutate(data);

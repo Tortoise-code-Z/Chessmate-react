@@ -9,6 +9,20 @@ type Props = {
     setIsOpen: Dispatch<SetStateAction<boolean>>;
 };
 
+/**
+ * UserSesionActions component that renders login and registration actions for unauthenticated users.
+ *
+ * Features:
+ * - `NavLink` styled as primary button for registration.
+ * - `NavLink` styled as secondary button for login.
+ * - `HamburguerMenuButton` to open the mobile hamburger menu.
+ *
+ * Props:
+ * - `setIsOpen` (Dispatch<SetStateAction<boolean>>): Function to open the hamburger menu.
+ *
+ * @returns JSX element rendering login, registration, and mobile menu button actions for unauthenticated users.
+ */
+
 function UserSesionActions({ setIsOpen }: Props) {
     return (
         <div className={styles.userActions}>

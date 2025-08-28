@@ -12,6 +12,24 @@ type Props = {
     setShowVideo: Dispatch<SetStateAction<ThemeContent | null>>;
 };
 
+/**
+ * CourseThemes component that renders the list of themes for a specific course.
+ *
+ * Features:
+ * - Displays an introduction explaining the course structure and video lessons.
+ * - Maps through the course's themes and renders each one using CourseThemeItem.
+ * - Handles which video is currently active via state.
+ *
+ * State:
+ * - videosIndex: Index of the currently active video or null if none is selected.
+ *
+ * Props:
+ * - data: Object containing course details including themes and content.
+ * - setShowVideo: Function to update the currently selected theme content for video playback.
+ *
+ * @returns JSX element rendering the course themes with video selection functionality.
+ */
+
 function CourseThemes({ data, setShowVideo }: Props) {
     const [videosIndex, setVideosIndex] = useState<number | null>(null);
 

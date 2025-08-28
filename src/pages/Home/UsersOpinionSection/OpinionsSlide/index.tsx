@@ -5,6 +5,19 @@ type Props = {
     data: Opinion;
 };
 
+/**
+ * OpinionsSlide component that displays a single student opinion.
+ *
+ * Features:
+ * - Shows user information including username, title, and ELO rating if available.
+ * - Displays the user's opinion text in quotes.
+ *
+ * Props:
+ * - `data` (Opinion): Object containing the opinion text and user details.
+ *
+ * @returns JSX element rendering a single opinion slide for use in a carousel.
+ */
+
 function OpinionsSlide({ data }: Props) {
     return (
         <div className={styles.opinionContainer}>

@@ -9,6 +9,30 @@ type Props = {
     msg?: string;
 };
 
+/**
+ * ErrorElement component that displays an error message for route or custom errors.
+ *
+ * Features:
+ * - Light decorative components positioned at top-right.
+ * - `TitleHx`: Shows the error title based on the type of error.
+ * - Displays error message for route errors, custom messages, or general JavaScript errors.
+ * - Conditional navigation or retry:
+ *   - `NavLink` to return to home if no custom message is provided.
+ *   - `Button` to reload the page if a custom message is provided.
+ * - Contact information for support if the issue persists.
+ *
+ * State: none
+ *
+ * Hooks:
+ * - `useRouteError`: Accesses the current route error if available.
+ * - `isRouteErrorResponse`: Determines if the error is a route error response.
+ *
+ * Props:
+ * - `msg` (string, optional): Custom error message to override route errors.
+ *
+ * @returns JSX element rendering a styled error message section with optional navigation or retry actions.
+ */
+
 export default function ErrorElement({ msg }: Props) {
     const error = msg ? null : useRouteError();
 

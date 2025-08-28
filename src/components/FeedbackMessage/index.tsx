@@ -9,17 +9,17 @@ type Props = {
 };
 
 /**
- * Componente de mensaje fijo (feedback) que se muestra de forma condicional según el estado global.
+ * Fixed feedback message component that is displayed conditionally based on global state.
  *
- * - Obtiene el mensaje y su tipo (`success` | `error`) desde `useFeedbackMessageStore`.
- * - Se oculta automáticamente tras un tiempo definido o permanece visible de forma infinita.
- * - Su posición en pantalla puede configurarse en la parte superior o inferior.
+ * - Retrieves the message and its type (`success` | `error`) from `useFeedbackMessageStore`.
+ * - Automatically hides after a defined time or remains visible indefinitely.
+ * - Its screen position can be configured at the top or bottom.
  *
  * Props:
- * - `position` → Posición en la pantalla donde se muestra el mensaje (por defecto: `"bottom"`).
- * - `time` → Tiempo en milisegundos antes de ocultar el mensaje. Usa `"infinite"` para no cerrarlo automáticamente (por defecto: `5000`).
+ * - `position` → Position on the screen where the message appears (default: `"bottom"`).
+ * - `time` → Time in milliseconds before hiding the message. Use `"infinite"` to keep it displayed indefinitely (default: `5000`).
  *
- * @returns Mensaje flotante de feedback o `null` si no está activo.
+ * @returns Floating feedback message or `null` if not active.
  */
 
 function FeedbackMessage({ position = "bottom", time = 5000 }: Props) {

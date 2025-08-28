@@ -6,6 +6,17 @@ import TitleHx from "../../../components/TitleHx";
 
 type Props = {};
 
+/**
+ * SignupCallToAction component that prompts users to register on the platform.
+ *
+ * Features:
+ * - `TitleHx`: Displays a call-to-action title with styled span.
+ * - Paragraph highlighting access to free courses and exclusive lessons.
+ * - `NavLink` styled as a button with an icon to navigate to the registration page.
+ *
+ * @returns JSX element rendering a sign-up call-to-action section.
+ */
+
 function SignupCallToAction({}: Props) {
     return (
         <section className={styles.signUpCallToAction}>

@@ -9,6 +9,20 @@ type Props = {
     isPending: boolean;
 };
 
+/**
+ * LoginFormActions component that renders the action buttons and links for the login form.
+ *
+ * Features:
+ * - "Back to Home" button navigating to the main index page.
+ * - Submit button for logging in, showing a loading spinner and disabled state when pending.
+ * - Link to the registration page for users without an account.
+ *
+ * Props:
+ * - isPending: Boolean indicating if the login action is in progress.
+ *
+ * @returns JSX element rendering the login form actions section with buttons and links.
+ */
+
 function LoginFormActions({ isPending }: Props) {
     return (
         <>

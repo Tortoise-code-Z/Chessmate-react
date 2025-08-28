@@ -6,6 +6,18 @@ import styles from "./CloseHomeSection.module.css";
 
 type Props = {};
 
+/**
+ * CloseHomeSection component that serves as the closing section of the homepage.
+ *
+ * Features:
+ * - Light decorative component positioned top-right.
+ * - `TitleHx`: Displays a thank-you message with styled text.
+ * - Paragraph inviting users to the student portal.
+ * - `FigureImage`: Displays the logo image with proper sizing and alt/title attributes.
+ *
+ * @returns JSX element rendering the closing section of the homepage with message and logo.
+ */
+
 function CloseHomeSection({}: Props) {
     return (
         <section className={styles.closeHomeSection}>

@@ -8,6 +8,20 @@ type Props = {
     handleFilterClick: (value: FilterOptions) => void;
 };
 
+/**
+ * Renders a set of filter buttons for selecting course filters.
+ *
+ * Features:
+ * - Highlights the currently selected filter.
+ * - Defaults to "Todos" when no filter is selected.
+ *
+ * Props:
+ * - `filter`: The currently active filter option.
+ * - `handleFilterClick`: Callback function invoked with the selected filter when a button is clicked.
+ *
+ * @returns JSX element containing filter buttons.
+ */
+
 function Filters({ filter, handleFilterClick }: Props) {
     return (
         <div className={styles.filters}>

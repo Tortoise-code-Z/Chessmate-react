@@ -7,6 +7,20 @@ import OpinionsSlide from "../OpinionsSlide";
 
 type Props = {};
 
+/**
+ * OpinionsCarrousel component that displays student opinions in a carousel format.
+ *
+ * Features:
+ * - `DataStateWrapper`: Handles loading and error states when fetching opinions.
+ * - `EmblaCarousel`: Renders opinions as slides with looping, autoplay, and fit-height configuration.
+ * - `OpinionsSlide`: Component used for each individual opinion slide.
+ *
+ * Hooks:
+ * - `useUsersOpinions`: Fetches user opinions from the database.
+ *
+ * @returns JSX element rendering a carousel of student opinions with loading and error handling.
+ */
+
 function OpinionsCarrousel({}: Props) {
     const { data, isLoading, error } = useUsersOpinions(DATABASE_KEY);
 

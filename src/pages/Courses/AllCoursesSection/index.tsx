@@ -13,6 +13,30 @@ import TitleHx from "../../../components/TitleHx";
 
 type Props = {};
 
+/**
+ * Section component that displays all available courses with search and filter functionality.
+ *
+ * Features:
+ * - Light decorative component positioned top-right.
+ * - Title highlighting "All Courses".
+ * - `SearchBar`: Allows users to search courses and apply filter options.
+ * - `DataStateWrapper`: Handles loading and error states when fetching courses.
+ * - `CoursesDisplay`: Displays the courses in a row layout when data is available.
+ * - Fallback message with icon when no courses are found.
+ *
+ * State:
+ * - `search`: Current search query string.
+ * - `filter`: Current filter option selected by the user.
+ *
+ * Hooks:
+ * - `useAllCourses`: Fetches all courses according to the search and filter criteria.
+ * - `useUserAuthStore`: Retrieves the current authenticated user's ID.
+ *
+ * Props: none
+ *
+ * @returns JSX element rendering the complete "All Courses" section.
+ */
+
 function AllCoursesSection({}: Props) {
     const [search, setSearch] = useState<string>("");
     const [filter, setFilter] = useState<FilterOptions | undefined>();

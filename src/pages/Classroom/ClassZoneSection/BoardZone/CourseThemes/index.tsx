@@ -11,6 +11,22 @@ type Props = {
     setImageSliderLoading: Dispatch<SetStateAction<boolean>>;
 };
 
+/**
+ * CourseThemes component displaying buttons for each theme in a course.
+ *
+ * - Renders a button for every theme, highlighting the currently selected theme.
+ * - Shows a checkmark icon if the user has completed the theme.
+ * - Updates the current theme index and triggers image slider loading when a theme button is clicked.
+ *
+ * Props:
+ *  - `data`: Course data of type `UseCourseApiType`.
+ *  - `index`: Current theme index.
+ *  - `setIndex`: Function to update the current theme index.
+ *  - `setImageSliderLoading`: Function to update the image slider loading state.
+ *
+ * @returns JSX element containing the list of theme buttons.
+ */
+
 function CourseThemes({ data, index, setImageSliderLoading, setIndex }: Props) {
     return (
         <div className={styles.themes}>
