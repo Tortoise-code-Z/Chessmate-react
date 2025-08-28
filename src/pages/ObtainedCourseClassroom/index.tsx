@@ -1,35 +1,23 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import UserCoursesSection from "../../components/UserCoursesSection";
 import ObtainedCourseDataSection from "./ObtainedCourseDataSection";
 import TitleHx from "../../components/TitleHx";
 import CourseCommentSection from "../../components/CourseCommentSection";
 import ProfessorFixedMessage from "../../components/ProfessorFixedMessage";
 import FeedbackMessage from "../../components/FeedbackMessage";
-import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
 import { useProfessorMsgStore } from "../../hooks/useProfessorMsgStore";
-import { useEffect } from "react";
 
 type Props = {};
 
 function ObtainedCourseClassroom({}: Props) {
     const params = useParams();
-    const location = useLocation();
-    const {
-        state: feedBackState,
-        path,
-        reset,
-        setPath,
-    } = useFeedbackMessageStore();
-    useEffect(() => {
-        if (reset) setPath("");
-    }, [location.pathname]);
+
     const { state } = useProfessorMsgStore();
 
     return (
         <>
             {state && <ProfessorFixedMessage />}
-            {feedBackState && path === location.pathname && <FeedbackMessage />}
-
+            <FeedbackMessage />
             <ObtainedCourseDataSection />
             <CourseCommentSection />
             <UserCoursesSection

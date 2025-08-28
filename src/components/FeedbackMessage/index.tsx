@@ -5,18 +5,29 @@ import { useLocation } from "react-router-dom";
 
 type Props = {
     position?: "top" | "bottom";
-    time?: number | "fixed";
+    time?: number | "infinite";
 };
 
 function FeedbackMessage({ position = "bottom", time = 5000 }: Props) {
-    const { msg, type, reset, setPath, setMsg, setReset, setState, setType } =
-        useFeedbackMessageStore();
+    const {
+        msg,
+        type,
+        reset,
+        setMsg,
+        setReset,
+        setState,
+        setType,
+        state,
+        path,
+        setPath,
+    } = useFeedbackMessageStore();
+
     const location = useLocation();
 
     useEffect(() => {
         let timeout: ReturnType<typeof setTimeout>;
 
-        if (time !== "fixed") {
+        if (time !== "infinite") {
             timeout = setTimeout(() => {
                 setState(false);
                 if (!reset) setReset(true);
@@ -30,18 +41,30 @@ function FeedbackMessage({ position = "bottom", time = 5000 }: Props) {
         };
     }, []);
 
+    useEffect(() => {
+        if (reset) {
+            setPath("");
+        } else {
+            setReset(true);
+        }
+    }, [location.pathname]);
+
     return (
-        <div
-            className={[
-                type === "success"
-                    ? styles.successFixedMsg
-                    : styles.errorFixedMsg,
-                position === "top" ? styles.msgTop : styles.msgBottom,
-                styles.fixedMsg,
-            ].join(" ")}
-        >
-            <span>{msg}</span>
-        </div>
+        <>
+            {state && path === location.pathname ? (
+                <div
+                    className={[
+                        type === "success"
+                            ? styles.successFixedMsg
+                            : styles.errorFixedMsg,
+                        position === "top" ? styles.msgTop : styles.msgBottom,
+                        styles.fixedMsg,
+                    ].join(" ")}
+                >
+                    <span>{msg}</span>
+                </div>
+            ) : null}
+        </>
     );
 }
 

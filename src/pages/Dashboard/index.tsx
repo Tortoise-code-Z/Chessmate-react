@@ -3,30 +3,16 @@ import BestPlayersSection from "../../components/BestPlayersSection";
 import CoursesRecomended from "../../components/CoursesRecomended";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import UserCoursesSection from "../../components/UserCoursesSection";
-import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
 import FeedbackMessage from "../../components/FeedbackMessage";
 import TitleHx from "../../components/TitleHx";
 import { useProfessorMsgStore } from "../../hooks/useProfessorMsgStore";
 import ProfessorFixedMessage from "../../components/ProfessorFixedMessage";
-import { useLocation } from "react-router-dom";
 
 type Props = {};
 
 function Dashboard({}: Props) {
     const { user } = useUserAuthStore();
     const { setState, state, setValue } = useProfessorMsgStore();
-    const {
-        state: feedBackState,
-        path,
-        reset,
-        setPath,
-    } = useFeedbackMessageStore();
-
-    const location = useLocation();
-
-    useEffect(() => {
-        if (reset) setPath("");
-    }, [location.pathname]);
 
     useEffect(() => {
         if (user?.firstLogin) {
@@ -38,8 +24,7 @@ function Dashboard({}: Props) {
     return (
         <>
             {user?.firstLogin && state && <ProfessorFixedMessage />}
-            {feedBackState && path === location.pathname && <FeedbackMessage />}
-
+            <FeedbackMessage />
             <UserCoursesSection navbarHeight={true}>
                 <TitleHx level={2}>
                     Mis{" "}
