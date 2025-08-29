@@ -54,5 +54,5 @@ export const DEFAULT_COURSE_IMAGE = {
     image: getImage(DEFAULT_COURSE_URL_PATH, ["static"]),
     width: getImageSize(DEFAULT_COURSE_URL_PATH, "width"),
     height: getImageSize(DEFAULT_COURSE_URL_PATH, "height"),
-    alt: "Ups...",
+    alt: "Contacta con nuestro equipo",
 };

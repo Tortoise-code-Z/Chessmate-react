@@ -6,6 +6,7 @@ import { PATHS } from "../../../../../consts/paths";
 import TitleHx from "../../../../TitleHx";
 import FigureImage from "../../../../FigureImage";
 import { getImage, getImageSize } from "../../../../../utils/images";
+import { DEFAULT_COURSE_IMAGE } from "../../../../../consts/images";
 
 type Props = {
     data: DefualtCourse & Progress;
@@ -27,22 +28,38 @@ type Props = {
 
 function UserDefaultCourseItem({ data }: Props) {
     return (
-        <Link
-            to={`/${PATHS.class.replace(":id", data.curseID.toString())}`}
-            className={[styles.userDefaultCourseItem].join(" ")}
-        >
-            <UserProgress data={data} />
-            <FigureImage
-                src={getImage(data.imageUrl.general, ["defaultCourses"])}
-                alt={data.title}
-                title={data.title}
-                width={getImageSize(data.imageUrl.general, "width")}
-                height={getImageSize(data.imageUrl.general, "height")}
-            />
-            <TitleHx classNames={[styles.title]} level={4}>
-                {data.title}
-            </TitleHx>
-        </Link>
+        <>
+            <Link
+                to={`/${PATHS.class.replace(":id", data.curseID.toString())}`}
+                className={styles.userDefaultCourseItem}
+            >
+                <UserProgress data={data} />
+                <FigureImage
+                    src={
+                        data?.imageUrl?.general
+                            ? getImage(data.imageUrl.general, [
+                                  "defaultCourses",
+                              ])
+                            : DEFAULT_COURSE_IMAGE.image
+                    }
+                    alt={data?.title ?? "Pieza"}
+                    title={data?.title ?? "Pieza"}
+                    width={
+                        data?.imageUrl?.general
+                            ? getImageSize(data.imageUrl.general, "height")
+                            : DEFAULT_COURSE_IMAGE.width
+                    }
+                    height={
+                        data?.imageUrl?.general
+                            ? getImageSize(data?.imageUrl?.general, "height")
+                            : DEFAULT_COURSE_IMAGE.height
+                    }
+                />
+                <TitleHx classNames={[styles.title]} level={4}>
+                    {data?.title ?? "Pieza"}
+                </TitleHx>
+            </Link>
+        </>
     );
 }
 

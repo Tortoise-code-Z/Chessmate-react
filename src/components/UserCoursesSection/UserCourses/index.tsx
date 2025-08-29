@@ -3,6 +3,8 @@ import UserDefaultCourses from "./UserDefaultCourses";
 import LightComponent from "../../LightComponent";
 import TitleHx from "../../TitleHx";
 import UserObtainedCourses from "./UserObtainedCourses";
+import { useState } from "react";
+import { FaExclamationTriangle } from "react-icons/fa";
 
 type Props = {
     obtainedCoursesLimit?: number;
@@ -35,13 +37,39 @@ function UserCourses({
     showDefaultCourses = true,
     msg,
 }: Props) {
+    const [defaultWarning, setDefaultWarning] = useState<boolean>(false);
+
     return (
         <div className={styles.userCourses}>
             <LightComponent top={50} right={30} />
             {showDefaultCourses && (
                 <div className={styles.userDefaultCoursesContainer}>
+                    {defaultWarning && (
+                        <>
+                            <div
+                                style={{
+                                    width: "100%",
+                                    padding: "10px 20px",
+                                    backgroundColor: "#f7b90faf",
+                                    borderRadius: "5px",
+                                    display: "flex",
+                                    gap: "10px",
+                                    fontFamily: "Roboto-light-italic",
+                                }}
+                            >
+                                <FaExclamationTriangle />
+                                <p>
+                                    No se han podido renderizar algunos cursos.
+                                </p>
+                            </div>
+                        </>
+                    )}
+
                     <TitleHx level={3}>Gratuitos</TitleHx>
-                    <UserDefaultCourses />
+                    <UserDefaultCourses
+                        setDefaultWarning={setDefaultWarning}
+                        defaultWarning={defaultWarning}
+                    />
                 </div>
             )}
 

@@ -30,14 +30,17 @@ export const getDefaultCoursesWithProgress: (
     data: BBDD,
     user: User
 ) => (DefualtCourse & Progress)[] = (data, user) => {
-    return data.defaultCourses.map((df) => {
-        return {
-            ...df,
-            progress:
-                user.defaultCourses.find((udf) => udf.courseId === df.curseID)
-                    ?.progress || 0,
-        };
-    });
+    return data?.defaultCourses?.map((df) =>
+        df
+            ? {
+                  ...df,
+                  progress:
+                      user?.defaultCourses?.find(
+                          (udf) => udf.courseId === df.curseID
+                      )?.progress || 0,
+              }
+            : ({} as DefualtCourse & Progress)
+    );
 };
 
 export const checkPassword: (
@@ -121,10 +124,11 @@ export const getUserDefaultCourseThemes: (
     userID: number,
     courseID: number
 ) => ThemesUserStates[] = (data, userID, courseID) => {
+    console.log(courseID);
     return (
         data.users
             .find((u) => u.userID === userID)
-            ?.defaultCourses.find((dc) => dc.courseId === courseID)?.themes ||
+            ?.defaultCourses?.find((dc) => dc?.courseId === courseID)?.themes ||
         ([] as ThemesUserStates[])
     );
 };
@@ -134,7 +138,7 @@ export const getDefaultCourse: (
     courseID: number
 ) => DefualtCourse = (data, courseID) => {
     return (
-        data.defaultCourses.find((dc) => dc.curseID === courseID) ||
+        data.defaultCourses.find((dc) => dc?.curseID === courseID) ||
         ({} as DefualtCourse)
     );
 };
