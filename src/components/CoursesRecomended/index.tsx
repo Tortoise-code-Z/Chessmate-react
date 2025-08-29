@@ -63,7 +63,11 @@ function CoursesRecomended({
                 {titleContain}
             </TitleHx>
 
-            <DataStateWrapper isLoading={isLoading} error={error}>
+            <DataStateWrapper
+                isLoading={isLoading}
+                error={error}
+                errorMsg="No se ha podido recuperar los cursos."
+            >
                 <CoursesDisplay
                     courses={data ?? ([] as CourseJSON[])}
                     display="Col"

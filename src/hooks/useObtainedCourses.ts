@@ -41,9 +41,10 @@ export default function useObtainedCourses(
                 const id = uc.courseId;
                 const course = getCourseById(data, id);
                 const rest = deleteKey(uc, "courseId");
-
                 return { ...course, ...rest };
             });
+
+            console.log(mappingUserCourses);
 
             if (currentCourseID) {
                 mappingUserCourses = mappingUserCourses.filter(

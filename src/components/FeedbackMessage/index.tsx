@@ -58,8 +58,6 @@ function FeedbackMessage({ position = "bottom", time = 5000 }: Props) {
     useEffect(() => {
         if (reset) {
             setPath("");
-        } else {
-            setReset(true);
         }
     }, [location.pathname, reset]);
 

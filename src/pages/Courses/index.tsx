@@ -27,6 +27,7 @@ function Courses({}: Props) {
         <>
             <ProfessorFixedMessage />
             <FeedbackMessage />
+
             <CourseBanner />
             <RecentCoursesSection />
             <BestSellersSection

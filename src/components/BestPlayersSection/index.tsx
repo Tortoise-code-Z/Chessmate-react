@@ -38,7 +38,7 @@ function BestPlayersSection({}: Props) {
             <DataStateWrapper
                 isLoading={isLoading}
                 error={error}
-                errorMsg={"No se ha podido recuperar los cursos"}
+                errorMsg={"No se ha podido recuperar los datos"}
             >
                 <div className={styles.sliderContainer}>
                     <EmblaCarousel

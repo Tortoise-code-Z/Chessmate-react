@@ -6,6 +6,7 @@ import useObtainedCourses from "../../../../hooks/useObtainedCourses";
 import { DATABASE_KEY } from "../../../../consts/dataBaseKey";
 import ThereArentCourses from "./ThereArentCourses";
 import DataStateWrapper from "../../../DataStateWrapperProps";
+import UserObtainedItemDefault from "./UserObtainedItemDefault";
 
 type Props = {
     obtainedCoursesLimit?: number;
@@ -43,9 +44,16 @@ function UserObtainedCourses({ obtainedCoursesLimit, msg }: Props) {
             <DataStateWrapper isLoading={isLoading} error={error}>
                 {data && data.length > 0 ? (
                     <div className={styles.userObtainedCourses}>
-                        {data.map((c) => (
-                            <UserObtainedCoursesItem key={c.curseID} data={c} />
-                        ))}
+                        {data.map((c) =>
+                            c?.curseID ? (
+                                <UserObtainedCoursesItem
+                                    key={c.curseID}
+                                    data={c}
+                                />
+                            ) : (
+                                <UserObtainedItemDefault />
+                            )
+                        )}
                     </div>
                 ) : (
                     <ThereArentCourses msg={msg} />
