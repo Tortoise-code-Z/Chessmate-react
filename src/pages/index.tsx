@@ -51,8 +51,6 @@ export const route = createBrowserRouter([
         children: [{ index: true, element: <Classroom /> }],
     },
 
-    //------------------------------------------------------------
-
     {
         path: `/${PATHS.coursesDetail}`,
         errorElement: <ErrorElement />,
@@ -67,8 +65,6 @@ export const route = createBrowserRouter([
         children: [{ index: true, element: <ObtainedCourseClassroom /> }],
     },
 
-    //------------------------------------------------------------
-
     {
         path: `/${PATHS.dashboard}`,
         errorElement: <ErrorElement />,
@@ -78,12 +74,13 @@ export const route = createBrowserRouter([
 
     {
         path: `/${PATHS.login}`,
-        element: <Login />,
         errorElement: <ErrorElement />,
+        element: <Login />,
     },
+
     {
         path: `/${PATHS.register}`,
-        element: <Register />,
         errorElement: <ErrorElement />,
+        element: <Register />,
     },
 ]);

@@ -53,7 +53,7 @@ function FeedbackMessage({ position = "bottom", time = 5000 }: Props) {
         return () => {
             clearTimeout(timeout);
         };
-    }, []);
+    }, [state]);
 
     useEffect(() => {
         if (reset) {
@@ -61,7 +61,7 @@ function FeedbackMessage({ position = "bottom", time = 5000 }: Props) {
         } else {
             setReset(true);
         }
-    }, [location.pathname]);
+    }, [location.pathname, reset]);
 
     return (
         <>
