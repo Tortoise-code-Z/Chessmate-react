@@ -33,6 +33,8 @@ export default function useCourseExists(courseID: number, key: string) {
             (course) => course.curseID === courseID
         );
 
+        console.log(existsCourse);
+
         return existsCourse;
     };
 

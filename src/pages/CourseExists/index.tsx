@@ -1,10 +1,13 @@
-import { Navigate, Outlet, useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import LoadingPage from "../../components/LoadingPage";
 import { PATHS } from "../../consts/paths";
 import { DATABASE_KEY } from "../../consts/dataBaseKey";
 import useCourseExists from "../../hooks/useExistsCourse";
+import { ReactNode } from "react";
 
-type Props = {};
+type Props = {
+    children: ReactNode;
+};
 
 /**
  * Route guard component that checks if a course exists for the user.
@@ -14,12 +17,12 @@ type Props = {};
  * - Redirects to the courses page if the course does not exist.
  * - Renders nested routes via `<Outlet />` if the course exists.
  *
- * Props: none
+ * Props: `children` (ReactNode): Components to render if the course exists.
  *
  * @returns JSX element rendering a loading page, redirect, or nested route.
  */
 
-function CourseExists({}: Props) {
+function CourseExists({ children }: Props) {
     const params = useParams();
 
     const { data, isLoading } = useCourseExists(
@@ -27,13 +30,13 @@ function CourseExists({}: Props) {
         DATABASE_KEY
     );
 
-    if (isLoading) return <LoadingPage msg="Comprobando curso obtenido..." />;
+    if (isLoading) return <LoadingPage msg="Cargando curso..." />;
 
     if (!data) {
         return <Navigate to={`/${PATHS.courses}`} />;
     }
 
-    return <Outlet />;
+    return <>{children}</>;
 }
 
 export default CourseExists;

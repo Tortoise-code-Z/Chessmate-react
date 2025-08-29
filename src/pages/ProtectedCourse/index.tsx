@@ -1,11 +1,14 @@
-import { Navigate, Outlet, useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import LoadingPage from "../../components/LoadingPage";
 import { PATHS } from "../../consts/paths";
 import useHaveObtainedCourse from "../../hooks/useHaveObtainedCourse";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import { DATABASE_KEY } from "../../consts/dataBaseKey";
+import { ReactNode } from "react";
 
-type Props = {};
+type Props = {
+    children: ReactNode;
+};
 
 /**
  * ProtectedCourse component that guards access to a course classroom based on user enrollment.
@@ -23,7 +26,7 @@ type Props = {};
  * @returns JSX element rendering either the loading state, a redirect, or the protected course content.
  */
 
-function ProtectedCourse({}: Props) {
+function ProtectedCourse({ children }: Props) {
     const params = useParams();
     const { user } = useUserAuthStore();
 
@@ -33,7 +36,7 @@ function ProtectedCourse({}: Props) {
         DATABASE_KEY
     );
 
-    if (isLoading) return <LoadingPage msg="Comprobando curso obtenido..." />;
+    if (isLoading) return <LoadingPage msg="Cargando curso..." />;
 
     if (!data) {
         return (
@@ -46,7 +49,7 @@ function ProtectedCourse({}: Props) {
         );
     }
 
-    return <Outlet />;
+    return <>{children}</>;
 }
 
 export default ProtectedCourse;

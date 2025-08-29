@@ -32,10 +32,12 @@ export default function useHaveObtainedCourse(
             throw new Error("Ha habido un problema al recuperar los datos...");
 
         const userCourses = getUserObtainedCourses(userID, data);
-
+        console.log(userCourses, "tiene cursos");
         const haveCourse = userCourses.some(
             (course) => course.courseId === courseID
         );
+
+        console.log(haveCourse, "verdad¿?");
 
         return haveCourse;
     };

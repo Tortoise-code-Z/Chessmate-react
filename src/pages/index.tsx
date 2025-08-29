@@ -11,9 +11,8 @@ import Classroom from "./Classroom";
 import Login from "./Login";
 import Register from "./Register";
 import ProtectedLayout from "./ProtectedLayout";
-import ProtectedCourse from "./ProtectedCourse";
-import CourseExists from "./CourseExists";
 import ObtainedCourseClassroom from "./ObtainedCourseClassroom";
+import ProtectedLayoutAndCourse from "./ProtectedLayoutAndCourse";
 
 /**
  * Defines the application's routing structure using `createBrowserRouter`.
@@ -41,39 +40,40 @@ export const route = createBrowserRouter([
         children: [
             { index: true, element: <Home /> },
             { path: `/${PATHS.courses}`, element: <Courses /> },
-            {
-                path: `/${PATHS.coursesDetail}`,
-                element: <CourseExists />,
-                children: [{ index: true, element: <CoursesDetail /> }],
-            },
             { path: `/${PATHS.contact}`, element: <Contact /> },
         ],
     },
 
-    {
-        path: `/${PATHS.dashboard}`,
-        errorElement: <ErrorElement />,
-        element: <ProtectedLayout />,
-        children: [{ index: true, element: <Dashboard /> }],
-    },
     {
         path: `/${PATHS.class}`,
         errorElement: <ErrorElement />,
         element: <ProtectedLayout />,
         children: [{ index: true, element: <Classroom /> }],
     },
+
+    //------------------------------------------------------------
+
+    {
+        path: `/${PATHS.coursesDetail}`,
+        errorElement: <ErrorElement />,
+        element: <ProtectedLayoutAndCourse checkProtectedCourse={false} />,
+        children: [{ index: true, element: <CoursesDetail /> }],
+    },
+
     {
         path: `/${PATHS.obtainedCourseClassroom}`,
         errorElement: <ErrorElement />,
+        element: <ProtectedLayoutAndCourse />,
+        children: [{ index: true, element: <ObtainedCourseClassroom /> }],
+    },
+
+    //------------------------------------------------------------
+
+    {
+        path: `/${PATHS.dashboard}`,
+        errorElement: <ErrorElement />,
         element: <ProtectedLayout />,
-        children: [
-            {
-                element: <ProtectedCourse />,
-                children: [
-                    { index: true, element: <ObtainedCourseClassroom /> },
-                ],
-            },
-        ],
+        children: [{ index: true, element: <Dashboard /> }],
     },
 
     {
