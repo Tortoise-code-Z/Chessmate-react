@@ -38,6 +38,7 @@ function UserCourses({
     msg,
 }: Props) {
     const [defaultWarning, setDefaultWarning] = useState<boolean>(false);
+    const [courseWarning, setCourseWarning] = useState<boolean>(false);
 
     return (
         <div className={styles.userCourses}>
@@ -49,34 +50,54 @@ function UserCourses({
                             <div
                                 style={{
                                     width: "100%",
-                                    padding: "10px 20px",
+                                    padding: "15px 20px",
                                     backgroundColor: "#f7b90faf",
                                     borderRadius: "5px",
                                     display: "flex",
                                     gap: "10px",
-                                    fontFamily: "Roboto-light-italic",
+                                    fontFamily: "Roboto-italic",
                                 }}
                             >
                                 <FaExclamationTriangle />
                                 <p>
-                                    No se han podido renderizar algunos cursos.
+                                    No se han podido recuperar algunos cursos.
+                                    Estamos trabajando para solucionarlo.
                                 </p>
                             </div>
                         </>
                     )}
 
                     <TitleHx level={3}>Gratuitos</TitleHx>
-                    <UserDefaultCourses
-                        setDefaultWarning={setDefaultWarning}
-                        defaultWarning={defaultWarning}
-                    />
+                    <UserDefaultCourses setDefaultWarning={setDefaultWarning} />
                 </div>
             )}
 
             {showObtainedCourses && (
                 <div className={styles.userObtainedCoursesContainer}>
+                    {courseWarning && (
+                        <>
+                            <div
+                                style={{
+                                    width: "100%",
+                                    padding: "15px 20px",
+                                    backgroundColor: "#f7b90faf",
+                                    borderRadius: "5px",
+                                    display: "flex",
+                                    gap: "10px",
+                                    fontFamily: "Roboto-italic",
+                                }}
+                            >
+                                <FaExclamationTriangle />
+                                <p>
+                                    No se han podido recuperar algunos cursos.
+                                    Estamos trabajando para solucionarlo.
+                                </p>
+                            </div>
+                        </>
+                    )}
                     <TitleHx level={3}>Adquiridos</TitleHx>
                     <UserObtainedCourses
+                        setCourseWarning={setCourseWarning}
                         obtainedCoursesLimit={obtainedCoursesLimit}
                         msg={msg}
                     />

@@ -5,11 +5,11 @@ import { useUserAuthStore } from "../../../../hooks/UseUserAuthStore";
 import useDefaultCourses from "../../../../hooks/useDefaultCourses";
 import { DATABASE_KEY } from "../../../../consts/dataBaseKey";
 import DataStateWrapper from "../../../DataStateWrapperProps";
-import { Dispatch, SetStateAction, useEffect } from "react";
+import { DefualtCourse, Progress } from "../../../../types/types";
+import SecurityRendering from "../../../SecurityRendering";
 
 type Props = {
-    setDefaultWarning: Dispatch<SetStateAction<boolean>>;
-    defaultWarning: boolean;
+    setDefaultWarning: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 /**
@@ -27,7 +27,7 @@ type Props = {
  * @returns A container div displaying the user's default courses with loading and error handling.
  */
 
-function UserDefaultCourses({ setDefaultWarning, defaultWarning }: Props) {
+function UserDefaultCourses({ setDefaultWarning }: Props) {
     const params = useParams();
     const { user } = useUserAuthStore();
 
@@ -41,37 +41,6 @@ function UserDefaultCourses({ setDefaultWarning, defaultWarning }: Props) {
         Number(params.id)
     );
 
-    const mapping = defaultCourses?.map((defaultCourse, i) => {
-        const canRender =
-            !!defaultCourse &&
-            !!defaultCourse.curseID &&
-            !!defaultCourse.content.themes &&
-            (!!defaultCourse.title || !!defaultCourse.imageUrl.general);
-
-        if (defaultCourse && canRender) {
-            return (
-                <UserDefaultCourseItem
-                    key={defaultCourse?.curseID ?? i}
-                    data={defaultCourse}
-                />
-            );
-        }
-
-        return null;
-    });
-
-    useEffect(() => {
-        const areaNullable = defaultCourses?.some(
-            (course) =>
-                !course ||
-                !course.curseID ||
-                !course.content?.themes ||
-                (!course.title && !course.imageUrl?.general)
-        );
-
-        setDefaultWarning(!!areaNullable);
-    }, [defaultCourses, defaultWarning]);
-
     return (
         <div className={[styles.userDefaultCourses].join(" ")}>
             <DataStateWrapper
@@ -79,10 +48,86 @@ function UserDefaultCourses({ setDefaultWarning, defaultWarning }: Props) {
                 error={error}
                 errorMsg="No hemos podido recuperar los cursos."
             >
-                {mapping}
+                <SecurityRendering<DefualtCourse & Progress>
+                    data={defaultCourses}
+                    setWarningState={setDefaultWarning}
+                    conditions={defaultCourses?.map(
+                        (course) =>
+                            !!course &&
+                            !!course.curseID &&
+                            !!course.content.themes &&
+                            (!!course.title || !!course.imageUrl.general)
+                    )}
+                >
+                    {(course, index, canRendered) => {
+                        if (!canRendered) {
+                            return null;
+                        }
+
+                        return (
+                            <UserDefaultCourseItem
+                                key={course?.curseID ?? index}
+                                data={course}
+                            />
+                        );
+                    }}
+                </SecurityRendering>
             </DataStateWrapper>
         </div>
     );
 }
 
 export default UserDefaultCourses;
+
+// useEffect(() => {
+//     const areaNullable = defaultCourses?.some(
+//         (course) =>
+//             !course ||
+//             !course.curseID ||
+//             !course.content?.themes ||
+//             (!course.title && !course.imageUrl?.general)
+//     );
+
+//     setDefaultWarning(!!areaNullable);
+// }, [defaultCourses, defaultWarning]);
+
+// const mapping = defaultCourses?.map((course, i) => {
+//     const canRender =
+//         !!course &&
+//         !!course.curseID &&
+//         !!course.content.themes &&
+//         (!!course.title || !!course.imageUrl.general);
+
+//     if (course && canRender) {
+//         return (
+//             <UserDefaultCourseItem
+//                 key={course?.curseID ?? i}
+//                 data={course}
+//             />
+//         );
+//     }
+
+//     return null;
+// });
+
+//  {/* {mapping} */}
+
+// {
+//                         {
+//                             value: [
+//                                 {
+//                                     item: ["curseID"],
+//                                 },
+//                                 {
+//                                     item: ["content"],
+//                                 },
+//                                 {
+//                                     item: [
+//                                         ["title", "imageUrl.thumb"],
+//                                         "imageUrl.general",
+//                                     ],
+//                                     operator: ["AND", "OR"],
+//                                 },
+//                             ],
+//                         } as x<DefualtCourse & Progress>
+//                     }

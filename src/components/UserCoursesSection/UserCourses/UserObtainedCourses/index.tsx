@@ -7,10 +7,14 @@ import { DATABASE_KEY } from "../../../../consts/dataBaseKey";
 import ThereArentCourses from "./ThereArentCourses";
 import DataStateWrapper from "../../../DataStateWrapperProps";
 import UserObtainedItemDefault from "./UserObtainedItemDefault";
+import { Dispatch, SetStateAction } from "react";
+import SecurityRendering from "../../../SecurityRendering";
+import { CourseJSON, Progress } from "../../../../types/types";
 
 type Props = {
     obtainedCoursesLimit?: number;
     msg?: string;
+    setCourseWarning: Dispatch<SetStateAction<boolean>>;
 };
 
 /**
@@ -28,7 +32,11 @@ type Props = {
  * @returns The rendered obtained courses section.
  */
 
-function UserObtainedCourses({ obtainedCoursesLimit, msg }: Props) {
+function UserObtainedCourses({
+    obtainedCoursesLimit,
+    msg,
+    setCourseWarning,
+}: Props) {
     const { user } = useUserAuthStore();
     const params = useParams();
 
@@ -41,9 +49,29 @@ function UserObtainedCourses({ obtainedCoursesLimit, msg }: Props) {
 
     return (
         <>
-            <DataStateWrapper isLoading={isLoading} error={error}>
-                {data && data.length > 0 ? (
-                    <div className={styles.userObtainedCourses}>
+            <div className={styles.userObtainedCourses}>
+                <DataStateWrapper isLoading={isLoading} error={error}>
+                    <SecurityRendering<CourseJSON & Progress>
+                        data={data}
+                        setWarningState={setCourseWarning}
+                        conditions={data?.map((d) => !!d.curseID)}
+                    >
+                        {(course, index, canRendered) => {
+                            if (!canRendered) {
+                                return <UserObtainedItemDefault />;
+                            }
+
+                            return (
+                                <UserObtainedCoursesItem
+                                    key={course.curseID ?? index}
+                                    data={course}
+                                />
+                            );
+                        }}
+                    </SecurityRendering>
+
+                    {/* {data && data.length > 0 ? (
+                    
                         {data.map((c) =>
                             c?.curseID ? (
                                 <UserObtainedCoursesItem
@@ -54,11 +82,11 @@ function UserObtainedCourses({ obtainedCoursesLimit, msg }: Props) {
                                 <UserObtainedItemDefault />
                             )
                         )}
-                    </div>
                 ) : (
                     <ThereArentCourses msg={msg} />
-                )}
-            </DataStateWrapper>
+                )} */}
+                </DataStateWrapper>
+            </div>
         </>
     );
 }

@@ -1335,7 +1335,7 @@ export const DATA_BASE: BBDD = {
                     ],
                 },
                 {
-                    courseId: 5,
+                    // courseId: 5,
                     progress: 50,
                     themes: [
                         {
@@ -2423,7 +2423,7 @@ export const DATA_BASE: BBDD = {
             authors: [1, 2],
         },
         {
-            curseID: 2,
+            // curseID: 2,
             createdAt: "2025-07-17",
             imageUrl: {
                 general: "course-image-full-2_1920x1271_.jpg",
