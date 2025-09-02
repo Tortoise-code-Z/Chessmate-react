@@ -53,13 +53,14 @@ function BannerCard({ data }: Props) {
                     {data?.level || DEFAULT_COURSES_VALUES.level}
                 </span>
                 <p className={styles.price}>
-                    {data.price
+                    {data?.price
                         ? `${data.price}$`
                         : DEFAULT_COURSES_VALUES.price}
                 </p>
             </div>
 
             <PurchaseAction
+                canBuy={!!data?.price}
                 courseID={data.curseID}
                 isObtained={data.isObtained}
             />

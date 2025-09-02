@@ -1,5 +1,6 @@
 import { useProfessorMsgStore } from "../../../hooks/useProfessorMsgStore";
 import styles from "./ProfessorTexts.module.css";
+import TextNoPrice from "./TextNoPrice";
 import TextsCantCommenHasntBuy from "./TextsCantCommenHasntBuy";
 import TextsFirstLogin from "./TextsFirstLogin";
 import TextsNoSesion from "./TextsNoSesion";
@@ -31,6 +32,7 @@ function ProfessorTexts({}: Props) {
                     <TextsCantCommenHasntBuy />
                 )}
                 {value === "firstLogin" && <TextsFirstLogin />}
+                {value === "noPrice" && <TextNoPrice />}
             </div>
         </div>
     );

@@ -58,6 +58,7 @@ function GeneralCourseData({ data }: Props) {
                     </p>
                 </div>
                 <PurchaseAction
+                    canBuy={!!data?.price}
                     courseID={data.curseID}
                     isObtained={data.isObtained}
                 />

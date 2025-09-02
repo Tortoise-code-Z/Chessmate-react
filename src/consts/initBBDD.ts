@@ -1851,6 +1851,151 @@ export const DATA_BASE: BBDD = {
                 { courseId: 13, progress: 40 },
             ],
         },
+        {
+            userID: 13,
+            username: "admin",
+            email: "admin@example.com",
+            password: "1234",
+            elo: 1420,
+            title: null,
+            isFirstLogin: false,
+            defaultCourses: [
+                {
+                    courseId: 1,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 2,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+
+                {
+                    courseId: 3,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 4,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 5,
+                    progress: 50,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: false,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                        },
+                    ],
+                },
+                {
+                    courseId: 6,
+                    progress: 100,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                        },
+                        {
+                            themeID: 3,
+                            completed: true,
+                        },
+                        {
+                            themeID: 4,
+                            completed: true,
+                        },
+                    ],
+                },
+            ],
+            courses: [],
+        },
     ],
     defaultCourses: [
         {
@@ -3495,7 +3640,7 @@ export const DATA_BASE: BBDD = {
             shortDescription:
                 "Perfecciona tu comprensión del juego posicional para controlar la partida.",
             level: "Avanzado",
-            price: 20.0,
+            price: "",
 
             detailDescription:
                 "Curso destinado a jugadores que buscan profundizar en el ajedrez posicional y entender las sutilezas del control del espacio y la estructura.",

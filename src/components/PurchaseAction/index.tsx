@@ -4,6 +4,7 @@ import PurchaseButton from "../PurchaseButton";
 type Props = {
     courseID: number;
     isObtained?: boolean;
+    canBuy?: boolean;
 };
 
 /**
@@ -17,13 +18,17 @@ type Props = {
  * @returns Either an `ObtainedTag` or a `PurchaseButton` based on the `isObtained` prop.
  */
 
-function PurchaseAction({ isObtained = false, courseID }: Props) {
+function PurchaseAction({
+    isObtained = false,
+    courseID,
+    canBuy = true,
+}: Props) {
     return (
         <>
             {isObtained ? (
                 <ObtainedTag />
             ) : (
-                <PurchaseButton courseID={courseID} />
+                <PurchaseButton canBuy={canBuy} courseID={courseID} />
             )}
         </>
     );

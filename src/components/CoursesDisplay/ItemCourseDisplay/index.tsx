@@ -75,6 +75,7 @@ function ItemCourseDisplay({
                 {action && (
                     <div className={styles.actionsPrice}>
                         <PurchaseAction
+                            canBuy={!!data.price}
                             courseID={courseID}
                             isObtained={data.isObtained}
                         />

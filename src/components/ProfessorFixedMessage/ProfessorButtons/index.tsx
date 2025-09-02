@@ -59,7 +59,7 @@ function ProfessorButtons({}: Props) {
                 </>
             )}
 
-            {value === "cantCommentHasntBuyCourse" && (
+            {(value === "cantCommentHasntBuyCourse" || value === "noPrice") && (
                 <Button onClick={() => setState(false)}>Cerrar y volver</Button>
             )}
 
