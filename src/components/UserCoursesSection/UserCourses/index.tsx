@@ -5,6 +5,7 @@ import TitleHx from "../../TitleHx";
 import UserObtainedCourses from "./UserObtainedCourses";
 import { useState } from "react";
 import { FaExclamationTriangle } from "react-icons/fa";
+import WarningMsg from "../../WarningMsg";
 
 type Props = {
     obtainedCoursesLimit?: number;
@@ -45,27 +46,7 @@ function UserCourses({
             <LightComponent top={50} right={30} />
             {showDefaultCourses && (
                 <div className={styles.userDefaultCoursesContainer}>
-                    {defaultWarning && (
-                        <>
-                            <div
-                                style={{
-                                    width: "100%",
-                                    padding: "15px 20px",
-                                    backgroundColor: "#f7b90faf",
-                                    borderRadius: "5px",
-                                    display: "flex",
-                                    gap: "10px",
-                                    fontFamily: "Roboto-italic",
-                                }}
-                            >
-                                <FaExclamationTriangle />
-                                <p>
-                                    No se han podido recuperar algunos cursos.
-                                    Estamos trabajando para solucionarlo.
-                                </p>
-                            </div>
-                        </>
-                    )}
+                    {defaultWarning && <WarningMsg />}
 
                     <TitleHx level={3}>Gratuitos</TitleHx>
                     <UserDefaultCourses setDefaultWarning={setDefaultWarning} />
@@ -74,27 +55,7 @@ function UserCourses({
 
             {showObtainedCourses && (
                 <div className={styles.userObtainedCoursesContainer}>
-                    {courseWarning && (
-                        <>
-                            <div
-                                style={{
-                                    width: "100%",
-                                    padding: "15px 20px",
-                                    backgroundColor: "#f7b90faf",
-                                    borderRadius: "5px",
-                                    display: "flex",
-                                    gap: "10px",
-                                    fontFamily: "Roboto-italic",
-                                }}
-                            >
-                                <FaExclamationTriangle />
-                                <p>
-                                    No se han podido recuperar algunos cursos.
-                                    Estamos trabajando para solucionarlo.
-                                </p>
-                            </div>
-                        </>
-                    )}
+                    {courseWarning && <WarningMsg />}
                     <TitleHx level={3}>Adquiridos</TitleHx>
                     <UserObtainedCourses
                         setCourseWarning={setCourseWarning}
