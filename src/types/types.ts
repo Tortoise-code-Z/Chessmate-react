@@ -309,8 +309,26 @@ export type Comments = {
     createdAt: string;
 };
 
-//
-//
+export type DefaultCommentsValue = Omit<
+    Comments,
+    "user" | "id" | "idCourse"
+> & {
+    user: Omit<
+        User,
+        | "userID"
+        | "isFirstLogin"
+        | "elo"
+        | "title"
+        | "password"
+        | "defaultCourses"
+        | "courses"
+        | "email"
+    > & {
+        elo: string;
+        title: string;
+    };
+};
+
 //
 //
 //

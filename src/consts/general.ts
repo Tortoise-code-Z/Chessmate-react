@@ -1,4 +1,5 @@
 import {
+    DefaultCommentsValue,
     DefaultCourseValues,
     DefaultValuesDefaultCourses,
 } from "../types/types";
@@ -63,5 +64,15 @@ export const DEFAULT_VALUES_DEFAULT_COURSES: DefaultValuesDefaultCourses = {
             title: "Sin título",
             description: "Sin descripción",
         },
+    },
+};
+
+export const DEFAULT_COMMENTS_VALUES: DefaultCommentsValue = {
+    createdAt: "N/A",
+    text: "No se ha podido recuperar el comentario...",
+    user: {
+        username: "Usuario",
+        elo: "Sin ELO",
+        title: "N/A",
     },
 };

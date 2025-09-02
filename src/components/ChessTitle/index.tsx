@@ -1,3 +1,4 @@
+import { DEFAULT_COMMENTS_VALUES } from "../../consts/general";
 import { ChessLevel } from "../../types/types";
 import styles from "./ChessTitle.module.css";
 
@@ -21,7 +22,13 @@ type Props = {
 
 function ChessTitle({ title, size = "Default" }: Props) {
     return (
-        <>{title && <p className={styles[`userTitle${size}`]}>{title}</p>}</>
+        <>
+            {title && (
+                <p className={styles[`userTitle${size}`]}>
+                    {title || DEFAULT_COMMENTS_VALUES.user.title}
+                </p>
+            )}
+        </>
     );
 }
 

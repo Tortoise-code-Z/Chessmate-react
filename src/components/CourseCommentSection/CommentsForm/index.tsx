@@ -35,7 +35,6 @@ function CommentForm({}: Props) {
     const params = useParams();
     const { user } = useUserAuthStore();
     const { setState, setValue } = useProfessorMsgStore();
-
     const { mutate, isPending } = useAddComment();
 
     const handleSubmit = (
