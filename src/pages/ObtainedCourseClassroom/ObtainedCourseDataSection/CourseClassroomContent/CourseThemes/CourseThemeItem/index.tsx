@@ -9,6 +9,7 @@ type Props = {
     setVideosIndex: Dispatch<SetStateAction<number | null>>;
     setShowVideo: Dispatch<SetStateAction<ThemeContent | null>>;
     theme: Theme;
+    disabled?: boolean;
 };
 
 /**
@@ -32,6 +33,7 @@ function CourseThemeItem({
     theme,
     setVideosIndex,
     setShowVideo,
+    disabled = false,
 }: Props) {
     return (
         <div className={styles.themeContainer}>
@@ -39,6 +41,7 @@ function CourseThemeItem({
                 setVideosIndex={setVideosIndex}
                 videosIndex={videosIndex}
                 theme={theme}
+                disabled={disabled}
             />
             {videosIndex === theme.id && (
                 <ThemeVideos theme={theme} setShowVideo={setShowVideo} />

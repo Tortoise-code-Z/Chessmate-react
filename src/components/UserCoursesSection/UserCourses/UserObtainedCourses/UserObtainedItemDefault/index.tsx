@@ -8,10 +8,14 @@ import FigureImage from "../../../../FigureImage";
 import styles from "./UserObtainedItemDefault.module.css";
 import { MdOutlineEmail } from "react-icons/md";
 import { PATHS } from "../../../../../consts/paths";
+import { CourseJSON, Progress } from "../../../../../types/types";
+import { DEFAULT_COURSES_VALUES } from "../../../../../consts/general";
 
-type Props = {};
+type Props = {
+    data: CourseJSON & Progress;
+};
 
-function UserObtainedItemDefault({}: Props) {
+function UserObtainedItemDefault({ data }: Props) {
     return (
         <div className={styles.userObtainedCoursesItemDefault}>
             <div className={styles.container}>
@@ -29,6 +33,10 @@ function UserObtainedItemDefault({}: Props) {
             </p>
             <p className={styles.contactText}>
                 Contacte con nuestro servicio técnico para más información.
+            </p>
+
+            <p className={styles.dataCourse}>
+                Título: {data?.title || DEFAULT_COURSES_VALUES.title}
             </p>
 
             <NavLink

@@ -10,6 +10,7 @@ type Props = {
     theme: Theme;
     videosIndex: number | null;
     setVideosIndex: Dispatch<SetStateAction<number | null>>;
+    disabled?: boolean;
 };
 
 /**
@@ -28,9 +29,15 @@ type Props = {
  * @returns JSX element rendering a button for a course theme with toggleable video display.
  */
 
-function ThemeButton({ setVideosIndex, theme, videosIndex }: Props) {
+function ThemeButton({
+    setVideosIndex,
+    theme,
+    videosIndex,
+    disabled = false,
+}: Props) {
     return (
         <Button
+            disabled={disabled}
             classNames={[styles.themeBtn]}
             variant={videosIndex === theme.id ? "Primary" : "Secondary"}
             key={theme.id}

@@ -9,7 +9,7 @@ import { DefualtCourse, Progress } from "../../../../types/types";
 import SecurityRendering from "../../../SecurityRendering";
 
 type Props = {
-    setDefaultWarning: React.Dispatch<React.SetStateAction<boolean>>;
+    setDefaultWarning: React.Dispatch<React.SetStateAction<string | null>>;
 };
 
 /**

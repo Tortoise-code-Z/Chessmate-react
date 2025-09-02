@@ -4,9 +4,12 @@ import CourseThemeItem from "./CourseThemeItem";
 import {
     Course,
     IsObtainedCourse,
+    Theme,
     ThemeContent,
 } from "../../../../../types/types";
 import { DEFAULT_COURSES_VALUES } from "../../../../../consts/general";
+import SecurityRendering from "../../../../../components/SecurityRendering";
+import WarningMsg from "../../../../../components/WarningMsg";
 
 type Props = {
     data: Course & IsObtainedCourse;
@@ -33,6 +36,7 @@ type Props = {
 
 function CourseThemes({ data, setShowVideo }: Props) {
     const [videosIndex, setVideosIndex] = useState<number | null>(null);
+    const [themesWarning, setThemesWarnings] = useState<string | null>(null);
 
     return (
         <div className={styles.themesContainer}>
@@ -61,17 +65,54 @@ function CourseThemes({ data, setShowVideo }: Props) {
                 </p>
             </div>
 
-            {data.content.themes?.map((theme) => (
-                <CourseThemeItem
-                    key={theme.id}
-                    setShowVideo={setShowVideo}
-                    theme={theme}
-                    setVideosIndex={setVideosIndex}
-                    videosIndex={videosIndex}
-                />
-            ))}
+            {themesWarning && (
+                <WarningMsg msg="Algunos temas no se han obtenido de forma correcta. Estamos trabajando para solucionarlo." />
+            )}
+
+            {data.content?.themes && data.content?.themes.length > 0 && (
+                <SecurityRendering<Theme>
+                    data={data.content.themes}
+                    conditions={data.content.themes.map(
+                        (t) => !!t.id && (!!t.title || !!t.description)
+                    )}
+                    setWarningState={setThemesWarnings}
+                >
+                    {(theme, _index, canRender) => {
+                        if (!canRender)
+                            return (
+                                <CourseThemeItem
+                                    key={theme.id}
+                                    setShowVideo={setShowVideo}
+                                    theme={theme}
+                                    setVideosIndex={setVideosIndex}
+                                    videosIndex={videosIndex}
+                                    disabled={true}
+                                />
+                            );
+                        return (
+                            <CourseThemeItem
+                                key={theme.id}
+                                setShowVideo={setShowVideo}
+                                theme={theme}
+                                setVideosIndex={setVideosIndex}
+                                videosIndex={videosIndex}
+                            />
+                        );
+                    }}
+                </SecurityRendering>
+            )}
         </div>
     );
 }
 
 export default CourseThemes;
+
+// data.content.themes.map((theme) => (
+//   <CourseThemeItem
+//                           key={theme.id}
+//                           setShowVideo={setShowVideo}
+//                           theme={theme}
+//                           setVideosIndex={setVideosIndex}
+//                           videosIndex={videosIndex}
+//                       />
+//                   ))

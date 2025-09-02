@@ -37,8 +37,8 @@ function UserCourses({
     showDefaultCourses = true,
     msg,
 }: Props) {
-    const [defaultWarning, setDefaultWarning] = useState<boolean>(false);
-    const [courseWarning, setCourseWarning] = useState<boolean>(false);
+    const [defaultWarning, setDefaultWarning] = useState<string | null>(null);
+    const [courseWarning, setCourseWarning] = useState<string | null>(null);
 
     return (
         <div className={styles.userCourses}>

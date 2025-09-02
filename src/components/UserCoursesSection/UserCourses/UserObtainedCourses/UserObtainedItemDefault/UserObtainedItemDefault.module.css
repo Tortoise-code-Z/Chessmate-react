@@ -36,6 +36,10 @@
     font-family: Roboto-thin-italic;
 }
 
+.dataCourse {
+    font-family: Roboto-bold-italic;
+}
+
 @media all and (max-width: 1024px) {
     .userObtainedCoursesItemDefault {
         max-width: calc((100% / 2) - (10px * (2 - 1) / 2));

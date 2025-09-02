@@ -14,7 +14,7 @@ import { CourseJSON, Progress } from "../../../../types/types";
 type Props = {
     obtainedCoursesLimit?: number;
     msg?: string;
-    setCourseWarning: Dispatch<SetStateAction<boolean>>;
+    setCourseWarning: Dispatch<SetStateAction<string | null>>;
 };
 
 /**
@@ -55,8 +55,13 @@ function UserObtainedCourses({
                         <SecurityRendering<CourseJSON & Progress>
                             data={data}
                             setWarningState={setCourseWarning}
-                            conditions={data?.map(
-                                (d) => !!d.curseID && !!d.content
+                            conditions={data.map(
+                                (d) =>
+                                    !!d.curseID &&
+                                    !!d.content &&
+                                    !!d.content.themes &&
+                                    d.content.themes.length > 0 &&
+                                    !!d.title
                             )}
                         >
                             {(course, index, canRendered) => {
@@ -64,6 +69,7 @@ function UserObtainedCourses({
                                     return (
                                         <UserObtainedItemDefault
                                             key={course.curseID || index}
+                                            data={course}
                                         />
                                     );
                                 }
