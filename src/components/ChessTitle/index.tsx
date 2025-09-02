@@ -3,7 +3,7 @@ import { ChessLevel } from "../../types/types";
 import styles from "./ChessTitle.module.css";
 
 type Props = {
-    title: ChessLevel | null;
+    title: ChessLevel | null | undefined;
     size?: "Small" | "Default";
 };
 
@@ -23,7 +23,7 @@ type Props = {
 function ChessTitle({ title, size = "Default" }: Props) {
     return (
         <>
-            {title && (
+            {title && title !== "Sin título" && (
                 <p className={styles[`userTitle${size}`]}>
                     {title || DEFAULT_COMMENTS_VALUES.user.title}
                 </p>

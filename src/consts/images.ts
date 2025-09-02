@@ -66,3 +66,12 @@ export const DEFAULT_DEFAULT_COURSE_IMAGE: Images = {
     height: getImageSize(DEFAULT_DEFAULT_COURSE_URL_PATH, "height"),
     alt: "Contacta con nuestro equipo",
 };
+
+export const DEFAULT_AUTHOR_URL_PATH =
+    "static-image-defaultAuthorImage_640x360_.jpg";
+export const DEFAULT_AUTHOR_IMAGE: Images = {
+    image: getImage(DEFAULT_AUTHOR_URL_PATH, ["static"]),
+    width: getImageSize(DEFAULT_AUTHOR_URL_PATH, "width"),
+    height: getImageSize(DEFAULT_AUTHOR_URL_PATH, "height"),
+    alt: "Contacta con nuestro equipo",
+};

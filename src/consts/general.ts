@@ -1,4 +1,5 @@
 import {
+    DefaultAuthorsValue,
     DefaultCommentsValue,
     DefaultCourseValues,
     DefaultValuesDefaultCourses,
@@ -75,4 +76,11 @@ export const DEFAULT_COMMENTS_VALUES: DefaultCommentsValue = {
         elo: "Sin ELO",
         title: "N/A",
     },
+};
+
+export const DEFAULT_AUTHORS_VALUE: DefaultAuthorsValue = {
+    name: "Autor",
+    description: "Sin descripcón",
+    elo: "Sin ELO",
+    level: "N/A",
 };

@@ -24,6 +24,14 @@ export type AuthorCurseData = {
     image: string;
 };
 
+export type DefaultAuthorsValue = Omit<
+    AuthorCurseData,
+    "id" | "level" | "elo" | "image"
+> & {
+    level: string;
+    elo: string;
+};
+
 //
 //
 

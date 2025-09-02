@@ -1,4 +1,7 @@
+import ChessTitle from "../../../../../components/ChessTitle";
 import FigureImage from "../../../../../components/FigureImage";
+import { DEFAULT_AUTHORS_VALUE } from "../../../../../consts/general";
+import { DEFAULT_AUTHOR_IMAGE } from "../../../../../consts/images";
 import { AuthorCurseData } from "../../../../../types/types";
 import { getImage, getImageSize } from "../../../../../utils/images";
 import styles from "./AuthorsItem.module.css";
@@ -28,20 +31,29 @@ function AuthorsItem({ author }: Props) {
     return (
         <div className={styles.authorsItem}>
             <FigureImage
-                src={getImage(author.image, ["authors"])}
-                alt={author.name}
-                title={author.name}
-                width={getImageSize(author.image, "width")}
-                height={getImageSize(author.image, "height")}
+                otherImage={DEFAULT_AUTHOR_IMAGE}
+                src={getImage(author?.image, ["authors"])}
+                alt={author?.name}
+                title={author?.name}
+                width={getImageSize(author?.image, "width")}
+                height={getImageSize(author?.image, "height")}
             />
 
             <div className={styles.authorItemData}>
                 <div className={styles.data}>
-                    <p className={styles.name}>{author.name}</p>
-                    <span className={styles.level}>{author.level}</span>
-                    <p className={styles.elo}>{author.elo} ELO</p>
+                    <p className={styles.name}>
+                        {author?.name || DEFAULT_AUTHORS_VALUE.name}
+                    </p>
+                    <ChessTitle title={author?.level} />
+                    <p className={styles.elo}>
+                        {author?.elo
+                            ? `${author?.elo} ELO`
+                            : DEFAULT_AUTHORS_VALUE.elo}
+                    </p>
                 </div>
-                <p className={styles.description}>{author.description}</p>
+                <p className={styles.description}>
+                    {author?.description || DEFAULT_AUTHORS_VALUE.description}
+                </p>
             </div>
         </div>
     );
