@@ -92,6 +92,7 @@ function CourseDataSection({}: Props) {
                             >
                                 aprenderás
                             </span>
+                            ?
                         </>
                     }
                 />
