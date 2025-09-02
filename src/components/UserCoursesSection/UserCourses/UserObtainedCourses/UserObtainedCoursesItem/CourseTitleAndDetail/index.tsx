@@ -6,6 +6,7 @@ import { CourseJSON, Progress } from "../../../../../../types/types";
 import TitleHx from "../../../../../TitleHx";
 import Button from "../../../../../Button";
 import { PATHS } from "../../../../../../consts/paths";
+import { DEFAULT_COURSES_VALUES } from "../../../../../../consts/general";
 
 type Props = {
     data: CourseJSON & Progress;
@@ -26,7 +27,7 @@ function CourseTitleAndDetail({ data }: Props) {
     return (
         <div className={styles.container}>
             <TitleHx level={4} classNames={[styles.title]}>
-                {data?.title || "Curso sin título"}
+                {data?.title || DEFAULT_COURSES_VALUES.title}
             </TitleHx>
 
             <Button

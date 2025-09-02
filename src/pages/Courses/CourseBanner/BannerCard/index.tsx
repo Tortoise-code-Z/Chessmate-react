@@ -4,6 +4,7 @@ import { PATHS } from "../../../../consts/paths";
 import { CourseJSON, IsObtainedCourse } from "../../../../types/types";
 import styles from "./BannerCard.module.css";
 import TitleHx from "../../../../components/TitleHx";
+import { DEFAULT_COURSES_VALUES } from "../../../../consts/general";
 
 type Props = {
     data: CourseJSON & IsObtainedCourse;
@@ -35,8 +36,13 @@ function BannerCard({ data }: Props) {
             onClick={() => bannerCardHandleClick()}
         >
             <div className={styles.courseData}>
-                <TitleHx level={1}>{data.title}</TitleHx>
-                <p className={styles.description}>{data.shortDescription}</p>
+                <TitleHx level={1}>
+                    {data?.title || DEFAULT_COURSES_VALUES.title}
+                </TitleHx>
+                <p className={styles.description}>
+                    {data?.shortDescription ||
+                        DEFAULT_COURSES_VALUES.shortDescription}
+                </p>
                 <span
                     className={[
                         "span-pr-color",
@@ -44,9 +50,13 @@ function BannerCard({ data }: Props) {
                         styles.level,
                     ].join(" ")}
                 >
-                    {data.level}
+                    {data?.level || DEFAULT_COURSES_VALUES.level}
                 </span>
-                <p className={styles.price}>{data.price} $</p>
+                <p className={styles.price}>
+                    {data.price
+                        ? `${data.price}$`
+                        : DEFAULT_COURSES_VALUES.price}
+                </p>
             </div>
 
             <PurchaseAction

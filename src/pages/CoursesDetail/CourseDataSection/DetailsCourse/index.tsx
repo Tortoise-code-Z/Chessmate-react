@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { Course } from "../../../../types/types";
 import styles from "./DetailsCourse.module.css";
 import TitleHx from "../../../../components/TitleHx";
+import { DEFAULT_COURSES_VALUES } from "../../../../consts/general";
 
 type Props = {
     data: Course;
@@ -42,17 +43,20 @@ function DetailsCourse({ data, titleContain, type }: Props) {
                         }
                         key={t.id}
                     >
-                        {t.title}
+                        {t?.title ||
+                            DEFAULT_COURSES_VALUES[typeData].themes.title}
                     </li>
                 ))}
             </ul>
 
             <div className={styles.description}>
-                {data?.[typeData]?.detailDescription?.map((t) => (
-                    <p className={styles.descriptionItem} key={t}>
-                        {t}
-                    </p>
-                ))}
+                {data?.[typeData]?.detailDescription
+                    ? data?.[typeData]?.detailDescription?.map((t) => (
+                          <p className={styles.descriptionItem} key={t}>
+                              {t}
+                          </p>
+                      ))
+                    : DEFAULT_COURSES_VALUES.content.detailDescription}
             </div>
         </div>
     );

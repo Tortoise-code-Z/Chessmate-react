@@ -78,7 +78,7 @@ export type StorageUser = BaseUser;
 //
 
 export type Progress = {
-    progress: number;
+    progress?: number;
 };
 
 export type ChessLevel = (typeof CHESS_LEVEL)[number];
@@ -123,17 +123,6 @@ export type DefualtCourse = BaseCourse & {
 // Courses
 //
 
-export type CourseJSON = BaseCourse & {
-    createdAt: string;
-    sales: number;
-    shortDescription: string;
-    detailDescription: string;
-    price: number;
-    content: ContentCurseData;
-    toLearn?: ToLearnCurseData;
-    authors: number[];
-};
-
 export type Course = BaseCourse & {
     createdAt: string;
     sales: number;
@@ -145,11 +134,32 @@ export type Course = BaseCourse & {
     authors: AuthorCurseData[];
 };
 
-export type ToLearnTheme = {
-    id: number;
-    title: string;
-    description: string;
-};
+export type DefaultCourseValues = Omit<
+    Course,
+    | "authors"
+    | "imageUrl"
+    | "level"
+    | "toLearn"
+    | "content"
+    | "curseID"
+    | "price"
+    | "createdAt"
+> &
+    Omit<Progress, "progress"> & { progress: string } & {
+        createdAt: string | undefined;
+        level: string;
+        toLearn: Omit<ToLearnCurseData, "themes" | "detailDescription"> & {
+            themes: Omit<ToLearnTheme, "id">;
+            detailDescription: string;
+        };
+        content: Omit<ContentCurseData, "themes" | "detailDescription"> & {
+            themes: Omit<Theme, "id" | "content"> & {
+                content: Omit<ThemeContent, "id" | "cover" | "video">;
+            };
+            detailDescription: string;
+        };
+        price: string;
+    };
 
 export type ThemeContent = {
     id: number;
@@ -165,6 +175,12 @@ export type Theme = {
     content: ThemeContent[];
 };
 
+export type ToLearnTheme = {
+    id: number;
+    title: string;
+    description: string;
+};
+
 export type ContentCurseData = {
     themes: Theme[];
     detailDescription: string[];
@@ -173,6 +189,10 @@ export type ContentCurseData = {
 export type ToLearnCurseData = {
     themes: ToLearnTheme[];
     detailDescription: string[];
+};
+
+export type CourseJSON = Omit<Course, "authors"> & {
+    authors: number[];
 };
 
 //

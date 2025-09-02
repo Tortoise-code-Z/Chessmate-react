@@ -5,6 +5,7 @@ import Button from "../../../../../../../components/Button";
 import FigureImage from "../../../../../../../components/FigureImage";
 import { getImage, getImageSize } from "../../../../../../../utils/images";
 import TitleHx from "../../../../../../../components/TitleHx";
+import { DEFAULT_COURSES_VALUES } from "../../../../../../../consts/general";
 
 type Props = {
     theme: Theme;
@@ -30,7 +31,7 @@ type Props = {
 function ThemeVideos({ setShowVideo, theme }: Props) {
     return (
         <div className={styles.videosContainer}>
-            {theme.content.map((subtheme) => (
+            {theme?.content?.map((subtheme) => (
                 <>
                     <Button
                         onClick={() => setShowVideo(subtheme)}
@@ -39,14 +40,14 @@ function ThemeVideos({ setShowVideo, theme }: Props) {
                     >
                         <FigureImage
                             classNames={[styles.videoCardImage]}
-                            src={getImage(subtheme.cover, ["static"])}
-                            alt={subtheme.title}
-                            title={subtheme.title}
-                            width={getImageSize(subtheme.cover, "width")}
-                            height={getImageSize(subtheme.cover, "height")}
+                            src={getImage(subtheme?.cover, ["static"])}
+                            alt={subtheme?.title}
+                            title={subtheme?.title}
+                            width={getImageSize(subtheme?.cover, "width")}
+                            height={getImageSize(subtheme?.cover, "height")}
                         />
                         <TitleHx level={3} classNames={[styles.title]}>
-                            {subtheme.title}
+                            {subtheme?.title || DEFAULT_COURSES_VALUES.title}
                         </TitleHx>
                     </Button>
                 </>

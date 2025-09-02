@@ -44,8 +44,6 @@ export default function useObtainedCourses(
                 return { ...course, ...rest };
             });
 
-            console.log(mappingUserCourses);
-
             if (currentCourseID) {
                 mappingUserCourses = mappingUserCourses.filter(
                     (c) => c.curseID !== currentCourseID

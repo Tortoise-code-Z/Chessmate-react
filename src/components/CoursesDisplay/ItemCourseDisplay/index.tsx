@@ -6,6 +6,7 @@ import styles from "./ItemCourseDisplay.module.css";
 import PurchaseAction from "../../PurchaseAction";
 import TitleHx from "../../TitleHx";
 import FigureImage from "../../FigureImage";
+import { DEFAULT_COURSES_VALUES } from "../../../consts/general";
 
 type Props = {
     action?: boolean;
@@ -51,20 +52,25 @@ function ItemCourseDisplay({
             }
         >
             <FigureImage
-                src={getImage(data.imageUrl.thumb, ["courses"])}
-                alt={data.title}
-                title={data.title}
-                width={getImageSize(data.imageUrl.thumb, "width")}
-                height={getImageSize(data.imageUrl.thumb, "height")}
+                src={getImage(data?.imageUrl?.thumb, ["courses"])}
+                alt={data?.title}
+                title={data?.title}
+                width={getImageSize(data?.imageUrl?.thumb, "width")}
+                height={getImageSize(data?.imageUrl?.thumb, "height")}
             />
 
             <div className={styles.itemDataContainer}>
                 <div className={styles.itemData}>
-                    <TitleHx level={3}>{data.title}</TitleHx>
+                    <TitleHx level={3}>
+                        {data?.title || DEFAULT_COURSES_VALUES.title}
+                    </TitleHx>
                     <p className={styles.description}>
-                        {data.shortDescription}
+                        {data?.shortDescription ||
+                            DEFAULT_COURSES_VALUES.shortDescription}
                     </p>
-                    <p className={styles.level}>{data.level}</p>
+                    <p className={styles.level}>
+                        {data?.level || DEFAULT_COURSES_VALUES.level}
+                    </p>
                 </div>
                 {action && (
                     <div className={styles.actionsPrice}>
@@ -72,7 +78,11 @@ function ItemCourseDisplay({
                             courseID={courseID}
                             isObtained={data.isObtained}
                         />
-                        <p className={styles.price}>{data.price}$</p>
+                        <p className={styles.price}>
+                            {data?.price
+                                ? `${data.price}$`
+                                : DEFAULT_COURSES_VALUES.price}
+                        </p>
                     </div>
                 )}
             </div>

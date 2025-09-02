@@ -4,6 +4,7 @@ import styles from "./GeneralCourseData.module.css";
 import PurchaseAction from "../../../../components/PurchaseAction";
 import FigureImage from "../../../../components/FigureImage";
 import TitleHx from "../../../../components/TitleHx";
+import { DEFAULT_COURSES_VALUES } from "../../../../consts/general";
 
 type Props = {
     data: Course & IsObtainedCourse;
@@ -31,21 +32,30 @@ function GeneralCourseData({ data }: Props) {
     return (
         <div className={styles.generalCourseData}>
             <FigureImage
-                src={getImage(data.imageUrl.thumb, ["courses"])}
-                alt={data.title}
-                title={data.title}
-                width={getImageSize(data.imageUrl.thumb, "width")}
-                height={getImageSize(data.imageUrl.thumb, "height")}
+                src={getImage(data?.imageUrl?.thumb, ["courses"])}
+                alt={data?.title}
+                title={data?.title}
+                width={getImageSize(data?.imageUrl?.thumb, "width")}
+                height={getImageSize(data?.imageUrl?.thumb, "height")}
             />
 
             <div className={styles.dataContainer}>
                 <div className={styles.data}>
-                    <TitleHx>{data.title}</TitleHx>
+                    <TitleHx>
+                        {data?.title || DEFAULT_COURSES_VALUES.title}
+                    </TitleHx>
                     <p className={styles.description}>
-                        {data.shortDescription}
+                        {data?.shortDescription ||
+                            DEFAULT_COURSES_VALUES.shortDescription}
                     </p>
-                    <span className={styles.level}>{data.level}</span>
-                    <p className={styles.price}>{data.price} $</p>
+                    <span className={styles.level}>
+                        {data?.level || DEFAULT_COURSES_VALUES.level}
+                    </span>
+                    <p className={styles.price}>
+                        {data?.price
+                            ? `${data.price}$`
+                            : DEFAULT_COURSES_VALUES.price}
+                    </p>
                 </div>
                 <PurchaseAction
                     courseID={data.curseID}

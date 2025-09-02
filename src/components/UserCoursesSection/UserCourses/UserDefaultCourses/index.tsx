@@ -31,11 +31,7 @@ function UserDefaultCourses({ setDefaultWarning }: Props) {
     const params = useParams();
     const { user } = useUserAuthStore();
 
-    const {
-        data: defaultCourses,
-        isLoading,
-        error,
-    } = useDefaultCourses(
+    const { data, isLoading, error } = useDefaultCourses(
         DATABASE_KEY,
         user?.userID as number,
         Number(params.id)
@@ -49,9 +45,9 @@ function UserDefaultCourses({ setDefaultWarning }: Props) {
                 errorMsg="No hemos podido recuperar los cursos."
             >
                 <SecurityRendering<DefualtCourse & Progress>
-                    data={defaultCourses}
+                    data={data}
                     setWarningState={setDefaultWarning}
-                    conditions={defaultCourses?.map(
+                    conditions={data?.map(
                         (course) =>
                             !!course &&
                             !!course.curseID &&

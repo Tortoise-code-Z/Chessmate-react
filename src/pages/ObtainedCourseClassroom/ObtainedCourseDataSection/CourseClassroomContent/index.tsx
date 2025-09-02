@@ -9,6 +9,7 @@ import {
 import TitleHx from "../../../../components/TitleHx";
 import LightComponent from "../../../../components/LightComponent";
 import VideoReproductor from "../VideoReproductor";
+import { DEFAULT_COURSES_VALUES } from "../../../../consts/general";
 
 type Props = {
     data: Course & IsObtainedCourse;
@@ -50,9 +51,9 @@ function CourseClassroomContent({ data }: Props) {
             {showVideo && (
                 <VideoReproductor
                     onClick={() => setShowVideo(null)}
-                    title={showVideo.title}
+                    title={showVideo?.title || DEFAULT_COURSES_VALUES.title}
                     classNames={[styles.videoItem]}
-                    src={showVideo.video}
+                    src={showVideo?.video}
                 />
             )}
         </div>

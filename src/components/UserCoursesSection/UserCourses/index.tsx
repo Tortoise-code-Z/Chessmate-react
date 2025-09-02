@@ -4,7 +4,6 @@ import LightComponent from "../../LightComponent";
 import TitleHx from "../../TitleHx";
 import UserObtainedCourses from "./UserObtainedCourses";
 import { useState } from "react";
-import { FaExclamationTriangle } from "react-icons/fa";
 import WarningMsg from "../../WarningMsg";
 
 type Props = {

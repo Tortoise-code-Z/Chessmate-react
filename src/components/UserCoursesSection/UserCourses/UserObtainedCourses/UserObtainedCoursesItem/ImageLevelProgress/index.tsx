@@ -1,3 +1,4 @@
+import { DEFAULT_COURSES_VALUES } from "../../../../../../consts/general";
 import { CourseJSON, Progress } from "../../../../../../types/types";
 import { getImage, getImageSize } from "../../../../../../utils/images";
 import FigureImage from "../../../../../FigureImage";
@@ -30,10 +31,12 @@ function ImageLevelProgress({ data }: Props) {
 
             <div className={styles.data}>
                 <p className={styles.level}>
-                    {data?.level || "Sin nivel asignado"}
+                    {data?.level || DEFAULT_COURSES_VALUES.level}
                 </p>
                 <p className={styles.progress}>
-                    Progress: {data?.progress || 0}%
+                    {data?.progress
+                        ? `Progress: ${data?.progress}%`
+                        : DEFAULT_COURSES_VALUES.progress}
                 </p>
             </div>
         </div>

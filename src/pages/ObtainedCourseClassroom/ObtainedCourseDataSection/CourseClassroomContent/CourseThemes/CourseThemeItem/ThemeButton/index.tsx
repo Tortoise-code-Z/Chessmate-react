@@ -4,6 +4,7 @@ import { Dispatch, SetStateAction } from "react";
 import Button from "../../../../../../../components/Button";
 import { Theme } from "../../../../../../../types/types";
 import TitleHx from "../../../../../../../components/TitleHx";
+import { DEFAULT_COURSES_VALUES } from "../../../../../../../consts/general";
 
 type Props = {
     theme: Theme;
@@ -41,9 +42,12 @@ function ThemeButton({ setVideosIndex, theme, videosIndex }: Props) {
         >
             <div className={styles.themeData}>
                 <TitleHx classNames={[styles.themeTitle]} level={3}>
-                    {theme.title}
+                    {theme?.title || DEFAULT_COURSES_VALUES.title}
                 </TitleHx>
-                <p className={styles.themeDescription}>{theme.description}</p>
+                <p className={styles.themeDescription}>
+                    {theme?.description ||
+                        DEFAULT_COURSES_VALUES.shortDescription}
+                </p>
             </div>
             <FaChevronDown
                 style={{

@@ -6,6 +6,7 @@ import {
     IsObtainedCourse,
     ThemeContent,
 } from "../../../../../types/types";
+import { DEFAULT_COURSES_VALUES } from "../../../../../consts/general";
 
 type Props = {
     data: Course & IsObtainedCourse;
@@ -42,7 +43,7 @@ function CourseThemes({ data, setShowVideo }: Props) {
                     <span
                         className={["span-pr-color", "text-medium"].join(" ")}
                     >
-                        {data.title}
+                        {data?.title || DEFAULT_COURSES_VALUES.title}
                     </span>{" "}
                     de manera clara y práctica, pensados para guiarte paso a
                     paso en tu aprendizaje. Cada tema está compuesto por

@@ -55,7 +55,9 @@ function UserObtainedCourses({
                         <SecurityRendering<CourseJSON & Progress>
                             data={data}
                             setWarningState={setCourseWarning}
-                            conditions={data?.map((d) => !!d.curseID)}
+                            conditions={data?.map(
+                                (d) => !!d.curseID && !!d.content
+                            )}
                         >
                             {(course, index, canRendered) => {
                                 if (!canRendered) {

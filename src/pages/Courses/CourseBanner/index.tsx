@@ -5,6 +5,7 @@ import { getImage, getImageSize } from "../../../utils/images";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import BannerCard from "./BannerCard";
+import FigureImage from "../../../components/FigureImage";
 
 type Props = {};
 
@@ -34,12 +35,18 @@ function CourseBanner({}: Props) {
             <DataStateWrapper isLoading={isLoading} error={error}>
                 {data && (
                     <>
-                        <img
-                            className={styles.bannerBackground}
-                            src={getImage(data.imageUrl.full, ["courses"])}
-                            width={getImageSize(data.imageUrl.full, "width")}
-                            height={getImageSize(data.imageUrl.full, "height")}
+                        <FigureImage
+                            classNames={[styles.bannerBackground]}
+                            src={getImage(data?.imageUrl?.full, ["courses"])}
+                            alt={getImage(data?.imageUrl?.full, ["courses"])}
+                            title={getImage(data?.imageUrl?.full, ["courses"])}
+                            width={getImageSize(data?.imageUrl?.full, "width")}
+                            height={getImageSize(
+                                data?.imageUrl?.full,
+                                "height"
+                            )}
                         />
+
                         <BannerCard data={data} />
                     </>
                 )}

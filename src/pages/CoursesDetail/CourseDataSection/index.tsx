@@ -11,6 +11,7 @@ import LightComponent from "../../../components/LightComponent";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import { PATHS } from "../../../consts/paths";
+import { DEFAULT_COURSES_VALUES } from "../../../consts/general";
 
 type Props = {};
 
@@ -52,11 +53,12 @@ function CourseDataSection({}: Props) {
         <section className={styles.courseDataSection}>
             <LightComponent top={40} right={30} />
             <LightComponent top={80} right={80} />
+
             <DataStateWrapper isLoading={isLoading} error={error}>
                 <div className={styles.breadcrumb}>
                     <NavLink to={`/${PATHS.courses}`}>Cursos</NavLink>
                     <span>{">"}</span>
-                    <p>{data?.title}</p>
+                    <p>{data?.title || DEFAULT_COURSES_VALUES.title}</p>
                 </div>
                 <GeneralCourseData data={data ?? ({} as Course)} />
                 <AuthorsSection data={data ?? ({} as Course)} />

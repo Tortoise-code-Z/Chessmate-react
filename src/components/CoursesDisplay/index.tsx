@@ -27,10 +27,10 @@ function CoursesDisplay({ courses, action, display = "Col" }: Props) {
     ].join(" ");
     return (
         <div className={className}>
-            {courses?.map((course) => (
+            {courses?.map((course, i) => (
                 <ItemCourseDisplay
                     courseID={course.curseID}
-                    key={course.curseID}
+                    key={course.curseID || i}
                     action={action}
                     data={course}
                     display={display}
