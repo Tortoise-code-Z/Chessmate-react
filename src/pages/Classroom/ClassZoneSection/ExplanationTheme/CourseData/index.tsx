@@ -1,5 +1,6 @@
 import TitleHx from "../../../../../components/TitleHx";
 import WritteMachine from "../../../../../components/WritteMachine";
+import { DEFAULT_VALUES_DEFAULT_COURSES } from "../../../../../consts/general";
 import { UseCourseApiType } from "../../../../../types/types";
 import styles from "./CourseData.module.css";
 
@@ -24,13 +25,17 @@ type Props = {
 
 function CourseData({ data, index }: Props) {
     const description =
-        data.courses.content.themes.find((t) => t.id === index)?.description ||
-        "";
+        data?.courses?.content?.themes?.find((t) => t.id === index)
+            ?.description ||
+        DEFAULT_VALUES_DEFAULT_COURSES.content.detailDescription;
     return (
         <div className={styles.courseData}>
-            <TitleHx>{data.courses.title}</TitleHx>
+            <TitleHx>
+                {data?.courses?.title || DEFAULT_VALUES_DEFAULT_COURSES.title}
+            </TitleHx>
             <TitleHx level={2}>
-                {data.courses.content.themes.find((t) => t.id === index)?.title}
+                {data.courses.content.themes.find((t) => t.id === index)
+                    ?.title || DEFAULT_VALUES_DEFAULT_COURSES.title}
             </TitleHx>
 
             <WritteMachine

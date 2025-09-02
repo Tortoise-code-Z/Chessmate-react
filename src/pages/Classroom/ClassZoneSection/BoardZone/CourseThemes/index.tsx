@@ -3,6 +3,7 @@ import Button from "../../../../../components/Button";
 import styles from "./CourseThemes.module.css";
 import { UseCourseApiType } from "../../../../../types/types";
 import { Dispatch, SetStateAction } from "react";
+import { DEFAULT_VALUES_DEFAULT_COURSES } from "../../../../../consts/general";
 
 type Props = {
     data: UseCourseApiType;
@@ -30,7 +31,7 @@ type Props = {
 function CourseThemes({ data, index, setImageSliderLoading, setIndex }: Props) {
     return (
         <div className={styles.themes}>
-            {data.courses.content.themes.map((theme) => (
+            {data?.courses?.content?.themes?.map((theme) => (
                 <Button
                     classNames={["p-relative"]}
                     key={theme.id}
@@ -40,12 +41,12 @@ function CourseThemes({ data, index, setImageSliderLoading, setIndex }: Props) {
                     }}
                     variant={index === theme.id ? "Primary" : "Secondary"}
                 >
-                    {data.userThemeStates.find((u) => u.themeID === theme.id)
+                    {data?.userThemeStates?.find((u) => u.themeID === theme.id)
                         ?.completed && (
                         <FaCheckCircle className={styles.completedIcon} />
                     )}
 
-                    {theme.title}
+                    {theme?.title || DEFAULT_VALUES_DEFAULT_COURSES.title}
                 </Button>
             ))}
         </div>

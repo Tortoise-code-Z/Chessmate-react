@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 import AutoSliderImages from "./AutoSliderImages";
 import styles from "./Board.module.css";
 import { UseCourseApiType } from "../../../../../types/types";
+import { DEFAULT_VALUES_DEFAULT_COURSES } from "../../../../../consts/general";
 
 type Props = {
     data: UseCourseApiType;
@@ -42,8 +43,9 @@ function Board({
                     }
                     time={1000}
                     themeTitle={
-                        data.courses.content.themes.find((t) => t.id === index)
-                            ?.title || ""
+                        data?.courses?.content?.themes?.find(
+                            (t) => t.id === index
+                        )?.title || DEFAULT_VALUES_DEFAULT_COURSES.title
                     }
                     loading={imageSliderLoading}
                     setLoading={setImageSliderLoading}

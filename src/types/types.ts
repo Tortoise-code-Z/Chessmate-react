@@ -92,13 +92,6 @@ export type CourseImageUrls = {
 export type Level = (typeof LEVELS)[number];
 export type FilterOptions = (typeof FILTERS)[number];
 
-export type BaseCourse = {
-    curseID: number;
-    title: string;
-    level: Level;
-    imageUrl: CourseImageUrls;
-};
-
 // DefaultCourses
 //
 
@@ -114,9 +107,27 @@ export type ContentDefaultCourseData = {
     detailDescription: string;
 };
 
+export type BaseCourse = {
+    curseID: number;
+    title: string;
+    level: Level;
+    imageUrl: CourseImageUrls;
+};
+
 export type DefualtCourse = BaseCourse & {
     content: ContentDefaultCourseData;
 };
+
+export type DefaultValuesDefaultCourses = Omit<
+    DefualtCourse,
+    "imageUrl" | "content" | "curseID" | "level"
+> &
+    Omit<Progress, "progress"> & { progress: string } & {
+        content: Omit<ContentDefaultCourseData, "themes"> & {
+            themes: Omit<ThemeDefaultCourses, "id" | "images">;
+        };
+        level: string;
+    };
 
 //
 

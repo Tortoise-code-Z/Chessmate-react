@@ -1,4 +1,7 @@
-import { DefaultCourseValues } from "../types/types";
+import {
+    DefaultCourseValues,
+    DefaultValuesDefaultCourses,
+} from "../types/types";
 
 export const CHESS_LEVEL = [
     "Sin título",
@@ -49,3 +52,16 @@ export const DEFAULT_COURSES_VALUES: DefaultCourseValues = {
     progress: "Sin progreso",
     price: "Precio no disponible",
 } as const;
+
+export const DEFAULT_VALUES_DEFAULT_COURSES: DefaultValuesDefaultCourses = {
+    title: "Sin título",
+    progress: "Sin progreso",
+    level: "Sin nivel asignado",
+    content: {
+        detailDescription: "Sin descripción",
+        themes: {
+            title: "Sin título",
+            description: "Sin descripción",
+        },
+    },
+};
