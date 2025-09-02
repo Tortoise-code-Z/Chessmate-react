@@ -33,6 +33,7 @@ function Dashboard({}: Props) {
         <>
             <ProfessorFixedMessage userCondition={true} />
             <FeedbackMessage />
+
             <UserCoursesSection navbarHeight={true}>
                 <TitleHx level={2}>
                     Mis{" "}

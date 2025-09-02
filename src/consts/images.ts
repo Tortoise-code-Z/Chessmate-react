@@ -1,7 +1,8 @@
+import { Images } from "../types/types";
 import { getImage, getImageSize } from "../utils/images";
 
 export const LOGO_URL_PATH = "static-image-logo_500x500_.png";
-export const LOGO_IMAGE = {
+export const LOGO_IMAGE: Images = {
     image: getImage(LOGO_URL_PATH, ["static"]),
     width: getImageSize(LOGO_URL_PATH, "width"),
     height: getImageSize(LOGO_URL_PATH, "height"),
@@ -10,14 +11,15 @@ export const LOGO_IMAGE = {
 
 export const AVATAR_DEFAULT_URL_PATH =
     "static-image-avatar-default_640x640_.png";
-export const AVATAR_DEFAULT_IMAGE = {
+export const AVATAR_DEFAULT_IMAGE: Images = {
     image: getImage(AVATAR_DEFAULT_URL_PATH, ["static"]),
     width: getImageSize(AVATAR_DEFAULT_URL_PATH, "width"),
     height: getImageSize(AVATAR_DEFAULT_URL_PATH, "height"),
+    alt: undefined,
 };
 
 export const PROFESSOR_URL_PATH = "static-image-professor_500x500_.png";
-export const PROFESSOR_IMAGE = {
+export const PROFESSOR_IMAGE: Images = {
     image: getImage(PROFESSOR_URL_PATH, ["static"]),
     width: getImageSize(PROFESSOR_URL_PATH, "width"),
     height: getImageSize(PROFESSOR_URL_PATH, "height"),
@@ -25,7 +27,7 @@ export const PROFESSOR_IMAGE = {
 };
 
 export const AUTHOR_DEFAULT_IMAGE_URL_PATH = "authors-alvaro-rico_640x425_.jpg";
-export const AUTHOR_DEFAULT_IMAGE = {
+export const AUTHOR_DEFAULT_IMAGE: Images = {
     image: getImage(AUTHOR_DEFAULT_IMAGE_URL_PATH, ["authors"]),
     width: getImageSize(AUTHOR_DEFAULT_IMAGE_URL_PATH, "width"),
     height: getImageSize(AUTHOR_DEFAULT_IMAGE_URL_PATH, "height"),
@@ -33,7 +35,7 @@ export const AUTHOR_DEFAULT_IMAGE = {
 };
 
 export const SIGNIN_URL_PATH = "static-image-signin_1920x1280_.jpg";
-export const SIGNIN_IMAGE = {
+export const SIGNIN_IMAGE: Images = {
     image: getImage(SIGNIN_URL_PATH, ["static"]),
     width: getImageSize(SIGNIN_URL_PATH, "width"),
     height: getImageSize(SIGNIN_URL_PATH, "height"),
@@ -41,18 +43,26 @@ export const SIGNIN_IMAGE = {
 };
 
 export const CONTACT_URL_PATH = "static-image-contact_1920x2687_.jpg";
-export const CONTACT_IMAGE = {
+export const CONTACT_IMAGE: Images = {
     image: getImage(CONTACT_URL_PATH, ["static"]),
     width: getImageSize(CONTACT_URL_PATH, "width"),
     height: getImageSize(CONTACT_URL_PATH, "height"),
     alt: "Registro",
 };
 
-export const DEFAULT_COURSE_URL_PATH =
-    "static-image-defualtCourseImage_640x502_.jpg";
-export const DEFAULT_COURSE_IMAGE = {
+export const DEFAULT_COURSE_URL_PATH = "static-image-courseImage_640x502_.jpg";
+export const DEFAULT_COURSE_IMAGE: Images = {
     image: getImage(DEFAULT_COURSE_URL_PATH, ["static"]),
     width: getImageSize(DEFAULT_COURSE_URL_PATH, "width"),
     height: getImageSize(DEFAULT_COURSE_URL_PATH, "height"),
+    alt: "Contacta con nuestro equipo",
+};
+
+export const DEFAULT_DEFAULT_COURSE_URL_PATH =
+    "static-image-defaultCourseImage_640x502_.png";
+export const DEFAULT_DEFAULT_COURSE_IMAGE: Images = {
+    image: getImage(DEFAULT_DEFAULT_COURSE_URL_PATH, ["static"]),
+    width: getImageSize(DEFAULT_DEFAULT_COURSE_URL_PATH, "width"),
+    height: getImageSize(DEFAULT_DEFAULT_COURSE_URL_PATH, "height"),
     alt: "Contacta con nuestro equipo",
 };

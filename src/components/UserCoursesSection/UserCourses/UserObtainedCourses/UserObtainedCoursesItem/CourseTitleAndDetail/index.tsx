@@ -26,7 +26,7 @@ function CourseTitleAndDetail({ data }: Props) {
     return (
         <div className={styles.container}>
             <TitleHx level={4} classNames={[styles.title]}>
-                {data.title}
+                {data?.title || "Curso sin título"}
             </TitleHx>
 
             <Button

@@ -51,40 +51,32 @@ function UserObtainedCourses({
         <>
             <div className={styles.userObtainedCourses}>
                 <DataStateWrapper isLoading={isLoading} error={error}>
-                    <SecurityRendering<CourseJSON & Progress>
-                        data={data}
-                        setWarningState={setCourseWarning}
-                        conditions={data?.map((d) => !!d.curseID)}
-                    >
-                        {(course, index, canRendered) => {
-                            if (!canRendered) {
-                                return <UserObtainedItemDefault />;
-                            }
+                    {data && data.length > 0 ? (
+                        <SecurityRendering<CourseJSON & Progress>
+                            data={data}
+                            setWarningState={setCourseWarning}
+                            conditions={data?.map((d) => !!d.curseID)}
+                        >
+                            {(course, index, canRendered) => {
+                                if (!canRendered) {
+                                    return (
+                                        <UserObtainedItemDefault
+                                            key={course.curseID || index}
+                                        />
+                                    );
+                                }
 
-                            return (
-                                <UserObtainedCoursesItem
-                                    key={course.curseID ?? index}
-                                    data={course}
-                                />
-                            );
-                        }}
-                    </SecurityRendering>
-
-                    {/* {data && data.length > 0 ? (
-                    
-                        {data.map((c) =>
-                            c?.curseID ? (
-                                <UserObtainedCoursesItem
-                                    key={c.curseID}
-                                    data={c}
-                                />
-                            ) : (
-                                <UserObtainedItemDefault />
-                            )
-                        )}
-                ) : (
-                    <ThereArentCourses msg={msg} />
-                )} */}
+                                return (
+                                    <UserObtainedCoursesItem
+                                        key={course.curseID || index}
+                                        data={course}
+                                    />
+                                );
+                            }}
+                        </SecurityRendering>
+                    ) : (
+                        <ThereArentCourses msg={msg} />
+                    )}
                 </DataStateWrapper>
             </div>
         </>

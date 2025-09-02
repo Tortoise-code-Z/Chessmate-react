@@ -18,20 +18,23 @@ type Props = {
  */
 
 function ImageLevelProgress({ data }: Props) {
-    const image = getImage(data.imageUrl.thumb, ["courses"]);
     return (
         <div className={styles.container}>
             <FigureImage
-                src={image}
-                alt={data.title}
-                title={data.title}
-                width={getImageSize(image, "width")}
-                height={getImageSize(image, "height")}
+                src={getImage(data?.imageUrl?.thumb, ["courses"])}
+                alt={data?.title}
+                title={data?.title}
+                width={getImageSize(data?.imageUrl?.thumb, "width")}
+                height={getImageSize(data?.imageUrl?.thumb, "height")}
             />
 
             <div className={styles.data}>
-                <p className={styles.level}>{data.level}</p>
-                <p className={styles.progress}>Progress: {data.progress}%</p>
+                <p className={styles.level}>
+                    {data?.level || "Sin nivel asignado"}
+                </p>
+                <p className={styles.progress}>
+                    Progress: {data?.progress || 0}%
+                </p>
             </div>
         </div>
     );

@@ -327,3 +327,10 @@ export type ProfessorValues =
     | "cantCommentSesion"
     | "cantCommentHasntBuyCourse"
     | "firstLogin";
+
+export type Images = {
+    image: string | undefined;
+    width: number | undefined;
+    height: number | undefined;
+    alt: string | undefined;
+};

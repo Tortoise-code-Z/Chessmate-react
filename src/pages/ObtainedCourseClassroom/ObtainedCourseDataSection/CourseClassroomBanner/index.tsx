@@ -1,4 +1,8 @@
 import TitleHx from "../../../../components/TitleHx";
+import {
+    DEFAULT_COURSE_IMAGE,
+    DEFAULT_COURSE_URL_PATH,
+} from "../../../../consts/images";
 import { Course, IsObtainedCourse } from "../../../../types/types";
 import { getImage, getImageSize } from "../../../../utils/images";
 import styles from "./CourseClassroomBanner.module.css";
@@ -22,18 +26,32 @@ type Props = {
  */
 
 function CourseClassroomBanner({ data }: Props) {
+    const image =
+        getImage(data?.imageUrl?.full, ["courses"]) ||
+        DEFAULT_COURSE_IMAGE.image;
+
     return (
         <div className={styles.courseClassroomBanner}>
             <div className={styles.titleContainer}>
                 <p>Bienvenido a tu curso</p>
-                <TitleHx>{data.title}</TitleHx>
+                <TitleHx>{data?.title || "Curso sin título"}</TitleHx>
             </div>
 
             <img
                 className={styles.bannerBackground}
-                src={getImage(data.imageUrl.full, ["courses"])}
-                width={getImageSize(data.imageUrl.full, "width")}
-                height={getImageSize(data.imageUrl.full, "height")}
+                src={image as string}
+                width={
+                    getImageSize(
+                        data?.imageUrl?.full || DEFAULT_COURSE_URL_PATH,
+                        "width"
+                    ) as number
+                }
+                height={
+                    getImageSize(
+                        data?.imageUrl?.full || DEFAULT_COURSE_URL_PATH,
+                        "height"
+                    ) as number
+                }
             />
         </div>
     );

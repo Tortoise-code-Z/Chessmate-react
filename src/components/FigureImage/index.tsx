@@ -1,11 +1,17 @@
-type Props = {
-    src: string;
-    alt: string;
-    title: string;
-    width: number;
-    height: number;
+import { DEFAULT_COURSE_IMAGE } from "../../consts/images";
+import { Images } from "../../types/types";
+
+type NewType = {
+    src: string | undefined;
+    alt: string | undefined;
+    title: string | undefined;
+    width: number | undefined;
+    height: number | undefined;
+    otherImage?: Images;
     classNames?: string[];
 };
+
+type Props = NewType;
 
 /**
  * FigureImage - Component to render an image inside a <figure> element.
@@ -25,16 +31,21 @@ function FigureImage({
     src,
     title,
     width,
+    otherImage,
     classNames = [],
 }: Props) {
+    const image = otherImage ? otherImage : DEFAULT_COURSE_IMAGE;
+
+    console.log(image);
+
     return (
         <figure className={[...classNames].join(" ")}>
             <img
-                src={src}
-                alt={alt}
-                title={title}
-                width={width}
-                height={height}
+                src={src ? src : image.image}
+                alt={alt ? alt : image.alt}
+                title={title ? title : image.alt}
+                width={width ? width : image.width}
+                height={height ? height : image.height}
             />
         </figure>
     );
