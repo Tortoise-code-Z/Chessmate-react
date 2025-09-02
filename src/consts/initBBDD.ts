@@ -3640,7 +3640,7 @@ export const DATA_BASE: BBDD = {
             shortDescription:
                 "Perfecciona tu comprensión del juego posicional para controlar la partida.",
             level: "Avanzado",
-            price: "",
+            price: 20.0,
 
             detailDescription:
                 "Curso destinado a jugadores que buscan profundizar en el ajedrez posicional y entender las sutilezas del control del espacio y la estructura.",

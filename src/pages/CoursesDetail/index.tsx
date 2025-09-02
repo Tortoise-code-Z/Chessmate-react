@@ -34,6 +34,7 @@ function CoursesDetail({}: Props) {
         <>
             <ProfessorFixedMessage />
             <FeedbackMessage />
+
             <CourseDataSection />
             <CourseCommentSection />
             <CoursesRecomended
