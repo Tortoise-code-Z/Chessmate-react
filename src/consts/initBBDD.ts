@@ -1085,7 +1085,7 @@ export const DATA_BASE: BBDD = {
         },
         {
             userID: 8,
-            username: "amir_fm",
+            username: "",
             email: "amir.fm@example.com",
             password: "password8",
             elo: 2321,
@@ -4797,7 +4797,7 @@ export const DATA_BASE: BBDD = {
             id: 17,
             idUser: 8,
             idCourse: 10,
-            text: "Muy recomendable, bien explicado y útil.",
+            text: "",
             createdAt: "12-06-2025",
         },
         {

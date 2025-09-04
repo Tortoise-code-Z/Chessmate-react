@@ -4,6 +4,10 @@ import styles from "./UserCommentBox.module.css";
 import useCourseComments from "../../../hooks/useCourseComments";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import DataStateWrapper from "../../DataStateWrapperProps";
+import SecurityRendering from "../../SecurityRendering";
+import { Comments } from "../../../types/types";
+import { useState } from "react";
+import WarningMsg from "../../WarningMsg";
 type Props = {};
 
 /**
@@ -25,17 +29,35 @@ function UsersCommentBox({}: Props) {
         isLoading,
         error,
     } = useCourseComments(DATABASE_KEY, Number(params.id));
+    const [warningComment, setWarningComment] = useState<string | null>(null);
 
     return (
-        <ul className={styles.commentList}>
-            <DataStateWrapper isLoading={isLoading} error={error}>
-                <>
-                    {comments?.map((c) => (
-                        <UserCommentItem key={c.id} comment={c} />
-                    ))}
-                </>
-            </DataStateWrapper>
-        </ul>
+        <>
+            {warningComment && <WarningMsg msg={warningComment} />}
+            <ul className={styles.commentList}>
+                <DataStateWrapper isLoading={isLoading} error={error}>
+                    <SecurityRendering<Comments>
+                        data={comments}
+                        conditions={comments?.map(
+                            (c) => !!c.id && (!!c.user.username || !!c.text)
+                        )}
+                        setWarningState={setWarningComment}
+                        msg="Algunos comentarios pueden no haberse recuperado. Estamos trabajando en ello."
+                    >
+                        {(comment, index, canRender) => {
+                            if (!canRender) return null;
+
+                            return (
+                                <UserCommentItem
+                                    key={comment.id || index}
+                                    comment={comment}
+                                />
+                            );
+                        }}
+                    </SecurityRendering>
+                </DataStateWrapper>
+            </ul>
+        </>
     );
 }
 
