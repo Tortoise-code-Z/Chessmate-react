@@ -149,7 +149,7 @@ export type Course = BaseCourse & {
     detailDescription: string;
     price: number;
     content: ContentCurseData;
-    toLearn?: ToLearnCurseData;
+    toLearn: ToLearnCurseData;
     authors: AuthorCurseData[];
 };
 

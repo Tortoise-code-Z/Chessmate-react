@@ -30,13 +30,7 @@ function CoursesDisplay({ courses, action, display = "Col" }: Props) {
         <div className={className}>
             <SecurityRendering<CourseJSON & IsObtainedCourse>
                 data={courses}
-                conditions={courses?.map(
-                    (c) =>
-                        !!c.curseID &&
-                        !!c.title &&
-                        !!c.content.detailDescription &&
-                        c.content.themes.length > 0
-                )}
+                conditions={courses?.map((c) => !!c.curseID && !!c.title)}
             >
                 {(courses, index, canRender) => {
                     if (!canRender) return null;

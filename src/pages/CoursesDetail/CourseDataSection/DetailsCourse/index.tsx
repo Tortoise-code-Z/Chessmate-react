@@ -1,8 +1,10 @@
-import { ReactNode } from "react";
-import { Course } from "../../../../types/types";
+import { ReactNode, useState } from "react";
+import { Course, Theme, ToLearnTheme } from "../../../../types/types";
 import styles from "./DetailsCourse.module.css";
 import TitleHx from "../../../../components/TitleHx";
 import { DEFAULT_COURSES_VALUES } from "../../../../consts/general";
+import WarningMsg from "../../../../components/WarningMsg";
+import SecurityRendering from "../../../../components/SecurityRendering";
 
 type Props = {
     data: Course;
@@ -26,37 +28,82 @@ type Props = {
  * @returns JSX element rendering the detailed course section with themes and descriptions.
  */
 
-function DetailsCourse({ data, titleContain, type }: Props) {
+function DetailsCourse({ data, titleContain, type = "content" }: Props) {
     const typeData = type === "content" ? "content" : "toLearn";
+    const [warningDetail, setWarningDetail] = useState<string | null>(null);
 
     return (
         <div className={styles.detailsCourse}>
             <TitleHx level={2}>{titleContain}</TitleHx>
 
+            {warningDetail && <WarningMsg msg={warningDetail} />}
+
             <ul className={styles.themesList}>
-                {data?.[typeData]?.themes.map((t) => (
-                    <li
-                        className={
-                            typeData === "content"
-                                ? styles.contentItem
-                                : styles.toLearnItem
-                        }
-                        key={t.id}
+                {typeData === "content" ? (
+                    <SecurityRendering<Theme>
+                        data={data?.[typeData]?.themes}
+                        conditions={data?.[typeData]?.themes.map(
+                            (t) => !!t.title
+                        )}
+                        setWarningState={setWarningDetail}
+                        msg="Algunos datos sobre los temas no se han podido recuperar. Estamos trabajando en ello."
                     >
-                        {t?.title ||
-                            DEFAULT_COURSES_VALUES[typeData].themes.title}
-                    </li>
-                ))}
+                        {(theme, index, _canRender) => {
+                            return (
+                                <li
+                                    className={styles.contentItem}
+                                    key={theme.id || index}
+                                >
+                                    {theme?.title ||
+                                        DEFAULT_COURSES_VALUES[typeData].themes
+                                            .title}
+                                </li>
+                            );
+                        }}
+                    </SecurityRendering>
+                ) : (
+                    <SecurityRendering<ToLearnTheme>
+                        data={data?.[typeData]?.themes}
+                        conditions={data?.[typeData]?.themes.map(
+                            (t) => !!t.title
+                        )}
+                        setWarningState={setWarningDetail}
+                        msg="Algunos datos sobre los puntos a aprender no se han podido recuperar. Estamos trabajando en ello."
+                    >
+                        {(theme, index, _canRender) => {
+                            return (
+                                <li
+                                    className={styles.toLearnItem}
+                                    key={theme.id || index}
+                                >
+                                    {theme?.title ||
+                                        DEFAULT_COURSES_VALUES[typeData].themes
+                                            .title}
+                                </li>
+                            );
+                        }}
+                    </SecurityRendering>
+                )}
             </ul>
 
             <div className={styles.description}>
-                {data?.[typeData]?.detailDescription
-                    ? data?.[typeData]?.detailDescription?.map((t) => (
-                          <p className={styles.descriptionItem} key={t}>
-                              {t}
-                          </p>
-                      ))
-                    : DEFAULT_COURSES_VALUES.content.detailDescription}
+                <SecurityRendering<string>
+                    data={data?.[typeData]?.detailDescription}
+                    conditions={data?.[typeData]?.detailDescription.map(
+                        (t) => !!t
+                    )}
+                    setWarningState={setWarningDetail}
+                    msg="Algunos datos no se han podido recuperar. Estamos trabajando en ello."
+                >
+                    {(description, index, canRender) => {
+                        if (!canRender) return null;
+                        return (
+                            <p className={styles.descriptionItem} key={index}>
+                                {description}
+                            </p>
+                        );
+                    }}
+                </SecurityRendering>
             </div>
         </div>
     );
