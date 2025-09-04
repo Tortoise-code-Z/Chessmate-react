@@ -43,6 +43,14 @@ function UsersCommentBox({}: Props) {
                         )}
                         setWarningState={setWarningComment}
                         msg="Algunos comentarios pueden no haberse recuperado. Estamos trabajando en ello."
+                        emptyNode={
+                            <>
+                                <p>
+                                    Este curso aun no tiene comentarios. ¡Sé el
+                                    primero en dejar tu opinión!
+                                </p>
+                            </>
+                        }
                     >
                         {(comment, index, canRender) => {
                             if (!canRender) return null;

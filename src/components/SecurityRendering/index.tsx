@@ -6,8 +6,10 @@ type Props<T> = {
     children: (
         item: T,
         i: number,
-        canRendered: boolean | undefined
+        canRendered: boolean | undefined,
+        empty?: boolean
     ) => ReactNode;
+    emptyNode?: ReactNode;
     setWarningState?: Dispatch<SetStateAction<string | null>>;
     msg?: string;
 };
@@ -18,13 +20,19 @@ function SecurityRendering<T>({
     children,
     setWarningState,
     msg = "Algún contenido puede estar incompleto. Estamos trabajando en ello.",
+    emptyNode,
 }: Props<T>) {
     useEffect(() => {
-        if (conditions && setWarningState)
-            conditions.some((c) => c === false)
-                ? setWarningState(msg)
-                : setWarningState(null);
-    }, [data]);
+        if (!setWarningState) return;
+
+        if (conditions?.some((c) => !c)) {
+            setWarningState(msg);
+        } else {
+            setWarningState(null);
+        }
+    }, [conditions, msg, setWarningState]);
+
+    if (conditions?.every((c) => !c) || !conditions) return <>{emptyNode}</>;
 
     return (
         <>

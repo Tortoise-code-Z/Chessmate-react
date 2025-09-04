@@ -1085,7 +1085,7 @@ export const DATA_BASE: BBDD = {
         },
         {
             userID: 8,
-            username: "",
+            username: "amir_fm",
             email: "amir.fm@example.com",
             password: "password8",
             elo: 2321,
@@ -3896,7 +3896,7 @@ export const DATA_BASE: BBDD = {
                     },
                 ],
                 detailDescription: [
-                    "Este módulo ofrece  para manejar el estrés y la ansiedad que surgen durante las partidas, fundamentales para un rendimiento óptimo.",
+                    "Este módulo ofrece herramientas para manejar el estrés y la ansiedad que surgen durante las partidas, fundamentales para un rendimiento óptimo.",
                     "Aprenderás técnicas para mejorar tu concentración y mantener el foco durante largos períodos de juego.",
                     "Se abordan estrategias para manejar la frustración y el error, transformándolos en oportunidades de aprendizaje.",
                     "También se enseña cómo leer el comportamiento del rival para anticipar sus movimientos y estrategias.",
@@ -4797,7 +4797,7 @@ export const DATA_BASE: BBDD = {
             id: 17,
             idUser: 8,
             idCourse: 10,
-            text: "",
+            text: "Muy recomendable, bien explicado y útil.",
             createdAt: "12-06-2025",
         },
         {
