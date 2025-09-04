@@ -7,9 +7,12 @@ import { DATABASE_KEY } from "../../../../consts/dataBaseKey";
 import DataStateWrapper from "../../../DataStateWrapperProps";
 import { DefualtCourse, Progress } from "../../../../types/types";
 import SecurityRendering from "../../../SecurityRendering";
+import { Dispatch, SetStateAction } from "react";
+import UserDefaultCourseItemDefault from "./UserDefaultCourseItemDefault";
 
 type Props = {
-    setDefaultWarning: React.Dispatch<React.SetStateAction<string | null>>;
+    setDefaultWarning: Dispatch<SetStateAction<string | null>>;
+    defaultWarning: string | null;
 };
 
 /**
@@ -27,7 +30,7 @@ type Props = {
  * @returns A container div displaying the user's default courses with loading and error handling.
  */
 
-function UserDefaultCourses({ setDefaultWarning }: Props) {
+function UserDefaultCourses({ setDefaultWarning, defaultWarning }: Props) {
     const params = useParams();
     const { user } = useUserAuthStore();
 
@@ -46,7 +49,10 @@ function UserDefaultCourses({ setDefaultWarning }: Props) {
             >
                 <SecurityRendering<DefualtCourse & Progress>
                     data={data}
-                    setWarningState={setDefaultWarning}
+                    state={{
+                        setWarningState: setDefaultWarning,
+                        warningState: defaultWarning,
+                    }}
                     conditions={data?.map(
                         (course) =>
                             !!course &&
@@ -54,10 +60,20 @@ function UserDefaultCourses({ setDefaultWarning }: Props) {
                             !!course.content.themes &&
                             (!!course.title || !!course.imageUrl.general)
                     )}
+                    emptyNode={
+                        <>
+                            <p>No hay cursos para mostrar</p>
+                        </>
+                    }
                 >
                     {(course, index, canRendered) => {
                         if (!canRendered) {
-                            return null;
+                            return (
+                                <UserDefaultCourseItemDefault
+                                    key={course?.curseID ?? index}
+                                    data={course}
+                                />
+                            );
                         }
 
                         return (

@@ -45,16 +45,19 @@ function UserCourses({
             <LightComponent top={50} right={30} />
             {showDefaultCourses && (
                 <div className={styles.userDefaultCoursesContainer}>
-                    {defaultWarning && <WarningMsg />}
+                    {defaultWarning && <WarningMsg msg={defaultWarning} />}
 
                     <TitleHx level={3}>Gratuitos</TitleHx>
-                    <UserDefaultCourses setDefaultWarning={setDefaultWarning} />
+                    <UserDefaultCourses
+                        setDefaultWarning={setDefaultWarning}
+                        defaultWarning={defaultWarning}
+                    />
                 </div>
             )}
 
             {showObtainedCourses && (
                 <div className={styles.userObtainedCoursesContainer}>
-                    {courseWarning && <WarningMsg />}
+                    {courseWarning && <WarningMsg msg={courseWarning} />}
                     <TitleHx level={3}>Adquiridos</TitleHx>
                     <UserObtainedCourses
                         setCourseWarning={setCourseWarning}

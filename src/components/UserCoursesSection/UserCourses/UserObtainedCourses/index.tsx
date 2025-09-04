@@ -15,6 +15,7 @@ type Props = {
     obtainedCoursesLimit?: number;
     msg?: string;
     setCourseWarning: Dispatch<SetStateAction<string | null>>;
+    courseWarning: string | null;
 };
 
 /**
@@ -36,6 +37,7 @@ function UserObtainedCourses({
     obtainedCoursesLimit,
     msg,
     setCourseWarning,
+    courseWarning,
 }: Props) {
     const { user } = useUserAuthStore();
     const params = useParams();
@@ -51,40 +53,40 @@ function UserObtainedCourses({
         <>
             <div className={styles.userObtainedCourses}>
                 <DataStateWrapper isLoading={isLoading} error={error}>
-                    {data && data.length > 0 ? (
-                        <SecurityRendering<CourseJSON & Progress>
-                            data={data}
-                            setWarningState={setCourseWarning}
-                            conditions={data.map(
-                                (d) =>
-                                    !!d.curseID &&
-                                    !!d.content &&
-                                    !!d.content.themes &&
-                                    d.content.themes.length > 0 &&
-                                    !!d.title
-                            )}
-                        >
-                            {(course, index, canRendered) => {
-                                if (!canRendered) {
-                                    return (
-                                        <UserObtainedItemDefault
-                                            key={course.curseID || index}
-                                            data={course}
-                                        />
-                                    );
-                                }
-
+                    <SecurityRendering<CourseJSON & Progress>
+                        data={data}
+                        state={{
+                            setWarningState: setCourseWarning,
+                            warningState: courseWarning,
+                        }}
+                        conditions={data?.map((d) => !!d.curseID)}
+                        noCriticalConditions={data?.map(
+                            (d) =>
+                                !!d?.title &&
+                                !!d?.progress &&
+                                !!d?.level &&
+                                !!d?.imageUrl?.thumb
+                        )}
+                        emptyNode={<ThereArentCourses msg={msg} />}
+                    >
+                        {(course, index, canRendered) => {
+                            if (!canRendered) {
                                 return (
-                                    <UserObtainedCoursesItem
+                                    <UserObtainedItemDefault
                                         key={course.curseID || index}
                                         data={course}
                                     />
                                 );
-                            }}
-                        </SecurityRendering>
-                    ) : (
-                        <ThereArentCourses msg={msg} />
-                    )}
+                            }
+
+                            return (
+                                <UserObtainedCoursesItem
+                                    key={course.curseID || index}
+                                    data={course}
+                                />
+                            );
+                        }}
+                    </SecurityRendering>
                 </DataStateWrapper>
             </div>
         </>

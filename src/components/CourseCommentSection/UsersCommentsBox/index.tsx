@@ -30,6 +30,7 @@ function UsersCommentBox({}: Props) {
         error,
     } = useCourseComments(DATABASE_KEY, Number(params.id));
     const [warningComment, setWarningComment] = useState<string | null>(null);
+    console.log(warningComment);
 
     return (
         <>
@@ -41,8 +42,12 @@ function UsersCommentBox({}: Props) {
                         conditions={comments?.map(
                             (c) => !!c.id && (!!c.user.username || !!c.text)
                         )}
-                        setWarningState={setWarningComment}
+                        state={{
+                            setWarningState: setWarningComment,
+                            warningState: warningComment,
+                        }}
                         msg="Algunos comentarios pueden no haberse recuperado. Estamos trabajando en ello."
+                        msgEmpty="No hemos podido recuperar todos los comentarios. Estamos trabajando para solucionarlo."
                         emptyNode={
                             <>
                                 <p>

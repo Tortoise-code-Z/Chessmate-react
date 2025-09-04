@@ -37,7 +37,10 @@ function Authors({ data }: Props) {
                     conditions={data?.authors.map(
                         (a) => !!a.name && !!a.elo && !!a.level
                     )}
-                    setWarningState={setAuthorWarning}
+                    state={{
+                        setWarningState: setAuthorWarning,
+                        warningState: authorWarning,
+                    }}
                     msg="No ha sido posible rescatar la información de algún autor. Pronto lo solucionaremos."
                 >
                     {(author, index, canRender) => {

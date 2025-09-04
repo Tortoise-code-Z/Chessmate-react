@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import styles from "./ThemeVideos.module.css";
 import { Theme, ThemeContent } from "../../../../../../../types/types";
 import Button from "../../../../../../../components/Button";
@@ -6,6 +6,8 @@ import FigureImage from "../../../../../../../components/FigureImage";
 import { getImage, getImageSize } from "../../../../../../../utils/images";
 import TitleHx from "../../../../../../../components/TitleHx";
 import { DEFAULT_COURSES_VALUES } from "../../../../../../../consts/general";
+import SecurityRendering from "../../../../../../../components/SecurityRendering";
+import WarningMsg from "../../../../../../../components/WarningMsg";
 
 type Props = {
     theme: Theme;
@@ -29,30 +31,53 @@ type Props = {
  */
 
 function ThemeVideos({ setShowVideo, theme }: Props) {
+    const [videoWarning, setVideoWarning] = useState<string | null>(null);
     return (
-        <div className={styles.videosContainer}>
-            {theme?.content?.map((subtheme) => (
-                <>
-                    <Button
-                        onClick={() => setShowVideo(subtheme)}
-                        classNames={[styles.videoButton]}
-                        variant="Card"
-                    >
-                        <FigureImage
-                            classNames={[styles.videoCardImage]}
-                            src={getImage(subtheme?.cover, ["static"])}
-                            alt={subtheme?.title}
-                            title={subtheme?.title}
-                            width={getImageSize(subtheme?.cover, "width")}
-                            height={getImageSize(subtheme?.cover, "height")}
-                        />
-                        <TitleHx level={3} classNames={[styles.title]}>
-                            {subtheme?.title || DEFAULT_COURSES_VALUES.title}
-                        </TitleHx>
-                    </Button>
-                </>
-            ))}
-        </div>
+        <>
+            {videoWarning && <WarningMsg msg={videoWarning} />}
+            <div className={styles.videosContainer}>
+                <SecurityRendering<ThemeContent>
+                    data={theme?.content}
+                    conditions={theme.content.map((t) => !!t.id && !!t.video)}
+                    state={{
+                        setWarningState: setVideoWarning,
+                        warningState: videoWarning,
+                    }}
+                    msgEmpty="No se han podido recuperar el temario. Estamos trabajando para solucionarlo lo antes posibles."
+                >
+                    {(subtheme, index, canRender) => {
+                        return (
+                            <Button
+                                key={subtheme.id || index}
+                                disabled={!canRender}
+                                onClick={() => setShowVideo(subtheme)}
+                                classNames={[styles.videoButton]}
+                                variant="Card"
+                            >
+                                <FigureImage
+                                    classNames={[styles.videoCardImage]}
+                                    src={getImage(subtheme?.cover, ["static"])}
+                                    alt={subtheme?.title}
+                                    title={subtheme?.title}
+                                    width={getImageSize(
+                                        subtheme?.cover,
+                                        "width"
+                                    )}
+                                    height={getImageSize(
+                                        subtheme?.cover,
+                                        "height"
+                                    )}
+                                />
+                                <TitleHx level={3} classNames={[styles.title]}>
+                                    {subtheme?.title ||
+                                        DEFAULT_COURSES_VALUES.title}
+                                </TitleHx>
+                            </Button>
+                        );
+                    }}
+                </SecurityRendering>
+            </div>
+        </>
     );
 }
 

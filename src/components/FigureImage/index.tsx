@@ -36,8 +36,6 @@ function FigureImage({
 }: Props) {
     const image = otherImage ? otherImage : DEFAULT_COURSE_IMAGE;
 
-    console.log(image);
-
     return (
         <figure className={[...classNames].join(" ")}>
             <img

@@ -9,7 +9,6 @@ import styles from "./UserObtainedItemDefault.module.css";
 import { MdOutlineEmail } from "react-icons/md";
 import { PATHS } from "../../../../../consts/paths";
 import { CourseJSON, Progress } from "../../../../../types/types";
-import { DEFAULT_COURSES_VALUES } from "../../../../../consts/general";
 
 type Props = {
     data: CourseJSON & Progress;
@@ -27,7 +26,6 @@ function UserObtainedItemDefault({ data }: Props) {
                     height={getImageSize(DEFAULT_COURSE_URL_PATH, "height")}
                 />
             </div>
-
             <p className={styles.notData}>
                 No se ha podido recuperar los datos de este curso.
             </p>
@@ -35,10 +33,9 @@ function UserObtainedItemDefault({ data }: Props) {
                 Contacte con nuestro servicio técnico para más información.
             </p>
 
-            <p className={styles.dataCourse}>
-                Título: {data?.title || DEFAULT_COURSES_VALUES.title}
-            </p>
-
+            {data?.title && (
+                <p className={styles.dataCourse}>Título: {data.title}</p>
+            )}
             <NavLink
                 className={["button", "buttonTerciary"].join(" ")}
                 to={`/${PATHS.contact}`}

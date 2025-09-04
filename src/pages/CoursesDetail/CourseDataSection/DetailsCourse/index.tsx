@@ -45,7 +45,10 @@ function DetailsCourse({ data, titleContain, type = "content" }: Props) {
                         conditions={data?.[typeData]?.themes.map(
                             (t) => !!t.title
                         )}
-                        setWarningState={setWarningDetail}
+                        state={{
+                            setWarningState: setWarningDetail,
+                            warningState: warningDetail,
+                        }}
                         msg="Algunos datos sobre los temas no se han podido recuperar. Estamos trabajando en ello."
                     >
                         {(theme, index, _canRender) => {
@@ -67,7 +70,10 @@ function DetailsCourse({ data, titleContain, type = "content" }: Props) {
                         conditions={data?.[typeData]?.themes.map(
                             (t) => !!t.title
                         )}
-                        setWarningState={setWarningDetail}
+                        state={{
+                            setWarningState: setWarningDetail,
+                            warningState: warningDetail,
+                        }}
                         msg="Algunos datos sobre los puntos a aprender no se han podido recuperar. Estamos trabajando en ello."
                     >
                         {(theme, index, _canRender) => {
@@ -92,7 +98,10 @@ function DetailsCourse({ data, titleContain, type = "content" }: Props) {
                     conditions={data?.[typeData]?.detailDescription.map(
                         (t) => !!t
                     )}
-                    setWarningState={setWarningDetail}
+                    state={{
+                        setWarningState: setWarningDetail,
+                        warningState: warningDetail,
+                    }}
                     msg="Algunos datos no se han podido recuperar. Estamos trabajando en ello."
                 >
                     {(description, index, canRender) => {

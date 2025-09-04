@@ -1,15 +1,14 @@
-.userDefaultCourseItemDefault figure {
+.userDefaultCourseItem figure {
     width: 100%;
     aspect-ratio: 1/1;
 }
 
-.userDefaultCourseItemDefault figure img {
+.userDefaultCourseItem figure img {
     width: 100%;
     height: 100%;
-    border-radius: 5px;
 }
 
-.userDefaultCourseItemDefault {
+.userDefaultCourseItem {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,41 +17,51 @@
     position: relative;
     flex: 1 0 auto;
     max-width: calc((100% / 6) - (20px * (6 - 1) / 6));
-    background-color: rgba(128, 128, 128, 0.194);
+    background-color: rgba(var(--primary-color-100), 0.1);
     border-radius: 5px;
     padding: 20px;
     overflow: hidden;
     transition: 0.2s all ease;
+    opacity: 0.3;
+    position: relative;
 }
 
-.notData {
-    font-family: Roboto-bold-italic;
-    color: gray;
-    opacity: 0.5;
-    text-align: center;
+.desactivate {
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 150%;
+    font-family: Roboto-italic;
+    padding: 0 10px;
+}
+
+.title {
+    font-family: Roboto-thin;
     font-size: 1.2rem;
 }
 
 @media all and (max-width: 1024px) {
-    .userDefaultCourseItemDefault {
+    .userDefaultCourseItem {
         max-width: calc((100% / 4) - (20px * (4 - 1) / 4));
     }
 }
 
 @media all and (max-width: 768px) {
-    .userDefaultCourseItemDefault {
+    .userDefaultCourseItem {
         max-width: calc((100% / 3) - (20px * (3 - 1) / 3));
     }
 }
 
 @media all and (max-width: 500px) {
-    .userDefaultCourseItemDefault {
+    .userDefaultCourseItem {
         max-width: calc((100% / 2) - (20px * (2 - 1) / 2));
     }
 }
 
 @media all and (max-width: 320px) {
-    .userDefaultCourseItemDefault {
+    .userDefaultCourseItem {
         max-width: 100%;
     }
 }

@@ -2,6 +2,8 @@ import { CourseJSON, IsObtainedCourse } from "../../types/types";
 import ItemCourseDisplay from "./ItemCourseDisplay";
 import styles from "./CoursesDisplay.module.css";
 import SecurityRendering from "../SecurityRendering";
+import { useState } from "react";
+import WarningMsg from "../WarningMsg";
 
 type Props = {
     action?: boolean;
@@ -21,31 +23,55 @@ type Props = {
  */
 
 function CoursesDisplay({ courses, action, display = "Col" }: Props) {
+    const [warningCoursesMsg, setWarningCoursesMsg] = useState<string | null>(
+        null
+    );
     const className = [
         display === "Col"
             ? styles.coursesColumnDisplay
             : styles.coursesRowDisplay,
     ].join(" ");
     return (
-        <div className={className}>
-            <SecurityRendering<CourseJSON & IsObtainedCourse>
-                data={courses}
-                conditions={courses?.map((c) => !!c.curseID && !!c.title)}
-            >
-                {(courses, index, canRender) => {
-                    if (!canRender) return null;
-                    return (
-                        <ItemCourseDisplay
-                            courseID={courses.curseID}
-                            key={courses.curseID || index}
-                            action={action}
-                            data={courses}
-                            display={display}
-                        />
-                    );
-                }}
-            </SecurityRendering>
-        </div>
+        <>
+            {warningCoursesMsg && <WarningMsg msg={warningCoursesMsg} />}
+            <div className={className}>
+                <SecurityRendering<CourseJSON & IsObtainedCourse>
+                    data={courses}
+                    conditions={courses?.map((c) => !!c.curseID)}
+                    noCriticalConditions={courses?.map(
+                        (c) =>
+                            !!c.title &&
+                            !!c.shortDescription &&
+                            !!c.imageUrl.thumb &&
+                            !!c.level &&
+                            !!c.price
+                    )}
+                    emptyNode={
+                        <>
+                            <p>No hay cursos para mostrar</p>
+                        </>
+                    }
+                    state={{
+                        setWarningState: setWarningCoursesMsg,
+                        warningState: warningCoursesMsg,
+                    }}
+                    msgEmpty="No se han podido recuperar los cursos. Estamos trabajando en ellos para solucionarlo."
+                >
+                    {(courses, index, canRender) => {
+                        if (!canRender) return null;
+                        return (
+                            <ItemCourseDisplay
+                                courseID={courses.curseID}
+                                key={courses.curseID || index}
+                                action={action}
+                                data={courses}
+                                display={display}
+                            />
+                        );
+                    }}
+                </SecurityRendering>
+            </div>
+        </>
     );
 }
 
