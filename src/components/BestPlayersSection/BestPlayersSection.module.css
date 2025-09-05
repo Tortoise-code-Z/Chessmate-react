@@ -5,6 +5,7 @@
     gap: 50px;
     position: relative;
     padding: 0 !important;
+    margin: 0 auto;
 }
 
 .bestPlayersSection h2 {
@@ -14,7 +15,6 @@
 }
 
 .sliderContainer {
-    padding: 0 var(--padding-lateral);
     width: 100%;
     height: 100vh;
     background-image: url("../../assets/images/static/static.-image-best-players_1920x1281_.jpg");

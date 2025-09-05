@@ -34,7 +34,7 @@ function ImageLevelProgress({ data }: Props) {
                     {data?.level || DEFAULT_COURSES_VALUES.level}
                 </p>
                 <p className={styles.progress}>
-                    {data?.progress
+                    {data?.progress || data?.progress === 0
                         ? `Progress: ${data?.progress}%`
                         : DEFAULT_COURSES_VALUES.progress}
                 </p>

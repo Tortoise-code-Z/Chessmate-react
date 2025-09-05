@@ -50,46 +50,44 @@ function UserObtainedCourses({
     );
 
     return (
-        <>
-            <div className={styles.userObtainedCourses}>
-                <DataStateWrapper isLoading={isLoading} error={error}>
-                    <SecurityRendering<CourseJSON & Progress>
-                        data={data}
-                        state={{
-                            setWarningState: setCourseWarning,
-                            warningState: courseWarning,
-                        }}
-                        conditions={data?.map((d) => !!d.curseID)}
-                        noCriticalConditions={data?.map(
-                            (d) =>
-                                !!d?.title &&
-                                !!d?.progress &&
-                                !!d?.level &&
-                                !!d?.imageUrl?.thumb
-                        )}
-                        emptyNode={<ThereArentCourses msg={msg} />}
-                    >
-                        {(course, index, canRendered) => {
-                            if (!canRendered) {
-                                return (
-                                    <UserObtainedItemDefault
-                                        key={course.curseID || index}
-                                        data={course}
-                                    />
-                                );
-                            }
-
+        <div className={styles.userObtainedCourses}>
+            <DataStateWrapper isLoading={isLoading} error={error}>
+                <SecurityRendering<CourseJSON & Progress>
+                    data={data}
+                    state={{
+                        setWarningState: setCourseWarning,
+                        warningState: courseWarning,
+                    }}
+                    conditions={data?.map((d) => !!d.curseID)}
+                    noCriticalConditions={data?.map(
+                        (d) =>
+                            !!d?.title &&
+                            (!!d?.progress || d?.progress === 0) &&
+                            !!d?.level &&
+                            !!d?.imageUrl?.thumb
+                    )}
+                    emptyNode={<ThereArentCourses msg={msg} />}
+                >
+                    {(course, index, canRendered) => {
+                        if (!canRendered) {
                             return (
-                                <UserObtainedCoursesItem
+                                <UserObtainedItemDefault
                                     key={course.curseID || index}
                                     data={course}
                                 />
                             );
-                        }}
-                    </SecurityRendering>
-                </DataStateWrapper>
-            </div>
-        </>
+                        }
+
+                        return (
+                            <UserObtainedCoursesItem
+                                key={course.curseID || index}
+                                data={course}
+                            />
+                        );
+                    }}
+                </SecurityRendering>
+            </DataStateWrapper>
+        </div>
     );
 }
 

@@ -1,20 +1,28 @@
 .errorElement {
     margin: 0 auto;
-    width: 70%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.7rem;
-    text-align: center;
-    gap: 30px;
+    width: 100%;
+    max-width: var(--max-width-page);
+    font-size: 1.3rem;
+    gap: 20px;
     font-family: Roboto-Light-italic;
 }
 
-.errorMsg,
-.errorElement svg {
-    opacity: 0.5;
+.paddingLateral {
+    padding: 0 var(--padding-lateral) !important;
+}
+.paddingNavbar {
+    padding-top: var(--navbar-height) !important;
+}
+
+.container {
+    width: 100%;
+    background-color: rgba(255, 0, 0, 0.4);
+    padding: 30px 35px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
 }
 
 .errorElement button {
@@ -27,7 +35,6 @@
 
 @media all and (max-width: 500px) {
     .errorElement {
-        width: 90%;
         font-size: 1.3rem;
     }
 }

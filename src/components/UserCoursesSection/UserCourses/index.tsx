@@ -61,6 +61,7 @@ function UserCourses({
                     <TitleHx level={3}>Adquiridos</TitleHx>
                     <UserObtainedCourses
                         setCourseWarning={setCourseWarning}
+                        courseWarning={courseWarning}
                         obtainedCoursesLimit={obtainedCoursesLimit}
                         msg={msg}
                     />

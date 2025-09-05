@@ -1,4 +1,4 @@
-import { FaExclamationTriangle } from "react-icons/fa";
+import { FaInfoCircle } from "react-icons/fa";
 import styles from "./ErrorElement.module.css";
 import Button from "../Button";
 import { NavLink } from "react-router-dom";
@@ -16,6 +16,9 @@ type Props = {
         text: string;
         to: string;
     };
+
+    paddingLateral?: boolean;
+    paddingNavbar?: boolean;
 };
 
 /**
@@ -38,28 +41,39 @@ function ErrorElement({
     classNames = [],
     buttonAction,
     linkAction,
+    paddingLateral,
+    paddingNavbar,
 }: Props) {
     console.error(error.message);
     return (
-        <div className={[styles.errorElement, ...classNames].join(" ")}>
-            <span className={styles.errorMsg}>
-                Lo sentimos mucho, ha ocurrido un error
-                {errorMsg && `: ${errorMsg.toLowerCase()}`}
-            </span>
-            <FaExclamationTriangle />
-            {buttonAction && (
-                <Button onClick={buttonAction.onClick}>
-                    {buttonAction.text}
-                </Button>
-            )}
-            {linkAction && (
-                <NavLink
-                    className={["button", "buttonPrimary"].join(" ")}
-                    to={linkAction.to}
-                >
-                    {linkAction.text}
-                </NavLink>
-            )}
+        <div
+            className={[
+                styles.errorElement,
+                paddingLateral ? styles.paddingLateral : "",
+                paddingNavbar ? styles.paddingNavbar : "",
+                ...classNames,
+            ].join(" ")}
+        >
+            <div className={styles.container}>
+                <FaInfoCircle />
+                <span className={styles.errorMsg}>
+                    Lo sentimos mucho, ha ocurrido un error.
+                    {errorMsg && `: ${errorMsg.toLowerCase()}`}
+                </span>
+                {buttonAction && (
+                    <Button onClick={buttonAction.onClick}>
+                        {buttonAction.text}
+                    </Button>
+                )}
+                {linkAction && (
+                    <NavLink
+                        className={["button", "buttonComplementary"].join(" ")}
+                        to={linkAction.to}
+                    >
+                        {linkAction.text}
+                    </NavLink>
+                )}
+            </div>
         </div>
     );
 }

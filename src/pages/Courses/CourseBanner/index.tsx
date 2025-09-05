@@ -32,7 +32,11 @@ function CourseBanner({}: Props) {
 
     return (
         <section className={styles.courseBanner}>
-            <DataStateWrapper isLoading={isLoading} error={error}>
+            <DataStateWrapper
+                isLoading={isLoading}
+                error={error}
+                paddingErrorLateral={true}
+            >
                 {data && (
                     <>
                         <FigureImage

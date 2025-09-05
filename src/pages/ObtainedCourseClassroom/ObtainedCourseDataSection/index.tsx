@@ -48,6 +48,8 @@ function ObtainedCourseDataSection({}: Props) {
                     text: "Volver al portal",
                     to: `/${PATHS.dashboard}`,
                 }}
+                paddingErrorLateral={true}
+                paddingErrorNavbar={true}
             >
                 <CourseClassroomBanner
                     data={data ?? ({} as Course & IsObtainedCourse)}

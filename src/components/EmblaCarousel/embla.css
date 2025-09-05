@@ -1,7 +1,9 @@
 .embla {
-    max-width: 100%;
+    width: 100%;
+    max-width: var(--max-width-page);
+    padding: 0 var(--padding-lateral) !important;
     height: 100vh;
-
+    margin: 0 auto;
     --slide-height: 100%;
     --slide-spacing: 1rem;
     --slide-size: 100%;
@@ -91,10 +93,10 @@
 }
 
 .embla__button--next {
-    right: 20px;
+    right: var(--padding-lateral);
 }
 .embla__button--prev {
-    left: 20px;
+    left: var(--padding-lateral);
 }
 
 .embla__button:disabled {

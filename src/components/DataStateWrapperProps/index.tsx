@@ -19,6 +19,8 @@ type Props = {
         text: string;
         to: string;
     };
+    paddingErrorLateral?: boolean;
+    paddingErrorNavbar?: boolean;
 };
 
 /**
@@ -51,6 +53,8 @@ export default function DataStateWrapper({
     errorButtonAction,
     errorLinkAction,
     loadingClassName = [],
+    paddingErrorLateral = false,
+    paddingErrorNavbar = false,
 }: Props) {
     if (isLoading)
         return (
@@ -70,6 +74,8 @@ export default function DataStateWrapper({
                         classNames={errorClassName}
                         buttonAction={errorButtonAction}
                         linkAction={errorLinkAction}
+                        paddingLateral={paddingErrorLateral}
+                        paddingNavbar={paddingErrorNavbar}
                     />
                 )}
             </>

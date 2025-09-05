@@ -34,11 +34,11 @@ function BestPlayersSection({}: Props) {
                 </span>
                 Chess.com
             </TitleHx>
-
             <DataStateWrapper
                 isLoading={isLoading}
                 error={error}
                 errorMsg={"No se ha podido recuperar los datos"}
+                paddingErrorLateral={true}
             >
                 <div className={styles.sliderContainer}>
                     <EmblaCarousel
