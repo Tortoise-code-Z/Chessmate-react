@@ -8,6 +8,7 @@ import SecurityRendering from "../../SecurityRendering";
 import { Comments } from "../../../types/types";
 import { useState } from "react";
 import WarningMsg from "../../WarningMsg";
+import MsgEmpty from "../../MsgEmpty";
 type Props = {};
 
 /**
@@ -49,12 +50,10 @@ function UsersCommentBox({}: Props) {
                         msg="Algunos comentarios pueden no haberse recuperado. Estamos trabajando en ello."
                         msgEmpty="No hemos podido recuperar todos los comentarios. Estamos trabajando para solucionarlo."
                         emptyNode={
-                            <>
-                                <p>
-                                    Este curso aun no tiene comentarios. ¡Sé el
-                                    primero en dejar tu opinión!
-                                </p>
-                            </>
+                            <MsgEmpty
+                                msg="Este curso aun no tiene comentarios. ¡Sé el
+                                    primero en dejar tu opinión!"
+                            />
                         }
                     >
                         {(comment, index, canRender) => {

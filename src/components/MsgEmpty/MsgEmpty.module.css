@@ -2,11 +2,19 @@
     width: 100%;
     display: flex;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     gap: 20px;
     opacity: 0.4;
     color: rgb(var(--primary-color-050));
     font-family: Roboto-Light-italic;
+}
+
+.msgEmpty svg {
+    width: 30px;
+}
+
+.msgEmpty p {
+    width: calc(100% - 30px);
 }
 
 .msgRow {
@@ -23,4 +31,17 @@
 
 .msgCol {
     justify-content: center;
+}
+
+@media all and (max-width: 768px) {
+    .msgEmpty {
+        font-size: 1.1rem;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .msgEmpty {
+        font-size: 1rem;
+        text-align: center;
+    }
 }
