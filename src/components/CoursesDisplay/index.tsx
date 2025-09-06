@@ -2,13 +2,17 @@ import { CourseJSON, IsObtainedCourse } from "../../types/types";
 import ItemCourseDisplay from "./ItemCourseDisplay";
 import styles from "./CoursesDisplay.module.css";
 import SecurityRendering from "../SecurityRendering";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import WarningMsg from "../WarningMsg";
+import ItemCourseDisplayDefault from "./ItemCourseDisplayDefault";
+import MsgEmpty from "../MsgEmpty";
 
 type Props = {
     action?: boolean;
     courses: (CourseJSON & IsObtainedCourse)[];
     display?: "Row" | "Col";
+    msg?: string;
+    svg?: ReactNode;
 };
 
 /**
@@ -22,10 +26,11 @@ type Props = {
  * @param display - Optional layout type: "Row" or "Col". Defaults to "Col".
  */
 
-function CoursesDisplay({ courses, action, display = "Col" }: Props) {
+function CoursesDisplay({ courses, action, display = "Col", msg, svg }: Props) {
     const [warningCoursesMsg, setWarningCoursesMsg] = useState<string | null>(
         null
     );
+
     const className = [
         display === "Col"
             ? styles.coursesColumnDisplay
@@ -47,9 +52,10 @@ function CoursesDisplay({ courses, action, display = "Col" }: Props) {
                             !!c.price
                     )}
                     emptyNode={
-                        <>
-                            <p>No hay cursos para mostrar</p>
-                        </>
+                        <MsgEmpty
+                            msg={msg ? msg : "No hay cursos para mostrar."}
+                            svg={svg ? svg : undefined}
+                        />
                     }
                     state={{
                         setWarningState: setWarningCoursesMsg,
@@ -58,7 +64,16 @@ function CoursesDisplay({ courses, action, display = "Col" }: Props) {
                     msgEmpty="No se han podido recuperar los cursos. Estamos trabajando en ellos para solucionarlo."
                 >
                     {(courses, index, canRender) => {
-                        if (!canRender) return null;
+                        if (!canRender)
+                            return (
+                                <ItemCourseDisplayDefault
+                                    courseID={courses.curseID}
+                                    key={courses.curseID || index}
+                                    action={action}
+                                    data={courses}
+                                    display={display}
+                                />
+                            );
                         return (
                             <ItemCourseDisplay
                                 courseID={courses.curseID}

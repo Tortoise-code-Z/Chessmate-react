@@ -5,6 +5,7 @@ type Props = {
     courseID: number;
     isObtained?: boolean;
     canBuy?: boolean;
+    disabled?: boolean;
 };
 
 /**
@@ -22,13 +23,18 @@ function PurchaseAction({
     isObtained = false,
     courseID,
     canBuy = true,
+    disabled = false,
 }: Props) {
     return (
         <>
             {isObtained ? (
                 <ObtainedTag />
             ) : (
-                <PurchaseButton canBuy={canBuy} courseID={courseID} />
+                <PurchaseButton
+                    disabled={disabled}
+                    canBuy={canBuy}
+                    courseID={courseID}
+                />
             )}
         </>
     );

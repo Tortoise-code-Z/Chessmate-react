@@ -2453,7 +2453,7 @@ export const DATA_BASE: BBDD = {
                         description: "Comprende qué significa dar jaque mate.",
                         content: [
                             {
-                                id: 3,
+                                id: 1,
                                 title: "Concepto de jaque",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",

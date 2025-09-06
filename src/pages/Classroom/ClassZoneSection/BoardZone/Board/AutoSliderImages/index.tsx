@@ -1,5 +1,7 @@
 import { Dispatch, useEffect, useRef, useState } from "react";
 import { getImage, getImageSize } from "../../../../../../utils/images";
+import { DEFAULT_BOARD_IMAGE } from "../../../../../../consts/images";
+import FigureImage from "../../../../../../components/FigureImage";
 
 type Props = {
     images: string[];
@@ -58,17 +60,19 @@ function AutoSliderImages({
 
     if (loading)
         return (
-            <img
-                src={getImage(images[0], ["defaultCourses"])}
-                alt={themeTitle}
-                title={themeTitle}
-                width={getImageSize(images[0], "width")}
-                height={getImageSize(images[0], "height")}
+            <FigureImage
+                otherImage={DEFAULT_BOARD_IMAGE}
+                src={DEFAULT_BOARD_IMAGE.image}
+                alt={DEFAULT_BOARD_IMAGE.alt}
+                title={DEFAULT_BOARD_IMAGE.alt}
+                width={DEFAULT_BOARD_IMAGE.width}
+                height={DEFAULT_BOARD_IMAGE.height}
             />
         );
 
     return (
-        <img
+        <FigureImage
+            otherImage={DEFAULT_BOARD_IMAGE}
             src={getImage(images[imageIndex], ["defaultCourses"])}
             alt={themeTitle}
             title={themeTitle}

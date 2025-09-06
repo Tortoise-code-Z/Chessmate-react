@@ -39,10 +39,12 @@ function ThemeButton({
         <Button
             disabled={disabled}
             classNames={[styles.themeBtn]}
-            variant={videosIndex === theme.id ? "Primary" : "Secondary"}
+            variant={
+                videosIndex === theme.id && !!theme.id ? "Primary" : "Secondary"
+            }
             key={theme.id}
             onClick={() =>
-                videosIndex === theme.id
+                videosIndex === theme.id && !!theme.id
                     ? setVideosIndex(null)
                     : setVideosIndex(theme.id)
             }
@@ -59,7 +61,7 @@ function ThemeButton({
             <FaChevronDown
                 style={{
                     transform:
-                        videosIndex === theme.id
+                        videosIndex === theme.id && !!theme.id
                             ? "rotate(180deg)"
                             : "rotate(0deg)",
                 }}

@@ -287,6 +287,11 @@ a.button > svg {
 }
 
 @font-face {
+    font-family: Roboto-medium-italic;
+    src: url("/public/fonts/Roboto/static/Roboto-MediumItalic.ttf");
+}
+
+@font-face {
     font-family: Roboto-italic;
     src: url("/public/fonts/Roboto/static/Roboto-Italic.ttf");
 }

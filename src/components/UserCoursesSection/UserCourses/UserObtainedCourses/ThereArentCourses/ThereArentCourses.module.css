@@ -8,5 +8,6 @@
 .msgNotCoursesYet p {
     font-family: Roboto-Light-italic;
     font-size: 1.2rem;
-    opacity: 0.3;
+    opacity: 0.4;
+    color: rgb(var(--primary-color-100));
 }

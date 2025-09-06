@@ -1,9 +1,11 @@
 import DataStateWrapper from "../../../components/DataStateWrapperProps";
 import LightComponent from "../../../components/LightComponent";
+import SecurityRendering from "../../../components/SecurityRendering";
+import WarningMsg from "../../../components/WarningMsg";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import useDefaultCourseById from "../../../hooks/useDefaultCourseById";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
-import { UseCourseApiType } from "../../../types/types";
+import { CourseDataItem, UseCourseApiType } from "../../../types/types";
 import BoardZone from "./BoardZone";
 import styles from "./ClassZoneSection.module.css";
 import ExplanationTheme from "./ExplanationTheme";
@@ -35,6 +37,8 @@ function ClassZoneSection({}: Props) {
         user?.userID as number
     );
 
+    const [classWarning, setClassWarning] = useState<string | null>(null);
+
     // Index used to indicate what theme you are on
     const [index, setIndex] = useState<number>(1);
 
@@ -47,6 +51,7 @@ function ClassZoneSection({}: Props) {
     return (
         <section className={styles.classZoneSection}>
             <LightComponent top={50} right={25} />
+            {classWarning && <WarningMsg />}
             <DataStateWrapper isLoading={isLoading} error={error}>
                 <BoardZone
                     data={data || ({} as UseCourseApiType)}
@@ -54,6 +59,8 @@ function ClassZoneSection({}: Props) {
                     index={index}
                     imageSliderLoading={imageSliderLoading}
                     setImageSliderLoading={setImageSliderLoading}
+                    classWarning={classWarning}
+                    setClassWarning={setClassWarning}
                 />
                 <ExplanationTheme
                     data={data || ({} as UseCourseApiType)}

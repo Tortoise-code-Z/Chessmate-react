@@ -7,6 +7,7 @@ import { useProfessorMsgStore } from "../../hooks/useProfessorMsgStore";
 type Props = {
     courseID: number;
     canBuy?: boolean;
+    disabled?: boolean;
 };
 
 /**
@@ -23,7 +24,7 @@ type Props = {
  * @returns A button that either triggers a purchase or prompts the user to log in.
  */
 
-function PurchaseButton({ courseID, canBuy = true }: Props) {
+function PurchaseButton({ courseID, canBuy = true, disabled = false }: Props) {
     const { user } = useUserAuthStore();
     const { setState, setValue } = useProfessorMsgStore();
     const { mutate, isPending } = useBuyCourse();
@@ -44,6 +45,7 @@ function PurchaseButton({ courseID, canBuy = true }: Props) {
     return (
         <>
             <Button
+                disabled={disabled}
                 propagation={false}
                 onClick={user && canBuy ? buyCourseAction : cantBuyCourse}
             >

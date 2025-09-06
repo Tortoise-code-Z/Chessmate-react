@@ -9,6 +9,7 @@ import { DefualtCourse, Progress } from "../../../../types/types";
 import SecurityRendering from "../../../SecurityRendering";
 import { Dispatch, SetStateAction } from "react";
 import UserDefaultCourseItemDefault from "./UserDefaultCourseItemDefault";
+import MsgEmpty from "../../../MsgEmpty";
 
 type Props = {
     setDefaultWarning: Dispatch<SetStateAction<string | null>>;
@@ -54,17 +55,14 @@ function UserDefaultCourses({ setDefaultWarning, defaultWarning }: Props) {
                         warningState: defaultWarning,
                     }}
                     conditions={data?.map(
+                        (course) => !!course && !!course.curseID
+                    )}
+                    noCriticalConditions={data?.map(
                         (course) =>
-                            !!course &&
-                            !!course.curseID &&
                             !!course.content.themes &&
                             (!!course.title || !!course.imageUrl.general)
                     )}
-                    emptyNode={
-                        <>
-                            <p>No hay cursos para mostrar</p>
-                        </>
-                    }
+                    emptyNode={<MsgEmpty msg="No hay cursos para mostrar." />}
                 >
                     {(course, index, canRendered) => {
                         if (!canRendered) {

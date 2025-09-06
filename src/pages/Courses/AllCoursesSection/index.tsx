@@ -70,17 +70,14 @@ function AllCoursesSection({}: Props) {
                 error={error}
                 errorMsg={error?.message}
             >
-                {data && data.length > 0 ? (
+                {data && (
                     <CoursesDisplay
                         action={true}
                         courses={data}
                         display="Row"
+                        msg={"No se han encontrado cursos..."}
+                        svg={<FaHandsPraying />}
                     />
-                ) : (
-                    <div className={[styles.thereArentCourses].join(" ")}>
-                        <p>No se han encontrado cursos...</p>
-                        <FaHandsPraying />
-                    </div>
                 )}
             </DataStateWrapper>
         </section>

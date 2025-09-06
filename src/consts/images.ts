@@ -75,3 +75,11 @@ export const DEFAULT_AUTHOR_IMAGE: Images = {
     height: getImageSize(DEFAULT_AUTHOR_URL_PATH, "height"),
     alt: "Contacta con nuestro equipo",
 };
+
+export const DEFAULT_BOARD_URL_PATH = "static-image-board_1719x1719_.png";
+export const DEFAULT_BOARD_IMAGE: Images = {
+    image: getImage(DEFAULT_BOARD_URL_PATH, ["static"]),
+    width: getImageSize(DEFAULT_BOARD_URL_PATH, "width"),
+    height: getImageSize(DEFAULT_BOARD_URL_PATH, "height"),
+    alt: "Tablero",
+};

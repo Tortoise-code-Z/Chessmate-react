@@ -1,0 +1,26 @@
+.msgEmpty {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    gap: 20px;
+    opacity: 0.4;
+    color: rgb(var(--primary-color-050));
+    font-family: Roboto-Light-italic;
+}
+
+.msgRow {
+    flex-direction: row;
+}
+
+.msgCol {
+    flex-direction: column;
+}
+
+.msgStart {
+    justify-content: flex-start;
+}
+
+.msgCol {
+    justify-content: center;
+}

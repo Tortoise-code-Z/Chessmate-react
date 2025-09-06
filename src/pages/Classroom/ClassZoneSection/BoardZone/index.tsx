@@ -10,6 +10,8 @@ type Props = {
     index: number;
     imageSliderLoading: boolean;
     setImageSliderLoading: Dispatch<SetStateAction<boolean>>;
+    classWarning: string | null;
+    setClassWarning: Dispatch<SetStateAction<string | null>>;
 };
 
 /**
@@ -35,10 +37,14 @@ function BoardZone({
     data,
     imageSliderLoading,
     setImageSliderLoading,
+    classWarning,
+    setClassWarning,
 }: Props) {
     return (
         <div className={styles.boardContainer}>
             <Board
+                classWarning={classWarning}
+                setClassWarning={setClassWarning}
                 data={data}
                 index={index}
                 imageSliderLoading={imageSliderLoading}

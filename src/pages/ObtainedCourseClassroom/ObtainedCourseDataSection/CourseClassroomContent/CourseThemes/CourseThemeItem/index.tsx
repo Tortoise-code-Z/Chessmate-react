@@ -43,7 +43,7 @@ function CourseThemeItem({
                 theme={theme}
                 disabled={disabled}
             />
-            {videosIndex === theme.id && (
+            {videosIndex === theme.id && !!theme.id && (
                 <ThemeVideos theme={theme} setShowVideo={setShowVideo} />
             )}
         </div>
