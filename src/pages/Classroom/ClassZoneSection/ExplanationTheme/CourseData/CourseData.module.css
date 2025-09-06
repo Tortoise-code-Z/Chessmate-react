@@ -1,6 +1,7 @@
 .courseData {
     display: flex;
     flex-direction: column;
+
     gap: 10px;
 }
 
@@ -8,6 +9,7 @@
     font-family: Roboto-thin;
     font-size: 1.1rem;
     line-height: 1.5em;
+    overflow-y: auto;
 }
 
 .courseData h1 {

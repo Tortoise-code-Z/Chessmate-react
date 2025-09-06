@@ -1,15 +1,21 @@
 import { FaCheckCircle } from "react-icons/fa";
 import Button from "../../../../../components/Button";
 import styles from "./CourseThemes.module.css";
-import { UseCourseApiType } from "../../../../../types/types";
+import {
+    ThemeDefaultCourses,
+    UseCourseApiType,
+} from "../../../../../types/types";
 import { Dispatch, SetStateAction } from "react";
 import { DEFAULT_VALUES_DEFAULT_COURSES } from "../../../../../consts/general";
+import SecurityRendering from "../../../../../components/SecurityRendering";
 
 type Props = {
     data: UseCourseApiType;
     setIndex: Dispatch<SetStateAction<number>>;
     index: number;
     setImageSliderLoading: Dispatch<SetStateAction<boolean>>;
+    classWarning: string | null;
+    setClassWarning: Dispatch<SetStateAction<string | null>>;
 };
 
 /**
@@ -28,27 +34,69 @@ type Props = {
  * @returns JSX element containing the list of theme buttons.
  */
 
-function CourseThemes({ data, index, setImageSliderLoading, setIndex }: Props) {
+function CourseThemes({
+    data,
+    index,
+    setImageSliderLoading,
+    setIndex,
+    classWarning,
+    setClassWarning,
+}: Props) {
+    console.log(
+        "numero de imagenes renderizadas: ",
+        data.courses.content.themes.map((t) => t.images.filter((i) => i)),
+        "mitad de imagenes renderizadas: ",
+        data.courses.content.themes.map((t) => t.images.length * 0.5)
+    );
     return (
         <div className={styles.themes}>
-            {data?.courses?.content?.themes?.map((theme) => (
-                <Button
-                    classNames={["p-relative"]}
-                    key={theme.id}
-                    onClick={() => {
-                        setImageSliderLoading(true);
-                        setIndex(theme.id);
-                    }}
-                    variant={index === theme.id ? "Primary" : "Secondary"}
-                >
-                    {data?.userThemeStates?.find((u) => u.themeID === theme.id)
-                        ?.completed && (
-                        <FaCheckCircle className={styles.completedIcon} />
-                    )}
+            <SecurityRendering<ThemeDefaultCourses>
+                data={data?.courses?.content?.themes}
+                conditions={[true]}
+                noCriticalConditions={[
+                    !!data.courses.title,
+                    !!data.courses.content.detailDescription,
+                    ...data.courses.content.themes.map(
+                        (t) =>
+                            !!t.title &&
+                            !!t.description &&
+                            t.images.filter((i) => i).length >
+                                t.images.length * 0.5
+                    ),
+                ]}
+                state={{
+                    setWarningState: setClassWarning,
+                    warningState: classWarning,
+                }}
+                msg="No se han podido recuperar algunos datos del curso. Estamos trabajando para poder solucionarlo."
+            >
+                {(theme, _i, _canRender) => {
+                    return (
+                        <Button
+                            classNames={["p-relative"]}
+                            key={theme.id}
+                            onClick={() => {
+                                setImageSliderLoading(true);
+                                setIndex(theme.id);
+                            }}
+                            variant={
+                                index === theme.id ? "Primary" : "Secondary"
+                            }
+                        >
+                            {data?.userThemeStates?.find(
+                                (u) => u.themeID === theme.id
+                            )?.completed && (
+                                <FaCheckCircle
+                                    className={styles.completedIcon}
+                                />
+                            )}
 
-                    {theme?.title || DEFAULT_VALUES_DEFAULT_COURSES.title}
-                </Button>
-            ))}
+                            {theme?.title ||
+                                DEFAULT_VALUES_DEFAULT_COURSES.title}
+                        </Button>
+                    );
+                }}
+            </SecurityRendering>
         </div>
     );
 }

@@ -29,6 +29,7 @@ function SecurityRendering<T>({
     state,
     noCriticalConditions,
 }: Props<T>) {
+    console.log(noCriticalConditions);
     useEffect(() => {
         if (!state) return;
 

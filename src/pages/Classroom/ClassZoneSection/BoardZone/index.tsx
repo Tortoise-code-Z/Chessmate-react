@@ -43,8 +43,6 @@ function BoardZone({
     return (
         <div className={styles.boardContainer}>
             <Board
-                classWarning={classWarning}
-                setClassWarning={setClassWarning}
                 data={data}
                 index={index}
                 imageSliderLoading={imageSliderLoading}
@@ -52,6 +50,8 @@ function BoardZone({
             />
 
             <CourseThemes
+                classWarning={classWarning}
+                setClassWarning={setClassWarning}
                 data={data}
                 setIndex={setIndex}
                 index={index}

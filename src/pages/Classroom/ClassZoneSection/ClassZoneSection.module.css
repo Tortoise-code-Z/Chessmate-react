@@ -1,27 +1,42 @@
 .classZoneSection {
-    display: flex;
-    flex-direction: row;
-    max-width: var(--max-width-page);
-    margin: 0 auto;
-    align-items: center;
-    justify-content: center;
     width: 100%;
     height: 100vh;
+    padding-top: var(--navbar-height) !important;
+    margin: 0 auto;
+    max-width: var(--max-width-page) !important;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.classZoneSectionWithMsg {
+    height: calc(100% - 25px - 19.2px - 10px) !important;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     position: relative;
     gap: 10px;
-    padding-top: var(--navbar-height) !important;
+    height: 100%;
+    width: 100%;
 }
 
 @media all and (max-width: 1023px) {
     .classZoneSection {
-        width: 100%;
+        height: fit-content;
+    }
+    .container {
+        height: 100% !important;
         flex-direction: column;
         gap: 20px;
     }
 }
 
 @media all and (max-width: 767px) {
-    .classZoneSection {
+    .container {
         height: fit-content;
         flex-direction: column;
     }
@@ -35,7 +50,10 @@
 
 @media all and (max-height: 500px) {
     .classZoneSection {
-        height: fit-content;
-        flex-direction: column-reverse;
+        height: fit-content !important;
+    }
+    .container {
+        height: fit-content !important;
+        flex-direction: column;
     }
 }

@@ -3,15 +3,12 @@ import AutoSliderImages from "./AutoSliderImages";
 import styles from "./Board.module.css";
 import { UseCourseApiType } from "../../../../../types/types";
 import { DEFAULT_VALUES_DEFAULT_COURSES } from "../../../../../consts/general";
-import SecurityRendering from "../../../../../components/SecurityRendering";
 
 type Props = {
     data: UseCourseApiType;
     index: number;
     imageSliderLoading: boolean;
     setImageSliderLoading: Dispatch<SetStateAction<boolean>>;
-    classWarning: string | null;
-    setClassWarning: Dispatch<SetStateAction<string | null>>;
 };
 
 /**
@@ -35,8 +32,6 @@ function Board({
     imageSliderLoading,
     index,
     setImageSliderLoading,
-    classWarning,
-    setClassWarning,
 }: Props) {
     return (
         <div className={styles.boardZone}>

@@ -1,13 +1,12 @@
 .explanationTheme {
-    width: 40%;
+    width: 50%;
     height: 100%;
     max-height: 800px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
     gap: 20px;
-    /* border: 1px solid red; */
 }
 
 @media all and (max-width: 1023px) {
@@ -22,6 +21,12 @@
     .explanationTheme {
         height: fit-content;
         flex-direction: column;
+    }
+}
+
+@media all and (max-height: 767px) {
+    .explanationTheme {
+        overflow-y: auto;
     }
 }
 

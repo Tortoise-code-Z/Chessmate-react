@@ -1,11 +1,10 @@
 import DataStateWrapper from "../../../components/DataStateWrapperProps";
 import LightComponent from "../../../components/LightComponent";
-import SecurityRendering from "../../../components/SecurityRendering";
 import WarningMsg from "../../../components/WarningMsg";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import useDefaultCourseById from "../../../hooks/useDefaultCourseById";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
-import { CourseDataItem, UseCourseApiType } from "../../../types/types";
+import { UseCourseApiType } from "../../../types/types";
 import BoardZone from "./BoardZone";
 import styles from "./ClassZoneSection.module.css";
 import ExplanationTheme from "./ExplanationTheme";
@@ -49,25 +48,32 @@ function ClassZoneSection({}: Props) {
     useEffect(() => setIndex(1), [params.id]);
 
     return (
-        <section className={styles.classZoneSection}>
-            <LightComponent top={50} right={25} />
-            {classWarning && <WarningMsg />}
+        <section className={[styles.classZoneSection].join(" ")}>
+            <LightComponent top={50} right={65} />
+            {classWarning && <WarningMsg msg={classWarning} />}
             <DataStateWrapper isLoading={isLoading} error={error}>
-                <BoardZone
-                    data={data || ({} as UseCourseApiType)}
-                    setIndex={setIndex}
-                    index={index}
-                    imageSliderLoading={imageSliderLoading}
-                    setImageSliderLoading={setImageSliderLoading}
-                    classWarning={classWarning}
-                    setClassWarning={setClassWarning}
-                />
-                <ExplanationTheme
-                    data={data || ({} as UseCourseApiType)}
-                    setIndex={setIndex}
-                    index={index}
-                    setImageSliderLoading={setImageSliderLoading}
-                />
+                <div
+                    className={[
+                        styles.container,
+                        !!classWarning ? styles.classZoneSectionWithMsg : "",
+                    ].join(" ")}
+                >
+                    <ExplanationTheme
+                        data={data || ({} as UseCourseApiType)}
+                        setIndex={setIndex}
+                        index={index}
+                        setImageSliderLoading={setImageSliderLoading}
+                    />
+                    <BoardZone
+                        data={data || ({} as UseCourseApiType)}
+                        setIndex={setIndex}
+                        index={index}
+                        imageSliderLoading={imageSliderLoading}
+                        setImageSliderLoading={setImageSliderLoading}
+                        classWarning={classWarning}
+                        setClassWarning={setClassWarning}
+                    />
+                </div>
             </DataStateWrapper>
         </section>
     );

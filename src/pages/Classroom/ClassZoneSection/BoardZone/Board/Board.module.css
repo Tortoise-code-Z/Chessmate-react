@@ -17,6 +17,6 @@
 
 @media all and (max-height: 500px) {
     .boardZone figure {
-        height: calc(100vh - var(--navbar-height));
+        height: calc(100vh - var(--navbar-height) - 10px);
     }
 }
