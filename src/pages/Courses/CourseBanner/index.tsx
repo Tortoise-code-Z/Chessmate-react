@@ -31,11 +31,16 @@ function CourseBanner({}: Props) {
     );
 
     return (
-        <section className={styles.courseBanner}>
+        <section
+            className={[styles.courseBanner, error ? styles.cbError : ""].join(
+                " "
+            )}
+        >
             <DataStateWrapper
                 isLoading={isLoading}
                 error={error}
                 paddingErrorLateral={true}
+                errorMsg="No se ha podido recuperar el curso..."
             >
                 {data && (
                     <>

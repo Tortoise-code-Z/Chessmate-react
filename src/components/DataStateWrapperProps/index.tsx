@@ -21,6 +21,7 @@ type Props = {
     };
     paddingErrorLateral?: boolean;
     paddingErrorNavbar?: boolean;
+    paddingLoadingNavbar?: boolean;
 };
 
 /**
@@ -55,12 +56,16 @@ export default function DataStateWrapper({
     loadingClassName = [],
     paddingErrorLateral = false,
     paddingErrorNavbar = false,
+    paddingLoadingNavbar = false,
 }: Props) {
     if (isLoading)
         return (
             <>
                 {loadingComponent || (
-                    <LoadingElement classNames={[...loadingClassName]} />
+                    <LoadingElement
+                        paddingLoadingNavbar={paddingLoadingNavbar}
+                        classNames={[...loadingClassName]}
+                    />
                 )}
             </>
         );

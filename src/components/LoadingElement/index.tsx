@@ -4,6 +4,7 @@ import styles from "./LoadingElement.module.css";
 type Props = {
     height?: "fit" | "all";
     classNames?: string[];
+    paddingLoadingNavbar?: boolean;
 };
 
 /**
@@ -15,7 +16,11 @@ type Props = {
  * @returns The rendered loading element with a spinner.
  */
 
-function LoadingElement({ height = "all", classNames = [] }: Props) {
+function LoadingElement({
+    height = "all",
+    classNames = [],
+    paddingLoadingNavbar = false,
+}: Props) {
     return (
         <div
             className={[
@@ -23,6 +28,7 @@ function LoadingElement({ height = "all", classNames = [] }: Props) {
                 height === "all"
                     ? styles.loadingElement
                     : styles.loadingElementFit,
+                paddingLoadingNavbar ? styles.loadingWidthNavPadd : "",
                 ...classNames,
             ].join(" ")}
         >

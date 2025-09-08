@@ -10,6 +10,10 @@
     padding: 0 var(--padding-lateral) !important;
 }
 
+.noNavigate {
+    cursor: auto !important;
+}
+
 .courseData {
     width: 100%;
     display: flex;

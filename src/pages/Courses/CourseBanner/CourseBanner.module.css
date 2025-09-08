@@ -9,6 +9,14 @@
     align-items: center;
 }
 
+.cbError {
+    height: auto !important;
+    padding-top: 0 !important;
+    padding: calc(var(--section-vertical-padding) + var(--navbar-height)) 0 !important;
+    padding-bottom: var(--section-vertical-padding) !important;
+    cursor: normal !important;
+}
+
 .bannerBackground {
     position: absolute !important;
     top: 0;

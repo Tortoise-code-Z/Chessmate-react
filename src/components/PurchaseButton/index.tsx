@@ -31,8 +31,9 @@ function PurchaseButton({ courseID, canBuy = true, disabled = false }: Props) {
 
     const cantBuyCourse = () => {
         setState(true);
-        if (!canBuy) setValue("noPrice");
-        if (!user) setValue("cantCommentSesion");
+        if (!courseID) return setValue("noID");
+        if (!canBuy) return setValue("noPrice");
+        if (!user) return setValue("cantCommentSesion");
     };
 
     const buyCourseAction = () => {

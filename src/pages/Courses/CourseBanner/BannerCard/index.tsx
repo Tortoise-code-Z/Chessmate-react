@@ -27,12 +27,13 @@ function BannerCard({ data }: Props) {
     const navigate = useNavigate();
     const bannerCardHandleClick = () => {
         navigate(
-            `/${PATHS.coursesDetail.replace(":id", data.curseID.toString())}`
+            `/${PATHS.coursesDetail.replace(":id", data?.curseID?.toString())}`
         );
     };
+
     return (
         <div
-            className={styles.bannerCard}
+            className={[styles.bannerCard].join(" ")}
             onClick={() => bannerCardHandleClick()}
         >
             <div className={styles.courseData}>
@@ -60,9 +61,9 @@ function BannerCard({ data }: Props) {
             </div>
 
             <PurchaseAction
-                canBuy={!!data?.price}
-                courseID={data.curseID}
-                isObtained={data.isObtained}
+                canBuy={!!data?.price && !!data?.curseID}
+                courseID={data?.curseID}
+                isObtained={data?.isObtained}
             />
         </div>
     );

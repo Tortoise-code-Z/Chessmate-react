@@ -384,7 +384,8 @@ export type ProfessorValues =
     | "cantCommentSesion"
     | "cantCommentHasntBuyCourse"
     | "firstLogin"
-    | "noPrice";
+    | "noPrice"
+    | "noID";
 
 export type Images = {
     image: string | undefined;
