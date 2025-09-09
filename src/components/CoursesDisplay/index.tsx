@@ -42,14 +42,14 @@ function CoursesDisplay({ courses, action, display = "Col", msg, svg }: Props) {
             <div className={className}>
                 <SecurityRendering<CourseJSON & IsObtainedCourse>
                     data={courses}
-                    conditions={courses?.map((c) => !!c.curseID)}
+                    conditions={courses?.map((c) => !!c?.curseID)}
                     noCriticalConditions={courses?.map(
                         (c) =>
-                            !!c.title &&
-                            !!c.shortDescription &&
-                            !!c.imageUrl.thumb &&
-                            !!c.level &&
-                            !!c.price
+                            !!c?.title &&
+                            !!c?.shortDescription &&
+                            !!c?.imageUrl.thumb &&
+                            !!c?.level &&
+                            !!c?.price
                     )}
                     emptyNode={
                         <MsgEmpty
@@ -61,25 +61,26 @@ function CoursesDisplay({ courses, action, display = "Col", msg, svg }: Props) {
                         setWarningState: setWarningCoursesMsg,
                         warningState: warningCoursesMsg,
                     }}
+                    msg="Algún curso puede estar incompleto. Estamos trabajando para solucionarlo."
                     msgEmpty="No se han podido recuperar los cursos. Estamos trabajando en ellos para solucionarlo."
                 >
-                    {(courses, index, canRender) => {
+                    {(course, index, canRender) => {
                         if (!canRender)
                             return (
                                 <ItemCourseDisplayDefault
-                                    courseID={courses.curseID}
-                                    key={courses.curseID || index}
+                                    courseID={course?.curseID}
+                                    key={course?.curseID || index}
                                     action={action}
-                                    data={courses}
+                                    data={course}
                                     display={display}
                                 />
                             );
                         return (
                             <ItemCourseDisplay
-                                courseID={courses.curseID}
-                                key={courses.curseID || index}
+                                courseID={course?.curseID}
+                                key={course?.curseID || index}
                                 action={action}
-                                data={courses}
+                                data={course}
                                 display={display}
                             />
                         );

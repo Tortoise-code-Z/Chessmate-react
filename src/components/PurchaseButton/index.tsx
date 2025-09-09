@@ -5,7 +5,7 @@ import { useBuyCourse } from "../../hooks/useBuyCourse";
 import { useProfessorMsgStore } from "../../hooks/useProfessorMsgStore";
 
 type Props = {
-    courseID: number;
+    courseID: number | undefined | null;
     canBuy?: boolean;
     disabled?: boolean;
 };
@@ -36,19 +36,20 @@ function PurchaseButton({ courseID, canBuy = true, disabled = false }: Props) {
         if (!user) return setValue("cantCommentSesion");
     };
 
-    const buyCourseAction = () => {
-        mutate({
-            courseID: courseID,
-            userID: user?.userID as number,
-        });
-    };
-
     return (
         <>
             <Button
                 disabled={disabled}
                 propagation={false}
-                onClick={user && canBuy ? buyCourseAction : cantBuyCourse}
+                onClick={
+                    user && canBuy && courseID
+                        ? () =>
+                              mutate({
+                                  courseID: courseID,
+                                  userID: user?.userID as number,
+                              })
+                        : cantBuyCourse
+                }
             >
                 {isPending ? (
                     "Comprando..."

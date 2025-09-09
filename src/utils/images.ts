@@ -1,4 +1,7 @@
-export const getImage = (name: string | null, folders: string[]) => {
+export const getImage = (
+    name: string | null | undefined,
+    folders: string[]
+) => {
     const folderPath = folders.join("/");
     if (!name || name.length === 0) return undefined;
     return new URL(`../assets/images/${folderPath}/${name}`, import.meta.url)
@@ -6,7 +9,7 @@ export const getImage = (name: string | null, folders: string[]) => {
 };
 
 export const getImageSize = (
-    itemToSplit: string | null,
+    itemToSplit: string | null | undefined,
     dimension: "width" | "height"
 ) => {
     const splitNumber: number = dimension === "width" ? 0 : 1;

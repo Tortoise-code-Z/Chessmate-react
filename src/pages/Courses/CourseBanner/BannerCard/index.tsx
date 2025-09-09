@@ -7,7 +7,7 @@ import TitleHx from "../../../../components/TitleHx";
 import { DEFAULT_COURSES_VALUES } from "../../../../consts/general";
 
 type Props = {
-    data: CourseJSON & IsObtainedCourse;
+    data: (CourseJSON & IsObtainedCourse) | undefined;
 };
 
 /**
@@ -27,7 +27,10 @@ function BannerCard({ data }: Props) {
     const navigate = useNavigate();
     const bannerCardHandleClick = () => {
         navigate(
-            `/${PATHS.coursesDetail.replace(":id", data?.curseID?.toString())}`
+            `/${PATHS.coursesDetail.replace(
+                ":id",
+                data ? data?.curseID?.toString() : ""
+            )}`
         );
     };
 
@@ -61,8 +64,8 @@ function BannerCard({ data }: Props) {
             </div>
 
             <PurchaseAction
-                canBuy={!!data?.price && !!data?.curseID}
                 courseID={data?.curseID}
+                canBuy={!!data?.price && !!data?.curseID}
                 isObtained={data?.isObtained}
             />
         </div>

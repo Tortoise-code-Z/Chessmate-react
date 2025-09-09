@@ -46,7 +46,7 @@ function ItemCourseDisplay({
                 navigate(
                     `/${PATHS.coursesDetail.replace(
                         ":id",
-                        data.curseID.toString()
+                        data?.curseID?.toString()
                     )}`
                 )
             }
@@ -75,9 +75,9 @@ function ItemCourseDisplay({
                 {action && (
                     <div className={styles.actionsPrice}>
                         <PurchaseAction
-                            canBuy={!!data.price}
+                            canBuy={!!data?.price}
                             courseID={courseID}
-                            isObtained={data.isObtained}
+                            isObtained={data?.isObtained}
                         />
                         <p className={styles.price}>
                             {data?.price

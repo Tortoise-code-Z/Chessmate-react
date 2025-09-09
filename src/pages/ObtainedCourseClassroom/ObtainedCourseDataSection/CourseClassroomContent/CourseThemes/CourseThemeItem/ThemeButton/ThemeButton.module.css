@@ -28,3 +28,12 @@
 .themeDescription {
     font-family: Roboto-ExtraLight;
 }
+
+@media all and (max-width: 500px) {
+    .titleAndThemesCompleteContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}

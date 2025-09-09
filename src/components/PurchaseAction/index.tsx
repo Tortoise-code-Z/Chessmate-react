@@ -2,7 +2,7 @@ import ObtainedTag from "../ObtainedTag";
 import PurchaseButton from "../PurchaseButton";
 
 type Props = {
-    courseID: number;
+    courseID: number | undefined | null;
     isObtained?: boolean;
     canBuy?: boolean;
     disabled?: boolean;

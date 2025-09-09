@@ -9,7 +9,6 @@ import { DATABASE_KEY } from "../consts/dataBaseKey";
 import {
     getCourseById,
     getDataLocalStorage,
-    getUserObtainedCourse,
     getUserObtainedCourses,
     setItemLocalStorage,
 } from "../api";

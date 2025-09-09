@@ -64,9 +64,9 @@ function ItemCourseDisplayDefault({
                     <div className={styles.actionsPrice}>
                         <PurchaseAction
                             disabled={true}
-                            canBuy={!!data.price}
+                            canBuy={!!data?.price}
                             courseID={courseID}
-                            isObtained={data.isObtained}
+                            isObtained={data?.isObtained}
                         />
                         <p className={styles.price}>
                             {data?.price

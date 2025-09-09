@@ -25,7 +25,7 @@ type Props = {};
 
 function CourseBanner({}: Props) {
     const { user } = useUserAuthStore();
-    const { data, isLoading, error } = useBannerCourse(
+    let { data, isLoading, error } = useBannerCourse(
         DATABASE_KEY,
         user?.userID
     );
@@ -42,23 +42,18 @@ function CourseBanner({}: Props) {
                 paddingErrorLateral={true}
                 errorMsg="No se ha podido recuperar el curso..."
             >
-                {data && (
-                    <>
-                        <FigureImage
-                            classNames={[styles.bannerBackground]}
-                            src={getImage(data?.imageUrl?.full, ["courses"])}
-                            alt={getImage(data?.imageUrl?.full, ["courses"])}
-                            title={getImage(data?.imageUrl?.full, ["courses"])}
-                            width={getImageSize(data?.imageUrl?.full, "width")}
-                            height={getImageSize(
-                                data?.imageUrl?.full,
-                                "height"
-                            )}
-                        />
+                <>
+                    <FigureImage
+                        classNames={[styles.bannerBackground]}
+                        src={getImage(data?.imageUrl?.full, ["courses"])}
+                        alt={getImage(data?.imageUrl?.full, ["courses"])}
+                        title={getImage(data?.imageUrl?.full, ["courses"])}
+                        width={getImageSize(data?.imageUrl?.full, "width")}
+                        height={getImageSize(data?.imageUrl?.full, "height")}
+                    />
 
-                        <BannerCard data={data} />
-                    </>
-                )}
+                    <BannerCard data={data} />
+                </>
             </DataStateWrapper>
         </section>
     );
