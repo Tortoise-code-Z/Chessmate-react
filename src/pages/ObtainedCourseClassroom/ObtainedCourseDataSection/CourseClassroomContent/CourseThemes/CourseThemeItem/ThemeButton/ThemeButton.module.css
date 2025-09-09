@@ -11,6 +11,16 @@
     gap: 5px;
 }
 
+.titleAndThemesCompleteContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.themesCompletedData {
+    font-family: Roboto-thin-italic;
+}
+
 .themeTitle {
     font-family: Roboto-light;
     font-size: 1.2rem !important;

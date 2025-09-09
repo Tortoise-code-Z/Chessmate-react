@@ -5,7 +5,6 @@ import Button from "../../../../../../../components/Button";
 import { Theme, ThemesUserStatesOC } from "../../../../../../../types/types";
 import TitleHx from "../../../../../../../components/TitleHx";
 import { DEFAULT_COURSES_VALUES } from "../../../../../../../consts/general";
-import { FaCheckCircle } from "react-icons/fa";
 import CheckSvgComponent from "../../../../../../../components/CheckSvgComponent";
 
 type Props = {
@@ -54,9 +53,22 @@ function ThemeButton({
             }
         >
             <div className={styles.themeData}>
-                <TitleHx classNames={[styles.themeTitle]} level={3}>
-                    {theme?.title || DEFAULT_COURSES_VALUES.title}
-                </TitleHx>
+                <div
+                    className={[styles.titleAndThemesCompleteContainer].join(
+                        " "
+                    )}
+                >
+                    <TitleHx classNames={[styles.themeTitle]} level={3}>
+                        {theme?.title || DEFAULT_COURSES_VALUES.title}
+                    </TitleHx>
+                    <p className={[styles.themesCompletedData].join(" ")}>
+                        {`${
+                            userThemeData?.subthemes.filter((s) => s.completed)
+                                .length
+                        } / ${userThemeData?.subthemes.length}`}
+                    </p>
+                </div>
+
                 <p className={styles.themeDescription}>
                     {theme?.description ||
                         DEFAULT_COURSES_VALUES.shortDescription}
