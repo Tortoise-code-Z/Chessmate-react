@@ -1,0 +1,12 @@
+.completedIcon {
+    position: absolute;
+    color: rgb(var(--complementary-color-500));
+}
+
+.completedIcon.medium {
+    font-size: 1.3rem;
+}
+
+.completedIcon.small {
+    font-size: auto;
+}

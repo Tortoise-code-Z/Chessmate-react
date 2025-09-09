@@ -1,19 +1,15 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import styles from "./CourseThemes.module.css";
 import CourseThemeItem from "./CourseThemeItem";
-import {
-    Course,
-    IsObtainedCourse,
-    Theme,
-    ThemeContent,
-} from "../../../../../types/types";
+import { Theme, SubthemeContent, VideoData } from "../../../../../types/types";
 import { DEFAULT_COURSES_VALUES } from "../../../../../consts/general";
 import SecurityRendering from "../../../../../components/SecurityRendering";
 import WarningMsg from "../../../../../components/WarningMsg";
+import { useCourseClassroomApi } from "../../../../../hooks/useCourseClassroom";
 
 type Props = {
-    data: Course & IsObtainedCourse;
-    setShowVideo: Dispatch<SetStateAction<ThemeContent | null>>;
+    data: useCourseClassroomApi | undefined;
+    setShowVideo: Dispatch<SetStateAction<VideoData | null>>;
 };
 
 /**
@@ -47,7 +43,7 @@ function CourseThemes({ data, setShowVideo }: Props) {
                     <span
                         className={["span-pr-color", "text-medium"].join(" ")}
                     >
-                        {data?.title || DEFAULT_COURSES_VALUES.title}
+                        {data?.course?.title || DEFAULT_COURSES_VALUES.title}
                     </span>{" "}
                     de manera clara y práctica, pensados para guiarte paso a
                     paso en tu aprendizaje. Cada tema está compuesto por
@@ -68,9 +64,9 @@ function CourseThemes({ data, setShowVideo }: Props) {
             {themesWarning && <WarningMsg msg={themesWarning} />}
 
             <SecurityRendering<Theme>
-                data={data?.content?.themes}
-                conditions={data?.content?.themes.map((t) => !!t.id)}
-                noCriticalConditions={data?.content?.themes.map(
+                data={data?.course?.content?.themes}
+                conditions={data?.course?.content?.themes.map((t) => !!t.id)}
+                noCriticalConditions={data?.course?.content?.themes.map(
                     (t) => !!t.title && !!t.description
                 )}
                 state={{
@@ -79,28 +75,19 @@ function CourseThemes({ data, setShowVideo }: Props) {
                 }}
                 msg="Algunos temas no se han obtenido de forma correcta. Estamos trabajando para solucionarlo."
             >
-                {(theme, _index, canRender) => {
-                    if (!canRender)
-                        return (
-                            <CourseThemeItem
-                                key={theme.id}
-                                setShowVideo={setShowVideo}
-                                theme={theme}
-                                setVideosIndex={setVideosIndex}
-                                videosIndex={videosIndex}
-                                disabled={true}
-                            />
-                        );
-                    return (
-                        <CourseThemeItem
-                            key={theme.id}
-                            setShowVideo={setShowVideo}
-                            theme={theme}
-                            setVideosIndex={setVideosIndex}
-                            videosIndex={videosIndex}
-                        />
-                    );
-                }}
+                {(theme, _index, canRender) => (
+                    <CourseThemeItem
+                        key={theme.id}
+                        setShowVideo={setShowVideo}
+                        theme={theme}
+                        userThemeData={data?.themes.find(
+                            (t) => t.themeID === theme.id
+                        )}
+                        setVideosIndex={setVideosIndex}
+                        videosIndex={videosIndex}
+                        disabled={!canRender ? true : false}
+                    />
+                )}
             </SecurityRendering>
         </div>
     );

@@ -1,13 +1,13 @@
 import FigureImage from "../../../../components/FigureImage";
 import TitleHx from "../../../../components/TitleHx";
 import { DEFAULT_COURSES_VALUES } from "../../../../consts/general";
+import { useCourseClassroomApi } from "../../../../hooks/useCourseClassroom";
 
-import { Course, IsObtainedCourse } from "../../../../types/types";
 import { getImage, getImageSize } from "../../../../utils/images";
 import styles from "./CourseClassroomBanner.module.css";
 
 type Props = {
-    data: Course & IsObtainedCourse;
+    data: useCourseClassroomApi | undefined;
 };
 
 /**
@@ -29,16 +29,18 @@ function CourseClassroomBanner({ data }: Props) {
         <div className={styles.courseClassroomBanner}>
             <div className={styles.titleContainer}>
                 <p>Bienvenido a tu curso</p>
-                <TitleHx>{data?.title || DEFAULT_COURSES_VALUES.title}</TitleHx>
+                <TitleHx>
+                    {data?.course?.title || DEFAULT_COURSES_VALUES.title}
+                </TitleHx>
             </div>
 
             <FigureImage
                 classNames={[styles.bannerBackground]}
-                src={getImage(data?.imageUrl?.full, ["courses"])}
-                alt={data?.title}
-                title={data?.title}
-                width={getImageSize(data?.imageUrl?.full, "width")}
-                height={getImageSize(data?.imageUrl?.full, "height")}
+                src={getImage(data?.course?.imageUrl?.full, ["courses"])}
+                alt={data?.course?.title}
+                title={data?.course?.title}
+                width={getImageSize(data?.course?.imageUrl?.full, "width")}
+                height={getImageSize(data?.course?.imageUrl?.full, "height")}
             />
         </div>
     );

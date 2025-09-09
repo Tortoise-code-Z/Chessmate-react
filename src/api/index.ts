@@ -11,6 +11,7 @@ import {
     ObtainedDefaultCourse,
     Progress,
     ThemesUserStates,
+    ThemesUserStatesOC,
     User,
 } from "../types/types";
 
@@ -124,12 +125,24 @@ export const getUserDefaultCourseThemes: (
     userID: number,
     courseID: number
 ) => ThemesUserStates[] = (data, userID, courseID) => {
-    console.log(courseID);
     return (
         data.users
             .find((u) => u.userID === userID)
             ?.defaultCourses?.find((dc) => dc?.courseId === courseID)?.themes ||
         ([] as ThemesUserStates[])
+    );
+};
+
+export const getUserCourseThemes: (
+    data: BBDD,
+    userID: number,
+    courseID: number
+) => ThemesUserStatesOC[] = (data, userID, courseID) => {
+    return (
+        data.users
+            .find((u) => u.userID === userID)
+            ?.courses?.find((dc) => dc?.courseId === courseID)?.themes ||
+        ([] as ThemesUserStatesOC[])
     );
 };
 

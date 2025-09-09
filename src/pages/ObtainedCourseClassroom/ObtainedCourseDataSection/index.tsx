@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import DataStateWrapper from "../../../components/DataStateWrapperProps";
 import { PATHS } from "../../../consts/paths";
-import { Course, IsObtainedCourse } from "../../../types/types";
 import CourseClassroomBanner from "./CourseClassroomBanner";
 import CourseClassroomContent from "./CourseClassroomContent";
 import styles from "./ObtainedCourseDataSection.module.css";
@@ -51,12 +50,8 @@ function ObtainedCourseDataSection({}: Props) {
                 paddingErrorLateral={true}
                 paddingErrorNavbar={true}
             >
-                <CourseClassroomBanner
-                    data={data ?? ({} as Course & IsObtainedCourse)}
-                />
-                <CourseClassroomContent
-                    data={data ?? ({} as Course & IsObtainedCourse)}
-                />
+                <CourseClassroomBanner data={data} />
+                <CourseClassroomContent data={data} />
             </DataStateWrapper>
         </section>
     );

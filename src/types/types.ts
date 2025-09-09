@@ -42,6 +42,7 @@ export type DefaultAuthorsValue = Omit<
 export type ObtainedCourse = {
     courseId: number;
     progress: number;
+    themes: ThemesUserStatesOC[];
 };
 
 export type ObtainedDefaultCourse = {
@@ -49,6 +50,21 @@ export type ObtainedDefaultCourse = {
     progress: number;
     themes: ThemesUserStates[];
 };
+
+// ---------------------------------
+
+export type SubthemesUserStatesOC = {
+    subthemeID: number;
+    completed: boolean;
+};
+
+export type ThemesUserStatesOC = {
+    themeID: number;
+    completed: boolean;
+    subthemes: SubthemesUserStatesOC[];
+};
+
+// ---------------------------------
 
 export type ThemesUserStates = {
     themeID: number;
@@ -173,14 +189,14 @@ export type DefaultCourseValues = Omit<
         };
         content: Omit<ContentCurseData, "themes" | "detailDescription"> & {
             themes: Omit<Theme, "id" | "content"> & {
-                content: Omit<ThemeContent, "id" | "cover" | "video">;
+                content: Omit<SubthemeContent, "id" | "cover" | "video">;
             };
             detailDescription: string;
         };
         price: string;
     };
 
-export type ThemeContent = {
+export type SubthemeContent = {
     id: number;
     title: string;
     cover: string;
@@ -191,7 +207,7 @@ export type Theme = {
     id: number;
     title: string;
     description: string;
-    content: ThemeContent[];
+    content: SubthemeContent[];
 };
 
 export type ToLearnTheme = {
@@ -392,4 +408,10 @@ export type Images = {
     width: number | undefined;
     height: number | undefined;
     alt: string | undefined;
+};
+
+export type VideoData = {
+    subthemeContent: SubthemeContent | undefined;
+    userThemeData: SubthemesUserStatesOC | undefined;
+    themeID: number;
 };

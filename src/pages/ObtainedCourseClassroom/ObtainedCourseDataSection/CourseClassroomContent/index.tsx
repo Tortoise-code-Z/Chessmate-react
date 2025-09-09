@@ -1,18 +1,15 @@
 import { useState } from "react";
 import styles from "./CourseClassroomContent.module.css";
 import CourseThemes from "./CourseThemes";
-import {
-    Course,
-    IsObtainedCourse,
-    ThemeContent,
-} from "../../../../types/types";
+import { VideoData } from "../../../../types/types";
 import TitleHx from "../../../../components/TitleHx";
 import LightComponent from "../../../../components/LightComponent";
 import VideoReproductor from "../VideoReproductor";
 import { DEFAULT_COURSES_VALUES } from "../../../../consts/general";
+import { useCourseClassroomApi } from "../../../../hooks/useCourseClassroom";
 
 type Props = {
-    data: Course & IsObtainedCourse;
+    data: useCourseClassroomApi | undefined;
 };
 
 /**
@@ -34,7 +31,7 @@ type Props = {
  */
 
 function CourseClassroomContent({ data }: Props) {
-    const [showVideo, setShowVideo] = useState<ThemeContent | null>(null);
+    const [showVideo, setShowVideo] = useState<VideoData | null>(null);
 
     return (
         <div className={styles.courseClassroomContent}>
@@ -50,10 +47,13 @@ function CourseClassroomContent({ data }: Props) {
 
             {showVideo && (
                 <VideoReproductor
-                    onClick={() => setShowVideo(null)}
-                    title={showVideo?.title || DEFAULT_COURSES_VALUES.title}
+                    setShowVideo={() => setShowVideo(null)}
+                    title={
+                        showVideo?.subthemeContent?.title ||
+                        DEFAULT_COURSES_VALUES.title
+                    }
                     classNames={[styles.videoItem]}
-                    src={showVideo?.video}
+                    videoData={showVideo}
                 />
             )}
         </div>

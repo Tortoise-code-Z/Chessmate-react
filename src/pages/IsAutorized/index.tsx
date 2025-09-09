@@ -26,8 +26,6 @@ type Props = { children: ReactNode };
 function IsAuthorized({ children }: Props) {
     const { user, isLoading } = useUserAuthStore();
 
-    console.log(isLoading, user);
-
     if (isLoading && !user)
         return <LoadingPage msg="Revisando autorización..." />;
 

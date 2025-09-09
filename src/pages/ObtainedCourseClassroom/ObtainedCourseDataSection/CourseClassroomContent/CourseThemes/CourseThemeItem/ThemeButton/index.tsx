@@ -2,15 +2,18 @@ import { FaChevronDown } from "react-icons/fa";
 import styles from "./ThemeButton.module.css";
 import { Dispatch, SetStateAction } from "react";
 import Button from "../../../../../../../components/Button";
-import { Theme } from "../../../../../../../types/types";
+import { Theme, ThemesUserStatesOC } from "../../../../../../../types/types";
 import TitleHx from "../../../../../../../components/TitleHx";
 import { DEFAULT_COURSES_VALUES } from "../../../../../../../consts/general";
+import { FaCheckCircle } from "react-icons/fa";
+import CheckSvgComponent from "../../../../../../../components/CheckSvgComponent";
 
 type Props = {
     theme: Theme;
     videosIndex: number | null;
     setVideosIndex: Dispatch<SetStateAction<number | null>>;
     disabled?: boolean;
+    userThemeData: ThemesUserStatesOC | undefined;
 };
 
 /**
@@ -34,11 +37,12 @@ function ThemeButton({
     theme,
     videosIndex,
     disabled = false,
+    userThemeData,
 }: Props) {
     return (
         <Button
             disabled={disabled}
-            classNames={[styles.themeBtn]}
+            classNames={[styles.themeBtn, "relative"]}
             variant={
                 videosIndex === theme.id && !!theme.id ? "Primary" : "Secondary"
             }
@@ -66,6 +70,10 @@ function ThemeButton({
                             : "rotate(0deg)",
                 }}
             />
+
+            {userThemeData?.completed && (
+                <CheckSvgComponent right={99.5} type="percent" />
+            )}
         </Button>
     );
 }

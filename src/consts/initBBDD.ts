@@ -146,15 +146,86 @@ export const DATA_BASE: BBDD = {
                 },
             ],
             courses: [
-                { courseId: 1, progress: 80 },
-                { courseId: 2, progress: 75 },
-                { courseId: 3, progress: 90 },
-                { courseId: 4, progress: 60 },
-                { courseId: 5, progress: 85 },
-                { courseId: 6, progress: 70 },
-                { courseId: 7, progress: 95 },
-                { courseId: 9, progress: 30 },
-                { courseId: 12, progress: 50 },
+                {
+                    courseId: 1,
+                    progress: 20,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: true,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: true,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 3,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 3,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: false,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 5,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: false,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                    ],
+                },
             ],
         },
         {
@@ -301,14 +372,86 @@ export const DATA_BASE: BBDD = {
                 },
             ],
             courses: [
-                { courseId: 11, progress: 65 },
-                { courseId: 2, progress: 70 },
-                { courseId: 3, progress: 50 },
-                { courseId: 4, progress: 40 },
-                { courseId: 5, progress: 60 },
-                { courseId: 6, progress: 55 },
-                { courseId: 7, progress: 75 },
-                { courseId: 10, progress: 25 },
+                {
+                    courseId: 1,
+                    progress: 20,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: true,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: true,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 3,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 3,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: false,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 5,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: false,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                    ],
+                },
             ],
         },
         {
@@ -455,16 +598,86 @@ export const DATA_BASE: BBDD = {
                 },
             ],
             courses: [
-                { courseId: 1, progress: 100 },
-                { courseId: 2, progress: 100 },
-                { courseId: 3, progress: 100 },
-                { courseId: 4, progress: 100 },
-                { courseId: 5, progress: 100 },
-                { courseId: 6, progress: 100 },
-                { courseId: 7, progress: 100 },
-                { courseId: 8, progress: 95 },
-                { courseId: 11, progress: 90 },
-                { courseId: 14, progress: 85 },
+                {
+                    courseId: 1,
+                    progress: 20,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: true,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: true,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 3,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 3,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: false,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 5,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: false,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                    ],
+                },
             ],
         },
         {
@@ -611,14 +824,86 @@ export const DATA_BASE: BBDD = {
                 },
             ],
             courses: [
-                { courseId: 1, progress: 90 },
-                { courseId: 2, progress: 80 },
-                { courseId: 3, progress: 85 },
-                { courseId: 4, progress: 70 },
-                { courseId: 5, progress: 75 },
-                { courseId: 6, progress: 65 },
-                { courseId: 7, progress: 60 },
-                { courseId: 13, progress: 50 },
+                {
+                    courseId: 1,
+                    progress: 20,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: true,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: true,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 3,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 3,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: false,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 5,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: false,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                    ],
+                },
             ],
         },
         {
@@ -765,14 +1050,86 @@ export const DATA_BASE: BBDD = {
                 },
             ],
             courses: [
-                { courseId: 1, progress: 60 },
-                { courseId: 2, progress: 40 },
-                { courseId: 3, progress: 55 },
-                { courseId: 4, progress: 50 },
-                { courseId: 5, progress: 45 },
-                { courseId: 6, progress: 70 },
-                { courseId: 7, progress: 80 },
-                { courseId: 8, progress: 35 },
+                {
+                    courseId: 1,
+                    progress: 20,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: true,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: true,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 3,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 3,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: false,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 5,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: false,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                    ],
+                },
             ],
         },
         {
@@ -919,14 +1276,86 @@ export const DATA_BASE: BBDD = {
                 },
             ],
             courses: [
-                { courseId: 1, progress: 40 },
-                { courseId: 2, progress: 60 },
-                { courseId: 3, progress: 30 },
-                { courseId: 4, progress: 35 },
-                { courseId: 5, progress: 55 },
-                { courseId: 6, progress: 50 },
-                { courseId: 7, progress: 45 },
-                { courseId: 15, progress: 20 },
+                {
+                    courseId: 1,
+                    progress: 20,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: true,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: true,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 3,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 3,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: false,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 5,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: false,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                    ],
+                },
             ],
         },
         {
@@ -1073,14 +1502,86 @@ export const DATA_BASE: BBDD = {
                 },
             ],
             courses: [
-                { courseId: 1, progress: 55 },
-                { courseId: 2, progress: 70 },
-                { courseId: 3, progress: 50 },
-                { courseId: 4, progress: 45 },
-                { courseId: 5, progress: 65 },
-                { courseId: 6, progress: 60 },
-                { courseId: 7, progress: 75 },
-                { courseId: 14, progress: 30 },
+                {
+                    courseId: 1,
+                    progress: 20,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: true,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: true,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 3,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 3,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: false,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 5,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: false,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                    ],
+                },
             ],
         },
         {
@@ -1227,13 +1728,86 @@ export const DATA_BASE: BBDD = {
                 },
             ],
             courses: [
-                { courseId: 1, progress: 75 },
-                { courseId: 2, progress: 80 },
-                { courseId: 3, progress: 85 },
-                { courseId: 4, progress: 70 },
-                { courseId: 5, progress: 65 },
-                { courseId: 6, progress: 90 },
-                { courseId: 7, progress: 95 },
+                {
+                    courseId: 1,
+                    progress: 20,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: true,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: true,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 3,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 3,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: false,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 5,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: false,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                    ],
+                },
             ],
         },
         {
@@ -1380,13 +1954,86 @@ export const DATA_BASE: BBDD = {
                 },
             ],
             courses: [
-                { courseId: 1, progress: 50 },
-                { courseId: 2, progress: 60 },
-                { courseId: 3, progress: 45 },
-                { courseId: 4, progress: 40 },
-                { courseId: 5, progress: 55 },
-                { courseId: 6, progress: 35 },
-                { courseId: 7, progress: 70 },
+                {
+                    courseId: 1,
+                    progress: 20,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: true,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: true,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 3,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 3,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: false,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 5,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: false,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                    ],
+                },
             ],
         },
         {
@@ -1533,15 +2180,86 @@ export const DATA_BASE: BBDD = {
                 },
             ],
             courses: [
-                { courseId: 1, progress: 85 },
-                { courseId: 2, progress: 90 },
-                { courseId: 3, progress: 80 },
-                { courseId: 4, progress: 75 },
-                { courseId: 5, progress: 70 },
-                { courseId: 6, progress: 95 },
-                { courseId: 7, progress: 100 },
-                { courseId: 8, progress: 65 },
-                { courseId: 15, progress: 60 },
+                {
+                    courseId: 1,
+                    progress: 20,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: true,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: true,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 3,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 3,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: false,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 5,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: false,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                    ],
+                },
             ],
         },
         {
@@ -1688,13 +2406,86 @@ export const DATA_BASE: BBDD = {
                 },
             ],
             courses: [
-                { courseId: 1, progress: 50 },
-                { courseId: 2, progress: 55 },
-                { courseId: 3, progress: 60 },
-                { courseId: 4, progress: 45 },
-                { courseId: 5, progress: 65 },
-                { courseId: 6, progress: 70 },
-                { courseId: 7, progress: 75 },
+                {
+                    courseId: 1,
+                    progress: 20,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: true,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: true,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 3,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 3,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: false,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 5,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: false,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                    ],
+                },
             ],
         },
         {
@@ -1841,14 +2632,86 @@ export const DATA_BASE: BBDD = {
                 },
             ],
             courses: [
-                { courseId: 1, progress: 60 },
-                { courseId: 2, progress: 45 },
-                { courseId: 3, progress: 55 },
-                { courseId: 4, progress: 50 },
-                { courseId: 5, progress: 65 },
-                { courseId: 6, progress: 70 },
-                { courseId: 7, progress: 80 },
-                { courseId: 13, progress: 40 },
+                {
+                    courseId: 1,
+                    progress: 20,
+                    themes: [
+                        {
+                            themeID: 1,
+                            completed: true,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: true,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 2,
+                            completed: true,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: true,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 3,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: true,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 3,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 4,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: false,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                        {
+                            themeID: 5,
+                            completed: false,
+                            subthemes: [
+                                {
+                                    completed: false,
+                                    subthemeID: 1,
+                                },
+                                {
+                                    completed: false,
+                                    subthemeID: 2,
+                                },
+                            ],
+                        },
+                    ],
+                },
             ],
         },
         {
@@ -2459,7 +3322,7 @@ export const DATA_BASE: BBDD = {
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 4,
+                                id: 2,
                                 title: "Definición de jaque mate",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -2472,19 +3335,19 @@ export const DATA_BASE: BBDD = {
                         description: "Enroque, captura al paso y promoción.",
                         content: [
                             {
-                                id: 5,
+                                id: 1,
                                 title: "Enroque",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 6,
+                                id: 2,
                                 title: "Captura al paso",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 7,
+                                id: 3,
                                 title: "Promoción de peones",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -2498,13 +3361,13 @@ export const DATA_BASE: BBDD = {
                             "Desarrollar piezas y controlar el centro.",
                         content: [
                             {
-                                id: 8,
+                                id: 1,
                                 title: "Desarrollo de piezas",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 9,
+                                id: 2,
                                 title: "Control del centro",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -2518,13 +3381,13 @@ export const DATA_BASE: BBDD = {
                             "Evita los fallos frecuentes de principiantes.",
                         content: [
                             {
-                                id: 10,
+                                id: 1,
                                 title: "Errores de principiantes",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 11,
+                                id: 2,
                                 title: "Cómo evitarlos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -2611,13 +3474,13 @@ export const DATA_BASE: BBDD = {
                         description: "Desarrollo rápido y ataques tempranos.",
                         content: [
                             {
-                                id: 3,
+                                id: 1,
                                 title: "Líneas principales",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 4,
+                                id: 2,
                                 title: "Ataques comunes",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -2630,13 +3493,13 @@ export const DATA_BASE: BBDD = {
                         description: "Contraataque y dinámica.",
                         content: [
                             {
-                                id: 5,
+                                id: 1,
                                 title: "Estructuras típicas",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 6,
+                                id: 2,
                                 title: "Planes de negras",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -2649,13 +3512,13 @@ export const DATA_BASE: BBDD = {
                         description: "Solidez y estructura.",
                         content: [
                             {
-                                id: 7,
+                                id: 1,
                                 title: "Planes de blancas",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 8,
+                                id: 2,
                                 title: "Planes de negras",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -2669,13 +3532,13 @@ export const DATA_BASE: BBDD = {
                             "Ideas comunes para consolidar la posición.",
                         content: [
                             {
-                                id: 9,
+                                id: 1,
                                 title: "Principios básicos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 10,
+                                id: 2,
                                 title: "Errores comunes",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -2764,13 +3627,13 @@ export const DATA_BASE: BBDD = {
                             "Errores estratégicos al no sacar piezas menores a tiempo.",
                         content: [
                             {
-                                id: 3,
+                                id: 1,
                                 title: "Importancia del desarrollo",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 4,
+                                id: 2,
                                 title: "Errores típicos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -2783,13 +3646,13 @@ export const DATA_BASE: BBDD = {
                         description: "Por qué la seguridad del rey es crucial.",
                         content: [
                             {
-                                id: 5,
+                                id: 1,
                                 title: "Riesgos de no enrocar",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 6,
+                                id: 2,
                                 title: "Ejemplos prácticos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -2803,13 +3666,13 @@ export const DATA_BASE: BBDD = {
                             "Errores de peones que debilitan la posición.",
                         content: [
                             {
-                                id: 7,
+                                id: 1,
                                 title: "Debilidades de peones",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 8,
+                                id: 2,
                                 title: "Consecuencias estratégicas",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -2823,13 +3686,13 @@ export const DATA_BASE: BBDD = {
                             "Falta de cálculo o sobreconfianza en posiciones aparentemente seguras.",
                         content: [
                             {
-                                id: 9,
+                                id: 1,
                                 title: "Ejemplos de amenazas",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 10,
+                                id: 2,
                                 title: "Cómo detectarlas",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -2918,13 +3781,13 @@ export const DATA_BASE: BBDD = {
                             "Forzar piezas fuera de su posición crítica.",
                         content: [
                             {
-                                id: 3,
+                                id: 1,
                                 title: "Conceptos de desviación",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 4,
+                                id: 2,
                                 title: "Ejemplos tácticos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -2938,13 +3801,13 @@ export const DATA_BASE: BBDD = {
                             "Ofrecer material por iniciativa o ataque.",
                         content: [
                             {
-                                id: 5,
+                                id: 1,
                                 title: "Cuándo sacrificar",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 6,
+                                id: 2,
                                 title: "Ejemplos históricos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -2957,13 +3820,13 @@ export const DATA_BASE: BBDD = {
                         description: "Amenazas ocultas a través de piezas.",
                         content: [
                             {
-                                id: 7,
+                                id: 1,
                                 title: "Rayos X básicos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 8,
+                                id: 2,
                                 title: "Aplicaciones prácticas",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -2977,13 +3840,13 @@ export const DATA_BASE: BBDD = {
                             "Alterar el orden natural para obtener ventaja.",
                         content: [
                             {
-                                id: 9,
+                                id: 1,
                                 title: "Concepto de transposición",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 10,
+                                id: 2,
                                 title: "Ejercicios prácticos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3072,13 +3935,13 @@ export const DATA_BASE: BBDD = {
                         description: "Cómo utilizarla para generar ventajas.",
                         content: [
                             {
-                                id: 3,
+                                id: 1,
                                 title: "Conceptos básicos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 4,
+                                id: 2,
                                 title: "Ejemplos de uso",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3091,13 +3954,13 @@ export const DATA_BASE: BBDD = {
                         description: "Diferenciar piezas activas y pasivas.",
                         content: [
                             {
-                                id: 5,
+                                id: 1,
                                 title: "Buenas piezas",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 6,
+                                id: 2,
                                 title: "Piezas pasivas",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3110,13 +3973,13 @@ export const DATA_BASE: BBDD = {
                         description: "Cómo usar las torres estratégicamente.",
                         content: [
                             {
-                                id: 7,
+                                id: 1,
                                 title: "Columna abierta",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 8,
+                                id: 2,
                                 title: "Ejemplos con torres",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3130,13 +3993,13 @@ export const DATA_BASE: BBDD = {
                             "Tomar decisiones más allá de la táctica inmediata.",
                         content: [
                             {
-                                id: 9,
+                                id: 1,
                                 title: "Planificación estratégica",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 10,
+                                id: 2,
                                 title: "Errores comunes",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3223,13 +4086,13 @@ export const DATA_BASE: BBDD = {
                             "Cómo usar la torre para dominar en el final.",
                         content: [
                             {
-                                id: 3,
+                                id: 1,
                                 title: "Principios básicos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 4,
+                                id: 2,
                                 title: "Ejercicios prácticos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3243,13 +4106,13 @@ export const DATA_BASE: BBDD = {
                             "Ventajas y desventajas en los finales menores.",
                         content: [
                             {
-                                id: 5,
+                                id: 1,
                                 title: "Final de alfil",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 6,
+                                id: 1,
                                 title: "Final de caballo",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3263,13 +4126,13 @@ export const DATA_BASE: BBDD = {
                             "Conceptos clave para el movimiento del rey.",
                         content: [
                             {
-                                id: 7,
+                                id: 1,
                                 title: "Oposición directa",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 8,
+                                id: 2,
                                 title: "Ejercicios",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3282,13 +4145,13 @@ export const DATA_BASE: BBDD = {
                         description: "Estudio de posiciones clásicas.",
                         content: [
                             {
-                                id: 9,
+                                id: 1,
                                 title: "Posiciones básicas",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 10,
+                                id: 2,
                                 title: "Estudio avanzado",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3374,13 +4237,13 @@ export const DATA_BASE: BBDD = {
                             "Contraataque dinámico y control posicional.",
                         content: [
                             {
-                                id: 3,
+                                id: 1,
                                 title: "Planes de blancas",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 4,
+                                id: 2,
                                 title: "Planes de negras",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3393,13 +4256,13 @@ export const DATA_BASE: BBDD = {
                         description: "Fianchetto y presión indirecta.",
                         content: [
                             {
-                                id: 5,
+                                id: 1,
                                 title: "Introducción",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 6,
+                                id: 2,
                                 title: "Ideas estratégicas",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3412,13 +4275,13 @@ export const DATA_BASE: BBDD = {
                         description: "Opciones y planes estratégicos.",
                         content: [
                             {
-                                id: 7,
+                                id: 1,
                                 title: "Aceptado",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 8,
+                                id: 2,
                                 title: "Rechazado",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3431,13 +4294,13 @@ export const DATA_BASE: BBDD = {
                         description: "Cómo construir un repertorio sólido.",
                         content: [
                             {
-                                id: 9,
+                                id: 1,
                                 title: "Preparación previa",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 10,
+                                id: 2,
                                 title: "Métodos de estudio",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3523,13 +4386,13 @@ export const DATA_BASE: BBDD = {
                         description: "Manipular las piezas rivales.",
                         content: [
                             {
-                                id: 3,
+                                id: 1,
                                 title: "Redirección básica",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 4,
+                                id: 2,
                                 title: "Ejercicios prácticos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3542,13 +4405,13 @@ export const DATA_BASE: BBDD = {
                         description: "Ofrecer material por ventaja inmediata.",
                         content: [
                             {
-                                id: 5,
+                                id: 1,
                                 title: "Cuándo sacrificar",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 6,
+                                id: 2,
                                 title: "Ejemplos históricos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3561,13 +4424,13 @@ export const DATA_BASE: BBDD = {
                         description: "Maximizar la presión.",
                         content: [
                             {
-                                id: 7,
+                                id: 1,
                                 title: "Ataque descubierto básico",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 8,
+                                id: 2,
                                 title: "Ejercicios prácticos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3580,13 +4443,13 @@ export const DATA_BASE: BBDD = {
                         description: "Reconocer patrones recurrentes.",
                         content: [
                             {
-                                id: 9,
+                                id: 1,
                                 title: "Patrones típicos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 10,
+                                id: 2,
                                 title: "Ejercicios de práctica",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3671,13 +4534,13 @@ export const DATA_BASE: BBDD = {
                         description: "Incrementar el espacio y la influencia.",
                         content: [
                             {
-                                id: 3,
+                                id: 1,
                                 title: "Expansión en flancos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 4,
+                                id: 2,
                                 title: "Ejemplos estratégicos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3690,13 +4553,13 @@ export const DATA_BASE: BBDD = {
                         description: "Optimización de piezas.",
                         content: [
                             {
-                                id: 5,
+                                id: 1,
                                 title: "Control de columnas",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 6,
+                                id: 2,
                                 title: "Control de diagonales",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3709,13 +4572,13 @@ export const DATA_BASE: BBDD = {
                         description: "Manipulación de la posición rival.",
                         content: [
                             {
-                                id: 7,
+                                id: 1,
                                 title: "Técnicas de bloqueo",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 8,
+                                id: 2,
                                 title: "Ejercicios prácticos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3728,13 +4591,13 @@ export const DATA_BASE: BBDD = {
                         description: "Cómo valorar ventajas y desventajas.",
                         content: [
                             {
-                                id: 9,
+                                id: 1,
                                 title: "Métodos de evaluación",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 10,
+                                id: 2,
                                 title: "Ejercicios prácticos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3823,13 +4686,13 @@ export const DATA_BASE: BBDD = {
                             "Mejorar la atención y evitar distracciones.",
                         content: [
                             {
-                                id: 3,
+                                id: 1,
                                 title: "Ejercicios de concentración",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 4,
+                                id: 2,
                                 title: "Errores comunes",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3842,13 +4705,13 @@ export const DATA_BASE: BBDD = {
                         description: "Aprender a recuperarse de errores.",
                         content: [
                             {
-                                id: 5,
+                                id: 1,
                                 title: "Control emocional",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 6,
+                                id: 2,
                                 title: "Ejercicios prácticos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3861,13 +4724,13 @@ export const DATA_BASE: BBDD = {
                         description: "Leer comportamientos y patrones.",
                         content: [
                             {
-                                id: 7,
+                                id: 1,
                                 title: "Interpretación básica",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 8,
+                                id: 2,
                                 title: "Ejemplos prácticos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3881,13 +4744,13 @@ export const DATA_BASE: BBDD = {
                             "Estrategias para mantener la calma y confianza.",
                         content: [
                             {
-                                id: 9,
+                                id: 1,
                                 title: "Preparación previa",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 10,
+                                id: 2,
                                 title: "Métodos de confianza",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3977,13 +4840,13 @@ export const DATA_BASE: BBDD = {
                             "Cómo estudiar y mentalizarse para competir.",
                         content: [
                             {
-                                id: 3,
+                                id: 1,
                                 title: "Preparación física",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 4,
+                                id: 2,
                                 title: "Preparación mental",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -3997,13 +4860,13 @@ export const DATA_BASE: BBDD = {
                             "Uso efectivo del reloj en partidas rápidas y clásicas.",
                         content: [
                             {
-                                id: 5,
+                                id: 1,
                                 title: "Blitz y rápidas",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 6,
+                                id: 2,
                                 title: "Clásicas",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -4016,13 +4879,13 @@ export const DATA_BASE: BBDD = {
                         description: "Aprender de tus errores y aciertos.",
                         content: [
                             {
-                                id: 7,
+                                id: 1,
                                 title: "Métodos de análisis",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 8,
+                                id: 2,
                                 title: "Ejemplos prácticos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -4036,13 +4899,13 @@ export const DATA_BASE: BBDD = {
                             "Mantener la calma y controlar el nerviosismo.",
                         content: [
                             {
-                                id: 9,
+                                id: 1,
                                 title: "Control del nerviosismo",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 10,
+                                id: 2,
                                 title: "Ejercicios prácticos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -4128,13 +4991,13 @@ export const DATA_BASE: BBDD = {
                             "Cómo neutralizar amenazas y contraatacar.",
                         content: [
                             {
-                                id: 3,
+                                id: 1,
                                 title: "Defensa activa básica",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 4,
+                                id: 2,
                                 title: "Ejercicios prácticos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -4147,13 +5010,13 @@ export const DATA_BASE: BBDD = {
                         description: "Cuándo y cómo ofrecer material.",
                         content: [
                             {
-                                id: 5,
+                                id: 1,
                                 title: "Sacrificios comunes",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 6,
+                                id: 2,
                                 title: "Errores frecuentes",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -4166,13 +5029,13 @@ export const DATA_BASE: BBDD = {
                         description: "Transformar la defensa en ataque.",
                         content: [
                             {
-                                id: 7,
+                                id: 1,
                                 title: "Ejemplos prácticos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 8,
+                                id: 2,
                                 title: "Errores comunes",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -4186,13 +5049,13 @@ export const DATA_BASE: BBDD = {
                             "Reconocer momentos para atacar o defender.",
                         content: [
                             {
-                                id: 9,
+                                id: 1,
                                 title: "Métodos de evaluación",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 10,
+                                id: 2,
                                 title: "Ejercicios prácticos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -4279,13 +5142,13 @@ export const DATA_BASE: BBDD = {
                         description: "Ejercicios y ejemplos prácticos.",
                         content: [
                             {
-                                id: 3,
+                                id: 1,
                                 title: "Ejercicios básicos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 4,
+                                id: 2,
                                 title: "Ejercicios avanzados",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -4298,13 +5161,13 @@ export const DATA_BASE: BBDD = {
                         description: "Combinaciones y trucos.",
                         content: [
                             {
-                                id: 5,
+                                id: 1,
                                 title: "Ejemplos básicos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 6,
+                                id: 2,
                                 title: "Ejercicios prácticos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -4317,13 +5180,13 @@ export const DATA_BASE: BBDD = {
                         description: "Cómo evitarlos.",
                         content: [
                             {
-                                id: 7,
+                                id: 1,
                                 title: "Errores típicos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 8,
+                                id: 2,
                                 title: "Prevención",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -4336,13 +5199,13 @@ export const DATA_BASE: BBDD = {
                         description: "Ejercicios para reforzar habilidades.",
                         content: [
                             {
-                                id: 9,
+                                id: 1,
                                 title: "Ejercicios prácticos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 10,
+                                id: 2,
                                 title: "Ejercicios avanzados",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -4422,13 +5285,13 @@ export const DATA_BASE: BBDD = {
                             "Desarrollo de estrategias según la posición.",
                         content: [
                             {
-                                id: 3,
+                                id: 1,
                                 title: "Planes en flanco de rey",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 4,
+                                id: 2,
                                 title: "Planes en flanco de dama",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -4441,13 +5304,13 @@ export const DATA_BASE: BBDD = {
                         description: "Identificación y aplicación.",
                         content: [
                             {
-                                id: 5,
+                                id: 1,
                                 title: "Ejercicios básicos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 6,
+                                id: 2,
                                 title: "Ejercicios avanzados",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -4460,13 +5323,13 @@ export const DATA_BASE: BBDD = {
                         description: "Decidir qué piezas cambiar.",
                         content: [
                             {
-                                id: 7,
+                                id: 1,
                                 title: "Cuándo cambiar piezas",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 8,
+                                id: 2,
                                 title: "Errores comunes",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -4479,13 +5342,13 @@ export const DATA_BASE: BBDD = {
                         description: "Evitar fallos típicos en esta fase.",
                         content: [
                             {
-                                id: 9,
+                                id: 1,
                                 title: "Errores comunes",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 10,
+                                id: 2,
                                 title: "Cómo evitarlos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -4571,13 +5434,13 @@ export const DATA_BASE: BBDD = {
                         description: "Entrenamiento para ver jugadas futuras.",
                         content: [
                             {
-                                id: 3,
+                                id: 1,
                                 title: "Ejercicios básicos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 4,
+                                id: 2,
                                 title: "Ejercicios avanzados",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -4590,13 +5453,13 @@ export const DATA_BASE: BBDD = {
                         description: "Decidir el mejor camino a seguir.",
                         content: [
                             {
-                                id: 5,
+                                id: 1,
                                 title: "Métodos prácticos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 6,
+                                id: 2,
                                 title: "Ejemplos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -4610,13 +5473,13 @@ export const DATA_BASE: BBDD = {
                             "Problemas para fortalecer la capacidad de cálculo.",
                         content: [
                             {
-                                id: 7,
+                                id: 1,
                                 title: "Ejercicios básicos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 8,
+                                id: 2,
                                 title: "Ejercicios complejos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
@@ -4629,13 +5492,13 @@ export const DATA_BASE: BBDD = {
                         description: "Reducir errores durante el análisis.",
                         content: [
                             {
-                                id: 9,
+                                id: 1,
                                 title: "Errores típicos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
-                                id: 10,
+                                id: 2,
                                 title: "Cómo evitarlos",
                                 cover: "static-image-muestra-subtemas_1143x547_.png",
                                 video: "/src/assets/videos/video-muestra-subtemas_1920x1080_.mp4",

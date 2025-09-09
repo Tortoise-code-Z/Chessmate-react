@@ -31,7 +31,6 @@ function UsersCommentBox({}: Props) {
         error,
     } = useCourseComments(DATABASE_KEY, Number(params.id));
     const [warningComment, setWarningComment] = useState<string | null>(null);
-    console.log(warningComment);
 
     return (
         <>

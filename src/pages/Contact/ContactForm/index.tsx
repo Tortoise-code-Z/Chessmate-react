@@ -60,8 +60,6 @@ function ContactForm({}: Props) {
 
         helpers?.setValue("body", "");
         helpers?.setValue("subject", "");
-
-        console.log(data);
     };
     return (
         <>

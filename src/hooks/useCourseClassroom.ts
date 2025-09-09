@@ -1,9 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import { AuthorCurseData, Course, IsObtainedCourse } from "../types/types";
+import {
+    AuthorCurseData,
+    Course,
+    IsObtainedCourse,
+    ThemesUserStatesOC,
+} from "../types/types";
 import {
     getAuthors,
     getCourseById,
     getDataLocalStorage,
+    getUserCourseThemes,
     getUserObtainedCourses,
 } from "../api";
 
@@ -30,14 +36,17 @@ import {
  *
  */
 
+export type useCourseClassroomApi = {
+    course: Course & IsObtainedCourse;
+    themes: ThemesUserStatesOC[];
+};
+
 export default function useCourseClassroom(
     key: string,
     courseID: number,
     userID?: number
 ) {
-    const queryFunction: () => Promise<
-        Course & IsObtainedCourse
-    > = async () => {
+    const queryFunction: () => Promise<useCourseClassroomApi> = async () => {
         try {
             const data = getDataLocalStorage(key);
             if (!data)
@@ -55,12 +64,21 @@ export default function useCourseClassroom(
 
             const userCourses = getUserObtainedCourses(userID, data);
 
+            const userCourseThemes = getUserCourseThemes(
+                data,
+                userID as number,
+                courseID
+            );
+
             return {
-                ...obtainedCourse,
-                authors: [...courseAuthorsData],
-                isObtained: userCourses?.some(
-                    (course) => course.courseId === obtainedCourse.curseID
-                ),
+                course: {
+                    ...obtainedCourse,
+                    authors: [...courseAuthorsData],
+                    isObtained: userCourses?.some(
+                        (course) => course.courseId === obtainedCourse.curseID
+                    ),
+                },
+                themes: userCourseThemes,
             };
         } catch (error) {
             console.log(error);

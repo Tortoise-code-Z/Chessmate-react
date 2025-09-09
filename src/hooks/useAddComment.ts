@@ -116,7 +116,6 @@ export function useAddComment() {
     return useMutation<Comments, Error, AddCommentApi>({
         mutationFn: addComment,
         onSuccess: (data: Comments) => {
-            console.log("ejecutado");
             setFeedbackState(true);
             setPath(location.pathname);
             setType("success");

@@ -42,12 +42,6 @@ function CourseThemes({
     classWarning,
     setClassWarning,
 }: Props) {
-    console.log(
-        "numero de imagenes renderizadas: ",
-        data.courses.content.themes.map((t) => t.images.filter((i) => i)),
-        "mitad de imagenes renderizadas: ",
-        data.courses.content.themes.map((t) => t.images.length * 0.5)
-    );
     return (
         <div className={styles.themes}>
             <SecurityRendering<ThemeDefaultCourses>

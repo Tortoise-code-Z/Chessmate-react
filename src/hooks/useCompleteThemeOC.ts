@@ -1,24 +1,26 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import {
     BBDD,
-    DefualtCourse,
-    ObtainedDefaultCourse,
-    Progress,
-    UseCourseApiType,
+    CourseJSON,
+    IsObtainedCourse,
+    ObtainedCourse,
+    VideoData,
 } from "../types/types";
 import { DATABASE_KEY } from "../consts/dataBaseKey";
-import { Dispatch, SetStateAction } from "react";
 import {
     getDataLocalStorage,
-    getUserDefaultCourse,
-    getUserDefaultCourses,
+    getUserObtainedCourse,
+    getUserObtainedCourses,
     getUsers,
     setItemLocalStorage,
 } from "../api";
 import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
 import { useLocation } from "react-router-dom";
+import { useCourseClassroomApi } from "./useCourseClassroom";
+import { Dispatch, SetStateAction } from "react";
 
 type Variables = {
+    subThemeID: number;
     themeID: number;
     courseID: number;
     userID: number;
@@ -45,9 +47,10 @@ type Variables = {
  * - Displays an error feedback message if the mutation fails.
  */
 
-export function useCompleteTheme(
-    index: number,
-    setIndex: Dispatch<SetStateAction<number>>
+export function useCompleteThemeOC(
+    courseID: number,
+    userID: number,
+    setShowVideo: Dispatch<SetStateAction<VideoData | null>>
 ) {
     const queryClient = useQueryClient();
     const {
@@ -59,28 +62,45 @@ export function useCompleteTheme(
 
     const location = useLocation();
 
-    const completeTheme = async ({ courseID, themeID, userID }: Variables) => {
+    const completeTheme = async ({
+        courseID,
+        subThemeID,
+        themeID,
+        userID,
+    }: Variables) => {
         try {
             const data = getDataLocalStorage(DATABASE_KEY);
             if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
 
-            const userDefaultCourse = getUserDefaultCourse(
-                userID,
-                courseID,
-                data
-            );
+            const userCourse = getUserObtainedCourse(userID, courseID, data);
 
-            const userDefaultCourses = getUserDefaultCourses(userID, data);
+            if (!userCourse)
+                throw new Error("Ha habido un error al recuperar los datos...");
+
+            const userCourses = getUserObtainedCourses(userID, data);
             const users = getUsers(data);
 
             const newCourseData = {
-                ...userDefaultCourse,
-                themes: userDefaultCourse?.themes.map((theme) =>
-                    theme.themeID === themeID
-                        ? { ...theme, completed: true }
-                        : theme
-                ),
+                ...userCourse,
+                themes: userCourse?.themes?.map((theme) => {
+                    const subthemes = theme.subthemes.map((subtheme) =>
+                        subtheme.subthemeID === subThemeID &&
+                        theme.themeID === themeID
+                            ? { ...subtheme, completed: true }
+                            : subtheme
+                    );
+
+                    if (subthemes.every((s) => s.completed)) {
+                        return {
+                            ...theme,
+                            subthemes: subthemes,
+                            completed: true,
+                        };
+                    }
+
+                    return { ...theme, subthemes: subthemes };
+                }),
             };
 
             const finalCourseData = {
@@ -88,7 +108,7 @@ export function useCompleteTheme(
                 progress:
                     (newCourseData.themes?.filter((theme) => theme.completed)
                         .length /
-                        newCourseData?.themes.length) *
+                        newCourseData.themes.length) *
                     100,
             };
 
@@ -98,7 +118,7 @@ export function useCompleteTheme(
                     user.userID === userID
                         ? {
                               ...user,
-                              defaultCourses: userDefaultCourses.map((course) =>
+                              courses: userCourses.map((course) =>
                                   course.courseId === courseID
                                       ? finalCourseData
                                       : course
@@ -116,36 +136,38 @@ export function useCompleteTheme(
         }
     };
 
-    return useMutation<ObtainedDefaultCourse, Error, Variables>({
+    return useMutation<ObtainedCourse, Error, Variables>({
         mutationFn: completeTheme,
-        onSuccess: (data: ObtainedDefaultCourse) => {
-            setIndex(
-                data.themes.filter((u) => !u.completed)[0]?.themeID || index
-            );
-
-            queryClient.setQueryData<UseCourseApiType>(
-                ["defaultCourseById", data.courseId],
+        onSuccess: (data: ObtainedCourse) => {
+            queryClient.setQueryData<useCourseClassroomApi>(
+                ["useCourseClassroom", courseID, userID],
                 (oldData) => {
                     if (!oldData) return oldData;
                     return {
                         ...oldData,
-                        userThemeStates: data.themes,
+                        themes: data.themes,
                     };
                 }
             );
 
-            queryClient.setQueryData<(DefualtCourse & Progress)[]>(
-                ["defaultCourses"],
+            queryClient.setQueriesData<(CourseJSON & IsObtainedCourse)[]>(
+                { queryKey: ["courses", courseID], exact: false },
                 (oldData) => {
                     if (!oldData) return oldData;
 
                     return oldData.map((o) =>
-                        o.curseID === data.courseId
+                        o.curseID === courseID
                             ? { ...o, progress: data.progress }
                             : o
                     );
                 }
             );
+
+            setShowVideo(null);
+            setFeedbackState(true);
+            setPath(location.pathname);
+            setMsg("Tema completado");
+            setType("success");
         },
         onError: (error) => {
             console.log(error);

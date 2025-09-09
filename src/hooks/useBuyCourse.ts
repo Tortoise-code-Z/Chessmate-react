@@ -9,6 +9,7 @@ import { DATABASE_KEY } from "../consts/dataBaseKey";
 import {
     getCourseById,
     getDataLocalStorage,
+    getUserObtainedCourse,
     getUserObtainedCourses,
     setItemLocalStorage,
 } from "../api";
@@ -66,8 +67,25 @@ export function useBuyCourse() {
 
             const userCourses = getUserObtainedCourses(userID, data);
 
+            const course = getCourseById(data, courseID);
+
             const newUserCourses: ObtainedCourse[] = [
-                { courseId: courseID, progress: 0 },
+                {
+                    courseId: courseID,
+                    progress: 0,
+                    themes: course.content.themes.map((t) => {
+                        return {
+                            themeID: t.id,
+                            completed: false,
+                            subthemes: t.content.map((tt) => {
+                                return {
+                                    subthemeID: tt.id,
+                                    completed: false,
+                                };
+                            }),
+                        };
+                    }),
+                },
                 ...userCourses,
             ];
 
@@ -78,12 +96,15 @@ export function useBuyCourse() {
                 ),
             };
 
+            const getCourse = newData.courses.find(
+                (c) => c.curseID === courseID
+            ) as CourseJSON;
+
             setItemLocalStorage<BBDD>(DATABASE_KEY, newData);
-            const course = getCourseById(data, courseID);
 
             return {
                 userID: userID,
-                course: course,
+                course: getCourse,
             };
         } catch (error) {
             console.error(error);

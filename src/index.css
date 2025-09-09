@@ -167,6 +167,10 @@ a.button {
     width: fit-content;
 }
 
+.relative {
+    position: relative !important;
+}
+
 .size-140 {
     font-size: 1.4em;
 }

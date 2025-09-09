@@ -2,13 +2,18 @@ import { Dispatch, SetStateAction } from "react";
 import styles from "./CourseThemeItem.module.css";
 import ThemeVideos from "./ThemesVideos";
 import ThemeButton from "./ThemeButton";
-import { Theme, ThemeContent } from "../../../../../../types/types";
+import {
+    Theme,
+    ThemesUserStatesOC,
+    VideoData,
+} from "../../../../../../types/types";
 
 type Props = {
     videosIndex: number | null;
     setVideosIndex: Dispatch<SetStateAction<number | null>>;
-    setShowVideo: Dispatch<SetStateAction<ThemeContent | null>>;
+    setShowVideo: Dispatch<SetStateAction<VideoData | null>>;
     theme: Theme;
+    userThemeData: ThemesUserStatesOC | undefined;
     disabled?: boolean;
 };
 
@@ -34,6 +39,7 @@ function CourseThemeItem({
     setVideosIndex,
     setShowVideo,
     disabled = false,
+    userThemeData,
 }: Props) {
     return (
         <div className={styles.themeContainer}>
@@ -42,9 +48,14 @@ function CourseThemeItem({
                 videosIndex={videosIndex}
                 theme={theme}
                 disabled={disabled}
+                userThemeData={userThemeData}
             />
             {videosIndex === theme.id && !!theme.id && (
-                <ThemeVideos theme={theme} setShowVideo={setShowVideo} />
+                <ThemeVideos
+                    theme={theme}
+                    setShowVideo={setShowVideo}
+                    userThemeData={userThemeData}
+                />
             )}
         </div>
     );

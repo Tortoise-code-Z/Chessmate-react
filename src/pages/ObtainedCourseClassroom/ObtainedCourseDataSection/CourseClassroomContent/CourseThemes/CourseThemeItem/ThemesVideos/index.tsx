@@ -1,6 +1,11 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import styles from "./ThemeVideos.module.css";
-import { Theme, ThemeContent } from "../../../../../../../types/types";
+import {
+    Theme,
+    SubthemeContent,
+    ThemesUserStatesOC,
+    VideoData,
+} from "../../../../../../../types/types";
 import Button from "../../../../../../../components/Button";
 import FigureImage from "../../../../../../../components/FigureImage";
 import { getImage, getImageSize } from "../../../../../../../utils/images";
@@ -8,10 +13,13 @@ import TitleHx from "../../../../../../../components/TitleHx";
 import { DEFAULT_COURSES_VALUES } from "../../../../../../../consts/general";
 import SecurityRendering from "../../../../../../../components/SecurityRendering";
 import WarningMsg from "../../../../../../../components/WarningMsg";
+import { FaCheckCircle } from "react-icons/fa";
+import CheckSvgComponent from "../../../../../../../components/CheckSvgComponent";
 
 type Props = {
     theme: Theme;
-    setShowVideo: Dispatch<SetStateAction<ThemeContent | null>>;
+    setShowVideo: Dispatch<SetStateAction<VideoData | null>>;
+    userThemeData: ThemesUserStatesOC | undefined;
 };
 
 /**
@@ -30,13 +38,13 @@ type Props = {
  * @returns JSX element rendering all video subthemes for a course theme.
  */
 
-function ThemeVideos({ setShowVideo, theme }: Props) {
+function ThemeVideos({ setShowVideo, theme, userThemeData }: Props) {
     const [videoWarning, setVideoWarning] = useState<string | null>(null);
     return (
         <>
             {videoWarning && <WarningMsg msg={videoWarning} />}
             <div className={styles.videosContainer}>
-                <SecurityRendering<ThemeContent>
+                <SecurityRendering<SubthemeContent>
                     data={theme?.content}
                     conditions={theme.content.map((t) => !!t.id && !!t.video)}
                     state={{
@@ -50,8 +58,15 @@ function ThemeVideos({ setShowVideo, theme }: Props) {
                             <Button
                                 key={subtheme.id || index}
                                 disabled={!canRender}
-                                onClick={() => setShowVideo(subtheme)}
-                                classNames={[styles.videoButton]}
+                                onClick={() =>
+                                    setShowVideo({
+                                        subthemeContent: subtheme,
+                                        themeID: theme.id,
+                                        userThemeData:
+                                            userThemeData?.subthemes[index],
+                                    })
+                                }
+                                classNames={[styles.videoButton, "relative"]}
                                 variant="Card"
                             >
                                 <FigureImage
@@ -72,6 +87,12 @@ function ThemeVideos({ setShowVideo, theme }: Props) {
                                     {subtheme?.title ||
                                         DEFAULT_COURSES_VALUES.title}
                                 </TitleHx>
+
+                                {userThemeData?.subthemes?.find(
+                                    (s) => s.subthemeID === subtheme.id
+                                )?.completed && (
+                                    <CheckSvgComponent size="medium" />
+                                )}
                             </Button>
                         );
                     }}
