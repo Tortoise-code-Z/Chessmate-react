@@ -13,7 +13,6 @@ import TitleHx from "../../../../../../../components/TitleHx";
 import { DEFAULT_COURSES_VALUES } from "../../../../../../../consts/general";
 import SecurityRendering from "../../../../../../../components/SecurityRendering";
 import WarningMsg from "../../../../../../../components/WarningMsg";
-import { FaCheckCircle } from "react-icons/fa";
 import CheckSvgComponent from "../../../../../../../components/CheckSvgComponent";
 
 type Props = {

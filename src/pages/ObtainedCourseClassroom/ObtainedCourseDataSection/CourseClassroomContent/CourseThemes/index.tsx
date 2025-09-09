@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import styles from "./CourseThemes.module.css";
 import CourseThemeItem from "./CourseThemeItem";
-import { Theme, SubthemeContent, VideoData } from "../../../../../types/types";
+import { Theme, VideoData } from "../../../../../types/types";
 import { DEFAULT_COURSES_VALUES } from "../../../../../consts/general";
 import SecurityRendering from "../../../../../components/SecurityRendering";
 import WarningMsg from "../../../../../components/WarningMsg";
