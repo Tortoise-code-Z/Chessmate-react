@@ -36,7 +36,7 @@ function CoursesRecomended({
     limit,
     userID,
 }: Props) {
-    const { data, isLoading, error } = useUnpurchasedCourses(
+    let { data, isLoading, error } = useUnpurchasedCourses(
         DATABASE_KEY,
         limit,
         userID
@@ -71,6 +71,7 @@ function CoursesRecomended({
                 <CoursesDisplay
                     courses={data ?? ([] as CourseJSON[])}
                     display="Col"
+                    requiredIsObtained={false}
                 />
             </DataStateWrapper>
         </section>

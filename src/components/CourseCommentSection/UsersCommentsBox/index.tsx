@@ -40,13 +40,19 @@ function UsersCommentBox({}: Props) {
                     <SecurityRendering<Comments>
                         data={comments}
                         conditions={comments?.map(
-                            (c) => !!c.id && (!!c.user.username || !!c.text)
+                            (c) =>
+                                !!c?.id &&
+                                !!c?.idCourse &&
+                                (!!c?.user?.username || !!c?.text)
+                        )}
+                        noCriticalConditions={comments?.map(
+                            (c) => !!c?.createdAt
                         )}
                         state={{
                             setWarningState: setWarningComment,
                             warningState: warningComment,
                         }}
-                        msg="Algunos comentarios pueden no haberse recuperado. Estamos trabajando en ello."
+                        msg="Algunos comentarios (o datos de estos) pueden no haberse recuperado. Estamos trabajando en ello."
                         msgEmpty="No hemos podido recuperar todos los comentarios. Estamos trabajando para solucionarlo."
                         emptyNode={
                             <MsgEmpty

@@ -1,6 +1,7 @@
 import { DATABASE_KEY } from "../../consts/dataBaseKey";
 import useBestSeller from "../../hooks/useBestSellers";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
+import { CourseJSON, IsObtainedCourse } from "../../types/types";
 import CoursesDisplay from "../CoursesDisplay";
 import DataStateWrapper from "../DataStateWrapperProps";
 import LightComponent from "../LightComponent";
@@ -14,6 +15,7 @@ type Props = {
     titleTextSpan?: string;
     titleDisplay: "Row" | "Col";
     classNames?: string[];
+    requiredIsObtained?: boolean;
 };
 
 /**
@@ -42,6 +44,7 @@ function BestSellersSection({
     titleTextSpan,
     titleDisplay,
     classNames = [],
+    requiredIsObtained,
 }: Props) {
     const { user } = useUserAuthStore();
     const { data, isLoading, error } = useBestSeller(
@@ -73,8 +76,9 @@ function BestSellersSection({
             <DataStateWrapper isLoading={isLoading} error={error}>
                 <CoursesDisplay
                     action={true}
-                    courses={data ? data : null}
+                    courses={data ?? ([] as (CourseJSON & IsObtainedCourse)[])}
                     display={display}
+                    requiredIsObtained={requiredIsObtained}
                 />
             </DataStateWrapper>
         </section>

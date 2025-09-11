@@ -12,5 +12,7 @@
     .boardContainer {
         height: 50% !important;
         width: 100%;
+        flex-direction: column;
+        align-items: center;
     }
 }

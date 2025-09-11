@@ -15,6 +15,15 @@
     height: 100%;
 }
 
+@media all and (max-width: 1023px) {
+    .boardZone {
+        height: min(
+            calc(100vh - var(--navbar-height) - 20px),
+            calc(100vw - var(--navbar-height) - 20px)
+        );
+    }
+}
+
 @media all and (max-height: 500px) {
     .boardZone figure {
         height: calc(100vh - var(--navbar-height) - 10px);

@@ -6,10 +6,12 @@ import { ReactNode, useState } from "react";
 import WarningMsg from "../WarningMsg";
 import ItemCourseDisplayDefault from "./ItemCourseDisplayDefault";
 import MsgEmpty from "../MsgEmpty";
+import { getObtainedState } from "../../utils/general";
 
 type Props = {
     action?: boolean;
-    courses: (CourseJSON & IsObtainedCourse)[];
+    courses: (CourseJSON & Partial<IsObtainedCourse>)[];
+    requiredIsObtained?: boolean;
     display?: "Row" | "Col";
     msg?: string;
     svg?: ReactNode;
@@ -26,7 +28,14 @@ type Props = {
  * @param display - Optional layout type: "Row" or "Col". Defaults to "Col".
  */
 
-function CoursesDisplay({ courses, action, display = "Col", msg, svg }: Props) {
+function CoursesDisplay({
+    courses,
+    action,
+    display = "Col",
+    msg,
+    svg,
+    requiredIsObtained = true,
+}: Props) {
     const [warningCoursesMsg, setWarningCoursesMsg] = useState<string | null>(
         null
     );
@@ -36,6 +45,7 @@ function CoursesDisplay({ courses, action, display = "Col", msg, svg }: Props) {
             ? styles.coursesColumnDisplay
             : styles.coursesRowDisplay,
     ].join(" ");
+
     return (
         <>
             {warningCoursesMsg && <WarningMsg msg={warningCoursesMsg} />}
@@ -43,13 +53,16 @@ function CoursesDisplay({ courses, action, display = "Col", msg, svg }: Props) {
                 <SecurityRendering<CourseJSON & IsObtainedCourse>
                     data={courses}
                     conditions={courses?.map((c) => !!c?.curseID)}
-                    noCriticalConditions={courses?.map(
-                        (c) =>
-                            !!c?.title &&
-                            !!c?.shortDescription &&
-                            !!c?.imageUrl.thumb &&
-                            !!c?.level &&
-                            !!c?.price
+                    noCriticalConditions={courses?.map((c) =>
+                        !!c?.title &&
+                        !!c?.shortDescription &&
+                        !!c?.imageUrl.thumb &&
+                        !!c?.level &&
+                        !!c?.price &&
+                        typeof getObtainedState(c, requiredIsObtained) ===
+                            "boolean"
+                            ? true
+                            : false
                     )}
                     emptyNode={
                         <MsgEmpty
@@ -61,7 +74,7 @@ function CoursesDisplay({ courses, action, display = "Col", msg, svg }: Props) {
                         setWarningState: setWarningCoursesMsg,
                         warningState: warningCoursesMsg,
                     }}
-                    msg="Algún curso puede estar incompleto. Estamos trabajando para solucionarlo."
+                    msg="Algún curso o datos de este puede estar incompleto. Estamos trabajando para solucionarlo."
                     msgEmpty="No se han podido recuperar los cursos. Estamos trabajando en ellos para solucionarlo."
                 >
                     {(course, index, canRender) => {
@@ -73,6 +86,7 @@ function CoursesDisplay({ courses, action, display = "Col", msg, svg }: Props) {
                                     action={action}
                                     data={course}
                                     display={display}
+                                    requiredIsObtained={requiredIsObtained}
                                 />
                             );
                         return (
@@ -82,6 +96,7 @@ function CoursesDisplay({ courses, action, display = "Col", msg, svg }: Props) {
                                 action={action}
                                 data={course}
                                 display={display}
+                                requiredIsObtained={requiredIsObtained}
                             />
                         );
                     }}

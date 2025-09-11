@@ -25,39 +25,32 @@ function SecurityRendering<T>({
     children,
     msg = "Algún contenido puede estar incompleto. Estamos trabajando en ello para solucionarlo cuanto antes.",
     emptyNode,
-    msgEmpty,
+    msgEmpty = "No se han podido recuperar los datos.",
     state,
     noCriticalConditions,
 }: Props<T>) {
+    const safeData = Array.isArray(data) ? data : [];
+
+    const error = !Array.isArray(data);
+
     useEffect(() => {
         if (!state) return;
 
-        if (
-            msgEmpty &&
-            conditions?.every((c) => !c) &&
-            conditions?.length > 0
-        ) {
-            return state.setWarningState(msgEmpty);
+        if (error) {
+            state.setWarningState(msgEmpty);
         } else if (
             conditions?.some((c) => !c) ||
             noCriticalConditions?.some((c) => !c)
         ) {
-            return state.setWarningState(msg);
+            state.setWarningState(msg);
         } else {
-            return state.setWarningState(null);
+            state.setWarningState(null);
         }
-    }, [data, conditions, msg, state]);
+    }, [error, conditions, noCriticalConditions, msg, msgEmpty, state]);
 
-    if ((!data || data?.length === 0) && !state?.warningState)
-        return <>{emptyNode}</>;
+    if (safeData.length === 0) return <>{emptyNode}</>;
 
-    return (
-        <>
-            {data?.map((d, i) => {
-                return children(d, i, conditions?.[i]);
-            })}
-        </>
-    );
+    return <>{safeData.map((item, i) => children(item, i, conditions?.[i]))}</>;
 }
 
 export default SecurityRendering;

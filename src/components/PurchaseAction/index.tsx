@@ -20,7 +20,7 @@ type Props = {
  */
 
 function PurchaseAction({
-    isObtained = false,
+    isObtained,
     courseID,
     canBuy = true,
     disabled = false,
@@ -34,6 +34,7 @@ function PurchaseAction({
                     disabled={disabled}
                     canBuy={canBuy}
                     courseID={courseID}
+                    isObtained={isObtained}
                 />
             )}
         </>

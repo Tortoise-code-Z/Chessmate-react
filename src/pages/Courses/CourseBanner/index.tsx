@@ -30,6 +30,8 @@ function CourseBanner({}: Props) {
         user?.userID
     );
 
+    // data = { ...data, isObtained: null };
+
     return (
         <section
             className={[styles.courseBanner, error ? styles.cbError : ""].join(

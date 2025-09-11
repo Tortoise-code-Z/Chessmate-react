@@ -57,8 +57,8 @@ function ErrorElement({
             <div className={styles.container}>
                 <FaInfoCircle />
                 <span className={styles.errorMsg}>
-                    Lo sentimos mucho, ha ocurrido un error.
-                    {errorMsg && `: ${errorMsg.toLowerCase()}`}
+                    Lo sentimos mucho, ha ocurrido un error
+                    {errorMsg ? `: ${errorMsg.toLowerCase()}` : "."}
                 </span>
                 {buttonAction && (
                     <Button onClick={buttonAction.onClick}>

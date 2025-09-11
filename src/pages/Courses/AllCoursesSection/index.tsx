@@ -42,7 +42,7 @@ function AllCoursesSection({}: Props) {
     const [filter, setFilter] = useState<FilterOptions | undefined>();
     const { user } = useUserAuthStore();
 
-    const { data, isLoading, error } = useAllCourses(
+    let { data, isLoading, error } = useAllCourses(
         DATABASE_KEY,
         search,
         filter,

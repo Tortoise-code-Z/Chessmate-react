@@ -6,6 +6,7 @@ import { DEFAULT_COURSES_VALUES } from "../../../../../consts/general";
 import SecurityRendering from "../../../../../components/SecurityRendering";
 import WarningMsg from "../../../../../components/WarningMsg";
 import { useCourseClassroomApi } from "../../../../../hooks/useCourseClassroom";
+import MsgEmpty from "../../../../../components/MsgEmpty";
 
 type Props = {
     data: useCourseClassroomApi | undefined;
@@ -65,29 +66,33 @@ function CourseThemes({ data, setShowVideo }: Props) {
 
             <SecurityRendering<Theme>
                 data={data?.course?.content?.themes}
-                conditions={data?.course?.content?.themes.map((t) => !!t.id)}
-                noCriticalConditions={data?.course?.content?.themes.map(
-                    (t) => !!t.title && !!t.description
+                conditions={data?.course?.content?.themes?.map((t) => !!t?.id)}
+                noCriticalConditions={data?.course?.content?.themes?.map(
+                    (t) => !!t?.title && !!t?.description
                 )}
                 state={{
                     setWarningState: setThemesWarnings,
                     warningState: themesWarning,
                 }}
                 msg="Algunos temas no se han obtenido de forma correcta. Estamos trabajando para solucionarlo."
+                msgEmpty="No se han podido recuperar los temas. Estamos trabajando para solucionarlo."
+                emptyNode={<MsgEmpty />}
             >
-                {(theme, _index, canRender) => (
-                    <CourseThemeItem
-                        key={theme.id}
-                        setShowVideo={setShowVideo}
-                        theme={theme}
-                        userThemeData={data?.themes.find(
-                            (t) => t.themeID === theme.id
-                        )}
-                        setVideosIndex={setVideosIndex}
-                        videosIndex={videosIndex}
-                        disabled={!canRender ? true : false}
-                    />
-                )}
+                {(theme, _index, canRender) => {
+                    return (
+                        <CourseThemeItem
+                            key={theme.id}
+                            setShowVideo={setShowVideo}
+                            theme={theme}
+                            userThemeData={data?.themes?.find(
+                                (t) => t.themeID === theme.id
+                            )}
+                            setVideosIndex={setVideosIndex}
+                            videosIndex={videosIndex}
+                            disabled={!canRender ? true : false}
+                        />
+                    );
+                }}
             </SecurityRendering>
         </div>
     );

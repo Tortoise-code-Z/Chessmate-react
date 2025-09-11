@@ -11,6 +11,7 @@ type Props = {
     data: CourseJSON & IsObtainedCourse;
     display?: "Row" | "Col";
     courseID: number;
+    requiredIsObtained?: boolean;
 };
 
 /**
@@ -30,6 +31,7 @@ function ItemCourseDisplayDefault({
     action = true,
     display = "Col",
     courseID,
+    requiredIsObtained = true,
 }: Props) {
     return (
         <div
@@ -66,7 +68,9 @@ function ItemCourseDisplayDefault({
                             disabled={true}
                             canBuy={!!data?.price}
                             courseID={courseID}
-                            isObtained={data?.isObtained}
+                            isObtained={
+                                requiredIsObtained ? data?.isObtained : false
+                            }
                         />
                         <p className={styles.price}>
                             {data?.price

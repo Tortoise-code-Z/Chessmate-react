@@ -29,7 +29,7 @@ type Props = {};
 function ObtainedCourseDataSection({}: Props) {
     const params = useParams();
     const { user } = useUserAuthStore();
-    const { data, isLoading, error } = useCourseClassroom(
+    let { data, isLoading, error } = useCourseClassroom(
         DATABASE_KEY,
         Number(params.id),
         user?.userID

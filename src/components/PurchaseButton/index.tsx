@@ -3,11 +3,13 @@ import Button from "../Button";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import { useBuyCourse } from "../../hooks/useBuyCourse";
 import { useProfessorMsgStore } from "../../hooks/useProfessorMsgStore";
+import { FaExclamationTriangle } from "react-icons/fa";
 
 type Props = {
     courseID: number | undefined | null;
     canBuy?: boolean;
     disabled?: boolean;
+    isObtained?: boolean;
 };
 
 /**
@@ -24,13 +26,19 @@ type Props = {
  * @returns A button that either triggers a purchase or prompts the user to log in.
  */
 
-function PurchaseButton({ courseID, canBuy = true, disabled = false }: Props) {
+function PurchaseButton({
+    courseID,
+    canBuy = true,
+    disabled = false,
+    isObtained,
+}: Props) {
     const { user } = useUserAuthStore();
     const { setState, setValue } = useProfessorMsgStore();
     const { mutate, isPending } = useBuyCourse();
 
     const cantBuyCourse = () => {
         setState(true);
+        if (typeof isObtained !== "boolean") return setValue("isObtained");
         if (!courseID) return setValue("noID");
         if (!canBuy) return setValue("noPrice");
         if (!user) return setValue("cantCommentSesion");
@@ -39,10 +47,16 @@ function PurchaseButton({ courseID, canBuy = true, disabled = false }: Props) {
     return (
         <>
             <Button
+                variant={
+                    typeof isObtained !== "boolean" ? "Warning" : "Primary"
+                }
                 disabled={disabled}
                 propagation={false}
                 onClick={
-                    user && canBuy && courseID
+                    user &&
+                    canBuy &&
+                    courseID &&
+                    typeof isObtained === "boolean"
                         ? () =>
                               mutate({
                                   courseID: courseID,
@@ -55,7 +69,11 @@ function PurchaseButton({ courseID, canBuy = true, disabled = false }: Props) {
                     "Comprando..."
                 ) : (
                     <>
-                        <HiMiniShoppingBag />
+                        {typeof isObtained === "boolean" ? (
+                            <HiMiniShoppingBag />
+                        ) : (
+                            <FaExclamationTriangle />
+                        )}
                         Comprar
                     </>
                 )}

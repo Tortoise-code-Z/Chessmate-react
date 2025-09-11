@@ -241,7 +241,8 @@ export type ButtonVariant =
     | "Terciary"
     | "Complementary"
     | "Red"
-    | "Card";
+    | "Card"
+    | "Warning";
 
 export type InputType = "text" | "password" | "checkbox";
 
@@ -401,7 +402,8 @@ export type ProfessorValues =
     | "cantCommentHasntBuyCourse"
     | "firstLogin"
     | "noPrice"
-    | "noID";
+    | "noID"
+    | "isObtained";
 
 export type Images = {
     image: string | undefined;

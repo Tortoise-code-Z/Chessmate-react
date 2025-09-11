@@ -7,6 +7,10 @@ import LightComponent from "../../../../components/LightComponent";
 import VideoReproductor from "../VideoReproductor";
 import { DEFAULT_COURSES_VALUES } from "../../../../consts/general";
 import { useCourseClassroomApi } from "../../../../hooks/useCourseClassroom";
+import Button from "../../../../components/Button";
+import { useNavigate, useParams } from "react-router-dom";
+import { PATHS } from "../../../../consts/paths";
+import { FaInfoCircle } from "react-icons/fa";
 
 type Props = {
     data: useCourseClassroomApi | undefined;
@@ -32,6 +36,8 @@ type Props = {
 
 function CourseClassroomContent({ data }: Props) {
     const [showVideo, setShowVideo] = useState<VideoData | null>(null);
+    const navigate = useNavigate();
+    const params = useParams();
 
     return (
         <div className={styles.courseClassroomContent}>
@@ -44,6 +50,20 @@ function CourseClassroomContent({ data }: Props) {
             </TitleHx>
 
             <CourseThemes data={data} setShowVideo={setShowVideo} />
+
+            <Button
+                onClick={(e) => {
+                    e.preventDefault();
+                    if (params.id) {
+                        navigate(
+                            `/${PATHS.coursesDetail.replace(":id", params.id)}`
+                        );
+                    }
+                }}
+            >
+                <FaInfoCircle />
+                Ver detalles del curso
+            </Button>
 
             {showVideo && (
                 <VideoReproductor

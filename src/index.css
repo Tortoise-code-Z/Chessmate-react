@@ -259,6 +259,14 @@ a.button > svg {
     background-color: rgba(201, 52, 52, 0.8);
 }
 
+.buttonWarning {
+    background-color: transparent;
+}
+
+.buttonWarning:hover {
+    background-color: rgb(138, 123, 8);
+}
+
 .span-pr-color {
     color: rgb(var(--primary-color-500)) !important;
 }

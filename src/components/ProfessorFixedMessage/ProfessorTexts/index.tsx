@@ -1,5 +1,6 @@
 import { useProfessorMsgStore } from "../../../hooks/useProfessorMsgStore";
 import styles from "./ProfessorTexts.module.css";
+import TextIsObtained from "./TextIsObtained";
 import TextNoID from "./TextNoID";
 import TextNoPrice from "./TextNoPrice";
 import TextsCantCommenHasntBuy from "./TextsCantCommenHasntBuy";
@@ -29,12 +30,18 @@ function ProfessorTexts({}: Props) {
             <div className={styles.data}>
                 {(value === "cantBuySesion" ||
                     value === "cantCommentSesion") && <TextsNoSesion />}
+
                 {value === "cantCommentHasntBuyCourse" && (
                     <TextsCantCommenHasntBuy />
                 )}
+
                 {value === "firstLogin" && <TextsFirstLogin />}
+
                 {value === "noPrice" && <TextNoPrice />}
+
                 {value === "noID" && <TextNoID />}
+
+                {value === "isObtained" && <TextIsObtained />}
             </div>
         </div>
     );
