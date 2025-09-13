@@ -4,13 +4,18 @@ import styles from "./CoursesDisplay.module.css";
 import SecurityRendering from "../SecurityRendering";
 import { ReactNode, useState } from "react";
 import WarningMsg from "../WarningMsg";
-import ItemCourseDisplayDefault from "./ItemCourseDisplayDefault";
 import MsgEmpty from "../MsgEmpty";
-import { getObtainedState } from "../../utils/general";
+import {
+    isNumber,
+    isOnVaulues,
+    isString,
+    regExpCheck,
+} from "../../utils/general";
+import { IMAGES_PATH_RE, LEVELS } from "../../consts/general";
 
 type Props = {
     action?: boolean;
-    courses: (CourseJSON & Partial<IsObtainedCourse>)[];
+    courses: (CourseJSON & Partial<IsObtainedCourse>)[] | undefined;
     requiredIsObtained?: boolean;
     display?: "Row" | "Col";
     msg?: string;
@@ -52,17 +57,14 @@ function CoursesDisplay({
             <div className={className}>
                 <SecurityRendering<CourseJSON & IsObtainedCourse>
                     data={courses}
-                    conditions={courses?.map((c) => !!c?.curseID)}
-                    noCriticalConditions={courses?.map((c) =>
-                        !!c?.title &&
-                        !!c?.shortDescription &&
-                        !!c?.imageUrl.thumb &&
-                        !!c?.level &&
-                        !!c?.price &&
-                        typeof getObtainedState(c, requiredIsObtained) ===
-                            "boolean"
-                            ? true
-                            : false
+                    conditions={courses?.map((c) => !!isNumber(c?.curseID))}
+                    noCriticalConditions={courses?.map(
+                        (c) =>
+                            !!isString(c?.title) &&
+                            !!isString(c?.shortDescription) &&
+                            !!regExpCheck(c?.imageUrl?.thumb, IMAGES_PATH_RE) &&
+                            !!isOnVaulues(c?.level, LEVELS as any) &&
+                            !!isNumber(c?.price)
                     )}
                     emptyNode={
                         <MsgEmpty
@@ -77,26 +79,16 @@ function CoursesDisplay({
                     msg="Algún curso o datos de este puede estar incompleto. Estamos trabajando para solucionarlo."
                     msgEmpty="No se han podido recuperar los cursos. Estamos trabajando en ellos para solucionarlo."
                 >
-                    {(course, index, canRender) => {
-                        if (!canRender)
-                            return (
-                                <ItemCourseDisplayDefault
-                                    courseID={course?.curseID}
-                                    key={course?.curseID || index}
-                                    action={action}
-                                    data={course}
-                                    display={display}
-                                    requiredIsObtained={requiredIsObtained}
-                                />
-                            );
+                    {(course, _index, canRender) => {
                         return (
                             <ItemCourseDisplay
-                                courseID={course?.curseID}
-                                key={course?.curseID || index}
+                                courseID={course.curseID}
+                                key={course.curseID}
                                 action={action}
                                 data={course}
                                 display={display}
                                 requiredIsObtained={requiredIsObtained}
+                                canNavigate={canRender}
                             />
                         );
                     }}

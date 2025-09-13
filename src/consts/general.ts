@@ -84,3 +84,5 @@ export const DEFAULT_AUTHORS_VALUE: DefaultAuthorsValue = {
     elo: "Sin ELO",
     level: "N/A",
 };
+
+export const IMAGES_PATH_RE = /.*_\d+x\d+_+.*/;

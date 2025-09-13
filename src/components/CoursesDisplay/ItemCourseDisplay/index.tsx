@@ -6,15 +6,21 @@ import styles from "./ItemCourseDisplay.module.css";
 import PurchaseAction from "../../PurchaseAction";
 import TitleHx from "../../TitleHx";
 import FigureImage from "../../FigureImage";
-import { DEFAULT_COURSES_VALUES } from "../../../consts/general";
-import { getObtainedState } from "../../../utils/general";
+import { DEFAULT_COURSES_VALUES, LEVELS } from "../../../consts/general";
+import {
+    isBoolean,
+    isNumber,
+    isOnVaulues,
+    isString,
+} from "../../../utils/general";
 
 type Props = {
     action?: boolean;
     data: CourseJSON & IsObtainedCourse;
-    requiredIsObtained?: boolean;
+    requiredIsObtained: boolean;
     display?: "Row" | "Col";
     courseID: number;
+    canNavigate?: boolean;
 };
 
 /**
@@ -34,45 +40,52 @@ function ItemCourseDisplay({
     action = true,
     display = "Col",
     courseID,
-    requiredIsObtained = true,
+    requiredIsObtained,
+    canNavigate = true,
 }: Props) {
     const navigate = useNavigate();
 
+    const handleClickCard = () => {
+        canNavigate
+            ? navigate(
+                  `/${PATHS.coursesDetail.replace(
+                      ":id",
+                      data.curseID.toString()
+                  )}`
+              )
+            : null;
+    };
+
     return (
         <div
-            className={
+            className={[
                 display === "Row"
                     ? styles.itemRowContainer
-                    : styles.itemContainer
-            }
-            onClick={() =>
-                navigate(
-                    `/${PATHS.coursesDetail.replace(
-                        ":id",
-                        data?.curseID?.toString()
-                    )}`
-                )
-            }
+                    : styles.itemContainer,
+                !canNavigate ? styles.cantNavigate : "",
+            ].join(" ")}
+            onClick={handleClickCard}
         >
             <FigureImage
                 src={getImage(data?.imageUrl?.thumb, ["courses"])}
-                alt={data?.title}
-                title={data?.title}
+                alt={isString(data?.title)}
+                title={isString(data?.title)}
                 width={getImageSize(data?.imageUrl?.thumb, "width")}
-                height={getImageSize(data?.imageUrl?.thumb, "height")}
+                height={getImageSize(data.imageUrl.thumb, "height")}
             />
 
             <div className={styles.itemDataContainer}>
                 <div className={styles.itemData}>
                     <TitleHx level={3}>
-                        {data?.title || DEFAULT_COURSES_VALUES.title}
+                        {isString(data?.title) || DEFAULT_COURSES_VALUES.title}
                     </TitleHx>
                     <p className={styles.description}>
-                        {data?.shortDescription ||
+                        {isString(data?.shortDescription) ||
                             DEFAULT_COURSES_VALUES.shortDescription}
                     </p>
                     <p className={styles.level}>
-                        {data?.level || DEFAULT_COURSES_VALUES.level}
+                        {isOnVaulues(data?.level, LEVELS as any) ||
+                            DEFAULT_COURSES_VALUES.level}
                     </p>
                 </div>
                 {action && (
@@ -80,13 +93,15 @@ function ItemCourseDisplay({
                         <PurchaseAction
                             canBuy={!!data?.price}
                             courseID={courseID}
-                            isObtained={getObtainedState(
-                                data,
+                            isObtained={
                                 requiredIsObtained
-                            )}
+                                    ? isBoolean(data?.isObtained)
+                                    : false
+                            }
+                            disabled={!canNavigate}
                         />
                         <p className={styles.price}>
-                            {data?.price
+                            {isNumber(data?.price)
                                 ? `${data.price}$`
                                 : DEFAULT_COURSES_VALUES.price}
                         </p>

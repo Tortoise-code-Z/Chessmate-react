@@ -5,7 +5,6 @@ import TitleHx from "../../../components/TitleHx";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import useRecentCourses from "../../../hooks/useRecentCourses";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
-import { CourseJSON } from "../../../types/types";
 import styles from "./RecentCoursesSection.module.css";
 
 type Props = {};
@@ -49,10 +48,7 @@ function RecentCoursesSection({}: Props) {
             </TitleHx>
 
             <DataStateWrapper isLoading={isLoading} error={error}>
-                <CoursesDisplay
-                    courses={data ?? ([] as CourseJSON[])}
-                    display="Row"
-                />
+                <CoursesDisplay courses={data} display="Row" />
             </DataStateWrapper>
         </section>
     );

@@ -12,6 +12,12 @@
     cursor: pointer;
 }
 
+.cantNavigate {
+    cursor: auto !important;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
 .itemContainer > figure {
     min-width: 20%;
     width: 20%;
@@ -67,8 +73,8 @@
     border-radius: 5px;
 }
 
-.itemRowContainer:hover,
-.itemContainer:hover {
+.itemRowContainer:not(.cantNavigate):hover,
+.itemContainer:not(.cantNavigate):hover {
     transform: scale(1.02);
     background-color: rgba(var(--primary-color-100), 0.05);
 }
