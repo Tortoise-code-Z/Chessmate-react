@@ -13,13 +13,11 @@ export const getObtainedState = (
 // export const isString = (value: unknown): string | undefined =>
 //     typeof value === "string" ? value : undefined;
 
-export const isOnVaulues = (
+export const isOnVaulues = <T>(
     value: unknown,
-    values: unknown[]
-): string | undefined => {
-    return typeof value === "string" && values.some((v) => v === value)
-        ? value
-        : undefined;
+    values: readonly T[]
+): T | undefined => {
+    return values.includes(value as T) ? (value as T) : undefined;
 };
 
 // export const isNumber = (value: unknown): number | undefined =>

@@ -9,7 +9,19 @@ import DataStateWrapper from "../../../DataStateWrapperProps";
 import UserObtainedItemDefault from "./UserObtainedItemDefault";
 import { Dispatch, SetStateAction } from "react";
 import SecurityRendering from "../../../SecurityRendering";
-import { CourseJSON, Progress } from "../../../../types/types";
+import {
+    ChessLevel,
+    CourseJSON,
+    Level,
+    Progress,
+} from "../../../../types/types";
+import {
+    asArray,
+    isNumber,
+    isOnVaulues,
+    isString,
+} from "../../../../utils/general";
+import { LEVELS } from "../../../../consts/general";
 
 type Props = {
     obtainedCoursesLimit?: number;
@@ -49,22 +61,28 @@ function UserObtainedCourses({
         Number(params.id)
     );
 
+    let safeData = asArray<CourseJSON & Progress>(data);
+
+    safeData = safeData?.map((s) =>
+        s.curseID === 5 ? { ...s, progress: 0 } : s
+    );
+
     return (
         <div className={styles.userObtainedCourses}>
             <DataStateWrapper isLoading={isLoading} error={error}>
                 <SecurityRendering<CourseJSON & Progress>
-                    data={data}
+                    data={safeData}
                     state={{
                         setWarningState: setCourseWarning,
                         warningState: courseWarning,
                     }}
-                    conditions={data?.map((d) => !!d.curseID)}
-                    noCriticalConditions={data?.map(
+                    conditions={safeData?.map((d) => !!d.curseID)}
+                    noCriticalConditions={safeData?.map(
                         (d) =>
-                            !!d?.title &&
-                            (!!d?.progress || d?.progress === 0) &&
-                            !!d?.level &&
-                            !!d?.imageUrl?.thumb
+                            isString(d?.title) &&
+                            isNumber(d?.progress) &&
+                            !!isOnVaulues(d?.level, LEVELS as any) &&
+                            isString(d?.imageUrl?.thumb)
                     )}
                     emptyNode={<ThereArentCourses msg={msg} />}
                 >

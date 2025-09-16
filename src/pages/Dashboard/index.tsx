@@ -42,6 +42,7 @@ function Dashboard({}: Props) {
                     </span>
                 </TitleHx>
             </UserCoursesSection>
+
             <CoursesRecomended
                 titleContain={
                     <>

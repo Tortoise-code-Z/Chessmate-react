@@ -7,6 +7,7 @@ import TitleHx from "../../../../TitleHx";
 import FigureImage from "../../../../FigureImage";
 import { getImage, getImageSize } from "../../../../../utils/images";
 import { DEFAULT_DEFAULT_COURSE_IMAGE } from "../../../../../consts/images";
+import { asString } from "../../../../../utils/general";
 
 type Props = {
     data: DefualtCourse & Progress;
@@ -37,13 +38,13 @@ function UserDefaultCourseItem({ data }: Props) {
                 <FigureImage
                     otherImage={DEFAULT_DEFAULT_COURSE_IMAGE}
                     src={getImage(data?.imageUrl?.general, ["defaultCourses"])}
-                    alt={data?.title || "Pieza"}
-                    title={data?.title || "Pieza"}
+                    alt={asString(data?.title) || "Pieza"}
+                    title={asString(data?.title) || "Pieza"}
                     width={getImageSize(data?.imageUrl?.general, "height")}
                     height={getImageSize(data?.imageUrl?.general, "height")}
                 />
                 <TitleHx classNames={[styles.title]} level={4}>
-                    {data?.title || "Pieza"}
+                    {asString(data?.title) || "Pieza"}
                 </TitleHx>
             </Link>
         </>

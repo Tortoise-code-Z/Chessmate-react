@@ -31,7 +31,7 @@ function ClassZoneSection({}: Props) {
     const { user } = useUserAuthStore();
     const params = useParams();
 
-    let { data, isLoading, error } = useDefaultCourseById(
+    const { data, isLoading, error } = useDefaultCourseById(
         DATABASE_KEY,
         Number(params.id),
         user?.userID as number

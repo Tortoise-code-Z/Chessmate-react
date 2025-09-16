@@ -9,6 +9,7 @@ import styles from "./UserObtainedItemDefault.module.css";
 import { MdOutlineEmail } from "react-icons/md";
 import { PATHS } from "../../../../../consts/paths";
 import { CourseJSON, Progress } from "../../../../../types/types";
+import { asString } from "../../../../../utils/general";
 
 type Props = {
     data: CourseJSON & Progress;
@@ -33,7 +34,7 @@ function UserObtainedItemDefault({ data }: Props) {
                 Contacte con nuestro servicio técnico para más información.
             </p>
 
-            {data?.title && (
+            {asString(data?.title) && (
                 <p className={styles.dataCourse}>Título: {data.title}</p>
             )}
             <NavLink

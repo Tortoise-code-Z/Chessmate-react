@@ -7,9 +7,11 @@ import WarningMsg from "../WarningMsg";
 import MsgEmpty from "../MsgEmpty";
 import {
     asNumber,
+    asObject,
     asString,
     isNumber,
     isOnVaulues,
+    isString,
     regExpCheck,
 } from "../../utils/general";
 import { IMAGES_PATH_RE, LEVELS } from "../../consts/general";
@@ -61,11 +63,11 @@ function CoursesDisplay({
                     conditions={courses?.map((c) => isNumber(c?.curseID))}
                     noCriticalConditions={courses?.map(
                         (c) =>
-                            !!asString(c?.title) &&
-                            !!asString(c?.shortDescription) &&
+                            isString(c?.title) &&
+                            isString(c?.shortDescription) &&
                             !!regExpCheck(c?.imageUrl?.thumb, IMAGES_PATH_RE) &&
                             !!isOnVaulues(c?.level, LEVELS as any) &&
-                            !!asNumber(c?.price)
+                            isNumber(c?.price)
                     )}
                     emptyNode={
                         <MsgEmpty
@@ -81,17 +83,20 @@ function CoursesDisplay({
                     msgEmpty="No se han podido recuperar los cursos. Estamos trabajando en ellos para solucionarlo."
                 >
                     {(course, _index, canRender) => {
-                        return (
-                            <ItemCourseDisplay
-                                courseID={course.curseID}
-                                key={course.curseID}
-                                action={action}
-                                data={course}
-                                display={display}
-                                requiredIsObtained={requiredIsObtained}
-                                canNavigate={canRender}
-                            />
-                        );
+                        const safeCourse = asObject<CourseJSON>(course);
+
+                        if (safeCourse)
+                            return (
+                                <ItemCourseDisplay
+                                    courseID={course.curseID}
+                                    key={course.curseID}
+                                    action={action}
+                                    data={course}
+                                    display={display}
+                                    requiredIsObtained={requiredIsObtained}
+                                    canNavigate={canRender}
+                                />
+                            );
                     }}
                 </SecurityRendering>
             </div>

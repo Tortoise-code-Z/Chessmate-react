@@ -7,6 +7,7 @@ import styles from "./CoursesRecomended.module.css";
 import { ReactNode } from "react";
 import { DATABASE_KEY } from "../../consts/dataBaseKey";
 import TitleHx from "../TitleHx";
+import { asArray, asObject } from "../../utils/general";
 
 type Props = {
     titleContain: ReactNode;
@@ -36,11 +37,13 @@ function CoursesRecomended({
     limit,
     userID,
 }: Props) {
-    let { data, isLoading, error } = useUnpurchasedCourses(
+    const { data, isLoading, error } = useUnpurchasedCourses(
         DATABASE_KEY,
         limit,
         userID
     );
+
+    const safeData = asArray<CourseJSON>(data);
 
     const titleClassMap = {
         Col: {
@@ -69,7 +72,7 @@ function CoursesRecomended({
                 errorMsg="No se ha podido recuperar los cursos."
             >
                 <CoursesDisplay
-                    courses={data ?? ([] as CourseJSON[])}
+                    courses={safeData}
                     display="Col"
                     requiredIsObtained={false}
                 />

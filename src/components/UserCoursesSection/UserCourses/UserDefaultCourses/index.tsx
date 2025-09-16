@@ -10,6 +10,7 @@ import SecurityRendering from "../../../SecurityRendering";
 import { Dispatch, SetStateAction } from "react";
 import UserDefaultCourseItemDefault from "./UserDefaultCourseItemDefault";
 import MsgEmpty from "../../../MsgEmpty";
+import { asArray, isNumber, isString } from "../../../../utils/general";
 
 type Props = {
     setDefaultWarning: Dispatch<SetStateAction<string | null>>;
@@ -41,6 +42,8 @@ function UserDefaultCourses({ setDefaultWarning, defaultWarning }: Props) {
         Number(params.id)
     );
 
+    const safeData = asArray<DefualtCourse & Progress>(data);
+
     return (
         <div className={[styles.userDefaultCourses].join(" ")}>
             <DataStateWrapper
@@ -49,18 +52,19 @@ function UserDefaultCourses({ setDefaultWarning, defaultWarning }: Props) {
                 errorMsg="No hemos podido recuperar los cursos."
             >
                 <SecurityRendering<DefualtCourse & Progress>
-                    data={data}
+                    data={safeData}
                     state={{
                         setWarningState: setDefaultWarning,
                         warningState: defaultWarning,
                     }}
-                    conditions={data?.map(
-                        (course) => !!course && !!course.curseID
+                    conditions={safeData?.map((course) =>
+                        isNumber(course?.curseID)
                     )}
-                    noCriticalConditions={data?.map(
+                    noCriticalConditions={safeData?.map(
                         (course) =>
-                            !!course.content.themes &&
-                            (!!course.title || !!course.imageUrl.general)
+                            (isString(course?.title) ||
+                                isString(course?.imageUrl?.general)) &&
+                            isNumber(course?.progress)
                     )}
                     emptyNode={<MsgEmpty msg="No hay cursos para mostrar." />}
                 >
@@ -68,7 +72,7 @@ function UserDefaultCourses({ setDefaultWarning, defaultWarning }: Props) {
                         if (!canRendered) {
                             return (
                                 <UserDefaultCourseItemDefault
-                                    key={course?.curseID ?? index}
+                                    key={course.curseID || index}
                                     data={course}
                                 />
                             );
@@ -76,7 +80,7 @@ function UserDefaultCourses({ setDefaultWarning, defaultWarning }: Props) {
 
                         return (
                             <UserDefaultCourseItem
-                                key={course?.curseID ?? index}
+                                key={course.curseID || index}
                                 data={course}
                             />
                         );

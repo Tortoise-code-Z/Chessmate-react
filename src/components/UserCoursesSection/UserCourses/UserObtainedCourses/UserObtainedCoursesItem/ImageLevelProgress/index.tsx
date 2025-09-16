@@ -1,5 +1,15 @@
-import { DEFAULT_COURSES_VALUES } from "../../../../../../consts/general";
+import {
+    DEFAULT_COURSES_VALUES,
+    LEVELS,
+} from "../../../../../../consts/general";
 import { CourseJSON, Progress } from "../../../../../../types/types";
+import {
+    asNumber,
+    asString,
+    isNumber,
+    isOnVaulues,
+    isString,
+} from "../../../../../../utils/general";
 import { getImage, getImageSize } from "../../../../../../utils/images";
 import FigureImage from "../../../../../FigureImage";
 import styles from "./ImageLevelProgress.module.css";
@@ -23,18 +33,19 @@ function ImageLevelProgress({ data }: Props) {
         <div className={styles.container}>
             <FigureImage
                 src={getImage(data?.imageUrl?.thumb, ["courses"])}
-                alt={data?.title}
-                title={data?.title}
+                alt={asString(data?.title)}
+                title={asString(data?.title)}
                 width={getImageSize(data?.imageUrl?.thumb, "width")}
                 height={getImageSize(data?.imageUrl?.thumb, "height")}
             />
 
             <div className={styles.data}>
                 <p className={styles.level}>
-                    {data?.level || DEFAULT_COURSES_VALUES.level}
+                    {isOnVaulues(data?.level, LEVELS as any) ||
+                        DEFAULT_COURSES_VALUES.level}
                 </p>
                 <p className={styles.progress}>
-                    {data?.progress || data?.progress === 0
+                    {asNumber(data?.progress) || asNumber(data?.progress) === 0
                         ? `Progress: ${data?.progress}%`
                         : DEFAULT_COURSES_VALUES.progress}
                 </p>

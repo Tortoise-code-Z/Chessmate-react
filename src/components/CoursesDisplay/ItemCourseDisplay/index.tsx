@@ -71,7 +71,7 @@ function ItemCourseDisplay({
                 alt={asString(data?.title)}
                 title={asString(data?.title)}
                 width={getImageSize(data?.imageUrl?.thumb, "width")}
-                height={getImageSize(data.imageUrl.thumb, "height")}
+                height={getImageSize(data?.imageUrl?.thumb, "height")}
             />
 
             <div className={styles.itemDataContainer}>

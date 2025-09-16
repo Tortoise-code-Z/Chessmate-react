@@ -1,6 +1,7 @@
 import { PLAYERS_CHESS } from "../../consts/url";
 import useBestPlayersApi from "../../hooks/useBestPlayersApi";
 import { BestPlayerChessData } from "../../types/types";
+import { asArray } from "../../utils/general";
 import DataStateWrapper from "../DataStateWrapperProps";
 import EmblaCarousel from "../EmblaCarousel";
 import LightComponent from "../LightComponent";
@@ -24,6 +25,8 @@ type Props = {};
 function BestPlayersSection({}: Props) {
     const { data, isLoading, error } = useBestPlayersApi(PLAYERS_CHESS);
 
+    const safeData = asArray<BestPlayerChessData>(data);
+
     return (
         <article className={styles.bestPlayersSection}>
             <LightComponent top={5} right={65} />
@@ -42,7 +45,7 @@ function BestPlayersSection({}: Props) {
             >
                 <div className={styles.sliderContainer}>
                     <EmblaCarousel
-                        slides={data ?? ([] as BestPlayerChessData[])}
+                        slides={safeData}
                         options={{ loop: true }}
                         Component={BestPlayersContainer}
                         playButton={false}

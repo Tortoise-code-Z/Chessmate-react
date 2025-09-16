@@ -16,7 +16,7 @@ type SlideRendererProps<T> = {
 };
 
 type PropType<T> = {
-    slides: T[];
+    slides: T[] | undefined;
     options?: EmblaOptionsType;
     Component: ComponentType<SlideRendererProps<T>>;
     arrows?: boolean;
@@ -52,7 +52,7 @@ const EmblaCarousel = <T,>({
         <div className={`embla ${fitHeight ? "embla__fitHeight" : ""}`}>
             <div className="embla__viewport" ref={emblaRef}>
                 <div className="embla__container">
-                    {slides.map((data, index) => (
+                    {slides?.map((data, index) => (
                         <div className="embla__slide" key={index}>
                             <div className="embla__slide__number">
                                 <Component data={data} />
