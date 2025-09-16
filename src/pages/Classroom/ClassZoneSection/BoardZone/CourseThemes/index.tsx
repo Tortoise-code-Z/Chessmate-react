@@ -1,16 +1,24 @@
-import { FaCheckCircle } from "react-icons/fa";
 import Button from "../../../../../components/Button";
 import styles from "./CourseThemes.module.css";
 import {
     ThemeDefaultCourses,
+    ThemesUserStates,
     UseCourseApiType,
 } from "../../../../../types/types";
 import { Dispatch, SetStateAction } from "react";
 import { DEFAULT_VALUES_DEFAULT_COURSES } from "../../../../../consts/general";
 import SecurityRendering from "../../../../../components/SecurityRendering";
+import {
+    asArray,
+    asBoolean,
+    asString,
+    isArray,
+    isBoolean,
+} from "../../../../../utils/general";
+import CheckSvgComponent from "../../../../../components/CheckSvgComponent";
 
 type Props = {
-    data: UseCourseApiType;
+    data: UseCourseApiType | undefined;
     setIndex: Dispatch<SetStateAction<number>>;
     index: number;
     setImageSliderLoading: Dispatch<SetStateAction<boolean>>;
@@ -42,20 +50,29 @@ function CourseThemes({
     classWarning,
     setClassWarning,
 }: Props) {
+    const themesCondition = (data: UseCourseApiType | undefined) => {
+        if (!isArray(data?.courses?.content?.themes)) return [false];
+        return data.courses.content.themes.map(
+            (t) =>
+                !!asString(t?.title) &&
+                !!asString(t?.description) &&
+                !!asArray(t?.images) &&
+                t?.images?.filter((i) => asString(i))?.length >
+                    t?.images?.length * 0.5
+        );
+    };
+
     return (
         <div className={styles.themes}>
             <SecurityRendering<ThemeDefaultCourses>
                 data={data?.courses?.content?.themes}
                 conditions={[true]}
                 noCriticalConditions={[
-                    !!data.courses.title,
-                    !!data.courses.content.detailDescription,
-                    ...data.courses.content.themes.map(
-                        (t) =>
-                            !!t.title &&
-                            !!t.description &&
-                            t.images.filter((i) => i).length >
-                                t.images.length * 0.5
+                    !!asString(data?.courses?.title),
+                    !!asString(data?.courses?.content?.detailDescription),
+                    ...themesCondition(data),
+                    !!asArray<ThemesUserStates>(data?.userThemeStates)?.every(
+                        (u) => isBoolean(u?.completed)
                     ),
                 ]}
                 state={{
@@ -68,24 +85,23 @@ function CourseThemes({
                     return (
                         <Button
                             classNames={["p-relative"]}
-                            key={theme.id}
+                            key={theme?.id}
                             onClick={() => {
                                 setImageSliderLoading(true);
-                                setIndex(theme.id);
+                                setIndex(theme?.id);
                             }}
                             variant={
-                                index === theme.id ? "Primary" : "Secondary"
+                                index === theme?.id ? "Primary" : "Secondary"
                             }
                         >
-                            {data?.userThemeStates?.find(
-                                (u) => u.themeID === theme.id
-                            )?.completed && (
-                                <FaCheckCircle
-                                    className={styles.completedIcon}
-                                />
-                            )}
+                            {asBoolean(
+                                asArray<ThemesUserStates>(
+                                    data?.userThemeStates
+                                )?.find((u) => u?.themeID === theme?.id)
+                                    ?.completed
+                            ) && <CheckSvgComponent top={-10} right={-10} />}
 
-                            {theme?.title ||
+                            {asString(theme?.title) ||
                                 DEFAULT_VALUES_DEFAULT_COURSES.title}
                         </Button>
                     );

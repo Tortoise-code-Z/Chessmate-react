@@ -8,10 +8,10 @@ import TitleHx from "../../TitleHx";
 import FigureImage from "../../FigureImage";
 import { DEFAULT_COURSES_VALUES, LEVELS } from "../../../consts/general";
 import {
-    isBoolean,
+    asBoolean,
+    asString,
     isNumber,
     isOnVaulues,
-    isString,
 } from "../../../utils/general";
 
 type Props = {
@@ -68,8 +68,8 @@ function ItemCourseDisplay({
         >
             <FigureImage
                 src={getImage(data?.imageUrl?.thumb, ["courses"])}
-                alt={isString(data?.title)}
-                title={isString(data?.title)}
+                alt={asString(data?.title)}
+                title={asString(data?.title)}
                 width={getImageSize(data?.imageUrl?.thumb, "width")}
                 height={getImageSize(data.imageUrl.thumb, "height")}
             />
@@ -77,10 +77,10 @@ function ItemCourseDisplay({
             <div className={styles.itemDataContainer}>
                 <div className={styles.itemData}>
                     <TitleHx level={3}>
-                        {isString(data?.title) || DEFAULT_COURSES_VALUES.title}
+                        {asString(data?.title) || DEFAULT_COURSES_VALUES.title}
                     </TitleHx>
                     <p className={styles.description}>
-                        {isString(data?.shortDescription) ||
+                        {asString(data?.shortDescription) ||
                             DEFAULT_COURSES_VALUES.shortDescription}
                     </p>
                     <p className={styles.level}>
@@ -95,7 +95,7 @@ function ItemCourseDisplay({
                             courseID={courseID}
                             isObtained={
                                 requiredIsObtained
-                                    ? isBoolean(data?.isObtained)
+                                    ? asBoolean(data?.isObtained)
                                     : false
                             }
                             disabled={!canNavigate}

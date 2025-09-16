@@ -2,11 +2,12 @@ import { Dispatch, useEffect, useRef, useState } from "react";
 import { getImage, getImageSize } from "../../../../../../utils/images";
 import { DEFAULT_BOARD_IMAGE } from "../../../../../../consts/images";
 import FigureImage from "../../../../../../components/FigureImage";
+import { asString, isArray } from "../../../../../../utils/general";
 
 type Props = {
-    images: string[];
+    images: string[] | undefined;
+    themeTitle: string | undefined;
     time: number;
-    themeTitle: string;
     setLoading: Dispatch<React.SetStateAction<boolean>>;
     loading: boolean;
 };
@@ -46,14 +47,17 @@ function AutoSliderImages({
     }, [themeTitle, images]);
 
     useEffect(() => {
-        const slider = setInterval(() => {
-            const nextImage =
-                indexRef.current >= images.length - 1
-                    ? 0
-                    : indexRef.current + 1;
-            setImageIndex(nextImage);
-            indexRef.current = nextImage;
-        }, time);
+        let slider: ReturnType<typeof setInterval>;
+        if (isArray(images) && images?.every((img) => asString(img))) {
+            slider = setInterval(() => {
+                const nextImage =
+                    indexRef.current >= images.length - 1
+                        ? 0
+                        : indexRef.current + 1;
+                setImageIndex(nextImage);
+                indexRef.current = nextImage;
+            }, time);
+        }
 
         return () => clearInterval(slider);
     }, [time, themeTitle]);
@@ -73,11 +77,11 @@ function AutoSliderImages({
     return (
         <FigureImage
             otherImage={DEFAULT_BOARD_IMAGE}
-            src={getImage(images[imageIndex], ["defaultCourses"])}
-            alt={themeTitle}
-            title={themeTitle}
-            width={getImageSize(images[imageIndex], "width")}
-            height={getImageSize(images[imageIndex], "height")}
+            src={getImage(images?.[imageIndex], ["defaultCourses"])}
+            alt={asString(themeTitle)}
+            title={asString(themeTitle)}
+            width={getImageSize(images?.[imageIndex], "width")}
+            height={getImageSize(images?.[imageIndex], "height")}
         />
     );
 }

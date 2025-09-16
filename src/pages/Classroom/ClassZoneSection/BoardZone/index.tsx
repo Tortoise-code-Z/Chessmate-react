@@ -5,7 +5,7 @@ import Board from "./Board";
 import CourseThemes from "./CourseThemes";
 
 type Props = {
-    data: UseCourseApiType;
+    data: UseCourseApiType | undefined;
     setIndex: Dispatch<SetStateAction<number>>;
     index: number;
     imageSliderLoading: boolean;

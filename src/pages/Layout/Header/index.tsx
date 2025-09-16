@@ -1,10 +1,12 @@
 import Navbar from "./Navbar";
 import styles from "./Header.module.css";
-import HamburguerMenu from "./HamburgureMenu";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { useSignout } from "../../../hooks/useSignout";
 
-type Props = {};
+type Props = {
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    handleSignOut: () => void;
+};
 
 /**
  * Header component that renders the site header with navigation and hamburger menu.
@@ -24,20 +26,10 @@ type Props = {};
  * @returns JSX element rendering the header with navigation and conditional hamburger menu.
  */
 
-function Header({}: Props) {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
-    const { mutate } = useSignout();
-    const handleSignOut = () => mutate();
-
+function Header({ setIsOpen, handleSignOut }: Props) {
     const className = styles.header;
     return (
         <header className={className}>
-            {isOpen && (
-                <HamburguerMenu
-                    setIsOpen={setIsOpen}
-                    handleSignOut={handleSignOut}
-                />
-            )}
             <Navbar setIsOpen={setIsOpen} handleSignOut={handleSignOut} />
         </header>
     );

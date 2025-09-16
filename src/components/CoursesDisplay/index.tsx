@@ -6,9 +6,10 @@ import { ReactNode, useState } from "react";
 import WarningMsg from "../WarningMsg";
 import MsgEmpty from "../MsgEmpty";
 import {
+    asNumber,
+    asString,
     isNumber,
     isOnVaulues,
-    isString,
     regExpCheck,
 } from "../../utils/general";
 import { IMAGES_PATH_RE, LEVELS } from "../../consts/general";
@@ -57,14 +58,14 @@ function CoursesDisplay({
             <div className={className}>
                 <SecurityRendering<CourseJSON & IsObtainedCourse>
                     data={courses}
-                    conditions={courses?.map((c) => !!isNumber(c?.curseID))}
+                    conditions={courses?.map((c) => isNumber(c?.curseID))}
                     noCriticalConditions={courses?.map(
                         (c) =>
-                            !!isString(c?.title) &&
-                            !!isString(c?.shortDescription) &&
+                            !!asString(c?.title) &&
+                            !!asString(c?.shortDescription) &&
                             !!regExpCheck(c?.imageUrl?.thumb, IMAGES_PATH_RE) &&
                             !!isOnVaulues(c?.level, LEVELS as any) &&
-                            !!isNumber(c?.price)
+                            !!asNumber(c?.price)
                     )}
                     emptyNode={
                         <MsgEmpty

@@ -2,10 +2,9 @@ import { Dispatch, SetStateAction } from "react";
 import AutoSliderImages from "./AutoSliderImages";
 import styles from "./Board.module.css";
 import { UseCourseApiType } from "../../../../../types/types";
-import { DEFAULT_VALUES_DEFAULT_COURSES } from "../../../../../consts/general";
 
 type Props = {
-    data: UseCourseApiType;
+    data: UseCourseApiType | undefined;
     index: number;
     imageSliderLoading: boolean;
     setImageSliderLoading: Dispatch<SetStateAction<boolean>>;
@@ -37,13 +36,13 @@ function Board({
         <div className={styles.boardZone}>
             <AutoSliderImages
                 images={
-                    data.courses.content.themes.find((t) => t.id === index)
-                        ?.images || ([] as string[])
+                    data?.courses?.content?.themes?.find((t) => t?.id === index)
+                        ?.images
                 }
                 time={1000}
                 themeTitle={
-                    data?.courses?.content?.themes?.find((t) => t.id === index)
-                        ?.title || DEFAULT_VALUES_DEFAULT_COURSES.title
+                    data?.courses?.content?.themes?.find((t) => t?.id === index)
+                        ?.title
                 }
                 loading={imageSliderLoading}
                 setLoading={setImageSliderLoading}

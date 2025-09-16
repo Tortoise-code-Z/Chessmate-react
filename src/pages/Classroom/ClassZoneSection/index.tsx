@@ -5,6 +5,7 @@ import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import useDefaultCourseById from "../../../hooks/useDefaultCourseById";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import { UseCourseApiType } from "../../../types/types";
+import { asObject } from "../../../utils/general";
 import BoardZone from "./BoardZone";
 import styles from "./ClassZoneSection.module.css";
 import ExplanationTheme from "./ExplanationTheme";
@@ -30,11 +31,13 @@ function ClassZoneSection({}: Props) {
     const { user } = useUserAuthStore();
     const params = useParams();
 
-    const { data, isLoading, error } = useDefaultCourseById(
+    let { data, isLoading, error } = useDefaultCourseById(
         DATABASE_KEY,
         Number(params.id),
         user?.userID as number
     );
+
+    const safeData = asObject<UseCourseApiType>(data);
 
     const [classWarning, setClassWarning] = useState<string | null>(null);
 
@@ -59,13 +62,13 @@ function ClassZoneSection({}: Props) {
                     ].join(" ")}
                 >
                     <ExplanationTheme
-                        data={data || ({} as UseCourseApiType)}
+                        data={safeData}
                         setIndex={setIndex}
                         index={index}
                         setImageSliderLoading={setImageSliderLoading}
                     />
                     <BoardZone
-                        data={data || ({} as UseCourseApiType)}
+                        data={safeData}
                         setIndex={setIndex}
                         index={index}
                         imageSliderLoading={imageSliderLoading}

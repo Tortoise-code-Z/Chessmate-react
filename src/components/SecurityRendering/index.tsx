@@ -1,4 +1,5 @@
 import { Dispatch, ReactNode, SetStateAction, useEffect } from "react";
+import { asArray, isArray } from "../../utils/general";
 
 type Props<T> = {
     data: T[] | undefined;
@@ -29,9 +30,8 @@ function SecurityRendering<T>({
     state,
     noCriticalConditions,
 }: Props<T>) {
-    const safeData = Array.isArray(data) ? data : [];
-
-    const error = !Array.isArray(data);
+    const safeData = asArray<T>(data) || [];
+    const error = !isArray(data);
 
     useEffect(() => {
         if (!state) return;
@@ -47,8 +47,7 @@ function SecurityRendering<T>({
             state.setWarningState(null);
         }
     }, [error, conditions, noCriticalConditions, msg, msgEmpty, state]);
-
-    if (safeData.length === 0) return <>{emptyNode}</>;
+    if (safeData.length === 0 && emptyNode) return <>{emptyNode}</>;
 
     return <>{safeData.map((item, i) => children(item, i, conditions?.[i]))}</>;
 }

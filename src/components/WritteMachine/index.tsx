@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { asString, isString } from "../../utils/general";
+import { DEFAULT_VALUES_DEFAULT_COURSES } from "../../consts/general";
 
 type Props = {
-    data: string;
+    data: string | undefined;
     time: number;
     classNames?: string[];
 };
@@ -22,13 +24,17 @@ type Props = {
 function WritteMachine({ data, time, classNames = [] }: Props) {
     const [dataToWritte, setDataToWritte] = useState<string>("");
 
+    const safeData =
+        asString(data) ||
+        DEFAULT_VALUES_DEFAULT_COURSES.content.detailDescription;
+
     useEffect(() => {
         setDataToWritte("");
         let timeoutId: ReturnType<typeof setTimeout>;
 
         const writeNext = (index: number) => {
-            setDataToWritte((prev) => prev + data[index]);
-            if (index < data.length - 1) {
+            setDataToWritte((prev) => prev + safeData[index]);
+            if (index < safeData.length - 1) {
                 timeoutId = setTimeout(() => writeNext(index + 1), time);
             }
         };

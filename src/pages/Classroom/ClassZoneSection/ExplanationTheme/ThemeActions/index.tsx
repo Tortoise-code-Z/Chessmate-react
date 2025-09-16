@@ -7,11 +7,12 @@ import { useCompleteTheme } from "../../../../../hooks/useCompleteTheme";
 import { useUserAuthStore } from "../../../../../hooks/UseUserAuthStore";
 import FigureImage from "../../../../../components/FigureImage";
 import { PROFESSOR_IMAGE } from "../../../../../consts/images";
+import { asNumber, isBoolean, isNumber } from "../../../../../utils/general";
 
 type Props = {
     setIndex: Dispatch<React.SetStateAction<number>>;
     index: number;
-    data: UseCourseApiType;
+    data: UseCourseApiType | undefined;
     setImageSliderLoading: Dispatch<SetStateAction<boolean>>;
 };
 
@@ -40,7 +41,7 @@ function ThemeActions({ data, index, setImageSliderLoading, setIndex }: Props) {
         <div className={styles.professorAndActions}>
             <div className={styles.actions}>
                 <Button
-                    disabled={index === 1}
+                    disabled={!data?.courses?.content?.themes || index === 1}
                     onClick={() => {
                         setImageSliderLoading(true);
                         setIndex(index - 1);
@@ -51,7 +52,11 @@ function ThemeActions({ data, index, setImageSliderLoading, setIndex }: Props) {
                     Anterior
                 </Button>
                 <Button
-                    disabled={index === data.courses.content.themes.length}
+                    disabled={
+                        !data?.courses?.content?.themes ||
+                        index ===
+                            asNumber(data?.courses?.content?.themes?.length)
+                    }
                     variant="Complementary"
                     onClick={() => {
                         setImageSliderLoading(true);
@@ -64,15 +69,19 @@ function ThemeActions({ data, index, setImageSliderLoading, setIndex }: Props) {
                 <Button
                     onClick={() => {
                         mutate({
-                            courseID: data.courses.curseID,
+                            courseID: asNumber(data?.courses?.curseID),
                             themeID: index,
-                            userID: user?.userID as number,
+                            userID: asNumber(user?.userID),
                         });
                     }}
                     variant="Terciary"
                     disabled={
-                        data.userThemeStates.find((u) => u.themeID === index)
-                            ?.completed
+                        !data?.courses?.content?.themes ||
+                        !isBoolean(
+                            data?.userThemeStates?.find(
+                                (u) => u?.themeID === index
+                            )?.completed
+                        )
                     }
                 >
                     Completar

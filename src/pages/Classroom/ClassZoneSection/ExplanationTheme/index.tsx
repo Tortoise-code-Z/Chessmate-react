@@ -7,7 +7,7 @@ import ThemeActions from "./ThemeActions";
 type Props = {
     setIndex: Dispatch<React.SetStateAction<number>>;
     index: number;
-    data: UseCourseApiType;
+    data: UseCourseApiType | undefined;
     setImageSliderLoading: Dispatch<SetStateAction<boolean>>;
 };
 

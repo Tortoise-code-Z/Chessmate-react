@@ -20,8 +20,8 @@ import { useLocation } from "react-router-dom";
 
 type Variables = {
     themeID: number;
-    courseID: number;
-    userID: number;
+    courseID: number | undefined;
+    userID: number | undefined;
 };
 
 /**
@@ -64,6 +64,12 @@ export function useCompleteTheme(
             const data = getDataLocalStorage(DATABASE_KEY);
             if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
+
+            if (!courseID)
+                throw new Error("No se ha podido identificar el curso.");
+
+            if (!userID)
+                throw new Error("No se ha podido identificar el usuario.");
 
             const userDefaultCourse = getUserDefaultCourse(
                 userID,

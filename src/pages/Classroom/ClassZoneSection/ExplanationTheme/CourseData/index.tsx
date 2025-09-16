@@ -2,11 +2,12 @@ import TitleHx from "../../../../../components/TitleHx";
 import WritteMachine from "../../../../../components/WritteMachine";
 import { DEFAULT_VALUES_DEFAULT_COURSES } from "../../../../../consts/general";
 import { UseCourseApiType } from "../../../../../types/types";
+import { asString } from "../../../../../utils/general";
 import styles from "./CourseData.module.css";
 
 type Props = {
     index: number;
-    data: UseCourseApiType;
+    data: UseCourseApiType | undefined;
 };
 
 /**
@@ -24,22 +25,25 @@ type Props = {
  */
 
 function CourseData({ data, index }: Props) {
-    const description =
-        data?.courses?.content?.themes?.find((t) => t.id === index)
-            ?.description ||
-        DEFAULT_VALUES_DEFAULT_COURSES.content.detailDescription;
     return (
         <div className={styles.courseData}>
             <TitleHx>
-                {data?.courses?.title || DEFAULT_VALUES_DEFAULT_COURSES.title}
+                {asString(data?.courses?.title) ||
+                    DEFAULT_VALUES_DEFAULT_COURSES.title}
             </TitleHx>
+
             <TitleHx level={2}>
-                {data.courses.content.themes.find((t) => t.id === index)
-                    ?.title || DEFAULT_VALUES_DEFAULT_COURSES.title}
+                {asString(
+                    data?.courses?.content?.themes?.find((t) => t?.id === index)
+                        ?.title
+                ) || DEFAULT_VALUES_DEFAULT_COURSES.title}
             </TitleHx>
 
             <WritteMachine
-                data={description}
+                data={
+                    data?.courses?.content?.themes?.find((t) => t?.id === index)
+                        ?.description
+                }
                 time={30}
                 classNames={[styles.description]}
             />
