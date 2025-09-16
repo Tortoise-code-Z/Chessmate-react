@@ -14,12 +14,16 @@ import { getDataLocalStorage, getUserById } from "../api";
  * @returns React Query's query object containing `data` (string email), `isLoading`, `error`, etc.
  */
 
-export default function useUserEmail(key: string, userID: number) {
+export default function useUserEmail(key: string, userID: number | undefined) {
     const queryFunction: () => Promise<string> = async () => {
         try {
             const data = getDataLocalStorage(key);
             if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
+            if (!userID)
+                throw new Error(
+                    "Ha habido un error al recuperar el ID del usuario..."
+                );
 
             const user = getUserById(userID, data);
 

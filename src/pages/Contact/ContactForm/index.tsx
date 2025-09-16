@@ -15,6 +15,7 @@ import { useFeedbackMessageStore } from "../../../hooks/useFeedbackMesssageStore
 import { UseFormSetValue } from "react-hook-form";
 import LightComponent from "../../../components/LightComponent";
 import { useLocation } from "react-router-dom";
+import { asString } from "../../../utils/general";
 
 type Props = {};
 
@@ -33,10 +34,9 @@ type Props = {};
 
 function ContactForm({}: Props) {
     const { user } = useUserAuthStore();
-    const { data, isLoading, error } = useUserEmail(
-        DATABASE_KEY,
-        user?.userID as number
-    );
+    const { data, isLoading, error } = useUserEmail(DATABASE_KEY, user?.userID);
+
+    const safeData = asString(data);
 
     const location = useLocation();
 
@@ -48,7 +48,7 @@ function ContactForm({}: Props) {
     } = useFeedbackMessageStore();
 
     const handleSubmit = (
-        data: ContactSchemaValues,
+        safeData: ContactSchemaValues,
         helpers?: {
             setValue: UseFormSetValue<ContactSchemaValues>;
         }
@@ -61,6 +61,7 @@ function ContactForm({}: Props) {
         helpers?.setValue("body", "");
         helpers?.setValue("subject", "");
     };
+
     return (
         <>
             <LightComponent top={50} right={20} />
@@ -69,8 +70,8 @@ function ContactForm({}: Props) {
                     schema={contactSchema}
                     onSubmit={handleSubmit}
                     defaultValues={{
-                        name: user ? user.username : "",
-                        email: user && !error && data ? data : "",
+                        name: user ? user?.username : "",
+                        email: user && !error && safeData ? safeData : "",
                     }}
                     classNames={[styles.contactForm]}
                 >
@@ -89,7 +90,7 @@ function ContactForm({}: Props) {
                             inputType="text"
                             label="Correo electrónico"
                             placeholder="Escriba su email..."
-                            disabled={user && !error && data ? true : false}
+                            disabled={user && !error && safeData ? true : false}
                         />
                         <InputGroup<ContactSchemaValues>
                             name="subject"

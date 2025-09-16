@@ -30,14 +30,24 @@ import {
 
 export default function useDefaultCourseById(
     key: string,
-    courseID: number,
-    userID: number
+    courseID: number | undefined,
+    userID: number | undefined
 ) {
     const queryFunction: () => Promise<UseCourseApiType> = async () => {
         try {
             const data = getDataLocalStorage(key);
             if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
+
+            if (!userID)
+                throw new Error(
+                    "Ha habido un error al recuperar el ID del usuario..."
+                );
+
+            if (!courseID)
+                throw new Error(
+                    "Ha habido un error al recuperar el ID del curso.."
+                );
 
             const courses = getDefaultCourse(data, courseID);
             const userDefaultCourseThemes = getUserDefaultCourseThemes(

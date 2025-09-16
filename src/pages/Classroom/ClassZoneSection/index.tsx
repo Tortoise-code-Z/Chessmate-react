@@ -34,7 +34,7 @@ function ClassZoneSection({}: Props) {
     const { data, isLoading, error } = useDefaultCourseById(
         DATABASE_KEY,
         Number(params.id),
-        user?.userID as number
+        user?.userID
     );
 
     const safeData = asObject<UseCourseApiType>(data);
