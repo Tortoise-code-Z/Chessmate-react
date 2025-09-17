@@ -4,7 +4,7 @@ import Authors from "./Authors";
 import styles from "./AuthorsSection.module.css";
 
 type Props = {
-    data: Course;
+    data: Course | undefined;
 };
 
 /**

@@ -3,6 +3,7 @@ import FigureImage from "../../../../../components/FigureImage";
 import { DEFAULT_AUTHORS_VALUE } from "../../../../../consts/general";
 import { DEFAULT_AUTHOR_IMAGE } from "../../../../../consts/images";
 import { AuthorCurseData } from "../../../../../types/types";
+import { asString, isString } from "../../../../../utils/general";
 import { getImage, getImageSize } from "../../../../../utils/images";
 import styles from "./AuthorsItem.module.css";
 
@@ -33,8 +34,8 @@ function AuthorsItem({ author }: Props) {
             <FigureImage
                 otherImage={DEFAULT_AUTHOR_IMAGE}
                 src={getImage(author?.image, ["authors"])}
-                alt={author?.name}
-                title={author?.name}
+                alt={asString(author?.name)}
+                title={asString(author?.name)}
                 width={getImageSize(author?.image, "width")}
                 height={getImageSize(author?.image, "height")}
             />
@@ -42,17 +43,18 @@ function AuthorsItem({ author }: Props) {
             <div className={styles.authorItemData}>
                 <div className={styles.data}>
                     <p className={styles.name}>
-                        {author?.name || DEFAULT_AUTHORS_VALUE.name}
+                        {asString(author?.name) || DEFAULT_AUTHORS_VALUE.name}
                     </p>
                     <ChessTitle title={author?.level} />
                     <p className={styles.elo}>
-                        {author?.elo
+                        {isString(author?.elo)
                             ? `${author?.elo} ELO`
                             : DEFAULT_AUTHORS_VALUE.elo}
                     </p>
                 </div>
                 <p className={styles.description}>
-                    {author?.description || DEFAULT_AUTHORS_VALUE.description}
+                    {asString(author?.description) ||
+                        DEFAULT_AUTHORS_VALUE.description}
                 </p>
             </div>
         </div>

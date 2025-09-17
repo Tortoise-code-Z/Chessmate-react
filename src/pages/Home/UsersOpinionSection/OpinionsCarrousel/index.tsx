@@ -3,6 +3,7 @@ import EmblaCarousel from "../../../../components/EmblaCarousel";
 import { DATABASE_KEY } from "../../../../consts/dataBaseKey";
 import useUsersOpinions from "../../../../hooks/useUsersOpinions";
 import { Opinion } from "../../../../types/types";
+import { asArray } from "../../../../utils/general";
 import OpinionsSlide from "../OpinionsSlide";
 
 type Props = {};
@@ -22,7 +23,8 @@ type Props = {};
  */
 
 function OpinionsCarrousel({}: Props) {
-    const { data, isLoading, error } = useUsersOpinions(DATABASE_KEY);
+    let { data, isLoading, error } = useUsersOpinions(DATABASE_KEY);
+    const safeData = asArray<Opinion>(data);
 
     return (
         <DataStateWrapper
@@ -31,7 +33,7 @@ function OpinionsCarrousel({}: Props) {
             errorMsg="No se ha podido recuperar las opiniones."
         >
             <EmblaCarousel
-                slides={data ?? ([] as Opinion[])}
+                slides={safeData}
                 options={{ loop: true }}
                 Component={OpinionsSlide}
                 arrows={false}

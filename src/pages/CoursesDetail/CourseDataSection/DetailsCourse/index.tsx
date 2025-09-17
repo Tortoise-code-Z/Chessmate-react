@@ -5,9 +5,10 @@ import TitleHx from "../../../../components/TitleHx";
 import { DEFAULT_COURSES_VALUES } from "../../../../consts/general";
 import WarningMsg from "../../../../components/WarningMsg";
 import SecurityRendering from "../../../../components/SecurityRendering";
+import { asNumber, asString, isString } from "../../../../utils/general";
 
 type Props = {
-    data: Course;
+    data: Course | undefined;
     type: "content" | "learn";
     titleContain: ReactNode;
 };
@@ -42,8 +43,8 @@ function DetailsCourse({ data, titleContain, type = "content" }: Props) {
                 {typeData === "content" ? (
                     <SecurityRendering<Theme>
                         data={data?.[typeData]?.themes}
-                        conditions={data?.[typeData]?.themes.map(
-                            (t) => !!t.title
+                        conditions={data?.[typeData]?.themes.map((t) =>
+                            isString(t?.title)
                         )}
                         state={{
                             setWarningState: setWarningDetail,
@@ -55,9 +56,9 @@ function DetailsCourse({ data, titleContain, type = "content" }: Props) {
                             return (
                                 <li
                                     className={styles.contentItem}
-                                    key={theme.id || index}
+                                    key={asNumber(theme?.id) || index}
                                 >
-                                    {theme?.title ||
+                                    {asString(theme?.title) ||
                                         DEFAULT_COURSES_VALUES[typeData].themes
                                             .title}
                                 </li>

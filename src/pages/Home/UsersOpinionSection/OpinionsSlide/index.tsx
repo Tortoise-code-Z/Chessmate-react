@@ -1,4 +1,5 @@
 import { Opinion } from "../../../../types/types";
+import { asNumber, asString } from "../../../../utils/general";
 import styles from "./OpinionsSlide.module.css";
 
 type Props = {
@@ -22,15 +23,17 @@ function OpinionsSlide({ data }: Props) {
     return (
         <div className={styles.opinionContainer}>
             <div className={styles.userData}>
-                <p className={styles.username}>{data.user.username}</p>
-                {data.user.title && (
+                <p className={styles.username}>
+                    {asString(data?.user?.username) || "Usuario"}
+                </p>
+                {asString(data?.user?.title) && (
                     <p className={styles.userTitle}>{data.user.title}</p>
                 )}
-                {data.user.elo && (
+                {asNumber(data?.user?.elo) && (
                     <p className={styles.userElo}>{data.user.elo} ELO</p>
                 )}
             </div>
-            <p className={styles.userOpinion}>"{data.text}"</p>
+            <p className={styles.userOpinion}>"{asString(data?.text)}"</p>
         </div>
     );
 }

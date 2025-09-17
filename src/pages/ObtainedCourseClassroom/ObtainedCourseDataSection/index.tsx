@@ -5,8 +5,11 @@ import CourseClassroomBanner from "./CourseClassroomBanner";
 import CourseClassroomContent from "./CourseClassroomContent";
 import styles from "./ObtainedCourseDataSection.module.css";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
-import useCourseClassroom from "../../../hooks/useCourseClassroom";
+import useCourseClassroom, {
+    useCourseClassroomApi,
+} from "../../../hooks/useCourseClassroom";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
+import { asObject } from "../../../utils/general";
 
 type Props = {};
 
@@ -29,11 +32,14 @@ type Props = {};
 function ObtainedCourseDataSection({}: Props) {
     const params = useParams();
     const { user } = useUserAuthStore();
+
     let { data, isLoading, error } = useCourseClassroom(
         DATABASE_KEY,
-        Number(params.id),
+        Number(params?.id),
         user?.userID
     );
+
+    const safeData = asObject<useCourseClassroomApi>(data);
 
     return (
         <section className={styles.obtainedCourseDataSection}>
@@ -50,8 +56,8 @@ function ObtainedCourseDataSection({}: Props) {
                 paddingErrorLateral={true}
                 paddingErrorNavbar={true}
             >
-                <CourseClassroomBanner data={data} />
-                <CourseClassroomContent data={data} />
+                <CourseClassroomBanner data={safeData} />
+                <CourseClassroomContent data={safeData} />
             </DataStateWrapper>
         </section>
     );

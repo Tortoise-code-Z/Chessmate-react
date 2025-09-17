@@ -9,6 +9,7 @@ import FigureImage from "../../FigureImage";
 import { DEFAULT_COURSES_VALUES, LEVELS } from "../../../consts/general";
 import {
     asBoolean,
+    asNumber,
     asString,
     isNumber,
     isOnVaulues,
@@ -91,8 +92,8 @@ function ItemCourseDisplay({
                 {action && (
                     <div className={styles.actionsPrice}>
                         <PurchaseAction
-                            canBuy={!!data?.price}
-                            courseID={courseID}
+                            canBuy={isNumber(data?.price)}
+                            courseID={asNumber(courseID)}
                             isObtained={
                                 requiredIsObtained
                                     ? asBoolean(data?.isObtained)

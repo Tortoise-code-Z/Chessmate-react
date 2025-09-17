@@ -7,7 +7,7 @@ import styles from "./CoursesRecomended.module.css";
 import { ReactNode } from "react";
 import { DATABASE_KEY } from "../../consts/dataBaseKey";
 import TitleHx from "../TitleHx";
-import { asArray, asObject } from "../../utils/general";
+import { asArray } from "../../utils/general";
 
 type Props = {
     titleContain: ReactNode;
@@ -71,11 +71,7 @@ function CoursesRecomended({
                 error={error}
                 errorMsg="No se ha podido recuperar los cursos."
             >
-                <CoursesDisplay
-                    courses={safeData}
-                    display="Col"
-                    requiredIsObtained={false}
-                />
+                <CoursesDisplay courses={safeData} display="Col" />
             </DataStateWrapper>
         </section>
     );

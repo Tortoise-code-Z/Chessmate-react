@@ -11,6 +11,7 @@ import Button from "../../../../components/Button";
 import { useNavigate, useParams } from "react-router-dom";
 import { PATHS } from "../../../../consts/paths";
 import { FaInfoCircle } from "react-icons/fa";
+import { asNumber, asString } from "../../../../utils/general";
 
 type Props = {
     data: useCourseClassroomApi | undefined;
@@ -36,12 +37,14 @@ type Props = {
 
 function CourseClassroomContent({ data }: Props) {
     const [showVideo, setShowVideo] = useState<VideoData | null>(null);
+
     const navigate = useNavigate();
     const params = useParams();
 
     return (
         <div className={styles.courseClassroomContent}>
             <LightComponent top={50} right={60} />
+
             <TitleHx level={2}>
                 <span className={["upperCase", "span-pr-color"].join(" ")}>
                     contenido
@@ -69,7 +72,7 @@ function CourseClassroomContent({ data }: Props) {
                 <VideoReproductor
                     setShowVideo={() => setShowVideo(null)}
                     title={
-                        showVideo?.subthemeContent?.title ||
+                        asString(showVideo?.subthemeContent?.title) ||
                         DEFAULT_COURSES_VALUES.title
                     }
                     classNames={[styles.videoItem]}

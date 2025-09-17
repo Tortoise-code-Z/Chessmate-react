@@ -26,7 +26,7 @@ type Props = {
 
 function HamburguerMenu({ handleSignOut, setIsOpen }: Props) {
     return (
-        <div className={styles.container}>
+        <header className={styles.container}>
             <nav className={styles.hamburguerMenu}>
                 <Button
                     classNames={[styles.close]}
@@ -40,7 +40,7 @@ function HamburguerMenu({ handleSignOut, setIsOpen }: Props) {
                     setIsOpen={setIsOpen}
                 />
             </nav>
-        </div>
+        </header>
     );
 }
 

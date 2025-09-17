@@ -1,13 +1,20 @@
-import { Course, IsObtainedCourse } from "../../../../types/types";
+import { Course, IsObtainedCourse, Level } from "../../../../types/types";
 import { getImage, getImageSize } from "../../../../utils/images";
 import styles from "./GeneralCourseData.module.css";
 import PurchaseAction from "../../../../components/PurchaseAction";
 import FigureImage from "../../../../components/FigureImage";
 import TitleHx from "../../../../components/TitleHx";
-import { DEFAULT_COURSES_VALUES } from "../../../../consts/general";
+import { DEFAULT_COURSES_VALUES, LEVELS } from "../../../../consts/general";
+import {
+    asBoolean,
+    asNumber,
+    asString,
+    isNumber,
+    isOnVaulues,
+} from "../../../../utils/general";
 
 type Props = {
-    data: Course & IsObtainedCourse;
+    data: (Course & IsObtainedCourse) | undefined;
 };
 
 /**
@@ -33,8 +40,8 @@ function GeneralCourseData({ data }: Props) {
         <div className={styles.generalCourseData}>
             <FigureImage
                 src={getImage(data?.imageUrl?.thumb, ["courses"])}
-                alt={data?.title}
-                title={data?.title}
+                alt={asString(data?.title)}
+                title={asString(data?.title)}
                 width={getImageSize(data?.imageUrl?.thumb, "width")}
                 height={getImageSize(data?.imageUrl?.thumb, "height")}
             />
@@ -42,25 +49,27 @@ function GeneralCourseData({ data }: Props) {
             <div className={styles.dataContainer}>
                 <div className={styles.data}>
                     <TitleHx>
-                        {data?.title || DEFAULT_COURSES_VALUES.title}
+                        {asString(data?.title) || DEFAULT_COURSES_VALUES.title}
                     </TitleHx>
                     <p className={styles.description}>
-                        {data?.shortDescription ||
+                        {asString(data?.shortDescription) ||
                             DEFAULT_COURSES_VALUES.shortDescription}
                     </p>
                     <span className={styles.level}>
-                        {data?.level || DEFAULT_COURSES_VALUES.level}
+                        {isOnVaulues<Level>(data?.level, LEVELS) ||
+                            DEFAULT_COURSES_VALUES.level}
                     </span>
                     <p className={styles.price}>
-                        {data?.price
+                        {isNumber(data?.price)
                             ? `${data.price}$`
                             : DEFAULT_COURSES_VALUES.price}
                     </p>
                 </div>
+
                 <PurchaseAction
-                    canBuy={!!data?.price}
-                    courseID={data.curseID}
-                    isObtained={data.isObtained}
+                    canBuy={isNumber(data?.price)}
+                    courseID={asNumber(data?.curseID)}
+                    isObtained={asBoolean(data?.isObtained)}
                 />
             </div>
         </div>

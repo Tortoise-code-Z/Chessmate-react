@@ -6,6 +6,7 @@ import {
     getDataLocalStorage,
     getUserObtainedCourses,
 } from "../api";
+import { isNumber } from "../utils/general";
 
 /**
  * useCourse - Custom hook to fetch detailed information about a single course.
@@ -32,7 +33,7 @@ import {
 
 export default function useCourse(
     key: string,
-    courseID: number,
+    courseID: number | undefined,
     userID?: number
 ) {
     const queryFunction: () => Promise<
@@ -42,6 +43,16 @@ export default function useCourse(
             const data = getDataLocalStorage(key);
             if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
+
+            if (!courseID && !isNumber(courseID))
+                throw new Error(
+                    "Ha habido un error al recuperar el ID del curso..."
+                );
+
+            if (userID && !isNumber(userID))
+                throw new Error(
+                    "Ha habido un error al recuperar el ID del usuario..."
+                );
 
             const obtainedCourse = getCourseById(data, courseID);
 
@@ -63,7 +74,7 @@ export default function useCourse(
                 ),
             };
         } catch (error) {
-            console.log(error);
+            console.error(error);
             throw error;
         }
     };

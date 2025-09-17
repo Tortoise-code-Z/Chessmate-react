@@ -40,9 +40,8 @@ export default function useBannerCourse(key: string, userID?: number) {
                 "sales"
             ).slice(0, 6);
 
-            const userCourses = getUserObtainedCourses(userID, data);
-
             const bannerCourse = getRandom(filteredCourses);
+            const userCourses = getUserObtainedCourses(userID, data);
 
             return {
                 ...bannerCourse,

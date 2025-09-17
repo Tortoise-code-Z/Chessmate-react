@@ -7,6 +7,7 @@ import {
     ThemesUserStatesOC,
     VideoData,
 } from "../../../../../../types/types";
+import { asNumber } from "../../../../../../utils/general";
 
 type Props = {
     videosIndex: number | null;
@@ -50,7 +51,7 @@ function CourseThemeItem({
                 disabled={disabled}
                 userThemeData={userThemeData}
             />
-            {videosIndex === theme.id && !!theme.id && (
+            {videosIndex === asNumber(theme?.id) && (
                 <ThemeVideos
                     theme={theme}
                     setShowVideo={setShowVideo}

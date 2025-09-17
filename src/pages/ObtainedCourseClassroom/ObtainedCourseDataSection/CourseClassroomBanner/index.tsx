@@ -2,6 +2,7 @@ import FigureImage from "../../../../components/FigureImage";
 import TitleHx from "../../../../components/TitleHx";
 import { DEFAULT_COURSES_VALUES } from "../../../../consts/general";
 import { useCourseClassroomApi } from "../../../../hooks/useCourseClassroom";
+import { asString } from "../../../../utils/general";
 
 import { getImage, getImageSize } from "../../../../utils/images";
 import styles from "./CourseClassroomBanner.module.css";
@@ -30,15 +31,16 @@ function CourseClassroomBanner({ data }: Props) {
             <div className={styles.titleContainer}>
                 <p>Bienvenido a tu curso</p>
                 <TitleHx>
-                    {data?.course?.title || DEFAULT_COURSES_VALUES.title}
+                    {asString(data?.course?.title) ||
+                        DEFAULT_COURSES_VALUES.title}
                 </TitleHx>
             </div>
 
             <FigureImage
                 classNames={[styles.bannerBackground]}
                 src={getImage(data?.course?.imageUrl?.full, ["courses"])}
-                alt={data?.course?.title}
-                title={data?.course?.title}
+                alt={asString(data?.course?.title)}
+                title={asString(data?.course?.title)}
                 width={getImageSize(data?.course?.imageUrl?.full, "width")}
                 height={getImageSize(data?.course?.imageUrl?.full, "height")}
             />

@@ -2,10 +2,21 @@ import { FaChevronDown } from "react-icons/fa";
 import styles from "./ThemeButton.module.css";
 import { Dispatch, SetStateAction } from "react";
 import Button from "../../../../../../../components/Button";
-import { Theme, ThemesUserStatesOC } from "../../../../../../../types/types";
+import {
+    SubthemesUserStatesOC,
+    Theme,
+    ThemesUserStatesOC,
+} from "../../../../../../../types/types";
 import TitleHx from "../../../../../../../components/TitleHx";
 import { DEFAULT_COURSES_VALUES } from "../../../../../../../consts/general";
 import CheckSvgComponent from "../../../../../../../components/CheckSvgComponent";
+import {
+    asArray,
+    asBoolean,
+    asNumber,
+    asString,
+    isArray,
+} from "../../../../../../../utils/general";
 
 type Props = {
     theme: Theme;
@@ -43,11 +54,11 @@ function ThemeButton({
             disabled={disabled}
             classNames={[styles.themeBtn, "relative"]}
             variant={
-                videosIndex === theme.id && !!theme.id ? "Primary" : "Secondary"
+                videosIndex === asNumber(theme?.id) ? "Primary" : "Secondary"
             }
-            key={theme.id}
+            key={asNumber(theme?.id)}
             onClick={() =>
-                videosIndex === theme.id && !!theme.id
+                videosIndex === asNumber(theme?.id)
                     ? setVideosIndex(null)
                     : setVideosIndex(theme.id)
             }
@@ -59,31 +70,37 @@ function ThemeButton({
                     )}
                 >
                     <TitleHx classNames={[styles.themeTitle]} level={3}>
-                        {theme?.title || DEFAULT_COURSES_VALUES.title}
+                        {asString(theme?.title) || DEFAULT_COURSES_VALUES.title}
                     </TitleHx>
-                    <p className={[styles.themesCompletedData].join(" ")}>
-                        {`${
-                            userThemeData?.subthemes.filter((s) => s.completed)
-                                .length
-                        } / ${userThemeData?.subthemes.length}`}
-                    </p>
+
+                    {isArray<SubthemesUserStatesOC>(
+                        userThemeData?.subthemes
+                    ) && (
+                        <p className={[styles.themesCompletedData].join(" ")}>
+                            {`${
+                                userThemeData.subthemes.filter((s) =>
+                                    asBoolean(s?.completed)
+                                ).length
+                            } / ${userThemeData.subthemes.length}`}
+                        </p>
+                    )}
                 </div>
 
                 <p className={styles.themeDescription}>
-                    {theme?.description ||
+                    {asString(theme?.description) ||
                         DEFAULT_COURSES_VALUES.shortDescription}
                 </p>
             </div>
             <FaChevronDown
                 style={{
                     transform:
-                        videosIndex === theme.id && !!theme.id
+                        videosIndex === asNumber(theme?.id)
                             ? "rotate(180deg)"
                             : "rotate(0deg)",
                 }}
             />
 
-            {userThemeData?.completed && (
+            {asBoolean(userThemeData?.completed) && (
                 <CheckSvgComponent right={99.5} type="percent" />
             )}
         </Button>

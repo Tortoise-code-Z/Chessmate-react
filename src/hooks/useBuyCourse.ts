@@ -17,12 +17,12 @@ import { useLocation } from "react-router-dom";
 
 type BuyCourseApi = {
     course: CourseJSON;
-    userID: number;
+    userID: number | undefined;
 };
 
 type Variables = {
-    courseID: number;
-    userID: number;
+    courseID: number | undefined;
+    userID: number | undefined;
 };
 
 /**
@@ -63,6 +63,16 @@ export function useBuyCourse() {
             const data = getDataLocalStorage(DATABASE_KEY);
             if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
+
+            if (!courseID)
+                throw new Error(
+                    "Ha habido un error al recuperar el ID del curso"
+                );
+
+            if (!userID)
+                throw new Error(
+                    "Ha habido un error al recuperar el ID del usuario.."
+                );
 
             const userCourses = getUserObtainedCourses(userID, data);
 
@@ -124,10 +134,20 @@ export function useBuyCourse() {
                 exact: false,
             });
 
-            queryClient.setQueryData<CourseJSON[]>(
+            queryClient.setQueryData<(CourseJSON & IsObtainedCourse)[]>(
                 ["toBuyCourses", data.userID],
                 (old) => {
                     if (!old) return old;
+
+                    console.log(
+                        "first",
+                        old.map((o) =>
+                            o.curseID === data.course.curseID
+                                ? { ...o, isObtained: true }
+                                : o
+                        )
+                    );
+
                     return old.map((o) =>
                         o.curseID === data.course.curseID
                             ? { ...o, isObtained: true }

@@ -2,12 +2,15 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Button from "../../../../../components/Button";
 import styles from "./ThemeActions.module.css";
 import { Dispatch, SetStateAction } from "react";
-import { UseCourseApiType } from "../../../../../types/types";
+import {
+    ThemeDefaultCourses,
+    UseCourseApiType,
+} from "../../../../../types/types";
 import { useCompleteTheme } from "../../../../../hooks/useCompleteTheme";
 import { useUserAuthStore } from "../../../../../hooks/UseUserAuthStore";
 import FigureImage from "../../../../../components/FigureImage";
 import { PROFESSOR_IMAGE } from "../../../../../consts/images";
-import { asNumber, isBoolean, isNumber } from "../../../../../utils/general";
+import { asArray, asBoolean, asNumber } from "../../../../../utils/general";
 
 type Props = {
     setIndex: Dispatch<React.SetStateAction<number>>;
@@ -41,7 +44,11 @@ function ThemeActions({ data, index, setImageSliderLoading, setIndex }: Props) {
         <div className={styles.professorAndActions}>
             <div className={styles.actions}>
                 <Button
-                    disabled={!data?.courses?.content?.themes || index === 1}
+                    disabled={
+                        !asArray<ThemeDefaultCourses>(
+                            data?.courses?.content?.themes
+                        ) || index === 1
+                    }
                     onClick={() => {
                         setImageSliderLoading(true);
                         setIndex(index - 1);
@@ -53,7 +60,9 @@ function ThemeActions({ data, index, setImageSliderLoading, setIndex }: Props) {
                 </Button>
                 <Button
                     disabled={
-                        !data?.courses?.content?.themes ||
+                        !asArray<ThemeDefaultCourses>(
+                            data?.courses?.content?.themes
+                        ) ||
                         index ===
                             asNumber(data?.courses?.content?.themes?.length)
                     }
@@ -76,8 +85,10 @@ function ThemeActions({ data, index, setImageSliderLoading, setIndex }: Props) {
                     }}
                     variant="Terciary"
                     disabled={
-                        !data?.courses?.content?.themes ||
-                        !isBoolean(
+                        !asArray<ThemeDefaultCourses>(
+                            data?.courses?.content?.themes
+                        ) ||
+                        asBoolean(
                             data?.userThemeStates?.find(
                                 (u) => u?.themeID === index
                             )?.completed

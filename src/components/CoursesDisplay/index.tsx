@@ -1,4 +1,4 @@
-import { CourseJSON, IsObtainedCourse } from "../../types/types";
+import { CourseJSON, IsObtainedCourse, Level } from "../../types/types";
 import ItemCourseDisplay from "./ItemCourseDisplay";
 import styles from "./CoursesDisplay.module.css";
 import SecurityRendering from "../SecurityRendering";
@@ -6,9 +6,7 @@ import { ReactNode, useState } from "react";
 import WarningMsg from "../WarningMsg";
 import MsgEmpty from "../MsgEmpty";
 import {
-    asNumber,
     asObject,
-    asString,
     isNumber,
     isOnVaulues,
     isString,
@@ -66,7 +64,7 @@ function CoursesDisplay({
                             isString(c?.title) &&
                             isString(c?.shortDescription) &&
                             !!regExpCheck(c?.imageUrl?.thumb, IMAGES_PATH_RE) &&
-                            !!isOnVaulues(c?.level, LEVELS as any) &&
+                            !!isOnVaulues<Level>(c?.level, LEVELS) &&
                             isNumber(c?.price)
                     )}
                     emptyNode={

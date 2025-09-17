@@ -135,7 +135,7 @@ export const getUserDefaultCourseThemes: (
 
 export const getUserCourseThemes: (
     data: BBDD,
-    userID: number,
+    userID: number | undefined,
     courseID: number
 ) => ThemesUserStatesOC[] = (data, userID, courseID) => {
     return (

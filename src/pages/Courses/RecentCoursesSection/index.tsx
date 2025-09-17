@@ -5,6 +5,8 @@ import TitleHx from "../../../components/TitleHx";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import useRecentCourses from "../../../hooks/useRecentCourses";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
+import { CourseJSON, IsObtainedCourse } from "../../../types/types";
+import { asArray } from "../../../utils/general";
 import styles from "./RecentCoursesSection.module.css";
 
 type Props = {};
@@ -36,6 +38,8 @@ function RecentCoursesSection({}: Props) {
         user?.userID
     );
 
+    const safeData = asArray<CourseJSON & IsObtainedCourse>(data);
+
     return (
         <section className={styles.recentCoursesSection}>
             <LightComponent top={50} right={80} />
@@ -48,7 +52,7 @@ function RecentCoursesSection({}: Props) {
             </TitleHx>
 
             <DataStateWrapper isLoading={isLoading} error={error}>
-                <CoursesDisplay courses={data} display="Row" />
+                <CoursesDisplay courses={safeData} display="Row" />
             </DataStateWrapper>
         </section>
     );

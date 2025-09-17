@@ -6,6 +6,7 @@ import { useUserAuthStore } from "../../../../../hooks/UseUserAuthStore";
 import FigureImage from "../../../../../components/FigureImage";
 import HamburguerMenuButton from "../../HamburguerMenuButton";
 import { Dispatch, SetStateAction } from "react";
+import { asString } from "../../../../../utils/general";
 
 type Props = {
     handleSignOut: () => void;
@@ -39,14 +40,16 @@ function UserLoggedIn({ handleSignOut, setIsOpen }: Props) {
             <div className={styles.userData}>
                 <FigureImage
                     src={AVATAR_DEFAULT_IMAGE.image}
-                    alt={`${user?.username || "Usuario"} Avatar`}
-                    title={`${user?.username || "Usuario"} Avatar`}
+                    alt={`${asString(user?.username) || "Usuario"} Avatar`}
+                    title={`${asString(user?.username) || "Usuario"} Avatar`}
                     width={AVATAR_DEFAULT_IMAGE.width}
                     height={AVATAR_DEFAULT_IMAGE.height}
                     classNames={[styles.avatarImage]}
                 />
 
-                <p className={styles.username}>{user?.username}</p>
+                <p className={styles.username}>
+                    {asString(user?.username) || "Usuario"}
+                </p>
             </div>
             <Button
                 classNames={[styles.signoutButton]}

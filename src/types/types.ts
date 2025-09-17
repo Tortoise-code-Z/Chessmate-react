@@ -415,5 +415,5 @@ export type Images = {
 export type VideoData = {
     subthemeContent: SubthemeContent | undefined;
     userThemeData: SubthemesUserStatesOC | undefined;
-    themeID: number;
+    themeID: number | undefined;
 };

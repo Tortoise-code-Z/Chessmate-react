@@ -8,6 +8,7 @@ import { useUserAuthStore } from "../../../../hooks/UseUserAuthStore";
 import { VideoData } from "../../../../types/types";
 import { useParams } from "react-router-dom";
 import CheckSvgComponent from "../../../../components/CheckSvgComponent";
+import { asBoolean, asNumber, asString } from "../../../../utils/general";
 type Props = {
     classNames?: string[];
     title: string;
@@ -43,8 +44,8 @@ function VideoReproductor({
     const params = useParams();
 
     const { mutate } = useCompleteThemeOC(
-        Number(params.id),
-        user?.userID as number,
+        asNumber(Number(params.id)),
+        asNumber(user?.userID),
         setShowVideo
     );
 
@@ -60,7 +61,7 @@ function VideoReproductor({
             <div className={styles.container}>
                 <ReactPlayer
                     className={classNames.join(" ")}
-                    src={videoData?.subthemeContent?.video}
+                    src={asString(videoData?.subthemeContent?.video)}
                     controls
                 />
                 <div className={styles.actions}>
@@ -72,13 +73,17 @@ function VideoReproductor({
                             Volver
                         </Button>
                         <Button
+                            disabled={asBoolean(
+                                videoData?.userThemeData?.completed
+                            )}
                             onClick={() =>
                                 mutate({
-                                    courseID: Number(params.id),
-                                    userID: user?.userID as number,
-                                    subThemeID: videoData?.subthemeContent
-                                        ?.id as number,
-                                    themeID: videoData.themeID,
+                                    courseID: asNumber(Number(params.id)),
+                                    userID: asNumber(user?.userID),
+                                    subThemeID: asNumber(
+                                        videoData?.subthemeContent?.id
+                                    ),
+                                    themeID: asNumber(videoData?.themeID),
                                 })
                             }
                             variant="Terciary"
@@ -91,7 +96,7 @@ function VideoReproductor({
                         {title}
                     </TitleHx>
 
-                    {videoData?.userThemeData?.completed && (
+                    {asBoolean(videoData?.userThemeData?.completed) && (
                         <CheckSvgComponent
                             right={98.5}
                             top={-1}

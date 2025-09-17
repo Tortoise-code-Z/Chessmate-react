@@ -1,10 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import PurchaseAction from "../../../../components/PurchaseAction";
 import { PATHS } from "../../../../consts/paths";
-import { CourseJSON, IsObtainedCourse } from "../../../../types/types";
+import { CourseJSON, IsObtainedCourse, Level } from "../../../../types/types";
 import styles from "./BannerCard.module.css";
 import TitleHx from "../../../../components/TitleHx";
-import { DEFAULT_COURSES_VALUES } from "../../../../consts/general";
+import { DEFAULT_COURSES_VALUES, LEVELS } from "../../../../consts/general";
+import {
+    asBoolean,
+    asNumber,
+    asString,
+    isNumber,
+    isOnVaulues,
+} from "../../../../utils/general";
 
 type Props = {
     data: (CourseJSON & IsObtainedCourse) | undefined;
@@ -24,6 +31,7 @@ type Props = {
  */
 
 function BannerCard({ data }: Props) {
+    console.log("data?.isObtained", data?.isObtained);
     const navigate = useNavigate();
     const bannerCardHandleClick = () => {
         navigate(
@@ -41,10 +49,10 @@ function BannerCard({ data }: Props) {
         >
             <div className={styles.courseData}>
                 <TitleHx level={1}>
-                    {data?.title || DEFAULT_COURSES_VALUES.title}
+                    {asString(data?.title) || DEFAULT_COURSES_VALUES.title}
                 </TitleHx>
                 <p className={styles.description}>
-                    {data?.shortDescription ||
+                    {asString(data?.shortDescription) ||
                         DEFAULT_COURSES_VALUES.shortDescription}
                 </p>
                 <span
@@ -54,19 +62,20 @@ function BannerCard({ data }: Props) {
                         styles.level,
                     ].join(" ")}
                 >
-                    {data?.level || DEFAULT_COURSES_VALUES.level}
+                    {isOnVaulues<Level>(data?.level, LEVELS) ||
+                        DEFAULT_COURSES_VALUES.level}
                 </span>
                 <p className={styles.price}>
-                    {data?.price
+                    {isNumber(data?.price)
                         ? `${data.price}$`
                         : DEFAULT_COURSES_VALUES.price}
                 </p>
             </div>
 
             <PurchaseAction
-                courseID={data?.curseID}
-                canBuy={!!data?.price && !!data?.curseID}
-                isObtained={data?.isObtained}
+                courseID={asNumber(data?.curseID)}
+                canBuy={isNumber(data?.price) && isNumber(data?.curseID)}
+                isObtained={asBoolean(data?.isObtained)}
             />
         </div>
     );

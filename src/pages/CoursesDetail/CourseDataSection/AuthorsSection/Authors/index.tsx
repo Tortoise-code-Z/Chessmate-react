@@ -2,6 +2,7 @@ import { useState } from "react";
 import SecurityRendering from "../../../../../components/SecurityRendering";
 import {
     AuthorCurseData,
+    ChessLevel,
     Course,
     IsObtainedCourse,
 } from "../../../../../types/types";
@@ -9,9 +10,16 @@ import AuthorsItem from "../AuthorItem";
 import styles from "./Authors.module.css";
 import WarningMsg from "../../../../../components/WarningMsg";
 import AuthorDefault from "../AuthorDefault";
+import {
+    asNumber,
+    isNumber,
+    isOnVaulues,
+    isString,
+} from "../../../../../utils/general";
+import { CHESS_LEVEL } from "../../../../../consts/general";
 
 type Props = {
-    data: Course & IsObtainedCourse;
+    data: (Course & IsObtainedCourse) | undefined;
 };
 
 /**
@@ -35,7 +43,10 @@ function Authors({ data }: Props) {
                 <SecurityRendering<AuthorCurseData>
                     data={data?.authors}
                     conditions={data?.authors.map(
-                        (a) => !!a.name && !!a.elo && !!a.level
+                        (a) =>
+                            isString(a?.name) &&
+                            isNumber(a?.elo) &&
+                            !!isOnVaulues<ChessLevel>(a?.level, CHESS_LEVEL)
                     )}
                     state={{
                         setWarningState: setAuthorWarning,
@@ -45,10 +56,14 @@ function Authors({ data }: Props) {
                 >
                     {(author, index, canRender) => {
                         if (!canRender)
-                            return <AuthorDefault key={author.id || index} />;
+                            return (
+                                <AuthorDefault
+                                    key={asNumber(author?.id) || index}
+                                />
+                            );
                         return (
                             <AuthorsItem
-                                key={author.id || index}
+                                key={asNumber(author?.id) || index}
                                 author={author}
                             />
                         );

@@ -1,6 +1,10 @@
 import { useState } from "react";
 import SearchBar from "./SearchBar";
-import { FilterOptions } from "../../../types/types";
+import {
+    CourseJSON,
+    FilterOptions,
+    IsObtainedCourse,
+} from "../../../types/types";
 import useAllCourses from "../../../hooks/useAllCourses";
 import styles from "./AllCoursesSection.module.css";
 import LightComponent from "../../../components/LightComponent";
@@ -10,6 +14,7 @@ import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import { FaHandsPraying } from "react-icons/fa6";
 import TitleHx from "../../../components/TitleHx";
+import { asArray, asNumber } from "../../../utils/general";
 
 type Props = {};
 
@@ -42,12 +47,14 @@ function AllCoursesSection({}: Props) {
     const [filter, setFilter] = useState<FilterOptions | undefined>();
     const { user } = useUserAuthStore();
 
-    let { data, isLoading, error } = useAllCourses(
+    const { data, isLoading, error } = useAllCourses(
         DATABASE_KEY,
         search,
         filter,
-        user?.userID as number
+        asNumber(user?.userID)
     );
+
+    const safeData = asArray<CourseJSON & IsObtainedCourse>(data);
 
     return (
         <section className={styles.allCoursesSection}>
@@ -70,15 +77,13 @@ function AllCoursesSection({}: Props) {
                 error={error}
                 errorMsg={error?.message}
             >
-                {data && (
-                    <CoursesDisplay
-                        action={true}
-                        courses={data}
-                        display="Row"
-                        msg={"No se han encontrado cursos..."}
-                        svg={<FaHandsPraying />}
-                    />
-                )}
+                <CoursesDisplay
+                    action={true}
+                    courses={safeData}
+                    display="Row"
+                    msg={"No se han encontrado cursos..."}
+                    svg={<FaHandsPraying />}
+                />
             </DataStateWrapper>
         </section>
     );

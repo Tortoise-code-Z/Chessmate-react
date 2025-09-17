@@ -4,6 +4,7 @@ import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import { useBuyCourse } from "../../hooks/useBuyCourse";
 import { useProfessorMsgStore } from "../../hooks/useProfessorMsgStore";
 import { FaExclamationTriangle } from "react-icons/fa";
+import { asBoolean, isBoolean, isNumber } from "../../utils/general";
 
 type Props = {
     courseID: number | undefined | null;
@@ -38,29 +39,27 @@ function PurchaseButton({
 
     const cantBuyCourse = () => {
         setState(true);
-        if (typeof isObtained !== "boolean") return setValue("isObtained");
-        if (!courseID) return setValue("noID");
-        if (!canBuy) return setValue("noPrice");
         if (!user) return setValue("cantCommentSesion");
+        if (!isNumber(courseID)) return setValue("noID");
+        if (asBoolean(isObtained)) return setValue("isObtained");
+        if (asBoolean(canBuy)) return setValue("noPrice");
     };
 
     return (
         <>
             <Button
-                variant={
-                    typeof isObtained !== "boolean" ? "Warning" : "Primary"
-                }
+                variant={!isBoolean(isObtained) ? "Warning" : "Primary"}
                 disabled={disabled}
                 propagation={false}
                 onClick={
                     user &&
-                    canBuy &&
-                    courseID &&
-                    typeof isObtained === "boolean"
+                    asBoolean(canBuy) &&
+                    isNumber(courseID) &&
+                    isBoolean(isObtained)
                         ? () =>
                               mutate({
                                   courseID: courseID,
-                                  userID: user?.userID as number,
+                                  userID: user?.userID,
                               })
                         : cantBuyCourse
                 }
@@ -69,7 +68,7 @@ function PurchaseButton({
                     "Comprando..."
                 ) : (
                     <>
-                        {typeof isObtained === "boolean" ? (
+                        {isBoolean(isObtained) ? (
                             <HiMiniShoppingBag />
                         ) : (
                             <FaExclamationTriangle />

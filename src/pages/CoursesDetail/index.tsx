@@ -4,6 +4,7 @@ import CourseDataSection from "./CourseDataSection";
 import FeedbackMessage from "../../components/FeedbackMessage";
 import ProfessorFixedMessage from "../../components/ProfessorFixedMessage";
 import CourseCommentSection from "../../components/CourseCommentSection";
+import { asNumber } from "../../utils/general";
 
 type Props = {};
 
@@ -51,7 +52,7 @@ function CoursesDetail({}: Props) {
                 titleDisplay={"Row"}
                 titleAlign={"start"}
                 limit={4}
-                userID={user?.userID}
+                userID={asNumber(user?.userID)}
             />
         </>
     );

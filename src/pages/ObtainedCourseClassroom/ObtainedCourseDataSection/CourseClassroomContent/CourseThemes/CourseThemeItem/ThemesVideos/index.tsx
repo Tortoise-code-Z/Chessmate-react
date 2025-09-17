@@ -5,6 +5,7 @@ import {
     SubthemeContent,
     ThemesUserStatesOC,
     VideoData,
+    SubthemesUserStatesOC,
 } from "../../../../../../../types/types";
 import Button from "../../../../../../../components/Button";
 import FigureImage from "../../../../../../../components/FigureImage";
@@ -14,6 +15,13 @@ import { DEFAULT_COURSES_VALUES } from "../../../../../../../consts/general";
 import SecurityRendering from "../../../../../../../components/SecurityRendering";
 import WarningMsg from "../../../../../../../components/WarningMsg";
 import CheckSvgComponent from "../../../../../../../components/CheckSvgComponent";
+import {
+    asArray,
+    asNumber,
+    asString,
+    isNumber,
+    isString,
+} from "../../../../../../../utils/general";
 
 type Props = {
     theme: Theme;
@@ -45,7 +53,9 @@ function ThemeVideos({ setShowVideo, theme, userThemeData }: Props) {
             <div className={styles.videosContainer}>
                 <SecurityRendering<SubthemeContent>
                     data={theme?.content}
-                    conditions={theme.content.map((t) => !!t.id && !!t.video)}
+                    conditions={theme.content.map(
+                        (t) => isNumber(t?.id) && isString(t.video)
+                    )}
                     state={{
                         setWarningState: setVideoWarning,
                         warningState: videoWarning,
@@ -55,14 +65,16 @@ function ThemeVideos({ setShowVideo, theme, userThemeData }: Props) {
                     {(subtheme, index, canRender) => {
                         return (
                             <Button
-                                key={subtheme.id || index}
+                                key={asNumber(subtheme?.id) || index}
                                 disabled={!canRender}
                                 onClick={() =>
                                     setShowVideo({
                                         subthemeContent: subtheme,
-                                        themeID: theme.id,
+                                        themeID: asNumber(theme?.id),
                                         userThemeData:
-                                            userThemeData?.subthemes[index],
+                                            asArray<SubthemesUserStatesOC>(
+                                                userThemeData?.subthemes
+                                            )?.[index],
                                     })
                                 }
                                 classNames={[styles.videoButton, "relative"]}
@@ -71,24 +83,28 @@ function ThemeVideos({ setShowVideo, theme, userThemeData }: Props) {
                                 <FigureImage
                                     classNames={[styles.videoCardImage]}
                                     src={getImage(subtheme?.cover, ["static"])}
-                                    alt={subtheme?.title}
-                                    title={subtheme?.title}
+                                    alt={asString(subtheme?.title)}
+                                    title={asString(subtheme?.title)}
                                     width={getImageSize(
-                                        subtheme?.cover,
+                                        asString(subtheme?.cover),
                                         "width"
                                     )}
                                     height={getImageSize(
-                                        subtheme?.cover,
+                                        asString(subtheme?.cover),
                                         "height"
                                     )}
                                 />
                                 <TitleHx level={3} classNames={[styles.title]}>
-                                    {subtheme?.title ||
+                                    {asString(subtheme?.title) ||
                                         DEFAULT_COURSES_VALUES.title}
                                 </TitleHx>
 
-                                {userThemeData?.subthemes?.find(
-                                    (s) => s.subthemeID === subtheme.id
+                                {asArray<SubthemesUserStatesOC>(
+                                    userThemeData?.subthemes
+                                )?.find(
+                                    (s) =>
+                                        asNumber(s?.subthemeID) ===
+                                        asNumber(subtheme?.id)
                                 )?.completed && (
                                     <CheckSvgComponent size="medium" />
                                 )}

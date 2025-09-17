@@ -1,3 +1,4 @@
+import { asBoolean } from "../../utils/general";
 import ObtainedTag from "../ObtainedTag";
 import PurchaseButton from "../PurchaseButton";
 
@@ -27,7 +28,7 @@ function PurchaseAction({
 }: Props) {
     return (
         <>
-            {isObtained ? (
+            {asBoolean(isObtained) ? (
                 <ObtainedTag />
             ) : (
                 <PurchaseButton

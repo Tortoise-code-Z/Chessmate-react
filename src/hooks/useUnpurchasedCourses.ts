@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { CourseJSON } from "../types/types";
+import { CourseJSON, IsObtainedCourse } from "../types/types";
 import {
     deleteKey,
     getDataLocalStorage,
@@ -25,9 +25,12 @@ export default function useUnpurchasedCourses(
     limit: number,
     userID?: number
 ) {
-    const queryFunction: () => Promise<CourseJSON[]> = async () => {
+    const queryFunction: () => Promise<
+        (CourseJSON & IsObtainedCourse)[]
+    > = async () => {
         try {
             const data = getDataLocalStorage(key);
+
             if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
 
@@ -53,7 +56,10 @@ export default function useUnpurchasedCourses(
                           )
                         : courses;
 
-                return finalCourses.slice(0, limit);
+                return finalCourses.slice(0, limit).map((fc) => ({
+                    ...fc,
+                    isObtained: false,
+                }));
             }
 
             return courses.slice(0, limit);

@@ -20,10 +20,10 @@ import { useCourseClassroomApi } from "./useCourseClassroom";
 import { Dispatch, SetStateAction } from "react";
 
 type Variables = {
-    subThemeID: number;
-    themeID: number;
-    courseID: number;
-    userID: number;
+    subThemeID: number | undefined;
+    themeID: number | undefined;
+    courseID: number | undefined;
+    userID: number | undefined;
 };
 
 /**
@@ -48,11 +48,12 @@ type Variables = {
  */
 
 export function useCompleteThemeOC(
-    courseID: number,
-    userID: number,
+    courseID: number | undefined,
+    userID: number | undefined,
     setShowVideo: Dispatch<SetStateAction<VideoData | null>>
 ) {
     const queryClient = useQueryClient();
+
     const {
         setState: setFeedbackState,
         setMsg,
@@ -73,12 +74,28 @@ export function useCompleteThemeOC(
             if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
 
+            if (!courseID)
+                throw new Error("Ha habido un error al recuperar los datos...");
+
+            if (!subThemeID)
+                throw new Error("Ha habido un error al recuperar los datos...");
+
+            if (!themeID)
+                throw new Error("Ha habido un error al recuperar los datos...");
+
+            if (!userID)
+                throw new Error("Ha habido un error al recuperar los datos...");
+
             const userCourse = getUserObtainedCourse(userID, courseID, data);
 
             if (!userCourse)
                 throw new Error("Ha habido un error al recuperar los datos...");
 
             const userCourses = getUserObtainedCourses(userID, data);
+
+            if (!userCourses || userCourses.length === 0)
+                throw new Error("Ha habido un error al recuperar los datos...");
+
             const users = getUsers(data);
 
             const newCourseData = {
@@ -131,7 +148,6 @@ export function useCompleteThemeOC(
             setItemLocalStorage<BBDD>(DATABASE_KEY, newData);
             return finalCourseData;
         } catch (error) {
-            console.error(error);
             throw error;
         }
     };
@@ -170,7 +186,7 @@ export function useCompleteThemeOC(
             setType("success");
         },
         onError: (error) => {
-            console.log(error);
+            console.error(error);
             setFeedbackState(true);
             setPath(location.pathname);
             setMsg("Error al completar el tema");

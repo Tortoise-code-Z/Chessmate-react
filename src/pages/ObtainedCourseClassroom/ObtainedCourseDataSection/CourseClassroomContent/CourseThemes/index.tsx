@@ -1,12 +1,17 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import styles from "./CourseThemes.module.css";
 import CourseThemeItem from "./CourseThemeItem";
-import { Theme, VideoData } from "../../../../../types/types";
+import {
+    Theme,
+    ThemesUserStatesOC,
+    VideoData,
+} from "../../../../../types/types";
 import { DEFAULT_COURSES_VALUES } from "../../../../../consts/general";
 import SecurityRendering from "../../../../../components/SecurityRendering";
 import WarningMsg from "../../../../../components/WarningMsg";
 import { useCourseClassroomApi } from "../../../../../hooks/useCourseClassroom";
 import MsgEmpty from "../../../../../components/MsgEmpty";
+import { asArray, asString, isString } from "../../../../../utils/general";
 
 type Props = {
     data: useCourseClassroomApi | undefined;
@@ -44,7 +49,8 @@ function CourseThemes({ data, setShowVideo }: Props) {
                     <span
                         className={["span-pr-color", "text-medium"].join(" ")}
                     >
-                        {data?.course?.title || DEFAULT_COURSES_VALUES.title}
+                        {asString(data?.course?.title) ||
+                            DEFAULT_COURSES_VALUES.title}
                     </span>{" "}
                     de manera clara y práctica, pensados para guiarte paso a
                     paso en tu aprendizaje. Cada tema está compuesto por
@@ -68,7 +74,7 @@ function CourseThemes({ data, setShowVideo }: Props) {
                 data={data?.course?.content?.themes}
                 conditions={data?.course?.content?.themes?.map((t) => !!t?.id)}
                 noCriticalConditions={data?.course?.content?.themes?.map(
-                    (t) => !!t?.title && !!t?.description
+                    (t) => isString(t?.title) && isString(t?.description)
                 )}
                 state={{
                     setWarningState: setThemesWarnings,
@@ -84,9 +90,9 @@ function CourseThemes({ data, setShowVideo }: Props) {
                             key={theme.id}
                             setShowVideo={setShowVideo}
                             theme={theme}
-                            userThemeData={data?.themes?.find(
-                                (t) => t.themeID === theme.id
-                            )}
+                            userThemeData={asArray<ThemesUserStatesOC>(
+                                data?.themes
+                            )?.find((t) => t.themeID === theme.id)}
                             setVideosIndex={setVideosIndex}
                             videosIndex={videosIndex}
                             disabled={!canRender ? true : false}

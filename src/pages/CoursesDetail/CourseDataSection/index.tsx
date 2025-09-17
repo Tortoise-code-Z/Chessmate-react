@@ -6,12 +6,13 @@ import DetailsCourse from "./DetailsCourse";
 import GeneralCourseData from "./GeneralCourseData";
 import useCourse from "../../../hooks/useCourse";
 import DataStateWrapper from "../../../components/DataStateWrapperProps";
-import { Course } from "../../../types/types";
+import { Course, IsObtainedCourse } from "../../../types/types";
 import LightComponent from "../../../components/LightComponent";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import { PATHS } from "../../../consts/paths";
 import { DEFAULT_COURSES_VALUES } from "../../../consts/general";
+import { asNumber, asObject, asString } from "../../../utils/general";
 
 type Props = {};
 
@@ -43,11 +44,13 @@ function CourseDataSection({}: Props) {
     const { user } = useUserAuthStore();
     const params = useParams();
 
-    const { data, isLoading, error } = useCourse(
+    let { data, isLoading, error } = useCourse(
         DATABASE_KEY,
-        Number(params.id),
+        asNumber(Number(params?.id)),
         user?.userID
     );
+
+    const safeData = asObject<Course & IsObtainedCourse>(data);
 
     return (
         <section className={styles.courseDataSection}>
@@ -58,13 +61,16 @@ function CourseDataSection({}: Props) {
                 <div className={styles.breadcrumb}>
                     <NavLink to={`/${PATHS.courses}`}>Cursos</NavLink>
                     <span>{">"}</span>
-                    <p>{data?.title || DEFAULT_COURSES_VALUES.title}</p>
+                    <p>
+                        {asString(safeData?.title) ||
+                            DEFAULT_COURSES_VALUES.title}
+                    </p>
                 </div>
-                <GeneralCourseData data={data ?? ({} as Course)} />
-                <AuthorsSection data={data ?? ({} as Course)} />
-                <CourseDescription level={2} data={data ?? ({} as Course)} />
+                <GeneralCourseData data={safeData} />
+                <AuthorsSection data={safeData} />
+                <CourseDescription level={2} data={safeData} />
                 <DetailsCourse
-                    data={data ?? ({} as Course)}
+                    data={safeData}
                     type={"content"}
                     titleContain={
                         <>
@@ -80,7 +86,7 @@ function CourseDataSection({}: Props) {
                     }
                 />
                 <DetailsCourse
-                    data={data ?? ({} as Course)}
+                    data={safeData}
                     type={"learn"}
                     titleContain={
                         <>

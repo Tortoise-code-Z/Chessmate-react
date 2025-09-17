@@ -32,8 +32,10 @@ function ObtainedCourseClassroom({}: Props) {
         <>
             <ProfessorFixedMessage />
             <FeedbackMessage />
+
             <ObtainedCourseDataSection />
             <CourseCommentSection />
+
             <UserCoursesSection
                 obtainedCoursesLimit={3}
                 showDefaultCourses={false}

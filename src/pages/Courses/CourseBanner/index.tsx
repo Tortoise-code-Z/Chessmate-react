@@ -6,6 +6,8 @@ import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import BannerCard from "./BannerCard";
 import FigureImage from "../../../components/FigureImage";
+import { asNumber, asObject } from "../../../utils/general";
+import { CourseJSON, IsObtainedCourse } from "../../../types/types";
 
 type Props = {};
 
@@ -25,12 +27,12 @@ type Props = {};
 
 function CourseBanner({}: Props) {
     const { user } = useUserAuthStore();
-    let { data, isLoading, error } = useBannerCourse(
+    const { data, isLoading, error } = useBannerCourse(
         DATABASE_KEY,
-        user?.userID
+        asNumber(user?.userID)
     );
 
-    // data = { ...data, isObtained: null };
+    const safeData = asObject<CourseJSON & IsObtainedCourse>(data);
 
     return (
         <section
@@ -47,14 +49,17 @@ function CourseBanner({}: Props) {
                 <>
                     <FigureImage
                         classNames={[styles.bannerBackground]}
-                        src={getImage(data?.imageUrl?.full, ["courses"])}
-                        alt={getImage(data?.imageUrl?.full, ["courses"])}
-                        title={getImage(data?.imageUrl?.full, ["courses"])}
-                        width={getImageSize(data?.imageUrl?.full, "width")}
-                        height={getImageSize(data?.imageUrl?.full, "height")}
+                        src={getImage(safeData?.imageUrl?.full, ["courses"])}
+                        alt={getImage(safeData?.imageUrl?.full, ["courses"])}
+                        title={getImage(safeData?.imageUrl?.full, ["courses"])}
+                        width={getImageSize(safeData?.imageUrl?.full, "width")}
+                        height={getImageSize(
+                            safeData?.imageUrl?.full,
+                            "height"
+                        )}
                     />
 
-                    <BannerCard data={data} />
+                    <BannerCard data={safeData} />
                 </>
             </DataStateWrapper>
         </section>
