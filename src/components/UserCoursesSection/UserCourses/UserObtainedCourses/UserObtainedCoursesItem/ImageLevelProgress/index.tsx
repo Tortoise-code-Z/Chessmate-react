@@ -1,8 +1,10 @@
 import {
     DEFAULT_COURSES_VALUES,
+    LEVEL_DEFAULT_MSG,
     LEVELS,
+    PROGRESS_DEFAULT_MSG,
 } from "../../../../../../consts/general";
-import { CourseJSON, Progress } from "../../../../../../types/types";
+import { CourseJSON, Level, Progress } from "../../../../../../types/types";
 import {
     asNumber,
     asString,
@@ -41,13 +43,13 @@ function ImageLevelProgress({ data }: Props) {
 
             <div className={styles.data}>
                 <p className={styles.level}>
-                    {isOnVaulues(data?.level, LEVELS as any) ||
-                        DEFAULT_COURSES_VALUES.level}
+                    {isOnVaulues<Level>(data?.level, LEVELS) ||
+                        LEVEL_DEFAULT_MSG}
                 </p>
                 <p className={styles.progress}>
-                    {asNumber(data?.progress) || asNumber(data?.progress) === 0
-                        ? `Progress: ${data?.progress}%`
-                        : DEFAULT_COURSES_VALUES.progress}
+                    {isNumber(data?.progress) || asNumber(data?.progress) === 0
+                        ? `Progress: ${data.progress}%`
+                        : PROGRESS_DEFAULT_MSG}
                 </p>
             </div>
         </div>

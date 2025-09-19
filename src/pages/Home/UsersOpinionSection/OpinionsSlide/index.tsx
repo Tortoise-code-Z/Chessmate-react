@@ -1,3 +1,7 @@
+import {
+    OPINION_DEFAULT_MSG,
+    USER_DEFAULT_MSG,
+} from "../../../../consts/general";
 import { Opinion } from "../../../../types/types";
 import { asNumber, asString } from "../../../../utils/general";
 import styles from "./OpinionsSlide.module.css";
@@ -24,7 +28,7 @@ function OpinionsSlide({ data }: Props) {
         <div className={styles.opinionContainer}>
             <div className={styles.userData}>
                 <p className={styles.username}>
-                    {asString(data?.user?.username) || "Usuario"}
+                    {asString(data?.user?.username) || USER_DEFAULT_MSG}
                 </p>
                 {asString(data?.user?.title) && (
                     <p className={styles.userTitle}>{data.user.title}</p>
@@ -33,7 +37,9 @@ function OpinionsSlide({ data }: Props) {
                     <p className={styles.userElo}>{data.user.elo} ELO</p>
                 )}
             </div>
-            <p className={styles.userOpinion}>"{asString(data?.text)}"</p>
+            <p className={styles.userOpinion}>
+                "{asString(data?.text) || OPINION_DEFAULT_MSG}"
+            </p>
         </div>
     );
 }

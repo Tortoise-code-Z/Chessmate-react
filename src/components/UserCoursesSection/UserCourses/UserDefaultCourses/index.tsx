@@ -5,16 +5,25 @@ import { useUserAuthStore } from "../../../../hooks/UseUserAuthStore";
 import useDefaultCourses from "../../../../hooks/useDefaultCourses";
 import { DATABASE_KEY } from "../../../../consts/dataBaseKey";
 import DataStateWrapper from "../../../DataStateWrapperProps";
-import { DefualtCourse, Progress } from "../../../../types/types";
+import {
+    DefualtCourse,
+    Progress,
+    WarningMsgType,
+} from "../../../../types/types";
 import SecurityRendering from "../../../SecurityRendering";
 import { Dispatch, SetStateAction } from "react";
 import UserDefaultCourseItemDefault from "./UserDefaultCourseItemDefault";
 import MsgEmpty from "../../../MsgEmpty";
-import { asArray, isNumber, isString } from "../../../../utils/general";
+import {
+    asArray,
+    asNumber,
+    isNumber,
+    isString,
+} from "../../../../utils/general";
 
 type Props = {
-    setDefaultWarning: Dispatch<SetStateAction<string | null>>;
-    defaultWarning: string | null;
+    setDefaultWarning: Dispatch<SetStateAction<WarningMsgType | null>>;
+    defaultWarning: WarningMsgType | null;
 };
 
 /**
@@ -38,11 +47,11 @@ function UserDefaultCourses({ setDefaultWarning, defaultWarning }: Props) {
 
     const { data, isLoading, error } = useDefaultCourses(
         DATABASE_KEY,
-        user?.userID as number,
-        Number(params.id)
+        asNumber(user?.userID),
+        asNumber(Number(params.id))
     );
 
-    const safeData = asArray<DefualtCourse & Progress>(data);
+    let safeData = asArray<DefualtCourse & Progress>(data);
 
     return (
         <div className={[styles.userDefaultCourses].join(" ")}>
@@ -72,7 +81,7 @@ function UserDefaultCourses({ setDefaultWarning, defaultWarning }: Props) {
                         if (!canRendered) {
                             return (
                                 <UserDefaultCourseItemDefault
-                                    key={course.curseID || index}
+                                    key={asNumber(course?.curseID) || index}
                                     data={course}
                                 />
                             );
@@ -80,7 +89,7 @@ function UserDefaultCourses({ setDefaultWarning, defaultWarning }: Props) {
 
                         return (
                             <UserDefaultCourseItem
-                                key={course.curseID || index}
+                                key={asNumber(course?.curseID) || index}
                                 data={course}
                             />
                         );

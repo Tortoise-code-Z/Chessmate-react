@@ -45,9 +45,12 @@ export default function useBannerCourse(key: string, userID?: number) {
 
             return {
                 ...bannerCourse,
-                isObtained: userCourses.some(
-                    (userCourse) => userCourse.courseId === bannerCourse.curseID
-                ),
+                isObtained: userID
+                    ? userCourses?.some(
+                          (userCourse) =>
+                              userCourse.courseId === bannerCourse.curseID
+                      )
+                    : false,
             };
         } catch (error) {
             console.log(error);

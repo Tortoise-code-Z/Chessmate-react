@@ -6,6 +6,7 @@ import {
     getDataLocalStorage,
     getUserObtainedCourses,
 } from "../api";
+import { asNumber } from "../utils/general";
 
 /**
  * Custom hook to fetch the list of courses a user has already obtained.
@@ -23,7 +24,7 @@ import {
 
 export default function useObtainedCourses(
     key: string,
-    userId: number,
+    userId: number | undefined,
     limit?: number,
     currentCourseID?: number
 ) {
@@ -33,6 +34,12 @@ export default function useObtainedCourses(
         try {
             const data = getDataLocalStorage(key);
             if (!data)
+                throw new Error("Ha habido un error al recuperar los datos...");
+
+            if (!asNumber(userId))
+                throw new Error("Ha habido un error al recuperar los datos...");
+
+            if (currentCourseID && !asNumber(currentCourseID))
                 throw new Error("Ha habido un error al recuperar los datos...");
 
             const userCourses = getUserObtainedCourses(userId, data);

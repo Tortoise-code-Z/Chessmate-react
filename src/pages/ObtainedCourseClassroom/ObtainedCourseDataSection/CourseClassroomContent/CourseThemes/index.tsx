@@ -5,13 +5,20 @@ import {
     Theme,
     ThemesUserStatesOC,
     VideoData,
+    WarningMsgType,
 } from "../../../../../types/types";
 import { DEFAULT_COURSES_VALUES } from "../../../../../consts/general";
 import SecurityRendering from "../../../../../components/SecurityRendering";
 import WarningMsg from "../../../../../components/WarningMsg";
 import { useCourseClassroomApi } from "../../../../../hooks/useCourseClassroom";
 import MsgEmpty from "../../../../../components/MsgEmpty";
-import { asArray, asString, isString } from "../../../../../utils/general";
+import {
+    asArray,
+    asNumber,
+    asString,
+    isNumber,
+    isString,
+} from "../../../../../utils/general";
 
 type Props = {
     data: useCourseClassroomApi | undefined;
@@ -38,7 +45,9 @@ type Props = {
 
 function CourseThemes({ data, setShowVideo }: Props) {
     const [videosIndex, setVideosIndex] = useState<number | null>(null);
-    const [themesWarning, setThemesWarnings] = useState<string | null>(null);
+    const [themesWarning, setThemesWarnings] = useState<WarningMsgType | null>(
+        null
+    );
 
     return (
         <div className={styles.themesContainer}>
@@ -68,11 +77,21 @@ function CourseThemes({ data, setShowVideo }: Props) {
                 </p>
             </div>
 
-            {themesWarning && <WarningMsg msg={themesWarning} />}
+            {(themesWarning?.emptyMsg || themesWarning?.msg) && (
+                <WarningMsg
+                    msg={
+                        themesWarning?.emptyMsg
+                            ? themesWarning.emptyMsg
+                            : themesWarning.msg
+                    }
+                />
+            )}
 
             <SecurityRendering<Theme>
                 data={data?.course?.content?.themes}
-                conditions={data?.course?.content?.themes?.map((t) => !!t?.id)}
+                conditions={data?.course?.content?.themes?.map((t) =>
+                    isNumber(t?.id)
+                )}
                 noCriticalConditions={data?.course?.content?.themes?.map(
                     (t) => isString(t?.title) && isString(t?.description)
                 )}
@@ -84,15 +103,15 @@ function CourseThemes({ data, setShowVideo }: Props) {
                 msgEmpty="No se han podido recuperar los temas. Estamos trabajando para solucionarlo."
                 emptyNode={<MsgEmpty />}
             >
-                {(theme, _index, canRender) => {
+                {(theme, index, canRender) => {
                     return (
                         <CourseThemeItem
-                            key={theme.id}
+                            key={asNumber(theme?.id || index)}
                             setShowVideo={setShowVideo}
                             theme={theme}
                             userThemeData={asArray<ThemesUserStatesOC>(
                                 data?.themes
-                            )?.find((t) => t.themeID === theme.id)}
+                            )?.find((t) => t?.themeID === asNumber(theme?.id))}
                             setVideosIndex={setVideosIndex}
                             videosIndex={videosIndex}
                             disabled={!canRender ? true : false}

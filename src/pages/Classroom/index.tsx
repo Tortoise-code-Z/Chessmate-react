@@ -23,6 +23,7 @@ function Classroom({}: Props) {
     return (
         <>
             <FeedbackMessage />
+
             <ClassZoneSection />
             <UserCoursesSection
                 obtainedCoursesLimit={3}

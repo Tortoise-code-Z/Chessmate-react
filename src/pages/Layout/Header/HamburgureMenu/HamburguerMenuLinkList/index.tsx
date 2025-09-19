@@ -36,27 +36,16 @@ function HamburguerMenuLinkList({ handleSignOut, setIsOpen }: Props) {
     const { user } = useUserAuthStore();
     return (
         <ul className={styles.linksList}>
-            {user ? (
-                <NavLink
-                    className={["button", "buttonSecondary"].join(" ")}
-                    onClick={() => {
-                        setIsOpen(false);
-                    }}
-                    to={`/${PATHS.dashboard}`}
-                >
-                    Mi portal
-                </NavLink>
-            ) : (
-                <NavLink
-                    className={["button", "buttonSecondary"].join(" ")}
-                    onClick={() => {
-                        setIsOpen(false);
-                    }}
-                    to={`${PATHS.index}`}
-                >
-                    Inicio
-                </NavLink>
-            )}
+            <NavLink
+                className={["button", "buttonSecondary"].join(" ")}
+                onClick={() => {
+                    setIsOpen(false);
+                }}
+                to={`/${user ? PATHS.dashboard : PATHS.index}`}
+            >
+                Mi portal
+            </NavLink>
+
             <NavLink
                 className={["button", "buttonSecondary"].join(" ")}
                 to={`/${PATHS.courses}`}
@@ -75,7 +64,7 @@ function HamburguerMenuLinkList({ handleSignOut, setIsOpen }: Props) {
             >
                 Contacto
             </NavLink>
-            {user && (
+            {user ? (
                 <Button
                     onClick={() => {
                         setIsOpen(false);
@@ -85,9 +74,7 @@ function HamburguerMenuLinkList({ handleSignOut, setIsOpen }: Props) {
                 >
                     <FaSignOutAlt /> Cerrar sesión
                 </Button>
-            )}
-
-            {!user && (
+            ) : (
                 <NavLink
                     className={["button", "buttonSecondary"].join(" ")}
                     to={`/${PATHS.login}`}

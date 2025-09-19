@@ -6,12 +6,16 @@ import {
     ThemesUserStatesOC,
     VideoData,
     SubthemesUserStatesOC,
+    WarningMsgType,
 } from "../../../../../../../types/types";
 import Button from "../../../../../../../components/Button";
 import FigureImage from "../../../../../../../components/FigureImage";
 import { getImage, getImageSize } from "../../../../../../../utils/images";
 import TitleHx from "../../../../../../../components/TitleHx";
-import { DEFAULT_COURSES_VALUES } from "../../../../../../../consts/general";
+import {
+    DEFAULT_COURSES_VALUES,
+    TITLE_DEFAULT_MSG,
+} from "../../../../../../../consts/general";
 import SecurityRendering from "../../../../../../../components/SecurityRendering";
 import WarningMsg from "../../../../../../../components/WarningMsg";
 import CheckSvgComponent from "../../../../../../../components/CheckSvgComponent";
@@ -46,10 +50,21 @@ type Props = {
  */
 
 function ThemeVideos({ setShowVideo, theme, userThemeData }: Props) {
-    const [videoWarning, setVideoWarning] = useState<string | null>(null);
+    const [videoWarning, setVideoWarning] = useState<WarningMsgType | null>(
+        null
+    );
     return (
         <>
-            {videoWarning && <WarningMsg msg={videoWarning} />}
+            {(videoWarning?.emptyMsg || videoWarning?.msg) && (
+                <WarningMsg
+                    msg={
+                        videoWarning?.emptyMsg
+                            ? videoWarning.emptyMsg
+                            : videoWarning.msg
+                    }
+                />
+            )}
+
             <div className={styles.videosContainer}>
                 <SecurityRendering<SubthemeContent>
                     data={theme?.content}
@@ -96,7 +111,7 @@ function ThemeVideos({ setShowVideo, theme, userThemeData }: Props) {
                                 />
                                 <TitleHx level={3} classNames={[styles.title]}>
                                     {asString(subtheme?.title) ||
-                                        DEFAULT_COURSES_VALUES.title}
+                                        TITLE_DEFAULT_MSG}
                                 </TitleHx>
 
                                 {asArray<SubthemesUserStatesOC>(

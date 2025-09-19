@@ -2,6 +2,7 @@ import { DATABASE_KEY } from "../../consts/dataBaseKey";
 import useBestSeller from "../../hooks/useBestSellers";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import { CourseJSON, IsObtainedCourse } from "../../types/types";
+import { asArray, asNumber } from "../../utils/general";
 import CoursesDisplay from "../CoursesDisplay";
 import DataStateWrapper from "../DataStateWrapperProps";
 import LightComponent from "../LightComponent";
@@ -47,11 +48,14 @@ function BestSellersSection({
     requiredIsObtained,
 }: Props) {
     const { user } = useUserAuthStore();
+
     const { data, isLoading, error } = useBestSeller(
         DATABASE_KEY,
-        limit,
-        user?.userID
+        asNumber(limit),
+        asNumber(user?.userID)
     );
+
+    const safeData = asArray<CourseJSON & IsObtainedCourse>(data);
 
     return (
         <section
@@ -65,7 +69,8 @@ function BestSellersSection({
                 ]}
                 level={2}
             >
-                {titleText} {titleDisplay === "Row" && " "}
+                {titleText}
+                {titleDisplay === "Row" && " "}
                 {titleTextSpan && (
                     <span className={["span-pr-color", "upperCase"].join(" ")}>
                         {titleTextSpan}
@@ -76,7 +81,7 @@ function BestSellersSection({
             <DataStateWrapper isLoading={isLoading} error={error}>
                 <CoursesDisplay
                     action={true}
-                    courses={data ?? ([] as (CourseJSON & IsObtainedCourse)[])}
+                    courses={safeData}
                     display={display}
                     requiredIsObtained={requiredIsObtained}
                 />

@@ -43,14 +43,24 @@ export type useCourseClassroomApi = {
 
 export default function useCourseClassroom(
     key: string,
-    courseID: number,
-    userID?: number
+    courseID: number | undefined,
+    userID: number | undefined
 ) {
     const queryFunction: () => Promise<useCourseClassroomApi> = async () => {
         try {
             const data = getDataLocalStorage(key);
             if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
+
+            if (!courseID)
+                throw new Error(
+                    "Ha habido un error al recuperar el ID del curso..."
+                );
+
+            if (!userID)
+                throw new Error(
+                    "Ha habido un error al recuperar el ID del usuario..."
+                );
 
             const obtainedCourse = getCourseById(data, courseID);
 

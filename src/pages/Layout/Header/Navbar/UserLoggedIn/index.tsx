@@ -7,6 +7,7 @@ import FigureImage from "../../../../../components/FigureImage";
 import HamburguerMenuButton from "../../HamburguerMenuButton";
 import { Dispatch, SetStateAction } from "react";
 import { asString } from "../../../../../utils/general";
+import { USER_DEFAULT_MSG } from "../../../../../consts/general";
 
 type Props = {
     handleSignOut: () => void;
@@ -40,15 +41,15 @@ function UserLoggedIn({ handleSignOut, setIsOpen }: Props) {
             <div className={styles.userData}>
                 <FigureImage
                     src={AVATAR_DEFAULT_IMAGE.image}
-                    alt={`${asString(user?.username) || "Usuario"} Avatar`}
-                    title={`${asString(user?.username) || "Usuario"} Avatar`}
+                    alt={asString(user?.username)}
+                    title={asString(user?.username)}
                     width={AVATAR_DEFAULT_IMAGE.width}
                     height={AVATAR_DEFAULT_IMAGE.height}
                     classNames={[styles.avatarImage]}
                 />
 
                 <p className={styles.username}>
-                    {asString(user?.username) || "Usuario"}
+                    {asString(user?.username) || USER_DEFAULT_MSG}
                 </p>
             </div>
             <Button

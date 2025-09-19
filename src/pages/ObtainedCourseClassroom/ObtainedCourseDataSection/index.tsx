@@ -9,7 +9,7 @@ import useCourseClassroom, {
     useCourseClassroomApi,
 } from "../../../hooks/useCourseClassroom";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
-import { asObject } from "../../../utils/general";
+import { asNumber, asObject } from "../../../utils/general";
 
 type Props = {};
 
@@ -35,8 +35,8 @@ function ObtainedCourseDataSection({}: Props) {
 
     let { data, isLoading, error } = useCourseClassroom(
         DATABASE_KEY,
-        Number(params?.id),
-        user?.userID
+        asNumber(Number(params?.id)),
+        asNumber(user?.userID)
     );
 
     const safeData = asObject<useCourseClassroomApi>(data);

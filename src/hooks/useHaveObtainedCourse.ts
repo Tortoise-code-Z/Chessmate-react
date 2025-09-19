@@ -20,8 +20,8 @@ import { PATHS } from "../consts/paths";
  */
 
 export default function useHaveObtainedCourse(
-    courseID: number,
-    userID: number,
+    courseID: number | undefined,
+    userID: number | undefined,
     key: string
 ) {
     const { setPath, setReset } = useFeedbackMessageStore();
@@ -31,12 +31,18 @@ export default function useHaveObtainedCourse(
         if (!data)
             throw new Error("Ha habido un problema al recuperar los datos...");
 
+        if (!userID)
+            throw new Error("Ha habido un problema al recuperar los datos...");
+
+        if (!courseID)
+            throw new Error("Ha habido un problema al recuperar los datos...");
+
         const userCourses = getUserObtainedCourses(userID, data);
-        const haveCourse = userCourses.some(
+        const haveCourse = userCourses?.some(
             (course) => course.courseId === courseID
         );
 
-        return haveCourse;
+        return !!haveCourse;
     };
 
     const { setMsg, setState, setType } = useFeedbackMessageStore();
@@ -47,7 +53,7 @@ export default function useHaveObtainedCourse(
     });
 
     useEffect(() => {
-        if (query.isSuccess && !query.data) {
+        if (query.isSuccess && !query.data && courseID) {
             setType("error");
             setMsg("Para acceder al curso primero debes comprarlo...");
             setState(true);

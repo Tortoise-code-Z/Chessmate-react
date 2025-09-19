@@ -5,10 +5,11 @@ import useCourseComments from "../../../hooks/useCourseComments";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import DataStateWrapper from "../../DataStateWrapperProps";
 import SecurityRendering from "../../SecurityRendering";
-import { Comments } from "../../../types/types";
+import { Comments, WarningMsgType } from "../../../types/types";
 import { useState } from "react";
 import WarningMsg from "../../WarningMsg";
 import MsgEmpty from "../../MsgEmpty";
+import { asArray, asNumber, isNumber, isString } from "../../../utils/general";
 type Props = {};
 
 /**
@@ -25,28 +26,44 @@ type Props = {};
 
 function UsersCommentBox({}: Props) {
     const params = useParams();
+
     const {
         data: comments,
         isLoading,
         error,
-    } = useCourseComments(DATABASE_KEY, Number(params.id));
-    const [warningComment, setWarningComment] = useState<string | null>(null);
+    } = useCourseComments(DATABASE_KEY, asNumber(Number(params.id)));
+
+    const safeData = asArray<Comments>(comments);
+
+    const [warningComment, setWarningComment] = useState<WarningMsgType | null>(
+        null
+    );
 
     return (
         <>
-            {warningComment && <WarningMsg msg={warningComment} />}
+            {(warningComment?.emptyMsg || warningComment?.msg) && (
+                <WarningMsg
+                    msg={
+                        warningComment?.emptyMsg
+                            ? warningComment.emptyMsg
+                            : warningComment.msg
+                    }
+                />
+            )}
+
             <ul className={styles.commentList}>
                 <DataStateWrapper isLoading={isLoading} error={error}>
                     <SecurityRendering<Comments>
-                        data={comments}
-                        conditions={comments?.map(
+                        data={safeData}
+                        conditions={safeData?.map(
                             (c) =>
-                                !!c?.id &&
-                                !!c?.idCourse &&
-                                (!!c?.user?.username || !!c?.text)
+                                isNumber(c?.id) &&
+                                isNumber(c?.idCourse) &&
+                                (isString(c?.user?.username) ||
+                                    isString(c?.text))
                         )}
-                        noCriticalConditions={comments?.map(
-                            (c) => !!c?.createdAt
+                        noCriticalConditions={safeData?.map((c) =>
+                            isString(c?.createdAt)
                         )}
                         state={{
                             setWarningState: setWarningComment,
@@ -66,7 +83,7 @@ function UsersCommentBox({}: Props) {
 
                             return (
                                 <UserCommentItem
-                                    key={comment.id || index}
+                                    key={asNumber(comment?.id) || index}
                                     comment={comment}
                                 />
                             );

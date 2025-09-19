@@ -4,7 +4,12 @@ import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import styles from "./BestPlayersContainer.module.css";
 import ChessTitle from "../../ChessTitle";
 import { asNumber, asString, isOnVaulues } from "../../../utils/general";
-import { CHESS_LEVEL } from "../../../consts/general";
+import {
+    CHESS_LEVEL,
+    RANK_DEFAULT_MSG,
+    SCORE_DEFAULT_MSG,
+    USER_DEFAULT_MSG,
+} from "../../../consts/general";
 
 type Props = {
     data: BestPlayerChessData;
@@ -29,7 +34,7 @@ function BestPlayersContainer({ data }: Props) {
             <div>
                 <div className={styles.userData}>
                     <p className={styles.username}>
-                        {asString(data?.username) || "Usuario"}
+                        {asString(data?.username) || USER_DEFAULT_MSG}
                     </p>
                     <ChessTitle
                         title={isOnVaulues<ChessLevel>(
@@ -39,10 +44,10 @@ function BestPlayersContainer({ data }: Props) {
                     />
                 </div>
                 <p className={styles.userScore}>
-                    {asNumber(data?.score) || "N/A"}
+                    {asNumber(data?.score) || SCORE_DEFAULT_MSG}
                 </p>
                 <p className={styles.userRank}>
-                    Rank: {asNumber(data?.rank) || "N/A"}
+                    Rank: {asNumber(data?.rank) || RANK_DEFAULT_MSG}
                 </p>
             </div>
             <a

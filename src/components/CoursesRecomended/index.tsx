@@ -7,7 +7,7 @@ import styles from "./CoursesRecomended.module.css";
 import { ReactNode } from "react";
 import { DATABASE_KEY } from "../../consts/dataBaseKey";
 import TitleHx from "../TitleHx";
-import { asArray } from "../../utils/general";
+import { asArray, asNumber } from "../../utils/general";
 
 type Props = {
     titleContain: ReactNode;
@@ -39,8 +39,8 @@ function CoursesRecomended({
 }: Props) {
     const { data, isLoading, error } = useUnpurchasedCourses(
         DATABASE_KEY,
-        limit,
-        userID
+        asNumber(limit),
+        asNumber(userID)
     );
 
     const safeData = asArray<CourseJSON>(data);

@@ -1,4 +1,9 @@
-import { CourseJSON, IsObtainedCourse, Level } from "../../types/types";
+import {
+    CourseJSON,
+    IsObtainedCourse,
+    Level,
+    WarningMsgType,
+} from "../../types/types";
 import ItemCourseDisplay from "./ItemCourseDisplay";
 import styles from "./CoursesDisplay.module.css";
 import SecurityRendering from "../SecurityRendering";
@@ -6,6 +11,7 @@ import { ReactNode, useState } from "react";
 import WarningMsg from "../WarningMsg";
 import MsgEmpty from "../MsgEmpty";
 import {
+    asNumber,
     asObject,
     isNumber,
     isOnVaulues,
@@ -42,9 +48,8 @@ function CoursesDisplay({
     svg,
     requiredIsObtained = true,
 }: Props) {
-    const [warningCoursesMsg, setWarningCoursesMsg] = useState<string | null>(
-        null
-    );
+    const [warningCoursesMsg, setWarningCoursesMsg] =
+        useState<WarningMsgType | null>(null);
 
     const className = [
         display === "Col"
@@ -54,7 +59,16 @@ function CoursesDisplay({
 
     return (
         <>
-            {warningCoursesMsg && <WarningMsg msg={warningCoursesMsg} />}
+            {(warningCoursesMsg?.emptyMsg || warningCoursesMsg?.msg) && (
+                <WarningMsg
+                    msg={
+                        warningCoursesMsg?.emptyMsg
+                            ? warningCoursesMsg.emptyMsg
+                            : warningCoursesMsg.msg
+                    }
+                />
+            )}
+
             <div className={className}>
                 <SecurityRendering<CourseJSON & IsObtainedCourse>
                     data={courses}
@@ -80,14 +94,14 @@ function CoursesDisplay({
                     msg="Algún curso o datos de este puede estar incompleto. Estamos trabajando para solucionarlo."
                     msgEmpty="No se han podido recuperar los cursos. Estamos trabajando en ellos para solucionarlo."
                 >
-                    {(course, _index, canRender) => {
+                    {(course, index, canRender) => {
                         const safeCourse = asObject<CourseJSON>(course);
 
                         if (safeCourse)
                             return (
                                 <ItemCourseDisplay
-                                    courseID={course.curseID}
-                                    key={course.curseID}
+                                    courseID={asNumber(course.curseID)}
+                                    key={asNumber(course.curseID) || index}
                                     action={action}
                                     data={course}
                                     display={display}

@@ -22,12 +22,20 @@ import {
  * @returns A React Query object containing comments and query status.
  */
 
-export default function useCourseComments(key: string, courseID: number) {
+export default function useCourseComments(
+    key: string,
+    courseID: number | undefined
+) {
     const queryFunction: () => Promise<Comments[]> = async () => {
         try {
             const data = getDataLocalStorage(key);
             if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
+
+            if (!courseID)
+                throw new Error(
+                    "Ha habido un error al recuperar el ID del curso..."
+                );
 
             const dataComments = getComments(data);
 

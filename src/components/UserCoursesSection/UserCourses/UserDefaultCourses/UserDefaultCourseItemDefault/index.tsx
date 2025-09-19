@@ -6,6 +6,7 @@ import FigureImage from "../../../../FigureImage";
 import { getImage, getImageSize } from "../../../../../utils/images";
 import { DEFAULT_DEFAULT_COURSE_IMAGE } from "../../../../../consts/images";
 import { asString } from "../../../../../utils/general";
+import { PIECE_TITLE_DEFAULT_MSG } from "../../../../../consts/general";
 
 type Props = {
     data: DefualtCourse & Progress;
@@ -33,14 +34,14 @@ function UserDefaultCourseItemDefault({ data }: Props) {
                 <FigureImage
                     otherImage={DEFAULT_DEFAULT_COURSE_IMAGE}
                     src={getImage(data?.imageUrl?.general, ["defaultCourses"])}
-                    alt={asString(data?.title) || "Pieza"}
-                    title={asString(data?.title) || "Pieza"}
+                    alt={asString(data?.title) || PIECE_TITLE_DEFAULT_MSG}
+                    title={asString(data?.title) || PIECE_TITLE_DEFAULT_MSG}
                     width={getImageSize(data?.imageUrl?.general, "height")}
                     height={getImageSize(data?.imageUrl?.general, "height")}
                 />
                 <div className={styles.desactivate}>Desactivado</div>
                 <TitleHx classNames={[styles.title]} level={4}>
-                    {asString(data?.title) || "Pieza"}
+                    {asString(data?.title) || PIECE_TITLE_DEFAULT_MSG}
                 </TitleHx>
             </div>
         </>

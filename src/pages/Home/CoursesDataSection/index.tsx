@@ -3,6 +3,7 @@ import LightComponent from "../../../components/LightComponent";
 import { coursesDataItem } from "../../../consts/home";
 import styles from "./CoursesDataSection.module.css";
 import TitleHx from "../../../components/TitleHx";
+import { asNumber } from "../../../utils/general";
 
 type Props = {};
 
@@ -34,7 +35,11 @@ function CoursesDataSection({}: Props) {
             </TitleHx>
             <div className={styles.itemsContainer}>
                 {coursesDataItem.map((c, index) => (
-                    <ItemCourseData index={index} key={c.id} item={c} />
+                    <ItemCourseData
+                        index={index}
+                        key={asNumber(c?.id) || index}
+                        item={c}
+                    />
                 ))}
             </div>
         </section>

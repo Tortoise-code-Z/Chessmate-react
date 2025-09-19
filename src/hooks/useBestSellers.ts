@@ -23,7 +23,7 @@ import {
 
 export default function useBestSeller(
     key: string,
-    limit: number,
+    limit: number | undefined,
     userID?: number
 ) {
     const queryFunction: () => Promise<
@@ -41,16 +41,16 @@ export default function useBestSeller(
             const filteredCourses = orderedMayorToMenorByKey(
                 courses,
                 "sales"
-            ).slice(0, limit);
+            ).slice(0, limit || 5);
 
             return filteredCourses.map((course) => ({
                 ...course,
-                isObtained: userCourses?.some(
-                    (uc) => uc.courseId === course.curseID
-                ),
+                isObtained: userID
+                    ? userCourses?.some((uc) => uc.courseId === course.curseID)
+                    : false,
             }));
         } catch (error) {
-            console.log(error);
+            console.error(error);
             throw error;
         }
     };

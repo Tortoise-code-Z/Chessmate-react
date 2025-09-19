@@ -1,5 +1,8 @@
 import TitleHx from "../../../../components/TitleHx";
-import { DEFAULT_COURSES_VALUES } from "../../../../consts/general";
+import {
+    DEFAULT_COURSES_VALUES,
+    DESCRIPTION_DEFAULT_MSG,
+} from "../../../../consts/general";
 import { Course, TitleLevel } from "../../../../types/types";
 import { asString } from "../../../../utils/general";
 import styles from "./CourseDescription.module.css";
@@ -28,8 +31,7 @@ function CourseDescription({ data, level }: Props) {
         <div className={[styles.descriptionSection].join(" ")}>
             <TitleHx level={level}>Descripción</TitleHx>
             <p>
-                {asString(data?.detailDescription) ||
-                    DEFAULT_COURSES_VALUES.detailDescription}
+                {asString(data?.detailDescription) || DESCRIPTION_DEFAULT_MSG}
             </p>
         </div>
     );

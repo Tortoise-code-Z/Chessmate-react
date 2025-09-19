@@ -42,6 +42,7 @@ function Home({}: Props) {
     return (
         <>
             <ProfessorFixedMessage />
+
             <Hero />
             <CoursesDataSection />
             <SignupCallToAction />

@@ -9,8 +9,6 @@ export const LOGO_IMAGE: Images = {
     alt: "Chessmate",
 };
 
-console.log(LOGO_IMAGE, getImage(LOGO_URL_PATH, ["static"]), LOGO_URL_PATH);
-
 export const AVATAR_DEFAULT_URL_PATH =
     "static-image-avatar-default_640x640_.png";
 export const AVATAR_DEFAULT_IMAGE: Images = {

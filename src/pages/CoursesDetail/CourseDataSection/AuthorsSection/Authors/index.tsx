@@ -5,6 +5,7 @@ import {
     ChessLevel,
     Course,
     IsObtainedCourse,
+    WarningMsgType,
 } from "../../../../../types/types";
 import AuthorsItem from "../AuthorItem";
 import styles from "./Authors.module.css";
@@ -17,6 +18,7 @@ import {
     isString,
 } from "../../../../../utils/general";
 import { CHESS_LEVEL } from "../../../../../consts/general";
+import MsgEmpty from "../../../../../components/MsgEmpty";
 
 type Props = {
     data: (Course & IsObtainedCourse) | undefined;
@@ -35,14 +37,24 @@ type Props = {
  */
 
 function Authors({ data }: Props) {
-    const [authorWarning, setAuthorWarning] = useState<string | null>(null);
+    const [authorWarning, setAuthorWarning] = useState<WarningMsgType | null>(
+        null
+    );
     return (
         <>
-            {authorWarning && <WarningMsg msg={authorWarning} />}
+            {(authorWarning?.emptyMsg || authorWarning?.msg) && (
+                <WarningMsg
+                    msg={
+                        authorWarning?.emptyMsg
+                            ? authorWarning.emptyMsg
+                            : authorWarning.msg
+                    }
+                />
+            )}
             <div className={styles.authorsItemsContainer}>
                 <SecurityRendering<AuthorCurseData>
                     data={data?.authors}
-                    conditions={data?.authors.map(
+                    conditions={data?.authors?.map(
                         (a) =>
                             isString(a?.name) &&
                             isNumber(a?.elo) &&
@@ -53,6 +65,7 @@ function Authors({ data }: Props) {
                         warningState: authorWarning,
                     }}
                     msg="No ha sido posible rescatar la información de algún autor. Pronto lo solucionaremos."
+                    emptyNode={<MsgEmpty msg="No hay autores para mostrar." />}
                 >
                     {(author, index, canRender) => {
                         if (!canRender)

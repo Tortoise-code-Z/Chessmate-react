@@ -4,7 +4,14 @@ import { PATHS } from "../../../../consts/paths";
 import { CourseJSON, IsObtainedCourse, Level } from "../../../../types/types";
 import styles from "./BannerCard.module.css";
 import TitleHx from "../../../../components/TitleHx";
-import { DEFAULT_COURSES_VALUES, LEVELS } from "../../../../consts/general";
+import {
+    DEFAULT_COURSES_VALUES,
+    DESCRIPTION_DEFAULT_MSG,
+    LEVEL_DEFAULT_MSG,
+    LEVELS,
+    PRICE_DEFAULT_MSG,
+    TITLE_DEFAULT_MSG,
+} from "../../../../consts/general";
 import {
     asBoolean,
     asNumber,
@@ -31,15 +38,15 @@ type Props = {
  */
 
 function BannerCard({ data }: Props) {
-    console.log("data?.isObtained", data?.isObtained);
     const navigate = useNavigate();
     const bannerCardHandleClick = () => {
-        navigate(
-            `/${PATHS.coursesDetail.replace(
-                ":id",
-                data ? data?.curseID?.toString() : ""
-            )}`
-        );
+        if (isNumber(data?.curseID))
+            navigate(
+                `/${PATHS.coursesDetail.replace(
+                    ":id",
+                    data.curseID.toString()
+                )}`
+            );
     };
 
     return (
@@ -49,11 +56,11 @@ function BannerCard({ data }: Props) {
         >
             <div className={styles.courseData}>
                 <TitleHx level={1}>
-                    {asString(data?.title) || DEFAULT_COURSES_VALUES.title}
+                    {asString(data?.title) || TITLE_DEFAULT_MSG}
                 </TitleHx>
                 <p className={styles.description}>
                     {asString(data?.shortDescription) ||
-                        DEFAULT_COURSES_VALUES.shortDescription}
+                        DESCRIPTION_DEFAULT_MSG}
                 </p>
                 <span
                     className={[
@@ -63,12 +70,12 @@ function BannerCard({ data }: Props) {
                     ].join(" ")}
                 >
                     {isOnVaulues<Level>(data?.level, LEVELS) ||
-                        DEFAULT_COURSES_VALUES.level}
+                        LEVEL_DEFAULT_MSG}
                 </span>
                 <p className={styles.price}>
                     {isNumber(data?.price)
                         ? `${data.price}$`
-                        : DEFAULT_COURSES_VALUES.price}
+                        : PRICE_DEFAULT_MSG}
                 </p>
             </div>
 

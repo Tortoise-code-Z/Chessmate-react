@@ -10,9 +10,6 @@ export const getObtainedState = (
     return undefined;
 };
 
-// export const isString = (value: unknown): string | undefined =>
-//     typeof value === "string" ? value : undefined;
-
 export const isOnVaulues = <T>(
     value: unknown,
     values: readonly T[]
@@ -20,34 +17,10 @@ export const isOnVaulues = <T>(
     return values.includes(value as T) ? (value as T) : undefined;
 };
 
-// export const isNumber = (value: unknown): number | undefined =>
-//     typeof value === "number" ? value : undefined;
-
-// export const isBoolean = (value: unknown): boolean | undefined =>
-//     typeof value === "boolean" ? value : undefined;
-
-// export const isArray = <T>(value: unknown): T[] | undefined =>
-//     Array.isArray(value) ? (value as T[]) : undefined;
-
-// export const isObject = (value: unknown): Record<string, unknown> | undefined =>
-//     value !== null && typeof value === "object" && !Array.isArray(value)
-//         ? (value as Record<string, unknown>)
-//         : undefined;
-
-// export const isNull = (value: unknown): null | undefined =>
-//     value === null ? value : undefined;
-
-// export const isFunction = (value: unknown) =>
-//     typeof value === "function" ? value : undefined;
-
 export const regExpCheck = (value: unknown, regex: RegExp): boolean => {
     if (typeof value !== "string") return false;
     return regex.test(value);
 };
-
-// ---------------------
-// TYPE GUARDS (isX)
-// ---------------------
 
 export function isString(value: unknown): value is string {
     return typeof value === "string";
@@ -68,10 +41,6 @@ export function isArray<T>(value: unknown): value is T[] {
 export function isObject(value: unknown): value is Record<string, unknown> {
     return value !== null && typeof value === "object" && !Array.isArray(value);
 }
-
-// ---------------------
-// HELPER (asX)
-// ---------------------
 
 export function asString(value: unknown): string | undefined {
     return isString(value) ? value : undefined;

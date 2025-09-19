@@ -5,6 +5,7 @@ import useHaveObtainedCourse from "../../hooks/useHaveObtainedCourse";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import { DATABASE_KEY } from "../../consts/dataBaseKey";
 import { ReactNode } from "react";
+import { asNumber } from "../../utils/general";
 
 type Props = {
     children: ReactNode;
@@ -30,9 +31,9 @@ function ProtectedCourse({ children }: Props) {
     const params = useParams();
     const { user } = useUserAuthStore();
 
-    const { data, isLoading } = useHaveObtainedCourse(
-        Number(params.id),
-        user?.userID as number,
+    const { data, isLoading, error } = useHaveObtainedCourse(
+        null,
+        asNumber(user?.userID),
         DATABASE_KEY
     );
 

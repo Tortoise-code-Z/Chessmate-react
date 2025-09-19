@@ -6,7 +6,7 @@ import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import useRecentCourses from "../../../hooks/useRecentCourses";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import { CourseJSON, IsObtainedCourse } from "../../../types/types";
-import { asArray } from "../../../utils/general";
+import { asArray, asNumber } from "../../../utils/general";
 import styles from "./RecentCoursesSection.module.css";
 
 type Props = {};
@@ -33,9 +33,10 @@ type Props = {};
 
 function RecentCoursesSection({}: Props) {
     const { user } = useUserAuthStore();
+
     const { data, isLoading, error } = useRecentCourses(
         DATABASE_KEY,
-        user?.userID
+        asNumber(user?.userID)
     );
 
     const safeData = asArray<CourseJSON & IsObtainedCourse>(data);
@@ -52,7 +53,11 @@ function RecentCoursesSection({}: Props) {
             </TitleHx>
 
             <DataStateWrapper isLoading={isLoading} error={error}>
-                <CoursesDisplay courses={safeData} display="Row" />
+                <CoursesDisplay
+                    courses={safeData}
+                    display="Row"
+                    requiredIsObtained={user ? true : false}
+                />
             </DataStateWrapper>
         </section>
     );

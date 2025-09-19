@@ -1,6 +1,13 @@
-import { DEFAULT_COMMENTS_VALUES } from "../../../../consts/general";
+import {
+    CHESS_LEVEL,
+    DATE_DEFAULT_MSG,
+    DEFAULT_COMMENTS_VALUES,
+    DESCRIPTION_DEFAULT_MSG,
+    USER_DEFAULT_MSG,
+} from "../../../../consts/general";
 import { AVATAR_DEFAULT_IMAGE } from "../../../../consts/images";
-import { Comments } from "../../../../types/types";
+import { ChessLevel, Comments } from "../../../../types/types";
+import { asString, isOnVaulues } from "../../../../utils/general";
 import ChessTitle from "../../../ChessTitle";
 import FigureImage from "../../../FigureImage";
 import styles from "./UserCommentItem.module.css";
@@ -27,25 +34,30 @@ function UserCommentItem({ comment }: Props) {
             <div className={styles.userData}>
                 <FigureImage
                     src={AVATAR_DEFAULT_IMAGE.image}
-                    alt={comment?.user?.username}
-                    title={comment?.user?.username}
+                    alt={asString(comment?.user?.username)}
+                    title={asString(comment?.user?.username)}
                     width={AVATAR_DEFAULT_IMAGE.width}
                     height={AVATAR_DEFAULT_IMAGE.height}
                 />
 
                 <p className={styles.username}>
-                    {comment?.user?.username ||
-                        DEFAULT_COMMENTS_VALUES.user.username}
+                    {asString(comment?.user?.username) || USER_DEFAULT_MSG}
                 </p>
                 <div>
-                    <ChessTitle size="Small" title={comment?.user?.title} />
+                    <ChessTitle
+                        size="Small"
+                        title={isOnVaulues<ChessLevel>(
+                            comment?.user?.title,
+                            CHESS_LEVEL
+                        )}
+                    />
                 </div>
             </div>
             <p className={styles.createdAt}>
-                {comment?.createdAt || DEFAULT_COMMENTS_VALUES.createdAt}
+                {asString(comment?.createdAt) || DATE_DEFAULT_MSG}
             </p>
             <p className={styles.commentText}>
-                {comment?.text || DEFAULT_COMMENTS_VALUES.text}
+                {asString(comment?.text) || DESCRIPTION_DEFAULT_MSG}
             </p>
         </li>
     );

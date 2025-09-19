@@ -42,6 +42,7 @@ function Login({}: Props) {
     return (
         <>
             <FeedbackMessage position="top" time="infinite" />
+
             <section className={styles.login}>
                 <div className={styles.logoContainer}>
                     <TitleHx>Iniciar sesión</TitleHx>

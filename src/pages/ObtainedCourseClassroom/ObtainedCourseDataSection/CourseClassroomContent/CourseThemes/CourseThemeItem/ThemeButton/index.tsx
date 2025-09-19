@@ -8,7 +8,11 @@ import {
     ThemesUserStatesOC,
 } from "../../../../../../../types/types";
 import TitleHx from "../../../../../../../components/TitleHx";
-import { DEFAULT_COURSES_VALUES } from "../../../../../../../consts/general";
+import {
+    DEFAULT_COURSES_VALUES,
+    DESCRIPTION_DEFAULT_MSG,
+    TITLE_DEFAULT_MSG,
+} from "../../../../../../../consts/general";
 import CheckSvgComponent from "../../../../../../../components/CheckSvgComponent";
 import {
     asArray,
@@ -60,7 +64,7 @@ function ThemeButton({
             onClick={() =>
                 videosIndex === asNumber(theme?.id)
                     ? setVideosIndex(null)
-                    : setVideosIndex(theme.id)
+                    : setVideosIndex(asNumber(theme?.id) || null)
             }
         >
             <div className={styles.themeData}>
@@ -70,7 +74,7 @@ function ThemeButton({
                     )}
                 >
                     <TitleHx classNames={[styles.themeTitle]} level={3}>
-                        {asString(theme?.title) || DEFAULT_COURSES_VALUES.title}
+                        {asString(theme?.title) || TITLE_DEFAULT_MSG}
                     </TitleHx>
 
                     {isArray<SubthemesUserStatesOC>(
@@ -87,8 +91,7 @@ function ThemeButton({
                 </div>
 
                 <p className={styles.themeDescription}>
-                    {asString(theme?.description) ||
-                        DEFAULT_COURSES_VALUES.shortDescription}
+                    {asString(theme?.description) || DESCRIPTION_DEFAULT_MSG}
                 </p>
             </div>
             <FaChevronDown

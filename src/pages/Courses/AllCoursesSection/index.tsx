@@ -45,6 +45,7 @@ type Props = {};
 function AllCoursesSection({}: Props) {
     const [search, setSearch] = useState<string>("");
     const [filter, setFilter] = useState<FilterOptions | undefined>();
+
     const { user } = useUserAuthStore();
 
     const { data, isLoading, error } = useAllCourses(
@@ -83,6 +84,7 @@ function AllCoursesSection({}: Props) {
                     display="Row"
                     msg={"No se han encontrado cursos..."}
                     svg={<FaHandsPraying />}
+                    requiredIsObtained={user ? true : false}
                 />
             </DataStateWrapper>
         </section>

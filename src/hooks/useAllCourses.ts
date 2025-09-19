@@ -52,7 +52,7 @@ export default function useAllCourses(
 
             return [] as (CourseJSON & IsObtainedCourse)[];
         } catch (error) {
-            console.log(error);
+            console.error(error);
             throw error;
         }
     };

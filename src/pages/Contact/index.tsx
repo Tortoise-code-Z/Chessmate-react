@@ -19,6 +19,7 @@ function Contact({}: Props) {
     return (
         <>
             <FeedbackMessage />
+
             <section className={styles.contact}>
                 <div className={styles.imageContact}>
                     <TitleHx level={1}>

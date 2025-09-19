@@ -11,7 +11,7 @@ import CheckSvgComponent from "../../../../components/CheckSvgComponent";
 import { asBoolean, asNumber, asString } from "../../../../utils/general";
 type Props = {
     classNames?: string[];
-    title: string;
+    title: string | undefined;
     setShowVideo: Dispatch<SetStateAction<VideoData | null>>;
     videoData: VideoData;
 };

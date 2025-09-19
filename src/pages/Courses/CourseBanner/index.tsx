@@ -27,6 +27,7 @@ type Props = {};
 
 function CourseBanner({}: Props) {
     const { user } = useUserAuthStore();
+
     const { data, isLoading, error } = useBannerCourse(
         DATABASE_KEY,
         asNumber(user?.userID)

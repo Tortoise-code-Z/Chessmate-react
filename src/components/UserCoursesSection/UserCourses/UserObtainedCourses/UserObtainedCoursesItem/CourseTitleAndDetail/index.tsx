@@ -6,7 +6,10 @@ import { CourseJSON, Progress } from "../../../../../../types/types";
 import TitleHx from "../../../../../TitleHx";
 import Button from "../../../../../Button";
 import { PATHS } from "../../../../../../consts/paths";
-import { DEFAULT_COURSES_VALUES } from "../../../../../../consts/general";
+import {
+    DEFAULT_COURSES_VALUES,
+    TITLE_DEFAULT_MSG,
+} from "../../../../../../consts/general";
 import { asString } from "../../../../../../utils/general";
 
 type Props = {
@@ -28,7 +31,7 @@ function CourseTitleAndDetail({ data }: Props) {
     return (
         <div className={styles.container}>
             <TitleHx level={4} classNames={[styles.title]}>
-                {asString(data?.title) || DEFAULT_COURSES_VALUES.title}
+                {asString(data?.title) || TITLE_DEFAULT_MSG}
             </TitleHx>
 
             <Button

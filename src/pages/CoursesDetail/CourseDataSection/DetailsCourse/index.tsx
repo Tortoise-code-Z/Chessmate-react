@@ -1,11 +1,17 @@
 import { ReactNode, useState } from "react";
-import { Course, Theme, ToLearnTheme } from "../../../../types/types";
+import { Course, Theme, WarningMsgType } from "../../../../types/types";
 import styles from "./DetailsCourse.module.css";
 import TitleHx from "../../../../components/TitleHx";
 import { DEFAULT_COURSES_VALUES } from "../../../../consts/general";
-import WarningMsg from "../../../../components/WarningMsg";
 import SecurityRendering from "../../../../components/SecurityRendering";
-import { asNumber, asString, isString } from "../../../../utils/general";
+import {
+    asNumber,
+    asString,
+    isNumber,
+    isString,
+} from "../../../../utils/general";
+import MsgEmpty from "../../../../components/MsgEmpty";
+import WarningMsg from "../../../../components/WarningMsg";
 
 type Props = {
     data: Course | undefined;
@@ -29,81 +35,91 @@ type Props = {
  * @returns JSX element rendering the detailed course section with themes and descriptions.
  */
 
-function DetailsCourse({ data, titleContain, type = "content" }: Props) {
+function DetailsCourse({ data, titleContain, type }: Props) {
     const typeData = type === "content" ? "content" : "toLearn";
-    const [warningDetail, setWarningDetail] = useState<string | null>(null);
+
+    const [warningDetailContent, setWarningDetailContent] =
+        useState<WarningMsgType | null>(null);
+    const [warningDetailLearn, setWarningDetailLearn] =
+        useState<WarningMsgType | null>(null);
+
+    const commonNoCriticalConditions = data?.[typeData]?.themes?.map((t) =>
+        isString(t?.title)
+    );
+
+    const commonConditions = [
+        data?.[typeData]?.themes?.map((t) => isNumber(t?.id)) || false,
+        data?.[typeData]?.detailDescription?.map((t) => isString(t)) || false,
+    ].flat();
+
+    const commonState = {
+        setWarningState:
+            typeData === "content"
+                ? setWarningDetailContent
+                : setWarningDetailLearn,
+        warningState:
+            typeData === "content" ? warningDetailContent : warningDetailLearn,
+    };
+
+    const commonMsg =
+        "Algunos datos no se han podido recuperar. Estamos trabajando en ello.";
+
+    const commonEmptyMsg =
+        "No se han podido recuperar los datos. Estamos trabajando en ello.";
 
     return (
         <div className={styles.detailsCourse}>
             <TitleHx level={2}>{titleContain}</TitleHx>
 
-            {warningDetail && <WarningMsg msg={warningDetail} />}
+            {(warningDetailContent?.emptyMsg || warningDetailContent?.msg) && (
+                <WarningMsg
+                    msg={
+                        warningDetailContent?.emptyMsg
+                            ? warningDetailContent.emptyMsg
+                            : warningDetailContent.msg
+                    }
+                />
+            )}
 
             <ul className={styles.themesList}>
-                {typeData === "content" ? (
-                    <SecurityRendering<Theme>
-                        data={data?.[typeData]?.themes}
-                        conditions={data?.[typeData]?.themes.map((t) =>
-                            isString(t?.title)
-                        )}
-                        state={{
-                            setWarningState: setWarningDetail,
-                            warningState: warningDetail,
-                        }}
-                        msg="Algunos datos sobre los temas no se han podido recuperar. Estamos trabajando en ello."
-                    >
-                        {(theme, index, _canRender) => {
-                            return (
-                                <li
-                                    className={styles.contentItem}
-                                    key={asNumber(theme?.id) || index}
-                                >
-                                    {asString(theme?.title) ||
-                                        DEFAULT_COURSES_VALUES[typeData].themes
-                                            .title}
-                                </li>
-                            );
-                        }}
-                    </SecurityRendering>
-                ) : (
-                    <SecurityRendering<ToLearnTheme>
-                        data={data?.[typeData]?.themes}
-                        conditions={data?.[typeData]?.themes.map(
-                            (t) => !!t.title
-                        )}
-                        state={{
-                            setWarningState: setWarningDetail,
-                            warningState: warningDetail,
-                        }}
-                        msg="Algunos datos sobre los puntos a aprender no se han podido recuperar. Estamos trabajando en ello."
-                    >
-                        {(theme, index, _canRender) => {
-                            return (
-                                <li
-                                    className={styles.toLearnItem}
-                                    key={theme.id || index}
-                                >
-                                    {theme?.title ||
-                                        DEFAULT_COURSES_VALUES[typeData].themes
-                                            .title}
-                                </li>
-                            );
-                        }}
-                    </SecurityRendering>
-                )}
+                <SecurityRendering<Omit<Theme, "content">>
+                    data={data?.[typeData]?.themes}
+                    conditions={commonConditions}
+                    noCriticalConditions={commonNoCriticalConditions}
+                    state={commonState}
+                    msg={commonMsg}
+                    msgEmpty={commonEmptyMsg}
+                    emptyNode={<MsgEmpty msg="No hay temas para este curso." />}
+                >
+                    {(theme, index, _canRender) => {
+                        return (
+                            <li
+                                className={
+                                    typeData === "content"
+                                        ? styles.contentItem
+                                        : styles.toLearnItem
+                                }
+                                key={asNumber(theme?.id) || index}
+                            >
+                                {asString(theme?.title) ||
+                                    DEFAULT_COURSES_VALUES[typeData].themes
+                                        .title}
+                            </li>
+                        );
+                    }}
+                </SecurityRendering>
             </ul>
 
             <div className={styles.description}>
                 <SecurityRendering<string>
                     data={data?.[typeData]?.detailDescription}
-                    conditions={data?.[typeData]?.detailDescription.map(
-                        (t) => !!t
-                    )}
-                    state={{
-                        setWarningState: setWarningDetail,
-                        warningState: warningDetail,
-                    }}
-                    msg="Algunos datos no se han podido recuperar. Estamos trabajando en ello."
+                    conditions={commonConditions}
+                    noCriticalConditions={commonNoCriticalConditions}
+                    state={commonState}
+                    msg={commonMsg}
+                    msgEmpty={commonEmptyMsg}
+                    sameState={true}
+                    emptyNode={<MsgEmpty msg="Sin descripción." />}
                 >
                     {(description, index, canRender) => {
                         if (!canRender) return null;

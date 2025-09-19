@@ -24,7 +24,7 @@ import {
 
 export default function useDefaultCourses(
     key: string,
-    userID: number,
+    userID: number | undefined,
     currentCourseID?: number
 ) {
     const queryFunction: () => Promise<
@@ -34,6 +34,11 @@ export default function useDefaultCourses(
             const data = getDataLocalStorage(key);
             if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
+
+            if (!userID)
+                throw new Error(
+                    "Ha habido un error al recuperar el ID del usuario..."
+                );
 
             const user = getUserById(userID, data);
 

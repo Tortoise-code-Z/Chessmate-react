@@ -10,13 +10,14 @@ import UserObtainedItemDefault from "./UserObtainedItemDefault";
 import { Dispatch, SetStateAction } from "react";
 import SecurityRendering from "../../../SecurityRendering";
 import {
-    ChessLevel,
     CourseJSON,
     Level,
     Progress,
+    WarningMsgType,
 } from "../../../../types/types";
 import {
     asArray,
+    asNumber,
     isNumber,
     isOnVaulues,
     isString,
@@ -26,8 +27,8 @@ import { LEVELS } from "../../../../consts/general";
 type Props = {
     obtainedCoursesLimit?: number;
     msg?: string;
-    setCourseWarning: Dispatch<SetStateAction<string | null>>;
-    courseWarning: string | null;
+    setCourseWarning: Dispatch<SetStateAction<WarningMsgType | null>>;
+    courseWarning: WarningMsgType | null;
 };
 
 /**
@@ -56,16 +57,12 @@ function UserObtainedCourses({
 
     const { data, isLoading, error } = useObtainedCourses(
         DATABASE_KEY,
-        user?.userID as number,
-        obtainedCoursesLimit,
-        Number(params.id)
+        asNumber(user?.userID),
+        asNumber(obtainedCoursesLimit),
+        asNumber(Number(params.id))
     );
 
     let safeData = asArray<CourseJSON & Progress>(data);
-
-    safeData = safeData?.map((s) =>
-        s.curseID === 5 ? { ...s, progress: 0 } : s
-    );
 
     return (
         <div className={styles.userObtainedCourses}>
@@ -76,12 +73,12 @@ function UserObtainedCourses({
                         setWarningState: setCourseWarning,
                         warningState: courseWarning,
                     }}
-                    conditions={safeData?.map((d) => !!d.curseID)}
+                    conditions={safeData?.map((d) => isNumber(d?.curseID))}
                     noCriticalConditions={safeData?.map(
                         (d) =>
                             isString(d?.title) &&
                             isNumber(d?.progress) &&
-                            !!isOnVaulues(d?.level, LEVELS as any) &&
+                            !!isOnVaulues<Level>(d?.level, LEVELS) &&
                             isString(d?.imageUrl?.thumb)
                     )}
                     emptyNode={<ThereArentCourses msg={msg} />}
@@ -90,7 +87,7 @@ function UserObtainedCourses({
                         if (!canRendered) {
                             return (
                                 <UserObtainedItemDefault
-                                    key={course.curseID || index}
+                                    key={asNumber(course?.curseID) || index}
                                     data={course}
                                 />
                             );
@@ -98,7 +95,7 @@ function UserObtainedCourses({
 
                         return (
                             <UserObtainedCoursesItem
-                                key={course.curseID || index}
+                                key={asNumber(course?.curseID) || index}
                                 data={course}
                             />
                         );

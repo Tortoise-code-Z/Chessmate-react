@@ -31,6 +31,7 @@ function Register({}: Props) {
     return (
         <section className={styles.register}>
             <FeedbackMessage position="top" time="infinite" />
+
             <div className={styles.formContainer}>
                 <TitleHx classNames={[styles.title]}>
                     Regístrate

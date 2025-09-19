@@ -1,6 +1,8 @@
 import FigureImage from "../../../../components/FigureImage";
 import TitleHx from "../../../../components/TitleHx";
+import { DESCRIPTION_DEFAULT_MSG } from "../../../../consts/general";
 import { CourseDataItem } from "../../../../types/types";
+import { asString } from "../../../../utils/general";
 import { getImage, getImageSize } from "../../../../utils/images";
 import styles from "./ItemCourseData.module.css";
 
@@ -34,16 +36,16 @@ function ItemCourseData({ item, index }: Props) {
             ].join(" ")}
         >
             <FigureImage
-                src={getImage(item.url, ["static"])}
-                alt={item.title}
-                title={item.title}
-                width={getImageSize(item.url, "width")}
-                height={getImageSize(item.url, "height")}
+                src={getImage(item?.url, ["static"])}
+                alt={asString(item?.title)}
+                title={asString(item?.title)}
+                width={getImageSize(item?.url, "width")}
+                height={getImageSize(item?.url, "height")}
             />
 
             <div>
                 <TitleHx level={3}>{item.title}</TitleHx>
-                <p>{item.description}</p>
+                <p>{asString(item?.description) || DESCRIPTION_DEFAULT_MSG}</p>
             </div>
         </div>
     );

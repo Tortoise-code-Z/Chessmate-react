@@ -68,11 +68,9 @@ export const getUserByUsername: (
 export const getUserObtainedCourses: (
     userID: number | undefined,
     data: BBDD
-) => ObtainedCourse[] = (userID, data) => {
-    return (
-        data.users?.find((u) => u.userID === userID)?.courses ||
-        ([] as ObtainedCourse[])
-    );
+) => ObtainedCourse[] | undefined = (userID, data) => {
+    if (!userID) return undefined;
+    return data.users?.find((u) => u.userID === userID)?.courses;
 };
 
 export const getUserDefaultCourses: (
@@ -184,26 +182,32 @@ const addIsObtained = (
     }));
 
 export const getAllCourses = (
-    userCourses: ObtainedCourse[],
+    userCourses: ObtainedCourse[] | undefined,
     data: BBDD
-): (CourseJSON & IsObtainedCourse)[] =>
-    addIsObtained(data.courses, userCourses);
+): (CourseJSON & IsObtainedCourse)[] => {
+    if (!userCourses)
+        return data?.courses || ([] as (CourseJSON & IsObtainedCourse)[]);
+    return addIsObtained(data.courses, userCourses);
+};
 
 export const getFilteredCourses = (
     filter: FilterOptions | undefined,
-    userCourses: ObtainedCourse[],
+    userCourses: ObtainedCourse[] | undefined,
     data: BBDD
 ): (CourseJSON & IsObtainedCourse)[] => {
     const coursesToMap =
         filter === "Todos"
             ? data.courses
             : data.courses.filter((c) => c.level === filter);
+
+    if (!userCourses)
+        return coursesToMap || ([] as (CourseJSON & IsObtainedCourse)[]);
     return addIsObtained(coursesToMap, userCourses);
 };
 
 export const getSearchedCourses = (
     search: string,
-    userCourses: ObtainedCourse[],
+    userCourses: ObtainedCourse[] | undefined,
     data: BBDD
 ): (CourseJSON & IsObtainedCourse)[] => {
     const searchLower = search.toLowerCase();
@@ -213,6 +217,8 @@ export const getSearchedCourses = (
             c.shortDescription.toLowerCase().includes(searchLower) ||
             c.level.toLowerCase().includes(searchLower)
     );
+    if (!userCourses)
+        return searchedCourses || ([] as (CourseJSON & IsObtainedCourse)[]);
     return addIsObtained(searchedCourses, userCourses);
 };
 

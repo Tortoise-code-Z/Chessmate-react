@@ -71,10 +71,7 @@ function CourseClassroomContent({ data }: Props) {
             {showVideo && (
                 <VideoReproductor
                     setShowVideo={() => setShowVideo(null)}
-                    title={
-                        asString(showVideo?.subthemeContent?.title) ||
-                        DEFAULT_COURSES_VALUES.title
-                    }
+                    title={showVideo?.subthemeContent?.title}
                     classNames={[styles.videoItem]}
                     videoData={showVideo}
                 />

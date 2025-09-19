@@ -1,6 +1,10 @@
 import ChessTitle from "../../../../../components/ChessTitle";
 import FigureImage from "../../../../../components/FigureImage";
-import { DEFAULT_AUTHORS_VALUE } from "../../../../../consts/general";
+import {
+    AUTHOR_DEFAULT_MSG,
+    DESCRIPTION_DEFAULT_MSG,
+    ELO_DEFAULT_MSG,
+} from "../../../../../consts/general";
 import { DEFAULT_AUTHOR_IMAGE } from "../../../../../consts/images";
 import { AuthorCurseData } from "../../../../../types/types";
 import { asString, isString } from "../../../../../utils/general";
@@ -43,18 +47,17 @@ function AuthorsItem({ author }: Props) {
             <div className={styles.authorItemData}>
                 <div className={styles.data}>
                     <p className={styles.name}>
-                        {asString(author?.name) || DEFAULT_AUTHORS_VALUE.name}
+                        {asString(author?.name) || AUTHOR_DEFAULT_MSG}
                     </p>
                     <ChessTitle title={author?.level} />
                     <p className={styles.elo}>
                         {isString(author?.elo)
-                            ? `${author?.elo} ELO`
-                            : DEFAULT_AUTHORS_VALUE.elo}
+                            ? `${author.elo} ELO`
+                            : ELO_DEFAULT_MSG}
                     </p>
                 </div>
                 <p className={styles.description}>
-                    {asString(author?.description) ||
-                        DEFAULT_AUTHORS_VALUE.description}
+                    {asString(author?.description) || DESCRIPTION_DEFAULT_MSG}
                 </p>
             </div>
         </div>

@@ -417,3 +417,8 @@ export type VideoData = {
     userThemeData: SubthemesUserStatesOC | undefined;
     themeID: number | undefined;
 };
+
+export type WarningMsgType = {
+    emptyMsg: string | undefined;
+    msg: string | undefined;
+};

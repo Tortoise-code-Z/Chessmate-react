@@ -20,12 +20,15 @@ export default function useUserEmail(key: string, userID: number | undefined) {
             const data = getDataLocalStorage(key);
             if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
-            if (!userID)
-                throw new Error(
-                    "Ha habido un error al recuperar el ID del usuario..."
-                );
+
+            if (!userID) return "";
 
             const user = getUserById(userID, data);
+
+            if (!user)
+                throw new Error(
+                    "Ha habido un error al recuperar el usuario..."
+                );
 
             return user?.email || "";
         } catch (error) {

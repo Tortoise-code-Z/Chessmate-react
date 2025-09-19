@@ -1,6 +1,11 @@
 import ChessTitle from "../../../../../components/ChessTitle";
 import FigureImage from "../../../../../components/FigureImage";
-import { DEFAULT_AUTHORS_VALUE } from "../../../../../consts/general";
+import {
+    AUTHOR_DEFAULT_MSG,
+    DEFAULT_AUTHORS_VALUE,
+    DESCRIPTION_DEFAULT_MSG,
+    ELO_DEFAULT_MSG,
+} from "../../../../../consts/general";
 import { DEFAULT_AUTHOR_IMAGE } from "../../../../../consts/images";
 import styles from "./AuthorDefault.module.css";
 
@@ -37,13 +42,11 @@ function AuthorDefault({}: Props) {
 
             <div className={styles.authorItemData}>
                 <div className={styles.data}>
-                    <p className={styles.name}>{DEFAULT_AUTHORS_VALUE.name}</p>
+                    <p className={styles.name}>{AUTHOR_DEFAULT_MSG}</p>
                     <ChessTitle title={undefined} />
-                    <p className={styles.elo}>{DEFAULT_AUTHORS_VALUE.elo}</p>
+                    <p className={styles.elo}>{ELO_DEFAULT_MSG}</p>
                 </div>
-                <p className={styles.description}>
-                    {DEFAULT_AUTHORS_VALUE.description}
-                </p>
+                <p className={styles.description}>{DESCRIPTION_DEFAULT_MSG}</p>
             </div>
         </div>
     );

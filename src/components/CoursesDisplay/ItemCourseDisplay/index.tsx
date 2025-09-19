@@ -1,12 +1,19 @@
 import { useNavigate } from "react-router-dom";
-import { CourseJSON, IsObtainedCourse } from "../../../types/types";
+import { CourseJSON, IsObtainedCourse, Level } from "../../../types/types";
 import { getImage, getImageSize } from "../../../utils/images";
 import { PATHS } from "../../../consts/paths";
 import styles from "./ItemCourseDisplay.module.css";
 import PurchaseAction from "../../PurchaseAction";
 import TitleHx from "../../TitleHx";
 import FigureImage from "../../FigureImage";
-import { DEFAULT_COURSES_VALUES, LEVELS } from "../../../consts/general";
+import {
+    DEFAULT_COURSES_VALUES,
+    DESCRIPTION_DEFAULT_MSG,
+    LEVEL_DEFAULT_MSG,
+    LEVELS,
+    PRICE_DEFAULT_MSG,
+    TITLE_DEFAULT_MSG,
+} from "../../../consts/general";
 import {
     asBoolean,
     asNumber,
@@ -20,7 +27,7 @@ type Props = {
     data: CourseJSON & IsObtainedCourse;
     requiredIsObtained: boolean;
     display?: "Row" | "Col";
-    courseID: number;
+    courseID: number | undefined;
     canNavigate?: boolean;
 };
 
@@ -47,14 +54,13 @@ function ItemCourseDisplay({
     const navigate = useNavigate();
 
     const handleClickCard = () => {
-        canNavigate
-            ? navigate(
-                  `/${PATHS.coursesDetail.replace(
-                      ":id",
-                      data.curseID.toString()
-                  )}`
-              )
-            : null;
+        if (canNavigate && courseID)
+            navigate(
+                `/${PATHS.coursesDetail.replace(
+                    ":id",
+                    data.curseID.toString()
+                )}`
+            );
     };
 
     return (
@@ -78,15 +84,15 @@ function ItemCourseDisplay({
             <div className={styles.itemDataContainer}>
                 <div className={styles.itemData}>
                     <TitleHx level={3}>
-                        {asString(data?.title) || DEFAULT_COURSES_VALUES.title}
+                        {asString(data?.title) || TITLE_DEFAULT_MSG}
                     </TitleHx>
                     <p className={styles.description}>
                         {asString(data?.shortDescription) ||
-                            DEFAULT_COURSES_VALUES.shortDescription}
+                            DESCRIPTION_DEFAULT_MSG}
                     </p>
                     <p className={styles.level}>
-                        {isOnVaulues(data?.level, LEVELS as any) ||
-                            DEFAULT_COURSES_VALUES.level}
+                        {isOnVaulues<Level>(data?.level, LEVELS) ||
+                            LEVEL_DEFAULT_MSG}
                     </p>
                 </div>
                 {action && (
@@ -104,7 +110,7 @@ function ItemCourseDisplay({
                         <p className={styles.price}>
                             {isNumber(data?.price)
                                 ? `${data.price}$`
-                                : DEFAULT_COURSES_VALUES.price}
+                                : PRICE_DEFAULT_MSG}
                         </p>
                     </div>
                 )}

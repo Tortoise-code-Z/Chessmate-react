@@ -44,10 +44,10 @@ function CourseDataSection({}: Props) {
     const { user } = useUserAuthStore();
     const params = useParams();
 
-    let { data, isLoading, error } = useCourse(
+    const { data, isLoading, error } = useCourse(
         DATABASE_KEY,
         asNumber(Number(params?.id)),
-        user?.userID
+        asNumber(user?.userID)
     );
 
     const safeData = asObject<Course & IsObtainedCourse>(data);

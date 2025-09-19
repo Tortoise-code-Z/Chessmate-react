@@ -41,43 +41,41 @@ function PurchaseButton({
         setState(true);
         if (!user) return setValue("cantCommentSesion");
         if (!isNumber(courseID)) return setValue("noID");
-        if (asBoolean(isObtained)) return setValue("isObtained");
+        if (!isBoolean(isObtained)) return setValue("isObtained");
         if (asBoolean(canBuy)) return setValue("noPrice");
     };
 
     return (
-        <>
-            <Button
-                variant={!isBoolean(isObtained) ? "Warning" : "Primary"}
-                disabled={disabled}
-                propagation={false}
-                onClick={
-                    user &&
-                    asBoolean(canBuy) &&
-                    isNumber(courseID) &&
-                    isBoolean(isObtained)
-                        ? () =>
-                              mutate({
-                                  courseID: courseID,
-                                  userID: user?.userID,
-                              })
-                        : cantBuyCourse
-                }
-            >
-                {isPending ? (
-                    "Comprando..."
-                ) : (
-                    <>
-                        {isBoolean(isObtained) ? (
-                            <HiMiniShoppingBag />
-                        ) : (
-                            <FaExclamationTriangle />
-                        )}
-                        Comprar
-                    </>
-                )}
-            </Button>
-        </>
+        <Button
+            variant={!isBoolean(isObtained) ? "Warning" : "Primary"}
+            disabled={disabled}
+            propagation={false}
+            onClick={
+                user &&
+                asBoolean(canBuy) &&
+                isNumber(courseID) &&
+                isBoolean(isObtained)
+                    ? () =>
+                          mutate({
+                              courseID: courseID,
+                              userID: user?.userID,
+                          })
+                    : cantBuyCourse
+            }
+        >
+            {isPending ? (
+                "Comprando..."
+            ) : (
+                <>
+                    {isBoolean(isObtained) ? (
+                        <HiMiniShoppingBag />
+                    ) : (
+                        <FaExclamationTriangle />
+                    )}
+                    Comprar
+                </>
+            )}
+        </Button>
     );
 }
 

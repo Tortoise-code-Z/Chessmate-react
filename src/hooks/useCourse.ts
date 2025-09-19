@@ -34,7 +34,7 @@ import { isNumber } from "../utils/general";
 export default function useCourse(
     key: string,
     courseID: number | undefined,
-    userID?: number
+    userID: number | undefined
 ) {
     const queryFunction: () => Promise<
         Course & IsObtainedCourse
@@ -44,14 +44,9 @@ export default function useCourse(
             if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
 
-            if (!courseID && !isNumber(courseID))
+            if (!courseID)
                 throw new Error(
                     "Ha habido un error al recuperar el ID del curso..."
-                );
-
-            if (userID && !isNumber(userID))
-                throw new Error(
-                    "Ha habido un error al recuperar el ID del usuario..."
                 );
 
             const obtainedCourse = getCourseById(data, courseID);
@@ -69,9 +64,11 @@ export default function useCourse(
             return {
                 ...obtainedCourse,
                 authors: [...courseAuthorsData],
-                isObtained: userCourses?.some(
-                    (course) => course.courseId === obtainedCourse.curseID
-                ),
+                isObtained: userID
+                    ? userCourses?.some(
+                          (course) => course.courseId === obtainedCourse.curseID
+                      )
+                    : false,
             };
         } catch (error) {
             console.error(error);

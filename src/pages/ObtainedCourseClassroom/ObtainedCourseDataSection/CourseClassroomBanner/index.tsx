@@ -1,6 +1,9 @@
 import FigureImage from "../../../../components/FigureImage";
 import TitleHx from "../../../../components/TitleHx";
-import { DEFAULT_COURSES_VALUES } from "../../../../consts/general";
+import {
+    DEFAULT_COURSES_VALUES,
+    TITLE_DEFAULT_MSG,
+} from "../../../../consts/general";
 import { useCourseClassroomApi } from "../../../../hooks/useCourseClassroom";
 import { asString } from "../../../../utils/general";
 
@@ -31,8 +34,7 @@ function CourseClassroomBanner({ data }: Props) {
             <div className={styles.titleContainer}>
                 <p>Bienvenido a tu curso</p>
                 <TitleHx>
-                    {asString(data?.course?.title) ||
-                        DEFAULT_COURSES_VALUES.title}
+                    {asString(data?.course?.title) || TITLE_DEFAULT_MSG}
                 </TitleHx>
             </div>
 

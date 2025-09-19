@@ -4,6 +4,7 @@ import {
     deleteKey,
     getDataLocalStorage,
     getUserById,
+    getUserObtainedCourses,
     orderedMayorToMenorByKey,
 } from "../api";
 
@@ -22,7 +23,7 @@ import {
 
 export default function useUnpurchasedCourses(
     key: string,
-    limit: number,
+    limit: number | undefined,
     userID?: number
 ) {
     const queryFunction: () => Promise<
@@ -37,16 +38,13 @@ export default function useUnpurchasedCourses(
             const courses = orderedMayorToMenorByKey(data.courses, "sales");
 
             if (userID) {
-                const user = getUserById(userID, data);
-                if (!user)
-                    throw new Error(
-                        "Ha habido un error al recuperar los datos..."
-                    );
-
-                const userCoursesIds = user.courses.map((item) => {
+                const userCoursesIds = getUserObtainedCourses(
+                    userID,
+                    data
+                )?.map((item) => {
                     const rest = deleteKey(item, "progress");
                     return rest.courseId;
-                });
+                }) as number[];
 
                 const finalCourses =
                     userCoursesIds.length > 0
@@ -62,7 +60,10 @@ export default function useUnpurchasedCourses(
                 }));
             }
 
-            return courses.slice(0, limit);
+            return courses.slice(0, limit).map((fc) => ({
+                ...fc,
+                isObtained: false,
+            }));
         } catch (error) {
             console.log(error);
             throw error;

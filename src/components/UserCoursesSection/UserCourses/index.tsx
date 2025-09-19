@@ -5,6 +5,7 @@ import TitleHx from "../../TitleHx";
 import UserObtainedCourses from "./UserObtainedCourses";
 import { useState } from "react";
 import WarningMsg from "../../WarningMsg";
+import { WarningMsgType } from "../../../types/types";
 
 type Props = {
     obtainedCoursesLimit?: number;
@@ -37,17 +38,29 @@ function UserCourses({
     showDefaultCourses = true,
     msg,
 }: Props) {
-    const [defaultWarning, setDefaultWarning] = useState<string | null>(null);
-    const [courseWarning, setCourseWarning] = useState<string | null>(null);
+    const [defaultWarning, setDefaultWarning] = useState<WarningMsgType | null>(
+        null
+    );
+    const [courseWarning, setCourseWarning] = useState<WarningMsgType | null>(
+        null
+    );
 
     return (
         <div className={styles.userCourses}>
             <LightComponent top={50} right={30} />
             {showDefaultCourses && (
                 <div className={styles.userDefaultCoursesContainer}>
-                    {defaultWarning && <WarningMsg msg={defaultWarning} />}
-
                     <TitleHx level={3}>Gratuitos</TitleHx>
+
+                    {(defaultWarning?.emptyMsg || defaultWarning?.msg) && (
+                        <WarningMsg
+                            msg={
+                                defaultWarning?.emptyMsg
+                                    ? defaultWarning.emptyMsg
+                                    : defaultWarning.msg
+                            }
+                        />
+                    )}
                     <UserDefaultCourses
                         setDefaultWarning={setDefaultWarning}
                         defaultWarning={defaultWarning}
@@ -57,8 +70,16 @@ function UserCourses({
 
             {showObtainedCourses && (
                 <div className={styles.userObtainedCoursesContainer}>
-                    {courseWarning && <WarningMsg msg={courseWarning} />}
                     <TitleHx level={3}>Adquiridos</TitleHx>
+                    {(courseWarning?.emptyMsg || courseWarning?.msg) && (
+                        <WarningMsg
+                            msg={
+                                courseWarning?.emptyMsg
+                                    ? courseWarning.emptyMsg
+                                    : courseWarning.msg
+                            }
+                        />
+                    )}
                     <UserObtainedCourses
                         setCourseWarning={setCourseWarning}
                         courseWarning={courseWarning}

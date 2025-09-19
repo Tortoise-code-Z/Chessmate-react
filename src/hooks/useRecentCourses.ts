@@ -26,6 +26,7 @@ export default function useRecentCourses(key: string, userID?: number) {
     > = async () => {
         try {
             const data = getDataLocalStorage(key);
+
             if (!data)
                 throw new Error("Ha habido un error al recuperar los datos...");
 
