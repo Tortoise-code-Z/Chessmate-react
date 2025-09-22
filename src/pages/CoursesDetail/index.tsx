@@ -34,7 +34,7 @@ function CoursesDetail({}: Props) {
     return (
         <>
             <ProfessorFixedMessage />
-            <FeedbackMessage />
+            <FeedbackMessage time={8000} />
 
             <CourseDataSection />
             <CourseCommentSection />

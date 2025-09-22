@@ -4,8 +4,9 @@ import { PATHS } from "../../consts/paths";
 import useHaveObtainedCourse from "../../hooks/useHaveObtainedCourse";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import { DATABASE_KEY } from "../../consts/dataBaseKey";
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import { asNumber } from "../../utils/general";
+import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
 
 type Props = {
     children: ReactNode;
@@ -31,15 +32,67 @@ function ProtectedCourse({ children }: Props) {
     const params = useParams();
     const { user } = useUserAuthStore();
 
+    const { setPath, setReset, setMsg, setState, setType } =
+        useFeedbackMessageStore();
+
+    useEffect(() => {
+        if (!user) {
+            setType("error");
+            setMsg("Para acceder al curso primero debes iniciar sesión...");
+            setState(true);
+            setReset(false);
+            setPath(`/${PATHS.coursesDetail.replace(":id", `${params.id}`)}`);
+        }
+    }, [setType, setMsg, setState, user, params.id]);
+
+    if (!user) {
+        return (
+            <Navigate
+                to={`/${PATHS.coursesDetail.replace(
+                    ":id",
+                    `${Number(params.id)}`
+                )}`}
+            />
+        );
+    }
+
     const { data, isLoading, error } = useHaveObtainedCourse(
-        null,
+        asNumber(Number(params.id)),
         asNumber(user?.userID),
         DATABASE_KEY
     );
 
+    useEffect(() => {
+        if (!data && !error) {
+            setType("error");
+            setMsg("Para acceder al curso primero debes comprarlo...");
+            setState(true);
+            setReset(false);
+            setPath(
+                `/${PATHS.coursesDetail.replace(
+                    ":id",
+                    `${Number(params.id)}`.toString()
+                )}`
+            );
+        }
+
+        if (error) {
+            setType("error");
+            setMsg("Ha habido un error al intentar acceder al curso...");
+            setState(true);
+            setReset(false);
+            setPath(
+                `/${PATHS.coursesDetail.replace(
+                    ":id",
+                    `${Number(params.id)}`.toString()
+                )}`
+            );
+        }
+    }, [data, setType, setMsg, setState, error]);
+
     if (isLoading) return <LoadingPage msg="Cargando curso..." />;
 
-    if (!data) {
+    if (!data || error) {
         return (
             <Navigate
                 to={`/${PATHS.coursesDetail.replace(

@@ -14,9 +14,7 @@ function ProtectedLayoutAndCourse({ checkProtectedCourse = true }: Props) {
                     <Layout />
                 </ProtectedCourse>
             ) : (
-                <>
-                    <Layout />
-                </>
+                <Layout />
             )}
         </CourseExists>
     );

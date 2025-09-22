@@ -24,17 +24,16 @@ export default function useHaveObtainedCourse(
     userID: number | undefined,
     key: string
 ) {
-    const { setPath, setReset } = useFeedbackMessageStore();
-
     const queryFunction = async (): Promise<boolean> => {
         const data = getDataLocalStorage(key);
+
         if (!data)
             throw new Error("Ha habido un problema al recuperar los datos...");
 
-        if (!userID)
+        if (!courseID)
             throw new Error("Ha habido un problema al recuperar los datos...");
 
-        if (!courseID)
+        if (!userID)
             throw new Error("Ha habido un problema al recuperar los datos...");
 
         const userCourses = getUserObtainedCourses(userID, data);
@@ -45,24 +44,10 @@ export default function useHaveObtainedCourse(
         return !!haveCourse;
     };
 
-    const { setMsg, setState, setType } = useFeedbackMessageStore();
-
     const query = useQuery({
         queryKey: ["haveCourse", userID, courseID],
         queryFn: queryFunction,
     });
-
-    useEffect(() => {
-        if (query.isSuccess && !query.data && courseID) {
-            setType("error");
-            setMsg("Para acceder al curso primero debes comprarlo...");
-            setState(true);
-            setReset(false);
-            setPath(
-                `/${PATHS.coursesDetail.replace(":id", courseID.toString())}`
-            );
-        }
-    }, [query.isSuccess, query.data, setType, setMsg, setState]);
 
     return query;
 }
