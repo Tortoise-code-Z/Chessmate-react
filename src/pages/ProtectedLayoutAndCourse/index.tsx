@@ -9,13 +9,7 @@ type Props = {
 function ProtectedLayoutAndCourse({ checkProtectedCourse = true }: Props) {
     return (
         <CourseExists>
-            {checkProtectedCourse ? (
-                <ProtectedCourse>
-                    <Layout />
-                </ProtectedCourse>
-            ) : (
-                <Layout />
-            )}
+            {checkProtectedCourse ? <ProtectedCourse /> : <Layout />}
         </CourseExists>
     );
 }

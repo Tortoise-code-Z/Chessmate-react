@@ -4,7 +4,7 @@ import { PATHS } from "../../consts/paths";
 import { DATABASE_KEY } from "../../consts/dataBaseKey";
 import useCourseExists from "../../hooks/useExistsCourse";
 import { ReactNode, useEffect } from "react";
-import { asNumber } from "../../utils/general";
+import { asNumber, isBoolean } from "../../utils/general";
 import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
 
 type Props = {
@@ -27,8 +27,7 @@ type Props = {
 function CourseExists({ children }: Props) {
     const params = useParams();
 
-    const { setPath, setReset, setMsg, setState, setType } =
-        useFeedbackMessageStore();
+    const { setPath, setMsg, setState, setType } = useFeedbackMessageStore();
 
     const { data, isLoading, error } = useCourseExists(
         asNumber(Number(params.id)),
@@ -36,11 +35,10 @@ function CourseExists({ children }: Props) {
     );
 
     useEffect(() => {
-        if (!data) {
+        if (isBoolean(data) && !data) {
             setType("error");
             setMsg("No se ha encontrado el curso que buscas...");
             setState(true);
-            setReset(false);
             setPath(`/${PATHS.courses}`);
         }
 
@@ -48,7 +46,6 @@ function CourseExists({ children }: Props) {
             setType("error");
             setMsg("Ha habido un error al intentar acceder al curso...");
             setState(true);
-            setReset(false);
             setPath(`/${PATHS.courses}`);
         }
     }, [data, setType, setMsg, setState, error]);

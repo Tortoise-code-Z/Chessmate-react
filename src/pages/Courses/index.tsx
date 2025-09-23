@@ -4,6 +4,7 @@ import CourseBanner from "./CourseBanner";
 import RecentCoursesSection from "./RecentCoursesSection";
 import FeedbackMessage from "../../components/FeedbackMessage";
 import ProfessorFixedMessage from "../../components/ProfessorFixedMessage";
+import FeedbackListener from "../../components/FeedbackListener";
 
 type Props = {};
 
@@ -25,6 +26,7 @@ type Props = {};
 function Courses({}: Props) {
     return (
         <>
+            <FeedbackListener />
             <ProfessorFixedMessage />
             <FeedbackMessage />
 

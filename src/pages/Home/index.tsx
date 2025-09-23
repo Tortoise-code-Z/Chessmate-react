@@ -1,4 +1,4 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import { PATHS } from "../../consts/paths";
 import Hero from "./Hero";
@@ -9,6 +9,9 @@ import CloseHomeSection from "./CloseHomeSection";
 import BestPlayersSection from "../../components/BestPlayersSection";
 import UsersOpinionSection from "./UsersOpinionSection";
 import ProfessorFixedMessage from "../../components/ProfessorFixedMessage";
+import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
+import { useEffect } from "react";
+import FeedbackListener from "../../components/FeedbackListener";
 
 type Props = {};
 
@@ -39,8 +42,22 @@ function Home({}: Props) {
         return <Navigate to={`/${PATHS.dashboard}`} replace />;
     }
 
+    const { state, path, setPath, setState } = useFeedbackMessageStore();
+    const location = useLocation();
+
+    console.log("path", path);
+    console.log("location.pathname", location.pathname);
+
+    useEffect(() => {
+        if (state && path !== location.pathname) {
+            setState(false);
+            setPath("");
+        }
+    }, [state, path, setState, setPath]);
+
     return (
         <>
+            <FeedbackListener />
             <ProfessorFixedMessage />
 
             <Hero />

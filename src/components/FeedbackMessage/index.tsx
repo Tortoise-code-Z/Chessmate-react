@@ -23,18 +23,8 @@ type Props = {
  */
 
 function FeedbackMessage({ position = "bottom", time = 5000 }: Props) {
-    const {
-        msg,
-        type,
-        reset,
-        setMsg,
-        setReset,
-        setState,
-        setType,
-        state,
-        path,
-        setPath,
-    } = useFeedbackMessageStore();
+    const { msg, type, setMsg, setState, setType, setPath, state, path } =
+        useFeedbackMessageStore();
 
     const location = useLocation();
 
@@ -44,9 +34,9 @@ function FeedbackMessage({ position = "bottom", time = 5000 }: Props) {
         if (time !== "infinite") {
             timeout = setTimeout(() => {
                 setState(false);
-                if (!reset) setReset(true);
                 setMsg("");
                 setType(null);
+                setPath("");
             }, time);
         }
 
@@ -54,12 +44,6 @@ function FeedbackMessage({ position = "bottom", time = 5000 }: Props) {
             clearTimeout(timeout);
         };
     }, [state]);
-
-    useEffect(() => {
-        if (reset) {
-            setPath("");
-        }
-    }, [location.pathname, reset]);
 
     return (
         <>

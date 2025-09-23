@@ -6,6 +6,7 @@ import FigureImage from "../../components/FigureImage";
 import LoginForm from "./LoginForm";
 import FeedbackMessage from "../../components/FeedbackMessage";
 import TitleHx from "../../components/TitleHx";
+import FeedbackListener from "../../components/FeedbackListener";
 
 type Props = {};
 
@@ -41,6 +42,7 @@ function Login({}: Props) {
 
     return (
         <>
+            <FeedbackListener />
             <FeedbackMessage position="top" time="infinite" />
 
             <section className={styles.login}>

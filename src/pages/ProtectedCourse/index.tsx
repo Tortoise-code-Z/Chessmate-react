@@ -1,16 +1,10 @@
-import { Navigate, useParams } from "react-router-dom";
 import LoadingPage from "../../components/LoadingPage";
-import { PATHS } from "../../consts/paths";
-import useHaveObtainedCourse from "../../hooks/useHaveObtainedCourse";
-import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
-import { DATABASE_KEY } from "../../consts/dataBaseKey";
-import { ReactNode, useEffect } from "react";
-import { asNumber } from "../../utils/general";
-import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
+import useUserAuth from "../../hooks/UseUserAuth";
+import ErrorElement from "../ErrorElement";
+import IsAutorizedToCourse from "../IsAutorizedToCourse";
+import Layout from "../Layout";
 
-type Props = {
-    children: ReactNode;
-};
+type Props = {};
 
 /**
  * ProtectedCourse component that guards access to a course classroom based on user enrollment.
@@ -28,82 +22,22 @@ type Props = {
  * @returns JSX element rendering either the loading state, a redirect, or the protected course content.
  */
 
-function ProtectedCourse({ children }: Props) {
-    const params = useParams();
-    const { user } = useUserAuthStore();
+function ProtectedCourse({}: Props) {
+    const {
+        query: { isLoading, error },
+    } = useUserAuth();
 
-    const { setPath, setReset, setMsg, setState, setType } =
-        useFeedbackMessageStore();
+    if (!isLoading) return <LoadingPage msg="Revisando sesión..." />;
 
-    useEffect(() => {
-        if (!user) {
-            setType("error");
-            setMsg("Para acceder al curso primero debes iniciar sesión...");
-            setState(true);
-            setReset(false);
-            setPath(`/${PATHS.coursesDetail.replace(":id", `${params.id}`)}`);
-        }
-    }, [setType, setMsg, setState, user, params.id]);
-
-    if (!user) {
-        return (
-            <Navigate
-                to={`/${PATHS.coursesDetail.replace(
-                    ":id",
-                    `${Number(params.id)}`
-                )}`}
-            />
-        );
+    if (error) {
+        return <ErrorElement msg={error} />;
     }
 
-    const { data, isLoading, error } = useHaveObtainedCourse(
-        asNumber(Number(params.id)),
-        asNumber(user?.userID),
-        DATABASE_KEY
+    return (
+        <IsAutorizedToCourse>
+            <Layout />
+        </IsAutorizedToCourse>
     );
-
-    useEffect(() => {
-        if (!data && !error) {
-            setType("error");
-            setMsg("Para acceder al curso primero debes comprarlo...");
-            setState(true);
-            setReset(false);
-            setPath(
-                `/${PATHS.coursesDetail.replace(
-                    ":id",
-                    `${Number(params.id)}`.toString()
-                )}`
-            );
-        }
-
-        if (error) {
-            setType("error");
-            setMsg("Ha habido un error al intentar acceder al curso...");
-            setState(true);
-            setReset(false);
-            setPath(
-                `/${PATHS.coursesDetail.replace(
-                    ":id",
-                    `${Number(params.id)}`.toString()
-                )}`
-            );
-        }
-    }, [data, setType, setMsg, setState, error]);
-
-    if (isLoading) return <LoadingPage msg="Cargando curso..." />;
-
-    if (!data || error) {
-        return (
-            <Navigate
-                to={`/${PATHS.coursesDetail.replace(
-                    ":id",
-                    `${Number(params.id)}`
-                )}`}
-            />
-        );
-    }
-
-    return <>{children}</>;
 }
 
 export default ProtectedCourse;

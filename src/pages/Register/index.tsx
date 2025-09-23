@@ -6,6 +6,7 @@ import FigureImage from "../../components/FigureImage";
 import RegisterForm from "./RegisterForm";
 import FeedbackMessage from "../../components/FeedbackMessage";
 import TitleHx from "../../components/TitleHx";
+import FeedbackListener from "../../components/FeedbackListener";
 
 type Props = {};
 
@@ -30,6 +31,7 @@ function Register({}: Props) {
 
     return (
         <section className={styles.register}>
+            <FeedbackListener />
             <FeedbackMessage position="top" time="infinite" />
 
             <div className={styles.formContainer}>

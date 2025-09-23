@@ -1,3 +1,4 @@
+import FeedbackListener from "../../components/FeedbackListener";
 import FeedbackMessage from "../../components/FeedbackMessage";
 import TitleHx from "../../components/TitleHx";
 import styles from "./Contact.module.css";
@@ -18,6 +19,7 @@ type Props = {};
 function Contact({}: Props) {
     return (
         <>
+            <FeedbackListener />
             <FeedbackMessage />
 
             <section className={styles.contact}>
