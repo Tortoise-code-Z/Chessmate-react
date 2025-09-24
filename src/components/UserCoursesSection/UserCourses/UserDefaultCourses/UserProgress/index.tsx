@@ -19,23 +19,28 @@ type Props = {
  */
 
 function UserProgress({ data }: Props) {
+    const progress = (data: DefualtCourse & Progress) => {
+        if (isNumber(data?.progress)) {
+            if (data.progress > 0) return `${data.progress}%`;
+            return "";
+        }
+        return `${data.progress}%`;
+    };
     return (
         <>
             <div
                 className={[
                     styles.progress,
-                    isNumber(data?.progress) && data.progress < 100
+                    isNumber(data?.progress) &&
+                    data.progress < 100 &&
+                    data.progress > 0
                         ? styles.bccInProgress
                         : !data.progress
                         ? ""
                         : styles.bccCompleted,
                 ].join(" ")}
             >
-                <span>
-                    {isNumber(data?.progress) && data.progress > 0
-                        ? `${data.progress}%`
-                        : "N/A"}
-                </span>
+                <span>{progress(data)}</span>
             </div>
         </>
     );
