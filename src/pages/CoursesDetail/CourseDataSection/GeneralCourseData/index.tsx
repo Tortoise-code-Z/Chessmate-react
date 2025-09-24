@@ -18,6 +18,8 @@ import {
     isNumber,
     isOnVaulues,
 } from "../../../../utils/general";
+import { NavLink } from "react-router-dom";
+import { PATHS } from "../../../../consts/paths";
 
 type Props = {
     data: (Course & IsObtainedCourse) | undefined;
@@ -71,12 +73,24 @@ function GeneralCourseData({ data }: Props) {
                             : PRICE_DEFAULT_MSG}
                     </p>
                 </div>
-
-                <PurchaseAction
-                    canBuy={isNumber(data?.price)}
-                    courseID={asNumber(data?.curseID)}
-                    isObtained={asBoolean(data?.isObtained)}
-                />
+                <div className={styles.actions}>
+                    {data?.isObtained && (
+                        <NavLink
+                            className={["button", "buttonPrimary"].join(" ")}
+                            to={`/${PATHS.obtainedCourseClassroom.replace(
+                                ":id",
+                                data.curseID.toString()
+                            )}`}
+                        >
+                            Ir al curso
+                        </NavLink>
+                    )}
+                    <PurchaseAction
+                        canBuy={isNumber(data?.price)}
+                        courseID={asNumber(data?.curseID)}
+                        isObtained={asBoolean(data?.isObtained)}
+                    />
+                </div>
             </div>
         </div>
     );

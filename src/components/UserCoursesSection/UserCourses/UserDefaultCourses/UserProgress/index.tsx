@@ -1,5 +1,5 @@
 import { DefualtCourse, Progress } from "../../../../../types/types";
-import { asNumber, isNumber } from "../../../../../utils/general";
+import { isNumber } from "../../../../../utils/general";
 import styles from "./UserProgress.module.css";
 
 type Props = {
@@ -26,23 +26,22 @@ function UserProgress({ data }: Props) {
         }
         return `${data.progress}%`;
     };
+
     return (
-        <>
-            <div
-                className={[
-                    styles.progress,
-                    isNumber(data?.progress) &&
-                    data.progress < 100 &&
-                    data.progress > 0
-                        ? styles.bccInProgress
-                        : !data.progress
-                        ? ""
-                        : styles.bccCompleted,
-                ].join(" ")}
-            >
-                <span>{progress(data)}</span>
-            </div>
-        </>
+        <div
+            className={[
+                styles.progress,
+                isNumber(data?.progress) &&
+                data.progress < 100 &&
+                data.progress > 0
+                    ? styles.bccInProgress
+                    : !data.progress
+                    ? ""
+                    : styles.bccCompleted,
+            ].join(" ")}
+        >
+            <span>{progress(data)}</span>
+        </div>
     );
 }
 
