@@ -142,17 +142,6 @@ export type DefualtCourse = BaseCourse & {
     content: ContentDefaultCourseData;
 };
 
-export type DefaultValuesDefaultCourses = Omit<
-    DefualtCourse,
-    "imageUrl" | "content" | "curseID" | "level"
-> &
-    Omit<Progress, "progress"> & { progress: string } & {
-        content: Omit<ContentDefaultCourseData, "themes"> & {
-            themes: Omit<ThemeDefaultCourses, "id" | "images">;
-        };
-        level: string;
-    };
-
 //
 
 // Courses
@@ -168,33 +157,6 @@ export type Course = BaseCourse & {
     toLearn: ToLearnCurseData;
     authors: AuthorCurseData[];
 };
-
-export type DefaultCourseValues = Omit<
-    Course,
-    | "authors"
-    | "imageUrl"
-    | "level"
-    | "toLearn"
-    | "content"
-    | "curseID"
-    | "price"
-    | "createdAt"
-> &
-    Omit<Progress, "progress"> & { progress: string } & {
-        createdAt: string | undefined;
-        level: string;
-        toLearn: Omit<ToLearnCurseData, "themes" | "detailDescription"> & {
-            themes: Omit<ToLearnTheme, "id">;
-            detailDescription: string;
-        };
-        content: Omit<ContentCurseData, "themes" | "detailDescription"> & {
-            themes: Omit<Theme, "id" | "content"> & {
-                content: Omit<SubthemeContent, "id" | "cover" | "video">;
-            };
-            detailDescription: string;
-        };
-        price: string;
-    };
 
 export type SubthemeContent = {
     id: number;
@@ -334,26 +296,6 @@ export type Comments = {
     createdAt: string;
 };
 
-export type DefaultCommentsValue = Omit<
-    Comments,
-    "user" | "id" | "idCourse"
-> & {
-    user: Omit<
-        User,
-        | "userID"
-        | "isFirstLogin"
-        | "elo"
-        | "title"
-        | "password"
-        | "defaultCourses"
-        | "courses"
-        | "email"
-    > & {
-        elo: string;
-        title: string;
-    };
-};
-
 //
 //
 //
@@ -421,4 +363,9 @@ export type VideoData = {
 export type WarningMsgType = {
     emptyMsg: string | undefined;
     msg: string | undefined;
+};
+
+export type UserDataApi = {
+    required: boolean;
+    userID?: number;
 };

@@ -1,11 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
-import { Comments } from "../types/types";
+import { BBDD, Comments } from "../types/types";
 import {
     deleteKey,
     getComments,
     getDataLocalStorage,
     getUserById,
 } from "../api";
+import {
+    ERROR_GET_COURSE_ID_MSG,
+    ERROR_GET_DATA_MSG,
+    ERROR_GET_USER_ID_MSG,
+} from "../consts/api";
 
 /**
  * useCourseComments - Custom React hook to fetch comments for a specific course.
@@ -28,25 +33,18 @@ export default function useCourseComments(
 ) {
     const queryFunction: () => Promise<Comments[]> = async () => {
         try {
-            const data = getDataLocalStorage(key);
-            if (!data)
-                throw new Error("Ha habido un error al recuperar los datos...");
+            const data = getDataLocalStorage<BBDD>(key);
 
-            if (!courseID)
-                throw new Error(
-                    "Ha habido un error al recuperar el ID del curso..."
-                );
+            if (!data) throw new Error(ERROR_GET_DATA_MSG);
+            if (!courseID) throw new Error(ERROR_GET_COURSE_ID_MSG);
 
             const dataComments = getComments(data);
 
             const comments = dataComments.map((c) => {
                 const user = getUserById(c.idUser, data);
-                if (!user)
-                    throw new Error(
-                        "Ha habido un error al recuperar los datos..."
-                    );
-                const rest = deleteKey(c, "idUser");
+                if (!user) throw new Error(ERROR_GET_USER_ID_MSG);
 
+                const rest = deleteKey(c, "idUser");
                 return { ...rest, user };
             });
 
@@ -58,7 +56,7 @@ export default function useCourseComments(
                     return aData - bData;
                 });
         } catch (error) {
-            console.log(error);
+            console.error(error);
             throw error;
         }
     };

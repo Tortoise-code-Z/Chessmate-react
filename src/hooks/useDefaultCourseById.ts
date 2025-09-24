@@ -1,10 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
-import { UseCourseApiType } from "../types/types";
+import { BBDD, UseCourseApiType } from "../types/types";
 import {
     getDataLocalStorage,
     getDefaultCourse,
     getUserDefaultCourseThemes,
 } from "../api";
+import {
+    ERROR_GET_COURSE_ID_MSG,
+    ERROR_GET_COURSE_MSG,
+    ERROR_GET_DATA_MSG,
+    ERROR_GET_THEMES_ID_MSG,
+    ERROR_GET_USER_ID_MSG,
+} from "../consts/api";
 
 /**
  * useDefaultCourseById - Custom hook to fetch a default course by its ID along with the user's progress.
@@ -35,33 +42,30 @@ export default function useDefaultCourseById(
 ) {
     const queryFunction: () => Promise<UseCourseApiType> = async () => {
         try {
-            const data = getDataLocalStorage(key);
-            if (!data)
-                throw new Error("Ha habido un error al recuperar los datos...");
+            const data = getDataLocalStorage<BBDD>(key);
 
-            if (!userID)
-                throw new Error(
-                    "Ha habido un error al recuperar el ID del usuario..."
-                );
+            if (!data) throw new Error(ERROR_GET_DATA_MSG);
+            if (!userID) throw new Error(ERROR_GET_USER_ID_MSG);
+            if (!courseID) throw new Error(ERROR_GET_COURSE_ID_MSG);
 
-            if (!courseID)
-                throw new Error(
-                    "Ha habido un error al recuperar el ID del curso.."
-                );
+            const course = getDefaultCourse(data, courseID);
+            if (!course) throw new Error(ERROR_GET_COURSE_MSG);
 
-            const courses = getDefaultCourse(data, courseID);
             const userDefaultCourseThemes = getUserDefaultCourseThemes(
                 data,
                 userID,
                 courseID
             );
 
+            if (!userDefaultCourseThemes)
+                throw new Error(ERROR_GET_THEMES_ID_MSG);
+
             return {
-                courses: courses,
+                courses: course,
                 userThemeStates: userDefaultCourseThemes,
             };
         } catch (error) {
-            console.log(error);
+            console.error(error);
             throw error;
         }
     };

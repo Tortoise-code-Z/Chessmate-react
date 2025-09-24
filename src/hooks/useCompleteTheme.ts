@@ -10,6 +10,7 @@ import { DATABASE_KEY } from "../consts/dataBaseKey";
 import { Dispatch, SetStateAction } from "react";
 import {
     getDataLocalStorage,
+    getUserById,
     getUserDefaultCourse,
     getUserDefaultCourses,
     getUsers,
@@ -17,6 +18,14 @@ import {
 } from "../api";
 import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
 import { useLocation } from "react-router-dom";
+import {
+    ERROR_GET_COURSE_ID_MSG,
+    ERROR_GET_COURSE_MSG,
+    ERROR_GET_COURSES_MSG,
+    ERROR_GET_DATA_MSG,
+    ERROR_GET_USER_ID_MSG,
+    ERROR_GET_USER_MSG,
+} from "../consts/api";
 
 type Variables = {
     themeID: number;
@@ -61,28 +70,30 @@ export function useCompleteTheme(
 
     const completeTheme = async ({ courseID, themeID, userID }: Variables) => {
         try {
-            const data = getDataLocalStorage(DATABASE_KEY);
-            if (!data)
-                throw new Error("Ha habido un error al recuperar los datos...");
+            const data = getDataLocalStorage<BBDD>(DATABASE_KEY);
 
-            if (!courseID)
-                throw new Error("No se ha podido identificar el curso.");
+            if (!data) throw new Error(ERROR_GET_DATA_MSG);
+            if (!courseID) throw new Error(ERROR_GET_COURSE_ID_MSG);
+            if (!userID) throw new Error(ERROR_GET_USER_ID_MSG);
 
-            if (!userID)
-                throw new Error("No se ha podido identificar el usuario.");
+            const user = getUserById(userID, data);
+            if (!user && userID) throw new Error(ERROR_GET_USER_MSG);
 
             const userDefaultCourse = getUserDefaultCourse(
                 userID,
                 courseID,
                 data
             );
+            if (!userDefaultCourse) throw new Error(ERROR_GET_COURSE_MSG);
 
             const userDefaultCourses = getUserDefaultCourses(userID, data);
+            if (!userDefaultCourses) throw new Error(ERROR_GET_COURSES_MSG);
+
             const users = getUsers(data);
 
             const newCourseData = {
                 ...userDefaultCourse,
-                themes: userDefaultCourse?.themes.map((theme) =>
+                themes: userDefaultCourse?.themes?.map((theme) =>
                     theme.themeID === themeID
                         ? { ...theme, completed: true }
                         : theme
@@ -101,7 +112,7 @@ export function useCompleteTheme(
             const newData: BBDD = {
                 ...data,
                 users: users.map((user) =>
-                    user.userID === userID
+                    user?.userID === userID
                         ? {
                               ...user,
                               defaultCourses: userDefaultCourses.map((course) =>
@@ -117,7 +128,6 @@ export function useCompleteTheme(
             setItemLocalStorage<BBDD>(DATABASE_KEY, newData);
             return finalCourseData;
         } catch (error) {
-            console.error(error);
             throw error;
         }
     };

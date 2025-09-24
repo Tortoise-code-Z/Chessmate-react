@@ -1,7 +1,6 @@
 import {
     CHESS_LEVEL,
     DATE_DEFAULT_MSG,
-    DEFAULT_COMMENTS_VALUES,
     DESCRIPTION_DEFAULT_MSG,
     USER_DEFAULT_MSG,
 } from "../../../../consts/general";

@@ -1,8 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getCourses, getDataLocalStorage } from "../api";
-import { useEffect } from "react";
-import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
-import { PATHS } from "../consts/paths";
+import { ERROR_GET_COURSE_ID_MSG, ERROR_GET_DATA_MSG } from "../consts/api";
+import { BBDD } from "../types/types";
 
 /**
  * Custom hook to check if a course exists for a user based on local storage data.
@@ -22,24 +21,24 @@ export default function useCourseExists(
     courseID: number | undefined,
     key: string
 ) {
-    const { setPath, setReset, setType, setMsg, setState } =
-        useFeedbackMessageStore();
-
     const queryFunction = async (): Promise<boolean> => {
-        const data = getDataLocalStorage(key);
-        if (!data)
-            throw new Error("Ha habido un problema al recuperar los datos...");
+        try {
+            const data = getDataLocalStorage<BBDD>(key);
 
-        if (!courseID)
-            throw new Error("Ha habido un problema al recuperar los datos...");
+            if (!data) throw new Error(ERROR_GET_DATA_MSG);
+            if (!courseID) throw new Error(ERROR_GET_COURSE_ID_MSG);
 
-        const courses = getCourses(data);
+            const courses = getCourses(data);
 
-        const existsCourse = courses.some(
-            (course) => course.curseID === courseID
-        );
+            const existsCourse = courses.some(
+                (course) => course.curseID === courseID
+            );
 
-        return existsCourse;
+            return existsCourse;
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
     };
 
     const query = useQuery({

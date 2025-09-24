@@ -18,6 +18,15 @@ import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
 import { useLocation } from "react-router-dom";
 import { useCourseClassroomApi } from "./useCourseClassroom";
 import { Dispatch, SetStateAction } from "react";
+import {
+    ERROR_GET_COURSE_ID_MSG,
+    ERROR_GET_COURSE_MSG,
+    ERROR_GET_COURSES_MSG,
+    ERROR_GET_DATA_MSG,
+    ERROR_GET_SUBTHEME_ID_MSG,
+    ERROR_GET_THEME_ID_MSG,
+    ERROR_GET_USER_ID_MSG,
+} from "../consts/api";
 
 type Variables = {
     subThemeID: number | undefined;
@@ -70,37 +79,25 @@ export function useCompleteThemeOC(
         userID,
     }: Variables) => {
         try {
-            const data = getDataLocalStorage(DATABASE_KEY);
-            if (!data)
-                throw new Error("Ha habido un error al recuperar los datos...");
+            const data = getDataLocalStorage<BBDD>(DATABASE_KEY);
 
-            if (!courseID)
-                throw new Error("Ha habido un error al recuperar los datos...");
-
-            if (!subThemeID)
-                throw new Error("Ha habido un error al recuperar los datos...");
-
-            if (!themeID)
-                throw new Error("Ha habido un error al recuperar los datos...");
-
-            if (!userID)
-                throw new Error("Ha habido un error al recuperar los datos...");
+            if (!data) throw new Error(ERROR_GET_DATA_MSG);
+            if (!courseID) throw new Error(ERROR_GET_COURSE_ID_MSG);
+            if (!subThemeID) throw new Error(ERROR_GET_SUBTHEME_ID_MSG);
+            if (!themeID) throw new Error(ERROR_GET_THEME_ID_MSG);
+            if (!userID) throw new Error(ERROR_GET_USER_ID_MSG);
 
             const userCourse = getUserObtainedCourse(userID, courseID, data);
-
-            if (!userCourse)
-                throw new Error("Ha habido un error al recuperar los datos...");
+            if (!userCourse) throw new Error(ERROR_GET_COURSE_MSG);
 
             const userCourses = getUserObtainedCourses(userID, data);
-
-            if (!userCourses || userCourses.length === 0)
-                throw new Error("Ha habido un error al recuperar los datos...");
+            if (!userCourses) throw new Error(ERROR_GET_COURSES_MSG);
 
             const users = getUsers(data);
 
             const newCourseData = {
                 ...userCourse,
-                themes: userCourse?.themes?.map((theme) => {
+                themes: userCourse.themes?.map((theme) => {
                     const subthemes = theme.subthemes.map((subtheme) =>
                         subtheme.subthemeID === subThemeID &&
                         theme.themeID === themeID

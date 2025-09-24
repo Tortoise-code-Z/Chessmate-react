@@ -12,10 +12,7 @@ import Button from "../../../../../../../components/Button";
 import FigureImage from "../../../../../../../components/FigureImage";
 import { getImage, getImageSize } from "../../../../../../../utils/images";
 import TitleHx from "../../../../../../../components/TitleHx";
-import {
-    DEFAULT_COURSES_VALUES,
-    TITLE_DEFAULT_MSG,
-} from "../../../../../../../consts/general";
+import { TITLE_DEFAULT_MSG } from "../../../../../../../consts/general";
 import SecurityRendering from "../../../../../../../components/SecurityRendering";
 import WarningMsg from "../../../../../../../components/WarningMsg";
 import CheckSvgComponent from "../../../../../../../components/CheckSvgComponent";

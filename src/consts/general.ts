@@ -1,10 +1,3 @@
-import {
-    DefaultAuthorsValue,
-    DefaultCommentsValue,
-    DefaultCourseValues,
-    DefaultValuesDefaultCourses,
-} from "../types/types";
-
 export const CHESS_LEVEL = [
     "Sin título",
     "CM",
@@ -27,72 +20,14 @@ export const LEVELS = [
 
 export const FILTERS = ["Todos", ...LEVELS] as const;
 
-export const DEFAULT_COURSES_VALUES: DefaultCourseValues = {
-    title: "Sin título",
-    createdAt: undefined,
-    detailDescription: "Sin descrpción",
-    shortDescription: "Sin descripción",
-    level: "Sin nivel asignado",
-    content: {
-        detailDescription: "Sin descripción",
-        themes: {
-            title: "Sin título",
-            description: "Sin descripción",
-            content: {
-                title: "Sin título",
-            },
-        },
-    },
-    sales: 0,
-    toLearn: {
-        detailDescription: "Sin descripción",
-        themes: {
-            title: "Sin título",
-            description: "Sin descripción",
-        },
-    },
-    progress: "Sin progreso",
-    price: "Precio no disponible",
-} as const;
-
-export const DEFAULT_VALUES_DEFAULT_COURSES: DefaultValuesDefaultCourses = {
-    title: "Sin título",
-    progress: "Sin progreso",
-    level: "Sin nivel asignado",
-    content: {
-        detailDescription: "Sin descripción",
-        themes: {
-            title: "Sin título",
-            description: "Sin descripción",
-        },
-    },
-};
-
-export const DEFAULT_COMMENTS_VALUES: DefaultCommentsValue = {
-    createdAt: "N/A",
-    text: "No se ha podido recuperar el comentario...",
-    user: {
-        username: "Usuario",
-        elo: "Sin ELO",
-        title: "N/A",
-    },
-};
-
-export const DEFAULT_AUTHORS_VALUE: DefaultAuthorsValue = {
-    name: "Autor",
-    description: "Sin descripcón",
-    elo: "Sin ELO",
-    level: "N/A",
-};
-
 export const IMAGES_PATH_RE = /.*_\d+x\d+_+.*/;
-
 export const PIECE_TITLE_DEFAULT_MSG = "Pieza";
 export const PROGRESS_DEFAULT_MSG = "Sin progreso";
 export const LEVEL_DEFAULT_MSG = "Sin nivel asignado";
 export const TITLE_DEFAULT_MSG = "Sin título";
 export const DESCRIPTION_DEFAULT_MSG = "Sin descripción.";
 export const PRICE_DEFAULT_MSG = "N/A";
+export const CHESSLEVEL_DEFAUL_MSG = "N/A";
 export const DATE_DEFAULT_MSG = "N/A";
 export const ELO_DEFAULT_MSG = "N/A";
 export const SCORE_DEFAULT_MSG = "N/A";

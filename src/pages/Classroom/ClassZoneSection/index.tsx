@@ -4,8 +4,8 @@ import WarningMsg from "../../../components/WarningMsg";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import useDefaultCourseById from "../../../hooks/useDefaultCourseById";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
-import { UseCourseApiType } from "../../../types/types";
-import { asObject } from "../../../utils/general";
+import { UseCourseApiType, WarningMsgType } from "../../../types/types";
+import { asNumber, asObject } from "../../../utils/general";
 import BoardZone from "./BoardZone";
 import styles from "./ClassZoneSection.module.css";
 import ExplanationTheme from "./ExplanationTheme";
@@ -33,13 +33,15 @@ function ClassZoneSection({}: Props) {
 
     const { data, isLoading, error } = useDefaultCourseById(
         DATABASE_KEY,
-        Number(params.id),
-        user?.userID
+        asNumber(Number(params.id)),
+        asNumber(user?.userID)
     );
 
     const safeData = asObject<UseCourseApiType>(data);
 
-    const [classWarning, setClassWarning] = useState<string | null>(null);
+    const [classWarning, setClassWarning] = useState<WarningMsgType | null>(
+        null
+    );
 
     // Index used to indicate what theme you are on
     const [index, setIndex] = useState<number>(1);
@@ -53,7 +55,15 @@ function ClassZoneSection({}: Props) {
     return (
         <section className={[styles.classZoneSection].join(" ")}>
             <LightComponent top={50} right={65} />
-            {classWarning && <WarningMsg msg={classWarning} />}
+            {(classWarning?.emptyMsg || classWarning?.msg) && (
+                <WarningMsg
+                    msg={
+                        classWarning?.emptyMsg
+                            ? classWarning.emptyMsg
+                            : classWarning.msg
+                    }
+                />
+            )}
             <DataStateWrapper isLoading={isLoading} error={error}>
                 <div
                     className={[

@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { PATHS } from "../consts/paths";
 import { removeItemLocalStorage } from "../api";
 import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
+import { ERROR_SIGN_OUT_MSG } from "../consts/api";
 
 /**
  * Custom hook to handle user sign-out functionality.
@@ -35,7 +36,6 @@ export function useSignout() {
         try {
             removeItemLocalStorage(USER_AUTH_KEY);
         } catch (error) {
-            console.error(error);
             throw error;
         }
     };
@@ -48,12 +48,10 @@ export function useSignout() {
             navigate(`${PATHS.index}`);
         },
         onError: (error) => {
-            console.log(error);
+            console.error(error);
             setFeedbackState(true);
             setPath(location.pathname);
-            setMsg(
-                "No se ha podido cerrar sesión. Contacte con nuestro equipo."
-            );
+            setMsg(ERROR_SIGN_OUT_MSG);
             setType("error");
         },
     });

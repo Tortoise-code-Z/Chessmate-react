@@ -13,6 +13,7 @@ import {
 import Form from "../../Form";
 import InputGroup from "../../InputGroup";
 import Button from "../../Button";
+import { asNumber } from "../../../utils/general";
 
 type Props = {};
 
@@ -51,8 +52,8 @@ function CommentForm({}: Props) {
         }
 
         mutate({
-            userID: user?.userID as number,
-            courseID: Number(params.id),
+            userID: asNumber(user?.userID),
+            courseID: asNumber(Number(params.id)),
             text: data.comment,
         });
 

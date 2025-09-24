@@ -7,7 +7,7 @@ import {
     VideoData,
     WarningMsgType,
 } from "../../../../../types/types";
-import { DEFAULT_COURSES_VALUES } from "../../../../../consts/general";
+import { TITLE_DEFAULT_MSG } from "../../../../../consts/general";
 import SecurityRendering from "../../../../../components/SecurityRendering";
 import WarningMsg from "../../../../../components/WarningMsg";
 import { useCourseClassroomApi } from "../../../../../hooks/useCourseClassroom";
@@ -58,8 +58,7 @@ function CourseThemes({ data, setShowVideo }: Props) {
                     <span
                         className={["span-pr-color", "text-medium"].join(" ")}
                     >
-                        {asString(data?.course?.title) ||
-                            DEFAULT_COURSES_VALUES.title}
+                        {asString(data?.course?.title) || TITLE_DEFAULT_MSG}
                     </span>{" "}
                     de manera clara y práctica, pensados para guiarte paso a
                     paso en tu aprendizaje. Cada tema está compuesto por

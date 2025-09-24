@@ -6,10 +6,7 @@ import { CourseJSON, Progress } from "../../../../../../types/types";
 import TitleHx from "../../../../../TitleHx";
 import Button from "../../../../../Button";
 import { PATHS } from "../../../../../../consts/paths";
-import {
-    DEFAULT_COURSES_VALUES,
-    TITLE_DEFAULT_MSG,
-} from "../../../../../../consts/general";
+import { TITLE_DEFAULT_MSG } from "../../../../../../consts/general";
 import { asString } from "../../../../../../utils/general";
 
 type Props = {

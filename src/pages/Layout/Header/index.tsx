@@ -1,7 +1,6 @@
 import Navbar from "./Navbar";
 import styles from "./Header.module.css";
-import { Dispatch, SetStateAction, useState } from "react";
-import { useSignout } from "../../../hooks/useSignout";
+import { Dispatch, SetStateAction } from "react";
 
 type Props = {
     setIsOpen: Dispatch<SetStateAction<boolean>>;

@@ -34,10 +34,10 @@ type Props = {};
 function RecentCoursesSection({}: Props) {
     const { user } = useUserAuthStore();
 
-    const { data, isLoading, error } = useRecentCourses(
-        DATABASE_KEY,
-        asNumber(user?.userID)
-    );
+    const { data, isLoading, error } = useRecentCourses(DATABASE_KEY, {
+        required: !!user,
+        userID: user ? asNumber(user?.userID) : undefined,
+    });
 
     const safeData = asArray<CourseJSON & IsObtainedCourse>(data);
 
@@ -53,11 +53,7 @@ function RecentCoursesSection({}: Props) {
             </TitleHx>
 
             <DataStateWrapper isLoading={isLoading} error={error}>
-                <CoursesDisplay
-                    courses={safeData}
-                    display="Row"
-                    requiredIsObtained={user ? true : false}
-                />
+                <CoursesDisplay courses={safeData} display="Row" />
             </DataStateWrapper>
         </section>
     );

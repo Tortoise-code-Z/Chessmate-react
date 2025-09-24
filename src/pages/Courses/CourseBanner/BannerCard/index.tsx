@@ -5,7 +5,6 @@ import { CourseJSON, IsObtainedCourse, Level } from "../../../../types/types";
 import styles from "./BannerCard.module.css";
 import TitleHx from "../../../../components/TitleHx";
 import {
-    DEFAULT_COURSES_VALUES,
     DESCRIPTION_DEFAULT_MSG,
     LEVEL_DEFAULT_MSG,
     LEVELS,

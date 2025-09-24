@@ -1,12 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
-import { AuthorCurseData, Course, IsObtainedCourse } from "../types/types";
+import {
+    AuthorCurseData,
+    BBDD,
+    Course,
+    IsObtainedCourse,
+    UserDataApi,
+} from "../types/types";
 import {
     getAuthors,
     getCourseById,
     getDataLocalStorage,
     getUserObtainedCourses,
 } from "../api";
-import { isNumber } from "../utils/general";
+import { ERROR_GET_COURSE_ID_MSG, ERROR_GET_DATA_MSG } from "../consts/api";
 
 /**
  * useCourse - Custom hook to fetch detailed information about a single course.
@@ -34,22 +40,19 @@ import { isNumber } from "../utils/general";
 export default function useCourse(
     key: string,
     courseID: number | undefined,
-    userID: number | undefined
+    userData: UserDataApi
 ) {
     const queryFunction: () => Promise<
         Course & IsObtainedCourse
     > = async () => {
         try {
-            const data = getDataLocalStorage(key);
-            if (!data)
-                throw new Error("Ha habido un error al recuperar los datos...");
+            const data = getDataLocalStorage<BBDD>(key);
 
-            if (!courseID)
-                throw new Error(
-                    "Ha habido un error al recuperar el ID del curso..."
-                );
+            if (!data) throw new Error(ERROR_GET_DATA_MSG);
+            if (!courseID) throw new Error(ERROR_GET_COURSE_ID_MSG);
 
             const obtainedCourse = getCourseById(data, courseID);
+            if (!obtainedCourse) throw new Error(ERROR_GET_COURSE_ID_MSG);
 
             const authors = getAuthors(data);
 
@@ -59,12 +62,12 @@ export default function useCourse(
                     ({} as AuthorCurseData)
             );
 
-            const userCourses = getUserObtainedCourses(userID, data);
+            const userCourses = getUserObtainedCourses(userData?.userID, data);
 
             return {
                 ...obtainedCourse,
                 authors: [...courseAuthorsData],
-                isObtained: userID
+                isObtained: userData.required
                     ? userCourses?.some(
                           (course) => course.courseId === obtainedCourse.curseID
                       )
@@ -77,7 +80,7 @@ export default function useCourse(
     };
 
     const query = useQuery({
-        queryKey: ["useCourse", courseID, userID],
+        queryKey: ["useCourse", courseID, userData?.userID],
         queryFn: queryFunction,
         staleTime: 1000 * 60 * 5,
     });

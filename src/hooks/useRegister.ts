@@ -16,6 +16,11 @@ import {
     setItemLocalStorage,
 } from "../api";
 import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
+import {
+    ERROR_EMAIL_EXIST_MSG,
+    ERROR_GET_DATA_MSG,
+    ERROR_USER_TAKEN_MSG,
+} from "../consts/api";
 
 /**
  * Custom hook to handle user registration functionality.
@@ -44,64 +49,73 @@ export function useRegister() {
     const register = async (
         registerData: registerSchemaValues
     ): Promise<UserAuth> => {
-        const data = getDataLocalStorage(DATABASE_KEY);
+        try {
+            const data = getDataLocalStorage<BBDD>(DATABASE_KEY);
 
-        if (!data)
-            throw customError({
-                code: "DB_ERROR",
-                message: "Ha habido un error al recuperar los datos...",
-            });
+            if (!data)
+                throw customError({
+                    code: "DB_ERROR",
+                    message: ERROR_GET_DATA_MSG,
+                });
 
-        const user = getUserByUsername(registerData.username, data);
+            const user = getUserByUsername(registerData.username, data);
 
-        if (user)
-            throw customError({
-                code: "USERNAME_TAKEN",
-                message: "El nombre de usuario ya existe. Pruebe con otro.",
-            });
+            if (user)
+                throw customError({
+                    code: "USERNAME_TAKEN",
+                    message: ERROR_USER_TAKEN_MSG,
+                });
 
-        const emailFound = getEmail(data, registerData.email);
+            const emailFound = getEmail(data, registerData.email);
 
-        if (emailFound)
-            throw customError({
-                code: "EMAIL_ALREADY_USED",
-                message: "El email introducido ya está en uso.",
-            });
+            if (emailFound)
+                throw customError({
+                    code: "EMAIL_ALREADY_USED",
+                    message: ERROR_EMAIL_EXIST_MSG,
+                });
 
-        const defaultCourses = getDefaultCourses(data);
-        const users = getUsers(data);
-        const orderedUsers = orderedMayorToMenorByKey(users, "userID");
-        const newUserId = orderedUsers[0].userID + 1;
+            const defaultCourses = getDefaultCourses(data);
+            const users = getUsers(data);
+            const orderedUsers = orderedMayorToMenorByKey(users, "userID");
+            const newUserId = orderedUsers[0].userID + 1;
 
-        const newUser: User = {
-            username: registerData.username,
-            password: registerData.password,
-            email: registerData.email,
-            elo: registerData.elo || null,
-            title:
-                registerData.title === "Sin título" ? null : registerData.title,
-            isFirstLogin: true,
-            userID: newUserId,
-            defaultCourses: defaultCourses.map((df) => ({
-                courseId: df.curseID,
-                progress: 0,
-                themes: df.content.themes.map((t) => ({
-                    themeID: t.id,
-                    completed: false,
+            const newUser: User = {
+                username: registerData.username,
+                password: registerData.password,
+                email: registerData.email,
+                elo: registerData.elo || null,
+                title:
+                    registerData.title === "Sin título"
+                        ? null
+                        : registerData.title,
+                isFirstLogin: true,
+                userID: newUserId,
+                defaultCourses: defaultCourses.map((df) => ({
+                    courseId: df.curseID,
+                    progress: 0,
+                    themes: df.content.themes.map((t) => ({
+                        themeID: t.id,
+                        completed: false,
+                    })),
                 })),
-            })),
-            courses: [],
-        };
+                courses: [],
+            };
 
-        const newData: BBDD = { ...data, users: [...users, { ...newUser }] };
+            const newData: BBDD = {
+                ...data,
+                users: [...users, { ...newUser }],
+            };
 
-        setItemLocalStorage<BBDD>(DATABASE_KEY, newData);
+            setItemLocalStorage<BBDD>(DATABASE_KEY, newData);
 
-        return {
-            username: newUser.username,
-            userID: newUser.userID,
-            firstLogin: newUser.isFirstLogin,
-        };
+            return {
+                username: newUser.username,
+                userID: newUser.userID,
+                firstLogin: newUser.isFirstLogin,
+            };
+        } catch (error) {
+            throw error;
+        }
     };
 
     return useMutation<UserAuth, CustomError, registerSchemaValues>({
@@ -112,7 +126,7 @@ export function useRegister() {
             navigate(`/${PATHS.dashboard}`);
         },
         onError: (error) => {
-            console.log(error);
+            console.error(error);
             setFeedbackState(true);
             setPath(location.pathname);
             setMsg(error.message);

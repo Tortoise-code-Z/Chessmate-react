@@ -1,6 +1,4 @@
-import LoadingPage from "../../components/LoadingPage";
-import useUserAuth from "../../hooks/UseUserAuth";
-import ErrorElement from "../ErrorElement";
+import IsAuthorized from "../IsAutorized";
 import IsAutorizedToCourse from "../IsAutorizedToCourse";
 import Layout from "../Layout";
 
@@ -23,20 +21,12 @@ type Props = {};
  */
 
 function ProtectedCourse({}: Props) {
-    const {
-        query: { isLoading, error },
-    } = useUserAuth();
-
-    if (!isLoading) return <LoadingPage msg="Revisando sesión..." />;
-
-    if (error) {
-        return <ErrorElement msg={error} />;
-    }
-
     return (
-        <IsAutorizedToCourse>
-            <Layout />
-        </IsAutorizedToCourse>
+        <IsAuthorized>
+            <IsAutorizedToCourse>
+                <Layout />
+            </IsAutorizedToCourse>
+        </IsAuthorized>
     );
 }
 

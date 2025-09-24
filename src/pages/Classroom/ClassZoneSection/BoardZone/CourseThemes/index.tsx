@@ -4,9 +4,10 @@ import {
     ThemeDefaultCourses,
     ThemesUserStates,
     UseCourseApiType,
+    WarningMsgType,
 } from "../../../../../types/types";
 import { Dispatch, SetStateAction } from "react";
-import { DEFAULT_VALUES_DEFAULT_COURSES } from "../../../../../consts/general";
+import { TITLE_DEFAULT_MSG } from "../../../../../consts/general";
 import SecurityRendering from "../../../../../components/SecurityRendering";
 import {
     asArray,
@@ -14,6 +15,7 @@ import {
     asString,
     isArray,
     isBoolean,
+    isString,
 } from "../../../../../utils/general";
 import CheckSvgComponent from "../../../../../components/CheckSvgComponent";
 
@@ -22,8 +24,8 @@ type Props = {
     setIndex: Dispatch<SetStateAction<number>>;
     index: number;
     setImageSliderLoading: Dispatch<SetStateAction<boolean>>;
-    classWarning: string | null;
-    setClassWarning: Dispatch<SetStateAction<string | null>>;
+    classWarning: WarningMsgType | null;
+    setClassWarning: Dispatch<SetStateAction<WarningMsgType | null>>;
 };
 
 /**
@@ -68,8 +70,8 @@ function CourseThemes({
                 data={data?.courses?.content?.themes}
                 conditions={[true]}
                 noCriticalConditions={[
-                    !!asString(data?.courses?.title),
-                    !!asString(data?.courses?.content?.detailDescription),
+                    isString(data?.courses?.title),
+                    isString(data?.courses?.content?.detailDescription),
                     ...themesCondition(data),
                     !!asArray<ThemesUserStates>(data?.userThemeStates)?.every(
                         (u) => isBoolean(u?.completed)
@@ -101,8 +103,7 @@ function CourseThemes({
                                     ?.completed
                             ) && <CheckSvgComponent top={-10} right={-10} />}
 
-                            {asString(theme?.title) ||
-                                DEFAULT_VALUES_DEFAULT_COURSES.title}
+                            {asString(theme?.title) || TITLE_DEFAULT_MSG}
                         </Button>
                     );
                 }}

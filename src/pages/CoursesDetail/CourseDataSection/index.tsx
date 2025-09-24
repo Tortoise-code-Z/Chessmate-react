@@ -11,7 +11,7 @@ import LightComponent from "../../../components/LightComponent";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import { PATHS } from "../../../consts/paths";
-import { DEFAULT_COURSES_VALUES } from "../../../consts/general";
+import { TITLE_DEFAULT_MSG } from "../../../consts/general";
 import { asNumber, asObject, asString } from "../../../utils/general";
 
 type Props = {};
@@ -47,7 +47,7 @@ function CourseDataSection({}: Props) {
     const { data, isLoading, error } = useCourse(
         DATABASE_KEY,
         asNumber(Number(params?.id)),
-        asNumber(user?.userID)
+        { required: !!user, userID: user ? asNumber(user?.userID) : undefined }
     );
 
     const safeData = asObject<Course & IsObtainedCourse>(data);
@@ -61,10 +61,7 @@ function CourseDataSection({}: Props) {
                 <div className={styles.breadcrumb}>
                     <NavLink to={`/${PATHS.courses}`}>Cursos</NavLink>
                     <span>{">"}</span>
-                    <p>
-                        {asString(safeData?.title) ||
-                            DEFAULT_COURSES_VALUES.title}
-                    </p>
+                    <p>{asString(safeData?.title) || TITLE_DEFAULT_MSG}</p>
                 </div>
                 <GeneralCourseData data={safeData} />
                 <AuthorsSection data={safeData} />

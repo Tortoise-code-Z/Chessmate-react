@@ -1,12 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
-import { CourseJSON, Progress } from "../types/types";
+import { BBDD, CourseJSON, Progress } from "../types/types";
 import {
-    deleteKey,
     getCourseById,
     getDataLocalStorage,
     getUserObtainedCourses,
 } from "../api";
-import { asNumber } from "../utils/general";
+import {
+    ERROR_GET_COURSE_MSG,
+    ERROR_GET_COURSES_MSG,
+    ERROR_GET_DATA_MSG,
+    ERROR_GET_USER_ID_MSG,
+} from "../consts/api";
 
 /**
  * Custom hook to fetch the list of courses a user has already obtained.
@@ -32,23 +36,20 @@ export default function useObtainedCourses(
         (CourseJSON & Progress)[]
     > = async () => {
         try {
-            const data = getDataLocalStorage(key);
-            if (!data)
-                throw new Error("Ha habido un error al recuperar los datos...");
+            const data = getDataLocalStorage<BBDD>(key);
 
-            if (!asNumber(userId))
-                throw new Error("Ha habido un error al recuperar los datos...");
-
-            if (currentCourseID && !asNumber(currentCourseID))
-                throw new Error("Ha habido un error al recuperar los datos...");
+            if (!data) throw new Error(ERROR_GET_DATA_MSG);
+            if (!userId) throw new Error(ERROR_GET_USER_ID_MSG);
 
             const userCourses = getUserObtainedCourses(userId, data);
+            if (!userCourses) throw new Error(ERROR_GET_COURSES_MSG);
 
             let mappingUserCourses = userCourses.map((uc) => {
                 const id = uc.courseId;
                 const course = getCourseById(data, id);
-                const rest = deleteKey(uc, "courseId");
-                return { ...course, ...rest };
+                if (!course) throw new Error(ERROR_GET_COURSE_MSG);
+
+                return { ...course, progress: uc?.progress };
             });
 
             if (currentCourseID) {
@@ -62,7 +63,7 @@ export default function useObtainedCourses(
                 limit ?? mappingUserCourses.length
             );
         } catch (error) {
-            console.log(error);
+            console.error(error);
             throw error;
         }
     };

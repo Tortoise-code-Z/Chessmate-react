@@ -1,12 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
-import { CourseJSON, IsObtainedCourse } from "../types/types";
+import {
+    BBDD,
+    CourseJSON,
+    IsObtainedCourse,
+    UserDataApi,
+} from "../types/types";
 import {
     getCourses,
     getDataLocalStorage,
     getRandom,
+    getUserById,
     getUserObtainedCourses,
     orderedMayorToMenorByKey,
 } from "../api";
+import { ERROR_GET_DATA_MSG, ERROR_GET_USER_MSG } from "../consts/api";
 
 /**
  * useBannerCourse - Custom React hook to fetch a single course for a banner display.
@@ -23,29 +30,29 @@ import {
  * @returns A React Query object containing the banner course with `isObtained`, `data`, `isLoading`, `error`, etc.
  */
 
-export default function useBannerCourse(key: string, userID?: number) {
+export default function useBannerCourse(key: string, userData: UserDataApi) {
     const queryFunction: () => Promise<
         CourseJSON & IsObtainedCourse
     > = async () => {
         try {
-            const data = getDataLocalStorage(key);
+            const data = getDataLocalStorage<BBDD>(key);
+            if (!data) throw new Error(ERROR_GET_DATA_MSG);
 
-            if (!data)
-                throw new Error("Ha habido un error al recuperar los datos...");
+            const user = getUserById(userData?.userID, data);
+            if (!user && userData?.userID) throw new Error(ERROR_GET_USER_MSG);
 
             const courses = getCourses(data);
-
             const filteredCourses = orderedMayorToMenorByKey(
                 courses,
                 "sales"
             ).slice(0, 6);
 
             const bannerCourse = getRandom(filteredCourses);
-            const userCourses = getUserObtainedCourses(userID, data);
+            const userCourses = getUserObtainedCourses(userData.userID, data);
 
             return {
                 ...bannerCourse,
-                isObtained: userID
+                isObtained: userData.required
                     ? userCourses?.some(
                           (userCourse) =>
                               userCourse.courseId === bannerCourse.curseID
@@ -53,13 +60,13 @@ export default function useBannerCourse(key: string, userID?: number) {
                     : false,
             };
         } catch (error) {
-            console.log(error);
+            console.error(error);
             throw error;
         }
     };
 
     return useQuery({
-        queryKey: ["bannerCourse", userID],
+        queryKey: ["bannerCourse", userData.userID],
         queryFn: queryFunction,
         staleTime: Infinity,
         refetchOnWindowFocus: false,

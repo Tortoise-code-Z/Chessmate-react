@@ -60,15 +60,17 @@ function ErrorElement({
                     Lo sentimos mucho, ha ocurrido un error
                     {errorMsg ? `: ${errorMsg.toLowerCase()}` : "."}
                 </span>
-                {buttonAction && (
-                    <Button onClick={buttonAction.onClick}>
-                        {buttonAction.text}
-                    </Button>
-                )}
-                {linkAction && (
+                {buttonAction &&
+                    buttonAction?.onClick &&
+                    buttonAction?.text && (
+                        <Button onClick={buttonAction.onClick}>
+                            {buttonAction.text}
+                        </Button>
+                    )}
+                {linkAction && linkAction?.text && linkAction?.to && (
                     <NavLink
                         className={["button", "buttonComplementary"].join(" ")}
-                        to={linkAction.to}
+                        to={linkAction.to || ""}
                     >
                         {linkAction.text}
                     </NavLink>

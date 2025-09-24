@@ -1,5 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getDataLocalStorage, getUserById } from "../api";
+import { ERROR_GET_DATA_MSG, ERROR_GET_USER_MSG } from "../consts/api";
+import { BBDD } from "../types/types";
 
 /**
  * Custom hook to fetch the email of a specific user.
@@ -15,22 +17,15 @@ import { getDataLocalStorage, getUserById } from "../api";
  */
 
 export default function useUserEmail(key: string, userID: number | undefined) {
-    const queryFunction: () => Promise<string> = async () => {
+    const queryFunction: () => Promise<string | undefined> = async () => {
         try {
-            const data = getDataLocalStorage(key);
-            if (!data)
-                throw new Error("Ha habido un error al recuperar los datos...");
-
-            if (!userID) return "";
+            const data = getDataLocalStorage<BBDD>(key);
+            if (!data) throw new Error(ERROR_GET_DATA_MSG);
 
             const user = getUserById(userID, data);
+            if (!user && userID) throw new Error(ERROR_GET_USER_MSG);
 
-            if (!user)
-                throw new Error(
-                    "Ha habido un error al recuperar el usuario..."
-                );
-
-            return user?.email || "";
+            return user?.email;
         } catch (error) {
             console.error(error);
             throw error;

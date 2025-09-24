@@ -23,7 +23,6 @@ import { IMAGES_PATH_RE, LEVELS } from "../../consts/general";
 type Props = {
     action?: boolean;
     courses: (CourseJSON & Partial<IsObtainedCourse>)[] | undefined;
-    requiredIsObtained?: boolean;
     display?: "Row" | "Col";
     msg?: string;
     svg?: ReactNode;
@@ -40,14 +39,7 @@ type Props = {
  * @param display - Optional layout type: "Row" or "Col". Defaults to "Col".
  */
 
-function CoursesDisplay({
-    courses,
-    action,
-    display = "Col",
-    msg,
-    svg,
-    requiredIsObtained = true,
-}: Props) {
+function CoursesDisplay({ courses, action, display = "Col", msg, svg }: Props) {
     const [warningCoursesMsg, setWarningCoursesMsg] =
         useState<WarningMsgType | null>(null);
 
@@ -95,7 +87,9 @@ function CoursesDisplay({
                     msgEmpty="No se han podido recuperar los cursos. Estamos trabajando en ellos para solucionarlo."
                 >
                     {(course, index, canRender) => {
-                        const safeCourse = asObject<CourseJSON>(course);
+                        const safeCourse = asObject<
+                            CourseJSON & IsObtainedCourse
+                        >(course);
 
                         if (safeCourse)
                             return (
@@ -105,7 +99,6 @@ function CoursesDisplay({
                                     action={action}
                                     data={course}
                                     display={display}
-                                    requiredIsObtained={requiredIsObtained}
                                     canNavigate={canRender}
                                 />
                             );

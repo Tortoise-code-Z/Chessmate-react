@@ -1,12 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import { CourseJSON, IsObtainedCourse } from "../types/types";
+import { BBDD, CourseJSON, IsObtainedCourse } from "../types/types";
 import {
-    deleteKey,
     getDataLocalStorage,
-    getUserById,
     getUserObtainedCourses,
     orderedMayorToMenorByKey,
 } from "../api";
+import { ERROR_GET_COURSES_MSG, ERROR_GET_DATA_MSG } from "../consts/api";
 
 /**
  * useUnpurchasedCourses - Custom hook to fetch courses that a user has not purchased.
@@ -30,21 +29,19 @@ export default function useUnpurchasedCourses(
         (CourseJSON & IsObtainedCourse)[]
     > = async () => {
         try {
-            const data = getDataLocalStorage(key);
+            const data = getDataLocalStorage<BBDD>(key);
 
-            if (!data)
-                throw new Error("Ha habido un error al recuperar los datos...");
+            if (!data) throw new Error(ERROR_GET_DATA_MSG);
 
             const courses = orderedMayorToMenorByKey(data.courses, "sales");
 
             if (userID) {
-                const userCoursesIds = getUserObtainedCourses(
-                    userID,
-                    data
-                )?.map((item) => {
-                    const rest = deleteKey(item, "progress");
-                    return rest.courseId;
-                }) as number[];
+                const userCourses = getUserObtainedCourses(userID, data);
+                if (!userCourses) throw new Error(ERROR_GET_COURSES_MSG);
+
+                const userCoursesIds = userCourses.map((item) => {
+                    return item.courseId;
+                });
 
                 const finalCourses =
                     userCoursesIds.length > 0
@@ -65,7 +62,7 @@ export default function useUnpurchasedCourses(
                 isObtained: false,
             }));
         } catch (error) {
-            console.log(error);
+            console.error(error);
             throw error;
         }
     };

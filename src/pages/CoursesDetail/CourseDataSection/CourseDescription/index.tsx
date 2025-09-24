@@ -1,8 +1,5 @@
 import TitleHx from "../../../../components/TitleHx";
-import {
-    DEFAULT_COURSES_VALUES,
-    DESCRIPTION_DEFAULT_MSG,
-} from "../../../../consts/general";
+import { DESCRIPTION_DEFAULT_MSG } from "../../../../consts/general";
 import { Course, TitleLevel } from "../../../../types/types";
 import { asString } from "../../../../utils/general";
 import styles from "./CourseDescription.module.css";

@@ -3,6 +3,7 @@ import { useUserAuthStore } from "./UseUserAuthStore";
 import { UserAuth } from "../types/types";
 import { useEffect } from "react";
 import { USER_AUTH_KEY } from "../consts/dataBaseKey";
+import { getDataLocalStorage } from "../api";
 
 /**
  * Custom hook to manage authenticated user state across components and browser tabs.
@@ -17,16 +18,16 @@ import { USER_AUTH_KEY } from "../consts/dataBaseKey";
  */
 
 export default function useUserAuth() {
-    const { user, setUser, setIsLoading } = useUserAuthStore();
+    const { setUser, setIsLoading } = useUserAuthStore();
 
     const queryFunction = async (): Promise<UserAuth | null> => {
-        const stored = localStorage.getItem(USER_AUTH_KEY);
-        if (!stored) return null;
-
         try {
-            const user: UserAuth = JSON.parse(stored);
+            const user = getDataLocalStorage<UserAuth>(USER_AUTH_KEY);
+            if (!user) return null;
+
             return user;
-        } catch {
+        } catch (error) {
+            console.error(error);
             return null;
         }
     };
@@ -36,7 +37,6 @@ export default function useUserAuth() {
         queryFn: queryFunction,
     });
 
-    // Una vez se ejecute con exito la query, se manda la data a user y se establece un loading para evitar parpadeos
     useEffect(() => {
         if (query.isLoading) {
             setIsLoading(true);
@@ -60,5 +60,5 @@ export default function useUserAuth() {
         return () => window.removeEventListener("storage", handleStorageChange);
     }, []);
 
-    return { user, query };
+    return { query };
 }

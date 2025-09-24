@@ -5,13 +5,11 @@ import { VideoData } from "../../../../types/types";
 import TitleHx from "../../../../components/TitleHx";
 import LightComponent from "../../../../components/LightComponent";
 import VideoReproductor from "../VideoReproductor";
-import { DEFAULT_COURSES_VALUES } from "../../../../consts/general";
 import { useCourseClassroomApi } from "../../../../hooks/useCourseClassroom";
 import Button from "../../../../components/Button";
 import { useNavigate, useParams } from "react-router-dom";
 import { PATHS } from "../../../../consts/paths";
 import { FaInfoCircle } from "react-icons/fa";
-import { asNumber, asString } from "../../../../utils/general";
 
 type Props = {
     data: useCourseClassroomApi | undefined;

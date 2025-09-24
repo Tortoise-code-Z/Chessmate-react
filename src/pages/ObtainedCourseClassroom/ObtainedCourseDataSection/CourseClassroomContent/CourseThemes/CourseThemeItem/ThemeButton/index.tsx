@@ -9,13 +9,11 @@ import {
 } from "../../../../../../../types/types";
 import TitleHx from "../../../../../../../components/TitleHx";
 import {
-    DEFAULT_COURSES_VALUES,
     DESCRIPTION_DEFAULT_MSG,
     TITLE_DEFAULT_MSG,
 } from "../../../../../../../consts/general";
 import CheckSvgComponent from "../../../../../../../components/CheckSvgComponent";
 import {
-    asArray,
     asBoolean,
     asNumber,
     asString,

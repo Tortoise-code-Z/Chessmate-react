@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { DATABASE_KEY } from "../consts/dataBaseKey";
 import { DATA_BASE } from "../consts/initBBDD";
+import { getDataLocalStorage, setItemLocalStorage } from "../api";
+import { ERROR_GET_DATA_MSG } from "../consts/api";
+import { BBDD } from "../types/types";
 
 /**
  * Custom hook to initialize the local storage database with default data.
@@ -20,20 +23,17 @@ export default function useInitDataBase() {
     useEffect(() => {
         const initDataBase = async (): Promise<void> => {
             try {
-                if (!localStorage.getItem(DATABASE_KEY)) {
-                    localStorage.setItem(
-                        DATABASE_KEY,
-                        JSON.stringify(DATA_BASE)
-                    );
+                if (!DATA_BASE) throw new Error(ERROR_GET_DATA_MSG);
+                if (!getDataLocalStorage<BBDD>(DATABASE_KEY)) {
+                    setItemLocalStorage(DATABASE_KEY, DATA_BASE);
                 }
 
                 setIsDataBaseSent(true);
             } catch (error) {
                 console.error(error);
-                setDbError(
-                    "Ha habido un problema al inicializar la database, intentelo de nuevo."
-                );
+                setDbError((error as Error).message);
                 setIsDataBaseSent(true);
+                throw error;
             }
         };
 

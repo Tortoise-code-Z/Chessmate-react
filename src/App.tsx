@@ -3,7 +3,7 @@ import { route } from "./pages";
 import LoadingPage from "./components/LoadingPage";
 import ErrorElement from "./pages/ErrorElement";
 import useInitDataBase from "./hooks/useInitDataBase";
-import FeedbackListener from "./components/FeedbackListener";
+import useUserAuth from "./hooks/UseUserAuth";
 
 type Props = {};
 
@@ -24,18 +24,24 @@ type Props = {};
 function App({}: Props) {
     const { dbError, isDataBaseSent } = useInitDataBase();
 
+    const {
+        query: { isLoading, error },
+    } = useUserAuth();
+
     if (!isDataBaseSent)
         return <LoadingPage msg="Inicializando base de datos..." />;
+
+    if (isLoading) return <LoadingPage msg="Revisando sesión..." />;
 
     if (dbError) {
         return <ErrorElement msg={dbError} />;
     }
 
-    return (
-        <>
-            <RouterProvider router={route} />
-        </>
-    );
+    if (error) {
+        return <ErrorElement msg={error.message} />;
+    }
+
+    return <RouterProvider router={route} />;
 }
 
 export default App;

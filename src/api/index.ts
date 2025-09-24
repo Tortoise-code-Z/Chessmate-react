@@ -30,7 +30,7 @@ export const getEmail: (data: BBDD, email: string) => boolean = (
 export const getDefaultCoursesWithProgress: (
     data: BBDD,
     user: User
-) => (DefualtCourse & Progress)[] = (data, user) => {
+) => (DefualtCourse & Progress)[] | undefined = (data, user) => {
     return data?.defaultCourses?.map((df) =>
         df
             ? {
@@ -51,10 +51,10 @@ export const checkPassword: (
     return password1 === password2;
 };
 
-export const getUserById: (id: number, data: BBDD) => User | undefined = (
-    id,
-    data
-) => {
+export const getUserById: (
+    id: number | undefined,
+    data: BBDD
+) => User | undefined = (id, data) => {
     return data.users.find((u) => u.userID === id);
 };
 
@@ -69,43 +69,34 @@ export const getUserObtainedCourses: (
     userID: number | undefined,
     data: BBDD
 ) => ObtainedCourse[] | undefined = (userID, data) => {
-    if (!userID) return undefined;
     return data.users?.find((u) => u.userID === userID)?.courses;
 };
 
 export const getUserDefaultCourses: (
     userID: number | undefined,
     data: BBDD
-) => ObtainedDefaultCourse[] = (userID, data) => {
-    return (
-        data.users?.find((u) => u.userID === userID)?.defaultCourses ||
-        ([] as ObtainedDefaultCourse[])
-    );
+) => ObtainedDefaultCourse[] | undefined = (userID, data) => {
+    return data.users?.find((u) => u.userID === userID)?.defaultCourses;
 };
 
 export const getUserDefaultCourse: (
     userID: number | undefined,
-    courseID: number,
+    courseID: number | undefined,
     data: BBDD
-) => ObtainedDefaultCourse = (userID, courseID, data) => {
-    return (
-        data.users
-            ?.find((u) => u.userID === userID)
-            ?.defaultCourses.find((df) => df.courseId === courseID) ||
-        ({} as ObtainedDefaultCourse)
-    );
+) => ObtainedDefaultCourse | undefined = (userID, courseID, data) => {
+    return data.users
+        ?.find((u) => u.userID === userID)
+        ?.defaultCourses.find((df) => df.courseId === courseID);
 };
 
 export const getUserObtainedCourse: (
     userID: number | undefined,
     courseID: number,
     data: BBDD
-) => ObtainedCourse | null = (userID, courseID, data) => {
-    return (
-        data.users
-            ?.find((u) => u.userID === userID)
-            ?.courses.find((course) => course.courseId === courseID) || null
-    );
+) => ObtainedCourse | undefined = (userID, courseID, data) => {
+    return data.users
+        ?.find((u) => u.userID === userID)
+        ?.courses.find((course) => course.courseId === courseID);
 };
 
 // ObtainedCourses
@@ -120,15 +111,12 @@ export const getDefaultCourses: (data: BBDD) => DefualtCourse[] = (data) => {
 
 export const getUserDefaultCourseThemes: (
     data: BBDD,
-    userID: number,
-    courseID: number
-) => ThemesUserStates[] = (data, userID, courseID) => {
-    return (
-        data.users
-            .find((u) => u.userID === userID)
-            ?.defaultCourses?.find((dc) => dc?.courseId === courseID)?.themes ||
-        ([] as ThemesUserStates[])
-    );
+    userID: number | undefined,
+    courseID: number | undefined
+) => ThemesUserStates[] | undefined = (data, userID, courseID) => {
+    return data.users
+        .find((u) => u.userID === userID)
+        ?.defaultCourses?.find((dc) => dc?.courseId === courseID)?.themes;
 };
 
 export const getUserCourseThemes: (
@@ -146,12 +134,9 @@ export const getUserCourseThemes: (
 
 export const getDefaultCourse: (
     data: BBDD,
-    courseID: number
-) => DefualtCourse = (data, courseID) => {
-    return (
-        data.defaultCourses.find((dc) => dc?.curseID === courseID) ||
-        ({} as DefualtCourse)
-    );
+    courseID: number | undefined
+) => DefualtCourse | undefined = (data, courseID) => {
+    return data.defaultCourses.find((dc) => dc?.curseID === courseID);
 };
 
 // Authors
@@ -174,25 +159,25 @@ export const getOpinions: (data: BBDD) => JsonOpinion[] = (data) => {
 
 const addIsObtained = (
     courses: CourseJSON[],
-    userCourses: ObtainedCourse[]
+    userCourses: ObtainedCourse[] | undefined
 ): (CourseJSON & IsObtainedCourse)[] =>
     courses.map((c) => ({
         ...c,
-        isObtained: userCourses.some((uc) => uc.courseId === c.curseID),
+        isObtained: userCourses?.some((uc) => uc.courseId === c.curseID),
     }));
 
 export const getAllCourses = (
-    userCourses: ObtainedCourse[] | undefined,
+    userID: number | undefined,
     data: BBDD
 ): (CourseJSON & IsObtainedCourse)[] => {
-    if (!userCourses)
-        return data?.courses || ([] as (CourseJSON & IsObtainedCourse)[]);
+    if (!userID) return data.courses;
+
+    const userCourses = getUserObtainedCourses(userID, data);
     return addIsObtained(data.courses, userCourses);
 };
 
 export const getFilteredCourses = (
     filter: FilterOptions | undefined,
-    userCourses: ObtainedCourse[] | undefined,
     data: BBDD
 ): (CourseJSON & IsObtainedCourse)[] => {
     const coursesToMap =
@@ -200,14 +185,11 @@ export const getFilteredCourses = (
             ? data.courses
             : data.courses.filter((c) => c.level === filter);
 
-    if (!userCourses)
-        return coursesToMap || ([] as (CourseJSON & IsObtainedCourse)[]);
-    return addIsObtained(coursesToMap, userCourses);
+    return coursesToMap || ([] as (CourseJSON & IsObtainedCourse)[]);
 };
 
 export const getSearchedCourses = (
     search: string,
-    userCourses: ObtainedCourse[] | undefined,
     data: BBDD
 ): (CourseJSON & IsObtainedCourse)[] => {
     const searchLower = search.toLowerCase();
@@ -217,21 +199,18 @@ export const getSearchedCourses = (
             c.shortDescription.toLowerCase().includes(searchLower) ||
             c.level.toLowerCase().includes(searchLower)
     );
-    if (!userCourses)
-        return searchedCourses || ([] as (CourseJSON & IsObtainedCourse)[]);
-    return addIsObtained(searchedCourses, userCourses);
+
+    return searchedCourses || ([] as (CourseJSON & IsObtainedCourse)[]);
 };
 
-export const getCourseById: (data: BBDD, courseID: number) => CourseJSON = (
-    data,
-    courseID
-) => {
-    return (
-        data.courses.find((c) => c.curseID === courseID) || ({} as CourseJSON)
-    );
+export const getCourseById: (
+    data: BBDD,
+    courseID: number
+) => CourseJSON | undefined = (data, courseID) => {
+    return data.courses.find((c) => c.curseID === courseID);
 };
 
-export const getDataLocalStorage: (key: string) => BBDD | null = (key) => {
+export const getDataLocalStorage: <T>(key: string) => T | null = (key) => {
     const getData = localStorage.getItem(key);
     if (getData) return JSON.parse(getData);
     return null;

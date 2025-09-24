@@ -1,5 +1,4 @@
 import {
-    DEFAULT_COURSES_VALUES,
     LEVEL_DEFAULT_MSG,
     LEVELS,
     PROGRESS_DEFAULT_MSG,
@@ -10,7 +9,6 @@ import {
     asString,
     isNumber,
     isOnVaulues,
-    isString,
 } from "../../../../../../utils/general";
 import { getImage, getImageSize } from "../../../../../../utils/images";
 import FigureImage from "../../../../../FigureImage";

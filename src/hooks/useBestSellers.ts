@@ -1,11 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
-import { CourseJSON, IsObtainedCourse } from "../types/types";
+import {
+    BBDD,
+    CourseJSON,
+    IsObtainedCourse,
+    UserDataApi,
+} from "../types/types";
 import {
     getCourses,
     getDataLocalStorage,
+    getUserById,
     getUserObtainedCourses,
     orderedMayorToMenorByKey,
 } from "../api";
+import { ERROR_GET_DATA_MSG, ERROR_GET_USER_MSG } from "../consts/api";
 
 /**
  * Hook that fetches the “Best Seller” courses.
@@ -24,19 +31,20 @@ import {
 export default function useBestSeller(
     key: string,
     limit: number | undefined,
-    userID?: number
+    userData: UserDataApi
 ) {
     const queryFunction: () => Promise<
         (CourseJSON & IsObtainedCourse)[]
     > = async () => {
         try {
-            const data = getDataLocalStorage(key);
+            const data = getDataLocalStorage<BBDD>(key);
+            if (!data) throw new Error(ERROR_GET_DATA_MSG);
 
-            if (!data)
-                throw new Error("Ha habido un error al recuperar los datos...");
+            const user = getUserById(userData?.userID, data);
+            if (!user && userData?.userID) throw new Error(ERROR_GET_USER_MSG);
 
             const courses = getCourses(data);
-            const userCourses = getUserObtainedCourses(userID, data);
+            const userCourses = getUserObtainedCourses(userData?.userID, data);
 
             const filteredCourses = orderedMayorToMenorByKey(
                 courses,
@@ -45,8 +53,10 @@ export default function useBestSeller(
 
             return filteredCourses.map((course) => ({
                 ...course,
-                isObtained: userID
-                    ? userCourses?.some((uc) => uc.courseId === course.curseID)
+                isObtained: userData.required
+                    ? userCourses?.some(
+                          (uc) => uc?.courseId === course?.curseID
+                      )
                     : false,
             }));
         } catch (error) {
@@ -56,7 +66,7 @@ export default function useBestSeller(
     };
 
     return useQuery({
-        queryKey: ["bestSellers", userID],
+        queryKey: ["bestSellers", userData?.userID],
         queryFn: queryFunction,
         staleTime: 1000 * 60 * 5,
     });

@@ -2,7 +2,7 @@ import { ReactNode, useState } from "react";
 import { Course, Theme, WarningMsgType } from "../../../../types/types";
 import styles from "./DetailsCourse.module.css";
 import TitleHx from "../../../../components/TitleHx";
-import { DEFAULT_COURSES_VALUES } from "../../../../consts/general";
+import { TITLE_DEFAULT_MSG } from "../../../../consts/general";
 import SecurityRendering from "../../../../components/SecurityRendering";
 import {
     asNumber,
@@ -101,9 +101,7 @@ function DetailsCourse({ data, titleContain, type }: Props) {
                                 }
                                 key={asNumber(theme?.id) || index}
                             >
-                                {asString(theme?.title) ||
-                                    DEFAULT_COURSES_VALUES[typeData].themes
-                                        .title}
+                                {asString(theme?.title) || TITLE_DEFAULT_MSG}
                             </li>
                         );
                     }}

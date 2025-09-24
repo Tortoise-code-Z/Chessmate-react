@@ -1,5 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { BBDD, Opinion, User } from "../types/types";
+import { getDataLocalStorage } from "../api";
+import { ERROR_GET_DATA_MSG } from "../consts/api";
 
 /**
  * Custom hook to fetch the most recent user opinions.
@@ -16,11 +18,9 @@ import { BBDD, Opinion, User } from "../types/types";
 export default function useUsersOpinions(key: string) {
     const queryFunction: () => Promise<Opinion[]> = async () => {
         try {
-            const getData = localStorage.getItem(key);
-            if (!getData)
-                throw new Error("Ha habido un error al recuperar los datos...");
+            const data = getDataLocalStorage<BBDD>(key);
+            if (!data) throw new Error(ERROR_GET_DATA_MSG);
 
-            const data: BBDD = JSON.parse(getData);
             const opinions = data.opinions;
             const filteredOpinions = opinions.slice(0, 4).map((o) => {
                 const user = data.users.find((u) => u.userID === o.idUser);

@@ -9,11 +9,19 @@ import { DATABASE_KEY } from "../consts/dataBaseKey";
 import {
     getCourseById,
     getDataLocalStorage,
+    getUserById,
     getUserObtainedCourses,
     setItemLocalStorage,
 } from "../api";
 import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
 import { useLocation } from "react-router-dom";
+import {
+    ERROR_GET_COURSE_ID_MSG,
+    ERROR_GET_COURSE_MSG,
+    ERROR_GET_DATA_MSG,
+    ERROR_GET_USER_ID_MSG,
+    ERROR_GET_USER_MSG,
+} from "../consts/api";
 
 type BuyCourseApi = {
     course: CourseJSON;
@@ -60,23 +68,22 @@ export function useBuyCourse() {
         userID,
     }: Variables): Promise<BuyCourseApi> => {
         try {
-            const data = getDataLocalStorage(DATABASE_KEY);
-            if (!data)
-                throw new Error("Ha habido un error al recuperar los datos...");
+            const data = getDataLocalStorage<BBDD>(DATABASE_KEY);
 
-            if (!courseID)
-                throw new Error(
-                    "Ha habido un error al recuperar el ID del curso"
-                );
+            if (!data) throw new Error(ERROR_GET_DATA_MSG);
+            if (!courseID) throw new Error(ERROR_GET_COURSE_ID_MSG);
+            if (!userID) throw new Error(ERROR_GET_USER_ID_MSG);
 
-            if (!userID)
-                throw new Error(
-                    "Ha habido un error al recuperar el ID del usuario.."
-                );
+            const user = getUserById(userID, data);
+            if (!user && userID) throw new Error(ERROR_GET_USER_MSG);
 
-            const userCourses = getUserObtainedCourses(userID, data);
+            const userCourses = getUserObtainedCourses(
+                userID,
+                data
+            ) as ObtainedCourse[];
 
             const course = getCourseById(data, courseID);
+            if (!course) throw new Error(ERROR_GET_COURSE_MSG);
 
             const newUserCourses: ObtainedCourse[] = [
                 {
@@ -107,7 +114,9 @@ export function useBuyCourse() {
 
             const getCourse = newData.courses.find(
                 (c) => c.curseID === courseID
-            ) as CourseJSON;
+            );
+
+            if (!getCourse) throw new Error(ERROR_GET_COURSE_MSG);
 
             setItemLocalStorage<BBDD>(DATABASE_KEY, newData);
 
@@ -116,7 +125,6 @@ export function useBuyCourse() {
                 course: getCourse,
             };
         } catch (error) {
-            console.error(error);
             throw error;
         }
     };

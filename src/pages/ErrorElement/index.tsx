@@ -2,7 +2,6 @@ import { useRouteError, isRouteErrorResponse, NavLink } from "react-router-dom";
 import { PATHS } from "../../consts/paths";
 import styles from "./ErrorElement.module.css";
 import LightComponent from "../../components/LightComponent";
-import Button from "../../components/Button";
 import TitleHx from "../../components/TitleHx";
 
 type Props = {
@@ -68,15 +67,6 @@ export default function ErrorElement({ msg }: Props) {
                 >
                     Volver al inicio
                 </NavLink>
-            )}
-
-            {msg && (
-                <Button
-                    variant="Secondary"
-                    onClick={() => window.location.reload()}
-                >
-                    Reintentar inicialización
-                </Button>
             )}
 
             <div className={styles.contactMessage}>

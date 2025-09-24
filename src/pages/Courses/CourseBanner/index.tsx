@@ -28,10 +28,10 @@ type Props = {};
 function CourseBanner({}: Props) {
     const { user } = useUserAuthStore();
 
-    const { data, isLoading, error } = useBannerCourse(
-        DATABASE_KEY,
-        asNumber(user?.userID)
-    );
+    const { data, isLoading, error } = useBannerCourse(DATABASE_KEY, {
+        required: !!user,
+        userID: user ? asNumber(user?.userID) : undefined,
+    });
 
     const safeData = asObject<CourseJSON & IsObtainedCourse>(data);
 

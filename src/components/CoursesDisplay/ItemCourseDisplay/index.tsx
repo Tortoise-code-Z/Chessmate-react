@@ -7,7 +7,6 @@ import PurchaseAction from "../../PurchaseAction";
 import TitleHx from "../../TitleHx";
 import FigureImage from "../../FigureImage";
 import {
-    DEFAULT_COURSES_VALUES,
     DESCRIPTION_DEFAULT_MSG,
     LEVEL_DEFAULT_MSG,
     LEVELS,
@@ -25,7 +24,6 @@ import {
 type Props = {
     action?: boolean;
     data: CourseJSON & IsObtainedCourse;
-    requiredIsObtained: boolean;
     display?: "Row" | "Col";
     courseID: number | undefined;
     canNavigate?: boolean;
@@ -48,7 +46,6 @@ function ItemCourseDisplay({
     action = true,
     display = "Col",
     courseID,
-    requiredIsObtained,
     canNavigate = true,
 }: Props) {
     const navigate = useNavigate();
@@ -100,11 +97,7 @@ function ItemCourseDisplay({
                         <PurchaseAction
                             canBuy={isNumber(data?.price)}
                             courseID={asNumber(courseID)}
-                            isObtained={
-                                requiredIsObtained
-                                    ? asBoolean(data?.isObtained)
-                                    : false
-                            }
+                            isObtained={asBoolean(data?.isObtained)}
                             disabled={!canNavigate}
                         />
                         <p className={styles.price}>

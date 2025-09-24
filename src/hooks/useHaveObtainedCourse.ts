@@ -1,8 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { getDataLocalStorage, getUserObtainedCourses } from "../api";
-import { useEffect } from "react";
-import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
-import { PATHS } from "../consts/paths";
+import {
+    ERROR_GET_COURSE_ID_MSG,
+    ERROR_GET_DATA_MSG,
+    ERROR_GET_USER_ID_MSG,
+} from "../consts/api";
+import { BBDD } from "../types/types";
 
 /**
  * Custom hook to check if a user has obtained a specific course.
@@ -25,29 +28,27 @@ export default function useHaveObtainedCourse(
     key: string
 ) {
     const queryFunction = async (): Promise<boolean> => {
-        const data = getDataLocalStorage(key);
+        try {
+            const data = getDataLocalStorage<BBDD>(key);
 
-        if (!data)
-            throw new Error("Ha habido un problema al recuperar los datos...");
+            if (!data) throw new Error(ERROR_GET_DATA_MSG);
+            if (!courseID) throw new Error(ERROR_GET_COURSE_ID_MSG);
+            if (!userID) throw new Error(ERROR_GET_USER_ID_MSG);
 
-        if (!courseID)
-            throw new Error("Ha habido un problema al recuperar los datos...");
+            const userCourses = getUserObtainedCourses(userID, data);
+            const haveCourse = userCourses?.some(
+                (course) => course.courseId === courseID
+            );
 
-        if (!userID)
-            throw new Error("Ha habido un problema al recuperar los datos...");
-
-        const userCourses = getUserObtainedCourses(userID, data);
-        const haveCourse = userCourses?.some(
-            (course) => course.courseId === courseID
-        );
-
-        return !!haveCourse;
+            return !!haveCourse;
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
     };
 
-    const query = useQuery({
+    return useQuery({
         queryKey: ["haveCourse", userID, courseID],
         queryFn: queryFunction,
     });
-
-    return query;
 }

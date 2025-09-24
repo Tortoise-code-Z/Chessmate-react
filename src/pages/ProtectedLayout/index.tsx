@@ -1,6 +1,4 @@
-import LoadingPage from "../../components/LoadingPage";
-import useUserAuth from "../../hooks/UseUserAuth";
-import ErrorElement from "../ErrorElement";
+import IsAuthorized from "../IsAutorized";
 import Layout from "../Layout";
 
 /**
@@ -14,15 +12,9 @@ import Layout from "../Layout";
  */
 
 export default function ProtectedLayout() {
-    const {
-        query: { isLoading, error },
-    } = useUserAuth();
-
-    if (isLoading) return <LoadingPage msg="Revisando sesión..." />;
-
-    if (error) {
-        return <ErrorElement msg={error.message} />;
-    }
-
-    return <Layout />;
+    return (
+        <IsAuthorized>
+            <Layout />
+        </IsAuthorized>
+    );
 }

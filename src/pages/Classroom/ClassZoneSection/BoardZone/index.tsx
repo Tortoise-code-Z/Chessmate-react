@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import styles from "./BoardZone.module.css";
-import { UseCourseApiType } from "../../../../types/types";
+import { UseCourseApiType, WarningMsgType } from "../../../../types/types";
 import Board from "./Board";
 import CourseThemes from "./CourseThemes";
 
@@ -10,8 +10,8 @@ type Props = {
     index: number;
     imageSliderLoading: boolean;
     setImageSliderLoading: Dispatch<SetStateAction<boolean>>;
-    classWarning: string | null;
-    setClassWarning: Dispatch<SetStateAction<string | null>>;
+    classWarning: WarningMsgType | null;
+    setClassWarning: Dispatch<SetStateAction<WarningMsgType | null>>;
 };
 
 /**

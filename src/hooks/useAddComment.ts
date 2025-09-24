@@ -13,10 +13,16 @@ import {
 import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
 import { useProfessorMsgStore } from "./useProfessorMsgStore";
 import { useLocation } from "react-router-dom";
+import {
+    ERROR_GET_COURSE_ID_MSG,
+    ERROR_GET_DATA_MSG,
+    ERROR_GET_USER_ID_MSG,
+    ERROR_GET_USER_MSG,
+} from "../consts/api";
 
 type AddCommentApi = {
-    courseID: number;
-    userID: number;
+    courseID: number | undefined;
+    userID: number | undefined;
     text: string;
 };
 
@@ -56,19 +62,17 @@ export function useAddComment() {
         text,
     }: AddCommentApi): Promise<Comments> => {
         try {
-            const data = getDataLocalStorage(DATABASE_KEY);
+            const data = getDataLocalStorage<BBDD>(DATABASE_KEY);
 
-            if (!data)
-                throw new Error("Ha habido un error al recuperar los datos...");
+            if (!data) throw new Error(ERROR_GET_DATA_MSG);
+            if (!userID) throw new Error(ERROR_GET_USER_ID_MSG);
+            if (!courseID) throw new Error(ERROR_GET_COURSE_ID_MSG);
 
             const user = getUserById(userID, data);
-
-            if (!user)
-                throw new Error("Ha habido un error al recuperar los datos...");
+            if (!user) throw new Error(ERROR_GET_USER_MSG);
 
             const userCourses = getUserObtainedCourses(userID, data);
-
-            const haveCourse = userCourses.some(
+            const haveCourse = userCourses?.some(
                 (course) => course.courseId === courseID
             );
 
@@ -108,7 +112,6 @@ export function useAddComment() {
 
             return { ...rest, user };
         } catch (error) {
-            console.error(error);
             throw error;
         }
     };
@@ -120,6 +123,7 @@ export function useAddComment() {
             setPath(location.pathname);
             setType("success");
             setMsg("Comentario enviado con éxito");
+
             queryClient.setQueryData<Comments[]>(
                 ["courseComments", data.idCourse],
                 (old) => {

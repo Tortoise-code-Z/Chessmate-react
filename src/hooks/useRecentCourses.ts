@@ -1,10 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
-import { CourseJSON, IsObtainedCourse } from "../types/types";
+import {
+    BBDD,
+    CourseJSON,
+    IsObtainedCourse,
+    UserDataApi,
+} from "../types/types";
 import {
     getCourses,
     getDataLocalStorage,
+    getUserById,
     getUserObtainedCourses,
 } from "../api";
+import { ERROR_GET_DATA_MSG, ERROR_GET_USER_MSG } from "../consts/api";
 
 /**
  * Custom hook to fetch the most recent courses.
@@ -20,18 +27,18 @@ import {
  * @returns React Query's query object containing `data` (array of recent courses with obtained status), `isLoading`, `error`, etc.
  */
 
-export default function useRecentCourses(key: string, userID?: number) {
+export default function useRecentCourses(key: string, userData: UserDataApi) {
     const queryFunction: () => Promise<
         (CourseJSON & IsObtainedCourse)[]
     > = async () => {
         try {
-            const data = getDataLocalStorage(key);
+            const data = getDataLocalStorage<BBDD>(key);
+            if (!data) throw new Error(ERROR_GET_DATA_MSG);
 
-            if (!data)
-                throw new Error("Ha habido un error al recuperar los datos...");
+            const user = getUserById(userData?.userID, data);
+            if (!user && userData?.userID) throw new Error(ERROR_GET_USER_MSG);
 
             const courses = getCourses(data);
-
             const filteredCourses = courses
                 .sort((a, b) => {
                     const courseDateA = new Date(a.createdAt).getTime();
@@ -40,22 +47,22 @@ export default function useRecentCourses(key: string, userID?: number) {
                 })
                 .slice(0, 3);
 
-            const userCourses = getUserObtainedCourses(userID, data);
+            const userCourses = getUserObtainedCourses(userData?.userID, data);
 
             return filteredCourses.map((c) => ({
                 ...c,
-                isObtained: userCourses?.some(
-                    (uc) => uc.courseId === c.curseID
-                ),
+                isObtained: userData?.required
+                    ? userCourses?.some((uc) => uc.courseId === c.curseID)
+                    : false,
             }));
         } catch (error) {
-            console.log(error);
+            console.error(error);
             throw error;
         }
     };
 
     return useQuery({
-        queryKey: ["recentCourses", userID],
+        queryKey: ["recentCourses", userData.userID],
         queryFn: queryFunction,
         staleTime: 1000 * 60 * 5,
     });

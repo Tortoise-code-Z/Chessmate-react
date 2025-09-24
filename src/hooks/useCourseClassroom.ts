@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import {
     AuthorCurseData,
+    BBDD,
     Course,
     IsObtainedCourse,
     ThemesUserStatesOC,
@@ -12,6 +13,12 @@ import {
     getUserCourseThemes,
     getUserObtainedCourses,
 } from "../api";
+import {
+    ERROR_GET_COURSE_ID_MSG,
+    ERROR_GET_COURSE_MSG,
+    ERROR_GET_DATA_MSG,
+    ERROR_GET_USER_ID_MSG,
+} from "../consts/api";
 
 /**
  * useCourseClassroom - Custom hook to fetch detailed classroom data for a single course.
@@ -48,21 +55,14 @@ export default function useCourseClassroom(
 ) {
     const queryFunction: () => Promise<useCourseClassroomApi> = async () => {
         try {
-            const data = getDataLocalStorage(key);
-            if (!data)
-                throw new Error("Ha habido un error al recuperar los datos...");
+            const data = getDataLocalStorage<BBDD>(key);
 
-            if (!courseID)
-                throw new Error(
-                    "Ha habido un error al recuperar el ID del curso..."
-                );
-
-            if (!userID)
-                throw new Error(
-                    "Ha habido un error al recuperar el ID del usuario..."
-                );
+            if (!data) throw new Error(ERROR_GET_DATA_MSG);
+            if (!courseID) throw new Error(ERROR_GET_COURSE_ID_MSG);
+            if (!userID) throw new Error(ERROR_GET_USER_ID_MSG);
 
             const obtainedCourse = getCourseById(data, courseID);
+            if (!obtainedCourse) throw new Error(ERROR_GET_COURSE_MSG);
 
             const authors = getAuthors(data);
 
@@ -76,7 +76,7 @@ export default function useCourseClassroom(
 
             const userCourseThemes = getUserCourseThemes(
                 data,
-                userID as number,
+                userID,
                 courseID
             );
 
@@ -91,7 +91,7 @@ export default function useCourseClassroom(
                 themes: userCourseThemes,
             };
         } catch (error) {
-            console.log(error);
+            console.error(error);
             throw error;
         }
     };

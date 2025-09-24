@@ -1,9 +1,6 @@
 import FigureImage from "../../../../components/FigureImage";
 import TitleHx from "../../../../components/TitleHx";
-import {
-    DEFAULT_COURSES_VALUES,
-    TITLE_DEFAULT_MSG,
-} from "../../../../consts/general";
+import { TITLE_DEFAULT_MSG } from "../../../../consts/general";
 import { useCourseClassroomApi } from "../../../../hooks/useCourseClassroom";
 import { asString } from "../../../../utils/general";
 

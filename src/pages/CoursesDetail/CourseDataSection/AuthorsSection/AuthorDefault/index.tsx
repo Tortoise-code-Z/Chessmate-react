@@ -2,7 +2,6 @@ import ChessTitle from "../../../../../components/ChessTitle";
 import FigureImage from "../../../../../components/FigureImage";
 import {
     AUTHOR_DEFAULT_MSG,
-    DEFAULT_AUTHORS_VALUE,
     DESCRIPTION_DEFAULT_MSG,
     ELO_DEFAULT_MSG,
 } from "../../../../../consts/general";

@@ -1,12 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
-import { CourseJSON, FilterOptions, IsObtainedCourse } from "../types/types";
 import {
-    getAllCourses,
+    BBDD,
+    CourseJSON,
+    FilterOptions,
+    IsObtainedCourse,
+    UserDataApi,
+} from "../types/types";
+import {
     getDataLocalStorage,
     getFilteredCourses,
     getSearchedCourses,
+    getUserById,
     getUserObtainedCourses,
 } from "../api";
+import { ERROR_GET_DATA_MSG, ERROR_GET_USER_MSG } from "../consts/api";
 
 /**
  * Custom hook to fetch all courses from local storage, optionally filtered by search or filter criteria.
@@ -25,32 +32,45 @@ export default function useAllCourses(
     key: string,
     search: string,
     filter: FilterOptions | undefined,
-    userID?: number
+    userData: UserDataApi
 ) {
     const queryFunction: () => Promise<
         (CourseJSON & IsObtainedCourse)[]
     > = async () => {
         try {
-            const data = getDataLocalStorage(key);
+            const data = getDataLocalStorage<BBDD>(key);
+            if (!data) throw new Error(ERROR_GET_DATA_MSG);
 
-            if (!data)
-                throw new Error("Ha habido un error al recuperar los datos...");
+            const user = getUserById(userData?.userID, data);
+            if (!user && userData?.userID) throw new Error(ERROR_GET_USER_MSG);
 
-            const userCourses = getUserObtainedCourses(userID, data);
+            let courses: (CourseJSON & IsObtainedCourse)[] = [];
+
+            const userCourses = getUserObtainedCourses(userData?.userID, data);
 
             if (!search && !filter) {
-                return getAllCourses(userCourses, data);
+                courses = data.courses;
             }
 
             if (search && !filter) {
-                return getSearchedCourses(search, userCourses, data);
+                courses = getSearchedCourses(search, data);
             }
 
             if (filter && !search) {
-                return getFilteredCourses(filter, userCourses, data);
+                courses = getFilteredCourses(filter, data);
             }
 
-            return [] as (CourseJSON & IsObtainedCourse)[];
+            const finalCourses =
+                courses.map((c) => ({
+                    ...c,
+                    isObtained: userData.required
+                        ? userCourses?.some(
+                              (userCourse) => userCourse.courseId === c.curseID
+                          )
+                        : false,
+                })) || ([] as (CourseJSON & IsObtainedCourse)[]);
+
+            return finalCourses;
         } catch (error) {
             console.error(error);
             throw error;
@@ -58,7 +78,7 @@ export default function useAllCourses(
     };
 
     return useQuery({
-        queryKey: ["allCourses", search, filter, userID],
+        queryKey: ["allCourses", search, filter, userData.userID],
         queryFn: queryFunction,
         staleTime: 1000 * 60 * 5,
     });

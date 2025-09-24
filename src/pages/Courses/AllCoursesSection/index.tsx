@@ -52,7 +52,7 @@ function AllCoursesSection({}: Props) {
         DATABASE_KEY,
         search,
         filter,
-        asNumber(user?.userID)
+        { required: !!user, userID: user ? asNumber(user?.userID) : undefined }
     );
 
     const safeData = asArray<CourseJSON & IsObtainedCourse>(data);
@@ -84,7 +84,6 @@ function AllCoursesSection({}: Props) {
                     display="Row"
                     msg={"No se han encontrado cursos..."}
                     svg={<FaHandsPraying />}
-                    requiredIsObtained={user ? true : false}
                 />
             </DataStateWrapper>
         </section>

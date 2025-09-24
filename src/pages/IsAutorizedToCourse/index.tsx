@@ -5,7 +5,7 @@ import useHaveObtainedCourse from "../../hooks/useHaveObtainedCourse";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import { DATABASE_KEY } from "../../consts/dataBaseKey";
 import { ReactNode, useEffect } from "react";
-import { asBoolean, asNumber, isBoolean } from "../../utils/general";
+import { asNumber, isBoolean } from "../../utils/general";
 import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
 
 type Props = {
@@ -31,30 +31,7 @@ type Props = {
 function IsAutorizedToCourse({ children }: Props) {
     const params = useParams();
     const { user } = useUserAuthStore();
-
-    const { setPath, setReset, setMsg, setState, setType } =
-        useFeedbackMessageStore();
-
-    useEffect(() => {
-        if (!user) {
-            setType("error");
-            setMsg("Para acceder al curso primero debes iniciar sesión...");
-            setState(true);
-            setReset(false);
-            setPath(`/${PATHS.coursesDetail.replace(":id", `${params.id}`)}`);
-        }
-    }, [setType, setMsg, setState, user, params.id]);
-
-    if (!user) {
-        return (
-            <Navigate
-                to={`/${PATHS.coursesDetail.replace(
-                    ":id",
-                    `${Number(params.id)}`
-                )}`}
-            />
-        );
-    }
+    const { setPath, setMsg, setState, setType } = useFeedbackMessageStore();
 
     const { data, isLoading, error } = useHaveObtainedCourse(
         asNumber(Number(params.id)),
@@ -67,7 +44,6 @@ function IsAutorizedToCourse({ children }: Props) {
             setType("error");
             setMsg("Para acceder al curso primero debes comprarlo...");
             setState(true);
-            setReset(false);
             setPath(
                 `/${PATHS.coursesDetail.replace(
                     ":id",
@@ -80,7 +56,6 @@ function IsAutorizedToCourse({ children }: Props) {
             setType("error");
             setMsg("Ha habido un error al intentar acceder al curso...");
             setState(true);
-            setReset(false);
             setPath(
                 `/${PATHS.coursesDetail.replace(
                     ":id",

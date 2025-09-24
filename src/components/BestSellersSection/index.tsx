@@ -16,7 +16,6 @@ type Props = {
     titleTextSpan?: string;
     titleDisplay: "Row" | "Col";
     classNames?: string[];
-    requiredIsObtained?: boolean;
 };
 
 /**
@@ -45,14 +44,13 @@ function BestSellersSection({
     titleTextSpan,
     titleDisplay,
     classNames = [],
-    requiredIsObtained,
 }: Props) {
     const { user } = useUserAuthStore();
 
     const { data, isLoading, error } = useBestSeller(
         DATABASE_KEY,
         asNumber(limit),
-        asNumber(user?.userID)
+        { required: !!user, userID: user ? asNumber(user?.userID) : undefined }
     );
 
     const safeData = asArray<CourseJSON & IsObtainedCourse>(data);
@@ -83,7 +81,6 @@ function BestSellersSection({
                     action={true}
                     courses={safeData}
                     display={display}
-                    requiredIsObtained={requiredIsObtained}
                 />
             </DataStateWrapper>
         </section>

@@ -1,10 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
-import { DefualtCourse, Progress } from "../types/types";
+import { BBDD, DefualtCourse, Progress } from "../types/types";
 import {
     getDataLocalStorage,
     getDefaultCoursesWithProgress,
     getUserById,
 } from "../api";
+import {
+    ERROR_GET_COURSES_MSG,
+    ERROR_GET_DATA_MSG,
+    ERROR_GET_USER_ID_MSG,
+    ERROR_GET_USER_MSG,
+} from "../consts/api";
 
 /**
  * Custom hook to fetch the default (free) courses for a user, optionally excluding the current course.
@@ -31,21 +37,16 @@ export default function useDefaultCourses(
         (DefualtCourse & Progress)[]
     > = async () => {
         try {
-            const data = getDataLocalStorage(key);
-            if (!data)
-                throw new Error("Ha habido un error al recuperar los datos...");
+            const data = getDataLocalStorage<BBDD>(key);
 
-            if (!userID)
-                throw new Error(
-                    "Ha habido un error al recuperar el ID del usuario..."
-                );
+            if (!data) throw new Error(ERROR_GET_DATA_MSG);
+            if (!userID) throw new Error(ERROR_GET_USER_ID_MSG);
 
             const user = getUserById(userID, data);
-
-            if (!user)
-                throw new Error("Ha habido un error al recuperar los datos...");
+            if (!user) throw new Error(ERROR_GET_USER_MSG);
 
             let defaultCourses = getDefaultCoursesWithProgress(data, user);
+            if (!defaultCourses) throw new Error(ERROR_GET_COURSES_MSG);
 
             if (currentCourseID) {
                 defaultCourses = defaultCourses.filter(
@@ -55,7 +56,7 @@ export default function useDefaultCourses(
 
             return defaultCourses;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             throw error;
         }
     };

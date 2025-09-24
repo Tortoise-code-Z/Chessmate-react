@@ -5,9 +5,6 @@ import FeedbackMessage from "../../components/FeedbackMessage";
 import ProfessorFixedMessage from "../../components/ProfessorFixedMessage";
 import CourseCommentSection from "../../components/CourseCommentSection";
 import { asNumber } from "../../utils/general";
-import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
 import FeedbackListener from "../../components/FeedbackListener";
 
 type Props = {};
@@ -34,16 +31,6 @@ type Props = {};
 
 function CoursesDetail({}: Props) {
     const { user } = useUserAuthStore();
-
-    const { state, path, setPath, setState } = useFeedbackMessageStore();
-    const location = useLocation();
-
-    useEffect(() => {
-        if (state && path !== location.pathname) {
-            setState(false);
-            setPath("");
-        }
-    }, [state, path, setState, setPath]);
 
     return (
         <>

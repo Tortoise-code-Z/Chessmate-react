@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { asString, isString } from "../../utils/general";
-import { DEFAULT_VALUES_DEFAULT_COURSES } from "../../consts/general";
+import { asString } from "../../utils/general";
+import { DESCRIPTION_DEFAULT_MSG } from "../../consts/general";
 
 type Props = {
     data: string | undefined;
@@ -24,9 +24,7 @@ type Props = {
 function WritteMachine({ data, time, classNames = [] }: Props) {
     const [dataToWritte, setDataToWritte] = useState<string>("");
 
-    const safeData =
-        asString(data) ||
-        DEFAULT_VALUES_DEFAULT_COURSES.content.detailDescription;
+    const safeData = asString(data) || DESCRIPTION_DEFAULT_MSG;
 
     useEffect(() => {
         setDataToWritte("");
