@@ -1,3 +1,4 @@
+import { AnimatedInView } from "../../../../components/AnimatedInView";
 import FigureImage from "../../../../components/FigureImage";
 import TitleHx from "../../../../components/TitleHx";
 import { TITLE_DEFAULT_MSG } from "../../../../consts/general";
@@ -27,23 +28,28 @@ type Props = {
 
 function CourseClassroomBanner({ data }: Props) {
     return (
-        <div className={styles.courseClassroomBanner}>
-            <div className={styles.titleContainer}>
-                <p>Bienvenido a tu curso</p>
-                <TitleHx>
-                    {asString(data?.course?.title) || TITLE_DEFAULT_MSG}
-                </TitleHx>
-            </div>
+        <AnimatedInView>
+            <div className={styles.courseClassroomBanner}>
+                <div className={styles.titleContainer}>
+                    <p>Bienvenido a tu curso</p>
+                    <TitleHx>
+                        {asString(data?.course?.title) || TITLE_DEFAULT_MSG}
+                    </TitleHx>
+                </div>
 
-            <FigureImage
-                classNames={[styles.bannerBackground]}
-                src={getImage(data?.course?.imageUrl?.full, ["courses"])}
-                alt={asString(data?.course?.title)}
-                title={asString(data?.course?.title)}
-                width={getImageSize(data?.course?.imageUrl?.full, "width")}
-                height={getImageSize(data?.course?.imageUrl?.full, "height")}
-            />
-        </div>
+                <FigureImage
+                    classNames={[styles.bannerBackground]}
+                    src={getImage(data?.course?.imageUrl?.full, ["courses"])}
+                    alt={asString(data?.course?.title)}
+                    title={asString(data?.course?.title)}
+                    width={getImageSize(data?.course?.imageUrl?.full, "width")}
+                    height={getImageSize(
+                        data?.course?.imageUrl?.full,
+                        "height"
+                    )}
+                />
+            </div>
+        </AnimatedInView>
     );
 }
 

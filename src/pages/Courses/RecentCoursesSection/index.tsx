@@ -1,3 +1,4 @@
+import { AnimatedInView } from "../../../components/AnimatedInView";
 import CoursesDisplay from "../../../components/CoursesDisplay";
 import DataStateWrapper from "../../../components/DataStateWrapperProps";
 import LightComponent from "../../../components/LightComponent";
@@ -42,20 +43,22 @@ function RecentCoursesSection({}: Props) {
     const safeData = asArray<CourseJSON & IsObtainedCourse>(data);
 
     return (
-        <section className={styles.recentCoursesSection}>
-            <LightComponent top={50} right={80} />
+        <AnimatedInView>
+            <section className={styles.recentCoursesSection}>
+                <LightComponent top={50} right={80} />
 
-            <TitleHx level={2}>
-                Recién{" "}
-                <span className={["span-pr-color", "upperCase"].join(" ")}>
-                    llegados
-                </span>
-            </TitleHx>
+                <TitleHx level={2}>
+                    Recién{" "}
+                    <span className={["span-pr-color", "upperCase"].join(" ")}>
+                        llegados
+                    </span>
+                </TitleHx>
 
-            <DataStateWrapper isLoading={isLoading} error={error}>
-                <CoursesDisplay courses={safeData} display="Row" />
-            </DataStateWrapper>
-        </section>
+                <DataStateWrapper isLoading={isLoading} error={error}>
+                    <CoursesDisplay courses={safeData} display="Row" />
+                </DataStateWrapper>
+            </section>
+        </AnimatedInView>
     );
 }
 

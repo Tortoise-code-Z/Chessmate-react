@@ -69,7 +69,6 @@ function Home({}: Props) {
                 titleText="Nuestros cursos más"
                 titleTextSpan="vendidos"
                 titleDisplay="Col"
-                requiredIsObtained={false}
             />
             <BestPlayersSection />
             <UsersOpinionSection />

@@ -2,6 +2,7 @@ import { PLAYERS_CHESS } from "../../consts/url";
 import useBestPlayersApi from "../../hooks/useBestPlayersApi";
 import { BestPlayerChessData } from "../../types/types";
 import { asArray } from "../../utils/general";
+import { AnimatedInView } from "../AnimatedInView";
 import DataStateWrapper from "../DataStateWrapperProps";
 import EmblaCarousel from "../EmblaCarousel";
 import LightComponent from "../LightComponent";
@@ -28,33 +29,35 @@ function BestPlayersSection({}: Props) {
     const safeData = asArray<BestPlayerChessData>(data);
 
     return (
-        <article className={styles.bestPlayersSection}>
-            <LightComponent top={5} right={65} />
+        <AnimatedInView>
+            <article className={styles.bestPlayersSection}>
+                <LightComponent top={5} right={65} />
 
-            <TitleHx level={2}>
-                <span className={["span-pr-color", "upperCase"].join(" ")}>
-                    Rating players
-                </span>
-                Chess.com
-            </TitleHx>
+                <TitleHx level={2}>
+                    <span className={["span-pr-color", "upperCase"].join(" ")}>
+                        Rating players
+                    </span>
+                    Chess.com
+                </TitleHx>
 
-            <DataStateWrapper
-                isLoading={isLoading}
-                error={error}
-                errorMsg={"No se ha podido recuperar los datos"}
-                paddingErrorLateral={true}
-            >
-                <div className={styles.sliderContainer}>
-                    <EmblaCarousel
-                        slides={safeData}
-                        options={{ loop: true }}
-                        Component={BestPlayersContainer}
-                        playButton={false}
-                        playInit={true}
-                    />
-                </div>
-            </DataStateWrapper>
-        </article>
+                <DataStateWrapper
+                    isLoading={isLoading}
+                    error={error}
+                    errorMsg={"No se ha podido recuperar los datos"}
+                    paddingErrorLateral={true}
+                >
+                    <div className={styles.sliderContainer}>
+                        <EmblaCarousel
+                            slides={safeData}
+                            options={{ loop: true }}
+                            Component={BestPlayersContainer}
+                            playButton={false}
+                            playInit={true}
+                        />
+                    </div>
+                </DataStateWrapper>
+            </article>
+        </AnimatedInView>
     );
 }
 

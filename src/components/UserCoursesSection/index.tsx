@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import UserCourses from "./UserCourses";
 import styles from "./UserCoursesSection.module.css";
+import { AnimatedInView } from "../AnimatedInView";
 
 type Props = {
     children: ReactNode;
@@ -43,20 +44,22 @@ function UserCoursesSection({
     msg,
 }: Props) {
     return (
-        <section
-            className={[
-                styles.userCoursesSection,
-                navbarHeight ? styles.paddingNavbar : "",
-            ].join(" ")}
-        >
-            {children}
-            <UserCourses
-                obtainedCoursesLimit={obtainedCoursesLimit}
-                showObtainedCourses={showObtainedCourses}
-                showDefaultCourses={showDefaultCourses}
-                msg={msg}
-            />
-        </section>
+        <AnimatedInView>
+            <section
+                className={[
+                    styles.userCoursesSection,
+                    navbarHeight ? styles.paddingNavbar : "",
+                ].join(" ")}
+            >
+                {children}
+                <UserCourses
+                    obtainedCoursesLimit={obtainedCoursesLimit}
+                    showObtainedCourses={showObtainedCourses}
+                    showDefaultCourses={showDefaultCourses}
+                    msg={msg}
+                />
+            </section>
+        </AnimatedInView>
     );
 }
 

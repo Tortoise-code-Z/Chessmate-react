@@ -12,7 +12,6 @@ import WarningMsg from "../WarningMsg";
 import MsgEmpty from "../MsgEmpty";
 import {
     asNumber,
-    asObject,
     isNumber,
     isOnVaulues,
     isString,

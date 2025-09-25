@@ -3,6 +3,7 @@ import { PiSignInBold } from "react-icons/pi";
 import styles from "./SignupCallToAction.module.css";
 import { PATHS } from "../../../consts/paths";
 import TitleHx from "../../../components/TitleHx";
+import { AnimatedInView } from "../../../components/AnimatedInView";
 
 type Props = {};
 
@@ -19,25 +20,28 @@ type Props = {};
 
 function SignupCallToAction({}: Props) {
     return (
-        <section className={styles.signUpCallToAction}>
-            <div className={styles.titleContainer}>
-                <TitleHx level={2}>
-                    <span className={"span-pr-color"}>Regístrate</span>
-                    <span>Y comimenza a aprender</span>
-                </TitleHx>
+        <AnimatedInView>
+            <section className={styles.signUpCallToAction}>
+                <div className={styles.titleContainer}>
+                    <TitleHx level={2}>
+                        <span className={"span-pr-color"}>Regístrate</span>
+                        <span>Y comimenza a aprender</span>
+                    </TitleHx>
 
-                <p>Accede a cursos gratuitos y lecciones exclusivas</p>
-            </div>
-            <NavLink
-                className={["button buttonPrimary", styles.signinAction].join(
-                    " "
-                )}
-                to={`/${PATHS.register}`}
-            >
-                <PiSignInBold />
-                Registrarme
-            </NavLink>
-        </section>
+                    <p>Accede a cursos gratuitos y lecciones exclusivas</p>
+                </div>
+                <NavLink
+                    className={[
+                        "button buttonPrimary",
+                        styles.signinAction,
+                    ].join(" ")}
+                    to={`/${PATHS.register}`}
+                >
+                    <PiSignInBold />
+                    Registrarme
+                </NavLink>
+            </section>
+        </AnimatedInView>
     );
 }
 

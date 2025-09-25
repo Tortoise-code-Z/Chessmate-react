@@ -12,6 +12,7 @@ import {
 } from "../../../../utils/general";
 import MsgEmpty from "../../../../components/MsgEmpty";
 import WarningMsg from "../../../../components/WarningMsg";
+import { AnimatedInView } from "../../../../components/AnimatedInView";
 
 type Props = {
     data: Course | undefined;
@@ -68,68 +69,77 @@ function DetailsCourse({ data, titleContain, type }: Props) {
         "No se han podido recuperar los datos. Estamos trabajando en ello.";
 
     return (
-        <div className={styles.detailsCourse}>
-            <TitleHx level={2}>{titleContain}</TitleHx>
+        <AnimatedInView>
+            <div className={styles.detailsCourse}>
+                <TitleHx level={2}>{titleContain}</TitleHx>
 
-            {(warningDetailContent?.emptyMsg || warningDetailContent?.msg) && (
-                <WarningMsg
-                    msg={
-                        warningDetailContent?.emptyMsg
-                            ? warningDetailContent.emptyMsg
-                            : warningDetailContent.msg
-                    }
-                />
-            )}
+                {(warningDetailContent?.emptyMsg ||
+                    warningDetailContent?.msg) && (
+                    <WarningMsg
+                        msg={
+                            warningDetailContent?.emptyMsg
+                                ? warningDetailContent.emptyMsg
+                                : warningDetailContent.msg
+                        }
+                    />
+                )}
 
-            <ul className={styles.themesList}>
-                <SecurityRendering<Omit<Theme, "content">>
-                    data={data?.[typeData]?.themes}
-                    conditions={commonConditions}
-                    noCriticalConditions={commonNoCriticalConditions}
-                    state={commonState}
-                    msg={commonMsg}
-                    msgEmpty={commonEmptyMsg}
-                    emptyNode={<MsgEmpty msg="No hay temas para este curso." />}
-                >
-                    {(theme, index, _canRender) => {
-                        return (
-                            <li
-                                className={
-                                    typeData === "content"
-                                        ? styles.contentItem
-                                        : styles.toLearnItem
-                                }
-                                key={asNumber(theme?.id) || index}
-                            >
-                                {asString(theme?.title) || TITLE_DEFAULT_MSG}
-                            </li>
-                        );
-                    }}
-                </SecurityRendering>
-            </ul>
+                <ul className={styles.themesList}>
+                    <SecurityRendering<Omit<Theme, "content">>
+                        data={data?.[typeData]?.themes}
+                        conditions={commonConditions}
+                        noCriticalConditions={commonNoCriticalConditions}
+                        state={commonState}
+                        msg={commonMsg}
+                        msgEmpty={commonEmptyMsg}
+                        emptyNode={
+                            <MsgEmpty msg="No hay temas para este curso." />
+                        }
+                    >
+                        {(theme, index, _canRender) => {
+                            return (
+                                <li
+                                    className={
+                                        typeData === "content"
+                                            ? styles.contentItem
+                                            : styles.toLearnItem
+                                    }
+                                    key={asNumber(theme?.id) || index}
+                                >
+                                    {asString(theme?.title) ||
+                                        TITLE_DEFAULT_MSG}
+                                </li>
+                            );
+                        }}
+                    </SecurityRendering>
+                </ul>
 
-            <div className={styles.description}>
-                <SecurityRendering<string>
-                    data={data?.[typeData]?.detailDescription}
-                    conditions={commonConditions}
-                    noCriticalConditions={commonNoCriticalConditions}
-                    state={commonState}
-                    msg={commonMsg}
-                    msgEmpty={commonEmptyMsg}
-                    sameState={true}
-                    emptyNode={<MsgEmpty msg="Sin descripción." />}
-                >
-                    {(description, index, canRender) => {
-                        if (!canRender) return null;
-                        return (
-                            <p className={styles.descriptionItem} key={index}>
-                                {description}
-                            </p>
-                        );
-                    }}
-                </SecurityRendering>
+                <div className={styles.description}>
+                    <SecurityRendering<string>
+                        data={data?.[typeData]?.detailDescription}
+                        conditions={commonConditions}
+                        noCriticalConditions={commonNoCriticalConditions}
+                        state={commonState}
+                        msg={commonMsg}
+                        msgEmpty={commonEmptyMsg}
+                        sameState={true}
+                        emptyNode={<MsgEmpty msg="Sin descripción." />}
+                    >
+                        {(description, index, canRender) => {
+                            if (!canRender) return null;
+                            return (
+                                <p
+                                    className={styles.descriptionItem}
+                                    key={index}
+                                >
+                                    {description}
+                                </p>
+                            );
+                        }}
+                    </SecurityRendering>
+                </div>
             </div>
-        </div>
+        </AnimatedInView>
     );
 }
 

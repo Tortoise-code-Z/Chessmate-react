@@ -1,0 +1,46 @@
+/* Base de animación */
+.base {
+    opacity: 0;
+    transform: translateY(var(--translate-y, 40px)) scale(var(--scale, 1));
+    /* No ponemos transition aquí, lo pondremos en el item para no sobreescribir hover */
+}
+
+/* Animación visible hacia arriba */
+.visible_up {
+    opacity: 1;
+    --translate-y: 0;
+}
+
+/* Animación oculta hacia arriba */
+.hidden_up {
+    --translate-y: 40px;
+}
+
+/* Animación visible hacia abajo */
+.visible_down {
+    opacity: 1;
+    --translate-y: 0;
+}
+
+.hidden_down {
+    --translate-y: -40px;
+}
+
+/* Animación visible izquierda/derecha */
+.visible_left {
+    opacity: 1;
+    transform: translateX(0) scale(var(--scale, 1));
+}
+
+.hidden_left {
+    transform: translateX(40px) scale(var(--scale, 1));
+}
+
+.visible_right {
+    opacity: 1;
+    transform: translateX(0) scale(var(--scale, 1));
+}
+
+.hidden_right {
+    transform: translateX(-40px) scale(var(--scale, 1));
+}

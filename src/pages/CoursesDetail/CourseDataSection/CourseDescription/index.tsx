@@ -1,3 +1,4 @@
+import { AnimatedInView } from "../../../../components/AnimatedInView";
 import TitleHx from "../../../../components/TitleHx";
 import { DESCRIPTION_DEFAULT_MSG } from "../../../../consts/general";
 import { Course, TitleLevel } from "../../../../types/types";
@@ -25,12 +26,15 @@ type Props = {
 
 function CourseDescription({ data, level }: Props) {
     return (
-        <div className={[styles.descriptionSection].join(" ")}>
-            <TitleHx level={level}>Descripción</TitleHx>
-            <p>
-                {asString(data?.detailDescription) || DESCRIPTION_DEFAULT_MSG}
-            </p>
-        </div>
+        <AnimatedInView>
+            <div className={[styles.descriptionSection].join(" ")}>
+                <TitleHx level={level}>Descripción</TitleHx>
+                <p>
+                    {asString(data?.detailDescription) ||
+                        DESCRIPTION_DEFAULT_MSG}
+                </p>
+            </div>
+        </AnimatedInView>
     );
 }
 

@@ -7,6 +7,7 @@ import RegisterForm from "./RegisterForm";
 import FeedbackMessage from "../../components/FeedbackMessage";
 import TitleHx from "../../components/TitleHx";
 import FeedbackListener from "../../components/FeedbackListener";
+import { AnimatedInView } from "../../components/AnimatedInView";
 
 type Props = {};
 
@@ -30,34 +31,37 @@ function Register({}: Props) {
     const handleSubmit = (data: registerSchemaValues) => mutate(data);
 
     return (
-        <section className={styles.register}>
-            <FeedbackListener />
-            <FeedbackMessage position="top" time="infinite" />
+        <AnimatedInView>
+            <section className={styles.register}>
+                <FeedbackListener />
+                <FeedbackMessage position="top" time="infinite" />
 
-            <div className={styles.formContainer}>
-                <TitleHx classNames={[styles.title]}>
-                    Regístrate
-                    <span>
-                        ... y <span className={"span-pr-color"}>comienza</span>{" "}
-                        tu aventura
-                    </span>
-                </TitleHx>
+                <div className={styles.formContainer}>
+                    <TitleHx classNames={[styles.title]}>
+                        Regístrate
+                        <span>
+                            ... y{" "}
+                            <span className={"span-pr-color"}>comienza</span> tu
+                            aventura
+                        </span>
+                    </TitleHx>
 
-                <RegisterForm
-                    handleSubmit={handleSubmit}
-                    isPending={isPending}
+                    <RegisterForm
+                        handleSubmit={handleSubmit}
+                        isPending={isPending}
+                    />
+                </div>
+
+                <FigureImage
+                    classNames={[styles.bccImg]}
+                    src={SIGNIN_IMAGE.image}
+                    alt={SIGNIN_IMAGE.alt}
+                    title={SIGNIN_IMAGE.alt}
+                    width={SIGNIN_IMAGE.width}
+                    height={SIGNIN_IMAGE.height}
                 />
-            </div>
-
-            <FigureImage
-                classNames={[styles.bccImg]}
-                src={SIGNIN_IMAGE.image}
-                alt={SIGNIN_IMAGE.alt}
-                title={SIGNIN_IMAGE.alt}
-                width={SIGNIN_IMAGE.width}
-                height={SIGNIN_IMAGE.height}
-            />
-        </section>
+            </section>
+        </AnimatedInView>
     );
 }
 

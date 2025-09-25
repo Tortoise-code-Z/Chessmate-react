@@ -15,6 +15,7 @@ import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import { FaHandsPraying } from "react-icons/fa6";
 import TitleHx from "../../../components/TitleHx";
 import { asArray, asNumber } from "../../../utils/general";
+import { AnimatedInView } from "../../../components/AnimatedInView";
 
 type Props = {};
 
@@ -58,35 +59,37 @@ function AllCoursesSection({}: Props) {
     const safeData = asArray<CourseJSON & IsObtainedCourse>(data);
 
     return (
-        <section className={styles.allCoursesSection}>
-            <LightComponent top={20} right={40} />
-            <TitleHx level={2}>
-                <span className={["span-pr-color", "upperCase"].join(" ")}>
-                    todos
-                </span>{" "}
-                los cursos
-            </TitleHx>
+        <AnimatedInView options={{ threshold: 0.08 }}>
+            <section className={styles.allCoursesSection}>
+                <LightComponent top={20} right={40} />
+                <TitleHx level={2}>
+                    <span className={["span-pr-color", "upperCase"].join(" ")}>
+                        todos
+                    </span>{" "}
+                    los cursos
+                </TitleHx>
 
-            <SearchBar
-                setSearch={setSearch}
-                setFilter={setFilter}
-                filter={filter}
-            />
-
-            <DataStateWrapper
-                isLoading={isLoading}
-                error={error}
-                errorMsg={error?.message}
-            >
-                <CoursesDisplay
-                    action={true}
-                    courses={safeData}
-                    display="Row"
-                    msg={"No se han encontrado cursos..."}
-                    svg={<FaHandsPraying />}
+                <SearchBar
+                    setSearch={setSearch}
+                    setFilter={setFilter}
+                    filter={filter}
                 />
-            </DataStateWrapper>
-        </section>
+
+                <DataStateWrapper
+                    isLoading={isLoading}
+                    error={error}
+                    errorMsg={error?.message}
+                >
+                    <CoursesDisplay
+                        action={true}
+                        courses={safeData}
+                        display="Row"
+                        msg={"No se han encontrado cursos..."}
+                        svg={<FaHandsPraying />}
+                    />
+                </DataStateWrapper>
+            </section>
+        </AnimatedInView>
     );
 }
 

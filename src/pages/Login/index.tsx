@@ -7,6 +7,7 @@ import LoginForm from "./LoginForm";
 import FeedbackMessage from "../../components/FeedbackMessage";
 import TitleHx from "../../components/TitleHx";
 import FeedbackListener from "../../components/FeedbackListener";
+import { AnimatedInView } from "../../components/AnimatedInView";
 
 type Props = {};
 
@@ -44,21 +45,25 @@ function Login({}: Props) {
         <>
             <FeedbackListener />
             <FeedbackMessage position="top" time="infinite" />
+            <AnimatedInView>
+                <section className={styles.login}>
+                    <div className={styles.logoContainer}>
+                        <TitleHx>Iniciar sesión</TitleHx>
+                        <FigureImage
+                            src={LOGO_IMAGE.image}
+                            alt={LOGO_IMAGE.alt}
+                            title={LOGO_IMAGE.alt}
+                            width={LOGO_IMAGE.width}
+                            height={LOGO_IMAGE.height}
+                        />
+                    </div>
 
-            <section className={styles.login}>
-                <div className={styles.logoContainer}>
-                    <TitleHx>Iniciar sesión</TitleHx>
-                    <FigureImage
-                        src={LOGO_IMAGE.image}
-                        alt={LOGO_IMAGE.alt}
-                        title={LOGO_IMAGE.alt}
-                        width={LOGO_IMAGE.width}
-                        height={LOGO_IMAGE.height}
+                    <LoginForm
+                        handleSubmit={handleSubmit}
+                        isPending={isPending}
                     />
-                </div>
-
-                <LoginForm handleSubmit={handleSubmit} isPending={isPending} />
-            </section>
+                </section>
+            </AnimatedInView>
         </>
     );
 }

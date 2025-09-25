@@ -1,3 +1,4 @@
+import { AnimatedInView } from "../../components/AnimatedInView";
 import FeedbackListener from "../../components/FeedbackListener";
 import FeedbackMessage from "../../components/FeedbackMessage";
 import TitleHx from "../../components/TitleHx";
@@ -22,19 +23,23 @@ function Contact({}: Props) {
             <FeedbackListener />
             <FeedbackMessage />
 
-            <section className={styles.contact}>
-                <div className={styles.imageContact}>
-                    <TitleHx level={1}>
-                        Envíanos tu duda de{" "}
-                        <span className={"span-pr-color"}>forma directa</span>
-                    </TitleHx>
-                    <p>
-                        ¡Nuestro equipo se encargará de contestarla lo antes
-                        posible!
-                    </p>
-                </div>
-                <ContactForm />
-            </section>
+            <AnimatedInView>
+                <section className={styles.contact}>
+                    <div className={styles.imageContact}>
+                        <TitleHx level={1}>
+                            Envíanos tu duda de{" "}
+                            <span className={"span-pr-color"}>
+                                forma directa
+                            </span>
+                        </TitleHx>
+                        <p>
+                            ¡Nuestro equipo se encargará de contestarla lo antes
+                            posible!
+                        </p>
+                    </div>
+                    <ContactForm />
+                </section>
+            </AnimatedInView>
         </>
     );
 }

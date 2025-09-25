@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { forwardRef, ReactNode } from "react";
 import { TitleLevel } from "../../types/types";
 
 type Props = {

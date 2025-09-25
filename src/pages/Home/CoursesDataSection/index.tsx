@@ -4,6 +4,7 @@ import { coursesDataItem } from "../../../consts/home";
 import styles from "./CoursesDataSection.module.css";
 import TitleHx from "../../../components/TitleHx";
 import { asNumber } from "../../../utils/general";
+import { AnimatedInView } from "../../../components/AnimatedInView";
 
 type Props = {};
 
@@ -20,29 +21,32 @@ type Props = {};
 
 function CoursesDataSection({}: Props) {
     return (
-        <section className={styles.coursesDataSection}>
-            <LightComponent top={15} right={30} />
-            <LightComponent top={60} right={70} />
-            <TitleHx level={2}>
-                <span>
-                    Conviértete en todo un{" "}
-                    <span className={["span-pr-color upperCase"].join(" ")}>
-                        profesional
+        <AnimatedInView>
+            <section className={styles.coursesDataSection}>
+                <LightComponent top={15} right={30} />
+                <LightComponent top={60} right={70} />
+
+                <TitleHx level={2}>
+                    <span>
+                        Conviértete en todo un{" "}
+                        <span className={["span-pr-color upperCase"].join(" ")}>
+                            profesional
+                        </span>{" "}
+                        con
                     </span>{" "}
-                    con
-                </span>{" "}
-                nuestros cursos
-            </TitleHx>
-            <div className={styles.itemsContainer}>
-                {coursesDataItem.map((c, index) => (
-                    <ItemCourseData
-                        index={index}
-                        key={asNumber(c?.id) || index}
-                        item={c}
-                    />
-                ))}
-            </div>
-        </section>
+                    nuestros cursos
+                </TitleHx>
+                <div className={styles.itemsContainer}>
+                    {coursesDataItem.map((c, index) => (
+                        <ItemCourseData
+                            index={index}
+                            key={asNumber(c?.id) || index}
+                            item={c}
+                        />
+                    ))}
+                </div>
+            </section>
+        </AnimatedInView>
     );
 }
 

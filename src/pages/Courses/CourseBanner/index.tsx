@@ -8,6 +8,7 @@ import BannerCard from "./BannerCard";
 import FigureImage from "../../../components/FigureImage";
 import { asNumber, asObject } from "../../../utils/general";
 import { CourseJSON, IsObtainedCourse } from "../../../types/types";
+import { AnimatedInView } from "../../../components/AnimatedInView";
 
 type Props = {};
 
@@ -36,34 +37,46 @@ function CourseBanner({}: Props) {
     const safeData = asObject<CourseJSON & IsObtainedCourse>(data);
 
     return (
-        <section
-            className={[styles.courseBanner, error ? styles.cbError : ""].join(
-                " "
-            )}
-        >
-            <DataStateWrapper
-                isLoading={isLoading}
-                error={error}
-                paddingErrorLateral={true}
-                errorMsg="No se ha podido recuperar el curso..."
+        <AnimatedInView>
+            <section
+                className={[
+                    styles.courseBanner,
+                    error ? styles.cbError : "",
+                ].join(" ")}
             >
-                <>
-                    <FigureImage
-                        classNames={[styles.bannerBackground]}
-                        src={getImage(safeData?.imageUrl?.full, ["courses"])}
-                        alt={getImage(safeData?.imageUrl?.full, ["courses"])}
-                        title={getImage(safeData?.imageUrl?.full, ["courses"])}
-                        width={getImageSize(safeData?.imageUrl?.full, "width")}
-                        height={getImageSize(
-                            safeData?.imageUrl?.full,
-                            "height"
-                        )}
-                    />
+                <DataStateWrapper
+                    isLoading={isLoading}
+                    error={error}
+                    paddingErrorLateral={true}
+                    errorMsg="No se ha podido recuperar el curso..."
+                >
+                    <>
+                        <FigureImage
+                            classNames={[styles.bannerBackground]}
+                            src={getImage(safeData?.imageUrl?.full, [
+                                "courses",
+                            ])}
+                            alt={getImage(safeData?.imageUrl?.full, [
+                                "courses",
+                            ])}
+                            title={getImage(safeData?.imageUrl?.full, [
+                                "courses",
+                            ])}
+                            width={getImageSize(
+                                safeData?.imageUrl?.full,
+                                "width"
+                            )}
+                            height={getImageSize(
+                                safeData?.imageUrl?.full,
+                                "height"
+                            )}
+                        />
 
-                    <BannerCard data={safeData} />
-                </>
-            </DataStateWrapper>
-        </section>
+                        <BannerCard data={safeData} />
+                    </>
+                </DataStateWrapper>
+            </section>
+        </AnimatedInView>
     );
 }
 

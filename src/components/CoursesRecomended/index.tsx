@@ -8,6 +8,7 @@ import { ReactNode } from "react";
 import { DATABASE_KEY } from "../../consts/dataBaseKey";
 import TitleHx from "../TitleHx";
 import { asArray, asNumber } from "../../utils/general";
+import { AnimatedInView } from "../AnimatedInView";
 
 type Props = {
     titleContain: ReactNode;
@@ -57,23 +58,27 @@ function CoursesRecomended({
     };
 
     return (
-        <section className={styles.coursesRecomended}>
-            <LightComponent top={40} right={30} />
-            <TitleHx
-                classNames={[styles[titleClassMap[titleDisplay][titleAlign]]]}
-                level={2}
-            >
-                {titleContain}
-            </TitleHx>
+        <AnimatedInView options={{ threshold: 0.27 }}>
+            <section className={styles.coursesRecomended}>
+                <LightComponent top={40} right={30} />
+                <TitleHx
+                    classNames={[
+                        styles[titleClassMap[titleDisplay][titleAlign]],
+                    ]}
+                    level={2}
+                >
+                    {titleContain}
+                </TitleHx>
 
-            <DataStateWrapper
-                isLoading={isLoading}
-                error={error}
-                errorMsg="No se ha podido recuperar los cursos."
-            >
-                <CoursesDisplay courses={safeData} display="Col" />
-            </DataStateWrapper>
-        </section>
+                <DataStateWrapper
+                    isLoading={isLoading}
+                    error={error}
+                    errorMsg="No se ha podido recuperar los cursos."
+                >
+                    <CoursesDisplay courses={safeData} display="Col" />
+                </DataStateWrapper>
+            </section>
+        </AnimatedInView>
     );
 }
 

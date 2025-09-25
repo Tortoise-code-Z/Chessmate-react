@@ -3,6 +3,7 @@ import useBestSeller from "../../hooks/useBestSellers";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import { CourseJSON, IsObtainedCourse } from "../../types/types";
 import { asArray, asNumber } from "../../utils/general";
+import { AnimatedInView } from "../AnimatedInView";
 import CoursesDisplay from "../CoursesDisplay";
 import DataStateWrapper from "../DataStateWrapperProps";
 import LightComponent from "../LightComponent";
@@ -56,34 +57,40 @@ function BestSellersSection({
     const safeData = asArray<CourseJSON & IsObtainedCourse>(data);
 
     return (
-        <section
-            className={[styles.bestSellersSection, ...classNames].join(" ")}
-        >
-            <LightComponent top={30} right={45} />
-
-            <TitleHx
-                classNames={[
-                    titleDisplay === "Col" ? styles.titleCol : styles.titleRow,
-                ]}
-                level={2}
+        <AnimatedInView>
+            <section
+                className={[styles.bestSellersSection, ...classNames].join(" ")}
             >
-                {titleText}
-                {titleDisplay === "Row" && " "}
-                {titleTextSpan && (
-                    <span className={["span-pr-color", "upperCase"].join(" ")}>
-                        {titleTextSpan}
-                    </span>
-                )}
-            </TitleHx>
+                <LightComponent top={30} right={45} />
 
-            <DataStateWrapper isLoading={isLoading} error={error}>
-                <CoursesDisplay
-                    action={true}
-                    courses={safeData}
-                    display={display}
-                />
-            </DataStateWrapper>
-        </section>
+                <TitleHx
+                    classNames={[
+                        titleDisplay === "Col"
+                            ? styles.titleCol
+                            : styles.titleRow,
+                    ]}
+                    level={2}
+                >
+                    {titleText}
+                    {titleDisplay === "Row" && " "}
+                    {titleTextSpan && (
+                        <span
+                            className={["span-pr-color", "upperCase"].join(" ")}
+                        >
+                            {titleTextSpan}
+                        </span>
+                    )}
+                </TitleHx>
+
+                <DataStateWrapper isLoading={isLoading} error={error}>
+                    <CoursesDisplay
+                        action={true}
+                        courses={safeData}
+                        display={display}
+                    />
+                </DataStateWrapper>
+            </section>
+        </AnimatedInView>
     );
 }
 
