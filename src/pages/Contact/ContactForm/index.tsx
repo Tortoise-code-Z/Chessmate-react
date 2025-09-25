@@ -51,7 +51,7 @@ function ContactForm({}: Props) {
     } = useFeedbackMessageStore();
 
     const handleSubmit = (
-        safeData: ContactSchemaValues,
+        _safeData: ContactSchemaValues,
         helpers?: {
             setValue: UseFormSetValue<ContactSchemaValues>;
         }

@@ -20,7 +20,6 @@ import {
     isNumber,
     isOnVaulues,
 } from "../../../utils/general";
-import { AnimatedInView } from "../../AnimatedInView";
 
 type Props = {
     action?: boolean;

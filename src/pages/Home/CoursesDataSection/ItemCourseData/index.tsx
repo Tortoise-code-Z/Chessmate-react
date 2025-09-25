@@ -1,4 +1,3 @@
-import { AnimatedInView } from "../../../../components/AnimatedInView";
 import FigureImage from "../../../../components/FigureImage";
 import TitleHx from "../../../../components/TitleHx";
 import { DESCRIPTION_DEFAULT_MSG } from "../../../../consts/general";
