@@ -6,6 +6,7 @@ import ProfessorTexts from "./ProfessorTexts";
 import ProfessorButtons from "./ProfessorButtons";
 import { useProfessorMsgStore } from "../../hooks/useProfessorMsgStore";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
+import { AnimatedInView } from "../AnimatedInView";
 
 type Props = {
     userCondition?: boolean;
@@ -44,7 +45,7 @@ function ProfessorFixedMessage({ userCondition = false }: Props) {
     return (
         <>
             {state ? (
-                <>
+                <AnimatedInView duration={0.2} direction="right">
                     <div className={styles.professorFixedMessage}>
                         <div className={styles.imageContain}>
                             <FigureImage
@@ -60,7 +61,7 @@ function ProfessorFixedMessage({ userCondition = false }: Props) {
                             <ProfessorButtons />
                         </div>
                     </div>
-                </>
+                </AnimatedInView>
             ) : null}
         </>
     );

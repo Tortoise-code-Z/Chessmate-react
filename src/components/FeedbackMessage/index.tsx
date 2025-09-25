@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import styles from "./FeedbackMessage.module.css";
 import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
 import { useLocation } from "react-router-dom";
+import { AnimatedInView } from "../AnimatedInView";
 
 type Props = {
     position?: "top" | "bottom";
@@ -48,17 +49,21 @@ function FeedbackMessage({ position = "bottom", time = 5000 }: Props) {
     return (
         <>
             {state && path === location.pathname ? (
-                <div
-                    className={[
-                        type === "success"
-                            ? styles.successFixedMsg
-                            : styles.errorFixedMsg,
-                        position === "top" ? styles.msgTop : styles.msgBottom,
-                        styles.fixedMsg,
-                    ].join(" ")}
-                >
-                    <span>{msg}</span>
-                </div>
+                <AnimatedInView duration={0.2}>
+                    <div
+                        className={[
+                            type === "success"
+                                ? styles.successFixedMsg
+                                : styles.errorFixedMsg,
+                            position === "top"
+                                ? styles.msgTop
+                                : styles.msgBottom,
+                            styles.fixedMsg,
+                        ].join(" ")}
+                    >
+                        <span>{msg}</span>
+                    </div>
+                </AnimatedInView>
             ) : null}
         </>
     );
