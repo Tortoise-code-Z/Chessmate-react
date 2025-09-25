@@ -37,6 +37,7 @@ function BestPlayersSection({}: Props) {
                 </span>
                 Chess.com
             </TitleHx>
+
             <DataStateWrapper
                 isLoading={isLoading}
                 error={error}

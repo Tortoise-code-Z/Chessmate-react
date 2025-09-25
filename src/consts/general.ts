@@ -35,3 +35,4 @@ export const RANK_DEFAULT_MSG = "N/A";
 export const AUTHOR_DEFAULT_MSG = "Autor/a";
 export const USER_DEFAULT_MSG = "Usuario/a";
 export const OPINION_DEFAULT_MSG = "No hay opinión.";
+export const BREADCRUMB_DEFAULT_MSG = "N/A";

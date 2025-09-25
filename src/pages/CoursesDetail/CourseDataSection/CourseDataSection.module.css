@@ -14,30 +14,3 @@
     font-size: 1.5rem;
     color: rgb(var(--primary-color-050));
 }
-
-.breadcrumb {
-    display: flex;
-    gap: 5px;
-    font-family: Roboto-Light-italic;
-    color: rgb(var(--primary-color-050)) !important;
-}
-
-.breadcrumb > a {
-    cursor: pointer;
-    opacity: 0.5;
-    transition: 0.3s all ease;
-    color: rgb(var(--primary-color-050)) !important;
-    font-size: 1.1rem !important;
-}
-
-.breadcrumb > p {
-    opacity: 0.5;
-    font-size: 1.1rem !important;
-
-    color: rgb(var(--primary-color-050)) !important;
-}
-
-.breadcrumb > a:hover {
-    opacity: 1;
-    color: rgb(var(--primary-color-500)) !important;
-}

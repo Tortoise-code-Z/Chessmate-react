@@ -1,4 +1,4 @@
-import { BestPlayerChessData, ChessLevel, Level } from "../../../types/types";
+import { BestPlayerChessData, ChessLevel } from "../../../types/types";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 import styles from "./BestPlayersContainer.module.css";

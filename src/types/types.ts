@@ -1,4 +1,5 @@
 import { CHESS_LEVEL, FILTERS, LEVELS } from "../consts/general";
+import { PATHS } from "../consts/paths";
 
 // GENERAL TYPES
 //
@@ -369,3 +370,5 @@ export type UserDataApi = {
     required: boolean;
     userID?: number;
 };
+
+export type PathsType = keyof typeof PATHS;

@@ -1,4 +1,4 @@
-import { NavLink, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import AuthorsSection from "./AuthorsSection";
 import styles from "./CourseDataSection.module.css";
 import CourseDescription from "./CourseDescription";
@@ -10,9 +10,8 @@ import { Course, IsObtainedCourse } from "../../../types/types";
 import LightComponent from "../../../components/LightComponent";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
-import { PATHS } from "../../../consts/paths";
-import { TITLE_DEFAULT_MSG } from "../../../consts/general";
-import { asNumber, asObject, asString } from "../../../utils/general";
+import { asNumber, asObject } from "../../../utils/general";
+import BreadCrumb from "./BreadCrumb";
 
 type Props = {};
 
@@ -58,11 +57,17 @@ function CourseDataSection({}: Props) {
             <LightComponent top={80} right={80} />
 
             <DataStateWrapper isLoading={isLoading} error={error}>
-                <div className={styles.breadcrumb}>
-                    <NavLink to={`/${PATHS.courses}`}>Cursos</NavLink>
-                    <span>{">"}</span>
-                    <p>{asString(safeData?.title) || TITLE_DEFAULT_MSG}</p>
-                </div>
+                <BreadCrumb
+                    breadCrumbs={[
+                        {
+                            label: "Cursos",
+                            link: "courses",
+                        },
+                        {
+                            label: safeData?.title,
+                        },
+                    ]}
+                />
                 <GeneralCourseData data={safeData} />
                 <AuthorsSection data={safeData} />
                 <CourseDescription level={2} data={safeData} />

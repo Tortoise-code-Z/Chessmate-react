@@ -87,21 +87,16 @@ function CoursesDisplay({ courses, action, display = "Col", msg, svg }: Props) {
                     msgEmpty="No se han podido recuperar los cursos. Estamos trabajando en ellos para solucionarlo."
                 >
                     {(course, index, canRender) => {
-                        const safeCourse = asObject<
-                            CourseJSON & IsObtainedCourse
-                        >(course);
-
-                        if (safeCourse)
-                            return (
-                                <ItemCourseDisplay
-                                    courseID={asNumber(course.curseID)}
-                                    key={asNumber(course.curseID) || index}
-                                    action={action}
-                                    data={course}
-                                    display={display}
-                                    canNavigate={canRender}
-                                />
-                            );
+                        return (
+                            <ItemCourseDisplay
+                                courseID={asNumber(course.curseID)}
+                                key={asNumber(course.curseID) || index}
+                                action={action}
+                                data={course}
+                                display={display}
+                                canNavigate={canRender}
+                            />
+                        );
                     }}
                 </SecurityRendering>
             </div>

@@ -20,6 +20,7 @@ import {
 } from "../../../../utils/general";
 import { NavLink } from "react-router-dom";
 import { PATHS } from "../../../../consts/paths";
+import { FaBookReader } from "react-icons/fa";
 
 type Props = {
     data: (Course & IsObtainedCourse) | undefined;
@@ -82,6 +83,7 @@ function GeneralCourseData({ data }: Props) {
                                 data.curseID.toString()
                             )}`}
                         >
+                            <FaBookReader />
                             Ir al curso
                         </NavLink>
                     )}
