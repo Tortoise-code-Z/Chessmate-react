@@ -3,6 +3,7 @@ import Button from "../../../../components/Button";
 import { FaXmark } from "react-icons/fa6";
 import { Dispatch, SetStateAction } from "react";
 import HamburguerMenuLinkList from "./HamburguerMenuLinkList";
+import { AnimatedInView } from "../../../../components/AnimatedInView";
 
 type Props = {
     handleSignOut: () => void;
@@ -27,19 +28,21 @@ type Props = {
 function HamburguerMenu({ handleSignOut, setIsOpen }: Props) {
     return (
         <header className={styles.container}>
-            <nav className={styles.hamburguerMenu}>
-                <Button
-                    classNames={[styles.close]}
-                    onClick={() => setIsOpen(false)}
-                    variant="Secondary"
-                >
-                    <FaXmark />
-                </Button>
-                <HamburguerMenuLinkList
-                    handleSignOut={handleSignOut}
-                    setIsOpen={setIsOpen}
-                />
-            </nav>
+            <AnimatedInView config={{ direction: "left", duration: 0.3 }}>
+                <nav className={styles.hamburguerMenu}>
+                    <Button
+                        classNames={[styles.close]}
+                        onClick={() => setIsOpen(false)}
+                        variant="Secondary"
+                    >
+                        <FaXmark />
+                    </Button>
+                    <HamburguerMenuLinkList
+                        handleSignOut={handleSignOut}
+                        setIsOpen={setIsOpen}
+                    />
+                </nav>
+            </AnimatedInView>
         </header>
     );
 }

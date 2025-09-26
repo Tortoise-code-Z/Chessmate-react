@@ -29,7 +29,7 @@ function BestPlayersSection({}: Props) {
     const safeData = asArray<BestPlayerChessData>(data);
 
     return (
-        <AnimatedInView>
+        <AnimatedInView config={{ options: { threshold: 0.1 } }}>
             <article className={styles.bestPlayersSection}>
                 <LightComponent top={5} right={65} />
 
