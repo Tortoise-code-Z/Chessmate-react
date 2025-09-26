@@ -3,6 +3,7 @@ import styles from "./ExplanationTheme.module.css";
 import { UseCourseApiType } from "../../../../types/types";
 import CourseData from "./CourseData";
 import ThemeActions from "./ThemeActions";
+import { AnimatedInView } from "../../../../components/AnimatedInView";
 
 type Props = {
     setIndex: Dispatch<React.SetStateAction<number>>;
@@ -34,15 +35,17 @@ function ExplanationTheme({
     setImageSliderLoading,
 }: Props) {
     return (
-        <div className={styles.explanationTheme}>
-            <CourseData index={index} data={data} />
-            <ThemeActions
-                data={data}
-                index={index}
-                setImageSliderLoading={setImageSliderLoading}
-                setIndex={setIndex}
-            />
-        </div>
+        <AnimatedInView direction="right" duration={0.3}>
+            <div className={styles.explanationTheme}>
+                <CourseData index={index} data={data} />
+                <ThemeActions
+                    data={data}
+                    index={index}
+                    setImageSliderLoading={setImageSliderLoading}
+                    setIndex={setIndex}
+                />
+            </div>
+        </AnimatedInView>
     );
 }
 

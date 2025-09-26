@@ -8,6 +8,7 @@ import {
 } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { AnimatedInView } from "../AnimatedInView";
 
 type Props<T extends FieldValues> = {
     children: ReactNode;
@@ -15,6 +16,8 @@ type Props<T extends FieldValues> = {
     onSubmit: (data: T, helpers?: { setValue: UseFormSetValue<T> }) => void;
     defaultValues?: DefaultValues<T>;
     classNames?: string[];
+    animated?: boolean;
+    animatedDirection?: "up" | "down" | "left" | "right";
 };
 
 /**
@@ -35,6 +38,8 @@ function Form<T extends FieldValues>({
     schema,
     defaultValues,
     classNames = [],
+    animated = false,
+    animatedDirection,
 }: Props<T>) {
     const methods = useForm<T>({
         resolver: zodResolver(schema),
@@ -50,12 +55,23 @@ function Form<T extends FieldValues>({
     return (
         <>
             <FormProvider {...methods}>
-                <form
-                    className={[...classNames].join(" ")}
-                    onSubmit={handleSubmit(submitHandler)}
-                >
-                    {children}
-                </form>
+                {animated ? (
+                    <AnimatedInView direction={animatedDirection}>
+                        <form
+                            className={[...classNames].join(" ")}
+                            onSubmit={handleSubmit(submitHandler)}
+                        >
+                            {children}
+                        </form>
+                    </AnimatedInView>
+                ) : (
+                    <form
+                        className={[...classNames].join(" ")}
+                        onSubmit={handleSubmit(submitHandler)}
+                    >
+                        {children}
+                    </form>
+                )}
             </FormProvider>
         </>
     );

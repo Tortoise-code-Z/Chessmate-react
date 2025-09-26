@@ -45,8 +45,8 @@ function Login({}: Props) {
         <>
             <FeedbackListener />
             <FeedbackMessage position="top" time="infinite" />
-            <AnimatedInView>
-                <section className={styles.login}>
+            <section className={styles.login}>
+                <AnimatedInView direction="right">
                     <div className={styles.logoContainer}>
                         <TitleHx>Iniciar sesión</TitleHx>
                         <FigureImage
@@ -57,13 +57,10 @@ function Login({}: Props) {
                             height={LOGO_IMAGE.height}
                         />
                     </div>
+                </AnimatedInView>
 
-                    <LoginForm
-                        handleSubmit={handleSubmit}
-                        isPending={isPending}
-                    />
-                </section>
-            </AnimatedInView>
+                <LoginForm handleSubmit={handleSubmit} isPending={isPending} />
+            </section>
         </>
     );
 }

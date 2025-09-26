@@ -24,7 +24,7 @@ export const AnimatedInView = ({
     direction = "up",
     once = true,
     options,
-    duration = 0.6,
+    duration = 0.5,
     delay = 0,
     easing = "ease-in-out",
 }: AnimatedInViewProps) => {

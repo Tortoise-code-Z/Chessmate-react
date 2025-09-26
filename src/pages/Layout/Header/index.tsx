@@ -1,6 +1,6 @@
 import Navbar from "./Navbar";
 import styles from "./Header.module.css";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 type Props = {
     setIsOpen: Dispatch<SetStateAction<boolean>>;
@@ -26,9 +26,32 @@ type Props = {
  */
 
 function Header({ setIsOpen, handleSignOut }: Props) {
-    const className = styles.header;
+    const [hidden, setHidden] = useState(false);
+    const [lastScrollY, setLastScrollY] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > lastScrollY && currentScrollY > 50) {
+                // Scroll hacia abajo → ocultar navbar
+                setHidden(true);
+            } else {
+                // Scroll hacia arriba → mostrar navbar
+                setHidden(false);
+            }
+
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [lastScrollY]);
+
     return (
-        <header className={className}>
+        <header
+            className={[styles.header, hidden ? styles.hidden : ""].join(" ")}
+        >
             <Navbar setIsOpen={setIsOpen} handleSignOut={handleSignOut} />
         </header>
     );

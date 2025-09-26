@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 import AutoSliderImages from "./AutoSliderImages";
 import styles from "./Board.module.css";
 import { UseCourseApiType } from "../../../../../types/types";
+import { AnimatedInView } from "../../../../../components/AnimatedInView";
 
 type Props = {
     data: UseCourseApiType | undefined;
@@ -33,21 +34,25 @@ function Board({
     setImageSliderLoading,
 }: Props) {
     return (
-        <div className={styles.boardZone}>
-            <AutoSliderImages
-                images={
-                    data?.courses?.content?.themes?.find((t) => t?.id === index)
-                        ?.images
-                }
-                time={1000}
-                themeTitle={
-                    data?.courses?.content?.themes?.find((t) => t?.id === index)
-                        ?.title
-                }
-                loading={imageSliderLoading}
-                setLoading={setImageSliderLoading}
-            />
-        </div>
+        <AnimatedInView direction="left" duration={0.3}>
+            <div className={styles.boardZone}>
+                <AutoSliderImages
+                    images={
+                        data?.courses?.content?.themes?.find(
+                            (t) => t?.id === index
+                        )?.images
+                    }
+                    time={1000}
+                    themeTitle={
+                        data?.courses?.content?.themes?.find(
+                            (t) => t?.id === index
+                        )?.title
+                    }
+                    loading={imageSliderLoading}
+                    setLoading={setImageSliderLoading}
+                />
+            </div>
+        </AnimatedInView>
     );
 }
 

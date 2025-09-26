@@ -16,16 +16,18 @@ type Props = {};
 
 function Hero({}: Props) {
     return (
-        <AnimatedInView>
-            <div className={styles.hero}>
-                <TitleHx>
-                    Chess<span className="span-pr-color">mate</span>
-                </TitleHx>
-                <p className={styles.subtitle}>
-                    Tu sitio web para aprender ajedrez.
-                </p>
-            </div>
-        </AnimatedInView>
+        <div className={styles.hero}>
+            <AnimatedInView>
+                <div className={styles.titleContainer}>
+                    <TitleHx>
+                        Chess<span className="span-pr-color">mate</span>
+                    </TitleHx>
+                    <p className={styles.subtitle}>
+                        Tu sitio web para aprender ajedrez.
+                    </p>
+                </div>
+            </AnimatedInView>
+        </div>
     );
 }
 

@@ -18,6 +18,7 @@ import {
     isString,
 } from "../../../../../utils/general";
 import CheckSvgComponent from "../../../../../components/CheckSvgComponent";
+import { AnimatedInView } from "../../../../../components/AnimatedInView";
 
 type Props = {
     data: UseCourseApiType | undefined;
@@ -65,50 +66,56 @@ function CourseThemes({
     };
 
     return (
-        <div className={styles.themes}>
-            <SecurityRendering<ThemeDefaultCourses>
-                data={data?.courses?.content?.themes}
-                conditions={[true]}
-                noCriticalConditions={[
-                    isString(data?.courses?.title),
-                    isString(data?.courses?.content?.detailDescription),
-                    ...themesCondition(data),
-                    !!asArray<ThemesUserStates>(data?.userThemeStates)?.every(
-                        (u) => isBoolean(u?.completed)
-                    ),
-                ]}
-                state={{
-                    setWarningState: setClassWarning,
-                    warningState: classWarning,
-                }}
-                msg="No se han podido recuperar algunos datos del curso. Estamos trabajando para poder solucionarlo."
-            >
-                {(theme, _i, _canRender) => {
-                    return (
-                        <Button
-                            classNames={["p-relative"]}
-                            key={theme?.id}
-                            onClick={() => {
-                                setImageSliderLoading(true);
-                                setIndex(theme?.id);
-                            }}
-                            variant={
-                                index === theme?.id ? "Primary" : "Secondary"
-                            }
-                        >
-                            {asBoolean(
-                                asArray<ThemesUserStates>(
-                                    data?.userThemeStates
-                                )?.find((u) => u?.themeID === theme?.id)
-                                    ?.completed
-                            ) && <CheckSvgComponent top={-10} right={-10} />}
+        <AnimatedInView direction="right" duration={0.3}>
+            <div className={styles.themes}>
+                <SecurityRendering<ThemeDefaultCourses>
+                    data={data?.courses?.content?.themes}
+                    conditions={[true]}
+                    noCriticalConditions={[
+                        isString(data?.courses?.title),
+                        isString(data?.courses?.content?.detailDescription),
+                        ...themesCondition(data),
+                        !!asArray<ThemesUserStates>(
+                            data?.userThemeStates
+                        )?.every((u) => isBoolean(u?.completed)),
+                    ]}
+                    state={{
+                        setWarningState: setClassWarning,
+                        warningState: classWarning,
+                    }}
+                    msg="No se han podido recuperar algunos datos del curso. Estamos trabajando para poder solucionarlo."
+                >
+                    {(theme, _i, _canRender) => {
+                        return (
+                            <Button
+                                classNames={["p-relative"]}
+                                key={theme?.id}
+                                onClick={() => {
+                                    setImageSliderLoading(true);
+                                    setIndex(theme?.id);
+                                }}
+                                variant={
+                                    index === theme?.id
+                                        ? "Primary"
+                                        : "Secondary"
+                                }
+                            >
+                                {asBoolean(
+                                    asArray<ThemesUserStates>(
+                                        data?.userThemeStates
+                                    )?.find((u) => u?.themeID === theme?.id)
+                                        ?.completed
+                                ) && (
+                                    <CheckSvgComponent top={-10} right={-10} />
+                                )}
 
-                            {asString(theme?.title) || TITLE_DEFAULT_MSG}
-                        </Button>
-                    );
-                }}
-            </SecurityRendering>
-        </div>
+                                {asString(theme?.title) || TITLE_DEFAULT_MSG}
+                            </Button>
+                        );
+                    }}
+                </SecurityRendering>
+            </div>
+        </AnimatedInView>
     );
 }
 

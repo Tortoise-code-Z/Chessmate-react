@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { MutableRefObject, ReactNode } from "react";
 import { MouseEvent } from "react";
 import { ButtonVariant } from "../../types/types";
 
@@ -10,6 +10,7 @@ type Props = {
     propagation?: boolean;
     disabled?: boolean;
     classNames?: string[];
+    buttonRef?: MutableRefObject<HTMLButtonElement | null>;
 };
 
 /**
@@ -39,10 +40,12 @@ function Button({
     propagation = true,
     disabled = false,
     classNames = [],
+    buttonRef,
 }: Props) {
     const className = ["button", `button${variant}`, ...classNames].join(" ");
     return (
         <button
+            ref={buttonRef}
             disabled={disabled}
             className={className}
             type={type}

@@ -31,11 +31,10 @@ function Register({}: Props) {
     const handleSubmit = (data: registerSchemaValues) => mutate(data);
 
     return (
-        <AnimatedInView>
-            <section className={styles.register}>
-                <FeedbackListener />
-                <FeedbackMessage position="top" time="infinite" />
-
+        <section className={styles.register}>
+            <FeedbackListener />
+            <FeedbackMessage position="top" time="infinite" />
+            <AnimatedInView direction="right">
                 <div className={styles.formContainer}>
                     <TitleHx classNames={[styles.title]}>
                         Regístrate
@@ -51,17 +50,19 @@ function Register({}: Props) {
                         isPending={isPending}
                     />
                 </div>
+            </AnimatedInView>
 
-                <FigureImage
-                    classNames={[styles.bccImg]}
-                    src={SIGNIN_IMAGE.image}
-                    alt={SIGNIN_IMAGE.alt}
-                    title={SIGNIN_IMAGE.alt}
-                    width={SIGNIN_IMAGE.width}
-                    height={SIGNIN_IMAGE.height}
-                />
-            </section>
-        </AnimatedInView>
+            <FigureImage
+                classNames={[styles.bccImg]}
+                src={SIGNIN_IMAGE.image}
+                alt={SIGNIN_IMAGE.alt}
+                title={SIGNIN_IMAGE.alt}
+                width={SIGNIN_IMAGE.width}
+                height={SIGNIN_IMAGE.height}
+                animated={true}
+                animatedDirection="left"
+            />
+        </section>
     );
 }
 

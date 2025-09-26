@@ -41,46 +41,49 @@ function CourseClassroomContent({ data }: Props) {
     const params = useParams();
 
     return (
-        <AnimatedInView>
-            <div className={styles.courseClassroomContent}>
-                <LightComponent top={50} right={60} />
+        <>
+            <AnimatedInView>
+                <div className={styles.courseClassroomContent}>
+                    <LightComponent top={50} right={60} />
 
-                <TitleHx level={2}>
-                    <span className={["upperCase", "span-pr-color"].join(" ")}>
-                        contenido
-                    </span>{" "}
-                    del curso
-                </TitleHx>
+                    <TitleHx level={2}>
+                        <span
+                            className={["upperCase", "span-pr-color"].join(" ")}
+                        >
+                            contenido
+                        </span>{" "}
+                        del curso
+                    </TitleHx>
 
-                <CourseThemes data={data} setShowVideo={setShowVideo} />
+                    <CourseThemes data={data} setShowVideo={setShowVideo} />
 
-                <Button
-                    onClick={(e) => {
-                        e.preventDefault();
-                        if (params.id) {
-                            navigate(
-                                `/${PATHS.coursesDetail.replace(
-                                    ":id",
-                                    params.id
-                                )}`
-                            );
-                        }
-                    }}
-                >
-                    <FaInfoCircle />
-                    Ver detalles del curso
-                </Button>
-
-                {showVideo && (
-                    <VideoReproductor
-                        setShowVideo={() => setShowVideo(null)}
-                        title={showVideo?.subthemeContent?.title}
-                        classNames={[styles.videoItem]}
-                        videoData={showVideo}
-                    />
-                )}
-            </div>
-        </AnimatedInView>
+                    <Button
+                        onClick={(e) => {
+                            e.preventDefault();
+                            if (params.id) {
+                                navigate(
+                                    `/${PATHS.coursesDetail.replace(
+                                        ":id",
+                                        params.id
+                                    )}`
+                                );
+                            }
+                        }}
+                    >
+                        <FaInfoCircle />
+                        Ver detalles del curso
+                    </Button>
+                </div>
+            </AnimatedInView>
+            {showVideo && (
+                <VideoReproductor
+                    setShowVideo={() => setShowVideo(null)}
+                    title={showVideo?.subthemeContent?.title}
+                    classNames={[styles.videoItem]}
+                    videoData={showVideo}
+                />
+            )}
+        </>
     );
 }
 

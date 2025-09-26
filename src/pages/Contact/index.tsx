@@ -23,8 +23,8 @@ function Contact({}: Props) {
             <FeedbackListener />
             <FeedbackMessage />
 
-            <AnimatedInView>
-                <section className={styles.contact}>
+            <section className={styles.contact}>
+                <AnimatedInView direction="right">
                     <div className={styles.imageContact}>
                         <TitleHx level={1}>
                             Envíanos tu duda de{" "}
@@ -37,9 +37,9 @@ function Contact({}: Props) {
                             posible!
                         </p>
                     </div>
-                    <ContactForm />
-                </section>
-            </AnimatedInView>
+                </AnimatedInView>
+                <ContactForm />
+            </section>
         </>
     );
 }

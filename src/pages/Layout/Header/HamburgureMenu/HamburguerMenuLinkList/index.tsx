@@ -41,7 +41,7 @@ function HamburguerMenuLinkList({ handleSignOut, setIsOpen }: Props) {
                 onClick={() => {
                     setIsOpen(false);
                 }}
-                to={`/${user ? PATHS.dashboard : PATHS.index}`}
+                to={user ? `/${PATHS.dashboard}` : PATHS.index}
             >
                 Mi portal
             </NavLink>

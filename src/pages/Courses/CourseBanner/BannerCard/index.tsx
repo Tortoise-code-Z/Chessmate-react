@@ -18,6 +18,7 @@ import {
     isNumber,
     isOnVaulues,
 } from "../../../../utils/general";
+import { AnimatedInView } from "../../../../components/AnimatedInView";
 
 type Props = {
     data: (CourseJSON & IsObtainedCourse) | undefined;
@@ -49,41 +50,43 @@ function BannerCard({ data }: Props) {
     };
 
     return (
-        <div
-            className={[styles.bannerCard].join(" ")}
-            onClick={() => bannerCardHandleClick()}
-        >
-            <div className={styles.courseData}>
-                <TitleHx level={1}>
-                    {asString(data?.title) || TITLE_DEFAULT_MSG}
-                </TitleHx>
-                <p className={styles.description}>
-                    {asString(data?.shortDescription) ||
-                        DESCRIPTION_DEFAULT_MSG}
-                </p>
-                <span
-                    className={[
-                        "span-pr-color",
-                        "text-medium",
-                        styles.level,
-                    ].join(" ")}
-                >
-                    {isOnVaulues<Level>(data?.level, LEVELS) ||
-                        LEVEL_DEFAULT_MSG}
-                </span>
-                <p className={styles.price}>
-                    {isNumber(data?.price)
-                        ? `${data.price}$`
-                        : PRICE_DEFAULT_MSG}
-                </p>
-            </div>
+        <AnimatedInView>
+            <div
+                className={[styles.bannerCard].join(" ")}
+                onClick={() => bannerCardHandleClick()}
+            >
+                <div className={styles.courseData}>
+                    <TitleHx level={1}>
+                        {asString(data?.title) || TITLE_DEFAULT_MSG}
+                    </TitleHx>
+                    <p className={styles.description}>
+                        {asString(data?.shortDescription) ||
+                            DESCRIPTION_DEFAULT_MSG}
+                    </p>
+                    <span
+                        className={[
+                            "span-pr-color",
+                            "text-medium",
+                            styles.level,
+                        ].join(" ")}
+                    >
+                        {isOnVaulues<Level>(data?.level, LEVELS) ||
+                            LEVEL_DEFAULT_MSG}
+                    </span>
+                    <p className={styles.price}>
+                        {isNumber(data?.price)
+                            ? `${data.price}$`
+                            : PRICE_DEFAULT_MSG}
+                    </p>
+                </div>
 
-            <PurchaseAction
-                courseID={asNumber(data?.curseID)}
-                canBuy={isNumber(data?.price) && isNumber(data?.curseID)}
-                isObtained={asBoolean(data?.isObtained)}
-            />
-        </div>
+                <PurchaseAction
+                    courseID={asNumber(data?.curseID)}
+                    canBuy={isNumber(data?.price) && isNumber(data?.curseID)}
+                    isObtained={asBoolean(data?.isObtained)}
+                />
+            </div>
+        </AnimatedInView>
     );
 }
 
