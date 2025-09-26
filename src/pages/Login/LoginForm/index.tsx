@@ -30,8 +30,7 @@ function LoginForm({ handleSubmit, isPending }: Props) {
             classNames={[styles.loginForm]}
             schema={loginSchema}
             onSubmit={handleSubmit}
-            animated={true}
-            animatedDirection="left"
+            animatedOptions={{ direction: "left" }}
         >
             <LoginFormContent />
             <LoginFormActions isPending={isPending} />

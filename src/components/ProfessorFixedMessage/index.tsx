@@ -45,7 +45,7 @@ function ProfessorFixedMessage({ userCondition = false }: Props) {
     return (
         <>
             {state ? (
-                <AnimatedInView duration={0.2} direction="right">
+                <AnimatedInView config={{ duration: 0.2, direction: "right" }}>
                     <div className={styles.professorFixedMessage}>
                         <div className={styles.imageContain}>
                             <FigureImage

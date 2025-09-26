@@ -8,26 +8,26 @@ import {
 } from "react";
 import styles from "./AnimatedInView.module.css";
 import { useInView } from "../../hooks/useInView";
+import { AnimatedViewOptions } from "../../types/types";
 
 type AnimatedInViewProps = {
     children: ReactElement<{ className?: string; style?: CSSProperties }>;
-    direction?: "up" | "down" | "left" | "right";
-    once?: boolean;
-    options?: IntersectionObserverInit;
-    duration?: number;
-    delay?: number;
-    easing?: string;
+    config?: AnimatedViewOptions;
 };
 
 export const AnimatedInView = ({
     children,
-    direction = "up",
-    once = true,
-    options,
-    duration = 0.5,
-    delay = 0,
-    easing = "ease-in-out",
+    config = {},
 }: AnimatedInViewProps) => {
+    const {
+        direction = "up",
+        once = true,
+        options,
+        duration = 0.5,
+        delay = 0,
+        easing = "ease-in-out",
+    } = config;
+
     const { ref, isInView } = useInView<HTMLElement>(options);
     const [hasBeenVisible, setHasBeenVisible] = useState(false);
 

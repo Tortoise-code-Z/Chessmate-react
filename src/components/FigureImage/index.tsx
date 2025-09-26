@@ -1,5 +1,5 @@
 import { DEFAULT_COURSE_IMAGE } from "../../consts/images";
-import { Images } from "../../types/types";
+import { AnimatedViewOptions, Images } from "../../types/types";
 import { AnimatedInView } from "../AnimatedInView";
 
 type NewType = {
@@ -10,8 +10,7 @@ type NewType = {
     height: number | undefined;
     otherImage?: Images;
     classNames?: string[];
-    animated?: boolean;
-    animatedDirection?: "up" | "down" | "left" | "right";
+    animatedOptions?: AnimatedViewOptions;
 };
 
 type Props = NewType;
@@ -36,15 +35,14 @@ function FigureImage({
     width,
     otherImage,
     classNames = [],
-    animated,
-    animatedDirection,
+    animatedOptions,
 }: Props) {
     const image = otherImage ? otherImage : DEFAULT_COURSE_IMAGE;
 
     return (
         <>
-            {animated ? (
-                <AnimatedInView direction={animatedDirection}>
+            {!!animatedOptions ? (
+                <AnimatedInView config={animatedOptions}>
                     <figure className={[...classNames].join(" ")}>
                         <img
                             src={src ? src : image.image}

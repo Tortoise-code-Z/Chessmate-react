@@ -53,10 +53,17 @@
     .container {
         width: 80%;
     }
+
+    .actions {
+        flex-direction: column-reverse;
+    }
 }
 
 @media all and (max-height: 500px) {
     .container {
         width: 45%;
+    }
+    .actions {
+        flex-direction: column-reverse;
     }
 }

@@ -35,7 +35,7 @@ function ExplanationTheme({
     setImageSliderLoading,
 }: Props) {
     return (
-        <AnimatedInView direction="right" duration={0.3}>
+        <AnimatedInView config={{ direction: "right", duration: 0.3 }}>
             <div className={styles.explanationTheme}>
                 <CourseData index={index} data={data} />
                 <ThemeActions

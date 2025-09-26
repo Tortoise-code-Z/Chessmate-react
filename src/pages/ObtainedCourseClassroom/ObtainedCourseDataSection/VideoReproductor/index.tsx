@@ -1,6 +1,5 @@
 import { Dispatch, SetStateAction, useEffect } from "react";
 import styles from "./VideoReproductor.module.css";
-import ReactPlayer from "react-player";
 import TitleHx from "../../../../components/TitleHx";
 import Button from "../../../../components/Button";
 import { useCompleteThemeOC } from "../../../../hooks/useCompleteThemeOC";
@@ -9,6 +8,8 @@ import { VideoData } from "../../../../types/types";
 import { useParams } from "react-router-dom";
 import CheckSvgComponent from "../../../../components/CheckSvgComponent";
 import { asBoolean, asNumber, asString } from "../../../../utils/general";
+import { AnimatedPlayer } from "../../../../components/AnimatedReactPlayer";
+import { AnimatedInView } from "../../../../components/AnimatedInView";
 type Props = {
     classNames?: string[];
     title: string | undefined;
@@ -59,52 +60,54 @@ function VideoReproductor({
     return (
         <div className={styles.videoReproductor}>
             <div className={styles.container}>
-                <ReactPlayer
+                <AnimatedPlayer
                     className={classNames.join(" ")}
                     src={asString(videoData?.subthemeContent?.video)}
-                    controls
+                    animatedOptions={{ direction: "down" }}
                 />
-                <div className={styles.actions}>
-                    <div className={styles.btnActions}>
-                        <Button
-                            onClick={() => setShowVideo(null)}
-                            variant="Secondary"
-                        >
-                            Volver
-                        </Button>
-                        <Button
-                            disabled={asBoolean(
-                                videoData?.userThemeData?.completed
-                            )}
-                            onClick={() =>
-                                mutate({
-                                    courseID: asNumber(Number(params.id)),
-                                    userID: asNumber(user?.userID),
-                                    subThemeID: asNumber(
-                                        videoData?.subthemeContent?.id
-                                    ),
-                                    themeID: asNumber(videoData?.themeID),
-                                })
-                            }
-                            variant="Terciary"
-                        >
-                            Completar
-                        </Button>
+                <AnimatedInView>
+                    <div className={styles.actions}>
+                        <div className={styles.btnActions}>
+                            <Button
+                                onClick={() => setShowVideo(null)}
+                                variant="Secondary"
+                            >
+                                Volver
+                            </Button>
+                            <Button
+                                disabled={asBoolean(
+                                    videoData?.userThemeData?.completed
+                                )}
+                                onClick={() =>
+                                    mutate({
+                                        courseID: asNumber(Number(params.id)),
+                                        userID: asNumber(user?.userID),
+                                        subThemeID: asNumber(
+                                            videoData?.subthemeContent?.id
+                                        ),
+                                        themeID: asNumber(videoData?.themeID),
+                                    })
+                                }
+                                variant="Terciary"
+                            >
+                                Completar
+                            </Button>
+                        </div>
+
+                        <TitleHx classNames={[styles.title]} level={3}>
+                            {title}
+                        </TitleHx>
+
+                        {asBoolean(videoData?.userThemeData?.completed) && (
+                            <CheckSvgComponent
+                                right={99}
+                                top={-10}
+                                type="percent"
+                                size="medium"
+                            />
+                        )}
                     </div>
-
-                    <TitleHx classNames={[styles.title]} level={3}>
-                        {title}
-                    </TitleHx>
-
-                    {asBoolean(videoData?.userThemeData?.completed) && (
-                        <CheckSvgComponent
-                            right={98.5}
-                            top={-1}
-                            type="percent"
-                            size="medium"
-                        />
-                    )}
-                </div>
+                </AnimatedInView>
             </div>
         </div>
     );

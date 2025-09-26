@@ -372,3 +372,12 @@ export type UserDataApi = {
 };
 
 export type PathsType = keyof typeof PATHS;
+
+export type AnimatedViewOptions = {
+    direction?: "up" | "down" | "left" | "right";
+    once?: boolean;
+    options?: IntersectionObserverInit;
+    duration?: number;
+    delay?: number;
+    easing?: string;
+};

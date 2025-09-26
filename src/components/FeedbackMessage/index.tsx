@@ -49,7 +49,7 @@ function FeedbackMessage({ position = "bottom", time = 5000 }: Props) {
     return (
         <>
             {state && path === location.pathname ? (
-                <AnimatedInView duration={0.2}>
+                <AnimatedInView config={{ duration: 0.2 }}>
                     <div
                         className={[
                             type === "success"

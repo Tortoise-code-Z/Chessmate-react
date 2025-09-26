@@ -114,6 +114,7 @@ function CourseThemes({ data, setShowVideo }: Props) {
                             setVideosIndex={setVideosIndex}
                             videosIndex={videosIndex}
                             disabled={!canRender ? true : false}
+                            index={index}
                         />
                     );
                 }}

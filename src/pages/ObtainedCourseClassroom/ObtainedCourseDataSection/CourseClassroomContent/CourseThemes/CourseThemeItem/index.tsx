@@ -8,6 +8,7 @@ import {
     VideoData,
 } from "../../../../../../types/types";
 import { asNumber } from "../../../../../../utils/general";
+import { AnimatedInView } from "../../../../../../components/AnimatedInView";
 
 type Props = {
     videosIndex: number | null;
@@ -16,6 +17,7 @@ type Props = {
     theme: Theme;
     userThemeData: ThemesUserStatesOC | undefined;
     disabled?: boolean;
+    index: number;
 };
 
 /**
@@ -41,24 +43,32 @@ function CourseThemeItem({
     setShowVideo,
     disabled = false,
     userThemeData,
+    index,
 }: Props) {
     return (
-        <div className={styles.themeContainer}>
-            <ThemeButton
-                setVideosIndex={setVideosIndex}
-                videosIndex={videosIndex}
-                theme={theme}
-                disabled={disabled}
-                userThemeData={userThemeData}
-            />
-            {videosIndex === asNumber(theme?.id) && (
-                <ThemeVideos
+        <AnimatedInView
+            config={{
+                direction: index % 2 === 0 ? "left" : "right",
+                options: { threshold: 0.8 },
+            }}
+        >
+            <div className={styles.themeContainer}>
+                <ThemeButton
+                    setVideosIndex={setVideosIndex}
+                    videosIndex={videosIndex}
                     theme={theme}
-                    setShowVideo={setShowVideo}
+                    disabled={disabled}
                     userThemeData={userThemeData}
                 />
-            )}
-        </div>
+                {videosIndex === asNumber(theme?.id) && (
+                    <ThemeVideos
+                        theme={theme}
+                        setShowVideo={setShowVideo}
+                        userThemeData={userThemeData}
+                    />
+                )}
+            </div>
+        </AnimatedInView>
     );
 }
 

@@ -54,15 +54,16 @@
     justify-content: space-between;
 }
 
-.itemRowContainer .price {
-    font-size: 1.2rem;
-}
-
 .itemRowContainer .itemDataContainer {
     gap: 20px;
 }
 
 /* Commom styles */
+
+.itemRowContainer .price,
+.itemContainer .price {
+    font-size: 1.2rem;
+}
 
 .itemRowContainer > figure img,
 .itemContainer > figure img {

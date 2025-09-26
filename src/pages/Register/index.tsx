@@ -34,7 +34,7 @@ function Register({}: Props) {
         <section className={styles.register}>
             <FeedbackListener />
             <FeedbackMessage position="top" time="infinite" />
-            <AnimatedInView direction="right">
+            <AnimatedInView config={{ direction: "right" }}>
                 <div className={styles.formContainer}>
                     <TitleHx classNames={[styles.title]}>
                         Regístrate
@@ -59,8 +59,7 @@ function Register({}: Props) {
                 title={SIGNIN_IMAGE.alt}
                 width={SIGNIN_IMAGE.width}
                 height={SIGNIN_IMAGE.height}
-                animated={true}
-                animatedDirection="left"
+                animatedOptions={{ direction: "left" }}
             />
         </section>
     );

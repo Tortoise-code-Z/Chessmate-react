@@ -91,6 +91,7 @@ function ThemeVideos({ setShowVideo, theme, userThemeData }: Props) {
                                 }
                                 classNames={[styles.videoButton, "relative"]}
                                 variant="Card"
+                                animatedOptions={{ direction: "up" }}
                             >
                                 <FigureImage
                                     classNames={[styles.videoCardImage]}

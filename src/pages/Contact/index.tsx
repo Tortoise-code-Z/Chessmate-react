@@ -24,7 +24,7 @@ function Contact({}: Props) {
             <FeedbackMessage />
 
             <section className={styles.contact}>
-                <AnimatedInView direction="right">
+                <AnimatedInView config={{ direction: "right" }}>
                     <div className={styles.imageContact}>
                         <TitleHx level={1}>
                             Envíanos tu duda de{" "}

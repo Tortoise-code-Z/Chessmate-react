@@ -59,7 +59,7 @@ function AllCoursesSection({}: Props) {
     const safeData = asArray<CourseJSON & IsObtainedCourse>(data);
 
     return (
-        <AnimatedInView options={{ threshold: 0.08 }}>
+        <AnimatedInView config={{ options: { threshold: 0.08 } }}>
             <section className={styles.allCoursesSection}>
                 <LightComponent top={20} right={40} />
                 <TitleHx level={2}>

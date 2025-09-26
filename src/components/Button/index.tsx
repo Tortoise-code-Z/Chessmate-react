@@ -1,6 +1,7 @@
 import { MutableRefObject, ReactNode } from "react";
 import { MouseEvent } from "react";
-import { ButtonVariant } from "../../types/types";
+import { AnimatedViewOptions, ButtonVariant } from "../../types/types";
+import { AnimatedInView } from "../AnimatedInView";
 
 type Props = {
     onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
@@ -11,6 +12,7 @@ type Props = {
     disabled?: boolean;
     classNames?: string[];
     buttonRef?: MutableRefObject<HTMLButtonElement | null>;
+    animatedOptions?: AnimatedViewOptions;
 };
 
 /**
@@ -41,21 +43,42 @@ function Button({
     disabled = false,
     classNames = [],
     buttonRef,
+    animatedOptions,
 }: Props) {
     const className = ["button", `button${variant}`, ...classNames].join(" ");
+    console.log("animatedOptions", !!animatedOptions);
     return (
-        <button
-            ref={buttonRef}
-            disabled={disabled}
-            className={className}
-            type={type}
-            onClick={(e) => {
-                if (!propagation) e.stopPropagation();
-                onClick?.(e);
-            }}
-        >
-            {children}
-        </button>
+        <>
+            {!!animatedOptions ? (
+                <AnimatedInView config={animatedOptions}>
+                    <button
+                        ref={buttonRef}
+                        disabled={disabled}
+                        className={className}
+                        type={type}
+                        onClick={(e) => {
+                            if (!propagation) e.stopPropagation();
+                            onClick?.(e);
+                        }}
+                    >
+                        {children}
+                    </button>
+                </AnimatedInView>
+            ) : (
+                <button
+                    ref={buttonRef}
+                    disabled={disabled}
+                    className={className}
+                    type={type}
+                    onClick={(e) => {
+                        if (!propagation) e.stopPropagation();
+                        onClick?.(e);
+                    }}
+                >
+                    {children}
+                </button>
+            )}
+        </>
     );
 }
 

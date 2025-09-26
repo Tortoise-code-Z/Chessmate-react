@@ -34,7 +34,7 @@ function Board({
     setImageSliderLoading,
 }: Props) {
     return (
-        <AnimatedInView direction="left" duration={0.3}>
+        <AnimatedInView config={{ direction: "left", duration: 0.3 }}>
             <div className={styles.boardZone}>
                 <AutoSliderImages
                     images={

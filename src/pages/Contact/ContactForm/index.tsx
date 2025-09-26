@@ -77,8 +77,7 @@ function ContactForm({}: Props) {
                         email: user && !error && safeData ? safeData : "",
                     }}
                     classNames={[styles.contactForm]}
-                    animated={true}
-                    animatedDirection="left"
+                    animatedOptions={{ direction: "left" }}
                 >
                     <div>
                         <InputGroup<ContactSchemaValues>

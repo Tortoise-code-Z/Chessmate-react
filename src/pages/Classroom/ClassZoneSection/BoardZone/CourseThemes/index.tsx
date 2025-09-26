@@ -66,7 +66,7 @@ function CourseThemes({
     };
 
     return (
-        <AnimatedInView direction="right" duration={0.3}>
+        <AnimatedInView config={{ direction: "right", duration: 0.3 }}>
             <div className={styles.themes}>
                 <SecurityRendering<ThemeDefaultCourses>
                     data={data?.courses?.content?.themes}

@@ -58,7 +58,7 @@ function CoursesRecomended({
     };
 
     return (
-        <AnimatedInView options={{ threshold: 0.27 }}>
+        <AnimatedInView config={{ options: { threshold: 0.27 } }}>
             <section className={styles.coursesRecomended}>
                 <LightComponent top={40} right={30} />
                 <TitleHx

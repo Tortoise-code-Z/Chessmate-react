@@ -46,7 +46,7 @@ function Login({}: Props) {
             <FeedbackListener />
             <FeedbackMessage position="top" time="infinite" />
             <section className={styles.login}>
-                <AnimatedInView direction="right">
+                <AnimatedInView config={{ direction: "right" }}>
                     <div className={styles.logoContainer}>
                         <TitleHx>Iniciar sesión</TitleHx>
                         <FigureImage
