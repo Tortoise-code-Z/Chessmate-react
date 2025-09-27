@@ -157,25 +157,6 @@ export const getOpinions: (data: BBDD) => JsonOpinion[] = (data) => {
 
 // General
 
-const addIsObtained = (
-    courses: CourseJSON[],
-    userCourses: ObtainedCourse[] | undefined
-): (CourseJSON & IsObtainedCourse)[] =>
-    courses.map((c) => ({
-        ...c,
-        isObtained: userCourses?.some((uc) => uc.courseId === c.curseID),
-    }));
-
-export const getAllCourses = (
-    userID: number | undefined,
-    data: BBDD
-): (CourseJSON & IsObtainedCourse)[] => {
-    if (!userID) return data.courses;
-
-    const userCourses = getUserObtainedCourses(userID, data);
-    return addIsObtained(data.courses, userCourses);
-};
-
 export const getFilteredCourses = (
     filter: FilterOptions | undefined,
     data: BBDD
@@ -236,18 +217,6 @@ export const getTodayDate: () => string = () => {
         .join("-");
 };
 
-export const orderedMenorToMayorByNumber = (data: number[]) =>
-    [...data].sort((a, b) => a - b);
-
-export const orderedMenorToMayorByKey = <T>(
-    data: T[],
-    key: {
-        [K in keyof T]: T[K] extends number ? K : never;
-    }[keyof T]
-): T[] => {
-    return [...data].sort((a, b) => (a[key] as number) - (b[key] as number));
-};
-
 export const orderedMayorToMenorByKey = <T>(
     data: T[],
     key: {
@@ -260,26 +229,6 @@ export const orderedMayorToMenorByKey = <T>(
 export const getRandom = <T>(data: T[]): T => {
     const randomIndex: number = Math.floor(Math.random() * data.length);
     return data[randomIndex];
-};
-
-export const getLastId = <
-    T extends number | Record<string, any>,
-    K extends T extends number
-        ? never
-        : {
-              [P in keyof T]: T[P] extends number ? P : never;
-          }[keyof T] = never
->(
-    data: T[],
-    key?: K
-): number => {
-    if (data.length === 0) return 1;
-
-    if (key && typeof data[0] === "object") {
-        return (data[data.length - 1] as Record<string, any>)[key] + 1;
-    }
-
-    return (data[data.length - 1] as number) + 1;
 };
 
 export const deleteKey: <T extends Record<string, any>, K extends keyof T>(

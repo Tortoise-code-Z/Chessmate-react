@@ -8,7 +8,7 @@ import {
     asNumber,
     asString,
     isNumber,
-    isOnVaulues,
+    isOnValues,
 } from "../../../../../../utils/general";
 import { getImage, getImageSize } from "../../../../../../utils/images";
 import FigureImage from "../../../../../FigureImage";
@@ -41,7 +41,7 @@ function ImageLevelProgress({ data }: Props) {
 
             <div className={styles.data}>
                 <p className={styles.level}>
-                    {isOnVaulues<Level>(data?.level, LEVELS) ||
+                    {isOnValues<Level>(data?.level, LEVELS) ||
                         LEVEL_DEFAULT_MSG}
                 </p>
                 <p className={styles.progress}>

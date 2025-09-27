@@ -16,7 +16,7 @@ import {
     asNumber,
     asString,
     isNumber,
-    isOnVaulues,
+    isOnValues,
 } from "../../../../utils/general";
 import { NavLink } from "react-router-dom";
 import { PATHS } from "../../../../consts/paths";
@@ -67,7 +67,7 @@ function GeneralCourseData({ data }: Props) {
                                 DESCRIPTION_DEFAULT_MSG}
                         </p>
                         <span className={styles.level}>
-                            {isOnVaulues<Level>(data?.level, LEVELS) ||
+                            {isOnValues<Level>(data?.level, LEVELS) ||
                                 LEVEL_DEFAULT_MSG}
                         </span>
                         <p className={styles.price}>

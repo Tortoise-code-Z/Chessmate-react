@@ -16,7 +16,7 @@ import {
     asNumber,
     asString,
     isNumber,
-    isOnVaulues,
+    isOnValues,
 } from "../../../../utils/general";
 import { AnimatedInView } from "../../../../components/AnimatedInView";
 
@@ -70,7 +70,7 @@ function BannerCard({ data }: Props) {
                             styles.level,
                         ].join(" ")}
                     >
-                        {isOnVaulues<Level>(data?.level, LEVELS) ||
+                        {isOnValues<Level>(data?.level, LEVELS) ||
                             LEVEL_DEFAULT_MSG}
                     </span>
                     <p className={styles.price}>

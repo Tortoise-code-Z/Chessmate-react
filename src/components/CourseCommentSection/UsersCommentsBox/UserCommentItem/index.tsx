@@ -6,7 +6,7 @@ import {
 } from "../../../../consts/general";
 import { AVATAR_DEFAULT_IMAGE } from "../../../../consts/images";
 import { ChessLevel, Comments } from "../../../../types/types";
-import { asString, isOnVaulues } from "../../../../utils/general";
+import { asString, isOnValues } from "../../../../utils/general";
 import ChessTitle from "../../../ChessTitle";
 import FigureImage from "../../../FigureImage";
 import styles from "./UserCommentItem.module.css";
@@ -45,7 +45,7 @@ function UserCommentItem({ comment }: Props) {
                 <div>
                     <ChessTitle
                         size="Small"
-                        title={isOnVaulues<ChessLevel>(
+                        title={isOnValues<ChessLevel>(
                             comment?.user?.title,
                             CHESS_LEVEL
                         )}

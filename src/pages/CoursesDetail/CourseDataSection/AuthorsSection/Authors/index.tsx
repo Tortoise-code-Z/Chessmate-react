@@ -14,7 +14,7 @@ import AuthorDefault from "../AuthorDefault";
 import {
     asNumber,
     isNumber,
-    isOnVaulues,
+    isOnValues,
     isString,
 } from "../../../../../utils/general";
 import { CHESS_LEVEL } from "../../../../../consts/general";
@@ -58,7 +58,7 @@ function Authors({ data }: Props) {
                         (a) =>
                             isString(a?.name) &&
                             isNumber(a?.elo) &&
-                            !!isOnVaulues<ChessLevel>(a?.level, CHESS_LEVEL)
+                            !!isOnValues<ChessLevel>(a?.level, CHESS_LEVEL)
                     )}
                     state={{
                         setWarningState: setAuthorWarning,

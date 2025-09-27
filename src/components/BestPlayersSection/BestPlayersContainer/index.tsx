@@ -3,7 +3,7 @@ import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 import styles from "./BestPlayersContainer.module.css";
 import ChessTitle from "../../ChessTitle";
-import { asNumber, asString, isOnVaulues } from "../../../utils/general";
+import { asNumber, asString, isOnValues } from "../../../utils/general";
 import {
     CHESS_LEVEL,
     RANK_DEFAULT_MSG,
@@ -37,10 +37,7 @@ function BestPlayersContainer({ data }: Props) {
                         {asString(data?.username) || USER_DEFAULT_MSG}
                     </p>
                     <ChessTitle
-                        title={isOnVaulues<ChessLevel>(
-                            data?.title,
-                            CHESS_LEVEL
-                        )}
+                        title={isOnValues<ChessLevel>(data?.title, CHESS_LEVEL)}
                     />
                 </div>
                 <p className={styles.userScore}>

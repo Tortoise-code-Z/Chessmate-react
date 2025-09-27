@@ -19,7 +19,7 @@ import {
     asArray,
     asNumber,
     isNumber,
-    isOnVaulues,
+    isOnValues,
     isString,
 } from "../../../../utils/general";
 import { LEVELS } from "../../../../consts/general";
@@ -78,7 +78,7 @@ function UserObtainedCourses({
                         (d) =>
                             isString(d?.title) &&
                             isNumber(d?.progress) &&
-                            !!isOnVaulues<Level>(d?.level, LEVELS) &&
+                            !!isOnValues<Level>(d?.level, LEVELS) &&
                             isString(d?.imageUrl?.thumb)
                     )}
                     emptyNode={<ThereArentCourses msg={msg} />}

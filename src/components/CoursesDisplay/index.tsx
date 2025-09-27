@@ -13,7 +13,7 @@ import MsgEmpty from "../MsgEmpty";
 import {
     asNumber,
     isNumber,
-    isOnVaulues,
+    isOnValues,
     isString,
     regExpCheck,
 } from "../../utils/general";
@@ -69,7 +69,7 @@ function CoursesDisplay({ courses, action, display = "Col", msg, svg }: Props) {
                             isString(c?.title) &&
                             isString(c?.shortDescription) &&
                             !!regExpCheck(c?.imageUrl?.thumb, IMAGES_PATH_RE) &&
-                            !!isOnVaulues<Level>(c?.level, LEVELS) &&
+                            !!isOnValues<Level>(c?.level, LEVELS) &&
                             isNumber(c?.price)
                     )}
                     emptyNode={

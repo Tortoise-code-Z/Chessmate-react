@@ -18,7 +18,7 @@ import {
     asNumber,
     asString,
     isNumber,
-    isOnVaulues,
+    isOnValues,
 } from "../../../utils/general";
 
 type Props = {
@@ -88,7 +88,7 @@ function ItemCourseDisplay({
                             DESCRIPTION_DEFAULT_MSG}
                     </p>
                     <p className={styles.level}>
-                        {isOnVaulues<Level>(data?.level, LEVELS) ||
+                        {isOnValues<Level>(data?.level, LEVELS) ||
                             LEVEL_DEFAULT_MSG}
                     </p>
                 </div>

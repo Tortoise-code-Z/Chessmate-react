@@ -1,4 +1,5 @@
 import { IMAGES_PATH_RE } from "../consts/general";
+import { Images } from "../types/types";
 import { regExpCheck } from "./general";
 
 export const getImage = (
@@ -24,4 +25,16 @@ export const getImageSize = (
         return undefined;
     const splitNumber: number = dimension === "width" ? 0 : 1;
     return Number(itemToSplit.split("_")[1].split("x")[splitNumber]);
+};
+
+export const getImageData: (url: string, alt: string) => Images = (
+    url,
+    alt
+) => {
+    return {
+        image: getImage(url, ["static"]),
+        width: getImageSize(url, "width"),
+        height: getImageSize(url, "height"),
+        alt: alt,
+    };
 };
