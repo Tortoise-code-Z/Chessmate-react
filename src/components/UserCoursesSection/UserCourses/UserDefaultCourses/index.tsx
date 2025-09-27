@@ -67,7 +67,7 @@ function UserDefaultCourses({ setDefaultWarning, defaultWarning }: Props) {
                         warningState: defaultWarning,
                     }}
                     conditions={safeData?.map((course) =>
-                        isNumber(course?.curseID)
+                        isNumber(course?.courseID)
                     )}
                     noCriticalConditions={safeData?.map(
                         (course) =>
@@ -81,7 +81,7 @@ function UserDefaultCourses({ setDefaultWarning, defaultWarning }: Props) {
                         if (!canRendered) {
                             return (
                                 <UserDefaultCourseItemDefault
-                                    key={asNumber(course?.curseID) || index}
+                                    key={asNumber(course?.courseID) || index}
                                     data={course}
                                 />
                             );
@@ -89,7 +89,7 @@ function UserDefaultCourses({ setDefaultWarning, defaultWarning }: Props) {
 
                         return (
                             <UserDefaultCourseItem
-                                key={asNumber(course?.curseID) || index}
+                                key={asNumber(course?.courseID) || index}
                                 data={course}
                             />
                         );

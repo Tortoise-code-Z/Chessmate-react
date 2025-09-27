@@ -63,7 +63,7 @@ function CoursesDisplay({ courses, action, display = "Col", msg, svg }: Props) {
             <div className={className}>
                 <SecurityRendering<CourseJSON & IsObtainedCourse>
                     data={courses}
-                    conditions={courses?.map((c) => isNumber(c?.curseID))}
+                    conditions={courses?.map((c) => isNumber(c?.courseID))}
                     noCriticalConditions={courses?.map(
                         (c) =>
                             isString(c?.title) &&
@@ -88,8 +88,8 @@ function CoursesDisplay({ courses, action, display = "Col", msg, svg }: Props) {
                     {(course, index, canRender) => {
                         return (
                             <ItemCourseDisplay
-                                courseID={asNumber(course.curseID)}
-                                key={asNumber(course.curseID) || index}
+                                courseID={asNumber(course.courseID)}
+                                key={asNumber(course.courseID) || index}
                                 action={action}
                                 data={course}
                                 display={display}

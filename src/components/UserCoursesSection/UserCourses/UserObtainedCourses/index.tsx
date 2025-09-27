@@ -73,7 +73,7 @@ function UserObtainedCourses({
                         setWarningState: setCourseWarning,
                         warningState: courseWarning,
                     }}
-                    conditions={safeData?.map((d) => isNumber(d?.curseID))}
+                    conditions={safeData?.map((d) => isNumber(d?.courseID))}
                     noCriticalConditions={safeData?.map(
                         (d) =>
                             isString(d?.title) &&
@@ -87,7 +87,7 @@ function UserObtainedCourses({
                         if (!canRendered) {
                             return (
                                 <UserObtainedItemDefault
-                                    key={asNumber(course?.curseID) || index}
+                                    key={asNumber(course?.courseID) || index}
                                     data={course}
                                 />
                             );
@@ -95,7 +95,7 @@ function UserObtainedCourses({
 
                         return (
                             <UserObtainedCoursesItem
-                                key={asNumber(course?.curseID) || index}
+                                key={asNumber(course?.courseID) || index}
                                 data={course}
                             />
                         );

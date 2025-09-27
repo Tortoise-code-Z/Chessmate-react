@@ -169,7 +169,7 @@ export function useCompleteThemeOC(
                     if (!oldData) return oldData;
 
                     return oldData.map((o) =>
-                        o.curseID === courseID
+                        o.courseID === courseID
                             ? { ...o, progress: data.progress }
                             : o
                     );

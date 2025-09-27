@@ -84,7 +84,7 @@ function GeneralCourseData({ data }: Props) {
                                 )}
                                 to={`/${PATHS.obtainedCourseClassroom.replace(
                                     ":id",
-                                    data.curseID.toString()
+                                    data.courseID.toString()
                                 )}`}
                             >
                                 <FaBookReader />
@@ -93,7 +93,7 @@ function GeneralCourseData({ data }: Props) {
                         )}
                         <PurchaseAction
                             canBuy={isNumber(data?.price)}
-                            courseID={asNumber(data?.curseID)}
+                            courseID={asNumber(data?.courseID)}
                             isObtained={asBoolean(data?.isObtained)}
                         />
                     </div>

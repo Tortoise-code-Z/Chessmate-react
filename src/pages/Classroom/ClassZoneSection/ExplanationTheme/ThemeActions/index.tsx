@@ -78,7 +78,7 @@ function ThemeActions({ data, index, setImageSliderLoading, setIndex }: Props) {
                 <Button
                     onClick={() => {
                         mutate({
-                            courseID: asNumber(data?.courses?.curseID),
+                            courseID: asNumber(data?.courses?.courseID),
                             themeID: index,
                             userID: asNumber(user?.userID),
                         });

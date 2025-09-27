@@ -37,7 +37,7 @@ export const getDefaultCoursesWithProgress: (
                   ...df,
                   progress:
                       user?.defaultCourses?.find(
-                          (udf) => udf.courseId === df.curseID
+                          (udf) => udf.courseId === df.courseID
                       )?.progress || 0,
               }
             : ({} as DefualtCourse & Progress)
@@ -136,7 +136,7 @@ export const getDefaultCourse: (
     data: BBDD,
     courseID: number | undefined
 ) => DefualtCourse | undefined = (data, courseID) => {
-    return data.defaultCourses.find((dc) => dc?.curseID === courseID);
+    return data.defaultCourses.find((dc) => dc?.courseID === courseID);
 };
 
 // Authors
@@ -188,7 +188,7 @@ export const getCourseById: (
     data: BBDD,
     courseID: number
 ) => CourseJSON | undefined = (data, courseID) => {
-    return data.courses.find((c) => c.curseID === courseID);
+    return data.courses.find((c) => c.courseID === courseID);
 };
 
 export const getDataLocalStorage: <T>(key: string) => T | null = (key) => {

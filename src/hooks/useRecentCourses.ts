@@ -52,7 +52,7 @@ export default function useRecentCourses(key: string, userData: UserDataApi) {
             return filteredCourses.map((c) => ({
                 ...c,
                 isObtained: userData?.required
-                    ? userCourses?.some((uc) => uc.courseId === c.curseID)
+                    ? userCourses?.some((uc) => uc.courseId === c.courseID)
                     : false,
             }));
         } catch (error) {

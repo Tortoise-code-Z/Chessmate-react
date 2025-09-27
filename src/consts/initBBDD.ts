@@ -2862,7 +2862,7 @@ export const DATA_BASE: BBDD = {
     ],
     defaultCourses: [
         {
-            curseID: 1,
+            courseID: 1,
             imageUrl: {
                 general: "default-course-peones_500x500_.webp",
                 thumb: "default-course-peones_500x500_.webp",
@@ -2940,7 +2940,7 @@ export const DATA_BASE: BBDD = {
             },
         },
         {
-            curseID: 2,
+            courseID: 2,
             imageUrl: {
                 general: "default-course-knights_500x500_.webp",
                 thumb: "default-course-knights_500x500_.webp",
@@ -3008,7 +3008,7 @@ export const DATA_BASE: BBDD = {
             },
         },
         {
-            curseID: 3,
+            courseID: 3,
             imageUrl: {
                 general: "default-course-alfiles_500x500_.webp",
                 thumb: "default-course-alfiles_500x500_.webp",
@@ -3070,7 +3070,7 @@ export const DATA_BASE: BBDD = {
             },
         },
         {
-            curseID: 4,
+            courseID: 4,
             imageUrl: {
                 general: "default-course-torres_500x500_.webp",
                 thumb: "default-course-torres_500x500_.webp",
@@ -3134,7 +3134,7 @@ export const DATA_BASE: BBDD = {
             },
         },
         {
-            curseID: 5,
+            courseID: 5,
             imageUrl: {
                 general: "default-course-queens_500x500_.webp",
                 thumb: "default-course-queens_500x500_.webp",
@@ -3199,7 +3199,7 @@ export const DATA_BASE: BBDD = {
             },
         },
         {
-            curseID: 6,
+            courseID: 6,
             imageUrl: {
                 general: "default-course-reyes_500x500_.webp",
                 thumb: "default-course-reyes_500x500_.webp",
@@ -3273,7 +3273,7 @@ export const DATA_BASE: BBDD = {
     ],
     courses: [
         {
-            curseID: 1,
+            courseID: 1,
             createdAt: "2024-02-17",
             imageUrl: {
                 general: "course-image-full-1_1920x1280_.webp",
@@ -3431,7 +3431,7 @@ export const DATA_BASE: BBDD = {
             authors: [1, 2],
         },
         {
-            curseID: 2,
+            courseID: 2,
             createdAt: "2025-07-17",
             imageUrl: {
                 general: "course-image-full-2_1920x1271_.webp",
@@ -3582,7 +3582,7 @@ export const DATA_BASE: BBDD = {
             authors: [3, 4],
         },
         {
-            curseID: 3,
+            courseID: 3,
             createdAt: "2024-03-17",
             imageUrl: {
                 general: "course-image-full-3_1920x1280_.webp",
@@ -3737,7 +3737,7 @@ export const DATA_BASE: BBDD = {
         },
 
         {
-            curseID: 4,
+            courseID: 4,
             createdAt: "2024-10-01",
             imageUrl: {
                 general: "course-image-full-4_1920x1281_.webp",
@@ -3891,7 +3891,7 @@ export const DATA_BASE: BBDD = {
         },
 
         {
-            curseID: 5,
+            courseID: 5,
             createdAt: "2024-11-02",
             imageUrl: {
                 general: "course-image-full-5_1920x1280_.webp",
@@ -4042,7 +4042,7 @@ export const DATA_BASE: BBDD = {
             authors: [9, 10],
         },
         {
-            curseID: 6,
+            courseID: 6,
             createdAt: "2024-05-14",
             imageUrl: {
                 general: "course-image-full-6_1920x1080_.webp",
@@ -4193,7 +4193,7 @@ export const DATA_BASE: BBDD = {
             authors: [11, 12],
         },
         {
-            curseID: 7,
+            courseID: 7,
             createdAt: "2025-01-13",
             imageUrl: {
                 general: "course-image-full-7_1920x1280_.webp",
@@ -4343,7 +4343,7 @@ export const DATA_BASE: BBDD = {
             authors: [13, 14],
         },
         {
-            curseID: 8,
+            courseID: 8,
             createdAt: "2024-08-22",
             imageUrl: {
                 general: "course-image-full-8_1920x1280_.webp",
@@ -4491,7 +4491,7 @@ export const DATA_BASE: BBDD = {
             authors: [15, 16],
         },
         {
-            curseID: 9,
+            courseID: 9,
             createdAt: "2023-12-29",
             imageUrl: {
                 general: "course-image-full-9_1920x1280_.webp",
@@ -4642,7 +4642,7 @@ export const DATA_BASE: BBDD = {
             authors: [1],
         },
         {
-            curseID: 10,
+            courseID: 10,
             createdAt: "2024-12-19",
             imageUrl: {
                 general: "course-image-full-10_1920x1280_.webp",
@@ -4796,7 +4796,7 @@ export const DATA_BASE: BBDD = {
             authors: [5],
         },
         {
-            curseID: 11,
+            courseID: 11,
             createdAt: "2024-5-28",
             imageUrl: {
                 general: "course-image-full-11_1920x1280_.webp",
@@ -4948,7 +4948,7 @@ export const DATA_BASE: BBDD = {
             authors: [3, 6],
         },
         {
-            curseID: 12,
+            courseID: 12,
             createdAt: "2024-10-10",
             imageUrl: {
                 general: "course-image-full-12_1920x1280_.webp",
@@ -5099,7 +5099,7 @@ export const DATA_BASE: BBDD = {
             authors: [8],
         },
         {
-            curseID: 13,
+            courseID: 13,
             createdAt: "2025-01-15",
             imageUrl: {
                 general: "course-image-full-13_1920x1280_.webp",
@@ -5241,7 +5241,7 @@ export const DATA_BASE: BBDD = {
             authors: [10, 1],
         },
         {
-            curseID: 14,
+            courseID: 14,
             createdAt: "2024-05-11",
             imageUrl: {
                 general: "course-image-full-14_1920x1440_.webp",
@@ -5391,7 +5391,7 @@ export const DATA_BASE: BBDD = {
             authors: [3],
         },
         {
-            curseID: 15,
+            courseID: 15,
             createdAt: "2025-04-06",
             imageUrl: {
                 general: "course-image-full-15_1920x1280_.webp",

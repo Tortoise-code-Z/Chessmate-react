@@ -133,7 +133,7 @@ export type ContentDefaultCourseData = {
 };
 
 export type BaseCourse = {
-    curseID: number;
+    courseID: number;
     title: string;
     level: Level;
     imageUrl: CourseImageUrls;

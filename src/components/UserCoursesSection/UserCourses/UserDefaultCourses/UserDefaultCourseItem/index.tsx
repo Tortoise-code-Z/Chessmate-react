@@ -32,7 +32,7 @@ function UserDefaultCourseItem({ data }: Props) {
     return (
         <>
             <Link
-                to={`/${PATHS.class.replace(":id", data.curseID.toString())}`}
+                to={`/${PATHS.class.replace(":id", data.courseID.toString())}`}
                 className={styles.userDefaultCourseItem}
             >
                 <UserProgress data={data} />

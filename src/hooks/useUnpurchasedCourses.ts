@@ -47,7 +47,9 @@ export default function useUnpurchasedCourses(
                     userCoursesIds.length > 0
                         ? courses.filter(
                               (c) =>
-                                  !userCoursesIds.some((uc) => uc === c.curseID)
+                                  !userCoursesIds.some(
+                                      (uc) => uc === c.courseID
+                                  )
                           )
                         : courses;
 

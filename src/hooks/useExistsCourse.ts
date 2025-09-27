@@ -31,7 +31,7 @@ export default function useCourseExists(
             const courses = getCourses(data);
 
             const existsCourse = courses.some(
-                (course) => course.curseID === courseID
+                (course) => course.courseID === courseID
             );
 
             return existsCourse;

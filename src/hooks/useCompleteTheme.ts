@@ -156,7 +156,7 @@ export function useCompleteTheme(
                     if (!oldData) return oldData;
 
                     return oldData.map((o) =>
-                        o.curseID === data.courseId
+                        o.courseID === data.courseId
                             ? { ...o, progress: data.progress }
                             : o
                     );

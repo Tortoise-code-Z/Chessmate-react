@@ -65,7 +65,7 @@ export default function useAllCourses(
                     ...c,
                     isObtained: userData.required
                         ? userCourses?.some(
-                              (userCourse) => userCourse.courseId === c.curseID
+                              (userCourse) => userCourse.courseId === c.courseID
                           )
                         : false,
                 })) || ([] as (CourseJSON & IsObtainedCourse)[]);

@@ -55,7 +55,7 @@ export default function useBannerCourse(key: string, userData: UserDataApi) {
                 isObtained: userData.required
                     ? userCourses?.some(
                           (userCourse) =>
-                              userCourse.courseId === bannerCourse.curseID
+                              userCourse.courseId === bannerCourse.courseID
                       )
                     : false,
             };

@@ -91,7 +91,7 @@ export function useRegister() {
                 isFirstLogin: true,
                 userID: newUserId,
                 defaultCourses: defaultCourses.map((df) => ({
-                    courseId: df.curseID,
+                    courseId: df.courseID,
                     progress: 0,
                     themes: df.content.themes.map((t) => ({
                         themeID: t.id,

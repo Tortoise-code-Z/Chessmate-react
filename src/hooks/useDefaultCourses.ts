@@ -50,7 +50,7 @@ export default function useDefaultCourses(
 
             if (currentCourseID) {
                 defaultCourses = defaultCourses.filter(
-                    (c) => c?.curseID !== currentCourseID
+                    (c) => c?.courseID !== currentCourseID
                 );
             }
 

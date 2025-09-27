@@ -40,11 +40,11 @@ type Props = {
 function BannerCard({ data }: Props) {
     const navigate = useNavigate();
     const bannerCardHandleClick = () => {
-        if (isNumber(data?.curseID))
+        if (isNumber(data?.courseID))
             navigate(
                 `/${PATHS.coursesDetail.replace(
                     ":id",
-                    data.curseID.toString()
+                    data.courseID.toString()
                 )}`
             );
     };
@@ -81,8 +81,8 @@ function BannerCard({ data }: Props) {
                 </div>
 
                 <PurchaseAction
-                    courseID={asNumber(data?.curseID)}
-                    canBuy={isNumber(data?.price) && isNumber(data?.curseID)}
+                    courseID={asNumber(data?.courseID)}
+                    canBuy={isNumber(data?.price) && isNumber(data?.courseID)}
                     isObtained={asBoolean(data?.isObtained)}
                 />
             </div>

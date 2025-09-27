@@ -24,7 +24,7 @@ function UserObtainedCoursesItem({ data }: Props) {
         <Link
             to={`/${PATHS.obtainedCourseClassroom.replace(
                 ":id",
-                data.curseID.toString()
+                data.courseID.toString()
             )}`}
             className={styles.userObtainedCoursesItem}
         >

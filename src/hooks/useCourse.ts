@@ -69,7 +69,8 @@ export default function useCourse(
                 authors: [...courseAuthorsData],
                 isObtained: userData.required
                     ? userCourses?.some(
-                          (course) => course.courseId === obtainedCourse.curseID
+                          (course) =>
+                              course.courseId === obtainedCourse.courseID
                       )
                     : false,
             };

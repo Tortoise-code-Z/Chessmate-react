@@ -113,7 +113,7 @@ export function useBuyCourse() {
             };
 
             const getCourse = newData.courses.find(
-                (c) => c.curseID === courseID
+                (c) => c.courseID === courseID
             );
 
             if (!getCourse) throw new Error(ERROR_GET_COURSE_MSG);
@@ -150,14 +150,14 @@ export function useBuyCourse() {
                     console.log(
                         "first",
                         old.map((o) =>
-                            o.curseID === data.course.curseID
+                            o.courseID === data.course.courseID
                                 ? { ...o, isObtained: true }
                                 : o
                         )
                     );
 
                     return old.map((o) =>
-                        o.curseID === data.course.curseID
+                        o.courseID === data.course.courseID
                             ? { ...o, isObtained: true }
                             : o
                     );
@@ -169,7 +169,7 @@ export function useBuyCourse() {
                 (old) => {
                     if (!old) return old;
                     return old.map((o) =>
-                        o.curseID === data.course.curseID
+                        o.courseID === data.course.courseID
                             ? { ...o, isObtained: true }
                             : o
                     );
@@ -181,7 +181,7 @@ export function useBuyCourse() {
                 (old) => {
                     if (!old) return old;
                     return old.map((o) =>
-                        o.curseID === data.course.curseID
+                        o.courseID === data.course.courseID
                             ? { ...o, isObtained: true }
                             : o
                     );
@@ -193,7 +193,7 @@ export function useBuyCourse() {
                 (old) => {
                     if (!old) return old;
                     return old.map((o) =>
-                        o.curseID === data.course.curseID
+                        o.courseID === data.course.courseID
                             ? { ...o, isObtained: true }
                             : o
                     );
@@ -204,17 +204,17 @@ export function useBuyCourse() {
                 ["bannerCourse", data.userID],
                 (old) => {
                     if (!old) return old;
-                    if (old.curseID === data.course.curseID)
+                    if (old.courseID === data.course.courseID)
                         return { ...old, isObtained: true };
                     return old;
                 }
             );
 
             queryClient.setQueryData<CourseJSON & IsObtainedCourse>(
-                ["useCourse", data.course.curseID, data.userID],
+                ["useCourse", data.course.courseID, data.userID],
                 (old) => {
                     if (!old) return old;
-                    if (old.curseID === data.course.curseID)
+                    if (old.courseID === data.course.courseID)
                         return { ...old, isObtained: true };
                     return old;
                 }

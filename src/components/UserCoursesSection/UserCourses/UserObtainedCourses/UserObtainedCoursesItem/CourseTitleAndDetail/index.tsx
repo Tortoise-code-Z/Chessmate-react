@@ -37,7 +37,7 @@ function CourseTitleAndDetail({ data }: Props) {
                     navigate(
                         `/${PATHS.coursesDetail.replace(
                             ":id",
-                            data.curseID.toString()
+                            data.courseID.toString()
                         )}`
                     );
                 }}

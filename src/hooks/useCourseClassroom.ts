@@ -85,7 +85,7 @@ export default function useCourseClassroom(
                     ...obtainedCourse,
                     authors: [...courseAuthorsData],
                     isObtained: userCourses?.some(
-                        (course) => course.courseId === obtainedCourse.curseID
+                        (course) => course.courseId === obtainedCourse.courseID
                     ),
                 },
                 themes: userCourseThemes,

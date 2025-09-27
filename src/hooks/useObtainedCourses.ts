@@ -54,7 +54,7 @@ export default function useObtainedCourses(
 
             if (currentCourseID) {
                 mappingUserCourses = mappingUserCourses.filter(
-                    (c) => c.curseID !== currentCourseID
+                    (c) => c.courseID !== currentCourseID
                 );
             }
 

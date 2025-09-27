@@ -55,7 +55,7 @@ export default function useBestSeller(
                 ...course,
                 isObtained: userData.required
                     ? userCourses?.some(
-                          (uc) => uc?.courseId === course?.curseID
+                          (uc) => uc?.courseId === course?.courseID
                       )
                     : false,
             }));

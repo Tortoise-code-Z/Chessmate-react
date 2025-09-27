@@ -46,7 +46,6 @@ function Button({
     animatedOptions,
 }: Props) {
     const className = ["button", `button${variant}`, ...classNames].join(" ");
-    console.log("animatedOptions", !!animatedOptions);
     return (
         <>
             {!!animatedOptions ? (
