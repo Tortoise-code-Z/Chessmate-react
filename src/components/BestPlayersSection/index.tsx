@@ -13,14 +13,17 @@ import styles from "./BestPlayersSection.module.css";
 type Props = {};
 
 /**
- * Featured section that displays the ranking of Chess.com players.
+ * Section that displays the top Chess.com players.
  *
- * - Fetches player information from the API using `useBestPlayersApi`.
- * - Handles loading and error states with `DataStateWrapper`.
- * - Renders the list in a carousel using `EmblaCarousel` and `BestPlayersContainer`.
- * - Includes decorative elements such as title and light effect (`LightComponent`).
+ * - Fetches player data using `useBestPlayersApi`.
+ * - Manages loading and error states through `DataStateWrapper`.
+ * - Renders players in a carousel (`EmblaCarousel`) via `BestPlayersContainer`.
+ * - Adds visual accents like the title (`TitleHx`) and decorative light (`LightComponent`).
  *
- * @returns Section with title, player carousel, and loading/error state management.
+ * Props:
+ * - None.
+ *
+ * @returns A section containing a title, a player carousel, and proper loading/error handling.
  */
 
 function BestPlayersSection({}: Props) {

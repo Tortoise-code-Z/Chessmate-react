@@ -22,21 +22,27 @@ type Props<T extends FieldValues> = {
 };
 
 /**
- * A form input group that can render an input or textarea with an optional label,
- * error message, and extra child elements like buttons.
+ * Component to group a form input or textarea with optional label and error message.
  *
- * @param name - The name of the input field (used by react-hook-form).
- * @param label - Optional label text for the input.
- * @param errorMsg - Whether to show the field error message. Defaults to true.
- * @param placeholder - Placeholder text for the input/textarea.
- * @param children - Optional child element, e.g., a button inside the input group.
- * @param inputType - The type of the input (text, number, etc.).
- * @param labelDisplay - Layout direction of the label. Defaults to "Col".
- * @param labelReverse - Whether to reverse the label and input order. Defaults to false.
- * @param type - Whether to render an input or textarea. Defaults to "input".
- * @param disabled - Whether the input is disabled. Defaults to false.
+ * - Renders an `Input` or `Textarea` based on the `type` prop.
+ * - Integrates with React Hook Form to display validation errors.
+ * - Supports optional label with configurable display orientation (`Row` or `Col`) and reverse layout.
+ * - Allows adding child elements, e.g., buttons inside the input container.
+ * - Applies error styling automatically when a validation message exists.
  *
- * @returns The rendered input group component.
+ * Props:
+ * - `label` → Optional. Text label displayed alongside the input.
+ * - `name` → Form field name for registration with React Hook Form.
+ * - `errorMsg` → Optional. Whether to display error messages (default: `true`).
+ * - `placeholder` → Optional. Placeholder text for the input or textarea.
+ * - `children` → Optional. React element, such as a button, to display inside the input group.
+ * - `inputType` → Optional. Type of the input, e.g., `"text"`, `"password"`, etc.
+ * - `labelDisplay` → Optional. Orientation of the label: `"Row"` or `"Col"` (default: `"Col"`).
+ * - `labelReverse` → Optional. Whether to reverse the label and input order (default: `false`).
+ * - `type` → Optional. Specifies `"input"` or `"textarea"` (default: `"input"`).
+ * - `disabled` → Optional. Disables the input when `true` (default: `false`).
+ *
+ * @returns A styled input group with optional label, children, and error message handling.
  */
 
 function InputGroup<T extends FieldValues>({

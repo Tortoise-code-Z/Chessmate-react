@@ -13,17 +13,20 @@ type Props = {
 };
 
 /**
- * CourseClassroomBanner component that renders the banner for a specific course classroom.
+ * CourseClassroomBanner - React component that displays the banner for a course
+ * in the classroom view.
  *
  * Features:
- * - Displays a welcome message for the user.
- * - TitleHx component showing the course title.
- * - Banner background image with dynamic source and dimensions based on course data.
+ * - Shows a welcome message and the course title using `TitleHx`.
+ * - Displays the course image as a banner background with `FigureImage`.
+ * - Wraps the title container in `AnimatedInView` for entrance animation.
+ * - Safely handles missing course data and provides a default title.
+ * - Uses utility functions `getImage` and `getImageSize` for image handling.
  *
  * Props:
- * - data: Object containing course details, including title and full image URL.
+ * - `data`: Object containing course classroom API data (`useCourseClassroomApi`) or undefined.
  *
- * @returns JSX element rendering the course classroom banner.
+ * @returns JSX.Element: A banner section with course title and background image.
  */
 
 function CourseClassroomBanner({ data }: Props) {

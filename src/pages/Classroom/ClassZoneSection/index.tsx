@@ -15,16 +15,21 @@ import { useParams } from "react-router-dom";
 type Props = {};
 
 /**
- * ClassZoneSection component displaying course content and theme explanations.
+ * ClassZoneSection - React component that displays the main class zone for a specific course.
  *
- * - Retrieves the current user from `useUserAuthStore`.
- * - Fetches course data by ID using `useDefaultCourseById` with the user's ID.
- * - Manages the current theme index and image slider loading state.
- * - Uses `DataStateWrapper` to handle loading and error states.
- * - Renders `BoardZone` for the main course content and `ExplanationTheme` for detailed theme explanations.
- * - Includes a decorative `LightComponent` for UI effects.
+ * Features:
+ * - Fetches course data by ID for the current user using `useDefaultCourseById` and `useUserAuthStore`.
+ * - Handles loading and error states with `DataStateWrapper`.
+ * - Shows warnings via `WarningMsg` if any class-related issues are present.
+ * - Includes a `LightComponent` for visual decoration.
+ * - Renders `ExplanationTheme` for course theme explanations and `BoardZone` for interactive class content.
+ * - Manages internal state for current theme index, image slider loading, and class warnings.
+ * - Automatically resets the theme index when the course ID changes.
  *
- * @returns JSX element representing the class zone section of a course.
+ * Props:
+ * - No props are required for this component.
+ *
+ * @returns JSX.Element: The course class zone with explanations, interactive board, and warning messages.
  */
 
 function ClassZoneSection({}: Props) {

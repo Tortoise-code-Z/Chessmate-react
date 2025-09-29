@@ -11,18 +11,20 @@ type Props = {
 };
 
 /**
- * HamburguerMenu component that renders the full hamburger menu for mobile navigation.
+ * HamburguerMenu - React component that renders the full hamburger menu overlay.
  *
  * Features:
- * - `Button` with `FaXmark` icon to close the menu.
- * - `HamburguerMenuLinkList`: Displays the list of navigation links inside the menu.
- * - Calls `handleSignOut` for sign-out actions and toggles menu visibility via `setIsOpen`.
+ * - Wraps the menu in `AnimatedInView` for sliding entrance animation from the left.
+ * - Includes a close button (`FaXmark`) using the reusable `Button` component.
+ * - Displays navigation links via `HamburguerMenuLinkList`.
+ * - Calls `setIsOpen(false)` to close the menu when the close button is clicked.
+ * - Integrates sign-out functionality through `handleSignOut`.
  *
  * Props:
- * - `handleSignOut` (function): Function to execute user sign-out.
- * - `setIsOpen` (Dispatch<SetStateAction<boolean>>): Function to toggle the menu open/close state.
+ * - `handleSignOut`: Function to sign out the user.
+ * - `setIsOpen`: Function to toggle the hamburger menu visibility.
  *
- * @returns JSX element rendering the hamburger menu with close button and navigation links.
+ * @returns JSX.Element: A styled and animated hamburger menu overlay with navigation links and close functionality.
  */
 
 function HamburguerMenu({ handleSignOut, setIsOpen }: Props) {

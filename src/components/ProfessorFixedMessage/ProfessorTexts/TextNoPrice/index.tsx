@@ -1,17 +1,16 @@
 type Props = {};
 
 /**
- * Component that displays a message to users who try to buy or comment on a course
- * without being logged in.
+ * Component displaying a message when the course price is unavailable.
  *
- * - Uses `useProfessorMsgStore` to determine the specific scenario.
- * - Informs the user whether they need to log in, register, or buy the course.
- * - Provides a friendly, encouraging message about joining the platform.
+ * - Informs the user that the system could not retrieve the course price.
+ * - Explains that the issue is being resolved and purchase will be possible once fixed.
+ * - Provides an apology for the inconvenience.
  *
  * Props:
  * - None.
  *
- * @returns A set of paragraphs guiding the user on the required actions to interact with the course.
+ * @returns A set of paragraphs explaining the price issue and next steps.
  */
 
 function TextNoPrice({}: Props) {

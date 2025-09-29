@@ -18,20 +18,23 @@ type Props = {
 /**
  * Reusable Button component.
  *
- * - Renders a button element with optional styling variants.
- * - Handles click events and can optionally stop event propagation.
- * - Supports additional CSS classes and disables state.
+ * - Renders a customizable button with multiple style variants.
+ * - Handles click events and allows preventing event propagation.
+ * - Supports disabled state, refs, and custom CSS classes.
+ * - Can be wrapped with `AnimatedInView` to apply entry animations.
  *
  * Props:
- * - `onClick` → Optional click handler function `(e: MouseEvent<HTMLButtonElement>) => void`.
- * - `variant` → Optional visual style of the button (default: `"Primary"`).
- * - `children` → Button content, can be text or JSX elements.
- * - `type` → Button type: `"button"` or `"submit"` (default: `"button"`).
- * - `propagation` → Whether the click event should propagate (default: `true`).
- * - `disabled` → Whether the button is disabled (default: `false`).
- * - `classNames` → Optional array of additional CSS classes.
+ * - `onClick` → Optional. Click handler function `(e: MouseEvent<HTMLButtonElement>) => void`.
+ * - `variant` → Optional. Visual style variant of the button (default: `"Primary"`).
+ * - `children` → Content inside the button (text, icons, or JSX elements).
+ * - `type` → Optional. Button type: `"button"` or `"submit"` (default: `"button"`).
+ * - `propagation` → Optional. If `false`, stops click event propagation (default: `true`).
+ * - `disabled` → Optional. Disables the button when `true` (default: `false`).
+ * - `classNames` → Optional. Array of extra CSS class names.
+ * - `buttonRef` → Optional. Ref to access the underlying `<button>` element.
+ * - `animatedOptions` → Optional. Animation configuration passed to `AnimatedInView`.
  *
- * @returns A styled button element.
+ * @returns A styled button element, optionally animated on entry.
  */
 
 function Button({
@@ -46,36 +49,28 @@ function Button({
     animatedOptions,
 }: Props) {
     const className = ["button", `button${variant}`, ...classNames].join(" ");
+    const button = (
+        <button
+            ref={buttonRef}
+            disabled={disabled}
+            className={className}
+            type={type}
+            onClick={(e) => {
+                if (!propagation) e.stopPropagation();
+                onClick?.(e);
+            }}
+        >
+            {children}
+        </button>
+    );
     return (
         <>
             {!!animatedOptions ? (
                 <AnimatedInView config={animatedOptions}>
-                    <button
-                        ref={buttonRef}
-                        disabled={disabled}
-                        className={className}
-                        type={type}
-                        onClick={(e) => {
-                            if (!propagation) e.stopPropagation();
-                            onClick?.(e);
-                        }}
-                    >
-                        {children}
-                    </button>
+                    {button}
                 </AnimatedInView>
             ) : (
-                <button
-                    ref={buttonRef}
-                    disabled={disabled}
-                    className={className}
-                    type={type}
-                    onClick={(e) => {
-                        if (!propagation) e.stopPropagation();
-                        onClick?.(e);
-                    }}
-                >
-                    {children}
-                </button>
+                <>{button}</>
             )}
         </>
     );

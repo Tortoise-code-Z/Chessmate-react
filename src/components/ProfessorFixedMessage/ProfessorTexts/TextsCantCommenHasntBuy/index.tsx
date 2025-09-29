@@ -1,17 +1,16 @@
 type Props = {};
 
 /**
- * Component that displays a message to users who want to comment on a course
- * without having purchased it.
+ * Component displaying a message when a user tries to comment without purchasing the course.
  *
- * - Informs the user that they must buy the course to comment.
- * - Explains the reasoning behind this restriction for community safety.
- * - Encourages the user to purchase and enjoy the course.
+ * - Informs the user that they need to purchase the course before commenting.
+ * - Explains the policy is for security and to maintain order in comments.
+ * - Encourages the user to purchase the course and enjoy it.
  *
  * Props:
  * - None.
  *
- * @returns A set of paragraphs with the message for users who haven't bought the course.
+ * @returns A set of paragraphs explaining why commenting requires course purchase.
  */
 
 function TextsCantCommenHasntBuy({}: Props) {

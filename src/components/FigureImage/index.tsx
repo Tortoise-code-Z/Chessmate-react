@@ -16,15 +16,25 @@ type NewType = {
 type Props = NewType;
 
 /**
- * FigureImage - Component to render an image inside a <figure> element.
+ * Component to display an image with optional animation and fallback handling.
  *
- * @param src - The source URL of the image.
- * @param alt - The alt text for the image.
- * @param title - The title attribute for the image.
- * @param width - The width of the image in pixels.
- * @param height - The height of the image in pixels.
- * @param classNames - Optional array of additional CSS class names to apply to the figure.
- * @returns A React element containing the image wrapped in a <figure> element.
+ * - Renders a `<figure>` element containing an `<img>` tag.
+ * - Uses a default image (`DEFAULT_COURSE_IMAGE`) if no `src` or `otherImage` is provided.
+ * - Supports custom width, height, alt text, and title attributes.
+ * - Can be wrapped in `AnimatedInView` for entry animations when `animatedOptions` are provided.
+ * - Allows additional CSS classes through `classNames`.
+ *
+ * Props:
+ * - `src` → Optional. Image source URL.
+ * - `alt` → Optional. Alt text for the image.
+ * - `title` → Optional. Title attribute for the image.
+ * - `width` → Optional. Width of the image in pixels.
+ * - `height` → Optional. Height of the image in pixels.
+ * - `otherImage` → Optional. Fallback image object with `image`, `alt`, `width`, and `height`.
+ * - `classNames` → Optional. Array of CSS class names to apply to the `<figure>`.
+ * - `animatedOptions` → Optional. Animation configuration passed to `AnimatedInView`.
+ *
+ * @returns A figure element containing an image, optionally animated on entry.
  */
 
 function FigureImage({
@@ -38,31 +48,26 @@ function FigureImage({
     animatedOptions,
 }: Props) {
     const image = otherImage ? otherImage : DEFAULT_COURSE_IMAGE;
+    const figure = (
+        <figure className={[...classNames].join(" ")}>
+            <img
+                src={src ? src : image.image}
+                alt={alt ? alt : image.alt}
+                title={title ? title : image.alt}
+                width={width ? width : image.width}
+                height={height ? height : image.height}
+            />
+        </figure>
+    );
 
     return (
         <>
             {!!animatedOptions ? (
                 <AnimatedInView config={animatedOptions}>
-                    <figure className={[...classNames].join(" ")}>
-                        <img
-                            src={src ? src : image.image}
-                            alt={alt ? alt : image.alt}
-                            title={title ? title : image.alt}
-                            width={width ? width : image.width}
-                            height={height ? height : image.height}
-                        />
-                    </figure>
+                    {figure}
                 </AnimatedInView>
             ) : (
-                <figure className={[...classNames].join(" ")}>
-                    <img
-                        src={src ? src : image.image}
-                        alt={alt ? alt : image.alt}
-                        title={title ? title : image.alt}
-                        width={width ? width : image.width}
-                        height={height ? height : image.height}
-                    />
-                </figure>
+                <>{figure}</>
             )}
         </>
     );

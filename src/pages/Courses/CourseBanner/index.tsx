@@ -12,17 +12,19 @@ import { CourseJSON, IsObtainedCourse } from "../../../types/types";
 type Props = {};
 
 /**
- * CourseBanner component
+ * CourseBanner - React component that displays the main course banner with featured course information.
  *
- * Displays the main banner for a course. Fetches the banner data for the current user
- * using the `useBannerCourse` hook, and renders a background image along with a `BannerCard`.
- *
- * Data loading and errors are handled by the `DataStateWrapper` component.
+ * Features:
+ * - Fetches banner course data using `useBannerCourse` and optionally includes user-specific data.
+ * - Handles loading and error states using `DataStateWrapper`.
+ * - Displays the course banner image with `FigureImage`, using utilities to get the image source and dimensions.
+ * - Renders `BannerCard` to show course details on top of the banner.
+ * - Applies CSS module styling and conditionally adds error styles if data fetching fails.
  *
  * Props:
- * - none
+ * - No props are required for this component.
  *
- * @returns JSX element containing the course banner and card.
+ * @returns JSX.Element: A section containing a featured course banner image and course details card.
  */
 
 function CourseBanner({}: Props) {

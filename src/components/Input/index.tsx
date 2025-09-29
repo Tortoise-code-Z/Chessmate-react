@@ -11,14 +11,20 @@ type Props = {
 };
 
 /**
- * Input - A reusable input component integrated with react-hook-form.
+ * Input field component integrated with React Hook Form.
  *
- * @param placeholder - Optional placeholder text displayed inside the input.
- * @param name - The name of the input field; also used as the form registration key.
- * @param classNames - Optional array of additional CSS class names to apply.
- * @param type - The type of the input (e.g., "text", "password", "email"). Defaults to "text".
- * @param disabled - Whether the input is disabled. Defaults to false.
- * @returns A React input element registered with react-hook-form.
+ * - Registers the input with the form context using `useFormContext`.
+ * - Supports custom placeholder text, input type, and disabled state.
+ * - Allows additional CSS classes to be applied for styling.
+ *
+ * Props:
+ * - `placeholder` → Optional. Placeholder text displayed inside the input.
+ * - `name` → Name of the form field used for registration.
+ * - `classNames` → Optional. Array of CSS class names to apply to the input.
+ * - `type` → Optional. Input type, e.g., `"text"`, `"password"`, `"checkbox"` (default: `"text"`).
+ * - `disabled` → Optional. If `true`, disables the input (default: `false`).
+ *
+ * @returns A styled input element registered with React Hook Form.
  */
 
 function Input({

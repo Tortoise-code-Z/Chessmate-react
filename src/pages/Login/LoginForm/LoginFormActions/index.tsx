@@ -10,17 +10,19 @@ type Props = {
 };
 
 /**
- * LoginFormActions component that renders the action buttons and links for the login form.
+ * LoginFormActions - React component that renders the action buttons for the login form.
  *
  * Features:
- * - "Back to Home" button navigating to the main index page.
- * - Submit button for logging in, showing a loading spinner and disabled state when pending.
- * - Link to the registration page for users without an account.
+ * - Includes a "Volver a inicio" link to navigate back to the home page.
+ * - Includes a submit button for logging in, showing a loading spinner (`ClipLoader`) when `isPending` is true.
+ * - Displays an icon (`FaUserLock`) next to the submit text when not loading.
+ * - Provides a link to the registration page for users without an account.
+ * - Uses CSS classes for styling buttons and layout.
  *
  * Props:
- * - isPending: Boolean indicating if the login action is in progress.
+ * - `isPending`: Boolean indicating whether the login request is in progress.
  *
- * @returns JSX element rendering the login form actions section with buttons and links.
+ * @returns JSX.Element: A set of form actions including navigation links and a submit button with loading state.
  */
 
 function LoginFormActions({ isPending }: Props) {

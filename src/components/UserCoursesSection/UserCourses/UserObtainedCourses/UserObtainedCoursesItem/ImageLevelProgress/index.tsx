@@ -19,13 +19,19 @@ type Props = {
 };
 
 /**
- * Component displaying a course's thumbnail image, level, and progress.
+ * ImageLevelProgress - React component that displays a course image along with its level and progress.
  *
- * - Uses `FigureImage` to show the course's thumbnail.
- * - Displays the course's level and completion percentage.
+ * Features:
+ * - Renders the course image using `FigureImage` with proper `src`, `alt`, `title`, width, and height.
+ * - Shows the course level, falling back to `LEVEL_DEFAULT_MSG` if invalid or missing.
+ * - Displays the user's progress percentage, using `PROGRESS_DEFAULT_MSG` if progress is unavailable or invalid.
+ * - Utilizes utility functions for safe data handling (`asString`, `asNumber`, `isNumber`, `isOnValues`) and image processing (`getImage`, `getImageSize`).
+ * - Styled with CSS modules for consistent layout and spacing.
  *
- * @param data - The course data including title, image URL, level, and progress.
- * @returns A styled container showing the course image and progress information.
+ * Props:
+ * - `data`: Object containing course information and user's progress (`CourseJSON & Progress`).
+ *
+ * @returns JSX.Element: A course image card with level and progress information.
  */
 
 function ImageLevelProgress({ data }: Props) {

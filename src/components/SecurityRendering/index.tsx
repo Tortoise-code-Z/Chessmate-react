@@ -22,6 +22,29 @@ type Props<T> = {
     msgEmpty?: string;
 };
 
+/**
+ * Component that safely renders a list of items based on provided conditions.
+ *
+ * - Converts `data` to a safe array using `asArray`.
+ * - Checks `conditions` and `noCriticalConditions` to determine if a warning message should be displayed.
+ * - Updates optional `state.warningState` with messages if conditions are not met.
+ * - Renders `emptyNode` if `data` is empty.
+ * - Calls `children` function for each item in `data`, passing the item, index, condition for rendering, and optional empty flag.
+ *
+ * Props:
+ * - `data` → Array of items to render, can be `undefined`.
+ * - `conditions` → Array of booleans to determine if each item can be safely rendered.
+ * - `noCriticalConditions` → Optional array of booleans for non-critical conditions.
+ * - `children` → Function to render each item: `(item: T, i: number, canRendered: boolean | undefined, empty?: boolean) => ReactNode`.
+ * - `emptyNode` → Optional node to render if `data` is empty.
+ * - `state` → Optional object containing `warningState` and `setWarningState` to manage messages externally.
+ * - `sameState` → Optional boolean to control if warning state should be shared (default: `false`).
+ * - `msg` → Optional warning message for non-critical conditions (default provided).
+ * - `msgEmpty` → Optional message when `data` is empty (default provided).
+ *
+ * @returns A fragment containing rendered children or the `emptyNode`.
+ */
+
 function SecurityRendering<T>({
     data,
     conditions,

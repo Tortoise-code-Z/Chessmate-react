@@ -15,17 +15,19 @@ type Props = {
 };
 
 /**
- * Component that renders an individual default course item for a user.
+ * UserDefaultCourseItem - React component that displays an individual default/free course for a user.
  *
- * - Wraps the course in a `Link` to navigate to the course's class page.
- * - Displays the user's progress with `UserProgress`.
- * - Shows the course image using `FigureImage`, with dynamic sizing.
- * - Displays the course title using `TitleHx`.
+ * Features:
+ * - Wraps the course in a `Link` to navigate to the specific class page.
+ * - Shows course progress via `UserProgress`.
+ * - Displays the course image using `FigureImage` with a fallback default image.
+ * - Shows the course title with a `TitleHx` component.
+ * - Safely handles missing or undefined data using utility functions and default constants.
  *
  * Props:
- * - `data` → The default course data combined with the user's progress.
+ * - `data`: Object containing course information and user's progress (`DefualtCourse & Progress`).
  *
- * @returns A linked course item displaying progress, image, and title.
+ * @returns JSX.Element: A clickable course card showing the user's progress, image, and title.
  */
 
 function UserDefaultCourseItem({ data }: Props) {

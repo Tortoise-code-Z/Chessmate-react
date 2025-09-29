@@ -16,16 +16,23 @@ import {
 import { ERROR_GET_DATA_MSG, ERROR_GET_USER_MSG } from "../consts/api";
 
 /**
- * Custom hook to fetch all courses from local storage, optionally filtered by search or filter criteria.
+ * useAllCourses - Custom React hook for fetching all courses with optional search and filter.
  *
- * - Uses `@tanstack/react-query` to manage caching and loading states.
- * - Combines user-obtained courses with general course data.
+ * This hook:
+ * - Uses React Query's `useQuery` to fetch courses from local storage.
+ * - Applies search and filter criteria to narrow down results.
+ * - Adds `isObtained` flag for each course based on whether the user has purchased it.
+ * - Handles errors for missing data or user information.
  *
- * @param key - The localStorage key to retrieve the database.
- * @param search - Optional search string to filter courses by title or content.
- * @param filter - Optional filter object to filter courses.
- * @param userID - Optional ID of the user to mark obtained courses.
- * @returns React Query object with `data`, `isLoading`, `error`, etc., containing the list of courses with obtained status.
+ * @param key - Local storage key to fetch the database from.
+ * @param search - Search string to filter courses by name or description.
+ * @param filter - Filter options to apply to the courses.
+ * @param userData - User data object containing userID and requirement flags.
+ *
+ * @returns A query object from `useQuery` with properties:
+ * - `data` containing the array of courses with `isObtained` flag.
+ * - `isLoading`, `isError`, `isSuccess` flags.
+ * - Automatically handles caching and stale-time management.
  */
 
 export default function useAllCourses(

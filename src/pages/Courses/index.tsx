@@ -9,18 +9,20 @@ import FeedbackListener from "../../components/FeedbackListener";
 type Props = {};
 
 /**
- * Courses page component that renders all course-related sections.
+ * Courses - React component that renders the main courses page with various course sections and feedback components.
  *
- * - `ProfessorFixedMessage`: Displays a fixed message from the professor.
- * - `FeedbackMessage`: Shows global feedback messages.
- * - `CourseBanner`: Banner highlighting a course or promotion.
- * - `RecentCoursesSection`: Displays the most recently added courses.
- * - `BestSellersSection`: Displays the top-selling courses with configurable layout and limit.
- * - `AllCoursesSection`: Displays the complete list of courses.
+ * Features:
+ * - Includes `FeedbackListener` and `FeedbackMessage` to handle user feedback dynamically.
+ * - Shows a fixed professor message via `ProfessorFixedMessage`.
+ * - Displays a promotional or informational banner with `CourseBanner`.
+ * - Renders recent courses using `RecentCoursesSection`.
+ * - Highlights best-selling courses with `BestSellersSection`, configurable for layout and display limits.
+ * - Lists all available courses in `AllCoursesSection`.
  *
- * Props: none
+ * Props:
+ * - No props are required for this component.
  *
- * @returns JSX element containing the full courses page.
+ * @returns JSX.Element: The courses page combining banners, course sections, and feedback components.
  */
 
 function Courses({}: Props) {

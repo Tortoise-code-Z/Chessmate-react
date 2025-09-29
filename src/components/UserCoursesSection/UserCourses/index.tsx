@@ -15,21 +15,21 @@ type Props = {
 };
 
 /**
- * Component that displays a user's courses, separated into default (free) and obtained courses.
+ * UserCourses - React component that displays the user's courses, both free and obtained.
  *
- * - Renders a decorative `LightComponent` for visual effect.
- * - Conditionally displays default courses with the `UserDefaultCourses` component.
- * - Conditionally displays obtained courses with the `UserObtainedCourses` component,
- *   optionally limiting the number shown and displaying a message.
- * - Uses `TitleHx` to display section headings for "Gratuitos" and "Adquiridos".
+ * Features:
+ * - Adds a decorative light component in the section.
+ * - Optionally displays free ("Gratuitos") courses and/or obtained ("Adquiridos") courses.
+ * - Shows warning messages for empty or incomplete course data using `WarningMsg`.
+ * - Delegates rendering of course lists to `UserDefaultCourses` and `UserObtainedCourses` components.
  *
  * Props:
- * - `obtainedCoursesLimit` → Optional. Maximum number of obtained courses to display.
- * - `showObtainedCourses` → Optional. Whether to show the obtained courses section. Defaults to true.
- * - `showDefaultCourses` → Optional. Whether to show the default courses section. Defaults to true.
- * - `msg` → Optional message to display above obtained courses.
+ * - `obtainedCoursesLimit` (optional): Maximum number of obtained courses to display.
+ * - `showObtainedCourses` (optional, default: true): Whether to render obtained courses section.
+ * - `showDefaultCourses` (optional, default: true): Whether to render default/free courses section.
+ * - `msg` (optional): Custom message for the obtained courses section if empty.
  *
- * @returns A container div displaying the user's courses with optional decorative and heading elements.
+ * @returns JSX.Element: Section with optional default and obtained courses, including warning messages.
  */
 
 function UserCourses({

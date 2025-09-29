@@ -12,19 +12,22 @@ type Props = {
 };
 
 /**
- * Board component displaying images for the current course theme with an automatic slider.
+ * Board - React component that displays the course board with an auto-sliding image gallery for the selected theme.
  *
- * - Uses `AutoSliderImages` to show theme-related images with automatic transitions.
- * - Updates loading state for images to avoid flickering when changing themes.
- * - Retrieves the current theme's images and title based on the `index` prop.
+ * Features:
+ * - Uses `AutoSliderImages` to show theme images with automatic sliding and loading state management.
+ * - Retrieves the current theme's images and title based on the provided `index`.
+ * - Wrapped with `AnimatedInView` for entry animations when the board comes into view.
+ * - Manages image slider loading state to prevent flickering during transitions.
+ * - Styled with CSS modules for proper layout and appearance.
  *
  * Props:
- *  - `data`: Course data of type `UseCourseApiType`.
- *  - `index`: Current theme index to display.
- *  - `imageSliderLoading`: Boolean indicating if the image slider is loading.
- *  - `setImageSliderLoading`: Function to update the image slider loading state.
+ * - `data`: Course data (`UseCourseApiType | undefined`) containing themes and images.
+ * - `index`: Current theme index to display.
+ * - `imageSliderLoading`: Boolean indicating if the image slider is currently loading.
+ * - `setImageSliderLoading`: Function to update the image slider loading state.
  *
- * @returns JSX element representing the board with theme images.
+ * @returns JSX.Element: An animated course board showing the selected theme's images.
  */
 
 function Board({

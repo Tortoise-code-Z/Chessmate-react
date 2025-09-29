@@ -14,25 +14,21 @@ import {
 } from "../consts/api";
 
 /**
- * useDefaultCourseById - Custom hook to fetch a default course by its ID along with the user's progress.
+ * useDefaultCourseById - Custom React hook for fetching a default course along with user theme states by course ID.
  *
- * This hook retrieves a default course and the current user's theme completion states from local storage.
+ * This hook:
+ * - Uses React Query's `useQuery` to fetch default course data from local storage.
+ * - Retrieves user-specific theme completion states for the course.
+ * - Handles errors for missing data, course ID, user ID, or theme states.
  *
- * @param key - Local storage key where default courses and user progress data are stored.
- * @param courseID - The ID of the default course to fetch.
- * @param userID - The ID of the user whose progress should be included.
+ * @param key - Local storage key to fetch the database from.
+ * @param courseID - ID of the default course to fetch.
+ * @param userID - ID of the user to fetch theme states for.
  *
- * @returns A React Query object containing:
- *  - `data`: An object with:
- *      - `courses`: The default course data.
- *      - `userThemeStates`: Array of theme progress states for this user.
- *  - `isLoading`: Whether the query is currently loading.
- *  - `error`: Any error encountered while fetching.
- *  - `refetch`: Function to manually refetch the course data.
- *
- * @remarks
- * - Useful for default courses where progress tracking is needed.
- * - Data is cached for 5 minutes (`staleTime`) to reduce repeated reads.
+ * @returns A query object from `useQuery` with properties:
+ * - `data` containing the course and the user's theme states.
+ * - `isLoading`, `isError`, `isSuccess` flags.
+ * - Automatically handles caching and stale-time management.
  */
 
 export default function useDefaultCourseById(

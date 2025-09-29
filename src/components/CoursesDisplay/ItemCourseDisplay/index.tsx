@@ -30,15 +30,23 @@ type Props = {
 };
 
 /**
- * ItemCourseDisplay - Component to display a single course item.
+ * ItemCourseDisplay - Component to render a single course card with optional actions.
  *
- * Renders course image, title, description, level, and optionally purchase action with price.
- * Clicking the component navigates to the course detail page.
+ * Features:
+ * - Displays course image, title, short description, level, and price.
+ * - Supports optional actions like purchase using `PurchaseAction`.
+ * - Supports row or column layout via `display` prop.
+ * - Handles navigation to course detail page if `canNavigate` is true.
+ * - Fallbacks for missing course data (title, description, level, price) using constants.
  *
- * @param data - The course data, may include an `isObtained` flag to indicate if the user owns it.
- * @param action - Optional boolean to show purchase actions (default: true).
- * @param display - Layout type: "Row" or "Col" (default: "Col").
- * @param courseID - Unique identifier for the course, used in purchase actions and navigation.
+ * Props:
+ * - `data`: Course object including optional obtained status.
+ * - `action`: Boolean to enable action buttons (default: true).
+ * - `display`: Layout mode, "Row" or "Col" (default: "Col").
+ * - `courseID`: ID of the course.
+ * - `canNavigate`: Boolean to allow navigation on card click (default: true).
+ *
+ * @returns JSX element: A course card with image, title, description, level, and optional actions.
  */
 
 function ItemCourseDisplay({

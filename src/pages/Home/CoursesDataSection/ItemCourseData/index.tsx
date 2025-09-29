@@ -12,19 +12,20 @@ type Props = {
 };
 
 /**
- * ItemCourseData component that displays an individual card item with image and description.
+ * ItemCourseData - React component that renders a single course item with image and description.
  *
  * Features:
- * - `FigureImage`: Displays the card image with proper sizing and alt/title attributes.
- * - `TitleHx`: Shows the card title.
- * - Paragraph displaying the card description.
- * - Alternates layout direction for odd-indexed items using "row-reverse" class.
+ * - Displays the course image using `FigureImage` with dynamic size from `getImageSize`.
+ * - Shows the course title with `TitleHx` (level 3).
+ * - Displays the course description or falls back to `DESCRIPTION_DEFAULT_MSG` if missing.
+ * - Alternates layout direction (`row` or `row-reverse`) based on the `index` to create a staggered design.
+ * - Safely handles undefined values using `asString` and utility functions.
  *
  * Props:
- * - `item` (CourseDataItem): Object containing card image URL, title, and description.
- * - `index` (number): Position of the item in the list to determine layout styling.
+ * - `item`: Object containing course data (`CourseDataItem`).
+ * - `index`: Index of the item in the list to determine layout orientation.
  *
- * @returns JSX element rendering a single card item with image and description.
+ * @returns JSX.Element: A styled course item with image, title, and description.
  */
 
 function ItemCourseData({ item, index }: Props) {

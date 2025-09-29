@@ -27,18 +27,21 @@ type Props = {
 };
 
 /**
- * Component that displays the default (free) courses for a user.
+ * UserDefaultCourses - React component that displays a list of default/free courses for a user.
  *
- * - Uses `useParams` to retrieve route parameters, such as the current course ID.
- * - Retrieves the authenticated user via `useUserAuthStore`.
- * - Fetches default courses for the user with `useDefaultCourses`.
- * - Wraps the course list in `DataStateWrapper` to handle loading and error states.
- * - Renders each course with `UserDefaultCourseItem`.
+ * Features:
+ * - Fetches default courses for the current user and the specific course category from `useDefaultCourses`.
+ * - Displays loading and error states via `DataStateWrapper`.
+ * - Uses `SecurityRendering` to ensure data integrity and handle incomplete or missing course data.
+ * - Shows a warning message if some course data cannot be fully retrieved.
+ * - Renders each course using `UserDefaultCourseItem` if valid, or `UserDefaultCourseItemDefault` if critical data is missing.
+ * - Displays a `MsgEmpty` component if no courses are available.
  *
  * Props:
- * - None.
+ * - `setDefaultWarning`: Function to update the warning state.
+ * - `defaultWarning`: Current warning state.
  *
- * @returns A container div displaying the user's default courses with loading and error handling.
+ * @returns JSX.Element: A container displaying the user's default courses with proper error handling and warnings.
  */
 
 function UserDefaultCourses({ setDefaultWarning, defaultWarning }: Props) {

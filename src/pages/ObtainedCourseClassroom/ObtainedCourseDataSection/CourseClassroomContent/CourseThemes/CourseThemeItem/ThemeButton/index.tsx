@@ -29,19 +29,24 @@ type Props = {
 };
 
 /**
- * ThemeButton component that renders a button for a single course theme.
+ * ThemeButton - Component representing a clickable button for a course theme.
  *
  * Features:
  * - Displays the theme title and description.
- * - Chevron icon rotates based on whether the theme's videos are expanded.
- * - Toggles the active theme index on click to show or hide associated videos.
+ * - Shows the user's progress for the subthemes (e.g., "2 / 5").
+ * - Expands/collapses the corresponding `CourseThemeItem` videos section.
+ * - Highlights as "Primary" if the theme is currently selected (expanded), otherwise "Secondary".
+ * - Displays a checkmark if the user has completed the theme.
+ * - Rotates the chevron icon depending on whether the theme is expanded.
  *
  * Props:
- * - theme: Object containing theme details including title and description.
- * - videosIndex: Index of the currently active theme.
- * - setVideosIndex: Function to update the currently active theme index.
+ * - `theme`: The Theme object containing title, description, and subthemes.
+ * - `videosIndex`: Currently expanded theme's ID (used to control collapse/expand state).
+ * - `setVideosIndex`: Function to update the expanded theme.
+ * - `disabled`: Optional boolean to disable interaction.
+ * - `userThemeData`: Optional object representing the user's progress and completion on this theme.
  *
- * @returns JSX element rendering a button for a course theme with toggleable video display.
+ * @returns JSX.Element: A styled button with title, description, progress, and chevron.
  */
 
 function ThemeButton({

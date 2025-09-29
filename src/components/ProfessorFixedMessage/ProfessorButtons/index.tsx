@@ -11,18 +11,19 @@ import { FaChessPawn } from "react-icons/fa";
 type Props = {};
 
 /**
- * Component that renders action buttons for the professor message overlay
- * depending on the current state.
+ * Component rendering action buttons for the professor message overlay.
  *
- * - Uses `useProfessorMsgStore` to determine which buttons to display.
- * - Shows login, register, and close buttons if the user cannot buy or comment due to no session.
- * - Shows a close button if the user hasn't purchased the course but tried to comment.
- * - Shows a "Comenzar" button on first login, triggering the first login mutation.
+ * - Uses `useProfessorMsgStore` to determine which buttons to display based on the current `value`.
+ * - Handles navigation to login or registration pages for users who need to sign in.
+ * - Provides a "Cerrar y volver" button to close the overlay for multiple cases.
+ * - For first-time users (`firstLogin`), triggers the `useFirstLogin` mutation and closes the overlay.
+ * - Uses icons (`PiSignInBold`, `FaChessPawn`) and `Button` components for actions.
+ * - Styles are applied from `ProfessorButtons.module.css`.
  *
  * Props:
  * - None.
  *
- * @returns A container with the appropriate action buttons for the professor overlay.
+ * @returns A set of context-sensitive action buttons for the professor overlay.
  */
 
 function ProfessorButtons({}: Props) {

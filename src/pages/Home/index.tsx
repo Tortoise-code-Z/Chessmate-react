@@ -16,23 +16,23 @@ import FeedbackListener from "../../components/FeedbackListener";
 type Props = {};
 
 /**
- * Home component that serves as the landing page for unauthenticated users.
+ * Home - React component that renders the landing page of the application,
+ * showcasing courses, promotions, testimonials, and other key sections.
  *
  * Features:
  * - Redirects authenticated users to the dashboard using `Navigate`.
- * - `ProfessorFixedMessage`: Displays a fixed message from the professor.
- * - `Hero`: Main hero section of the homepage.
- * - `CoursesDataSection`: Displays courses overview or featured courses.
- * - `SignupCallToAction`: Prompts users to sign up.
- * - `BestSellersSection`: Highlights top-selling courses with customizable display.
- * - `BestPlayersSection`: Shows top players.
- * - `UsersOpinionSection`: Displays user testimonials or opinions.
- * - `CloseHomeSection`: Closing section of the homepage.
+ * - Integrates `FeedbackListener` and `ProfessorFixedMessage` for global feedback and announcements.
+ * - Displays multiple sections: `Hero`, `CoursesDataSection`, `SignupCallToAction`,
+ *   `BestSellersSection`, `BestPlayersSection`, `UsersOpinionSection`, and `CloseHomeSection`.
+ * - Manages feedback message state with `useFeedbackMessageStore`:
+ *   - Resets feedback state when navigating between routes.
+ *   - Syncs message visibility with the current path.
+ * - Uses `useLocation` and `useEffect` to track route changes.
  *
- * Hooks:
- * - `useUserAuthStore`: Retrieves the current authenticated user's information.
+ * Props:
+ * - None.
  *
- * @returns JSX element rendering the full homepage for unauthenticated users.
+ * @returns JSX.Element: The full homepage layout with promotional, interactive, and informational sections.
  */
 
 function Home({}: Props) {

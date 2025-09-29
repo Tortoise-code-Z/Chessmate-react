@@ -7,12 +7,16 @@ type Props = {
 };
 
 /**
- * Renders a full-page loading screen with a message and a spinner,
- * and disables page scrolling while visible.
+ * Full-page loading component with a message.
  *
- * @param msg - The message to display above the loading spinner.
+ * - Disables page scrolling while the loading page is visible.
+ * - Displays a message and a `LoadingElement` spinner.
+ * - Uses styles from `LoadingPage.module.css`.
  *
- * @returns The rendered loading page component.
+ * Props:
+ * - `msg` → The message text to display above the loading spinner.
+ *
+ * @returns A full-page loading overlay with a message and spinner.
  */
 
 function LoadingPage({ msg }: Props) {

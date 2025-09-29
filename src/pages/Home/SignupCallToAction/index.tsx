@@ -8,14 +8,19 @@ import { AnimatedInView } from "../../../components/AnimatedInView";
 type Props = {};
 
 /**
- * SignupCallToAction component that prompts users to register on the platform.
+ * SignupCallToAction - React component that displays a call-to-action section
+ * encouraging users to register on the platform.
  *
  * Features:
- * - `TitleHx`: Displays a call-to-action title with styled span.
- * - Paragraph highlighting access to free courses and exclusive lessons.
- * - `NavLink` styled as a button with an icon to navigate to the registration page.
+ * - Wraps content in `AnimatedInView` for smooth entrance animations.
+ * - Shows a prominent title using `TitleHx` with styled highlights.
+ * - Includes a descriptive subtitle to motivate registration.
+ * - Provides a `NavLink` styled as a button with an icon (`PiSignInBold`) linking to the registration page.
  *
- * @returns JSX element rendering a sign-up call-to-action section.
+ * Props:
+ * - None.
+ *
+ * @returns JSX.Element: A call-to-action section prompting users to sign up with title, description, and registration button.
  */
 
 function SignupCallToAction({}: Props) {

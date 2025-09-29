@@ -16,20 +16,19 @@ type Props = {
 };
 
 /**
- * AuthorsItem component that displays detailed information about a single course author.
+ * AuthorsItem - React component that displays an individual author's information for a course.
  *
  * Features:
- * - `FigureImage`: Displays the author's image with proper sizing and alt/title attributes.
- * - Author data section showing:
- *   - Name
- *   - Level
- *   - ELO rating
- *   - Description
+ * - Renders the author's image using `FigureImage` with a fallback default image.
+ * - Shows the author's name, title/level using `ChessTitle`, and ELO rating.
+ * - Displays the author's description with a default placeholder if missing.
+ * - Utilizes utility functions `asString`, `isString`, `getImage`, and `getImageSize` for safe data handling and image sizing.
+ * - Styled using CSS modules for layout, spacing, and typography.
  *
  * Props:
- * - `author` (AuthorCurseData): Object containing the author's details including image, name, level, ELO, and description.
+ * - `author`: Object containing author details (`AuthorCurseData`), including name, level, ELO, description, and image.
  *
- * @returns JSX element rendering an individual author item with image and detailed information.
+ * @returns JSX.Element: A card displaying an author's image, name, title, ELO, and description.
  */
 
 function AuthorsItem({ author }: Props) {

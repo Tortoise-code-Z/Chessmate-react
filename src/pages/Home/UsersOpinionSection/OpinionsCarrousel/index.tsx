@@ -9,17 +9,19 @@ import OpinionsSlide from "../OpinionsSlide";
 type Props = {};
 
 /**
- * OpinionsCarrousel component that displays student opinions in a carousel format.
+ * OpinionsCarrousel - React component that displays a carousel of student opinions/testimonials.
  *
  * Features:
- * - `DataStateWrapper`: Handles loading and error states when fetching opinions.
- * - `EmblaCarousel`: Renders opinions as slides with looping, autoplay, and fit-height configuration.
- * - `OpinionsSlide`: Component used for each individual opinion slide.
+ * - Fetches user opinions from the database using `useUsersOpinions`.
+ * - Wraps content in `DataStateWrapper` to handle loading, error states, and display a fallback message.
+ * - Converts fetched data safely into an array with `asArray`.
+ * - Renders the opinions using `EmblaCarousel` with looping enabled and custom slide component (`OpinionsSlide`).
+ * - Configured without navigation arrows and with autoplay enabled (`playInit`).
  *
- * Hooks:
- * - `useUsersOpinions`: Fetches user opinions from the database.
+ * Props:
+ * - None.
  *
- * @returns JSX element rendering a carousel of student opinions with loading and error handling.
+ * @returns JSX.Element: A carousel of student testimonials with proper loading and error handling.
  */
 
 function OpinionsCarrousel({}: Props) {

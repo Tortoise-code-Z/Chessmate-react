@@ -13,17 +13,19 @@ type Props = {
 };
 
 /**
- * Component that renders an individual default course item for a user.
+ * UserDefaultCourseItemDefault - React component that displays a default/free course in a disabled state.
  *
- * - Wraps the course in a `Link` to navigate to the course's class page.
- * - Displays the user's progress with `UserProgress`.
- * - Shows the course image using `FigureImage`, with dynamic sizing.
- * - Displays the course title using `TitleHx`.
+ * Features:
+ * - Shows course progress using `UserProgress`.
+ * - Displays the course image with a fallback default image via `FigureImage`.
+ * - Shows the course title using `TitleHx`.
+ * - Marks the course as "Desactivado" to indicate it is not currently active or accessible.
+ * - Safely handles missing or undefined data with utility functions and constants.
  *
  * Props:
- * - `data` → The default course data combined with the user's progress.
+ * - `data`: Object containing course information and user's progress (`DefualtCourse & Progress`).
  *
- * @returns A linked course item displaying progress, image, and title.
+ * @returns JSX.Element: A non-clickable course card showing progress, image, title, and a disabled overlay.
  */
 
 function UserDefaultCourseItemDefault({ data }: Props) {

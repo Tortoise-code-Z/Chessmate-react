@@ -5,10 +5,15 @@ type Props = {
 };
 
 /**
- * FieldError - Component to display a validation or form error message.
+ * Component to display a form field error message.
  *
- * @param message - The error message to display.
- * @returns A React element showing the error message styled appropriately.
+ * - Renders a styled `<span>` element containing the error text.
+ * - Uses CSS classes from `FieldError.module.css` for consistent styling.
+ *
+ * Props:
+ * - `message` → The error message text to display.
+ *
+ * @returns A styled span element showing the provided error message.
  */
 
 function FieldError({ message }: Props) {

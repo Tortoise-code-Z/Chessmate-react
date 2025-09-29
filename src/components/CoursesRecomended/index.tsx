@@ -19,16 +19,23 @@ type Props = {
 };
 
 /**
- * CoursesRecomended - Component to display a list of recommended courses.
+ * CoursesRecomended - React component to display recommended (unpurchased) courses for a user.
  *
- * Fetches unpurchased courses for a given user and displays them in a column layout.
- * Includes a customizable title with alignment and layout options, and a light visual effect.
+ * Features:
+ * - Fetches unpurchased courses for a specific user via `useUnpurchasedCourses`.
+ * - Handles loading and error states using `DataStateWrapper`.
+ * - Renders courses using `CoursesDisplay`.
+ * - Supports configurable section title, alignment, and layout orientation.
+ * - Includes decorative elements like `LightComponent` and animated entrance with `AnimatedInView`.
  *
- * @param titleContain - ReactNode content to display as the section title.
- * @param titleDisplay - Layout type of the title: "Row" or "Col".
- * @param titleAlign - Alignment of the title: "start" or "center".
- * @param limit - Maximum number of courses to fetch and display.
- * @param userID - ID of the current user (optional), used to filter unpurchased courses.
+ * Props:
+ * - `titleContain`: ReactNode content to display in the section title.
+ * - `titleDisplay`: Orientation of the title: `"Row"` or `"Col"`.
+ * - `titleAlign`: Alignment of the title text: `"start"` or `"center"`.
+ * - `limit`: Maximum number of courses to fetch/display.
+ * - `userID`: ID of the current user to fetch personalized recommendations.
+ *
+ * @returns JSX element: Section with a title and a list of recommended courses.
  */
 
 function CoursesRecomended({

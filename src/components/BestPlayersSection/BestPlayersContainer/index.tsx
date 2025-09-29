@@ -16,16 +16,16 @@ type Props = {
 };
 
 /**
- * Visual container that displays information for a featured Chess.com player.
+ * Card component that displays details of a Chess.com player.
  *
- * - Renders username, chess title, score, and rank.
- * - Includes an external link to the official Chess.com profile.
- * - Uses `ChessTitle` to display the player's title based on their level.
+ * - Shows player's username, chess title, score, and rank.
+ * - Provides a link to the player's Chess.com profile.
+ * - Uses `ChessTitle` to render the player's title if available.
  *
  * Props:
- * - `data` → Object containing player information (username, title, score, rank, url).
+ * - `data` → Object containing the player's data: `username`, `title`, `score`, `rank`, and `url`.
  *
- * @returns Card with player data and link to Chess.com profile.
+ * @returns A styled card displaying player info and an external link to their Chess.com profile.
  */
 
 function BestPlayersContainer({ data }: Props) {

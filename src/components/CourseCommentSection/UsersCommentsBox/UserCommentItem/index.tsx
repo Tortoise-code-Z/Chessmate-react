@@ -16,15 +16,19 @@ type Props = {
 };
 
 /**
- * UserCommentItem - Component to render a single user's comment.
+ * UserCommentItem - React component to display a single user's comment.
  *
- * Displays:
- * - The user's avatar (default image if none provided).
- * - Username and chess title.
- * - The date the comment was created.
- * - The comment text.
+ * Features:
+ * - Shows the user's avatar (default if none).
+ * - Displays username with a fallback (`USER_DEFAULT_MSG`).
+ * - Shows the user's Chess title using `ChessTitle` (validated against `CHESS_LEVEL`).
+ * - Displays the comment creation date with a fallback (`DATE_DEFAULT_MSG`).
+ * - Displays the comment text with a fallback (`DESCRIPTION_DEFAULT_MSG`).
  *
- * @param comment - A comment object containing user info, creation date, and text.
+ * Props:
+ * - `comment`: A `Comments` object containing user info, text, and metadata.
+ *
+ * @returns JSX element: A styled list item with user info and comment content.
  */
 
 function UserCommentItem({ comment }: Props) {

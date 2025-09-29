@@ -17,21 +17,21 @@ type Props = {
 };
 
 /**
- * CourseClassroomContent component that renders the main content of a specific course classroom.
+ * CourseClassroomContent - React component that displays the main content section of a course
+ * within the classroom view.
  *
  * Features:
- * - LightComponent for decorative visual effects.
- * - TitleHx displaying the "Contenido del curso" section title with custom styling.
- * - CourseThemes component rendering the course themes and allowing video selection.
- * - VideoReproductor to play a selected theme's video in a modal overlay.
- *
- * State:
- * - showVideo: Holds the currently selected theme content for video playback or null if no video is shown.
+ * - Shows a title for the course content section using `TitleHx`.
+ * - Renders `CourseThemes` to display the list of themes and subthemes.
+ * - Manages video playback state with `showVideo` and renders `VideoReproductor` when a video is selected.
+ * - Provides a button to navigate to the detailed course page using React Router's `useNavigate`.
+ * - Includes decorative `LightComponent` and entrance animation with `AnimatedInView`.
+ * - Handles safe access to course data and optional video data.
  *
  * Props:
- * - data: Object containing course details including themes and content.
+ * - `data`: Object containing course classroom API data (`useCourseClassroomApi`) or undefined.
  *
- * @returns JSX element rendering the course classroom content with themes and optional video playback.
+ * @returns JSX.Element: A content section with course themes, video playback, and navigation to course details.
  */
 
 function CourseClassroomContent({ data }: Props) {

@@ -32,18 +32,23 @@ type Props = {
 };
 
 /**
- * Displays the list of courses the user has already obtained.
+ * UserObtainedCourses - React component that displays a list of courses a user has obtained.
  *
- * - Fetches obtained courses using `useObtainedCourses`.
- * - Shows a loading or error state via `DataStateWrapper`.
- * - If the user has obtained courses, renders a `UserObtainedCoursesItem` for each.
- * - If there are no obtained courses, shows a `ThereArentCourses` message.
+ * Features:
+ * - Fetches user's obtained courses using `useObtainedCourses` and user ID from `useUserAuthStore`.
+ * - Handles loading and error states with `DataStateWrapper`.
+ * - Uses `SecurityRendering` to safely render courses only when critical data conditions are met.
+ * - Displays either `UserObtainedCoursesItem` for valid courses or `UserObtainedItemDefault` for incomplete/invalid data.
+ * - Shows a fallback message via `ThereArentCourses` when no courses are obtained.
+ * - Safely validates course data using utility functions (`isNumber`, `isString`, `isOnValues`) and constants (`LEVELS`).
  *
  * Props:
- * - `obtainedCoursesLimit` → Optional limit on how many obtained courses to display.
- * - `msg` → Optional message to show if there are no obtained courses.
+ * - `obtainedCoursesLimit` (optional): Maximum number of courses to fetch.
+ * - `msg` (optional): Message to display when no courses are obtained.
+ * - `setCourseWarning`: Function to set course-related warning messages.
+ * - `courseWarning`: Current course warning state.
  *
- * @returns The rendered obtained courses section.
+ * @returns JSX.Element: A component rendering the user's obtained courses list with proper state handling.
  */
 
 function UserObtainedCourses({

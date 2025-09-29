@@ -7,14 +7,19 @@ import styles from "./UsersOpinionSection.module.css";
 type Props = {};
 
 /**
- * UsersOpinionSection component that displays testimonials from students.
+ * UsersOpinionSection - React component that displays student testimonials
+ * in a dedicated section on the homepage.
  *
  * Features:
- * - Light decorative component positioned top-right.
- * - `TitleHx`: Displays the section title "Lo que dicen nuestros alumnos" with styled span.
- * - `OpinionsCarrousel`: Renders a carousel of student opinions or testimonials.
+ * - Wraps content in `AnimatedInView` for smooth entrance animations.
+ * - Adds decorative visual effects using `LightComponent`.
+ * - Shows a section title using `TitleHx` with highlighted spans.
+ * - Renders student opinions through the `OpinionsCarrousel` component.
  *
- * @returns JSX element rendering the user opinions section with decorative styling and carousel.
+ * Props:
+ * - None.
+ *
+ * @returns JSX.Element: A section featuring student testimonials with animated and styled presentation.
  */
 
 function UsersOpinionSection({}: Props) {

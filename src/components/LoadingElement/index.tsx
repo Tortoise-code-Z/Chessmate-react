@@ -8,12 +8,19 @@ type Props = {
 };
 
 /**
- * Renders a loading spinner element with optional height and additional class names.
+ * Loading spinner component.
  *
- * @param height - Determines the height behavior of the loading container. "all" fills the container, "fit" adjusts to content. Defaults to "all".
- * @param classNames - Optional array of additional class names for styling.
+ * - Displays a `ClipLoader` spinner from `react-spinners`.
+ * - Can adjust height to fill the container or fit content.
+ * - Supports additional CSS classes and optional padding for the navbar.
+ * - Uses styles from `LoadingElement.module.css`.
  *
- * @returns The rendered loading element with a spinner.
+ * Props:
+ * - `height` → Optional. Determines spinner container height: `"all"` (full height) or `"fit"` (content fit) (default: `"all"`).
+ * - `classNames` → Optional. Array of extra CSS class names to apply to the container.
+ * - `paddingLoadingNavbar` → Optional. Adds padding to account for the navbar (default: `false`).
+ *
+ * @returns A styled loading spinner element.
  */
 
 function LoadingElement({

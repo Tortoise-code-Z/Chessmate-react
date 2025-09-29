@@ -8,13 +8,17 @@ type Props = {
 };
 
 /**
- * Component displayed when the user has no courses to show.
+ * ThereArentCourses - React component that displays a message when the user has no courses.
  *
- * - Shows a message indicating no courses are available.
- * - Provides a link button to navigate to the courses page.
+ * Features:
+ * - Shows a customizable message indicating no courses are obtained.
+ * - Provides a navigation link to the courses page using `NavLink` and `FaBook` icon.
+ * - Styled with CSS modules for consistent layout and appearance.
  *
- * @param msg - Optional custom message to display. Defaults to "No tienes cursos aún...".
- * @returns A div containing the message and a navigation button to the courses page.
+ * Props:
+ * - `msg` (optional): Custom message to display. Defaults to "No tienes cursos aún...".
+ *
+ * @returns JSX.Element: A message card with a link to navigate to the courses page.
  */
 
 function ThereArentCourses({ msg = "No tienes cursos aún..." }: Props) {

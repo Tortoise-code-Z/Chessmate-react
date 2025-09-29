@@ -18,18 +18,17 @@ import { asNumber } from "../../../utils/general";
 type Props = {};
 
 /**
- * CommentForm component for submitting user comments on a course.
+ * Form component for submitting a new comment on a course.
  *
- * - Renders a form where users can write and submit their comment.
  * - Uses `react-hook-form` with `commentsSchema` for validation.
- * - Checks if the user is authenticated via `useUserAuthStore`; if not, triggers a feedback message using `useProfessorMsgStore`.
- * - Submits the comment via the `useAddComment` hook and clears the input after submission.
- * - Displays a button with a loading state while the comment is being sent.
+ * - Handles user authentication: prompts via `useProfessorMsgStore` if not logged in.
+ * - Submits the comment using `useAddComment` hook.
+ * - Includes an input field (`InputGroup`) and submit button (`Button`) with loading state.
  *
  * Props:
- * - None
+ * - None.
  *
- * @returns A div containing the comment form, input field, and submit button.
+ * @returns Comment submission form with validation, loading state, and user authentication handling.
  */
 
 function CommentForm({}: Props) {

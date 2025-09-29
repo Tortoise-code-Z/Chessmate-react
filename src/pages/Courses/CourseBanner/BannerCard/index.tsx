@@ -25,16 +25,20 @@ type Props = {
 };
 
 /**
- * BannerCard component
+ * BannerCard - React component that displays detailed information for a featured course in the banner.
  *
- * Displays an individual course card for the banner section.
- * Clicking anywhere on the card navigates to the course details page.
- * Includes course title, short description, level, price, and purchase action.
+ * Features:
+ * - Shows course title, short description, level, and price with safe fallbacks for missing data.
+ * - Navigates to the course detail page when the card is clicked.
+ * - Includes a `PurchaseAction` component to handle course purchase or display ownership status.
+ * - Uses `AnimatedInView` for smooth entry animation of the card.
+ * - Safely handles undefined or missing data using utility functions like `asString`, `asNumber`, `asBoolean`, and `isOnValues`.
+ * - Styled with CSS modules for layout, typography, and responsive design.
  *
  * Props:
- * - data: CourseJSON & IsObtainedCourse — contains course information and whether the user has obtained it.
+ * - `data`: Featured course data (`CourseJSON & IsObtainedCourse | undefined`) to display.
  *
- * @returns JSX element for the course banner card.
+ * @returns JSX.Element: A clickable course card with information and purchase options for the banner.
  */
 
 function BannerCard({ data }: Props) {

@@ -9,15 +9,19 @@ import { useSignout } from "../../hooks/useSignout";
 type Props = {};
 
 /**
- * Layout component that provides the overall page structure including header, footer, and main content.
+ * Layout - React component that provides the main layout structure for the application.
  *
  * Features:
- * - `Header`: Renders the site header.
- * - `ScrollToTop`: Ensures the page scrolls to top on navigation.
- * - `Outlet`: Placeholder for nested route content.
- * - `Footer`: Renders the site footer.
+ * - Renders the `Header` and `Footer` around the main content (`Outlet`).
+ * - Includes `ScrollToTop` to reset scroll position on route changes.
+ * - Handles a hamburger menu (`HamburguerMenu`) with open/close state.
+ * - Integrates sign-out functionality via `useSignout`.
+ * - Manages the visibility of the hamburger menu using local state.
  *
- * @returns JSX element rendering the common layout structure for all pages.
+ * Props:
+ * - None.
+ *
+ * @returns JSX.Element: The app layout with header, footer, main content, and optional hamburger menu.
  */
 
 function Layout({}: Props) {

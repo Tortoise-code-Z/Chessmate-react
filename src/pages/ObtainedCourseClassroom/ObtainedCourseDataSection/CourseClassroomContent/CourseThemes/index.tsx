@@ -26,21 +26,25 @@ type Props = {
 };
 
 /**
- * CourseThemes component that renders the list of themes for a specific course.
+ * CourseThemes - React component responsible for rendering the list of themes
+ * and their corresponding subthemes for a given course within the classroom view.
  *
  * Features:
- * - Displays an introduction explaining the course structure and video lessons.
- * - Maps through the course's themes and renders each one using CourseThemeItem.
- * - Handles which video is currently active via state.
- *
- * State:
- * - videosIndex: Index of the currently active video or null if none is selected.
+ * - Displays an introductory paragraph describing the course structure and subthemes.
+ * - Uses `SecurityRendering` to safely render theme data with validation checks.
+ * - Handles warnings related to missing or incorrect theme data with `WarningMsg`.
+ * - Renders each theme using `CourseThemeItem`, passing user progress data and video state.
+ * - Manages selected video playback state (`videosIndex`) and warning state (`themesWarning`).
  *
  * Props:
- * - data: Object containing course details including themes and content.
- * - setShowVideo: Function to update the currently selected theme content for video playback.
+ * - `data`: Object containing course classroom API data (`useCourseClassroomApi`) or undefined.
+ * - `setShowVideo`: Function to set the currently selected video for playback.
  *
- * @returns JSX element rendering the course themes with video selection functionality.
+ * State:
+ * - `videosIndex`: Tracks the index of the currently selected video.
+ * - `themesWarning`: Stores warning messages related to the theme data.
+ *
+ * @returns JSX.Element: A container displaying course themes, subthemes, and video playback capability.
  */
 
 function CourseThemes({ data, setShowVideo }: Props) {

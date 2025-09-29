@@ -10,14 +10,19 @@ type Props = {
 };
 
 /**
- * Component that displays either a tag indicating the course has been obtained
- * or a purchase button if the course is not yet adquired.
+ * Component to handle course purchase actions.
+ *
+ * - Checks if a course is already obtained using `asBoolean`.
+ * - Renders `ObtainedTag` if the course is obtained.
+ * - Otherwise, renders `PurchaseButton` with the provided `courseID`, `canBuy`, and `disabled` props.
  *
  * Props:
- * - `courseID` → The ID of the course for the purchase button.
- * - `isObtained` → Optional. Determines whether the course has already been obtained. Defaults to false.
+ * - `courseID` → ID of the course, can be `undefined` or `null`.
+ * - `isObtained` → Optional boolean indicating if the course is already obtained.
+ * - `canBuy` → Optional boolean determining if the course can be purchased (default: `true`).
+ * - `disabled` → Optional boolean to disable the purchase button (default: `false`).
  *
- * @returns Either an `ObtainedTag` or a `PurchaseButton` based on the `isObtained` prop.
+ * @returns Either an obtained tag or a purchase button based on course status.
  */
 
 function PurchaseAction({

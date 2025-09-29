@@ -6,12 +6,17 @@ type Props = {
 };
 
 /**
- * Renders a decorative light component positioned absolutely within its container.
+ * Decorative light effect component.
  *
- * @param top - Optional top position as a percentage. Defaults to 0.
- * @param right - Optional right position as a percentage. Defaults to 0.
+ * - Renders a `<div>` styled to appear as a light or glow element.
+ * - Can be positioned using percentage offsets from the top and right.
+ * - Uses CSS classes from `LightComponent.module.css`.
  *
- * @returns The rendered light component element.
+ * Props:
+ * - `top` → Optional. Vertical position as a percentage from the top (default: `0`).
+ * - `right` → Optional. Horizontal position as a percentage from the right (default: `0`).
+ *
+ * @returns A styled div representing a decorative light element.
  */
 
 function LightComponent({ top = 0, right = 0 }: Props) {

@@ -11,20 +11,19 @@ import styles from "./AuthorDefault.module.css";
 type Props = {};
 
 /**
- * AuthorsItem component that displays detailed information about a single course author.
+ * AuthorDefault - React component that displays a placeholder/default author card.
  *
  * Features:
- * - `FigureImage`: Displays the author's image with proper sizing and alt/title attributes.
- * - Author data section showing:
- *   - Name
- *   - Level
- *   - ELO rating
- *   - Description
+ * - Shows a default author image using `FigureImage`.
+ * - Displays default name, title, ELO, and description values when actual author data is unavailable.
+ * - Uses `ChessTitle` component with undefined title to show a placeholder.
+ * - Styled with CSS modules for layout, typography, and spacing.
+ * - Provides a consistent visual fallback for missing author information.
  *
  * Props:
- * - `author` (AuthorCurseData): Object containing the author's details including image, name, level, ELO, and description.
+ * - No props are required for this component.
  *
- * @returns JSX element rendering an individual author item with image and detailed information.
+ * @returns JSX.Element: A default author card with placeholder image and text.
  */
 
 function AuthorDefault({}: Props) {

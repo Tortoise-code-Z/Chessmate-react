@@ -15,22 +15,21 @@ type Props = {
 };
 
 /**
- * UserLoggedIn component that displays user information and actions for authenticated users.
+ * UserLoggedIn - React component that displays user information and actions
+ * when a user is authenticated.
  *
  * Features:
- * - `FigureImage`: Shows the user's avatar with default fallback and proper sizing.
- * - Displays the username of the authenticated user.
- * - `Button` with `FaSignOutAlt` icon for signing out.
- * - `HamburguerMenuButton` to open the mobile hamburger menu.
- *
- * Hooks:
- * - `useUserAuthStore`: Retrieves the current authenticated user's information.
+ * - Shows the user's avatar and username, with fallback defaults if missing.
+ * - Provides a sign-out button (`Cerrar sesión`) with a red variant and icon (`FaSignOutAlt`).
+ * - Includes a `HamburguerMenuButton` to toggle the hamburger menu visibility.
+ * - Uses `useUserAuthStore` to retrieve the current user's information.
+ * - Handles safe rendering of strings using `asString` utility.
  *
  * Props:
- * - `handleSignOut` (function): Function to execute user sign-out.
- * - `setIsOpen` (Dispatch<SetStateAction<boolean>>): Function to open the hamburger menu.
+ * - `handleSignOut`: Function to sign out the authenticated user.
+ * - `setIsOpen`: Function to toggle the hamburger menu visibility.
  *
- * @returns JSX element rendering user information, sign-out button, and mobile menu button for authenticated users.
+ * @returns JSX.Element: A user options panel with avatar, username, sign-out button, and hamburger menu toggle.
  */
 
 function UserLoggedIn({ handleSignOut, setIsOpen }: Props) {

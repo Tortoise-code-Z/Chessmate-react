@@ -9,18 +9,19 @@ type UserAuthStore = {
 };
 
 /**
- * Zustand store for user authentication state.
+ * useUserAuthStore - Zustand store for managing authenticated user state.
  *
- * - Holds the authenticated user information and loading state.
- * - Provides setter functions to update the user and loading status.
+ * This store:
+ * - Holds the current authenticated user (`user`) and a loading state (`isLoading`).
+ * - Provides setter functions to update the user and loading state.
  *
- * @returns {
- *   user: UserAuth | null,
- *   setUser: (user: UserAuth | null) => void,
- *   isLoading: boolean,
- *   setIsLoading: (state: boolean) => void
- * }
- * Object containing the current user, loading state, and setters.
+ * State:
+ * - `user`: The currently authenticated user or `null` if not logged in.
+ * - `isLoading`: Boolean indicating if the user data is being loaded.
+ *
+ * Actions:
+ * - `setUser(user: UserAuth | null)`: Sets the current authenticated user.
+ * - `setIsLoading(state: boolean)`: Sets the loading state.
  */
 
 export const useUserAuthStore = create<UserAuthStore>((set) => ({

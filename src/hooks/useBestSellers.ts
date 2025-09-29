@@ -15,17 +15,22 @@ import {
 import { ERROR_GET_DATA_MSG, ERROR_GET_USER_MSG } from "../consts/api";
 
 /**
- * Hook that fetches the “Best Seller” courses.
+ * useBestSeller - Custom React hook for fetching the top-selling courses.
  *
- * - Retrieves course data from local storage using the provided key.
- * - Filters the courses by sales, orders them from highest to lowest, and limits the results.
- * - Checks which courses have been obtained by the user (if userID is provided).
- * - Handles errors and manages caching via React Query.
+ * This hook:
+ * - Uses React Query's `useQuery` to fetch courses from local storage.
+ * - Orders courses by sales in descending order and limits the number returned.
+ * - Adds `isObtained` flag based on whether the user has purchased each course.
+ * - Handles errors for missing data or user information.
  *
- * @param key Local storage key where courses are stored.
- * @param limit Maximum number of courses to return.
- * @param userID Optional ID of the user to check obtained courses.
- * @returns Object with React Query states and data: `{ data, isLoading, error, ... }`.
+ * @param key - Local storage key to fetch the database from.
+ * @param limit - Maximum number of top-selling courses to return (defaults to 5).
+ * @param userData - User data object containing userID and requirement flags.
+ *
+ * @returns A query object from `useQuery` with properties:
+ * - `data` containing the array of top-selling courses with `isObtained` flag.
+ * - `isLoading`, `isError`, `isSuccess` flags.
+ * - Automatically handles caching and stale-time management.
  */
 
 export default function useBestSeller(

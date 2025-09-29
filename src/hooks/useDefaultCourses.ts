@@ -13,19 +13,22 @@ import {
 } from "../consts/api";
 
 /**
- * Custom hook to fetch the default (free) courses for a user, optionally excluding the current course.
+ * useDefaultCourses - Custom React hook for fetching all default courses with user progress.
  *
- * - Uses React Query's `useQuery` to handle caching, loading, and error states.
- * - Retrieves data from local storage using the provided `key`.
- * - Gets the user data by `userID`.
- * - Maps default courses with the user's progress.
- * - Optionally filters out a course with `currentCourseID` to avoid duplication.
+ * This hook:
+ * - Uses React Query's `useQuery` to fetch default courses from local storage.
+ * - Computes user-specific progress for each default course.
+ * - Optionally filters out a specific current course from the results.
+ * - Handles errors for missing data, user ID, or user information.
  *
- * @param key The local storage key where course data is stored.
- * @param userID The ID of the user whose courses are being retrieved.
- * @param currentCourseID (Optional) ID of a course to exclude from the results.
+ * @param key - Local storage key to fetch the database from.
+ * @param userID - ID of the user to compute progress for.
+ * @param currentCourseID - Optional course ID to exclude from the results.
  *
- * @returns React Query's query object containing `data`, `isLoading`, `error`, etc.
+ * @returns A query object from `useQuery` with properties:
+ * - `data` containing an array of default courses with progress.
+ * - `isLoading`, `isError`, `isSuccess` flags.
+ * - Automatically handles caching and query updates.
  */
 
 export default function useDefaultCourses(

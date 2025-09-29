@@ -10,23 +10,20 @@ import FeedbackListener from "../../components/FeedbackListener";
 type Props = {};
 
 /**
- * CoursesDetail component that displays detailed information about a course along with related interactions.
+ * CoursesDetail - React component that renders the detailed view of a specific course.
  *
  * Features:
- * - `ProfessorFixedMessage`: Shows a fixed message from the professor.
- * - `FeedbackMessage`: Displays feedback or notifications related to the course.
- * - `CourseDataSection`: Shows detailed course information.
- * - `CourseCommentSection`: Displays user comments for the course.
- * - `CoursesRecomended`: Suggests other courses the user might be interested in, with customizable title and layout.
+ * - Includes `FeedbackListener` and `FeedbackMessage` for dynamic feedback display.
+ * - Displays a fixed professor message via `ProfessorFixedMessage`.
+ * - Renders the main course information with `CourseDataSection`.
+ * - Shows course comments using `CourseCommentSection`.
+ * - Displays recommended courses using `CoursesRecomended`, personalized with the user's ID if available.
+ * - Uses CSS classes for styled headings and highlighted text spans in titles.
  *
- * State: none
+ * Props:
+ * - No props are required for this component.
  *
- * Hooks:
- * - `useUserAuthStore`: Retrieves the current authenticated user's ID.
- *
- * Props: none
- *
- * @returns JSX element rendering the full course detail view with comments and recommended courses.
+ * @returns JSX.Element: A detailed course page with information, comments, and recommended courses.
  */
 
 function CoursesDetail({}: Props) {

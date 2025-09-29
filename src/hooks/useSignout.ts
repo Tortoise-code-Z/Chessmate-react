@@ -8,15 +8,21 @@ import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
 import { ERROR_SIGN_OUT_MSG } from "../consts/api";
 
 /**
- * Custom hook to handle user sign-out functionality.
+ * useSignout - Custom React hook for signing out the current user.
  *
- * - Uses React Query's `useMutation` to manage the sign-out process and handle errors.
- * - Removes authenticated user data from local storage.
- * - Clears React Query cache and resets global user state on success.
- * - Navigates to the index page after signing out.
- * - Triggers feedback messages via `useFeedbackMessageStore` if sign-out fails.
+ * This hook:
+ * - Uses React Query's `useMutation` to handle the sign-out process.
+ * - Removes the authenticated user data from local storage.
+ * - Clears the React Query cache on success.
+ * - Interacts with global state stores:
+ *    - `useUserAuthStore` to clear the authenticated user state.
+ *    - `useFeedbackMessageStore` to display error messages if sign-out fails.
+ * - Navigates to the index page after successful sign-out.
  *
- * @returns React Query's mutation object with methods like `mutate`, `mutateAsync`, and state properties (`isLoading`, `error`, etc.).
+ * @returns A mutation object from `useMutation` with properties:
+ * - `mutate` function to trigger the sign-out process.
+ * - `isLoading`, `isError`, `isSuccess` flags.
+ * - Automatically handles `onSuccess` (clear cache, reset user, navigate) and `onError` (show feedback) callbacks.
  */
 
 export function useSignout() {

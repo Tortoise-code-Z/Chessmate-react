@@ -8,14 +8,18 @@ type Props = {
 };
 
 /**
- * Renders a label element for a form input, optionally adjusting styles
- * if the input type is a checkbox.
+ * Label component for form inputs.
  *
- * @param text - The text to display inside the label.
- * @param inputRef - The id of the input element this label is associated with.
- * @param inputType - Optional type of the input to conditionally style the label.
+ * - Renders a `<label>` element associated with a form input via `htmlFor`.
+ * - Applies different styling if the input type is a checkbox.
+ * - Uses CSS classes from `Label.module.css`.
  *
- * @returns The rendered label element.
+ * Props:
+ * - `text` → The text content of the label.
+ * - `inputRef` → ID of the input element the label is associated with.
+ * - `inputType` → Optional. Type of the input (e.g., `"text"`, `"checkbox"`), used to adjust styling.
+ *
+ * @returns A styled label element linked to a form input.
  */
 
 function Label({ text, inputRef, inputType }: Props) {

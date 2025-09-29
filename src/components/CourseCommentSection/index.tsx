@@ -8,16 +8,17 @@ import { AnimatedInView } from "../AnimatedInView";
 type Props = {};
 
 /**
- * CourseCommentSection component.
+ * Section that displays course comments and a form to submit new ones.
  *
- * - Displays a section containing user comments for a course.
- * - Includes a decorative light element (`LightComponent`) and a section title (`TitleHx`).
- * - Renders the list of user comments (`UsersCommentBox`) and the comment submission form (`CommentForm`).
+ * - Renders existing user comments using `UsersCommentBox`.
+ * - Provides a form for submitting new comments via `CommentForm`.
+ * - Includes decorative elements such as a title (`TitleHx`) and light effect (`LightComponent`).
+ * - Animates the section into view using `AnimatedInView`.
  *
  * Props:
- * - None
+ * - None.
  *
- * @returns A section element containing user comments and a comment form.
+ * @returns Section with course comments, comment form, and visual decorations.
  */
 
 function CourseCommentSection({}: Props) {

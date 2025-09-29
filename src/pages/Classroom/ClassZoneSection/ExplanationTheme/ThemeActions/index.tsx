@@ -20,20 +20,23 @@ type Props = {
 };
 
 /**
- * ThemeActions component providing navigation and completion actions for a course theme.
+ * ThemeActions - React component that provides navigation and completion actions for a course theme.
  *
- * - Renders "Previous" and "Next" buttons to navigate between themes, updating the theme index and image slider loading state.
- * - Renders a "Complete" button to mark the current theme as completed, using `useCompleteTheme`.
- * - Disables navigation buttons at the first and last themes, and disables the complete button if the theme is already completed.
- * - Displays a professor image using `FigureImage`.
+ * Features:
+ * - Renders navigation buttons (`Anterior` and `Siguiente`) to move between themes, disabling buttons when at the first or last theme.
+ * - Includes a `Completar` button to mark the current theme as completed using `useCompleteTheme` hook.
+ * - Displays a professor image using `FigureImage` for visual context.
+ * - Manages image slider loading state and theme index updates on navigation.
+ * - Safely handles missing or undefined data using utility functions (`asArray`, `asBoolean`, `asNumber`).
+ * - Styled with CSS modules for layout and spacing of actions and professor image.
  *
  * Props:
- *  - `data`: Course data of type `UseCourseApiType`.
- *  - `index`: Current theme index.
- *  - `setIndex`: Function to update the current theme index.
- *  - `setImageSliderLoading`: Function to update the image slider loading state.
+ * - `data`: Course data (`UseCourseApiType | undefined`) containing themes and user theme states.
+ * - `index`: Current theme index.
+ * - `setIndex`: Function to update the currently selected theme index.
+ * - `setImageSliderLoading`: Function to set the image slider loading state.
  *
- * @returns JSX element representing the theme actions section.
+ * @returns JSX.Element: A control panel for navigating themes, completing them, and displaying a professor image.
  */
 
 function ThemeActions({ data, index, setImageSliderLoading, setIndex }: Props) {

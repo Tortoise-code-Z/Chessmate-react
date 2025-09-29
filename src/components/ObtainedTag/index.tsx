@@ -4,10 +4,15 @@ import { FaCheckCircle } from "react-icons/fa";
 type Props = {};
 
 /**
- * Renders a tag indicating that an item has been obtained,
- * including a check-circle icon.
+ * Component to display a tag indicating that a course or item has been obtained.
  *
- * @returns The rendered obtained tag element.
+ * - Shows a checkmark icon (`FaCheckCircle`) alongside the text "Obtenido".
+ * - Uses styles from `ObtainedTag.module.css` for consistent styling.
+ *
+ * Props:
+ * - None.
+ *
+ * @returns A styled tag element indicating acquisition.
  */
 
 function ObtainedTag({}: Props) {

@@ -7,17 +7,17 @@ type Props = {
 };
 
 /**
- * HamburguerMenuButton component that renders a button to toggle the hamburger menu.
+ * HamburguerMenuButton - React component that renders a button to toggle the hamburger menu.
  *
  * Features:
- * - `Button`: Styled button with secondary variant.
- * - Displays `FaBars` icon indicating a menu toggle.
- * - Calls the provided `onClick` handler when clicked.
+ * - Uses a reusable `Button` component with a secondary variant.
+ * - Displays the hamburger icon (`FaBars`) inside the button.
+ * - Calls the `onClick` handler when pressed to toggle menu visibility.
  *
  * Props:
- * - `onClick` (function): Function to be executed when the button is clicked.
+ * - `onClick`: Function to be executed when the button is clicked.
  *
- * @returns JSX element rendering a styled hamburger menu toggle button.
+ * @returns JSX.Element: A styled hamburger menu button with an icon.
  */
 
 function HamburguerMenuButton({ onClick }: Props) {

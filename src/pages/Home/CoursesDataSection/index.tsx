@@ -9,14 +9,20 @@ import { AnimatedInView } from "../../../components/AnimatedInView";
 type Props = {};
 
 /**
- * CoursesDataSection component that displays a selection of cards on the homepage.
+ * CoursesDataSection - React component that displays a section of featured course items
+ * on the homepage to encourage users to explore and enroll.
  *
  * Features:
- * - Light decorative components positioned top-right.
- * - `TitleHx`: Section title encouraging users to become professionals with the courses.
- * - Maps through `coursesDataItem` to render `ItemCourseData` for each course.
+ * - Wraps content in `AnimatedInView` for animated entrance effects.
+ * - Includes decorative `LightComponent` elements for visual enhancement.
+ * - Displays a section title using `TitleHx` with highlighted text spans.
+ * - Iterates over `coursesDataItem` to render individual `ItemCourseData` components.
+ * - Safely generates keys using `asNumber` utility with a fallback to the index.
  *
- * @returns JSX element rendering a section of featured course items with decorative styling.
+ * Props:
+ * - None.
+ *
+ * @returns JSX.Element: A homepage section showing featured courses with animation and styling.
  */
 
 function CoursesDataSection({}: Props) {

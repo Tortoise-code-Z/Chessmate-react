@@ -6,16 +6,15 @@ type CantBuyStore = {
 };
 
 /**
- * useCantBuyStore - Zustand store for managing a global "cannot buy" state.
+ * useCantBuyStore - Zustand store for managing a "cannot buy" state.
  *
- * This store tracks whether a purchase action is currently disallowed,
- * allowing centralized control of purchase restrictions across components.
+ * This store:
+ * - Holds a boolean `cantDo` indicating whether a user is restricted from buying.
+ * - Provides a `setState` function to update the `cantDo` status.
  *
- * State:
- *  - `cantDo`: Boolean indicating if the user cannot perform the purchase action.
- *
- * Actions:
- *  - `setState(status: boolean)`: Updates the `cantDo` state.
+ * @returns An object with:
+ * - `cantDo` boolean flag.
+ * - `setState(status: boolean)` function to update the flag.
  */
 
 export const useCantBuyStore = create<CantBuyStore>((set) => ({

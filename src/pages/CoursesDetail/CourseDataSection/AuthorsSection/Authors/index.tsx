@@ -25,15 +25,20 @@ type Props = {
 };
 
 /**
- * Authors component that renders a list of course authors.
+ * Authors - React component that renders a list of authors for a course.
  *
  * Features:
- * - Maps through the `authors` array of a course and renders an `AuthorsItem` for each author.
+ * - Uses `SecurityRendering` to ensure each author's data is valid before rendering.
+ * - Displays a `WarningMsg` if any author data is missing or invalid.
+ * - Falls back to `AuthorDefault` if a specific author's data cannot be safely rendered.
+ * - Supports an empty state using `MsgEmpty` when there are no authors.
+ * - Validates author data using utility functions `isString`, `isNumber`, and `isOnValues`.
+ * - Uses CSS modules for layout and styling of author cards.
  *
  * Props:
- * - `data` (Course & IsObtainedCourse): Course object containing author information and obtained course status.
+ * - `data`: The course object including authors and whether the course is obtained (`Course & IsObtainedCourse`).
  *
- * @returns JSX element rendering a container with all authors of the course.
+ * @returns JSX.Element: A container displaying all course authors safely, with fallbacks and warning messages.
  */
 
 function Authors({ data }: Props) {

@@ -17,6 +17,24 @@ type Props = {
     breadCrumbs: BreadCrumbItem[];
 };
 
+/**
+ * BreadCrumb - React component that displays a breadcrumb navigation trail.
+ *
+ * Features:
+ * - Iterates through a list of breadcrumb items (`breadCrumbs`) to render navigation hierarchy.
+ * - Renders links using `NavLink` when a valid path is provided.
+ * - Falls back to default messages (`BREADCRUMB_DEFAULT_MSG`, `TITLE_DEFAULT_MSG`) when labels are missing.
+ * - Safely handles undefined or invalid values with utility functions (`asString`, `isString`).
+ * - Inserts a ">" separator between breadcrumb items.
+ *
+ * Props:
+ * - `breadCrumbs`: Array of breadcrumb items, each containing:
+ *    - `label`: The text to display (string or undefined).
+ *    - `link`: Optional path key from `PathsType` to generate navigation links.
+ *
+ * @returns JSX.Element: A breadcrumb navigation bar with links and separators.
+ */
+
 function BreadCrumb({ breadCrumbs }: Props) {
     return (
         <div className={styles.breadcrumb}>

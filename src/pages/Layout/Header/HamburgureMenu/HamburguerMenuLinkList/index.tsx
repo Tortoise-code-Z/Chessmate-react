@@ -12,24 +12,21 @@ type Props = {
 };
 
 /**
- * HamburguerMenuLinkList component that renders the list of navigation links inside the hamburger menu.
+ * HamburguerMenuLinkList - React component that renders a list of navigation links
+ * for the hamburger menu, including conditional user actions.
  *
  * Features:
- * - Conditional links based on user authentication:
- *   - Authenticated users see "Mi portal" and a sign-out button.
- *   - Unauthenticated users see "Inicio" and "Iniciar sesión".
- * - Links to "Cursos" and "Contacto" pages for all users.
- * - Clicking any link or button closes the hamburger menu using `setIsOpen`.
- * - `Button` with `FaSignOutAlt` icon for signing out.
- *
- * Hooks:
- * - `useUserAuthStore`: Retrieves the current authenticated user.
+ * - Provides links to the user's portal, courses, and contact page.
+ * - Shows a "Cerrar sesión" button if the user is logged in, or "Iniciar sesión" link if not.
+ * - Closes the hamburger menu (`setIsOpen(false)`) on any link or button click.
+ * - Uses `useUserAuthStore` to determine the user's authentication status.
+ * - Styled using CSS classes and reusable `Button` component with icons.
  *
  * Props:
- * - `setIsOpen` (Dispatch<SetStateAction<boolean>>): Function to toggle the menu open/close state.
- * - `handleSignOut` (function): Function to execute user sign-out.
+ * - `setIsOpen`: Function to toggle the visibility of the hamburger menu.
+ * - `handleSignOut`: Function to sign out the user.
  *
- * @returns JSX element rendering a list of navigation links for the hamburger menu with conditional user actions.
+ * @returns JSX.Element: A styled list of navigation links for the hamburger menu with conditional user actions.
  */
 
 function HamburguerMenuLinkList({ handleSignOut, setIsOpen }: Props) {

@@ -31,19 +31,24 @@ type Props = {
 };
 
 /**
- * ThemeVideos component that renders the list of video subthemes for a given theme.
+ * ThemeVideos - Component responsible for rendering the list of video subthemes for a given course theme.
  *
  * Features:
- * - Displays each subtheme as a clickable card button.
- * - FigureImage showing the subtheme's cover image with proper dimensions.
- * - TitleHx displaying the subtheme title.
- * - Clicking a subtheme sets it as the currently active video for playback.
+ * - Displays each subtheme as a clickable card/button.
+ * - Shows a cover image and the title of the subtheme.
+ * - Shows a completion checkmark if the user has completed the subtheme.
+ * - Uses `SecurityRendering` to ensure data integrity and display warnings if the data is invalid or missing.
+ * - Updates the parent component with the selected video through `setShowVideo`.
  *
  * Props:
- * - theme: Object containing the theme details and its subtheme content.
- * - setShowVideo: Function to set the currently selected subtheme for video playback.
+ * - `theme`: The course theme containing the list of subthemes.
+ * - `setShowVideo`: Function to set the currently active video to play in the video player.
+ * - `userThemeData`: Optional object containing the user's progress for the subthemes of this theme.
  *
- * @returns JSX element rendering all video subthemes for a course theme.
+ * State:
+ * - `videoWarning`: Tracks warnings related to video data (invalid or missing data).
+ *
+ * @returns JSX.Element: A grid/list of video cards for the theme's subthemes with interactive functionality.
  */
 
 function ThemeVideos({ setShowVideo, theme, userThemeData }: Props) {

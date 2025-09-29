@@ -13,21 +13,23 @@ type Props = {
 };
 
 /**
- * AutoSliderImages component that automatically cycles through an array of images for a course theme.
+ * AutoSliderImages - React component that automatically cycles through a set of images for a course theme.
  *
- * - Automatically transitions between images at the interval specified by `time`.
- * - Resets to the first image when the theme title or image array changes.
- * - Displays a placeholder image while loading to prevent flickering.
- * - Dynamically sets image dimensions using `getImageSize`.
+ * Features:
+ * - Displays images one at a time in a slider with automatic interval transitions based on the `time` prop.
+ * - Shows a default board image (`DEFAULT_BOARD_IMAGE`) when loading or if images are unavailable.
+ * - Resets the slider to the first image whenever the theme title or images change.
+ * - Uses `useRef` to keep track of the current image index between re-renders.
+ * - Calculates image source, width, and height using utility functions `getImage` and `getImageSize`.
  *
  * Props:
- *  - `images`: Array of image URLs for the current theme.
- *  - `time`: Time in milliseconds between image transitions.
- *  - `themeTitle`: Title of the current theme, used for `alt` and `title` attributes.
- *  - `loading`: Boolean indicating if images are still loading.
- *  - `setLoading`: Function to update the loading state.
+ * - `images`: Array of image URLs to display in the slider.
+ * - `themeTitle`: Title of the current theme, used for alt and title attributes.
+ * - `time`: Interval time in milliseconds for automatic sliding.
+ * - `setLoading`: Function to update the loading state.
+ * - `loading`: Boolean indicating if the slider is in a loading state.
  *
- * @returns JSX element displaying the current image of the automatic slider.
+ * @returns JSX.Element: A figure image element that cycles through theme images with automatic sliding.
  */
 
 function AutoSliderImages({

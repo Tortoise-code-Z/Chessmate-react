@@ -12,18 +12,19 @@ import { AnimatedInView } from "../../components/AnimatedInView";
 type Props = {};
 
 /**
- * Register component that renders the user registration page.
+ * Register - React component that renders the user registration page.
  *
  * Features:
- * - FeedbackMessage component displayed at the top for notifications.
- * - TitleHx displaying the registration title with styled text.
- * - RegisterForm handling user input and submission.
- * - FigureImage displaying a decorative image for the registration page.
+ * - Displays a registration form via `RegisterForm` and handles submission with `useRegister` hook.
+ * - Shows animated title and form container using `AnimatedInView`.
+ * - Displays feedback messages using `FeedbackMessage` and listens for feedback events with `FeedbackListener`.
+ * - Shows a decorative image with `FigureImage` and entry animation.
+ * - Handles form submission state (`isPending`) and passes it to the form component.
  *
- * Hooks:
- * - useRegister: Handles the registration mutation and provides pending state.
+ * Props:
+ * - None
  *
- * @returns JSX element rendering the complete registration page with form, feedback, and image.
+ * @returns JSX.Element: A registration page with animated title, form, feedback messages, and a decorative image.
  */
 
 function Register({}: Props) {

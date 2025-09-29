@@ -12,18 +12,20 @@ type Props = {
 };
 
 /**
- * RegisterFormActions component that renders the action buttons and terms checkbox for the registration form.
+ * RegisterFormActions - React component that renders the action buttons and terms checkbox for the registration form.
  *
  * Features:
- * - InputGroup checkbox for accepting terms and conditions with label displayed in row format.
- * - "Volver a inicio" button navigating to the main index page.
- * - Submit button for registration showing a loading spinner and disabled state when pending.
- * - Link to the login page for users who already have an account.
+ * - Includes a checkbox input for accepting terms and conditions using `InputGroup`.
+ * - Provides a "Volver a inicio" navigation link using `NavLink`.
+ * - Provides a submit button that displays a loading spinner (`ClipLoader`) when `isPending` is true.
+ * - Displays an icon (`FaUserPlus`) on the submit button when not pending.
+ * - Includes a navigation link to the login page for users who already have an account.
+ * - Uses CSS modules for styling.
  *
  * Props:
- * - isPending: Boolean indicating if the registration request is in progress.
+ * - `isPending`: Boolean indicating if the form submission is in progress.
  *
- * @returns JSX element rendering the registration form actions, terms checkbox, and navigation links.
+ * @returns JSX.Element: Action buttons, terms checkbox, and navigation links for the registration form.
  */
 
 function RegisterFormActions({ isPending }: Props) {

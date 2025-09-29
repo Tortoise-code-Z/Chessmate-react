@@ -7,14 +7,18 @@ import styles from "./RegisterFormContent.module.css";
 type Props = {};
 
 /**
- * RegisterFormContent component that renders the input fields for the registration form.
+ * RegisterFormContent - React component that renders the input fields for the registration form.
  *
  * Features:
- * - InputGroup components for username, password, repeat password, email, and ELO.
- * - ButtonGroupSelect for selecting the user's chess title.
- * - Each input field includes label, placeholder, and error message handling.
+ * - Includes inputs for username, password, repeat password, email, and ELO using `InputGroup`.
+ * - Provides a selectable title input using `ButtonGroupSelect` with predefined chess levels (`CHESS_LEVEL`).
+ * - Handles validation errors and displays error messages for each input field.
+ * - Uses CSS modules for styling.
  *
- * @returns JSX element rendering the registration form's input fields and title selector.
+ * Props:
+ * - None
+ *
+ * @returns JSX.Element: The main content of the registration form with all required input fields and selection options.
  */
 
 function RegisterFormContent({}: Props) {

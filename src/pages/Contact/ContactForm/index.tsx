@@ -20,16 +20,22 @@ import { asNumber, asString } from "../../../utils/general";
 type Props = {};
 
 /**
- * Contact form component for sending messages.
+ * ContactForm - React component that renders a contact form with user feedback and validation.
  *
- * - Prefills `name` and `email` if the user is logged in.
- * - Validates form input using `contactSchema`.
- * - Shows a `LightComponent` visual effect in the form area.
- * - Displays a global `FeedbackMessage` when the form is successfully submitted.
+ * Features:
+ * - Uses `useUserAuthStore` and `useUserEmail` to prefill user information if available.
+ * - Handles form submission with validation using `contactSchema` and `Form` component.
+ * - Shows feedback messages on successful submission via `useFeedbackMessageStore`.
+ * - Uses `DataStateWrapper` to handle loading states while fetching user email.
+ * - Includes multiple `InputGroup` components for name, email, subject, and message body fields.
+ * - Integrates `LightComponent` for decorative visual effects.
+ * - Disabled inputs when user data is already available and valid.
+ * - Styled with CSS modules and animated form entry.
  *
- * Props: none
+ * Props:
+ * - No props are required for this component.
  *
- * @returns JSX element rendering the contact form.
+ * @returns JSX.Element: A validated contact form with prefilled user data, feedback messages, and a submit button.
  */
 
 function ContactForm({}: Props) {

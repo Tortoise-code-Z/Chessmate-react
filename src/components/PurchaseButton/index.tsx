@@ -14,17 +14,25 @@ type Props = {
 };
 
 /**
- * Component that renders a purchase button for a course.
+ * Button component to handle course purchase logic.
  *
- * - Uses `useUserAuthStore` to check if the user is logged in.
- * - Uses `useBuyCourse` to handle the purchase mutation.
- * - Uses `useProfessorMsgStore` to show a message if the user is not logged in.
- * - Displays a loading state ("Comprando...") while the purchase is pending.
+ * - Checks user authentication and course purchase eligibility before allowing purchase.
+ * - If purchase is allowed, calls `useBuyCourse` mutation with `courseID` and `userID`.
+ * - If purchase is not allowed, triggers professor messages for guidance:
+ *   - User not logged in → `cantCommentSesion`.
+ *   - Invalid course ID → `noID`.
+ *   - Course already obtained → `isObtained`.
+ *   - Course cannot be bought due to missing price → `noPrice`.
+ * - Displays a loading state (`Comprando...`) while the purchase is pending.
+ * - Uses icons `HiMiniShoppingBag` for purchase or `FaExclamationTriangle` for warnings.
  *
  * Props:
- * - `courseID` → The ID of the course to be purchased.
+ * - `courseID` → ID of the course, can be `undefined` or `null`.
+ * - `canBuy` → Optional boolean indicating if purchase is allowed (default: `true`).
+ * - `disabled` → Optional boolean to disable the button (default: `false`).
+ * - `isObtained` → Optional boolean indicating if the course is already obtained.
  *
- * @returns A button that either triggers a purchase or prompts the user to log in.
+ * @returns A button that either initiates the purchase or triggers appropriate warning messages.
  */
 
 function PurchaseButton({

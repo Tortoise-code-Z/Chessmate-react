@@ -10,13 +10,18 @@ type Props = {
 };
 
 /**
- * Component representing a single obtained course in the user's dashboard.
+ * UserObtainedCoursesItem - React component that displays a single obtained course as a clickable item.
  *
- * - Displays the course with a progress indicator (via `ImageLevelProgress`) and title/details (via `CourseTitleAndDetail`).
- * - Wraps the content in a `Link` to the course's classroom page.
+ * Features:
+ * - Wraps the course item in a `Link` to navigate to the course classroom page.
+ * - Displays course progress and level using `ImageLevelProgress`.
+ * - Shows course title and additional details with `CourseTitleAndDetail`.
+ * - Styled with CSS modules for consistent layout and appearance.
  *
- * @param data - The obtained course data including course details and progress.
- * @returns A clickable link element styled as a user obtained course item.
+ * Props:
+ * - `data`: Object containing course information and user's progress (`CourseJSON & Progress`).
+ *
+ * @returns JSX.Element: A clickable course card linking to the user's obtained course classroom.
  */
 
 function UserObtainedCoursesItem({ data }: Props) {

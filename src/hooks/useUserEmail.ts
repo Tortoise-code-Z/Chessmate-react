@@ -4,16 +4,20 @@ import { ERROR_GET_DATA_MSG, ERROR_GET_USER_MSG } from "../consts/api";
 import { BBDD } from "../types/types";
 
 /**
- * Custom hook to fetch the email of a specific user.
+ * useUserEmail - Custom React hook for fetching a user's email by their ID.
  *
- * - Uses React Query's `useQuery` to handle caching, loading, and error states.
- * - Retrieves user data from local storage using the provided `key`.
- * - Returns the email of the user identified by `userID`.
+ * This hook:
+ * - Uses React Query's `useQuery` to fetch user data from local storage.
+ * - Retrieves the email of the user with the specified `userID`.
+ * - Throws an error if the local storage data or the user is not found.
  *
  * @param key The local storage key where user data is stored.
- * @param userID The ID of the user whose email is being retrieved.
+ * @param userID The ID of the user whose email is to be fetched.
  *
- * @returns React Query's query object containing `data` (string email), `isLoading`, `error`, etc.
+ * @returns A query object from `useQuery` with properties:
+ * - `data` containing the user's email, or `undefined` if not found.
+ * - `isLoading`, `isError`, `isSuccess` flags.
+ * - Refetch function to manually refresh the user email.
  */
 
 export default function useUserEmail(key: string, userID: number | undefined) {

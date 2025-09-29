@@ -36,24 +36,24 @@ type Variables = {
 };
 
 /**
- * useCompleteTheme - Custom hook to mark a theme as completed for a user in a default course.
+ * useCompleteThemeOC - Custom React hook for marking a subtheme as completed in an obtained course.
  *
- * This hook handles updating the user's progress for a specific theme, persisting the change
- * in local storage, and updating React Query caches for reactive UI updates. It also provides
- * feedback in case of errors.
+ * This hook:
+ * - Uses React Query's `useMutation` to update subtheme completion status.
+ * - Updates local storage with the new progress for the user's obtained course.
+ * - Updates query caches to reflect subtheme completion and course progress.
+ * - Interacts with `useFeedbackMessageStore` for showing success/error messages.
+ * - Resets the video display after marking completion.
+ * - Automatically calculates the course progress based on completed themes and subthemes.
  *
- * @param index - Current theme index, used to update the active theme after completion.
- * @param setIndex - State setter function to update the theme index.
+ * @param courseID - ID of the course being updated.
+ * @param userID - ID of the user completing the subtheme.
+ * @param setShowVideo - State setter function to control currently displayed video.
  *
- * @returns A mutation object from React Query, including `mutate` and `mutateAsync` functions
- *          to trigger theme completion, along with status flags like `isLoading`, `isError`, `isSuccess`.
- *
- * @remarks
- * - Updates the theme's `completed` property to `true`.
- * - Recalculates course progress based on completed themes.
- * - Persists the updated course data to localStorage under `DATABASE_KEY`.
- * - Updates related React Query caches for `defaultCourseById` and `defaultCourses`.
- * - Displays an error feedback message if the mutation fails.
+ * @returns A mutation object from `useMutation` with properties:
+ * - `mutate` function to trigger subtheme completion.
+ * - `isLoading`, `isError`, `isSuccess` flags.
+ * - Handles `onSuccess` and `onError` callbacks automatically.
  */
 
 export function useCompleteThemeOC(

@@ -14,13 +14,18 @@ type Props = {
 };
 
 /**
- * Component displaying a course's title and a button to navigate to its detail page.
+ * CourseTitleAndDetail - React component that displays the title and a details button for a course.
  *
- * - Shows the course title using `TitleHx`.
- * - Provides a "Ver detalles" button that navigates to the course details page when clicked.
+ * Features:
+ * - Shows the course title using `TitleHx`, with a fallback default message if the title is missing.
+ * - Includes a `Button` with an info icon (`FaInfoCircle`) to navigate to the course detail page.
+ * - Prevents default link behavior and stops event propagation on button click.
+ * - Styled with CSS modules for proper layout and spacing.
  *
- * @param data - The course data including title and ID.
- * @returns A container with the course title and a details button.
+ * Props:
+ * - `data`: Object containing course information and user's progress (`CourseJSON & Progress`).
+ *
+ * @returns JSX.Element: A course title section with a navigable details button.
  */
 
 function CourseTitleAndDetail({ data }: Props) {

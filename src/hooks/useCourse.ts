@@ -15,26 +15,22 @@ import {
 import { ERROR_GET_COURSE_ID_MSG, ERROR_GET_DATA_MSG } from "../consts/api";
 
 /**
- * useCourse - Custom hook to fetch detailed information about a single course.
+ * useCourse - Custom React hook for fetching detailed information about a specific course.
  *
- * This hook retrieves course data from local storage, enriches it with author details,
- * and optionally marks whether the course has been obtained by a specific user.
+ * This hook:
+ * - Uses React Query's `useQuery` to fetch course data from local storage.
+ * - Retrieves authors associated with the course.
+ * - Adds `isObtained` flag based on whether the user has purchased the course.
+ * - Handles errors for missing data or invalid course IDs.
  *
- * @param key - The local storage key where course and user data is stored.
- * @param courseID - The ID of the course to fetch.
- * @param userID - Optional user ID to determine if the user has obtained this course.
+ * @param key - Local storage key to fetch the database from.
+ * @param courseID - ID of the course to fetch.
+ * @param userData - User data object containing userID and requirement flags.
  *
- * @returns A React Query object containing:
- *  - `data`: The course object with `authors` populated and `isObtained` flag.
- *  - `isLoading`: Whether the query is currently loading.
- *  - `error`: Any error encountered while fetching.
- *  - `refetch`: Function to manually refetch the course data.
- *
- * @remarks
- * - Fetches course authors from the stored data and maps them into `authors`.
- * - Sets `isObtained` to `true` if the user has already obtained the course.
- * - Cached for 5 minutes (`staleTime`) to avoid unnecessary reads.
- *
+ * @returns A query object from `useQuery` with properties:
+ * - `data` containing the course details with authors and `isObtained` flag.
+ * - `isLoading`, `isError`, `isSuccess` flags.
+ * - Automatically handles caching and stale-time management.
  */
 
 export default function useCourse(

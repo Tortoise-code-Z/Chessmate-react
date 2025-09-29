@@ -8,21 +8,21 @@ type Props = {
 };
 
 /**
- * Header component that renders the site header with navigation and hamburger menu.
+ * Header - React component that renders the application header with a dynamic navbar.
  *
  * Features:
- * - `Navbar`: Main navigation bar with sign-out functionality.
- * - `HamburguerMenu`: Responsive menu that appears when `isOpen` is true, allowing navigation and sign-out.
- * - Handles sign-out action using `useSignout` hook.
+ * - Contains the `Navbar` component with sign-out functionality and hamburger menu toggle.
+ * - Hides or shows the header based on scroll direction:
+ *   - Scroll down → hides the header.
+ *   - Scroll up → shows the header.
+ * - Tracks the last scroll position using local state (`lastScrollY`).
+ * - Applies conditional CSS classes (`hidden`) for animation and visibility.
  *
- * State:
- * - `isOpen` (boolean): Determines if the hamburger menu is open or closed.
+ * Props:
+ * - `setIsOpen`: Function to toggle the hamburger menu state.
+ * - `handleSignOut`: Function to handle user sign-out.
  *
- * Hooks:
- * - `useState`: Manages the `isOpen` state for the hamburger menu.
- * - `useSignout`: Provides the sign-out mutation function.
- *
- * @returns JSX element rendering the header with navigation and conditional hamburger menu.
+ * @returns JSX.Element: A dynamic header that shows/hides on scroll with the embedded navbar.
  */
 
 function Header({ setIsOpen, handleSignOut }: Props) {

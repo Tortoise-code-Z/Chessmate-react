@@ -4,13 +4,18 @@ import { LoginSchemaValues } from "../../../../Schemas/loginSchema";
 type Props = {};
 
 /**
- * LoginFormContent component that renders the input fields for the login form.
+ * LoginFormContent - React component that renders the input fields for the login form.
  *
  * Features:
- * - InputGroup for "username" with label, placeholder, and error message display.
- * - InputGroup for "password" with label, placeholder, and error message display.
+ * - Includes a username input field with label and placeholder.
+ * - Includes a password input field with label and placeholder.
+ * - Displays validation error messages for both fields.
+ * - Uses generic `InputGroup` component for integration with form validation.
  *
- * @returns JSX element rendering the login form's input fields.
+ * Props:
+ * - None.
+ *
+ * @returns JSX.Element: The input fields for username and password within the login form.
  */
 
 function LoginFormContent({}: Props) {

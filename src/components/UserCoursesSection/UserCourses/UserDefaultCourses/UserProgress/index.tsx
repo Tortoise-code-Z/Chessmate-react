@@ -7,15 +7,20 @@ type Props = {
 };
 
 /**
- * Displays the user's progress for a given course.
+ * UserProgress - React component that displays a user's progress for a course.
  *
- * - If `data.progress` is greater than 0, renders a progress badge.
- * - Applies different styles depending on whether the course is completed (100%) or still in progress.
+ * Features:
+ * - Calculates and formats the progress percentage using `isNumber` utility.
+ * - Applies different CSS classes based on progress state:
+ *   - In progress (0 < progress < 100)
+ *   - Completed (progress = 100)
+ *   - No progress (progress not available)
+ * - Safely handles undefined or non-numeric progress values.
  *
  * Props:
- * - `data` → The course data combined with the user's progress.
+ * - `data`: Object containing course information and user's progress (`DefualtCourse & Progress`).
  *
- * @returns A progress indicator with the percentage, or nothing if progress is 0 or undefined.
+ * @returns JSX.Element: A styled div showing the user's progress percentage.
  */
 
 function UserProgress({ data }: Props) {

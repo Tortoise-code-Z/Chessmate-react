@@ -11,19 +11,20 @@ type Props<T extends FieldValues> = {
 };
 
 /**
- * ButtonGroupSelect component integrated with react-hook-form.
+ * Button group selector integrated with React Hook Form.
  *
- * - Renders a group of buttons representing selectable values for a form field.
- * - Updates the form state when a button is clicked using `setValue`.
- * - Highlights the selected value and displays validation errors if present.
- * - Optionally shows a label for the group.
+ * - Renders a group of buttons for selecting a single value.
+ * - Synchronizes the selected value with form state using `useFormContext`.
+ * - Highlights the active button based on the current selection.
+ * - Displays a label if provided and shows validation errors when present.
+ * - Includes a hidden input to ensure the field is registered in the form.
  *
  * Props:
- * - `values` → Array of possible values for the button group.
- * - `name` → Form field name associated with this group.
- * - `label` → Optional label text displayed above the buttons.
+ * - `values` → Array of selectable values for the button group.
+ * - `label` → Optional. Text label displayed above the button group.
+ * - `name` → Field name to register with React Hook Form.
  *
- * @returns A set of styled buttons bound to a form field, with error messages and optional label.
+ * @returns A button group input with label, validation, and form integration.
  */
 
 function ButtonGroupSelect<T extends FieldValues>({

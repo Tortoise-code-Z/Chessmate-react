@@ -13,12 +13,18 @@ type Props = {
 };
 
 /**
- * Displays a fixed professor message overlay when certain conditions are met,
- * optionally based on user state, and disables page scrolling while visible.
+ * Component to display a fixed professor message overlay.
  *
- * @param userCondition - Optional condition to determine if the message should show on first login. Defaults to false.
+ * - Shows an overlay with a professor image, text, and action buttons.
+ * - Can be triggered based on user state (e.g., first login) via `userCondition`.
+ * - Disables page scrolling while the overlay is visible.
+ * - Uses `AnimatedInView` to animate the overlay appearance from the right.
+ * - Integrates `ProfessorTexts` and `ProfessorButtons` for content and actions.
  *
- * @returns The rendered professor fixed message component.
+ * Props:
+ * - `userCondition` → Optional. Determines if the message should show based on user state (default: `false`).
+ *
+ * @returns A fixed, animated professor message overlay when conditions are met.
  */
 
 function ProfessorFixedMessage({ userCondition = false }: Props) {

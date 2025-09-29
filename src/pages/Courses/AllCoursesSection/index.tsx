@@ -20,27 +20,21 @@ import { AnimatedInView } from "../../../components/AnimatedInView";
 type Props = {};
 
 /**
- * Section component that displays all available courses with search and filter functionality.
+ * AllCoursesSection - React component that displays all courses with search and filter functionality.
  *
  * Features:
- * - Light decorative component positioned top-right.
- * - Title highlighting "All Courses".
- * - `SearchBar`: Allows users to search courses and apply filter options.
- * - `DataStateWrapper`: Handles loading and error states when fetching courses.
- * - `CoursesDisplay`: Displays the courses in a row layout when data is available.
- * - Fallback message with icon when no courses are found.
+ * - Fetches all courses using `useAllCourses` with optional search query and filter options.
+ * - Prefills user information from `useUserAuthStore` to customize course data if the user is logged in.
+ * - Includes a `SearchBar` to allow users to search and filter courses dynamically.
+ * - Uses `DataStateWrapper` to handle loading and error states.
+ * - Displays courses in a row layout using `CoursesDisplay`, with a fallback message and icon if no courses are found.
+ * - Animated entry with `AnimatedInView` and visual decoration via `LightComponent`.
+ * - Styled with CSS modules for consistent layout and spacing.
  *
- * State:
- * - `search`: Current search query string.
- * - `filter`: Current filter option selected by the user.
+ * Props:
+ * - No props are required for this component.
  *
- * Hooks:
- * - `useAllCourses`: Fetches all courses according to the search and filter criteria.
- * - `useUserAuthStore`: Retrieves the current authenticated user's ID.
- *
- * Props: none
- *
- * @returns JSX element rendering the complete "All Courses" section.
+ * @returns JSX.Element: A section displaying all courses with search, filter, and responsive loading/error handling.
  */
 
 function AllCoursesSection({}: Props) {

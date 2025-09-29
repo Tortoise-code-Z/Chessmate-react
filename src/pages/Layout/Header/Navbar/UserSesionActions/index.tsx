@@ -10,17 +10,19 @@ type Props = {
 };
 
 /**
- * UserSesionActions component that renders login and registration actions for unauthenticated users.
+ * UserSesionActions - React component that displays registration and login actions
+ * for users who are not authenticated.
  *
  * Features:
- * - `NavLink` styled as primary button for registration.
- * - `NavLink` styled as secondary button for login.
- * - `HamburguerMenuButton` to open the mobile hamburger menu.
+ * - Provides a "Registrarme" button linking to the registration page with an icon (`PiSignInBold`).
+ * - Provides an "Iniciar sesión" button linking to the login page.
+ * - Includes a `HamburguerMenuButton` to open the hamburger menu.
+ * - Styled using CSS classes for layout and responsive design.
  *
  * Props:
- * - `setIsOpen` (Dispatch<SetStateAction<boolean>>): Function to open the hamburger menu.
+ * - `setIsOpen`: Function to toggle the visibility of the hamburger menu.
  *
- * @returns JSX element rendering login, registration, and mobile menu button actions for unauthenticated users.
+ * @returns JSX.Element: A user action panel with registration, login links, and a hamburger menu button.
  */
 
 function UserSesionActions({ setIsOpen }: Props) {

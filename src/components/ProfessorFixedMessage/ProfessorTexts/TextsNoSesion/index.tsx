@@ -3,17 +3,16 @@ import { useProfessorMsgStore } from "../../../../hooks/useProfessorMsgStore";
 type Props = {};
 
 /**
- * Component that displays a message to users who try to buy or comment on a course
- * without being logged in.
+ * Component displaying a message when a user cannot buy or comment due to not being logged in.
  *
- * - Uses `useProfessorMsgStore` to determine the specific scenario.
- * - Informs the user whether they need to log in, register, or buy the course.
- * - Provides a friendly, encouraging message about joining the platform.
+ * - Uses `useProfessorMsgStore` to determine the current action (`value`) and tailor the message.
+ * - Informs the user that they need to log in or register to proceed with buying or commenting.
+ * - Encourages the user to register, emphasizing that it is free.
  *
  * Props:
  * - None.
  *
- * @returns A set of paragraphs guiding the user on the required actions to interact with the course.
+ * @returns A set of paragraphs guiding the user to log in or register before taking action.
  */
 
 function TextsNoSesion({}: Props) {

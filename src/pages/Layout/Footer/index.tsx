@@ -10,18 +10,20 @@ import FigureImage from "../../../components/FigureImage";
 type Props = {};
 
 /**
- * Footer component that displays the website footer with contact information, social links, and legal notices.
+ * Footer - React component that renders the footer section of the application.
  *
  * Features:
- * - Conditional contact section with email link, hidden on the contact page.
- * - Footer data section showing phone, email, and social media links (Instagram, YouTube).
- * - Footer terms section with copyright, privacy policy, terms, and logo image.
- * - `FigureImage`: Displays the site logo with proper sizing and alt/title attributes.
+ * - Displays contact information including phone number and email.
+ * - Conditionally shows a "Contact" button linking to the contact page, except on the contact page itself.
+ * - Provides social media links with icons (Instagram and YouTube).
+ * - Shows copyright and legal information.
+ * - Includes the platform logo via `FigureImage`.
+ * - Uses `useLocation` to determine the current route for conditional rendering.
  *
- * Hooks:
- * - `useLocation`: Determines the current route to conditionally render the contact section.
+ * Props:
+ * - None.
  *
- * @returns JSX element rendering the website footer with contact info, social links, and legal information.
+ * @returns JSX.Element: A styled footer with contact info, social links, legal text, and logo.
  */
 
 function Footer({}: Props) {

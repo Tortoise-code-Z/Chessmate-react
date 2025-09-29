@@ -34,21 +34,19 @@ type Variables = {
 };
 
 /**
- * useBuyCourse - Custom React hook to handle purchasing a course for a user.
+ * useBuyCourse - Custom React hook for purchasing a course.
  *
  * This hook:
- * - Retrieves the current database from local storage.
- * - Adds the selected course to the user's obtained courses.
- * - Updates local storage with the modified user data.
- * - Uses React Query's `useMutation` to manage the asynchronous purchase.
- * - On success:
- *   - Shows a success feedback message.
- *   - Invalidates and updates relevant queries for course lists and individual courses
- *     to reflect the purchased state.
- * - On error:
- *   - Logs the error and shows an error feedback message.
+ * - Uses React Query's `useMutation` to perform the course purchase operation.
+ * - Updates local storage with the new user course progress structure.
+ * - Updates multiple query caches to reflect the purchase across the app.
+ * - Interacts with `useFeedbackMessageStore` for showing success/error messages.
+ * - Validates the presence of user and course before allowing the purchase.
  *
- * @returns A React Query mutation object containing `mutate`, `data`, `error`, and `status`.
+ * @returns A mutation object from `useMutation` with properties:
+ * - `mutate` function to trigger the course purchase.
+ * - `isLoading`, `isError`, `isSuccess` flags.
+ * - Handles `onSuccess` and `onError` callbacks automatically.
  */
 
 export function useBuyCourse() {

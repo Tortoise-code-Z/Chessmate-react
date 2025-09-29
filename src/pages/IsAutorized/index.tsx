@@ -7,20 +7,18 @@ import { ReactNode } from "react";
 type Props = { children: ReactNode };
 
 /**
- * IsAuthorized component that restricts access to authenticated users.
+ * IsAuthorized - React component that protects routes by checking user authentication.
  *
  * Features:
- * - Shows `LoadingPage` while user authentication is being verified.
- * - Redirects unauthenticated users to the login page using `Navigate`.
+ * - Uses `useUserAuthStore` to determine the current user's authentication status and loading state.
+ * - Displays `LoadingPage` with a message while checking authorization.
+ * - Redirects unauthenticated users to the login page (`PATHS.login`) using `Navigate`.
  * - Renders child components only if the user is authenticated.
  *
- * Hooks:
- * - `useUserAuthStore`: Retrieves current user information and loading state.
- *
  * Props:
- * - `children` (ReactNode): Components to render if the user is authorized.
+ * - `children`: ReactNode(s) to render if the user is authorized.
  *
- * @returns JSX element that conditionally renders children or redirects based on authentication.
+ * @returns JSX.Element: Either a loading indicator, a redirect to login, or the authorized children.
  */
 
 function IsAuthorized({ children }: Props) {

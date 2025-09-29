@@ -15,20 +15,25 @@ type Props = {
 };
 
 /**
- * BoardZone component that organizes the main course content and theme navigation.
+ * BoardZone - React component that displays the main board and associated course themes.
  *
- * - Renders the `Board` component to display the current theme's content.
- * - Renders the `CourseThemes` component for theme navigation and selection.
- * - Manages theme index and image slider loading state via props.
+ * Features:
+ * - Renders the `Board` component for displaying course content, managing image slider loading state.
+ * - Renders `CourseThemes` to navigate through and display different course themes.
+ * - Manages current theme index and class warnings via state passed from parent component.
+ * - Provides a structured layout for interactive course content.
+ * - Styled with CSS modules for consistent appearance.
  *
  * Props:
- *  - `data`: Course data of type `UseCourseApiType`.
- *  - `setIndex`: Function to update the current theme index.
- *  - `index`: Current theme index.
- *  - `imageSliderLoading`: Boolean indicating if the image slider is loading.
- *  - `setImageSliderLoading`: Function to update the image slider loading state.
+ * - `data`: Course data (`UseCourseApiType | undefined`) containing themes and content.
+ * - `setIndex`: Function to update the current theme index.
+ * - `index`: Current theme index.
+ * - `imageSliderLoading`: Boolean indicating if the theme image slider is loading.
+ * - `setImageSliderLoading`: Function to set the image slider loading state.
+ * - `classWarning`: Current warning state for the class.
+ * - `setClassWarning`: Function to update the class warning state.
  *
- * @returns JSX element representing the board zone for course content.
+ * @returns JSX.Element: A container displaying the course board and themes with proper state management.
  */
 
 function BoardZone({

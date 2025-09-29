@@ -6,19 +6,18 @@ import { PATHS } from "../../../../../consts/paths";
 type Props = {};
 
 /**
- * NavbarLinkList component renders the main navigation links for the navbar.
+ * NavbarLinkList - React component that renders the main navigation links in the navbar.
  *
  * Features:
- * - Dynamically displays either "Mi portal" or "Inicio" depending on user authentication status.
- * - Includes static links to "Cursos" and "Contacto".
- * - Uses `NavLink` from `react-router-dom` for navigation with proper `title` attributes.
+ * - Conditionally displays "Mi portal" if the user is authenticated, otherwise shows "Inicio".
+ * - Always includes links to "Cursos" and "Contacto".
+ * - Uses `NavLink` from `react-router-dom` for navigation with active styling.
+ * - Retrieves user authentication status using `useUserAuthStore`.
  *
- * Hooks:
- * - `useUserAuthStore`: Checks whether the user is authenticated to conditionally render links.
+ * Props:
+ * - None.
  *
- * Props: none
- *
- * @returns JSX element rendering a list of navigation links for the navbar.
+ * @returns JSX.Element: A list of navigation links for the main navbar.
  */
 
 function NavbarLinkList({}: Props) {

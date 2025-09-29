@@ -15,22 +15,16 @@ type FeedbackMessage = {
 /**
  * useFeedbackMessageStore - Zustand store for managing global feedback messages.
  *
- * This store handles the state of user feedback messages, including type, content, and navigation path.
- * Useful for displaying notifications or alerts across different components.
+ * This store:
+ * - Holds the state of feedback messages including visibility (`state`), message text (`msg`),
+ *   message type (`error` or `success`), current path (`path`), and a reset flag (`reset`).
+ * - Provides setter functions to update each property:
+ *    - `setState(status: boolean)` to show or hide the message.
+ *    - `setMsg(msg: string)` to set the message text.
+ *    - `setType(type: "error" | "success" | null)` to set the message type.
+ *    - `setPath(value: string)` to set the path associated with the message.
  *
- * State:
- *  - `state`: Boolean indicating if a feedback message is active.
- *  - `msg`: String containing the feedback message.
- *  - `type`: Type of message, either `"error"`, `"success"`, or `null`.
- *  - `path`: String representing a redirect path after showing the message.
- *  - `reset`: Boolean indicating if the feedback state should reset automatically.
- *
- * Actions:
- *  - `setState(status: boolean)`: Updates the `state`.
- *  - `setReset(status: boolean)`: Updates the `reset` flag.
- *  - `setPath(value: string)`: Updates the `path`.
- *  - `setMsg(msg: string)`: Updates the feedback `msg`.
- *  - `setType(type: "error" | "success" | null)`: Updates the message `type`.
+ * @returns An object containing the feedback message state and setter functions.
  */
 
 export const useFeedbackMessageStore = create<FeedbackMessage>((set) => ({

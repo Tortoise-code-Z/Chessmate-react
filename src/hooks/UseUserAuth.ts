@@ -6,15 +6,15 @@ import { USER_AUTH_KEY } from "../consts/dataBaseKey";
 import { getDataLocalStorage } from "../api";
 
 /**
- * Custom hook to manage authenticated user state across components and browser tabs.
+ * useUserAuth - Custom React hook for managing authenticated user state.
  *
- * - Uses React Query's `useQuery` to retrieve user authentication data from local storage.
- * - Updates global user state in `useUserAuthStore` and manages loading state to prevent UI flicker.
- * - Listens to `storage` events to synchronize authentication state across multiple browser tabs.
+ * This hook:
+ * - Uses React Query's `useQuery` to fetch the current authenticated user from local storage.
+ * - Updates the global user state and loading state via `useUserAuthStore`.
+ * - Listens for changes to `userAuth` in local storage to synchronize authentication across browser tabs.
  *
  * @returns An object containing:
- *  - `user`: The current authenticated user (`UserAuth`) or `null` if not logged in.
- *  - `query`: React Query's query object for the authentication data (`data`, `isLoading`, `error`, etc.).
+ * - `query`: The React Query object with properties `data`, `isLoading`, `isError`, `isSuccess`, and `refetch`.
  */
 
 export default function useUserAuth() {

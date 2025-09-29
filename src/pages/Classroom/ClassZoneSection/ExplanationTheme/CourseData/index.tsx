@@ -11,17 +11,20 @@ type Props = {
 };
 
 /**
- * CourseData component displaying the title and description of the current course theme.
+ * CourseData - React component that displays the title and description of the selected course theme.
  *
- * - Shows the main course title and the selected theme's title using `TitleHx`.
- * - Displays the theme description with a typewriter effect using `WritteMachine`.
- * - Retrieves the current theme's description based on the `index` prop.
+ * Features:
+ * - Shows the main course title using `TitleHx`, with a fallback to `TITLE_DEFAULT_MSG` if missing.
+ * - Displays the selected theme's title with proper heading level.
+ * - Renders the theme description using `WritteMachine` for a typewriter animation effect.
+ * - Safely handles missing or undefined data using utility functions like `asString`.
+ * - Styled with CSS modules for consistent layout and spacing.
  *
  * Props:
- *  - `data`: Course data of type `UseCourseApiType`.
- *  - `index`: Current theme index.
+ * - `data`: Course data (`UseCourseApiType | undefined`) containing course and theme information.
+ * - `index`: Current theme index to determine which theme's data to display.
  *
- * @returns JSX element representing the course data section for the selected theme.
+ * @returns JSX.Element: A section showing the selected theme's title and animated description.
  */
 
 function CourseData({ data, index }: Props) {

@@ -11,16 +11,18 @@ type Props = {
 };
 
 /**
- * OpinionsSlide component that displays a single student opinion.
+ * OpinionsSlide - React component that renders a single student opinion/testimonial.
  *
  * Features:
- * - Shows user information including username, title, and ELO rating if available.
- * - Displays the user's opinion text in quotes.
+ * - Displays user information including username, title, and ELO rating when available.
+ * - Shows the opinion text or falls back to `OPINION_DEFAULT_MSG` if missing.
+ * - Safely handles undefined or invalid values using `asString` and `asNumber` utilities.
+ * - Structured with styled CSS classes for user data and opinion text.
  *
  * Props:
- * - `data` (Opinion): Object containing the opinion text and user details.
+ * - `data`: Opinion object containing user information and testimonial text (`Opinion`).
  *
- * @returns JSX element rendering a single opinion slide for use in a carousel.
+ * @returns JSX.Element: A styled opinion slide displaying user info and their testimonial.
  */
 
 function OpinionsSlide({ data }: Props) {

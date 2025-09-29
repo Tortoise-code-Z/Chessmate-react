@@ -6,14 +6,16 @@ import { ERROR_GET_DATA_MSG } from "../consts/api";
 import { BBDD } from "../types/types";
 
 /**
- * Custom hook to initialize the local storage database with default data.
+ * useInitDataBase - Custom React hook for initializing the local database on app startup.
  *
- * - Checks if the database key exists in local storage; if not, it sets it with initial data.
- * - Manages loading and error states for database initialization.
+ * This hook:
+ * - Checks if the local storage contains the database.
+ * - If not present, it initializes local storage with default database values (`DATA_BASE`).
+ * - Tracks whether the database has been successfully set or if an error occurred.
  *
  * @returns An object containing:
- *  - `isDataBaseSent`: Boolean indicating if the database initialization has completed.
- *  - `dbError`: String containing an error message if initialization fails, otherwise `null`.
+ * - `isDataBaseSent` boolean flag indicating if the database initialization has completed.
+ * - `dbError` string or null containing any error message that occurred during initialization.
  */
 
 export default function useInitDataBase() {

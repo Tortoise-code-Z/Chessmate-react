@@ -12,15 +12,18 @@ type Props = {
 };
 
 /**
- * SearchForm component
+ * SearchForm - React component that renders a search input form for courses.
  *
- * Renders a form with an input field and a submit button for performing search queries.
- * Uses a schema for validation and integrates with the parent component via `handleSubmit`.
+ * Features:
+ * - Uses a `Form` component with validation via `searchSchema`.
+ * - Includes an `InputGroup` for the search field with a submit button.
+ * - Submit button displays a search icon (`FaSearch`) and triggers the provided `handleSubmit` callback.
+ * - Styled for inline layout with proper form controls.
  *
  * Props:
- * - `handleSubmit` → Function called with the search data when the form is submitted.
+ * - `handleSubmit`: Function called with the search data when the form is submitted.
  *
- * @returns JSX element containing the search input and submit button.
+ * @returns JSX.Element: A validated search form with a submit button for course searches.
  */
 
 function SearchForm({ handleSubmit }: Props) {

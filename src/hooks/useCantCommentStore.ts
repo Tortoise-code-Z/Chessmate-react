@@ -8,18 +8,19 @@ type CantCommentStore = {
 };
 
 /**
- * useCantCommentStore - Zustand store for managing restrictions on commenting.
+ * useCantCommentStore - Zustand store for managing a "cannot comment" state.
  *
- * This store tracks whether a user is allowed to comment and the reason for restriction,
- * enabling centralized control of comment permissions across components.
+ * This store:
+ * - Holds a boolean `cantDo` indicating whether a user is restricted from commenting.
+ * - Holds a `value` indicating the reason: `"noSesion"` or `"noCourse"`.
+ * - Provides `setState` to update the `cantDo` flag.
+ * - Provides `setValue` to update the reason for restriction.
  *
- * State:
- *  - `cantDo`: Boolean indicating if the user cannot comment.
- *  - `value`: String indicating the reason for restriction, either `"noSesion"` or `"noCourse"`.
- *
- * Actions:
- *  - `setState(status: boolean)`: Updates the `cantDo` state.
- *  - `setValue(value: "noSesion" | "noCourse")`: Updates the reason for restriction.
+ * @returns An object with:
+ * - `cantDo` boolean flag.
+ * - `value` string indicating the restriction reason.
+ * - `setState(status: boolean)` function to update the flag.
+ * - `setValue(value: "noSesion" | "noCourse")` function to update the reason.
  */
 
 export const useCantCommentStore = create<CantCommentStore>((set) => ({

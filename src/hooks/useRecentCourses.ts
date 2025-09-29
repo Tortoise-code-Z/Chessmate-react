@@ -14,17 +14,21 @@ import {
 import { ERROR_GET_DATA_MSG, ERROR_GET_USER_MSG } from "../consts/api";
 
 /**
- * Custom hook to fetch the most recent courses.
+ * useRecentCourses - Custom React hook for fetching the most recent courses.
  *
- * - Uses React Query's `useQuery` to handle caching, loading, and error states.
- * - Retrieves course data from local storage using the provided `key`.
- * - Sorts courses by creation date and returns the top 3 most recent courses.
- * - Marks courses as obtained based on the optional `userID`.
+ * This hook:
+ * - Uses React Query's `useQuery` to fetch courses from local storage.
+ * - Sorts courses by creation date in descending order and returns the top 3.
+ * - Determines if each course has been obtained by the user (`isObtained`) based on `userData`.
+ * - Handles errors for missing database or invalid user data.
  *
- * @param key The local storage key where course data is stored.
- * @param userID (Optional) The ID of the user to check which courses they have obtained.
+ * @param key - Local storage key to fetch the database from.
+ * @param userData - Object containing user ID and flags for course access.
  *
- * @returns React Query's query object containing `data` (array of recent courses with obtained status), `isLoading`, `error`, etc.
+ * @returns A query object from `useQuery` with properties:
+ * - `data` containing an array of recent courses with `isObtained` flag.
+ * - `isLoading`, `isError`, `isSuccess` flags.
+ * - Automatically handles caching and query updates.
  */
 
 export default function useRecentCourses(key: string, userData: UserDataApi) {

@@ -8,18 +8,17 @@ type Props = {
 };
 
 /**
- * Component that renders a dynamic heading element (`h1`–`h6`) based on the provided level.
+ * Generic heading component that renders an `h1` to `h6` element.
  *
- * - The heading level is determined by the `level` prop.
- * - Allows passing children to display inside the heading.
- * - Accepts optional additional CSS classes via `classNames`.
+ * - Allows specifying the heading level via the `level` prop.
+ * - Supports custom CSS classes and children content.
  *
  * Props:
- * - `level` → Optional. Heading level from 1 to 6. Defaults to 1.
- * - `children` → Content to render inside the heading.
- * - `classNames` → Optional. Array of additional CSS class names.
+ * - `level` → Optional heading level (1–6). Defaults to 1.
+ * - `classNames` → Optional array of CSS class names.
+ * - `children` → Content inside the heading element.
  *
- * @returns A heading element (`h1`–`h6`) with the provided content and classes.
+ * @returns An `h1`–`h6` element with the provided content and styling.
  */
 
 function TitleHx({ level = 1, children, classNames = [] }: Props) {

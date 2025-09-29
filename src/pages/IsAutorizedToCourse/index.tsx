@@ -13,19 +13,21 @@ type Props = {
 };
 
 /**
- * ProtectedCourse component that guards access to a course classroom based on user enrollment.
+ * IsAutorizedToCourse - React component that restricts access to a course
+ * based on whether the user has purchased/obtained it.
  *
  * Features:
- * - Displays a LoadingPage while verifying if the user has obtained the course.
- * - Redirects to the course detail page if the user has not obtained the course.
- * - Renders child routes via Outlet if the user has access.
+ * - Retrieves course ID from route parameters (`useParams`) and user ID from `useUserAuthStore`.
+ * - Checks course access with `useHaveObtainedCourse` and handles loading and error states.
+ * - Uses `useFeedbackMessageStore` to display error messages if the user is unauthorized or if there is a data fetch error.
+ * - Shows `LoadingPage` while checking course access.
+ * - Redirects unauthorized users to the course detail page (`PATHS.coursesDetail`) if they haven't obtained the course or an error occurs.
+ * - Renders child components only if the user is authorized to access the course.
  *
- * Hooks:
- * - useParams: Retrieves the course ID from the route parameters.
- * - useUserAuthStore: Provides the current authenticated user's data.
- * - useHaveObtainedCourse: Checks if the user has obtained the specified course.
+ * Props:
+ * - `children`: ReactNode(s) to render if the user is authorized to view the course.
  *
- * @returns JSX element rendering either the loading state, a redirect, or the protected course content.
+ * @returns JSX.Element: Either a loading indicator, a redirect, or the authorized children.
  */
 
 function IsAutorizedToCourse({ children }: Props) {

@@ -4,15 +4,20 @@ import { getDataLocalStorage } from "../api";
 import { ERROR_GET_DATA_MSG } from "../consts/api";
 
 /**
- * Custom hook to fetch the most recent user opinions.
+ * useUsersOpinions - Custom React hook for fetching a limited set of user opinions.
  *
- * - Uses React Query's `useQuery` to handle caching, loading, and error states.
- * - Retrieves opinions and user data from local storage using the provided `key`.
- * - Returns up to the 4 most recent opinions, each augmented with the corresponding user information.
+ * This hook:
+ * - Uses React Query's `useQuery` to fetch opinions from local storage.
+ * - Maps each opinion to include the full user object instead of just the user ID.
+ * - Limits the returned opinions to the first 4 entries.
+ * - Caches the results for 5 minutes (`staleTime`).
  *
  * @param key The local storage key where opinions and user data are stored.
  *
- * @returns React Query's query object containing `data` (array of `Opinion` with user info), `isLoading`, `error`, etc.
+ * @returns A query object from `useQuery` with properties:
+ * - `data` containing the mapped list of opinions with associated user information.
+ * - `isLoading`, `isError`, `isSuccess` flags.
+ * - Refetch function to manually refresh the opinions list.
  */
 
 export default function useUsersOpinions(key: string) {

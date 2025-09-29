@@ -12,16 +12,19 @@ type Props = {
 };
 
 /**
- * Route guard component that checks if a course exists for the user.
+ * CourseExists - React component that verifies the existence of a course before rendering its content.
  *
- * - Uses `useCourseExists` to verify the course by ID from the URL params.
- * - Shows a loading page while checking.
- * - Redirects to the courses page if the course does not exist.
- * - Renders nested routes via `<Outlet />` if the course exists.
+ * Features:
+ * - Uses `useCourseExists` to check if a course with the given ID exists in the database.
+ * - Shows `LoadingPage` while the course existence check is in progress.
+ * - Displays feedback messages using `useFeedbackMessageStore` if the course does not exist or an error occurs.
+ * - Redirects to the courses page using `Navigate` if the course is not found.
+ * - Renders child components only if the course exists and is valid.
  *
- * Props: `children` (ReactNode): Components to render if the course exists.
+ * Props:
+ * - `children`: ReactNode elements to render if the course exists.
  *
- * @returns JSX element rendering a loading page, redirect, or nested route.
+ * @returns JSX.Element: Either the child components, a loading page, or a redirect to the courses page.
  */
 
 function CourseExists({ children }: Props) {

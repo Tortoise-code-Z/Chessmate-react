@@ -14,19 +14,20 @@ import { asNumber, asObject } from "../../../utils/general";
 type Props = {};
 
 /**
- * ObtainedCourseDataSection component that renders the data section for a specific obtained course.
+ * ObtainedCourseDataSection - React component that renders the data section for an obtained course
+ * in the classroom view.
  *
  * Features:
- * - DataStateWrapper handling loading and error states when fetching course data.
- * - CourseClassroomBanner displaying key information about the course.
- * - CourseClassroomContent displaying detailed course content.
+ * - Fetches course classroom data using `useCourseClassroom` hook with user ID and course ID from URL params.
+ * - Wraps the content in `DataStateWrapper` to handle loading and error states gracefully.
+ * - Displays `CourseClassroomBanner` for course overview and `CourseClassroomContent` for detailed content.
+ * - Provides a link to navigate back to the dashboard in case of error.
+ * - Ensures safe handling of potentially undefined or null data using `asObject` utility.
  *
- * Hooks:
- * - useParams: Retrieves the course ID from the route parameters.
- * - useUserAuthStore: Provides the currently authenticated user's data.
- * - useCourseClassroom: Fetches the classroom data for the specified course and user.
+ * Props:
+ * - None.
  *
- * @returns JSX element rendering the obtained course data section with loading and error handling.
+ * @returns JSX.Element: A section displaying the obtained course's classroom data with loading and error handling.
  */
 
 function ObtainedCourseDataSection({}: Props) {

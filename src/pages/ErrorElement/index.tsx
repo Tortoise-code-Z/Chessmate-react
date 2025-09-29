@@ -9,27 +9,22 @@ type Props = {
 };
 
 /**
- * ErrorElement component that displays an error message for route or custom errors.
+ * ErrorElement - React component that displays an error page or error message
+ * when something goes wrong in the application.
  *
  * Features:
- * - Light decorative components positioned at top-right.
- * - `TitleHx`: Shows the error title based on the type of error.
- * - Displays error message for route errors, custom messages, or general JavaScript errors.
- * - Conditional navigation or retry:
- *   - `NavLink` to return to home if no custom message is provided.
- *   - `Button` to reload the page if a custom message is provided.
- * - Contact information for support if the issue persists.
- *
- * State: none
- *
- * Hooks:
- * - `useRouteError`: Accesses the current route error if available.
- * - `isRouteErrorResponse`: Determines if the error is a route error response.
+ * - Retrieves and handles route errors using `useRouteError` and `isRouteErrorResponse`.
+ * - Supports custom error messages via the optional `msg` prop.
+ * - Displays specific error details for HTTP status codes (e.g., 404).
+ * - Falls back to a generic error title and message when details are not available.
+ * - Provides navigation back to the home page (`PATHS.index`) when no custom message is set.
+ * - Includes visual effects with `LightComponent` and styled messaging.
+ * - Shows a contact email for further assistance.
  *
  * Props:
- * - `msg` (string, optional): Custom error message to override route errors.
+ * - `msg` (optional): Custom message to display instead of route-based error handling.
  *
- * @returns JSX element rendering a styled error message section with optional navigation or retry actions.
+ * @returns JSX.Element: A styled error page with title, description, optional navigation, and contact info.
  */
 
 export default function ErrorElement({ msg }: Props) {

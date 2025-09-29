@@ -12,22 +12,20 @@ type Props = {
 };
 
 /**
- * Search bar component with integrated search input and filter buttons.
+ * SearchBar - React component that provides search and filter controls for courses.
  *
  * Features:
- * - `SearchForm`: Allows users to type a search query and submit it.
- * - `Filters`: Displays available filter options and highlights the active one.
- *
- * Behavior:
- * - Submitting a search clears the filter and updates the search state.
- * - Clicking a filter option clears the search input and updates the filter state.
+ * - Includes a `SearchForm` for users to input search queries, updating the search state on submission.
+ * - Renders `Filters` buttons to apply predefined filter options, updating the filter state and clearing the search input.
+ * - Handles search and filter interactions with callback functions `handleSubmit` and `handleFilterClick`.
+ * - Styled with CSS modules for consistent layout and responsive design.
  *
  * Props:
- * - `setSearch`: Function to update the search query string.
- * - `setFilter`: Function to update the selected filter option.
- * - `filter`: Currently selected filter option.
+ * - `setSearch`: Function to update the search query state.
+ * - `setFilter`: Function to update the filter state.
+ * - `filter`: Current filter value (`FilterOptions | undefined`).
  *
- * @returns JSX element rendering the search input and filter controls.
+ * @returns JSX.Element: A search bar with form input and filter buttons for course selection.
  */
 
 function SearchBar({ setSearch, setFilter, filter }: Props) {

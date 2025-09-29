@@ -25,22 +25,30 @@ type Props = {
 };
 
 /**
- * DataStateWrapper - A wrapper component that handles loading and error states for async data.
+ * Wrapper component to handle loading and error states for its children.
  *
- * Displays a loading component while data is being fetched, an error component if an error occurs,
- * or renders the children when data is successfully loaded.
+ * - Displays a loading component when `isLoading` is `true`.
+ * - Displays an error component when `error` is present.
+ * - Renders children when not loading and no error exists.
+ * - Supports custom loading and error components, as well as styling options.
+ * - Allows optional actions on the error state via buttons or links.
  *
- * @param isLoading - Boolean indicating if the data is currently loading.
- * @param error - Optional error object to display when an error occurs.
- * @param loadingComponent - Optional custom component to render during loading.
- * @param errorComponent - Optional custom component to render when an error occurs.
- * @param children - Content to render when there is no loading or error state.
- * @param errorMsg - Optional error message to display.
- * @param errorClassName - Optional CSS classes for the error component.
- * @param loadingClassName - Optional CSS classes for the loading component.
- * @param errorButtonAction - Optional action button for the error component.
- * @param errorLinkAction - Optional link action for the error component.
- * @returns A React element representing the current state (loading, error, or children).
+ * Props:
+ * - `isLoading` → Boolean indicating if the content is loading.
+ * - `error` → Optional. Error object to display when present.
+ * - `loadingComponent` → Optional. Custom component to render during loading.
+ * - `errorComponent` → Optional. Custom component to render on error.
+ * - `children` → Content to render when not loading and no error occurs.
+ * - `errorMsg` → Optional. Custom error message (default: empty string).
+ * - `errorClassName` → Optional. Array of CSS class names for error styling.
+ * - `loadingClassName` → Optional. Array of CSS class names for loading styling.
+ * - `errorButtonAction` → Optional. Button action with `text` and `onClick` for the error state.
+ * - `errorLinkAction` → Optional. Link action with `text` and `to` for the error state.
+ * - `paddingErrorLateral` → Optional. Adds lateral padding to the error component (default: `false`).
+ * - `paddingErrorNavbar` → Optional. Adds top padding to accommodate the navbar in the error component (default: `false`).
+ * - `paddingLoadingNavbar` → Optional. Adds top padding to accommodate the navbar in the loading component (default: `false`).
+ *
+ * @returns The children elements or appropriate loading/error components based on state.
  */
 
 export default function DataStateWrapper({

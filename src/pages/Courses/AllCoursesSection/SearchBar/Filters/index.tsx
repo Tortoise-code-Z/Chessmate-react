@@ -9,17 +9,19 @@ type Props = {
 };
 
 /**
- * Renders a set of filter buttons for selecting course filters.
+ * Filters - React component that renders a set of filter buttons for courses.
  *
  * Features:
- * - Highlights the currently selected filter.
- * - Defaults to "Todos" when no filter is selected.
+ * - Maps over predefined `FILTERS` to render buttons for each filter option.
+ * - Highlights the currently active filter using the `Primary` variant; others use `Terciary`.
+ * - Calls `handleFilterClick` with the selected filter value when a button is clicked.
+ * - Styled with CSS modules for consistent layout and spacing of filter buttons.
  *
  * Props:
- * - `filter`: The currently active filter option.
- * - `handleFilterClick`: Callback function invoked with the selected filter when a button is clicked.
+ * - `filter`: Current active filter (`FilterOptions | undefined`).
+ * - `handleFilterClick`: Function called when a filter button is clicked, receiving the selected filter value.
  *
- * @returns JSX element containing filter buttons.
+ * @returns JSX.Element: A horizontal set of filter buttons to refine course listings.
  */
 
 function Filters({ filter, handleFilterClick }: Props) {

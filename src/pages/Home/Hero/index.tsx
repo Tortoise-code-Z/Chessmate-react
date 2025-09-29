@@ -5,13 +5,18 @@ import styles from "./Hero.module.css";
 type Props = {};
 
 /**
- * Hero component that serves as the main introductory section of the homepage.
+ * Hero - React component that renders the hero section of the homepage.
  *
  * Features:
- * - `TitleHx`: Displays the main title "Chessmate" with styled span.
- * - Subtitle paragraph describing the website as a platform to learn chess.
+ * - Wraps content in `AnimatedInView` for entrance animations.
+ * - Displays the main title with `TitleHx`, highlighting part of the text with a styled span.
+ * - Shows a subtitle describing the purpose of the website.
+ * - Serves as the introductory section to engage users immediately.
  *
- * @returns JSX element rendering the hero section of the homepage.
+ * Props:
+ * - None.
+ *
+ * @returns JSX.Element: A hero section with title, highlighted branding, and subtitle.
  */
 
 function Hero({}: Props) {

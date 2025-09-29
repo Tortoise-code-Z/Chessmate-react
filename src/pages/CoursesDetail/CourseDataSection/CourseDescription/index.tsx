@@ -11,17 +11,19 @@ type Props = {
 };
 
 /**
- * CourseDescription component that displays the detailed description of a course.
+ * CourseDescription - React component that displays the detailed description of a course.
  *
  * Features:
- * - `TitleHx`: Displays the section title "Descripción" with a customizable heading level.
- * - Paragraph showing the course's detailed description.
+ * - Wraps content in `AnimatedInView` to animate visibility on scroll.
+ * - Uses `TitleHx` to render a heading with configurable level (`h1`–`h6`).
+ * - Shows the course's detailed description or falls back to `DESCRIPTION_DEFAULT_MSG` if not available.
+ * - Safely handles undefined values with the `asString` utility.
  *
  * Props:
- * - `data` (Course): The course object containing the detailed description.
- * - `level` (TitleLevel, optional): Heading level for the section title.
+ * - `data`: Course object containing course information (may be undefined).
+ * - `level`: Optional heading level for the section title (`TitleLevel`).
  *
- * @returns JSX element rendering the course description section.
+ * @returns JSX.Element: A section with a title and course description text.
  */
 
 function CourseDescription({ data, level }: Props) {

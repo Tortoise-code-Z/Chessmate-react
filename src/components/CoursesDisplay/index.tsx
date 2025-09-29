@@ -28,14 +28,23 @@ type Props = {
 };
 
 /**
- * CoursesDisplay - Component to render a list of courses.
+ * CoursesDisplay - Component to render a list of courses in either row or column layout.
  *
- * Displays each course using the ItemCourseDisplay component.
- * Can render in column or row layout.
+ * Features:
+ * - Uses `SecurityRendering` to validate course data before rendering.
+ * - Shows a `WarningMsg` if any course data is incomplete.
+ * - Supports empty states with `MsgEmpty`.
+ * - Optionally allows actions on courses (`action` prop).
+ * - Dynamically chooses between row or column layout (`display` prop).
  *
- * @param courses - Array of courses to display. Each course may include an `isObtained` flag.
- * @param action - Optional boolean to indicate if actions (like buttons) should be shown for each course.
- * @param display - Optional layout type: "Row" or "Col". Defaults to "Col".
+ * Props:
+ * - `courses`: Array of courses with optional obtained state.
+ * - `action`: Optional boolean to enable course actions (like purchase or view).
+ * - `display`: "Row" | "Col" layout for rendering courses.
+ * - `msg`: Optional message to display in the empty state.
+ * - `svg`: Optional SVG or ReactNode to display when empty.
+ *
+ * @returns JSX element: A container displaying a validated list of courses with proper warnings or empty states.
  */
 
 function CoursesDisplay({ courses, action, display = "Col", msg, svg }: Props) {

@@ -8,14 +8,19 @@ import FeedbackListener from "../../components/FeedbackListener";
 type Props = {};
 
 /**
- * Classroom page component displaying the class zone and user's courses.
+ * Classroom - React component representing a user's classroom page.
  *
- * - Retrieves the `id` parameter from the URL using `useParams`.
- * - Displays a global `FeedbackMessage` component.
- * - Renders the `ClassZoneSection` for the current class content.
- * - Renders `UserCoursesSection` showing up to 3 obtained courses, highlighting other courses.
+ * Features:
+ * - Displays a `ClassZoneSection` for the main classroom content.
+ * - Shows a limited list of the user's other courses via `UserCoursesSection`.
+ * - Includes `FeedbackListener` and `FeedbackMessage` to handle and display user feedback dynamically.
+ * - Uses `TitleHx` for section headings with styled spans for emphasis.
+ * - Retrieves route parameters using `useParams` for dynamic content rendering.
  *
- * @returns JSX element representing the Classroom page.
+ * Props:
+ * - No props are required for this component.
+ *
+ * @returns JSX.Element: The classroom page containing course sections and feedback components.
  */
 
 function Classroom({}: Props) {

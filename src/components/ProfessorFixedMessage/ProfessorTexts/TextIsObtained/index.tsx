@@ -1,17 +1,16 @@
 type Props = {};
 
 /**
- * Component that displays a message to users who try to buy or comment on a course
- * without being logged in.
+ * Component displaying a message indicating an error in determining course ownership.
  *
- * - Uses `useProfessorMsgStore` to determine the specific scenario.
- * - Informs the user whether they need to log in, register, or buy the course.
- * - Provides a friendly, encouraging message about joining the platform.
+ * - Informs the user that the system could not verify if the course is already obtained.
+ * - Explains that purchase has been disabled in this section for security reasons.
+ * - Advises the user to check their portal for course ownership status.
  *
  * Props:
  * - None.
  *
- * @returns A set of paragraphs guiding the user on the required actions to interact with the course.
+ * @returns A set of paragraphs with the error and guidance messages.
  */
 
 function TextIsObtained({}: Props) {

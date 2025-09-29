@@ -15,24 +15,26 @@ type Props = {
 };
 
 /**
- * Section component that displays a user's courses along with any additional content.
+ * UserCoursesSection - React component that displays a user's courses section.
  *
- * - Renders custom children passed to the section.
- * - Displays the `UserCourses` component with optional configuration:
- *   - Limits for obtained courses.
- *   - Toggles for showing obtained or default courses.
- *   - Optional message.
- * - Optionally applies extra padding if a navbar is present.
+ * Features:
+ * - Wraps content in an animated container via `AnimatedInView`.
+ * - Optionally adds top padding for the navbar.
+ * - Renders child elements before the list of user courses.
+ * - Configurable to show default courses, obtained courses, and a limit on obtained courses.
+ * - Supports a custom message for empty or restricted course lists.
  *
  * Props:
- * - `children` → React nodes to display above the user courses.
- * - `obtainedCoursesLimit` → Optional. Maximum number of obtained courses to show.
- * - `showObtainedCourses` → Optional. Whether to display obtained courses. Defaults to true.
- * - `showDefaultCourses` → Optional. Whether to display default courses. Defaults to true.
- * - `navbarHeight` → Optional. Adds extra padding for navbar. Defaults to false.
- * - `msg` → Optional message to display above the courses.
+ * - `children`: ReactNode(s) to render above the course list (e.g., section title).
+ * - `defaultCourseClassID` (optional): ID to filter default courses.
+ * - `obtainedCourseClassID` (optional): ID to filter obtained courses.
+ * - `obtainedCoursesLimit` (optional): Maximum number of obtained courses to display.
+ * - `showObtainedCourses` (optional, default: true): Whether to display obtained courses.
+ * - `showDefaultCourses` (optional, default: true): Whether to display default courses.
+ * - `navbarHeight` (optional, default: false): Adds top padding if true to accommodate a fixed navbar.
+ * - `msg` (optional): Custom message to display if no courses are available.
  *
- * @returns A section containing the user courses and any additional children content.
+ * @returns JSX.Element: Animated section containing child elements and user courses.
  */
 
 function UserCoursesSection({

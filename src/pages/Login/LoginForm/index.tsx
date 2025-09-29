@@ -10,18 +10,20 @@ type Props = {
 };
 
 /**
- * LoginForm component wraps the login fields and actions inside a validated form.
+ * LoginForm - React component that renders the login form with validation and actions.
  *
  * Features:
  * - Uses a generic `Form` component with `loginSchema` for validation.
- * - Renders the main content of the form (`LoginFormContent`).
- * - Renders form actions (submit button) via `LoginFormActions`.
+ * - Handles form submission via `handleSubmit` prop.
+ * - Includes `LoginFormContent` for input fields (username and password).
+ * - Includes `LoginFormActions` to display submit button and pending state.
+ * - Wraps the form with entrance animation from the left.
  *
  * Props:
- * - `handleSubmit(data: LoginSchemaValues)`: Callback executed on valid form submission.
- * - `isPending`: Boolean indicating if a login request is currently in progress.
+ * - `handleSubmit`: Function called when the form is submitted with valid data.
+ * - `isPending`: Boolean indicating if the login request is in progress.
  *
- * @returns JSX element rendering a validated login form.
+ * @returns JSX.Element: A validated and animated login form with content and action components.
  */
 
 function LoginForm({ handleSubmit, isPending }: Props) {

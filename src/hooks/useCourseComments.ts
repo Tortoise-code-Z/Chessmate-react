@@ -13,18 +13,22 @@ import {
 } from "../consts/api";
 
 /**
- * useCourseComments - Custom React hook to fetch comments for a specific course.
+ * useCourseComments - Custom React hook for fetching comments for a specific course.
  *
  * This hook:
- * - Retrieves course data from local storage using a provided key.
- * - Maps over the comments, attaching the corresponding user information.
+ * - Uses React Query's `useQuery` to fetch comments from local storage.
+ * - Retrieves user information for each comment.
  * - Filters comments by the given course ID.
- * - Sorts comments chronologically by `createdAt` (oldest first).
- * - Returns a React Query `useQuery` object with `data`, `isLoading`, `error`, etc.
+ * - Sorts comments by creation date in ascending order.
+ * - Handles errors for missing data, course ID, or user ID.
  *
- * @param key - Local storage key to fetch course and comment data.
- * @param courseID - The ID of the course for which to fetch comments.
- * @returns A React Query object containing comments and query status.
+ * @param key - Local storage key to fetch the database from.
+ * @param courseID - ID of the course to fetch comments for.
+ *
+ * @returns A query object from `useQuery` with properties:
+ * - `data` containing an array of comments with associated user data.
+ * - `isLoading`, `isError`, `isSuccess` flags.
+ * - Automatically handles caching and stale-time management.
  */
 
 export default function useCourseComments(

@@ -8,13 +8,19 @@ import ContactForm from "./ContactForm";
 type Props = {};
 
 /**
- * Contact page component allowing users to send inquiries directly.
+ * Contact - React component that renders the contact page with a form and feedback system.
  *
- * - Displays a global `FeedbackMessage` component for status messages.
- * - Shows a header and description encouraging users to submit questions.
- * - Renders the `ContactForm` component for submitting inquiries.
+ * Features:
+ * - Includes `FeedbackListener` and `FeedbackMessage` to handle and display user feedback.
+ * - Shows a section with a heading and description encouraging users to submit inquiries.
+ * - Uses `AnimatedInView` for smooth entry animation of the contact information.
+ * - Contains `ContactForm` for users to submit questions or messages directly.
+ * - Styled with CSS modules for consistent layout and appearance.
  *
- * @returns JSX element representing the Contact page.
+ * Props:
+ * - No props are required for this component.
+ *
+ * @returns JSX.Element: The contact page including feedback handling and a submission form.
  */
 
 function Contact({}: Props) {

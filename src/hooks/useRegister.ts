@@ -23,15 +23,22 @@ import {
 } from "../consts/api";
 
 /**
- * Custom hook to handle user registration functionality.
+ * useRegister - Custom React hook for registering a new user.
  *
- * - Uses React Query's `useMutation` to manage registration requests and loading/error states.
- * - Validates username and email against existing users in local storage.
- * - Creates a new user with default courses and stores it in local storage.
- * - Updates authenticated user state and navigates to the dashboard on success.
- * - Triggers feedback messages via `useFeedbackMessageStore` on errors.
+ * This hook:
+ * - Uses React Query's `useMutation` to handle user registration.
+ * - Validates that the username and email are unique before creating a user.
+ * - Generates a new user ID and sets default courses for first-time users.
+ * - Updates local storage with the new user and user authentication info.
+ * - Interacts with global state stores:
+ *    - `useUserAuthStore` to set the authenticated user.
+ *    - `useFeedbackMessageStore` to display success/error messages.
+ * - Navigates to the dashboard upon successful registration.
  *
- * @returns React Query's mutation object with methods like `mutate`, `mutateAsync`, and state properties (`isLoading`, `error`, etc.).
+ * @returns A mutation object from `useMutation` with properties:
+ * - `mutate` function to trigger the registration process.
+ * - `isLoading`, `isError`, `isSuccess` flags.
+ * - Automatically handles `onSuccess` (navigate & store user) and `onError` (show feedback) callbacks.
  */
 
 export function useRegister() {

@@ -13,19 +13,22 @@ type Props = {
 };
 
 /**
- * ExplanationTheme component displaying detailed information and actions for the current course theme.
+ * ExplanationTheme - React component that displays detailed information and actions for the selected course theme.
  *
- * - Renders `CourseData` to show the content of the selected theme.
- * - Renders `ThemeActions` to provide user interactions related to the theme.
- * - Manages theme index and image slider loading state via props.
+ * Features:
+ * - Renders `CourseData` to show the current theme's details.
+ * - Includes `ThemeActions` for interacting with the theme, such as navigation and updates.
+ * - Animated entry with `AnimatedInView` for smooth appearance on screen.
+ * - Manages current theme index and image slider loading state via props.
+ * - Styled with CSS modules for consistent layout and spacing.
  *
  * Props:
- *  - `data`: Course data of type `UseCourseApiType`.
- *  - `index`: Current theme index.
- *  - `setIndex`: Function to update the current theme index.
- *  - `setImageSliderLoading`: Function to update the image slider loading state.
+ * - `data`: Course data (`UseCourseApiType | undefined`) containing themes and content.
+ * - `setIndex`: Function to update the currently selected theme index.
+ * - `index`: Current theme index.
+ * - `setImageSliderLoading`: Function to set the image slider loading state.
  *
- * @returns JSX element representing the explanation section for a course theme.
+ * @returns JSX.Element: A detailed view of the selected theme with actionable controls.
  */
 
 function ExplanationTheme({

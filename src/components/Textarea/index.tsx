@@ -8,14 +8,18 @@ type Props = {
 };
 
 /**
- * Renders a textarea element connected to react-hook-form, with optional
- * placeholder and custom class names.
+ * Textarea component integrated with react-hook-form.
  *
- * @param placeholder - Optional placeholder text for the textarea.
- * @param name - The name of the field for react-hook-form registration.
- * @param classNames - Optional array of additional class names for styling.
+ * - Registers the textarea with `useFormContext` to handle form state.
+ * - Supports custom placeholder and additional CSS classes.
+ * - Defaults to 8 rows.
  *
- * @returns The rendered textarea element.
+ * Props:
+ * - `placeholder` → Optional placeholder text for the textarea.
+ * - `name` → Field name used for form registration.
+ * - `classNames` → Optional array of CSS class names to apply.
+ *
+ * @returns A styled textarea element.
  */
 
 function Textarea({ placeholder, name, classNames = [] }: Props) {

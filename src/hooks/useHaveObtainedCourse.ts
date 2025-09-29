@@ -8,18 +8,21 @@ import {
 import { BBDD } from "../types/types";
 
 /**
- * Custom hook to check if a user has obtained a specific course.
+ * useHaveObtainedCourse - Custom React hook to check if a user has obtained a specific course.
  *
- * - Uses React Query's `useQuery` to handle caching, loading, and error states.
- * - Retrieves course data from local storage using the provided `key`.
- * - Checks if the user with `userID` has obtained the course with `courseID`.
- * - Triggers a feedback message via `useFeedbackMessageStore` if the user hasn't obtained the course.
+ * This hook:
+ * - Uses React Query's `useQuery` to fetch user course data from local storage.
+ * - Checks if the user has purchased or obtained the course with the given ID.
+ * - Handles errors for missing data, course ID, or user ID.
  *
- * @param courseID The ID of the course to check.
- * @param userID The ID of the user whose courses are being checked.
- * @param key The local storage key where user course data is stored.
+ * @param courseID - ID of the course to check.
+ * @param userID - ID of the user to check ownership for.
+ * @param key - Local storage key to fetch the database from.
  *
- * @returns React Query's query object containing `data` (boolean), `isLoading`, `error`, etc.
+ * @returns A query object from `useQuery` with properties:
+ * - `data` containing a boolean indicating whether the user has obtained the course.
+ * - `isLoading`, `isError`, `isSuccess` flags.
+ * - Automatically handles caching and query updates.
  */
 
 export default function useHaveObtainedCourse(

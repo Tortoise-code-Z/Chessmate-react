@@ -16,14 +16,20 @@ import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
 import { ERROR_GET_DATA_MSG, ERROR_USER_PASSWORD_MSG } from "../consts/api";
 
 /**
- * Custom hook to handle user login functionality.
+ * useLogin - Custom React hook for handling user login.
  *
- * - Uses React Query's `useMutation` to handle login requests and manage loading/error states.
- * - Retrieves user data from local storage and validates credentials.
- * - Stores authenticated user data and updates global user state on success.
- * - Triggers feedback messages via `useFeedbackMessageStore` on errors.
+ * This hook:
+ * - Uses React Query's `useMutation` to authenticate a user based on username and password.
+ * - Validates user existence and password correctness.
+ * - Updates local storage with authenticated user data (`USER_AUTH_KEY`).
+ * - Updates global user authentication state via `useUserAuthStore`.
+ * - Navigates to the dashboard on successful login.
+ * - Displays feedback messages for errors via `useFeedbackMessageStore`.
  *
- * @returns React Query's mutation object with methods like `mutate`, `mutateAsync`, and state properties (`isLoading`, `error`, etc.).
+ * @returns A mutation object from `useMutation` with properties:
+ * - `mutate` function to trigger the login process.
+ * - `isLoading`, `isError`, `isSuccess` flags.
+ * - Automatically handles `onSuccess` and `onError` callbacks.
  */
 
 export function useLogin() {

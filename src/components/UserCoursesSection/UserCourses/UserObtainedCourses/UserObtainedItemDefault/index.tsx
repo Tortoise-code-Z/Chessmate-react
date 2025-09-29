@@ -15,6 +15,22 @@ type Props = {
     data: CourseJSON & Progress;
 };
 
+/**
+ * UserObtainedItemDefault - React component that displays a fallback/default course item when course data cannot be retrieved.
+ *
+ * Features:
+ * - Shows a default course image using `FigureImage` with predefined source, alt text, and dimensions.
+ * - Displays messages indicating data retrieval failure and suggests contacting support.
+ * - Optionally shows the course title if available.
+ * - Provides a `NavLink` button to navigate to the contact page, including an email icon (`MdOutlineEmail`).
+ * - Styled with CSS modules for consistent layout and user-friendly appearance.
+ *
+ * Props:
+ * - `data`: Object containing course information and user's progress (`CourseJSON & Progress`), used minimally for title display.
+ *
+ * @returns JSX.Element: A non-clickable fallback course card with default image, messages, and contact link.
+ */
+
 function UserObtainedItemDefault({ data }: Props) {
     return (
         <div className={styles.userObtainedCoursesItemDefault}>

@@ -28,21 +28,21 @@ type Props = {
 };
 
 /**
- * GeneralCourseData component that displays main information about a course.
+ * GeneralCourseData - React component that displays key information about a course,
+ * including title, description, level, price, and actions to purchase or access it.
  *
  * Features:
- * - `FigureImage`: Displays the course thumbnail image with proper sizing and alt/title attributes.
- * - Course data section showing:
- *   - Title
- *   - Short description
- *   - Level
- *   - Price
- * - `PurchaseAction`: Button or component for purchasing the course, considering if it's already obtained.
+ * - Wraps content in `AnimatedInView` to animate visibility on scroll.
+ * - Displays the course image via `FigureImage` with dynamic size and fallback handling.
+ * - Shows course title, short description, level, and price with defaults when missing.
+ * - Provides an action to access the course (`NavLink`) if already obtained.
+ * - Integrates `PurchaseAction` to handle buying logic based on course data.
+ * - Safely handles undefined or invalid values using utility functions (`asString`, `asNumber`, `isNumber`, `asBoolean`, `isOnValues`).
  *
  * Props:
- * - `data` (Course & IsObtainedCourse): Course object containing all necessary information including purchase status.
+ * - `data`: Object containing course information with purchase/obtainment state (`Course & IsObtainedCourse`), or undefined.
  *
- * @returns JSX element rendering the general course information section with image and purchase action.
+ * @returns JSX.Element: A course summary card with image, details, and purchase/access actions.
  */
 
 function GeneralCourseData({ data }: Props) {

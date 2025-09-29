@@ -8,16 +8,23 @@ import {
 import { ERROR_GET_COURSES_MSG, ERROR_GET_DATA_MSG } from "../consts/api";
 
 /**
- * useUnpurchasedCourses - Custom hook to fetch courses that a user has not purchased.
+ * useUnpurchasedCourses - Custom React hook for fetching courses not yet purchased by a user.
  *
- * Retrieves courses from local storage, ordered by sales in descending order.
- * Optionally filters out courses the specified user already owns.
- * Limits the number of returned courses.
+ * This hook:
+ * - Uses React Query's `useQuery` to fetch unpurchased courses from local storage.
+ * - Orders courses by sales in descending order.
+ * - Filters out courses already obtained by the specified user (if `userID` is provided).
+ * - Applies a limit to the number of courses returned, if specified.
+ * - Adds an `isObtained: false` flag to each returned course.
  *
- * @param key - Local storage key where the courses data is stored.
- * @param limit - Maximum number of courses to return.
- * @param userID - Optional ID of the user to filter out already purchased courses.
- * @returns A React Query result object with properties like `data`, `isLoading`, `error`, etc.
+ * @param key The local storage key where course and user data is stored.
+ * @param limit Optional maximum number of courses to return.
+ * @param userID Optional ID of the user to filter out already obtained courses.
+ *
+ * @returns A query object from `useQuery` with properties:
+ * - `data` containing the list of unpurchased courses.
+ * - `isLoading`, `isError`, `isSuccess` flags.
+ * - Refetch function to manually refresh the courses list.
  */
 
 export default function useUnpurchasedCourses(

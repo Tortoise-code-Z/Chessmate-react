@@ -9,14 +9,16 @@ type ProfessorMsgStore = {
 };
 
 /**
- * useProfessorMsgStore - Zustand store for managing professor-related feedback messages.
+ * useProfessorMsgStore - Zustand store for managing professor-related message states.
  *
- * - Holds the current `value` of the message (type `ProfessorValues`).
- * - Holds the `state` to indicate whether the message is visible or not.
- * - Provides `setValue` to update the message content.
- * - Provides `setState` to toggle the visibility of the message.
+ * This store:
+ * - Holds the current message value (`value`) of type `ProfessorValues`.
+ * - Tracks whether a professor message should be displayed (`state`).
+ * - Provides setter functions to update state and value:
+ *    - `setValue(value: ProfessorValues)` to update the message type.
+ *    - `setState(status: boolean)` to show or hide the message.
  *
- * @returns The store object containing `value`, `state`, and the setter functions.
+ * @returns An object containing the professor message state and setter functions.
  */
 
 export const useProfessorMsgStore = create<ProfessorMsgStore>((set) => ({

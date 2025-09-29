@@ -9,17 +9,21 @@ import TextsNoSesion from "./TextsNoSesion";
 type Props = {};
 
 /**
- * Component that displays different professor messages based on the current state.
+ * Component to display dynamic professor messages based on current state.
  *
- * - Uses `useProfessorMsgStore` to determine which message to show.
- * - Renders `TextsNoSesion` when the user cannot buy or comment due to no session.
- * - Renders `TextsCantCommenHasntBuy` when the user hasn't purchased the course.
- * - Renders `TextsFirstLogin` when the user is logging in for the first time.
+ * - Uses `useProfessorMsgStore` to determine which message to render.
+ * - Displays one of several message components depending on the `value`:
+ *   - `TextsNoSesion` → User cannot buy or comment due to no session.
+ *   - `TextsCantCommenHasntBuy` → User hasn't purchased the course.
+ *   - `TextsFirstLogin` → User is logging in for the first time.
+ *   - `TextNoPrice` → No price is set for the course.
+ *   - `TextNoID` → Course ID is missing.
+ *   - `TextIsObtained` → Course is already obtained.
  *
  * Props:
  * - None.
  *
- * @returns A container with the appropriate professor message based on state.
+ * @returns A container displaying the appropriate professor message based on state.
  */
 
 function ProfessorTexts({}: Props) {

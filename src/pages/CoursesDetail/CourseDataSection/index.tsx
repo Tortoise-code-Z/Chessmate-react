@@ -16,27 +16,23 @@ import BreadCrumb from "./BreadCrumb";
 type Props = {};
 
 /**
- * CourseDataSection component that displays detailed information about a specific course.
+ * CourseDataSection - React component that displays detailed information for a specific course.
  *
  * Features:
- * - Light decorative components positioned at top-right.
- * - Breadcrumb navigation linking back to the courses list.
- * - `GeneralCourseData`: Shows main course information.
- * - `AuthorsSection`: Displays course authors.
- * - `CourseDescription`: Displays the course description with a customizable heading level.
- * - `DetailsCourse`: Shows detailed sections for course content and learning outcomes.
- * - `DataStateWrapper`: Handles loading and error states when fetching course data.
+ * - Fetches course data using `useCourse`, optionally including user-specific information if logged in.
+ * - Handles loading and error states with `DataStateWrapper`.
+ * - Renders course navigation breadcrumbs using `BreadCrumb`.
+ * - Displays general course information with `GeneralCourseData`.
+ * - Shows course authors via `AuthorsSection`.
+ * - Renders the course description with `CourseDescription`.
+ * - Displays detailed course content and learning objectives using `DetailsCourse` components.
+ * - Adds decorative visuals with `LightComponent` for styling and layout enhancement.
+ * - Safely handles missing or undefined data using utility functions like `asObject`.
  *
- * State: none
+ * Props:
+ * - No props are required for this component.
  *
- * Hooks:
- * - `useCourse`: Fetches course details based on the course ID and current user.
- * - `useUserAuthStore`: Retrieves the current authenticated user's ID.
- * - `useParams`: Accesses route parameters to get the course ID.
- *
- * Props: none
- *
- * @returns JSX element rendering the complete course data section with all details and authors.
+ * @returns JSX.Element: A section containing full course details, including authors, description, and content/learning objectives.
  */
 
 function CourseDataSection({}: Props) {

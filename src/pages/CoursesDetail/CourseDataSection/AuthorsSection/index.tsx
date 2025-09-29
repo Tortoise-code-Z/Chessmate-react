@@ -9,16 +9,18 @@ type Props = {
 };
 
 /**
- * AuthorsSection component that displays the authors of a course.
+ * AuthorsSection - React component that displays the authors of a course.
  *
  * Features:
- * - `TitleHx`: Displays the section title "Autores".
- * - `Authors`: Renders a list or details of the course authors.
+ * - Renders a heading for the authors section using `TitleHx`.
+ * - Displays the list of authors with the `Authors` component.
+ * - Animated entry of the section using `AnimatedInView`.
+ * - Styled with CSS modules for layout and spacing.
  *
  * Props:
- * - `data` (Course): The course object containing author information.
+ * - `data`: Course data (`Course | undefined`) containing author information.
  *
- * @returns JSX element rendering the authors section for a course.
+ * @returns JSX.Element: A section showing the course authors with animation and proper styling.
  */
 
 function AuthorsSection({ data }: Props) {

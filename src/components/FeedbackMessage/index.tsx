@@ -10,17 +10,19 @@ type Props = {
 };
 
 /**
- * Fixed feedback message component that is displayed conditionally based on global state.
+ * Component to display transient feedback messages on the screen.
  *
- * - Retrieves the message and its type (`success` | `error`) from `useFeedbackMessageStore`.
- * - Automatically hides after a defined time or remains visible indefinitely.
- * - Its screen position can be configured at the top or bottom.
+ * - Shows messages at the top or bottom of the viewport based on `position`.
+ * - Automatically hides the message after a specified `time` (in milliseconds) or keeps it visible if `time` is `"infinite"`.
+ * - Uses `useFeedbackMessageStore` for state management of message content, type, and visibility.
+ * - Animates the message appearance using `AnimatedInView`.
+ * - Differentiates styling for success and error messages.
  *
  * Props:
- * - `position` → Position on the screen where the message appears (default: `"bottom"`).
- * - `time` → Time in milliseconds before hiding the message. Use `"infinite"` to keep it displayed indefinitely (default: `5000`).
+ * - `position` → Optional. Position of the message: `"top"` or `"bottom"` (default: `"bottom"`).
+ * - `time` → Optional. Duration in milliseconds before auto-dismissal, or `"infinite"` to keep visible (default: `5000`).
  *
- * @returns Floating feedback message or `null` if not active.
+ * @returns An animated feedback message element displayed conditionally based on state and current path.
  */
 
 function FeedbackMessage({ position = "bottom", time = 5000 }: Props) {

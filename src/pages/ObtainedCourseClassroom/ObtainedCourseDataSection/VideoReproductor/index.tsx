@@ -18,21 +18,24 @@ type Props = {
 };
 
 /**
- * VideoReproductor component that renders a video player with title and actions.
+ * VideoReproductor - React component that displays a video player with controls and completion actions.
  *
  * Features:
- * - ReactPlayer to play the provided video source with controls.
- * - "Volver" button to trigger a custom onClick action.
- * - TitleHx displaying the video title.
- * - Prevents body scrolling while the video player is mounted.
+ * - Plays video content using `AnimatedPlayer` with entry animation options.
+ * - Provides "Volver" and "Completar" buttons for navigation and marking the video as completed.
+ * - Displays the video title using `TitleHx`.
+ * - Shows a completion checkmark (`CheckSvgComponent`) if the video has already been completed by the user.
+ * - Locks body scroll while the video player is open and restores it on unmount.
+ * - Integrates with user authentication and theme completion hooks (`useUserAuthStore`, `useCompleteThemeOC`).
+ * - Safely handles undefined or missing data with utility functions (`asBoolean`, `asNumber`, `asString`).
  *
  * Props:
- * - src: URL of the video to be played.
- * - classNames: Optional array of CSS class names to apply to the ReactPlayer.
- * - title: Title of the video.
- * - onClick: Callback function triggered when the "Volver" button is clicked.
+ * - `classNames` (optional): Array of additional CSS class names to apply to the video player.
+ * - `title`: Title of the video being displayed.
+ * - `setShowVideo`: State setter to show or hide the video, receives `VideoData | null`.
+ * - `videoData`: Object containing video information and user's progress (`VideoData`).
  *
- * @returns JSX element rendering the video player with controls, title, and actions.
+ * @returns JSX.Element: A video player with title, completion actions, and optional completion indicator.
  */
 
 function VideoReproductor({

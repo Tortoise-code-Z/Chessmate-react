@@ -21,15 +21,24 @@ type Props<T extends FieldValues> = {
 };
 
 /**
- * Form - A reusable form component using react-hook-form and Zod for validation.
+ * Form component with Zod validation and optional entry animation.
  *
- * @template T - The type of the form values, extending FieldValues.
- * @param children - The form fields or components to render inside the form.
- * @param schema - A Zod schema used for form validation.
- * @param onSubmit - Function called when the form is submitted. Receives the form data and optional helpers.
- * @param defaultValues - Optional default values for the form fields.
- * @param classNames - Optional array of additional CSS class names to apply to the form element.
- * @returns A React element wrapping the children with a validated form.
+ * - Wraps children in `FormProvider` to enable React Hook Form context.
+ * - Validates form data using a Zod schema via `zodResolver`.
+ * - Handles form submission and provides `setValue` helper to the `onSubmit` callback.
+ * - Supports default values for form fields.
+ * - Can be wrapped with `AnimatedInView` to animate the form on entry.
+ * - Allows custom CSS classes through `classNames`.
+ *
+ * Props:
+ * - `children` → Form fields or other elements to render inside the form.
+ * - `schema` → Zod schema used for form validation.
+ * - `onSubmit` → Function called with validated form data and optional helpers.
+ * - `defaultValues` → Optional. Initial values for the form fields.
+ * - `classNames` → Optional. Array of CSS class names to apply to the `<form>`.
+ * - `animatedOptions` → Optional. Animation configuration passed to `AnimatedInView`.
+ *
+ * @returns A form element managed by React Hook Form, optionally animated on entry.
  */
 
 function Form<T extends FieldValues>({

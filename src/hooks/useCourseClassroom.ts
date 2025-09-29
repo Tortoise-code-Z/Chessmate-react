@@ -21,26 +21,23 @@ import {
 } from "../consts/api";
 
 /**
- * useCourseClassroom - Custom hook to fetch detailed classroom data for a single course.
+ * useCourseClassroom - Custom React hook for fetching course details along with user theme states for the classroom view.
  *
- * This hook retrieves a course from local storage, enriches it with its authors' data,
- * and checks if the user has obtained the course.
+ * This hook:
+ * - Uses React Query's `useQuery` to fetch course and theme data from local storage.
+ * - Retrieves authors associated with the course.
+ * - Retrieves user-specific theme completion states for the course.
+ * - Adds `isObtained` flag based on whether the user has purchased the course.
+ * - Handles errors for missing data, course ID, or user ID.
  *
- * @param key - Local storage key where course and user data is stored.
+ * @param key - Local storage key to fetch the database from.
  * @param courseID - ID of the course to fetch.
- * @param userID - Optional user ID to determine if the user has obtained this course.
+ * @param userID - ID of the user to fetch theme states for.
  *
- * @returns A React Query object containing:
- *  - `data`: The course with `authors` populated and `isObtained` flag.
- *  - `isLoading`: Whether the query is currently loading.
- *  - `error`: Any error encountered while fetching.
- *  - `refetch`: Function to manually refetch the course data.
- *
- * @remarks
- * - Authors are mapped based on their IDs from the stored data.
- * - `isObtained` is true if the user has already obtained the course.
- * - Data is cached for 5 minutes (`staleTime`) to reduce unnecessary reads.
- *
+ * @returns A query object from `useQuery` with properties:
+ * - `data` containing an object with `course` details and `themes` user states.
+ * - `isLoading`, `isError`, `isSuccess` flags.
+ * - Automatically handles caching and stale-time management.
  */
 
 export type useCourseClassroomApi = {

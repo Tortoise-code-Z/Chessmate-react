@@ -10,21 +10,21 @@ import FeedbackListener from "../../components/FeedbackListener";
 type Props = {};
 
 /**
- * Dashboard component that serves as the main user dashboard displaying courses, recommendations, and top players.
+ * Dashboard - React component that serves as the main user dashboard,
+ * displaying courses, recommendations, feedback, and other personalized sections.
  *
  * Features:
- * - `ProfessorFixedMessage`: Displays a fixed message from the professor with conditional rendering.
- * - `FeedbackMessage`: Shows user feedback or notifications.
- * - `UserCoursesSection`: Displays the current user's courses with a customizable navbar height.
- * - `CoursesRecomended`: Suggests courses for the user to purchase with a customizable title and layout.
- * - `BestPlayersSection`: Displays a section highlighting top players.
+ * - Integrates `FeedbackListener` and `FeedbackMessage` to handle and display system/user feedback.
+ * - Shows `ProfessorFixedMessage` for important notices or tips.
+ * - Displays the user's enrolled courses with `UserCoursesSection`, including a styled title.
+ * - Recommends additional courses via `CoursesRecomended`, personalized using the logged-in user's ID.
+ * - Highlights top-performing players with `BestPlayersSection`.
+ * - Retrieves authenticated user data from `useUserAuthStore`.
  *
- * Hooks:
- * - `useUserAuthStore`: Retrieves the current authenticated user's ID.
+ * Props:
+ * - None.
  *
- * Props: none
- *
- * @returns JSX element rendering the full user dashboard with courses, recommendations, and best players.
+ * @returns JSX.Element: The complete user dashboard with multiple sections (courses, recommendations, feedback, and rankings).
  */
 
 function Dashboard({}: Props) {

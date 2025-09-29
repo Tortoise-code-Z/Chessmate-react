@@ -30,19 +30,25 @@ type Props = {
 };
 
 /**
- * CourseThemes component displaying buttons for each theme in a course.
+ * CourseThemes - React component that displays a list of course themes as interactive buttons.
  *
- * - Renders a button for every theme, highlighting the currently selected theme.
- * - Shows a checkmark icon if the user has completed the theme.
- * - Updates the current theme index and triggers image slider loading when a theme button is clicked.
+ * Features:
+ * - Uses `SecurityRendering` to safely render themes only when critical data conditions are met.
+ * - Each theme is displayed as a `Button` that sets the current theme index and triggers image slider loading.
+ * - Shows a completion checkmark (`CheckSvgComponent`) for themes the user has completed.
+ * - Animated entry with `AnimatedInView` for smooth UI transitions.
+ * - Validates theme data to ensure sufficient images, title, and description before rendering.
+ * - Styled with CSS modules for consistent layout and spacing.
  *
  * Props:
- *  - `data`: Course data of type `UseCourseApiType`.
- *  - `index`: Current theme index.
- *  - `setIndex`: Function to update the current theme index.
- *  - `setImageSliderLoading`: Function to update the image slider loading state.
+ * - `data`: Course data (`UseCourseApiType | undefined`) containing themes and user theme states.
+ * - `setIndex`: Function to update the currently selected theme index.
+ * - `index`: Current theme index.
+ * - `setImageSliderLoading`: Function to set the image slider loading state.
+ * - `classWarning`: Current warning state for the class.
+ * - `setClassWarning`: Function to update the class warning state.
  *
- * @returns JSX element containing the list of theme buttons.
+ * @returns JSX.Element: A set of theme buttons that allow navigation between course themes with visual completion indicators.
  */
 
 function CourseThemes({

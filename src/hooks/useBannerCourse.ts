@@ -16,18 +16,21 @@ import {
 import { ERROR_GET_DATA_MSG, ERROR_GET_USER_MSG } from "../consts/api";
 
 /**
- * useBannerCourse - Custom React hook to fetch a single course for a banner display.
+ * useBannerCourse - Custom React hook for fetching a single course to display in a banner.
  *
  * This hook:
- * - Retrieves course data from local storage using a provided key.
- * - Sorts courses by sales in descending order and selects the top 6.
- * - Picks a random course from these top courses.
- * - Checks if the user has already obtained this course.
- * - Returns a React Query object with the banner course and its obtained status.
+ * - Uses React Query's `useQuery` to fetch courses from local storage.
+ * - Selects the top 6 courses by sales and picks one randomly for the banner.
+ * - Adds `isObtained` flag based on whether the user has purchased the selected course.
+ * - Handles errors for missing data or user information.
  *
- * @param key - Local storage key to fetch course data.
- * @param userID - Optional user ID to determine if the course is already obtained.
- * @returns A React Query object containing the banner course with `isObtained`, `data`, `isLoading`, `error`, etc.
+ * @param key - Local storage key to fetch the database from.
+ * @param userData - User data object containing userID and requirement flags.
+ *
+ * @returns A query object from `useQuery` with properties:
+ * - `data` containing the selected banner course with `isObtained` flag.
+ * - `isLoading`, `isError`, `isSuccess` flags.
+ * - Query is cached indefinitely and does not refetch automatically.
  */
 
 export default function useBannerCourse(key: string, userData: UserDataApi) {

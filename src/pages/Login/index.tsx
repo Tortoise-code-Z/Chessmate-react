@@ -12,23 +12,19 @@ import { AnimatedInView } from "../../components/AnimatedInView";
 type Props = {};
 
 /**
- * Login page component for the Chessmate application.
+ * Login - React component that renders the login page for the application.
  *
  * Features:
- * - Displays the application logo and page title.
- * - Renders the login form and handles submission.
- * - Shows a persistent feedback message at the top of the page.
+ * - Displays a feedback listener and message component to show notifications.
+ * - Shows the platform logo and a title using `FigureImage` and `TitleHx`.
+ * - Wraps the logo section in `AnimatedInView` for entrance animation.
+ * - Renders `LoginForm` to capture username and password, handling submission with `useLogin` hook.
+ * - Handles pending state during login submission.
  *
- * Hooks:
- * - `useLogin`: Custom hook to handle login mutation.
+ * Props:
+ * - None.
  *
- * State:
- * - `isPending`: Indicates if the login request is currently processing.
- *
- * Functions:
- * - `handleSubmit(data: LoginSchemaValues)`: Calls `mutate` from `useLogin` with username and password.
- *
- * @returns JSX element rendering the login page.
+ * @returns JSX.Element: A login page with animated logo, feedback messages, and login form.
  */
 
 function Login({}: Props) {

@@ -5,17 +5,17 @@ import styles from "./TextsFirstLogin.module.css";
 type Props = {};
 
 /**
- * Component that displays a welcome message for users on their first login.
+ * Component displaying a welcome message for first-time users.
  *
- * - Uses `useUserAuthStore` to retrieve the current user's information.
- * - Greets the user by name (or "Estudiante" if no username is available).
- * - Introduces Mate-o, the guide and professor, and explains their role.
- * - Provides an encouraging and friendly message about the learning experience.
+ * - Greets the user by name if available, otherwise defaults to "Estudiante".
+ * - Introduces "Mate-o" as the guide and professor for the courses.
+ * - Provides an encouraging and friendly introduction to the learning experience.
+ * - Uses `TitleHx` for the main title and styles from `TextsFirstLogin.module.css`.
  *
  * Props:
  * - None.
  *
- * @returns A set of elements with a welcome title and descriptive messages for first-time users.
+ * @returns A styled welcome message for first-time users, including title and introduction paragraphs.
  */
 
 function TextsFirstLogin({}: Props) {

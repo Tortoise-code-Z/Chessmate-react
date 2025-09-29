@@ -21,19 +21,25 @@ type Props = {
 };
 
 /**
- * DetailsCourse component that displays detailed sections of a course, either content or learning objectives.
+ * DetailsCourse - React component that displays detailed course information,
+ * including themes and descriptive content, with robust error handling.
  *
  * Features:
- * - `TitleHx`: Displays the section title passed via `titleContain`.
- * - Unordered list of themes based on the `type` prop ("content" or "learn").
- * - Detailed description paragraphs corresponding to the selected type.
+ * - Wraps content in `AnimatedInView` to animate visibility on scroll.
+ * - Displays a section title using `TitleHx` (level 2).
+ * - Shows warning messages via `WarningMsg` when data is incomplete or missing.
+ * - Uses `SecurityRendering` to safely render course themes and descriptions
+ *   with validation checks (`isString`, `isNumber`).
+ * - Provides fallback messages (`MsgEmpty`) when no data is available.
+ * - Dynamically adjusts rendering based on `type` ("content" or "learn").
  *
  * Props:
- * - `data` (Course): The course object containing content and learning information.
- * - `type` ("content" | "learn"): Determines which section of the course to display.
- * - `titleContain` (ReactNode): JSX element or string to be displayed as the section title.
+ * - `data`: Course object containing course details (may be undefined).
+ * - `type`: Determines which part of the course to display ("content" or "learn").
+ * - `titleContain`: ReactNode used as the section heading.
  *
- * @returns JSX element rendering the detailed course section with themes and descriptions.
+ * @returns JSX.Element: A structured view of course themes and descriptions,
+ * with animations, validation, and error handling.
  */
 
 function DetailsCourse({ data, titleContain, type }: Props) {

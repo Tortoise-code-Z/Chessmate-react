@@ -15,6 +15,21 @@ type AnimatedInViewProps = {
     config?: AnimatedViewOptions;
 };
 
+/**
+ * Wrapper that animates its child element when it enters the viewport.
+ *
+ * - Uses `IntersectionObserver` (via `useInView`) to detect visibility.
+ * - Applies CSS classes from `AnimatedInView.module.css` for transitions.
+ * - Supports custom animation options such as direction, duration, delay, and easing.
+ * - Ensures only a single valid React element is passed as child.
+ *
+ * Props:
+ * - `children` → Single React element that will be animated.
+ * - `config` → Optional. Animation settings (`direction`, `once`, `options`, `duration`, `delay`, `easing`).
+ *
+ * @returns The child element enhanced with animation styles and behavior.
+ */
+
 export const AnimatedInView = ({
     children,
     config = {},

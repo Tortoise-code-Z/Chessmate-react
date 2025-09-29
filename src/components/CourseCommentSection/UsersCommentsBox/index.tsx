@@ -13,15 +13,20 @@ import { asArray, asNumber, isNumber, isString } from "../../../utils/general";
 type Props = {};
 
 /**
- * UsersCommentBox - React component to display a list of user comments for a course.
+ * UsersCommentBox - React component to display a list of user comments for a specific course.
  *
- * This component:
- * - Fetches comments for a course using `useCourseComments` hook.
- * - Shows a loading or error state using `DataStateWrapper`.
- * - Maps over the comments array and renders a `UserCommentItem` for each comment.
+ * Features:
  * - Retrieves the course ID from the URL using `useParams`.
+ * - Fetches comments using the `useCourseComments` hook.
+ * - Handles loading and error states via `DataStateWrapper`.
+ * - Uses `SecurityRendering` to validate the integrity of comment data and show warnings if necessary.
+ * - Renders a list of `UserCommentItem` components for valid comments.
+ * - Displays a fallback message (`MsgEmpty`) if there are no comments.
  *
- * @returns A `ul` element containing a list of user comments.
+ * State:
+ * - `warningComment` stores warnings about incomplete or missing comment data.
+ *
+ * @returns JSX element: A styled `ul` with user comments and optional warning messages.
  */
 
 function UsersCommentBox({}: Props) {
