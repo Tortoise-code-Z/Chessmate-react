@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import { PATHS } from "../consts/paths";
 import Home from "./Home";
 import Layout from "./Layout";
@@ -27,7 +27,7 @@ import ProtectedLayoutAndCourse from "./ProtectedLayoutAndCourse";
  * @returns BrowserRouter: A configured router object for the React application.
  */
 
-export const route = createBrowserRouter([
+export const route = createHashRouter([
     {
         path: PATHS.index,
         errorElement: <ErrorElement />,
