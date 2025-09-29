@@ -36,11 +36,11 @@ type Props = {};
  */
 
 function Home({}: Props) {
-    const { user } = useUserAuthStore();
+    // const { user } = useUserAuthStore();
 
-    if (user) {
-        return <Navigate to={PATHS.dashboard} replace />;
-    }
+    // if (user) {
+    //     return <Navigate to={PATHS.dashboard} replace />;
+    // }
 
     const { state, path, setPath, setState } = useFeedbackMessageStore();
     const location = useLocation();
