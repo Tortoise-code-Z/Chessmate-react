@@ -1,6 +1,6 @@
-import { useLocation } from "react-router-dom";
-// import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
-// import { PATHS } from "../../consts/paths";
+import { Navigate, useLocation } from "react-router-dom";
+import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
+import { PATHS } from "../../consts/paths";
 import Hero from "./Hero";
 import CoursesDataSection from "./CoursesDataSection";
 import SignupCallToAction from "./SignupCallToAction";
@@ -36,11 +36,11 @@ type Props = {};
  */
 
 function Home({}: Props) {
-    // const { user } = useUserAuthStore();
+    const { user } = useUserAuthStore();
 
-    // if (user) {
-    //     return <Navigate to={PATHS.dashboard} replace />;
-    // }
+    if (user) {
+        return <Navigate to={PATHS.dashboard} replace />;
+    }
 
     const { state, path, setPath, setState } = useFeedbackMessageStore();
     const location = useLocation();
