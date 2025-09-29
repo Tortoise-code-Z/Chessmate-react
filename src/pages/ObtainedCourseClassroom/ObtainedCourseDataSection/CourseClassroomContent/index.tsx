@@ -62,10 +62,10 @@ function CourseClassroomContent({ data }: Props) {
                             e.preventDefault();
                             if (params.id) {
                                 navigate(
-                                    `/${PATHS.coursesDetail.replace(
+                                    PATHS.coursesDetail.replace(
                                         ":id",
                                         params.id
-                                    )}`
+                                    )
                                 );
                             }
                         }}

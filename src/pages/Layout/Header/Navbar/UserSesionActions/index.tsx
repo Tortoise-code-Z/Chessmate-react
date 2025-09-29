@@ -34,7 +34,7 @@ function UserSesionActions({ setIsOpen }: Props) {
                     "buttonPrimary",
                     styles.registerLink,
                 ].join(" ")}
-                to={`/${PATHS.register}`}
+                to={PATHS.register}
                 title="Registrarme"
             >
                 <PiSignInBold />
@@ -44,7 +44,7 @@ function UserSesionActions({ setIsOpen }: Props) {
                 className={["button", "buttonSecondary", styles.loginLink].join(
                     " "
                 )}
-                to={`/${PATHS.login}`}
+                to={PATHS.login}
                 title="Iniciar sesion"
             >
                 Iniciar sesión

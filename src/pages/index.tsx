@@ -34,47 +34,47 @@ export const route = createBrowserRouter([
         element: <Layout />,
         children: [
             { index: true, element: <Home /> },
-            { path: `/${PATHS.courses}`, element: <Courses /> },
-            { path: `/${PATHS.contact}`, element: <Contact /> },
+            { path: PATHS.courses, element: <Courses /> },
+            { path: PATHS.contact, element: <Contact /> },
         ],
     },
 
     {
-        path: `/${PATHS.class}`,
+        path: PATHS.class,
         errorElement: <ErrorElement />,
         element: <ProtectedLayout />,
         children: [{ index: true, element: <Classroom /> }],
     },
 
     {
-        path: `/${PATHS.coursesDetail}`,
+        path: PATHS.coursesDetail,
         errorElement: <ErrorElement />,
         element: <ProtectedLayoutAndCourse checkProtectedCourse={false} />,
         children: [{ index: true, element: <CoursesDetail /> }],
     },
 
     {
-        path: `/${PATHS.obtainedCourseClassroom}`,
+        path: PATHS.obtainedCourseClassroom,
         errorElement: <ErrorElement />,
         element: <ProtectedLayoutAndCourse />,
         children: [{ index: true, element: <ObtainedCourseClassroom /> }],
     },
 
     {
-        path: `/${PATHS.dashboard}`,
+        path: PATHS.dashboard,
         errorElement: <ErrorElement />,
         element: <ProtectedLayout />,
         children: [{ index: true, element: <Dashboard /> }],
     },
 
     {
-        path: `/${PATHS.login}`,
+        path: PATHS.login,
         errorElement: <ErrorElement />,
         element: <Login />,
     },
 
     {
-        path: `/${PATHS.register}`,
+        path: PATHS.register,
         errorElement: <ErrorElement />,
         element: <Register />,
     },

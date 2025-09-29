@@ -27,10 +27,10 @@ type Props = {
 function UserObtainedCoursesItem({ data }: Props) {
     return (
         <Link
-            to={`/${PATHS.obtainedCourseClassroom.replace(
+            to={PATHS.obtainedCourseClassroom.replace(
                 ":id",
                 data.courseID.toString()
-            )}`}
+            )}
             className={styles.userObtainedCoursesItem}
         >
             <ImageLevelProgress data={data} />

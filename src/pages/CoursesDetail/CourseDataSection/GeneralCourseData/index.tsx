@@ -82,10 +82,10 @@ function GeneralCourseData({ data }: Props) {
                                 className={["button", "buttonPrimary"].join(
                                     " "
                                 )}
-                                to={`/${PATHS.obtainedCourseClassroom.replace(
+                                to={PATHS.obtainedCourseClassroom.replace(
                                     ":id",
                                     data.courseID.toString()
-                                )}`}
+                                )}
                             >
                                 <FaBookReader />
                                 Ir al curso

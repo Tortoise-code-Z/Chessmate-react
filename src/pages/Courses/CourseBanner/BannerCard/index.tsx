@@ -46,10 +46,7 @@ function BannerCard({ data }: Props) {
     const bannerCardHandleClick = () => {
         if (isNumber(data?.courseID))
             navigate(
-                `/${PATHS.coursesDetail.replace(
-                    ":id",
-                    data.courseID.toString()
-                )}`
+                PATHS.coursesDetail.replace(":id", data.courseID.toString())
             );
     };
 

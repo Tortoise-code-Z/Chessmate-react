@@ -61,10 +61,7 @@ function ItemCourseDisplay({
     const handleClickCard = () => {
         if (canNavigate && courseID)
             navigate(
-                `/${PATHS.coursesDetail.replace(
-                    ":id",
-                    data.courseID.toString()
-                )}`
+                PATHS.coursesDetail.replace(":id", data.courseID.toString())
             );
     };
 

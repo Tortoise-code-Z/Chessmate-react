@@ -1,5 +1,5 @@
 export const PATHS = {
-    index: "/",
+    index: "",
     dashboard: "dashboard",
     class: "class/:id",
     courses: "courses",

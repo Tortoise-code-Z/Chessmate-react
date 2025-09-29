@@ -27,7 +27,7 @@ function ThereArentCourses({ msg = "No tienes cursos aún..." }: Props) {
             <p>{msg}</p>
             <NavLink
                 className={["button", "buttonPrimary"].join(" ")}
-                to={`/${PATHS.courses}`}
+                to={PATHS.courses}
             >
                 <FaBook />
                 Ir a cursos

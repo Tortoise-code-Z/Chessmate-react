@@ -38,7 +38,7 @@ function Footer({}: Props) {
                         <p>Envianos un correo personalizado</p>
                         <NavLink
                             className={["button", "buttonTerciary"].join(" ")}
-                            to={`/${PATHS.contact}`}
+                            to={PATHS.contact}
                         >
                             <MdOutlineEmail />
                             Contacto

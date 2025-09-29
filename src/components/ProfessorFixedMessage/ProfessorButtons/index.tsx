@@ -40,7 +40,7 @@ function ProfessorButtons({}: Props) {
                         variant="Complementary"
                         onClick={() => {
                             setState(false);
-                            navigate(`/${PATHS.login}`);
+                            navigate(PATHS.login);
                         }}
                     >
                         Iniciar sesión
@@ -48,7 +48,7 @@ function ProfessorButtons({}: Props) {
                     <Button
                         onClick={() => {
                             setState(false);
-                            navigate(`/${PATHS.register}`);
+                            navigate(PATHS.register);
                         }}
                     >
                         <PiSignInBold />

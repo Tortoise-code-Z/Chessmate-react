@@ -47,13 +47,7 @@ function BreadCrumb({ breadCrumbs }: Props) {
                                 title={
                                     asString(b.label) || BREADCRUMB_DEFAULT_MSG
                                 }
-                                to={
-                                    isString(b.link)
-                                        ? b.link === "index"
-                                            ? PATHS[b.link]
-                                            : `/${PATHS[b.link]}`
-                                        : ""
-                                }
+                                to={isString(b.link) ? PATHS[b.link] : ""}
                             >
                                 {asString(b.label) || BREADCRUMB_DEFAULT_MSG}
                             </NavLink>

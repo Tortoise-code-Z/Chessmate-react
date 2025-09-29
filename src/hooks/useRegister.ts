@@ -130,7 +130,7 @@ export function useRegister() {
         onSuccess: (data: UserAuth) => {
             setItemLocalStorage<UserAuth>(USER_AUTH_KEY, data);
             setUser(data);
-            navigate(`/${PATHS.dashboard}`);
+            navigate(PATHS.dashboard);
         },
         onError: (error) => {
             console.error(error);

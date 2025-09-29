@@ -44,7 +44,7 @@ function RegisterFormActions({ isPending }: Props) {
             <div className={styles.actionBtns}>
                 <NavLink
                     className={["button", "buttonSecondary"].join(" ")}
-                    to={`${PATHS.index}`}
+                    to={PATHS.index}
                 >
                     Volver a inicio
                 </NavLink>
@@ -65,7 +65,7 @@ function RegisterFormActions({ isPending }: Props) {
 
             <NavLink
                 className={["linkToLoginSigin"].join(" ")}
-                to={`/${PATHS.login}`}
+                to={PATHS.login}
             >
                 ¿Ya tienes una cuenta? Inicia sesión aquí.
             </NavLink>

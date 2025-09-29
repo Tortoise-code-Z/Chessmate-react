@@ -40,10 +40,10 @@ function CourseTitleAndDetail({ data }: Props) {
                 onClick={(e) => {
                     e.preventDefault();
                     navigate(
-                        `/${PATHS.coursesDetail.replace(
+                        PATHS.coursesDetail.replace(
                             ":id",
                             data.courseID.toString()
-                        )}`
+                        )
                     );
                 }}
                 propagation={false}

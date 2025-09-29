@@ -57,7 +57,7 @@ export default function ErrorElement({ msg }: Props) {
 
             {!msg && (
                 <NavLink
-                    to={`${PATHS.index}`}
+                    to={PATHS.index}
                     className={["button", "buttonSecondary"].join(" ")}
                 >
                     Volver al inicio

@@ -51,7 +51,7 @@ export function useSignout() {
         onSuccess: () => {
             queryClient.clear();
             setUser(null);
-            navigate(`${PATHS.index}`);
+            navigate(PATHS.index);
         },
         onError: (error) => {
             console.error(error);

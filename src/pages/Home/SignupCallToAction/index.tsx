@@ -40,7 +40,7 @@ function SignupCallToAction({}: Props) {
                         "button buttonPrimary",
                         styles.signinAction,
                     ].join(" ")}
-                    to={`/${PATHS.register}`}
+                    to={PATHS.register}
                 >
                     <PiSignInBold />
                     Registrarme

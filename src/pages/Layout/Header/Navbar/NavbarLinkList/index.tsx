@@ -25,7 +25,7 @@ function NavbarLinkList({}: Props) {
     return (
         <ul className={styles.linksList}>
             {user ? (
-                <NavLink to={`/${PATHS.dashboard}`} title="Ir a mi portal">
+                <NavLink to={PATHS.dashboard} title="Ir a mi portal">
                     Mi portal
                 </NavLink>
             ) : (
@@ -33,10 +33,10 @@ function NavbarLinkList({}: Props) {
                     Inicio
                 </NavLink>
             )}
-            <NavLink to={`/${PATHS.courses}`} title="Ver cursos">
+            <NavLink to={PATHS.courses} title="Ver cursos">
                 Cursos
             </NavLink>
-            <NavLink to={`/${PATHS.contact}`} title="Contactar">
+            <NavLink to={PATHS.contact} title="Contactar">
                 Contacto
             </NavLink>
         </ul>

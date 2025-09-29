@@ -55,7 +55,7 @@ function UserObtainedItemDefault({ data }: Props) {
             )}
             <NavLink
                 className={["button", "buttonTerciary"].join(" ")}
-                to={`/${PATHS.contact}`}
+                to={PATHS.contact}
             >
                 <MdOutlineEmail />
                 Contacto
