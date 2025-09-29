@@ -27,6 +27,8 @@ import ProtectedLayoutAndCourse from "./ProtectedLayoutAndCourse";
  * @returns BrowserRouter: A configured router object for the React application.
  */
 
+//Route
+
 export const route = createHashRouter([
     {
         path: PATHS.index,
