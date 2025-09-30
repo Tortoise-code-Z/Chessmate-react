@@ -7,6 +7,7 @@ import {
 } from "../../../../consts/general";
 import { PathsType } from "../../../../types/types";
 import { PATHS } from "../../../../consts/paths";
+import { Fragment } from "react/jsx-runtime";
 
 type BreadCrumbItem = {
     label: string | undefined;
@@ -40,7 +41,7 @@ function BreadCrumb({ breadCrumbs }: Props) {
         <div className={styles.breadcrumb}>
             {breadCrumbs.map((b, i) => {
                 return (
-                    <>
+                    <Fragment key={i}>
                         {i !== 0 && <span>{">"}</span>}
                         {asString(b.link) ? (
                             <NavLink
@@ -54,7 +55,7 @@ function BreadCrumb({ breadCrumbs }: Props) {
                         ) : (
                             <p>{asString(b.label) || TITLE_DEFAULT_MSG}</p>
                         )}
-                    </>
+                    </Fragment>
                 );
             })}
         </div>

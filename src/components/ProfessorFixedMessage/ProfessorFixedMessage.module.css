@@ -56,9 +56,16 @@
         height: 100%;
         width: auto;
     }
+}
+
+@media all and (max-width: 500px) {
+    .professorFixedMessage {
+        padding: 0 var(--padding-lateral-mobile) !important;
+    }
 
     .imageContain {
-        height: 30%;
+        width: 80%;
+        height: auto;
     }
 
     .imageContain figure {
@@ -67,14 +74,24 @@
     }
 }
 
-@media all and (max-width: 500px) {
-    .professorFixedMessage {
-        padding: 0 var(--padding-lateral-mobile) !important;
-    }
-}
-
 @media all and (max-height: 500px) {
     .textActions {
         gap: 20px;
+    }
+
+    .imageContain {
+        width: 30%;
+        height: auto;
+    }
+
+    .imageContain figure {
+        height: 100%;
+        width: auto;
+    }
+
+    .professorFixedMessage {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-end;
     }
 }

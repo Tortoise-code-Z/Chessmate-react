@@ -40,7 +40,7 @@ function HamburguerMenuLinkList({ handleSignOut, setIsOpen }: Props) {
                 }}
                 to={user ? PATHS.dashboard : PATHS.index}
             >
-                Mi portal
+                {user ? "Mi portal" : "Inicio"}
             </NavLink>
 
             <NavLink
