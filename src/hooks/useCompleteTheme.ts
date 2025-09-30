@@ -162,7 +162,7 @@ export function useCompleteTheme(
             );
         },
         onError: (error) => {
-            console.log(error);
+            console.error(error);
             setFeedbackState(true);
             setPath(location.pathname);
             setMsg("Error al completar el tema");

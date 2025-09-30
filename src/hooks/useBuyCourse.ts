@@ -145,15 +145,6 @@ export function useBuyCourse() {
                 (old) => {
                     if (!old) return old;
 
-                    console.log(
-                        "first",
-                        old.map((o) =>
-                            o.courseID === data.course.courseID
-                                ? { ...o, isObtained: true }
-                                : o
-                        )
-                    );
-
                     return old.map((o) =>
                         o.courseID === data.course.courseID
                             ? { ...o, isObtained: true }

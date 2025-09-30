@@ -45,9 +45,6 @@ function Home({}: Props) {
     const { state, path, setPath, setState } = useFeedbackMessageStore();
     const location = useLocation();
 
-    console.log("path", path);
-    console.log("location.pathname", location.pathname);
-
     useEffect(() => {
         if (state && path !== location.pathname) {
             setState(false);
