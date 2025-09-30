@@ -5,7 +5,7 @@
     flex-direction: row;
     padding: 0 !important;
     position: relative;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .title {
