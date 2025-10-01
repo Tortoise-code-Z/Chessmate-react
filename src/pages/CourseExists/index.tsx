@@ -42,21 +42,21 @@ function CourseExists({ children }: Props) {
             setType("error");
             setMsg("No se ha encontrado el curso que buscas...");
             setState(true);
-            setPath(`/${PATHS.courses}`);
+            setPath(PATHS.courses);
         }
 
         if (error) {
             setType("error");
             setMsg("Ha habido un error al intentar acceder al curso...");
             setState(true);
-            setPath(`/${PATHS.courses}`);
+            setPath(PATHS.courses);
         }
     }, [data, setType, setMsg, setState, error]);
 
     if (isLoading) return <LoadingPage msg="Comprobando curso.." />;
 
     if (!data) {
-        return <Navigate to={`/${PATHS.courses}`} />;
+        return <Navigate to={PATHS.courses} />;
     }
 
     return <>{children}</>;

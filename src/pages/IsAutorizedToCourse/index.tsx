@@ -47,10 +47,10 @@ function IsAutorizedToCourse({ children }: Props) {
             setMsg("Para acceder al curso primero debes comprarlo...");
             setState(true);
             setPath(
-                `/${PATHS.coursesDetail.replace(
+                PATHS.coursesDetail.replace(
                     ":id",
                     `${Number(params.id)}`.toString()
-                )}`
+                )
             );
         }
 
@@ -59,10 +59,10 @@ function IsAutorizedToCourse({ children }: Props) {
             setMsg("Ha habido un error al intentar acceder al curso...");
             setState(true);
             setPath(
-                `/${PATHS.coursesDetail.replace(
+                PATHS.coursesDetail.replace(
                     ":id",
                     `${Number(params.id)}`.toString()
-                )}`
+                )
             );
         }
     }, [data, setType, setMsg, setState, error]);
@@ -72,10 +72,7 @@ function IsAutorizedToCourse({ children }: Props) {
     if (!data || error) {
         return (
             <Navigate
-                to={`/${PATHS.coursesDetail.replace(
-                    ":id",
-                    `${Number(params.id)}`
-                )}`}
+                to={PATHS.coursesDetail.replace(":id", `${Number(params.id)}`)}
             />
         );
     }

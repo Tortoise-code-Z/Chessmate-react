@@ -28,7 +28,7 @@ function IsAuthorized({ children }: Props) {
         return <LoadingPage msg="Revisando autorización..." />;
 
     if (!user) {
-        return <Navigate to={`/${PATHS.login}`} />;
+        return <Navigate to={PATHS.login} />;
     }
 
     return <>{children}</>;
