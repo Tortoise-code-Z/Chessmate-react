@@ -60,6 +60,11 @@ function VideoReproductor({
         };
     }, []);
 
+    console.log(
+        "asString(videoData?.subthemeContent?.video)",
+        asString(videoData?.subthemeContent?.video)
+    );
+
     return (
         <div className={styles.videoReproductor}>
             <div className={styles.container}>

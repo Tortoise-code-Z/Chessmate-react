@@ -7,7 +7,7 @@ import {
 } from "../../../../../consts/general";
 import { DEFAULT_AUTHOR_IMAGE } from "../../../../../consts/images";
 import { AuthorCurseData } from "../../../../../types/types";
-import { asString, isString } from "../../../../../utils/general";
+import { asString, isNumber } from "../../../../../utils/general";
 import { getImage, getImageSize } from "../../../../../utils/images";
 import styles from "./AuthorsItem.module.css";
 
@@ -50,7 +50,7 @@ function AuthorsItem({ author }: Props) {
                     </p>
                     <ChessTitle title={author?.level} />
                     <p className={styles.elo}>
-                        {isString(author?.elo)
+                        {isNumber(author?.elo)
                             ? `${author.elo} ELO`
                             : ELO_DEFAULT_MSG}
                     </p>
