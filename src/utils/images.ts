@@ -13,6 +13,11 @@ export const getImage = (
         .href;
 };
 
+export const getVideo = (name: string | null | undefined) => {
+    if (!name) return undefined;
+    return new URL(`../assets/videos/${name}`, import.meta.url).href;
+};
+
 export const getImageSize = (
     itemToSplit: string | null | undefined,
     dimension: "width" | "height"

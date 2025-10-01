@@ -1,4 +1,5 @@
 import { AnimatedViewOptions } from "../../types/types";
+import { getVideo } from "../../utils/images";
 import { AnimatedInView } from "../AnimatedInView";
 import ReactPlayer from "react-player";
 
@@ -28,7 +29,9 @@ export function AnimatedPlayer({
     className,
     animatedOptions,
 }: AnimatedPlayerProps) {
-    const video = <ReactPlayer src={src} className={className} controls />;
+    const video = (
+        <ReactPlayer src={getVideo(src)} className={className} controls />
+    );
 
     return animatedOptions ? (
         <AnimatedInView config={animatedOptions}>{video}</AnimatedInView>
