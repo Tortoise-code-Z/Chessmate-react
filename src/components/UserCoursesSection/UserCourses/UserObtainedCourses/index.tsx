@@ -67,7 +67,7 @@ function UserObtainedCourses({
         asNumber(Number(params.id))
     );
 
-    let safeData = asArray<CourseJSON & Progress>(data);
+    const safeData = asArray<CourseJSON & Progress>(data);
 
     return (
         <div className={styles.userObtainedCourses}>

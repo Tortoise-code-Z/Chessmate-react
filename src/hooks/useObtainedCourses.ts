@@ -6,7 +6,6 @@ import {
     getUserObtainedCourses,
 } from "../api";
 import {
-    ERROR_GET_COURSE_MSG,
     ERROR_GET_COURSES_MSG,
     ERROR_GET_DATA_MSG,
     ERROR_GET_USER_ID_MSG,
@@ -53,7 +52,7 @@ export default function useObtainedCourses(
             let mappingUserCourses = userCourses.map((uc) => {
                 const id = uc.courseId;
                 const course = getCourseById(data, id);
-                if (!course) throw new Error(ERROR_GET_COURSE_MSG);
+                if (!course) return {} as CourseJSON & Progress;
 
                 return { ...course, progress: uc?.progress };
             });
