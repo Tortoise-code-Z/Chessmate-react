@@ -97,8 +97,8 @@ function CoursesDisplay({ courses, action, display = "Col", msg, svg }: Props) {
                     {(course, index, canRender) => {
                         return (
                             <ItemCourseDisplay
-                                courseID={asNumber(course.courseID)}
-                                key={asNumber(course.courseID) || index}
+                                courseID={asNumber(course?.courseID)}
+                                key={asNumber(course?.courseID) || index}
                                 action={action}
                                 data={course}
                                 display={display}
