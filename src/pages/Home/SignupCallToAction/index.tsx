@@ -30,7 +30,7 @@ function SignupCallToAction({}: Props) {
                 <div className={styles.titleContainer}>
                     <TitleHx level={2}>
                         <span className={"span-pr-color"}>Regístrate</span>
-                        <span>Y comimenza a aprender</span>
+                        <span>Y comienza a aprender</span>
                     </TitleHx>
 
                     <p>Accede a cursos gratuitos y lecciones exclusivas</p>
