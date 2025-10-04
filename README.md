@@ -32,7 +32,7 @@ Es ideal para **estudiantes** que buscan aprender en línea y para **empresas** 
 ## Demo 🚀
 
 -   Live: https://tortoise-code-z.github.io/Chessmate-react/
--   Capturas adicionales:  
+-   Imágenes del proyecto:  
     ![Home](./src/assets/images/screenshots/screenshot-index.png)  
     ![Courses](./src/assets/images/screenshots/screenshot-courses.png)
     ![CourseDetail](./src/assets/images/screenshots/screenshot-course-detail.png)
