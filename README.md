@@ -16,7 +16,7 @@ Es ideal para **estudiantes** que buscan aprender en línea y para **empresas** 
 
 ---
 
-## 🧭 Tabla de Contenidos
+## Tabla de Contenidos 🧭
 
 -   [Demo](#demo)
 -   [Características](#características)
@@ -29,7 +29,7 @@ Es ideal para **estudiantes** que buscan aprender en línea y para **empresas** 
 
 ---
 
-## 🚀 Demo
+## Demo 🚀
 
 -   Live: https://tortoise-code-z.github.io/Chessmate-react/
 -   Capturas adicionales:  
@@ -45,7 +45,7 @@ Es ideal para **estudiantes** que buscan aprender en línea y para **empresas** 
 
 ---
 
-## ✨ Características
+## Características ✨
 
 -   Diseño responsive para móviles y escritorio, ofreciendo buena experiencia en cualquier dispositivo
 -   Animaciones suaves que mejoran la interacción del usuario
@@ -60,7 +60,7 @@ Es ideal para **estudiantes** que buscan aprender en línea y para **empresas** 
 
 ---
 
-## 🛠️ Instalación
+## Instalación 🛠️
 
 ### Prerrequisitos
 
@@ -84,7 +84,7 @@ npm install
 
 ---
 
-## 💻 Uso
+## Uso 💻
 
 ```bash
 # Ejecutar el servidor de desarrollo
@@ -96,7 +96,7 @@ npm run dev
 
 ---
 
-## 📁 Estructura del proyecto
+## Estructura del proyecto 📁
 
 ```plaintext
 Chessmate/
@@ -123,7 +123,7 @@ Chessmate/
 
 ---
 
-## 🧰 Tecnologías utilizadas
+## Tecnologías utilizadas 🧰
 
 **Diseño:**
 
@@ -155,7 +155,7 @@ Chessmate/
 
 ---
 
-## 🧾 Licencia
+## Licencia 🧾
 
 Este proyecto no tiene licencia formal.
 
@@ -172,7 +172,7 @@ Este proyecto no tiene licencia formal.
 
 ---
 
-## 📬 Contacto
+## Contacto 📬
 
 -   Portfolio: https://tortoise-code-z.github.io/portfolio/
 -   Email: victorperez.brmte@passmail.com
