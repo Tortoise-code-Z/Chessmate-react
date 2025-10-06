@@ -5,6 +5,7 @@ import TitleHx from "../../components/TitleHx";
 import FeedbackMessage from "../../components/FeedbackMessage";
 import FeedbackListener from "../../components/FeedbackListener";
 import ProfessorListener from "../../components/ProfessorListenner";
+import { Helmet } from "react-helmet-async";
 
 type Props = {};
 
@@ -29,6 +30,9 @@ function Classroom({}: Props) {
 
     return (
         <>
+            <Helmet>
+                <title>Chessmate - Clase</title>
+            </Helmet>
             <FeedbackListener />
             <ProfessorListener />
 

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { AnimatedInView } from "../../components/AnimatedInView";
 import FeedbackListener from "../../components/FeedbackListener";
 import FeedbackMessage from "../../components/FeedbackMessage";
@@ -27,6 +28,9 @@ type Props = {};
 function Contact({}: Props) {
     return (
         <>
+            <Helmet>
+                <title>Chessmate - Contacto</title>
+            </Helmet>
             <FeedbackListener />
             <ProfessorListener />
 

@@ -9,6 +9,7 @@ import TitleHx from "../../components/TitleHx";
 import FeedbackListener from "../../components/FeedbackListener";
 import { AnimatedInView } from "../../components/AnimatedInView";
 import ProfessorListener from "../../components/ProfessorListenner";
+import { Helmet } from "react-helmet-async";
 
 type Props = {};
 
@@ -40,6 +41,9 @@ function Login({}: Props) {
 
     return (
         <>
+            <Helmet>
+                <title>Chessmate - Inicio de sesión</title>
+            </Helmet>
             <FeedbackListener />
             <ProfessorListener />
 

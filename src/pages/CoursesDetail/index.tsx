@@ -7,6 +7,7 @@ import CourseCommentSection from "../../components/CourseCommentSection";
 import { asNumber } from "../../utils/general";
 import FeedbackListener from "../../components/FeedbackListener";
 import ProfessorListener from "../../components/ProfessorListenner";
+import { Helmet } from "react-helmet-async";
 
 type Props = {};
 
@@ -32,6 +33,9 @@ function CoursesDetail({}: Props) {
 
     return (
         <>
+            <Helmet>
+                <title>Chessmate - Detalle de curso</title>
+            </Helmet>
             <FeedbackListener />
             <ProfessorListener />
 

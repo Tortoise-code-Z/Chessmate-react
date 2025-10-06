@@ -6,6 +6,7 @@ import FeedbackMessage from "../../components/FeedbackMessage";
 import ProfessorFixedMessage from "../../components/ProfessorFixedMessage";
 import FeedbackListener from "../../components/FeedbackListener";
 import ProfessorListener from "../../components/ProfessorListenner";
+import { Helmet } from "react-helmet-async";
 
 type Props = {};
 
@@ -29,6 +30,9 @@ type Props = {};
 function Courses({}: Props) {
     return (
         <>
+            <Helmet>
+                <title>Chessmate - Cursos</title>
+            </Helmet>
             <FeedbackListener />
             <ProfessorListener />
 

@@ -9,6 +9,7 @@ import TitleHx from "../../components/TitleHx";
 import FeedbackListener from "../../components/FeedbackListener";
 import { AnimatedInView } from "../../components/AnimatedInView";
 import ProfessorListener from "../../components/ProfessorListenner";
+import { Helmet } from "react-helmet-async";
 
 type Props = {};
 
@@ -33,38 +34,45 @@ function Register({}: Props) {
     const handleSubmit = (data: registerSchemaValues) => mutate(data);
 
     return (
-        <section className={styles.register}>
-            <ProfessorListener />
-            <FeedbackListener />
-            <FeedbackMessage position="top" time="infinite" />
-            <AnimatedInView config={{ direction: "right" }}>
-                <div className={styles.formContainer}>
-                    <TitleHx classNames={[styles.title]}>
-                        Regístrate
-                        <span>
-                            ... y{" "}
-                            <span className={"span-pr-color"}>comienza</span> tu
-                            aventura
-                        </span>
-                    </TitleHx>
+        <>
+            <Helmet>
+                <title>Chessmate - Registro</title>
+            </Helmet>
+            <section className={styles.register}>
+                <ProfessorListener />
+                <FeedbackListener />
+                <FeedbackMessage position="top" time="infinite" />
+                <AnimatedInView config={{ direction: "right" }}>
+                    <div className={styles.formContainer}>
+                        <TitleHx classNames={[styles.title]}>
+                            Regístrate
+                            <span>
+                                ... y{" "}
+                                <span className={"span-pr-color"}>
+                                    comienza
+                                </span>{" "}
+                                tu aventura
+                            </span>
+                        </TitleHx>
 
-                    <RegisterForm
-                        handleSubmit={handleSubmit}
-                        isPending={isPending}
-                    />
-                </div>
-            </AnimatedInView>
+                        <RegisterForm
+                            handleSubmit={handleSubmit}
+                            isPending={isPending}
+                        />
+                    </div>
+                </AnimatedInView>
 
-            <FigureImage
-                classNames={[styles.bccImg]}
-                src={SIGNIN_IMAGE.image}
-                alt={SIGNIN_IMAGE.alt}
-                title={SIGNIN_IMAGE.alt}
-                width={SIGNIN_IMAGE.width}
-                height={SIGNIN_IMAGE.height}
-                animatedOptions={{ direction: "left" }}
-            />
-        </section>
+                <FigureImage
+                    classNames={[styles.bccImg]}
+                    src={SIGNIN_IMAGE.image}
+                    alt={SIGNIN_IMAGE.alt}
+                    title={SIGNIN_IMAGE.alt}
+                    width={SIGNIN_IMAGE.width}
+                    height={SIGNIN_IMAGE.height}
+                    animatedOptions={{ direction: "left" }}
+                />
+            </section>
+        </>
     );
 }
 

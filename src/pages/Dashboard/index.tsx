@@ -7,6 +7,7 @@ import TitleHx from "../../components/TitleHx";
 import ProfessorFixedMessage from "../../components/ProfessorFixedMessage";
 import FeedbackListener from "../../components/FeedbackListener";
 import ProfessorListener from "../../components/ProfessorListenner";
+import { Helmet } from "react-helmet-async";
 
 type Props = {};
 
@@ -33,6 +34,9 @@ function Dashboard({}: Props) {
 
     return (
         <>
+            <Helmet>
+                <title>Chessmate - Portal</title>
+            </Helmet>
             <FeedbackListener />
             <ProfessorListener />
 

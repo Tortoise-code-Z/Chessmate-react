@@ -13,6 +13,7 @@ import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
 import { useEffect } from "react";
 import FeedbackListener from "../../components/FeedbackListener";
 import ProfessorListener from "../../components/ProfessorListenner";
+import { Helmet } from "react-helmet-async";
 
 type Props = {};
 
@@ -55,6 +56,11 @@ function Home({}: Props) {
 
     return (
         <>
+            <Helmet>
+                <title>
+                    Chessmate - Plataforma de cursos de ajedrez online
+                </title>
+            </Helmet>
             <FeedbackListener />
             <ProfessorListener />
 
