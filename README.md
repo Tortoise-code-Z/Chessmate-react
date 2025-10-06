@@ -220,13 +220,13 @@ console.log(
 );
 ```
 
-### 🔧 Paso 4: Refrescar la página y explorar la aplicación
+##### 🔧 Paso 4: Refrescar la página y explorar la aplicación
 
 Después de guardar los cambios en `localStorage`, simplemente **refresca la página**.
 
 Podrás observar **mensajes por defecto y feedback visual** en las secciones que lo requieran.
 
-#### Aclaraciones:
+###### Aclaraciones:
 
 -   **Cursos por defecto:**  
     Ingresa a **"Caballos"** para ver el mensaje de feedback en su Classroom.
@@ -238,7 +238,7 @@ Podrás observar **mensajes por defecto y feedback visual** en las secciones que
 
 > Nota: Para mantener la interfaz limpia, no se han forzado errores en todos los elementos, solo en algunos, con el objetivo de mostrar la funcionalidad de manera clara.
 
-##### 🔍 Qué más puedes probar
+#### 🔍 Qué más puedes probar
 
 -   **Cambiar a `createBrowserRouter` en tu entorno local**  
     → Te permitirá probar protección de rutas y navegación directa (`/dashboard`, `/course/:id`, `/classroom`) como en un entorno de backend real.
