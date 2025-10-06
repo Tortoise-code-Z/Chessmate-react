@@ -4,12 +4,7 @@ import styles from "./DetailsCourse.module.css";
 import TitleHx from "../../../../components/TitleHx";
 import { TITLE_DEFAULT_MSG } from "../../../../consts/general";
 import SecurityRendering from "../../../../components/SecurityRendering";
-import {
-    asNumber,
-    asString,
-    isNumber,
-    isString,
-} from "../../../../utils/general";
+import { asNumber, asString, isString } from "../../../../utils/general";
 import MsgEmpty from "../../../../components/MsgEmpty";
 import WarningMsg from "../../../../components/WarningMsg";
 import { AnimatedInView } from "../../../../components/AnimatedInView";
@@ -55,7 +50,6 @@ function DetailsCourse({ data, titleContain, type }: Props) {
     );
 
     const commonConditions = [
-        data?.[typeData]?.themes?.map((t) => isNumber(t?.id)) || false,
         data?.[typeData]?.detailDescription?.map((t) => isString(t)) || false,
     ].flat();
 

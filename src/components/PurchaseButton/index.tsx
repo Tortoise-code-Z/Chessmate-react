@@ -53,12 +53,16 @@ function PurchaseButton({
         if (!user) return setValue("cantCommentSesion");
         if (!isNumber(courseID)) return setValue("noID");
         if (!isBoolean(isObtained)) return setValue("isObtained");
-        if (asBoolean(canBuy)) return setValue("noPrice");
+        if (!asBoolean(canBuy)) return setValue("noPrice");
     };
 
     return (
         <Button
-            variant={!isBoolean(isObtained) ? "Warning" : "Primary"}
+            variant={
+                !isBoolean(isObtained) || !asBoolean(canBuy)
+                    ? "Warning"
+                    : "Primary"
+            }
             disabled={disabled}
             propagation={false}
             onClick={
@@ -78,10 +82,10 @@ function PurchaseButton({
                 "Comprando..."
             ) : (
                 <>
-                    {isBoolean(isObtained) ? (
-                        <HiMiniShoppingBag />
-                    ) : (
+                    {!isBoolean(isObtained) || !asBoolean(canBuy) ? (
                         <FaExclamationTriangle />
+                    ) : (
+                        <HiMiniShoppingBag />
                     )}
                     Comprar
                 </>

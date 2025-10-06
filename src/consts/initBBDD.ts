@@ -5586,6 +5586,7 @@ export const DATA_BASE: BBDD = {
             text: "Muy recomendable, me gustó la forma en que está estructurado.",
             createdAt: "24-01-2025",
         },
+
         {
             id: 7,
             idUser: 4,
@@ -5725,6 +5726,13 @@ export const DATA_BASE: BBDD = {
             idCourse: 14,
             text: "Muy bueno, cumple con lo que promete.",
             createdAt: "16-01-2025",
+        },
+        {
+            id: 27,
+            idUser: 6,
+            idCourse: 3,
+            text: "Fascinante..",
+            createdAt: "24-01-2025",
         },
     ],
     opinions: [
