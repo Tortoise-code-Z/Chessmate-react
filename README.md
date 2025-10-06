@@ -86,6 +86,8 @@ npm install
 
 ## Uso 💻
 
+-   Live: https://tortoise-code-z.github.io/Chessmate-react/
+
 ```bash
 # Ejecutar el servidor de desarrollo
 npm run dev

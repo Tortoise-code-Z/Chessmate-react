@@ -21,7 +21,7 @@ import { BBDD } from "../types/types";
  */
 
 export default function useUserEmail(key: string, userID: number | undefined) {
-    const queryFunction: () => Promise<string | undefined> = async () => {
+    const queryFunction: () => Promise<string | boolean> = async () => {
         try {
             const data = getDataLocalStorage<BBDD>(key);
             if (!data) throw new Error(ERROR_GET_DATA_MSG);
@@ -29,7 +29,7 @@ export default function useUserEmail(key: string, userID: number | undefined) {
             const user = getUserById(userID, data);
             if (!user && userID) throw new Error(ERROR_GET_USER_MSG);
 
-            return user?.email;
+            return user?.email ? user.email : false;
         } catch (error) {
             console.error(error);
             throw error;
