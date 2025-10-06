@@ -4,8 +4,10 @@ import { ProfessorValues } from "../types/types";
 type ProfessorMsgStore = {
     value: ProfessorValues;
     state: boolean;
+    path: string;
     setValue: (value: ProfessorValues) => void;
     setState: (status: boolean) => void;
+    setPath: (value: string) => void;
 };
 
 /**
@@ -23,7 +25,9 @@ type ProfessorMsgStore = {
 
 export const useProfessorMsgStore = create<ProfessorMsgStore>((set) => ({
     state: false,
+    path: "",
     value: "cantBuySesion",
+    setPath: (value: string) => set({ path: value }),
     setValue: (value: ProfessorValues) => set({ value: value }),
     setState: (status: boolean) => set({ state: status }),
 }));

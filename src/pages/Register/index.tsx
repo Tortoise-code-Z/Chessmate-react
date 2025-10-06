@@ -8,6 +8,7 @@ import FeedbackMessage from "../../components/FeedbackMessage";
 import TitleHx from "../../components/TitleHx";
 import FeedbackListener from "../../components/FeedbackListener";
 import { AnimatedInView } from "../../components/AnimatedInView";
+import ProfessorListener from "../../components/ProfessorListenner";
 
 type Props = {};
 
@@ -33,6 +34,7 @@ function Register({}: Props) {
 
     return (
         <section className={styles.register}>
+            <ProfessorListener />
             <FeedbackListener />
             <FeedbackMessage position="top" time="infinite" />
             <AnimatedInView config={{ direction: "right" }}>

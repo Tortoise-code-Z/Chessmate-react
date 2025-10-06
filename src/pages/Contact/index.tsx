@@ -1,6 +1,7 @@
 import { AnimatedInView } from "../../components/AnimatedInView";
 import FeedbackListener from "../../components/FeedbackListener";
 import FeedbackMessage from "../../components/FeedbackMessage";
+import ProfessorListener from "../../components/ProfessorListenner";
 import TitleHx from "../../components/TitleHx";
 import styles from "./Contact.module.css";
 import ContactForm from "./ContactForm";
@@ -27,6 +28,8 @@ function Contact({}: Props) {
     return (
         <>
             <FeedbackListener />
+            <ProfessorListener />
+
             <FeedbackMessage />
 
             <section className={styles.contact}>

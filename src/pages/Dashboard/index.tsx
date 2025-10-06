@@ -6,6 +6,7 @@ import FeedbackMessage from "../../components/FeedbackMessage";
 import TitleHx from "../../components/TitleHx";
 import ProfessorFixedMessage from "../../components/ProfessorFixedMessage";
 import FeedbackListener from "../../components/FeedbackListener";
+import ProfessorListener from "../../components/ProfessorListenner";
 
 type Props = {};
 
@@ -33,6 +34,8 @@ function Dashboard({}: Props) {
     return (
         <>
             <FeedbackListener />
+            <ProfessorListener />
+
             <ProfessorFixedMessage userCondition={true} />
             <FeedbackMessage />
 

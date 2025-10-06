@@ -6,6 +6,7 @@ import ProfessorFixedMessage from "../../components/ProfessorFixedMessage";
 import CourseCommentSection from "../../components/CourseCommentSection";
 import { asNumber } from "../../utils/general";
 import FeedbackListener from "../../components/FeedbackListener";
+import ProfessorListener from "../../components/ProfessorListenner";
 
 type Props = {};
 
@@ -32,6 +33,8 @@ function CoursesDetail({}: Props) {
     return (
         <>
             <FeedbackListener />
+            <ProfessorListener />
+
             <ProfessorFixedMessage />
             <FeedbackMessage time={8000} />
 

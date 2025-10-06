@@ -4,6 +4,7 @@ import ClassZoneSection from "./ClassZoneSection";
 import TitleHx from "../../components/TitleHx";
 import FeedbackMessage from "../../components/FeedbackMessage";
 import FeedbackListener from "../../components/FeedbackListener";
+import ProfessorListener from "../../components/ProfessorListenner";
 
 type Props = {};
 
@@ -29,6 +30,8 @@ function Classroom({}: Props) {
     return (
         <>
             <FeedbackListener />
+            <ProfessorListener />
+
             <FeedbackMessage />
 
             <ClassZoneSection />

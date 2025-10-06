@@ -5,6 +5,7 @@ import { useBuyCourse } from "../../hooks/useBuyCourse";
 import { useProfessorMsgStore } from "../../hooks/useProfessorMsgStore";
 import { FaExclamationTriangle } from "react-icons/fa";
 import { asBoolean, isBoolean, isNumber } from "../../utils/general";
+import { useLocation } from "react-router-dom";
 
 type Props = {
     courseID: number | undefined | null;
@@ -42,11 +43,13 @@ function PurchaseButton({
     isObtained,
 }: Props) {
     const { user } = useUserAuthStore();
-    const { setState, setValue } = useProfessorMsgStore();
+    const { setState, setValue, setPath } = useProfessorMsgStore();
     const { mutate, isPending } = useBuyCourse();
+    const location = useLocation();
 
     const cantBuyCourse = () => {
         setState(true);
+        setPath(location.pathname);
         if (!user) return setValue("cantCommentSesion");
         if (!isNumber(courseID)) return setValue("noID");
         if (!isBoolean(isObtained)) return setValue("isObtained");

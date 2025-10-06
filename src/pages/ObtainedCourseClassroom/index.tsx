@@ -6,6 +6,7 @@ import CourseCommentSection from "../../components/CourseCommentSection";
 import ProfessorFixedMessage from "../../components/ProfessorFixedMessage";
 import FeedbackMessage from "../../components/FeedbackMessage";
 import FeedbackListener from "../../components/FeedbackListener";
+import ProfessorListener from "../../components/ProfessorListenner";
 
 type Props = {};
 
@@ -33,6 +34,8 @@ function ObtainedCourseClassroom({}: Props) {
     return (
         <>
             <FeedbackListener />
+            <ProfessorListener />
+
             <ProfessorFixedMessage />
             <FeedbackMessage />
 

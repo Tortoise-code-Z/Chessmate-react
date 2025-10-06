@@ -7,6 +7,7 @@ import ProfessorButtons from "./ProfessorButtons";
 import { useProfessorMsgStore } from "../../hooks/useProfessorMsgStore";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import { AnimatedInView } from "../AnimatedInView";
+import { useLocation } from "react-router-dom";
 
 type Props = {
     userCondition?: boolean;
@@ -29,10 +30,12 @@ type Props = {
 
 function ProfessorFixedMessage({ userCondition = false }: Props) {
     const { user } = useUserAuthStore();
-    const { setState, state, setValue } = useProfessorMsgStore();
+    const { setState, state, setValue, path, setPath } = useProfessorMsgStore();
+    const location = useLocation();
 
     useEffect(() => {
         if (user?.firstLogin && userCondition) {
+            setPath(location.pathname);
             setValue("firstLogin");
             setState(user.firstLogin);
         }
@@ -50,7 +53,7 @@ function ProfessorFixedMessage({ userCondition = false }: Props) {
 
     return (
         <>
-            {state ? (
+            {state && path === location.pathname ? (
                 <AnimatedInView config={{ duration: 0.2, direction: "right" }}>
                     <div className={styles.professorFixedMessage}>
                         <div className={styles.imageContain}>

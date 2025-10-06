@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
+import { useProfessorMsgStore } from "../../hooks/useProfessorMsgStore";
 
 type Props = {};
 
@@ -17,17 +17,14 @@ type Props = {};
  * @returns `null` (does not render any visible elements).
  */
 
-export default function FeedbackListener({}: Props) {
-    const { state, path, setPath, setState, setMsg, setType } =
-        useFeedbackMessageStore();
+export default function ProfessorListener({}: Props) {
+    const { state, path, setPath, setState } = useProfessorMsgStore();
 
     const location = useLocation();
 
     useEffect(() => {
         if (state && path !== location.pathname) {
             setState(false);
-            setMsg("");
-            setType(null);
             setPath("");
         }
     }, [state, path, setState, setPath]);

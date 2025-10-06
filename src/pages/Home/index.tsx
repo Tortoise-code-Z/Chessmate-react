@@ -12,6 +12,7 @@ import ProfessorFixedMessage from "../../components/ProfessorFixedMessage";
 import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
 import { useEffect } from "react";
 import FeedbackListener from "../../components/FeedbackListener";
+import ProfessorListener from "../../components/ProfessorListenner";
 
 type Props = {};
 
@@ -55,6 +56,8 @@ function Home({}: Props) {
     return (
         <>
             <FeedbackListener />
+            <ProfessorListener />
+
             <ProfessorFixedMessage />
 
             <Hero />

@@ -8,6 +8,7 @@ import FeedbackMessage from "../../components/FeedbackMessage";
 import TitleHx from "../../components/TitleHx";
 import FeedbackListener from "../../components/FeedbackListener";
 import { AnimatedInView } from "../../components/AnimatedInView";
+import ProfessorListener from "../../components/ProfessorListenner";
 
 type Props = {};
 
@@ -40,7 +41,10 @@ function Login({}: Props) {
     return (
         <>
             <FeedbackListener />
+            <ProfessorListener />
+
             <FeedbackMessage position="top" time="infinite" />
+
             <section className={styles.login}>
                 <AnimatedInView config={{ direction: "right" }}>
                     <div className={styles.logoContainer}>
