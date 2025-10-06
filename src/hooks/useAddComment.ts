@@ -54,7 +54,11 @@ export function useAddComment() {
 
     const location = useLocation();
 
-    const { setState, setValue } = useProfessorMsgStore();
+    const {
+        setState,
+        setValue,
+        setPath: setProfessorPath,
+    } = useProfessorMsgStore();
 
     const addComment = async ({
         courseID,
@@ -136,6 +140,7 @@ export function useAddComment() {
             console.error(error);
             if (error.name === "noCourse") {
                 setState(true);
+                setProfessorPath(location.pathname);
                 setValue("cantCommentHasntBuyCourse");
             } else {
                 setFeedbackState(true);

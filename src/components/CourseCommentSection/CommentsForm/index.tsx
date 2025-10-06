@@ -2,7 +2,7 @@ import { FaCommentDots } from "react-icons/fa";
 
 import styles from "./CommentsForm.module.css";
 import { UseFormSetValue } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import { useProfessorMsgStore } from "../../../hooks/useProfessorMsgStore";
 import { useAddComment } from "../../../hooks/useAddComment";
@@ -34,8 +34,9 @@ type Props = {};
 function CommentForm({}: Props) {
     const params = useParams();
     const { user } = useUserAuthStore();
-    const { setState, setValue } = useProfessorMsgStore();
+    const { setState, setValue, setPath } = useProfessorMsgStore();
     const { mutate, isPending } = useAddComment();
+    const location = useLocation();
 
     const handleSubmit = (
         data: commentsSchemaValues,
@@ -45,6 +46,7 @@ function CommentForm({}: Props) {
     ) => {
         if (!user) {
             setState(true);
+            setPath(location.pathname);
             setValue("cantCommentSesion");
             helpers?.setValue("comment", "");
             return;
