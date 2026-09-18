@@ -153,8 +153,8 @@ export function useCompleteTheme(
                 }
             );
 
-            queryClient.setQueryData<(DefualtCourse & Progress)[]>(
-                ["defaultCourses"],
+            queryClient.setQueriesData<(DefualtCourse & Progress)[]>(
+                { queryKey: ["defaultCourses"], exact: false },
                 (oldData) => {
                     if (!oldData) return oldData;
 

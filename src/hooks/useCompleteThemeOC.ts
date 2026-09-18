@@ -169,7 +169,7 @@ export function useCompleteThemeOC(
             );
 
             queryClient.setQueriesData<(CourseJSON & IsObtainedCourse)[]>(
-                { queryKey: ["courses", courseID], exact: false },
+                { queryKey: ["courses"], exact: false },
                 (oldData) => {
                     if (!oldData) return oldData;
 
