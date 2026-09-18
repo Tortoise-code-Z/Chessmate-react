@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import {
     BBDD,
@@ -50,6 +51,7 @@ type Variables = {
  */
 
 export function useBuyCourse() {
+    const { t } = useTranslation();
     const queryClient = useQueryClient();
 
     const {
@@ -123,6 +125,7 @@ export function useBuyCourse() {
                 course: getCourse,
             };
         } catch (error) {
+            console.error(error);
             throw error;
         }
     };
@@ -132,7 +135,7 @@ export function useBuyCourse() {
         onSuccess: (data: BuyCourseApi) => {
             setFeedbackState(true);
             setPath(location.pathname);
-            setMsg("¡¡Compra realizada con éxito!!");
+            setMsg(t("common:feedback.buySuccess"));
             setType("success");
 
             queryClient.invalidateQueries({
@@ -213,7 +216,7 @@ export function useBuyCourse() {
             console.error(error);
             setFeedbackState(true);
             setPath(location.pathname);
-            setMsg("Error al realizar la compra");
+            setMsg(t("common:feedback.buyError"));
             setType("error");
         },
     });

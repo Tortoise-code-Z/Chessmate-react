@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useMutation } from "@tanstack/react-query";
 import { DATABASE_KEY, USER_AUTH_KEY } from "../consts/dataBaseKey";
 import { BBDD, CustomError, User, UserAuth } from "../types/types";
@@ -42,6 +43,7 @@ import {
  */
 
 export function useRegister() {
+    const { t } = useTranslation();
     const { setUser } = useUserAuthStore();
     const navigate = useNavigate();
     const {
@@ -121,6 +123,7 @@ export function useRegister() {
                 firstLogin: newUser.isFirstLogin,
             };
         } catch (error) {
+            console.error(error);
             throw error;
         }
     };
@@ -136,7 +139,7 @@ export function useRegister() {
             console.error(error);
             setFeedbackState(true);
             setPath(location.pathname);
-            setMsg(error.message);
+            setMsg(t(error.message));
             setType("error");
         },
     });

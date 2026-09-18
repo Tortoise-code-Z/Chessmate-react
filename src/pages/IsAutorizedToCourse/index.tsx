@@ -7,6 +7,7 @@ import { DATABASE_KEY } from "../../consts/dataBaseKey";
 import { ReactNode, useEffect } from "react";
 import { asNumber, isBoolean } from "../../utils/general";
 import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
+import { useTranslation } from "react-i18next";
 
 type Props = {
     children: ReactNode;
@@ -35,6 +36,8 @@ function IsAutorizedToCourse({ children }: Props) {
     const { user } = useUserAuthStore();
     const { setPath, setMsg, setState, setType } = useFeedbackMessageStore();
 
+    const { t } = useTranslation();
+
     const { data, isLoading, error } = useHaveObtainedCourse(
         asNumber(Number(params.id)),
         asNumber(user?.userID),
@@ -44,7 +47,7 @@ function IsAutorizedToCourse({ children }: Props) {
     useEffect(() => {
         if (isBoolean(data) && !data && !error) {
             setType("error");
-            setMsg("Para acceder al curso primero debes comprarlo...");
+            setMsg(t("common:guards.mustBuyCourse"));
             setState(true);
             setPath(
                 PATHS.coursesDetail.replace(
@@ -56,7 +59,7 @@ function IsAutorizedToCourse({ children }: Props) {
 
         if (error) {
             setType("error");
-            setMsg("Ha habido un error al intentar acceder al curso...");
+            setMsg(t("common:guards.courseAccessError"));
             setState(true);
             setPath(
                 PATHS.coursesDetail.replace(
@@ -65,9 +68,9 @@ function IsAutorizedToCourse({ children }: Props) {
                 )
             );
         }
-    }, [data, setType, setMsg, setState, error]);
+    }, [data, setType, setMsg, setState, error, t]);
 
-    if (isLoading) return <LoadingPage msg="Cargando curso..." />;
+    if (isLoading) return <LoadingPage msg={t("common:guards.loadingCourse")} />;
 
     if (!data || error) {
         return (

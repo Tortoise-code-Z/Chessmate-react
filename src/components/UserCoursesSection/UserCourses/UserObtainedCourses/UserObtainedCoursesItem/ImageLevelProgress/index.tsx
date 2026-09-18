@@ -1,8 +1,5 @@
-import {
-    LEVEL_DEFAULT_MSG,
-    LEVELS,
-    PROGRESS_DEFAULT_MSG,
-} from "../../../../../../consts/general";
+import { useTranslation } from "react-i18next";
+import { LEVELS } from "../../../../../../consts/general";
 import { CourseJSON, Level, Progress } from "../../../../../../types/types";
 import {
     asNumber,
@@ -23,8 +20,8 @@ type Props = {
  *
  * Features:
  * - Renders the course image using `FigureImage` with proper `src`, `alt`, `title`, width, and height.
- * - Shows the course level, falling back to `LEVEL_DEFAULT_MSG` if invalid or missing.
- * - Displays the user's progress percentage, using `PROGRESS_DEFAULT_MSG` if progress is unavailable or invalid.
+ * - Shows the course level, falling back to `common:defaults.level` if invalid or missing.
+ * - Displays the user's progress percentage, using `common:defaults.progress` if progress is unavailable or invalid.
  * - Utilizes utility functions for safe data handling (`asString`, `asNumber`, `isNumber`, `isOnValues`) and image processing (`getImage`, `getImageSize`).
  * - Styled with CSS modules for consistent layout and spacing.
  *
@@ -35,6 +32,8 @@ type Props = {
  */
 
 function ImageLevelProgress({ data }: Props) {
+    const { t } = useTranslation();
+    const level = isOnValues<Level>(data?.level, LEVELS);
     return (
         <div className={styles.container}>
             <FigureImage
@@ -47,13 +46,12 @@ function ImageLevelProgress({ data }: Props) {
 
             <div className={styles.data}>
                 <p className={styles.level}>
-                    {isOnValues<Level>(data?.level, LEVELS) ||
-                        LEVEL_DEFAULT_MSG}
+                    {level ? t(`levels.${level}`) : t("common:defaults.level")}
                 </p>
                 <p className={styles.progress}>
                     {isNumber(data?.progress) || asNumber(data?.progress) === 0
-                        ? `Progress: ${data.progress}%`
-                        : PROGRESS_DEFAULT_MSG}
+                        ? `${t("dashboard:obtained.progressLabel")}: ${data.progress}%`
+                        : t("common:defaults.progress")}
                 </p>
             </div>
         </div>

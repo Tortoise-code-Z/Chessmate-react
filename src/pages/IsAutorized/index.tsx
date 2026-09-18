@@ -3,6 +3,7 @@ import { PATHS } from "../../consts/paths";
 import LoadingPage from "../../components/LoadingPage";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import { ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 
 type Props = { children: ReactNode };
 
@@ -23,9 +24,10 @@ type Props = { children: ReactNode };
 
 function IsAuthorized({ children }: Props) {
     const { user, isLoading } = useUserAuthStore();
+    const { t } = useTranslation();
 
     if (isLoading && !user)
-        return <LoadingPage msg="Revisando autorización..." />;
+        return <LoadingPage msg={t("common:guards.checkingAuth")} />;
 
     if (!user) {
         return <Navigate to={PATHS.login} />;

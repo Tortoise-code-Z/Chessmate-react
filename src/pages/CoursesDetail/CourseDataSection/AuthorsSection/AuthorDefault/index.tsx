@@ -1,14 +1,9 @@
 import ChessTitle from "../../../../../components/ChessTitle";
 import FigureImage from "../../../../../components/FigureImage";
-import {
-    AUTHOR_DEFAULT_MSG,
-    DESCRIPTION_DEFAULT_MSG,
-    ELO_DEFAULT_MSG,
-} from "../../../../../consts/general";
+
 import { DEFAULT_AUTHOR_IMAGE } from "../../../../../consts/images";
 import styles from "./AuthorDefault.module.css";
-
-type Props = {};
+import { useTranslation } from "react-i18next";
 
 /**
  * AuthorDefault - React component that displays a placeholder/default author card.
@@ -26,7 +21,8 @@ type Props = {};
  * @returns JSX.Element: A default author card with placeholder image and text.
  */
 
-function AuthorDefault({}: Props) {
+function AuthorDefault() {
+    const { t } = useTranslation();
     return (
         <div className={styles.authorsItem}>
             <FigureImage
@@ -40,11 +36,11 @@ function AuthorDefault({}: Props) {
 
             <div className={styles.authorItemData}>
                 <div className={styles.data}>
-                    <p className={styles.name}>{AUTHOR_DEFAULT_MSG}</p>
+                    <p className={styles.name}>{t("common:defaults.author")}</p>
                     <ChessTitle title={undefined} />
-                    <p className={styles.elo}>{ELO_DEFAULT_MSG}</p>
+                    <p className={styles.elo}>{t("common:defaults.elo")}</p>
                 </div>
-                <p className={styles.description}>{DESCRIPTION_DEFAULT_MSG}</p>
+                <p className={styles.description}>{t("common:defaults.description")}</p>
             </div>
         </div>
     );

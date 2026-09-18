@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { asString } from "../../utils/general";
-import { DESCRIPTION_DEFAULT_MSG } from "../../consts/general";
+import { useTranslation } from "react-i18next";
 
 type Props = {
     data: string | undefined;
@@ -11,7 +11,7 @@ type Props = {
 /**
  * Displays text with a typewriter effect, revealing one character at a time.
  *
- * - Uses `data` as the source text, falling back to `DESCRIPTION_DEFAULT_MSG` if undefined.
+ * - Uses `data` as the source text, falling back to `common:defaults.description` if undefined.
  * - Controls typing speed with the `time` prop (milliseconds per character).
  * - Supports additional CSS classes via `classNames`.
  *
@@ -24,9 +24,10 @@ type Props = {
  */
 
 function WritteMachine({ data, time, classNames = [] }: Props) {
+    const { t } = useTranslation();
     const [dataToWritte, setDataToWritte] = useState<string>("");
 
-    const safeData = asString(data) || DESCRIPTION_DEFAULT_MSG;
+    const safeData = asString(data) || t("common:defaults.description");
 
     useEffect(() => {
         setDataToWritte("");
