@@ -1,4 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
+import { normalizeLanguage } from "../consts/i18n";
 import {
     BBDD,
     CourseJSON,
@@ -7,6 +9,7 @@ import {
     UserDataApi,
 } from "../types/types";
 import {
+    getCourses,
     getDataLocalStorage,
     getFilteredCourses,
     getSearchedCourses,
@@ -41,6 +44,9 @@ export default function useAllCourses(
     filter: FilterOptions | undefined,
     userData: UserDataApi
 ) {
+    const { i18n } = useTranslation();
+    const lang = normalizeLanguage(i18n.language);
+
     const queryFunction: () => Promise<
         (CourseJSON & IsObtainedCourse)[]
     > = async () => {
@@ -56,15 +62,15 @@ export default function useAllCourses(
             const userCourses = getUserObtainedCourses(userData?.userID, data);
 
             if (!search && !filter) {
-                courses = data.courses;
+                courses = getCourses(data, lang);
             }
 
             if (search && !filter) {
-                courses = getSearchedCourses(search, data);
+                courses = getSearchedCourses(search, data, lang);
             }
 
             if (filter && !search) {
-                courses = getFilteredCourses(filter, data);
+                courses = getFilteredCourses(filter, data, lang);
             }
 
             const finalCourses =
@@ -85,7 +91,7 @@ export default function useAllCourses(
     };
 
     return useQuery({
-        queryKey: ["allCourses", search, filter, userData.userID],
+        queryKey: ["allCourses", search, filter, userData.userID, lang],
         queryFn: queryFunction,
         staleTime: 1000 * 60 * 5,
     });

@@ -1,4 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
+import { normalizeLanguage } from "../consts/i18n";
 import {
     AuthorCurseData,
     BBDD,
@@ -38,6 +40,9 @@ export default function useCourse(
     courseID: number | undefined,
     userData: UserDataApi
 ) {
+    const { i18n } = useTranslation();
+    const lang = normalizeLanguage(i18n.language);
+
     const queryFunction: () => Promise<
         Course & IsObtainedCourse
     > = async () => {
@@ -47,10 +52,10 @@ export default function useCourse(
             if (!data) throw new Error(ERROR_GET_DATA_MSG);
             if (!courseID) throw new Error(ERROR_GET_COURSE_ID_MSG);
 
-            const obtainedCourse = getCourseById(data, courseID);
+            const obtainedCourse = getCourseById(data, courseID, lang);
             if (!obtainedCourse) throw new Error(ERROR_GET_COURSE_ID_MSG);
 
-            const authors = getAuthors(data);
+            const authors = getAuthors(data, lang);
 
             const courseAuthorsData = obtainedCourse.authors.map(
                 (courseAuthorID) =>
@@ -77,7 +82,7 @@ export default function useCourse(
     };
 
     const query = useQuery({
-        queryKey: ["useCourse", courseID, userData?.userID],
+        queryKey: ["useCourse", courseID, userData?.userID, lang],
         queryFn: queryFunction,
         staleTime: 1000 * 60 * 5,
     });

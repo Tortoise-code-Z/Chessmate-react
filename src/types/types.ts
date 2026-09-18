@@ -1,6 +1,16 @@
 import { CHESS_LEVEL, FILTERS, LEVELS } from "../consts/general";
 import { PATHS } from "../consts/paths";
 
+// I18N — TEXTO LOCALIZADO
+//
+//
+
+/** Texto con una variante por cada idioma soportado (ver consts/i18n). */
+export type LocalizedText = { es: string; en: string };
+
+/** Lista de textos (p. ej. parrafos) con una variante por idioma. */
+export type LocalizedTextList = { es: string[]; en: string[] };
+
 // GENERAL TYPES
 //
 //
@@ -305,13 +315,99 @@ export type Comments = {
 //
 //
 
+// STORED (SEED) TYPES — la BBDD guarda el texto con campos por idioma {es,en}.
+// Los getters de api/ los resuelven al idioma activo y devuelven los tipos
+// "resueltos" de arriba (con string plano), de modo que hooks y componentes
+// no cambian. NO se localizan: level, titulo de ajedrez (ChessLevel), imagenes,
+// videos, precios ni fechas (ver DECISIONS ADR-009 / ADR-015).
+
+export type StoredAuthor = {
+    id: number;
+    name: LocalizedText;
+    description: LocalizedText;
+    level?: ChessLevel;
+    elo?: number;
+    image: string;
+};
+
+export type StoredSubthemeContent = {
+    id: number;
+    title: LocalizedText;
+    cover: string;
+    video: string;
+};
+
+export type StoredTheme = {
+    id: number;
+    title: LocalizedText;
+    description: LocalizedText;
+    content: StoredSubthemeContent[];
+};
+
+export type StoredToLearnTheme = {
+    id: number;
+    title: LocalizedText;
+    description: LocalizedText;
+};
+
+export type StoredContentCurseData = {
+    themes: StoredTheme[];
+    detailDescription: LocalizedTextList;
+};
+
+export type StoredToLearnCurseData = {
+    themes: StoredToLearnTheme[];
+    detailDescription: LocalizedTextList;
+};
+
+export type StoredCourse = {
+    courseID: number;
+    title: LocalizedText;
+    level: Level;
+    imageUrl: CourseImageUrls;
+    createdAt: string;
+    sales: number;
+    shortDescription: LocalizedText;
+    detailDescription: LocalizedText;
+    price: number;
+    content: StoredContentCurseData;
+    toLearn: StoredToLearnCurseData;
+    authors: number[];
+};
+
+export type StoredThemeDefaultCourses = {
+    id: number;
+    images: string[];
+    title: LocalizedText;
+    description: LocalizedText;
+};
+
+export type StoredContentDefaultCourseData = {
+    themes: StoredThemeDefaultCourses[];
+    detailDescription: LocalizedText;
+};
+
+export type StoredDefaultCourse = {
+    courseID: number;
+    title: LocalizedText;
+    level: Level;
+    imageUrl: CourseImageUrls;
+    content: StoredContentDefaultCourseData;
+};
+
+export type StoredOpinion = {
+    id: number;
+    idUser: number;
+    text: LocalizedText;
+};
+
 export type BBDD = {
     users: User[];
-    defaultCourses: DefualtCourse[];
-    courses: CourseJSON[];
+    defaultCourses: StoredDefaultCourse[];
+    courses: StoredCourse[];
     comments: JsonComments[];
-    opinions: JsonOpinion[];
-    authors: AuthorCurseData[];
+    opinions: StoredOpinion[];
+    authors: StoredAuthor[];
 };
 
 //

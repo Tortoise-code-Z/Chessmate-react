@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { normalizeLanguage } from "../consts/i18n";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import {
     BBDD,
@@ -51,7 +52,8 @@ type Variables = {
  */
 
 export function useBuyCourse() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const lang = normalizeLanguage(i18n.language);
     const queryClient = useQueryClient();
 
     const {
@@ -82,7 +84,7 @@ export function useBuyCourse() {
                 data
             ) as ObtainedCourse[];
 
-            const course = getCourseById(data, courseID);
+            const course = getCourseById(data, courseID, lang);
             if (!course) throw new Error(ERROR_GET_COURSE_MSG);
 
             const newUserCourses: ObtainedCourse[] = [
@@ -112,17 +114,11 @@ export function useBuyCourse() {
                 ),
             };
 
-            const getCourse = newData.courses.find(
-                (c) => c.courseID === courseID
-            );
-
-            if (!getCourse) throw new Error(ERROR_GET_COURSE_MSG);
-
             setItemLocalStorage<BBDD>(DATABASE_KEY, newData);
 
             return {
                 userID: userID,
-                course: getCourse,
+                course,
             };
         } catch (error) {
             console.error(error);

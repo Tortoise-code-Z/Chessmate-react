@@ -14,6 +14,13 @@ import {
     ThemesUserStatesOC,
     User,
 } from "../types/types";
+import { Language } from "../consts/i18n";
+import {
+    resolveAuthor,
+    resolveCourse,
+    resolveDefaultCourse,
+    resolveOpinion,
+} from "./localize";
 
 // Users
 export const getUsers: (data: BBDD) => User[] = (data) => {
@@ -29,12 +36,13 @@ export const getEmail: (data: BBDD, email: string) => boolean = (
 
 export const getDefaultCoursesWithProgress: (
     data: BBDD,
-    user: User
-) => (DefualtCourse & Progress)[] | undefined = (data, user) => {
+    user: User,
+    lang: Language
+) => (DefualtCourse & Progress)[] | undefined = (data, user, lang) => {
     return data?.defaultCourses?.map((df) =>
         df
             ? {
-                  ...df,
+                  ...resolveDefaultCourse(df, lang),
                   progress:
                       user?.defaultCourses?.find(
                           (udf) => udf.courseId === df.courseID
@@ -100,14 +108,20 @@ export const getUserObtainedCourse: (
 };
 
 // ObtainedCourses
-export const getCourses: (data: BBDD) => CourseJSON[] = (data) => {
-    return data.courses || ([] as CourseJSON[]);
+export const getCourses: (data: BBDD, lang: Language) => CourseJSON[] = (
+    data,
+    lang
+) => {
+    return (data.courses || []).map((course) => resolveCourse(course, lang));
 };
 
 // DefaultCourses
-export const getDefaultCourses: (data: BBDD) => DefualtCourse[] = (data) => {
-    return data.defaultCourses || ([] as DefualtCourse[]);
-};
+export const getDefaultCourses: (data: BBDD, lang: Language) => DefualtCourse[] =
+    (data, lang) => {
+        return (data.defaultCourses || []).map((course) =>
+            resolveDefaultCourse(course, lang)
+        );
+    };
 
 export const getUserDefaultCourseThemes: (
     data: BBDD,
@@ -134,14 +148,19 @@ export const getUserCourseThemes: (
 
 export const getDefaultCourse: (
     data: BBDD,
-    courseID: number | undefined
-) => DefualtCourse | undefined = (data, courseID) => {
-    return data.defaultCourses.find((dc) => dc?.courseID === courseID);
+    courseID: number | undefined,
+    lang: Language
+) => DefualtCourse | undefined = (data, courseID, lang) => {
+    const course = data.defaultCourses.find((dc) => dc?.courseID === courseID);
+    return course ? resolveDefaultCourse(course, lang) : undefined;
 };
 
 // Authors
-export const getAuthors: (data: BBDD) => AuthorCurseData[] = (data) => {
-    return data.authors || ([] as AuthorCurseData[]);
+export const getAuthors: (data: BBDD, lang: Language) => AuthorCurseData[] = (
+    data,
+    lang
+) => {
+    return (data.authors || []).map((author) => resolveAuthor(author, lang));
 };
 
 // Comments
@@ -151,30 +170,38 @@ export const getComments: (data: BBDD) => JsonComments[] = (data) => {
 
 // Opinions
 
-export const getOpinions: (data: BBDD) => JsonOpinion[] = (data) => {
-    return data.opinions || ([] as JsonOpinion[]);
+export const getOpinions: (data: BBDD, lang: Language) => JsonOpinion[] = (
+    data,
+    lang
+) => {
+    return (data.opinions || []).map((opinion) => resolveOpinion(opinion, lang));
 };
 
 // General
 
 export const getFilteredCourses = (
     filter: FilterOptions | undefined,
-    data: BBDD
+    data: BBDD,
+    lang: Language
 ): (CourseJSON & IsObtainedCourse)[] => {
     const coursesToMap =
         filter === "Todos"
             ? data.courses
             : data.courses.filter((c) => c.level === filter);
 
-    return coursesToMap || ([] as (CourseJSON & IsObtainedCourse)[]);
+    return (coursesToMap || []).map((course) => resolveCourse(course, lang));
 };
 
 export const getSearchedCourses = (
     search: string,
-    data: BBDD
+    data: BBDD,
+    lang: Language
 ): (CourseJSON & IsObtainedCourse)[] => {
     const searchLower = search.toLowerCase();
-    const searchedCourses = data.courses.filter(
+    const resolvedCourses = (data.courses || []).map((course) =>
+        resolveCourse(course, lang)
+    );
+    const searchedCourses = resolvedCourses.filter(
         (c) =>
             c.title.toLowerCase().includes(searchLower) ||
             c.shortDescription.toLowerCase().includes(searchLower) ||
@@ -186,9 +213,11 @@ export const getSearchedCourses = (
 
 export const getCourseById: (
     data: BBDD,
-    courseID: number
-) => CourseJSON | undefined = (data, courseID) => {
-    return data.courses.find((c) => c.courseID === courseID);
+    courseID: number,
+    lang: Language
+) => CourseJSON | undefined = (data, courseID, lang) => {
+    const course = data.courses.find((c) => c.courseID === courseID);
+    return course ? resolveCourse(course, lang) : undefined;
 };
 
 export const getDataLocalStorage: <T>(key: string) => T | null = (key) => {

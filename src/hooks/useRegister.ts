@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { normalizeLanguage } from "../consts/i18n";
 import { useMutation } from "@tanstack/react-query";
 import { DATABASE_KEY, USER_AUTH_KEY } from "../consts/dataBaseKey";
 import { BBDD, CustomError, User, UserAuth } from "../types/types";
@@ -43,7 +44,8 @@ import {
  */
 
 export function useRegister() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const lang = normalizeLanguage(i18n.language);
     const { setUser } = useUserAuthStore();
     const navigate = useNavigate();
     const {
@@ -83,7 +85,7 @@ export function useRegister() {
                     message: ERROR_EMAIL_EXIST_MSG,
                 });
 
-            const defaultCourses = getDefaultCourses(data);
+            const defaultCourses = getDefaultCourses(data, lang);
             const users = getUsers(data);
             const orderedUsers = orderedMayorToMenorByKey(users, "userID");
             const newUserId = orderedUsers[0].userID + 1;
