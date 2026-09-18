@@ -1,0 +1,18 @@
+{
+    "meta": { "title": "Chessmate - Portal" },
+    "myCourses": { "title": "Mis", "highlight": "cursos" },
+    "recommended": { "highlight": "Comprar", "rest": "cursos" },
+    "sections": { "free": "Gratuitos", "obtained": "Adquiridos" },
+    "defaultCourses": { "error": "No hemos podido recuperar los cursos.", "disabled": "Desactivado" },
+    "obtained": {
+        "none": "No tienes cursos aún...",
+        "goToCourses": "Ir a cursos",
+        "details": "Ver detalles",
+        "progressLabel": "Progreso"
+    },
+    "itemDefault": {
+        "notData": "No se ha podido recuperar los datos de este curso.",
+        "contact": "Contacte con nuestro servicio técnico para más información.",
+        "titleLabel": "Título"
+    }
+}

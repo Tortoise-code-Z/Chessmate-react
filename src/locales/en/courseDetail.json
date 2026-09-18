@@ -1,0 +1,38 @@
+{
+    "meta": { "title": "Chessmate - Course detail" },
+    "recommended": {
+        "titlePart": "You might also be",
+        "highlight": "Interested",
+        "error": "Couldn't load the courses."
+    },
+    "sections": {
+        "contentHighlight": "content",
+        "contentRest": "of the course",
+        "learnPart": "What will you do and",
+        "learnHighlight": "learn"
+    },
+    "goToCourse": "Go to course",
+    "description": "Description",
+    "authors": "Authors",
+    "details": {
+        "warning": "Some data couldn't be loaded. We're working on it.",
+        "emptyError": "Couldn't load the data. We're working on it.",
+        "noThemes": "This course has no topics yet.",
+        "noDescription": "No description."
+    },
+    "authorsList": {
+        "warning": "We couldn't retrieve some author's information. We'll fix it soon.",
+        "empty": "No authors to show."
+    },
+    "comments": {
+        "title": "Opinions from",
+        "titleHighlight": "users",
+        "prompt": "Leave your opinion about this course",
+        "placeholder": "Write your opinion...",
+        "sending": "Sending...",
+        "send": "Send",
+        "warning": "Some comments (or their data) may not have loaded. We're working on it.",
+        "emptyError": "We couldn't load all the comments. We're working on fixing it.",
+        "empty": "This course has no comments yet. Be the first to leave your opinion!"
+    }
+}

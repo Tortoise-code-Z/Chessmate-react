@@ -1,0 +1,23 @@
+{
+    "meta": { "title": "Chessmate - Class" },
+    "otherCourses": { "highlight": "Other", "rest": "of my courses" },
+    "noMoreCourses": "Looks like you don't have any more courses...",
+    "board": { "warning": "Some course data couldn't be loaded. We're working on fixing it." },
+    "actions": { "previous": "Previous", "next": "Next", "complete": "Complete" },
+    "backToPortal": "Back to portal",
+    "welcome": "Welcome to your course",
+    "content": { "highlight": "course", "rest": "content" },
+    "courseDetailsBtn": "View course details",
+    "intro": {
+        "pre": "In this section you'll find a series of organized topics about the course",
+        "mid": "in a clear and practical way, designed to guide you step by step in your learning. Each topic is made up of different",
+        "subthemes": "subtopics",
+        "end": ", and for each one you'll have access to a video lesson that explains the content simply and in detail."
+    },
+    "themes": {
+        "warning": "Some topics weren't loaded correctly. We're working on fixing it.",
+        "emptyError": "Couldn't load the topics. We're working on fixing it.",
+        "videosEmptyError": "Couldn't load the syllabus. We're working on fixing it as soon as possible."
+    },
+    "video": { "back": "Back", "complete": "Complete" }
+}
