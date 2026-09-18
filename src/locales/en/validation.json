@@ -1,0 +1,13 @@
+{
+    "empty": "This field cannot be left empty.",
+    "onlyNumbers": "This field must be numeric.",
+    "terms": "You must accept the terms and conditions.",
+    "usernameFormat": "Only lowercase letters, numbers and '_'.",
+    "emailFormat": "Please use the correct format: example@example.com.",
+    "passwordFormat": "It must have at least one uppercase letter, a number and a symbol.",
+    "repeatPassword": "Passwords don't match.",
+    "maxChars": "It must not exceed {{count}} characters.",
+    "minChars": "It must have at least {{count}} characters.",
+    "minElo": "You must have at least {{count}} ELO point.",
+    "maxElo": "It must not exceed {{count}} ELO points."
+}

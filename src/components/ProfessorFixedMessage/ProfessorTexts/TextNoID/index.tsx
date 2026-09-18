@@ -1,19 +1,8 @@
-type Props = {};
+import { useTranslation } from "react-i18next";
 
-/**
- * Component displaying a message when a course ID is missing or invalid.
- *
- * - Informs the user that the course purchase has been canceled for security reasons.
- * - Explains that the issue is being resolved and purchase will be possible later.
- * - Provides an apology for the inconvenience.
- *
- * Props:
- * - None.
- *
- * @returns A set of paragraphs explaining the issue and next steps.
- */
-
-function TextNoID({}: Props) {
+/** Mensaje del profesor: compra cancelada por falta de ID de curso. */
+function TextNoID() {
+    const { t } = useTranslation("professor");
     return (
         <>
             <p>
@@ -24,17 +13,12 @@ function TextNoID({}: Props) {
                         "size-140",
                     ].join(" ")}
                 >
-                    ¡Hola!
+                    {t("greeting")}
                 </span>{" "}
-                En esta sección hemos cancelado la compra de este curso por
-                motivos de seguridad.
+                {t("noId.p1")}
             </p>
-
-            <p>
-                Estamos trabajando duro para poder solucionar el problema. Una
-                vez se solucione, podrás comprarlo sin compromiso.
-            </p>
-            <p>¡Lo sentimos mucho!</p>
+            <p>{t("noId.p2")}</p>
+            <p>{t("sorry")}</p>
         </>
     );
 }

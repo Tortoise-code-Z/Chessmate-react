@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+import { normalizeLanguage } from "../consts/i18n";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import {
     BBDD,
@@ -50,6 +52,8 @@ type Variables = {
  */
 
 export function useBuyCourse() {
+    const { t, i18n } = useTranslation();
+    const lang = normalizeLanguage(i18n.language);
     const queryClient = useQueryClient();
 
     const {
@@ -80,7 +84,7 @@ export function useBuyCourse() {
                 data
             ) as ObtainedCourse[];
 
-            const course = getCourseById(data, courseID);
+            const course = getCourseById(data, courseID, lang);
             if (!course) throw new Error(ERROR_GET_COURSE_MSG);
 
             const newUserCourses: ObtainedCourse[] = [
@@ -110,19 +114,14 @@ export function useBuyCourse() {
                 ),
             };
 
-            const getCourse = newData.courses.find(
-                (c) => c.courseID === courseID
-            );
-
-            if (!getCourse) throw new Error(ERROR_GET_COURSE_MSG);
-
             setItemLocalStorage<BBDD>(DATABASE_KEY, newData);
 
             return {
                 userID: userID,
-                course: getCourse,
+                course,
             };
         } catch (error) {
+            console.error(error);
             throw error;
         }
     };
@@ -132,7 +131,7 @@ export function useBuyCourse() {
         onSuccess: (data: BuyCourseApi) => {
             setFeedbackState(true);
             setPath(location.pathname);
-            setMsg("¡¡Compra realizada con éxito!!");
+            setMsg(t("common:feedback.buySuccess"));
             setType("success");
 
             queryClient.invalidateQueries({
@@ -141,7 +140,7 @@ export function useBuyCourse() {
             });
 
             queryClient.setQueryData<(CourseJSON & IsObtainedCourse)[]>(
-                ["toBuyCourses", data.userID],
+                ["toBuyCourses", data.userID, lang],
                 (old) => {
                     if (!old) return old;
 
@@ -154,7 +153,7 @@ export function useBuyCourse() {
             );
 
             queryClient.setQueryData<(CourseJSON & IsObtainedCourse)[]>(
-                ["bestSellers", data.userID],
+                ["bestSellers", data.userID, lang],
                 (old) => {
                     if (!old) return old;
                     return old.map((o) =>
@@ -166,7 +165,7 @@ export function useBuyCourse() {
             );
 
             queryClient.setQueryData<(CourseJSON & IsObtainedCourse)[]>(
-                ["recentCourses", data.userID],
+                ["recentCourses", data.userID, lang],
                 (old) => {
                     if (!old) return old;
                     return old.map((o) =>
@@ -190,7 +189,7 @@ export function useBuyCourse() {
             );
 
             queryClient.setQueryData<CourseJSON & IsObtainedCourse>(
-                ["bannerCourse", data.userID],
+                ["bannerCourse", data.userID, lang],
                 (old) => {
                     if (!old) return old;
                     if (old.courseID === data.course.courseID)
@@ -200,7 +199,7 @@ export function useBuyCourse() {
             );
 
             queryClient.setQueryData<CourseJSON & IsObtainedCourse>(
-                ["useCourse", data.course.courseID, data.userID],
+                ["useCourse", data.course.courseID, data.userID, lang],
                 (old) => {
                     if (!old) return old;
                     if (old.courseID === data.course.courseID)
@@ -213,7 +212,7 @@ export function useBuyCourse() {
             console.error(error);
             setFeedbackState(true);
             setPath(location.pathname);
-            setMsg("Error al realizar la compra");
+            setMsg(t("common:feedback.buyError"));
             setType("error");
         },
     });

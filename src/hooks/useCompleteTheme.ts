@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+import { normalizeLanguage } from "../consts/i18n";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import {
     BBDD,
@@ -56,6 +58,8 @@ export function useCompleteTheme(
     index: number,
     setIndex: Dispatch<SetStateAction<number>>
 ) {
+    const { t, i18n } = useTranslation();
+    const lang = normalizeLanguage(i18n.language);
     const queryClient = useQueryClient();
     const {
         setState: setFeedbackState,
@@ -126,6 +130,7 @@ export function useCompleteTheme(
             setItemLocalStorage<BBDD>(DATABASE_KEY, newData);
             return finalCourseData;
         } catch (error) {
+            console.error(error);
             throw error;
         }
     };
@@ -138,7 +143,7 @@ export function useCompleteTheme(
             );
 
             queryClient.setQueryData<UseCourseApiType>(
-                ["defaultCourseById", data.courseId],
+                ["defaultCourseById", data.courseId, lang],
                 (oldData) => {
                     if (!oldData) return oldData;
                     return {
@@ -148,8 +153,8 @@ export function useCompleteTheme(
                 }
             );
 
-            queryClient.setQueryData<(DefualtCourse & Progress)[]>(
-                ["defaultCourses"],
+            queryClient.setQueriesData<(DefualtCourse & Progress)[]>(
+                { queryKey: ["defaultCourses"], exact: false },
                 (oldData) => {
                     if (!oldData) return oldData;
 
@@ -165,7 +170,7 @@ export function useCompleteTheme(
             console.error(error);
             setFeedbackState(true);
             setPath(location.pathname);
-            setMsg("Error al completar el tema");
+            setMsg(t("common:feedback.themeCompleteError"));
             setType("error");
         },
     });

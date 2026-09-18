@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import InputGroup from "../../../../components/InputGroup";
 import { registerSchemaValues } from "../../../../Schemas/registerSchema";
@@ -29,10 +30,11 @@ type Props = {
  */
 
 function RegisterFormActions({ isPending }: Props) {
+    const { t } = useTranslation("auth");
     return (
         <div className={styles.actions}>
             <InputGroup<registerSchemaValues>
-                label="Acepto las condiciones y términos."
+                label={t("register.termsLabel")}
                 labelDisplay="Row"
                 name="terms"
                 placeholder="Escriba de nuevo su contraseña..."
@@ -46,18 +48,18 @@ function RegisterFormActions({ isPending }: Props) {
                     className={["button", "buttonSecondary"].join(" ")}
                     to={PATHS.index}
                 >
-                    Volver a inicio
+                    {t("register.backHome")}
                 </NavLink>
                 <Button type="submit">
                     {isPending ? (
                         <>
                             <ClipLoader color="white" />
-                            Cargando...
+                            {t("register.loading")}
                         </>
                     ) : (
                         <>
                             <FaUserPlus />
-                            Registrarme
+                            {t("register.submit")}
                         </>
                     )}
                 </Button>
@@ -67,7 +69,7 @@ function RegisterFormActions({ isPending }: Props) {
                 className={["linkToLoginSigin"].join(" ")}
                 to={PATHS.login}
             >
-                ¿Ya tienes una cuenta? Inicia sesión aquí.
+                {t("register.hasAccount")}
             </NavLink>
         </div>
     );

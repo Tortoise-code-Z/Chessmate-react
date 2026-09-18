@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import UserCommentItem from "./UserCommentItem";
 import styles from "./UserCommentBox.module.css";
@@ -10,8 +11,6 @@ import { useState } from "react";
 import WarningMsg from "../../WarningMsg";
 import MsgEmpty from "../../MsgEmpty";
 import { asArray, asNumber, isNumber, isString } from "../../../utils/general";
-type Props = {};
-
 /**
  * UsersCommentBox - React component to display a list of user comments for a specific course.
  *
@@ -29,7 +28,7 @@ type Props = {};
  * @returns JSX element: A styled `ul` with user comments and optional warning messages.
  */
 
-function UsersCommentBox({}: Props) {
+function UsersCommentBox() {
     const params = useParams();
 
     const {
@@ -43,6 +42,7 @@ function UsersCommentBox({}: Props) {
     const [warningComment, setWarningComment] = useState<WarningMsgType | null>(
         null
     );
+    const { t } = useTranslation("courseDetail");
 
     return (
         <>
@@ -74,13 +74,10 @@ function UsersCommentBox({}: Props) {
                             setWarningState: setWarningComment,
                             warningState: warningComment,
                         }}
-                        msg="Algunos comentarios (o datos de estos) pueden no haberse recuperado. Estamos trabajando en ello."
-                        msgEmpty="No hemos podido recuperar todos los comentarios. Estamos trabajando para solucionarlo."
+                        msg={t("comments.warning")}
+                        msgEmpty={t("comments.emptyError")}
                         emptyNode={
-                            <MsgEmpty
-                                msg="Este curso aun no tiene comentarios. ¡Sé el
-                                    primero en dejar tu opinión!"
-                            />
+                            <MsgEmpty msg={t("comments.empty")} />
                         }
                     >
                         {(comment, index, canRender) => {

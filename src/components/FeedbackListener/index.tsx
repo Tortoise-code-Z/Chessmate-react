@@ -2,8 +2,6 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
 
-type Props = {};
-
 /**
  * Listener component that resets feedback messages on route change.
  *
@@ -17,7 +15,7 @@ type Props = {};
  * @returns `null` (does not render any visible elements).
  */
 
-export default function FeedbackListener({}: Props) {
+export default function FeedbackListener() {
     const { state, path, setPath, setState, setMsg, setType } =
         useFeedbackMessageStore();
 

@@ -1,0 +1,12 @@
+{
+    "meta": { "title": "Chessmate - Courses" },
+    "allTitle": { "highlight": "all", "rest": "courses" },
+    "recent": { "title": "Newly", "highlight": "arrived" },
+    "bestSellers": { "title": "Best", "highlight": "selling" },
+    "banner": { "error": "Couldn't load the course..." },
+    "search": {
+        "placeholder": "Search...",
+        "button": "Search",
+        "noResults": "No courses found..."
+    }
+}

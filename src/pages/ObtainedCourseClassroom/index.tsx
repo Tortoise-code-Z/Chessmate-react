@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import UserCoursesSection from "../../components/UserCoursesSection";
 import ObtainedCourseDataSection from "./ObtainedCourseDataSection";
@@ -8,8 +9,6 @@ import FeedbackMessage from "../../components/FeedbackMessage";
 import FeedbackListener from "../../components/FeedbackListener";
 import ProfessorListener from "../../components/ProfessorListenner";
 import { Helmet } from "react-helmet-async";
-
-type Props = {};
 
 /**
  * ObtainedCourseClassroom - React component that renders the classroom view for a course
@@ -29,13 +28,14 @@ type Props = {};
  * @returns JSX.Element: A classroom interface for an obtained course with course details, comments, and additional courses.
  */
 
-function ObtainedCourseClassroom({}: Props) {
+function ObtainedCourseClassroom() {
     const params = useParams();
+    const { t } = useTranslation("classroom");
 
     return (
         <>
             <Helmet>
-                <title>Chessmate - Clase</title>
+                <title>{t("meta.title")}</title>
             </Helmet>
             <FeedbackListener />
             <ProfessorListener />
@@ -50,13 +50,13 @@ function ObtainedCourseClassroom({}: Props) {
                 obtainedCoursesLimit={3}
                 showDefaultCourses={false}
                 obtainedCourseClassID={Number(params.id)}
-                msg="Parece que no tienes más cursos..."
+                msg={t("noMoreCourses")}
             >
                 <TitleHx level={2}>
                     <span className={["upperCase", "span-pr-color"].join(" ")}>
-                        otros
+                        {t("otherCourses.highlight")}
                     </span>{" "}
-                    de mis cursos
+                    {t("otherCourses.rest")}
                 </TitleHx>
             </UserCoursesSection>
         </>

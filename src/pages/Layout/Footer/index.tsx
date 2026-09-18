@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { NavLink, useLocation } from "react-router-dom";
 import { MdOutlineEmail } from "react-icons/md";
 import { FaInstagram } from "react-icons/fa";
@@ -6,8 +7,6 @@ import styles from "./Footer.module.css";
 import { PATHS } from "../../../consts/paths";
 import { LOGO_IMAGE } from "../../../consts/images";
 import FigureImage from "../../../components/FigureImage";
-
-type Props = {};
 
 /**
  * Footer - React component that renders the footer section of the application.
@@ -26,22 +25,23 @@ type Props = {};
  * @returns JSX.Element: A styled footer with contact info, social links, legal text, and logo.
  */
 
-function Footer({}: Props) {
+function Footer() {
     const { pathname } = useLocation();
     const isContactPage: boolean = pathname.startsWith("/contact");
+    const { t } = useTranslation();
 
     return (
         <footer className={styles.footer}>
             <div className={styles.footerActions}>
                 {!isContactPage && (
                     <div>
-                        <p>Envianos un correo personalizado</p>
+                        <p>{t("footer.emailCta")}</p>
                         <NavLink
                             className={["button", "buttonTerciary"].join(" ")}
                             to={PATHS.contact}
                         >
                             <MdOutlineEmail />
-                            Contacto
+                            {t("footer.contact")}
                         </NavLink>
                     </div>
                 )}
@@ -65,11 +65,8 @@ function Footer({}: Props) {
                 </div>
             </div>
             <div className={styles.footerTerms}>
-                <p>© [2025] Chessmate. Todos los derechos reservados.</p>
-                <p>
-                    Desarrollado con pasión por el ajedrez | Política de
-                    privacidad | Términos y condiciones
-                </p>
+                <p>{t("footer.rights")}</p>
+                <p>{t("footer.legal")}</p>
                 <FigureImage
                     src={LOGO_IMAGE.image}
                     alt={LOGO_IMAGE.alt}

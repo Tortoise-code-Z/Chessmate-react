@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import Form from "../../../components/Form";
 import { loginSchema, LoginSchemaValues } from "../../../Schemas/loginSchema";
 import styles from "./LoginForm.module.css";
@@ -27,10 +29,13 @@ type Props = {
  */
 
 function LoginForm({ handleSubmit, isPending }: Props) {
+    const { t, i18n } = useTranslation("validation");
+    const schema = useMemo(() => loginSchema(t), [t, i18n.language]);
+
     return (
         <Form<LoginSchemaValues>
             classNames={[styles.loginForm]}
-            schema={loginSchema}
+            schema={schema}
             onSubmit={handleSubmit}
             animatedOptions={{ direction: "left" }}
         >

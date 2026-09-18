@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { AnimatedInView } from "../../../../components/AnimatedInView";
 import TitleHx from "../../../../components/TitleHx";
 import { Course } from "../../../../types/types";
@@ -24,10 +25,11 @@ type Props = {
  */
 
 function AuthorsSection({ data }: Props) {
+    const { t } = useTranslation("courseDetail");
     return (
         <AnimatedInView>
             <div className={styles.authors}>
-                <TitleHx level={2}>Autores</TitleHx>
+                <TitleHx level={2}>{t("authors")}</TitleHx>
                 <Authors data={data} />
             </div>
         </AnimatedInView>

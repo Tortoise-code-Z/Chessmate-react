@@ -1,11 +1,10 @@
+import { useTranslation } from "react-i18next";
 import styles from "./CourseCommentSection.module.css";
 import UsersCommentBox from "./UsersCommentsBox";
 import CommentForm from "./CommentsForm";
 import TitleHx from "../TitleHx";
 import LightComponent from "../LightComponent";
 import { AnimatedInView } from "../AnimatedInView";
-
-type Props = {};
 
 /**
  * Section that displays course comments and a form to submit new ones.
@@ -21,15 +20,16 @@ type Props = {};
  * @returns Section with course comments, comment form, and visual decorations.
  */
 
-function CourseCommentSection({}: Props) {
+function CourseCommentSection() {
+    const { t } = useTranslation("courseDetail");
     return (
         <AnimatedInView>
             <section className={styles.courseCommentSection}>
                 <LightComponent top={80} right={50} />
                 <TitleHx level={2}>
-                    Opiniones de los{" "}
+                    {t("comments.title")}{" "}
                     <span className={["span-pr-color", "upperCase"].join(" ")}>
-                        usuarios
+                        {t("comments.titleHighlight")}
                     </span>
                 </TitleHx>
 

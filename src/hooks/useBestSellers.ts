@@ -1,4 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
+import { normalizeLanguage } from "../consts/i18n";
 import {
     BBDD,
     CourseJSON,
@@ -38,6 +40,9 @@ export default function useBestSeller(
     limit: number | undefined,
     userData: UserDataApi
 ) {
+    const { i18n } = useTranslation();
+    const lang = normalizeLanguage(i18n.language);
+
     const queryFunction: () => Promise<
         (CourseJSON & IsObtainedCourse)[]
     > = async () => {
@@ -48,7 +53,7 @@ export default function useBestSeller(
             const user = getUserById(userData?.userID, data);
             if (!user && userData?.userID) throw new Error(ERROR_GET_USER_MSG);
 
-            const courses = getCourses(data);
+            const courses = getCourses(data, lang);
             const userCourses = getUserObtainedCourses(userData?.userID, data);
 
             const filteredCourses = orderedMayorToMenorByKey(
@@ -71,7 +76,7 @@ export default function useBestSeller(
     };
 
     return useQuery({
-        queryKey: ["bestSellers", userData?.userID],
+        queryKey: ["bestSellers", userData?.userID, lang],
         queryFn: queryFunction,
         staleTime: 1000 * 60 * 5,
     });

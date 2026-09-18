@@ -1,19 +1,8 @@
-type Props = {};
+import { useTranslation } from "react-i18next";
 
-/**
- * Component displaying a message when a user tries to comment without purchasing the course.
- *
- * - Informs the user that they need to purchase the course before commenting.
- * - Explains the policy is for security and to maintain order in comments.
- * - Encourages the user to purchase the course and enjoy it.
- *
- * Props:
- * - None.
- *
- * @returns A set of paragraphs explaining why commenting requires course purchase.
- */
-
-function TextsCantCommenHasntBuy({}: Props) {
+/** Mensaje del profesor: no puede comentar sin haber comprado el curso. */
+function TextsCantCommenHasntBuy() {
+    const { t } = useTranslation("professor");
     return (
         <>
             <p>
@@ -24,23 +13,20 @@ function TextsCantCommenHasntBuy({}: Props) {
                         "size-140",
                     ].join(" ")}
                 >
-                    ¡Hola!
+                    {t("greeting")}
                 </span>{" "}
-                Para poder comentar este curso, necesitas{" "}
+                {t("cantComment.p1pre")}{" "}
                 <span
                     className={["span-compl-color", "text-bold-italic"].join(
                         " "
                     )}
                 >
-                    comprarlo
+                    {t("cantComment.p1highlight")}
                 </span>
                 .
             </p>
-            <p>
-                Es por seguridad de todos. Para mantener el orden en los
-                comentarios.
-            </p>
-            <p>¡Espero compres el curso y te guste!</p>
+            <p>{t("cantComment.p2")}</p>
+            <p>{t("cantComment.p3")}</p>
         </>
     );
 }

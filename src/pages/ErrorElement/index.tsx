@@ -1,4 +1,5 @@
 import { useRouteError, isRouteErrorResponse, NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { PATHS } from "../../consts/paths";
 import styles from "./ErrorElement.module.css";
 import LightComponent from "../../components/LightComponent";
@@ -28,24 +29,26 @@ type Props = {
  */
 
 export default function ErrorElement({ msg }: Props) {
-    const error = msg ? null : useRouteError();
+    const routeError = useRouteError();
+    const error = msg ? null : routeError;
+    const { t } = useTranslation();
 
-    let title = "¡Ups! Algo salió mal";
-    let message = "Ocurrió un error inesperado.";
+    let title = t("common:error.title");
+    let message = t("common:error.generic");
 
     if (isRouteErrorResponse(error) && error) {
         if (error.status === 404) {
-            title = "404 - Página no encontrada";
-            message = "La página que buscas no existe.";
+            title = t("common:error.notFoundTitle");
+            message = t("common:error.notFound");
         } else {
-            title = `Error ${error.status}`;
+            title = t("common:error.statusTitle", { status: error.status });
             message = error.statusText;
         }
     } else if (error instanceof Error) {
-        message = error.message;
+        message = t(error.message, { defaultValue: error.message });
     }
 
-    if (msg) message = msg;
+    if (msg) message = t(msg, { defaultValue: msg });
 
     return (
         <section className={styles.errorElement}>
@@ -60,14 +63,13 @@ export default function ErrorElement({ msg }: Props) {
                     to={PATHS.index}
                     className={["button", "buttonSecondary"].join(" ")}
                 >
-                    Volver al inicio
+                    {t("common:error.backHome")}
                 </NavLink>
             )}
 
             <div className={styles.contactMessage}>
                 <p>
-                    Si el problema persiste, contacte con nuestro equipo por
-                    correo:
+                    {t("common:error.contactIntro")}
                 </p>
                 <p>chessmate@protonmail.com</p>
             </div>

@@ -1,15 +1,11 @@
-import {
-    CHESS_LEVEL,
-    DATE_DEFAULT_MSG,
-    DESCRIPTION_DEFAULT_MSG,
-    USER_DEFAULT_MSG,
-} from "../../../../consts/general";
+import { CHESS_LEVEL } from "../../../../consts/general";
 import { AVATAR_DEFAULT_IMAGE } from "../../../../consts/images";
 import { ChessLevel, Comments } from "../../../../types/types";
 import { asString, isOnValues } from "../../../../utils/general";
 import ChessTitle from "../../../ChessTitle";
 import FigureImage from "../../../FigureImage";
 import styles from "./UserCommentItem.module.css";
+import { useTranslation } from "react-i18next";
 
 type Props = {
     comment: Comments;
@@ -20,10 +16,10 @@ type Props = {
  *
  * Features:
  * - Shows the user's avatar (default if none).
- * - Displays username with a fallback (`USER_DEFAULT_MSG`).
+ * - Displays username with a fallback (`common:defaults.user`).
  * - Shows the user's Chess title using `ChessTitle` (validated against `CHESS_LEVEL`).
- * - Displays the comment creation date with a fallback (`DATE_DEFAULT_MSG`).
- * - Displays the comment text with a fallback (`DESCRIPTION_DEFAULT_MSG`).
+ * - Displays the comment creation date with a fallback (`common:defaults.date`).
+ * - Displays the comment text with a fallback (`common:defaults.description`).
  *
  * Props:
  * - `comment`: A `Comments` object containing user info, text, and metadata.
@@ -32,6 +28,7 @@ type Props = {
  */
 
 function UserCommentItem({ comment }: Props) {
+    const { t } = useTranslation();
     return (
         <li className={styles.commentItem}>
             <div className={styles.userData}>
@@ -44,7 +41,7 @@ function UserCommentItem({ comment }: Props) {
                 />
 
                 <p className={styles.username}>
-                    {asString(comment?.user?.username) || USER_DEFAULT_MSG}
+                    {asString(comment?.user?.username) || t("common:defaults.user")}
                 </p>
                 <div>
                     <ChessTitle
@@ -57,10 +54,10 @@ function UserCommentItem({ comment }: Props) {
                 </div>
             </div>
             <p className={styles.createdAt}>
-                {asString(comment?.createdAt) || DATE_DEFAULT_MSG}
+                {asString(comment?.createdAt) || t("common:defaults.date")}
             </p>
             <p className={styles.commentText}>
-                {asString(comment?.text) || DESCRIPTION_DEFAULT_MSG}
+                {asString(comment?.text) || t("common:defaults.description")}
             </p>
         </li>
     );

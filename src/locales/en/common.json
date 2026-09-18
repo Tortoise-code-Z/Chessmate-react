@@ -1,0 +1,113 @@
+{
+    "nav": {
+        "home": "Home",
+        "portal": "My portal",
+        "courses": "Courses",
+        "contact": "Contact",
+        "titleHome": "Home",
+        "titlePortal": "Go to my portal",
+        "titleCourses": "View courses",
+        "titleContact": "Contact us"
+    },
+    "session": {
+        "register": "Sign up",
+        "login": "Log in",
+        "logout": "Log out",
+        "defaultUser": "User"
+    },
+    "footer": {
+        "emailCta": "Send us a personalized email",
+        "contact": "Contact",
+        "rights": "© [2025] Chessmate. All rights reserved.",
+        "legal": "Developed with a passion for chess | Privacy policy | Terms and conditions"
+    },
+    "language": {
+        "label": "Language",
+        "selector": "Change language",
+        "es": "Español",
+        "en": "English"
+    },
+    "levels": {
+        "Todos": "All",
+        "Principiante": "Beginner",
+        "Intermedio": "Intermediate",
+        "Avanzado": "Advanced",
+        "Experto": "Expert",
+        "Master": "Master"
+    },
+    "course": {
+        "buy": "Buy",
+        "buying": "Buying...",
+        "obtained": "Obtained",
+        "warning": "Some course or its data may be incomplete. We're working on fixing it.",
+        "emptyError": "Couldn't load the courses. We're working on fixing it."
+    },
+    "empty": {
+        "default": "Nothing to show.",
+        "noCourses": "No courses to show."
+    },
+    "none": "None",
+    "chessTitles": {
+        "untitled": "Untitled"
+    },
+    "errors": {
+        "getUserId": "Couldn't retrieve the user ID...",
+        "getCourseId": "Couldn't retrieve the course ID...",
+        "getData": "Couldn't retrieve the data...",
+        "getUser": "Couldn't retrieve the user data...",
+        "getCourse": "Couldn't retrieve the course data...",
+        "getCourses": "Couldn't retrieve the courses data...",
+        "getSubthemeId": "Couldn't retrieve the subtheme ID...",
+        "getThemeId": "Couldn't retrieve the theme ID...",
+        "getThemesId": "Couldn't retrieve the course themes' IDs...",
+        "userPassword": "Incorrect username or password",
+        "userTaken": "That username already exists. Please try another.",
+        "emailExist": "The email entered is already in use.",
+        "signOut": "Couldn't sign out. Please contact our team."
+    },
+    "defaults": {
+        "pieceTitle": "Piece",
+        "progress": "No progress",
+        "level": "No level assigned",
+        "title": "Untitled",
+        "description": "No description.",
+        "price": "N/A",
+        "chessLevel": "N/A",
+        "date": "N/A",
+        "elo": "N/A",
+        "score": "N/A",
+        "rank": "N/A",
+        "author": "Author",
+        "user": "User",
+        "opinion": "No opinion.",
+        "breadcrumb": "N/A"
+    },
+    "guards": {
+        "courseNotFound": "We couldn't find the course you're looking for...",
+        "courseAccessError": "There was an error trying to access the course...",
+        "mustBuyCourse": "To access the course you must buy it first...",
+        "checkingCourse": "Checking course..",
+        "loadingCourse": "Loading course...",
+        "checkingAuth": "Checking authorization...",
+        "initDatabase": "Initializing database...",
+        "checkingSession": "Checking session..."
+    },
+    "error": {
+        "title": "Oops! Something went wrong",
+        "generic": "An unexpected error occurred.",
+        "notFoundTitle": "404 - Page not found",
+        "notFound": "The page you're looking for doesn't exist.",
+        "statusTitle": "Error {{status}}",
+        "backHome": "Back to home",
+        "contactIntro": "If the problem persists, please contact our team by email:",
+        "dataStatePrefix": "We're very sorry, an error occurred"
+    },
+    "feedback": {
+        "commentSent": "Comment sent successfully",
+        "commentError": "The comment couldn't be sent...",
+        "buySuccess": "Purchase completed successfully!!",
+        "buyError": "Error completing the purchase",
+        "themeCompleted": "Theme completed",
+        "themeCompleteError": "Error completing the theme"
+    }
+}

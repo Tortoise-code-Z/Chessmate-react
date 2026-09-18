@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { LOGO_IMAGE } from "../../consts/images";
 import { LoginSchemaValues } from "../../Schemas/loginSchema";
 import styles from "./Login.module.css";
@@ -10,8 +11,7 @@ import FeedbackListener from "../../components/FeedbackListener";
 import { AnimatedInView } from "../../components/AnimatedInView";
 import ProfessorListener from "../../components/ProfessorListenner";
 import { Helmet } from "react-helmet-async";
-
-type Props = {};
+import LanguageSelector from "../../components/LanguageSelector";
 
 /**
  * Login - React component that renders the login page for the application.
@@ -29,8 +29,9 @@ type Props = {};
  * @returns JSX.Element: A login page with animated logo, feedback messages, and login form.
  */
 
-function Login({}: Props) {
+function Login() {
     const { mutate, isPending } = useLogin();
+    const { t } = useTranslation("auth");
 
     const handleSubmit = (data: LoginSchemaValues) => {
         mutate({
@@ -41,8 +42,9 @@ function Login({}: Props) {
 
     return (
         <>
+            <LanguageSelector fixed />
             <Helmet>
-                <title>Chessmate - Inicio de sesión</title>
+                <title>{t("login.meta")}</title>
             </Helmet>
             <FeedbackListener />
             <ProfessorListener />
@@ -52,7 +54,7 @@ function Login({}: Props) {
             <section className={styles.login}>
                 <AnimatedInView config={{ direction: "right" }}>
                     <div className={styles.logoContainer}>
-                        <TitleHx>Iniciar sesión</TitleHx>
+                        <TitleHx>{t("login.title")}</TitleHx>
                         <FigureImage
                             src={LOGO_IMAGE.image}
                             alt={LOGO_IMAGE.alt}

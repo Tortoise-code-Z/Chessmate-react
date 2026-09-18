@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "title": "Chessmate - Online chess courses platform"
+    },
+    "hero": {
+        "subtitle": "Your website to learn chess."
+    },
+    "featured": {
+        "part1": "Become a true",
+        "highlight": "professional",
+        "part2": "with",
+        "part3": "our courses"
+    },
+    "cards": [
+        {
+            "title": "First steps",
+            "description": "With our beginner courses you'll learn to master everything about the board (notation, positioning, etc.) as well as the moves and abilities of each chess piece"
+        },
+        {
+            "title": "Openings",
+            "description": "You'll learn the most common chess openings, as well as how to master the start of your games like a true professional"
+        },
+        {
+            "title": "Endgames",
+            "description": "We'll teach you the best techniques and the latest theory so you become a true professional in chess endgames and can checkmate your rivals like no one else"
+        }
+    ],
+    "signup": {
+        "titleHighlight": "Sign up",
+        "titleRest": "and start learning",
+        "subtitle": "Access free courses and exclusive lessons"
+    },
+    "close": {
+        "thanks": "Thank you so much for",
+        "trust": "trusting",
+        "us": "in us",
+        "waiting": "We look forward to seeing you in",
+        "portal": "your student portal"
+    },
+    "opinions": {
+        "title": "What our",
+        "highlight": "students say",
+        "error": "Couldn't load the opinions."
+    },
+    "bestSellers": {
+        "title": "Our best",
+        "highlight": "selling courses"
+    },
+    "bestPlayers": {
+        "highlight": "Rating players",
+        "rest": "Chess.com",
+        "error": "Couldn't load the data",
+        "rank": "Rank",
+        "viewProfile": "View profile"
+    }
+}

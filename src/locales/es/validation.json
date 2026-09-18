@@ -1,0 +1,13 @@
+{
+    "empty": "No puede dejar este espacio vacío.",
+    "onlyNumbers": "Este campo debe ser numérico.",
+    "terms": "Debes aceptar los términos y condiciones.",
+    "usernameFormat": "Solo minúsculas, números y '_'.",
+    "emailFormat": "Por favor, cíñase al formato correcto: example@example.com.",
+    "passwordFormat": "Debe tener al menos una mayúscula, número y símbolo.",
+    "repeatPassword": "Las contraseñas no coinciden.",
+    "maxChars": "No debe exceder los {{count}} caracteres.",
+    "minChars": "Debe tener al menos {{count}} caracteres.",
+    "minElo": "Debes tener al menos {{count}} punto ELO.",
+    "maxElo": "No debe exceder los {{count}} punto ELO."
+}

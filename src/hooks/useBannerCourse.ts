@@ -1,4 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
+import { normalizeLanguage } from "../consts/i18n";
 import {
     BBDD,
     CourseJSON,
@@ -34,6 +36,9 @@ import { ERROR_GET_DATA_MSG, ERROR_GET_USER_MSG } from "../consts/api";
  */
 
 export default function useBannerCourse(key: string, userData: UserDataApi) {
+    const { i18n } = useTranslation();
+    const lang = normalizeLanguage(i18n.language);
+
     const queryFunction: () => Promise<
         CourseJSON & IsObtainedCourse
     > = async () => {
@@ -44,7 +49,7 @@ export default function useBannerCourse(key: string, userData: UserDataApi) {
             const user = getUserById(userData?.userID, data);
             if (!user && userData?.userID) throw new Error(ERROR_GET_USER_MSG);
 
-            const courses = getCourses(data);
+            const courses = getCourses(data, lang);
             const filteredCourses = orderedMayorToMenorByKey(
                 courses,
                 "sales"
@@ -69,7 +74,7 @@ export default function useBannerCourse(key: string, userData: UserDataApi) {
     };
 
     return useQuery({
-        queryKey: ["bannerCourse", userData.userID],
+        queryKey: ["bannerCourse", userData.userID, lang],
         queryFn: queryFunction,
         staleTime: Infinity,
         refetchOnWindowFocus: false,

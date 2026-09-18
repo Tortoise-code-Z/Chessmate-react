@@ -62,7 +62,7 @@ function FigureImage({
 
     return (
         <>
-            {!!animatedOptions ? (
+            {animatedOptions ? (
                 <AnimatedInView config={animatedOptions}>
                     {figure}
                 </AnimatedInView>

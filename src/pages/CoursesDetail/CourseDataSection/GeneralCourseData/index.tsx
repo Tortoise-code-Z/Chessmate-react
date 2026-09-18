@@ -1,16 +1,11 @@
+import { useTranslation } from "react-i18next";
 import { Course, IsObtainedCourse, Level } from "../../../../types/types";
 import { getImage, getImageSize } from "../../../../utils/images";
 import styles from "./GeneralCourseData.module.css";
 import PurchaseAction from "../../../../components/PurchaseAction";
 import FigureImage from "../../../../components/FigureImage";
 import TitleHx from "../../../../components/TitleHx";
-import {
-    DESCRIPTION_DEFAULT_MSG,
-    LEVEL_DEFAULT_MSG,
-    LEVELS,
-    PRICE_DEFAULT_MSG,
-    TITLE_DEFAULT_MSG,
-} from "../../../../consts/general";
+import { LEVELS } from "../../../../consts/general";
 import {
     asBoolean,
     asNumber,
@@ -46,6 +41,8 @@ type Props = {
  */
 
 function GeneralCourseData({ data }: Props) {
+    const { t } = useTranslation();
+    const level = isOnValues<Level>(data?.level, LEVELS);
     return (
         <AnimatedInView>
             <div className={styles.generalCourseData}>
@@ -60,20 +57,19 @@ function GeneralCourseData({ data }: Props) {
                 <div className={styles.dataContainer}>
                     <div className={styles.data}>
                         <TitleHx>
-                            {asString(data?.title) || TITLE_DEFAULT_MSG}
+                            {asString(data?.title) || t("common:defaults.title")}
                         </TitleHx>
                         <p className={styles.description}>
                             {asString(data?.shortDescription) ||
-                                DESCRIPTION_DEFAULT_MSG}
+                                t("common:defaults.description")}
                         </p>
                         <span className={styles.level}>
-                            {isOnValues<Level>(data?.level, LEVELS) ||
-                                LEVEL_DEFAULT_MSG}
+                            {level ? t(`levels.${level}`) : t("common:defaults.level")}
                         </span>
                         <p className={styles.price}>
                             {isNumber(data?.price)
                                 ? `${data.price}$`
-                                : PRICE_DEFAULT_MSG}
+                                : t("common:defaults.price")}
                         </p>
                     </div>
                     <div className={styles.actions}>
@@ -88,7 +84,7 @@ function GeneralCourseData({ data }: Props) {
                                 )}
                             >
                                 <FaBookReader />
-                                Ir al curso
+                                {t("courseDetail:goToCourse")}
                             </NavLink>
                         )}
                         <PurchaseAction

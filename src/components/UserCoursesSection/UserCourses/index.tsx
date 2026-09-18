@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import styles from "./UserCourses.module.css";
 import UserDefaultCourses from "./UserDefaultCourses";
 import LightComponent from "../../LightComponent";
@@ -44,13 +45,14 @@ function UserCourses({
     const [courseWarning, setCourseWarning] = useState<WarningMsgType | null>(
         null
     );
+    const { t } = useTranslation("dashboard");
 
     return (
         <div className={styles.userCourses}>
             <LightComponent top={50} right={30} />
             {showDefaultCourses && (
                 <div className={styles.userDefaultCoursesContainer}>
-                    <TitleHx level={3}>Gratuitos</TitleHx>
+                    <TitleHx level={3}>{t("sections.free")}</TitleHx>
 
                     {(defaultWarning?.emptyMsg || defaultWarning?.msg) && (
                         <WarningMsg
@@ -70,7 +72,7 @@ function UserCourses({
 
             {showObtainedCourses && (
                 <div className={styles.userObtainedCoursesContainer}>
-                    <TitleHx level={3}>Adquiridos</TitleHx>
+                    <TitleHx level={3}>{t("sections.obtained")}</TitleHx>
                     {(courseWarning?.emptyMsg || courseWarning?.msg) && (
                         <WarningMsg
                             msg={

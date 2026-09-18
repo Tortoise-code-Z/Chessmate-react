@@ -1,22 +1,15 @@
+import { useTranslation } from "react-i18next";
 import { useProfessorMsgStore } from "../../../../hooks/useProfessorMsgStore";
 
-type Props = {};
-
-/**
- * Component displaying a message when a user cannot buy or comment due to not being logged in.
- *
- * - Uses `useProfessorMsgStore` to determine the current action (`value`) and tailor the message.
- * - Informs the user that they need to log in or register to proceed with buying or commenting.
- * - Encourages the user to register, emphasizing that it is free.
- *
- * Props:
- * - None.
- *
- * @returns A set of paragraphs guiding the user to log in or register before taking action.
- */
-
-function TextsNoSesion({}: Props) {
+/** Mensaje del profesor: necesita iniciar sesión/registrarse para comprar o comentar. */
+function TextsNoSesion() {
     const { value } = useProfessorMsgStore();
+    const { t } = useTranslation("professor");
+
+    const verb =
+        value === "cantBuySesion"
+            ? t("noSession.buy")
+            : t("noSession.comment");
 
     return (
         <>
@@ -28,28 +21,25 @@ function TextsNoSesion({}: Props) {
                         "size-140",
                     ].join(" ")}
                 >
-                    ¡Hola!
+                    {t("greeting")}
                 </span>{" "}
-                Para poder {value === "cantBuySesion" ? "comprar" : "comentar"}{" "}
-                un curso, necesitas{" "}
+                {t("noSession.p1pre")} {verb} {t("noSession.p1mid")}{" "}
                 <span
                     className={["span-compl-color", "text-bold-italic"].join(
                         " "
                     )}
                 >
-                    {value === "cantCommentHasntBuyCourse" && "comprarlo"}
+                    {value === "cantCommentHasntBuyCourse" &&
+                        t("noSession.hlBuy")}
                     {(value === "cantBuySesion" ||
                         value === "cantCommentSesion") &&
-                        "iniciar sesion o registrarte"}
+                        t("noSession.hlSession")}
                 </span>
                 .
             </p>
 
-            <p>
-                ¡Y es completamente gratuito! Si decides registrarte, te estaré
-                esperando en tu portal de estudiante.
-            </p>
-            <p>¡Espero verte pronto!</p>
+            <p>{t("noSession.p2")}</p>
+            <p>{t("noSession.p3")}</p>
         </>
     );
 }

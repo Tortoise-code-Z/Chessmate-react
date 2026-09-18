@@ -1,8 +1,10 @@
 import { z } from "zod";
-import { MSG_EMPTY } from "../consts/schemas";
+import type { TFunction } from "i18next";
 
-export const searchSchema = z.object({
-    search: z.string().min(1, { message: MSG_EMPTY }),
-});
+/** Esquema de búsqueda de cursos. */
+export const searchSchema = (t: TFunction) =>
+    z.object({
+        search: z.string().min(1, { message: t("empty") }),
+    });
 
-export type searchSchemaValues = z.infer<typeof searchSchema>;
+export type searchSchemaValues = z.infer<ReturnType<typeof searchSchema>>;

@@ -30,3 +30,13 @@
         padding: 20px var(--padding-lateral-mobile) !important;
     }
 }
+
+.langSelector {
+    align-self: center;
+}
+
+@media all and (max-width: 640px) {
+    .langSelector {
+        display: none;
+    }
+}

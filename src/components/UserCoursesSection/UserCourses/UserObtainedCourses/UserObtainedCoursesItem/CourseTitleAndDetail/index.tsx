@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { FaInfoCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
@@ -6,7 +7,7 @@ import { CourseJSON, Progress } from "../../../../../../types/types";
 import TitleHx from "../../../../../TitleHx";
 import Button from "../../../../../Button";
 import { PATHS } from "../../../../../../consts/paths";
-import { TITLE_DEFAULT_MSG } from "../../../../../../consts/general";
+
 import { asString } from "../../../../../../utils/general";
 
 type Props = {
@@ -30,10 +31,11 @@ type Props = {
 
 function CourseTitleAndDetail({ data }: Props) {
     const navigate = useNavigate();
+    const { t } = useTranslation("dashboard");
     return (
         <div className={styles.container}>
             <TitleHx level={4} classNames={[styles.title]}>
-                {asString(data?.title) || TITLE_DEFAULT_MSG}
+                {asString(data?.title) || t("common:defaults.title")}
             </TitleHx>
 
             <Button
@@ -49,7 +51,7 @@ function CourseTitleAndDetail({ data }: Props) {
                 propagation={false}
             >
                 <FaInfoCircle />
-                Ver detalles
+                {t("obtained.details")}
             </Button>
         </div>
     );

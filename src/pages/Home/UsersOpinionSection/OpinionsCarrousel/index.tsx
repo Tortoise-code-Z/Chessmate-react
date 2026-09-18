@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import DataStateWrapper from "../../../../components/DataStateWrapperProps";
 import EmblaCarousel from "../../../../components/EmblaCarousel";
 import { DATABASE_KEY } from "../../../../consts/dataBaseKey";
@@ -5,8 +6,6 @@ import useUsersOpinions from "../../../../hooks/useUsersOpinions";
 import { Opinion } from "../../../../types/types";
 import { asArray } from "../../../../utils/general";
 import OpinionsSlide from "../OpinionsSlide";
-
-type Props = {};
 
 /**
  * OpinionsCarrousel - React component that displays a carousel of student opinions/testimonials.
@@ -24,15 +23,16 @@ type Props = {};
  * @returns JSX.Element: A carousel of student testimonials with proper loading and error handling.
  */
 
-function OpinionsCarrousel({}: Props) {
-    let { data, isLoading, error } = useUsersOpinions(DATABASE_KEY);
+function OpinionsCarrousel() {
+    const { t } = useTranslation("home");
+    const { data, isLoading, error } = useUsersOpinions(DATABASE_KEY);
     const safeData = asArray<Opinion>(data);
 
     return (
         <DataStateWrapper
             isLoading={isLoading}
             error={error}
-            errorMsg="No se ha podido recuperar las opiniones."
+            errorMsg={t("opinions.error")}
         >
             <EmblaCarousel
                 slides={safeData}

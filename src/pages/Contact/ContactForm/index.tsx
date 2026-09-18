@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+import { useMemo } from "react";
 import DataStateWrapper from "../../../components/DataStateWrapperProps";
 import {
     contactSchema,
@@ -16,8 +18,6 @@ import { UseFormSetValue } from "react-hook-form";
 import LightComponent from "../../../components/LightComponent";
 import { useLocation } from "react-router-dom";
 import { asNumber, asString } from "../../../utils/general";
-
-type Props = {};
 
 /**
  * ContactForm - React component that renders a contact form with user feedback and validation.
@@ -38,7 +38,7 @@ type Props = {};
  * @returns JSX.Element: A validated contact form with prefilled user data, feedback messages, and a submit button.
  */
 
-function ContactForm({}: Props) {
+function ContactForm() {
     const { user } = useUserAuthStore();
     const { data, isLoading, error } = useUserEmail(
         DATABASE_KEY,
@@ -48,6 +48,9 @@ function ContactForm({}: Props) {
     const safeData = asString(data);
 
     const location = useLocation();
+    const { t } = useTranslation("auth");
+    const { t: tv, i18n } = useTranslation("validation");
+    const schema = useMemo(() => contactSchema(tv), [tv, i18n.language]);
 
     const {
         setState: setFeedbackState,
@@ -65,7 +68,7 @@ function ContactForm({}: Props) {
         setFeedbackState(true);
         setPath(location.pathname);
         setType("success");
-        setMsg("Mensaje enviado con éxito");
+        setMsg(t("contact.success"));
 
         helpers?.setValue("body", "");
         helpers?.setValue("subject", "");
@@ -76,7 +79,7 @@ function ContactForm({}: Props) {
             <LightComponent top={50} right={20} />
             <DataStateWrapper isLoading={isLoading}>
                 <Form<ContactSchemaValues>
-                    schema={contactSchema}
+                    schema={schema}
                     onSubmit={handleSubmit}
                     defaultValues={{
                         name: asString(user?.username) || "",
@@ -90,37 +93,37 @@ function ContactForm({}: Props) {
                             name="name"
                             errorMsg={true}
                             inputType="text"
-                            label="Nombre"
-                            placeholder="Escriba su nombre..."
+                            label={t("contact.nameLabel")}
+                            placeholder={t("contact.namePlaceholder")}
                             disabled={!!user}
                         />
                         <InputGroup<ContactSchemaValues>
                             name="email"
                             errorMsg={true}
                             inputType="text"
-                            label="Correo electrónico"
-                            placeholder="Escriba su email..."
+                            label={t("contact.emailLabel")}
+                            placeholder={t("contact.emailPlaceholder")}
                             disabled={!!(user && !error && safeData)}
                         />
                         <InputGroup<ContactSchemaValues>
                             name="subject"
                             errorMsg={true}
                             inputType="text"
-                            label="Asunto"
-                            placeholder="Escriba su asunto..."
+                            label={t("contact.subjectLabel")}
+                            placeholder={t("contact.subjectPlaceholder")}
                         />
 
                         <InputGroup<ContactSchemaValues>
                             name="body"
                             errorMsg={true}
-                            label="Cuerpo del mensaje"
-                            placeholder="Escriba su consulta..."
+                            label={t("contact.bodyLabel")}
+                            placeholder={t("contact.bodyPlaceholder")}
                             type="textarea"
                         />
                     </div>
 
                     <Button type="submit">
-                        <FaPaperPlane /> Enviar
+                        <FaPaperPlane /> {t("contact.submit")}
                     </Button>
                 </Form>
             </DataStateWrapper>

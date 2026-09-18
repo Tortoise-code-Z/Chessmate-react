@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import styles from "./VideoReproductor.module.css";
 import TitleHx from "../../../../components/TitleHx";
@@ -53,6 +54,8 @@ function VideoReproductor({
         setShowVideo
     );
 
+    const { t } = useTranslation("classroom");
+
     useEffect(() => {
         document.body.style.overflow = "hidden";
         return () => {
@@ -60,10 +63,6 @@ function VideoReproductor({
         };
     }, []);
 
-    console.log(
-        "asString(videoData?.subthemeContent?.video)",
-        asString(videoData?.subthemeContent?.video)
-    );
 
     return (
         <div className={styles.videoReproductor}>
@@ -80,7 +79,7 @@ function VideoReproductor({
                                 onClick={() => setShowVideo(null)}
                                 variant="Secondary"
                             >
-                                Volver
+                                {t("video.back")}
                             </Button>
                             <Button
                                 disabled={asBoolean(
@@ -98,7 +97,7 @@ function VideoReproductor({
                                 }
                                 variant="Terciary"
                             >
-                                Completar
+                                {t("video.complete")}
                             </Button>
                         </div>
 

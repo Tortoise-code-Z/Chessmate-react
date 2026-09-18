@@ -141,7 +141,7 @@ Una vez inicias sesión, ve a la page "Cursos" y en la sección "Todos los curso
 
 ```js
 // Simular base de datos de cursos en localStorage
-const bbdd = JSON.parse(localStorage.getItem("DATA_BASE"));
+const bbdd = JSON.parse(localStorage.getItem("DATA_BASE_v2"));
 
 const newCourses = bbdd.courses.map((c) => {
     if (c.courseID === 1) {
@@ -211,12 +211,12 @@ const newBBDD = {
 };
 
 // Guardar en localStorage
-localStorage.setItem("DATA_BASE", JSON.stringify(newBBDD));
+localStorage.setItem("DATA_BASE_v2", JSON.stringify(newBBDD));
 
 // Confirmar que los datos se guardaron correctamente
 console.log(
     "Cursos actualizados en localStorage:",
-    JSON.parse(localStorage.getItem("DATA_BASE"))
+    JSON.parse(localStorage.getItem("DATA_BASE_v2"))
 );
 ```
 

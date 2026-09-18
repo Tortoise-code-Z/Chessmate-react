@@ -1,0 +1,113 @@
+{
+    "nav": {
+        "home": "Inicio",
+        "portal": "Mi portal",
+        "courses": "Cursos",
+        "contact": "Contacto",
+        "titleHome": "Inicio",
+        "titlePortal": "Ir a mi portal",
+        "titleCourses": "Ver cursos",
+        "titleContact": "Contactar"
+    },
+    "session": {
+        "register": "Registrarme",
+        "login": "Iniciar sesión",
+        "logout": "Cerrar sesión",
+        "defaultUser": "Usuario/a"
+    },
+    "footer": {
+        "emailCta": "Envíanos un correo personalizado",
+        "contact": "Contacto",
+        "rights": "© [2025] Chessmate. Todos los derechos reservados.",
+        "legal": "Desarrollado con pasión por el ajedrez | Política de privacidad | Términos y condiciones"
+    },
+    "language": {
+        "label": "Idioma",
+        "selector": "Cambiar idioma",
+        "es": "Español",
+        "en": "English"
+    },
+    "levels": {
+        "Todos": "Todos",
+        "Principiante": "Principiante",
+        "Intermedio": "Intermedio",
+        "Avanzado": "Avanzado",
+        "Experto": "Experto",
+        "Master": "Master"
+    },
+    "course": {
+        "buy": "Comprar",
+        "buying": "Comprando...",
+        "obtained": "Obtenido",
+        "warning": "Algún curso o datos de este puede estar incompleto. Estamos trabajando para solucionarlo.",
+        "emptyError": "No se han podido recuperar los cursos. Estamos trabajando en ellos para solucionarlo."
+    },
+    "empty": {
+        "default": "No hay datos para mostrar.",
+        "noCourses": "No hay cursos para mostrar."
+    },
+    "none": "Ninguno",
+    "chessTitles": {
+        "untitled": "Sin título"
+    },
+    "errors": {
+        "getUserId": "No se ha podido recuperar el ID del usuario...",
+        "getCourseId": "No se ha podido recuperar el ID del curso...",
+        "getData": "No se han podido recuperar los datos...",
+        "getUser": "No se han podido recuperar los datos del usuario...",
+        "getCourse": "No se han podido recuperar los datos del curso...",
+        "getCourses": "No se han podido recuperar los datos de los cursos...",
+        "getSubthemeId": "No se han podido recuperar el ID del subtema...",
+        "getThemeId": "No se han podido recuperar el ID del tema...",
+        "getThemesId": "No se han podido recuperar el ID de los temas del curso...",
+        "userPassword": "Usuario o contraseña incorrecto",
+        "userTaken": "El nombre de usuario ya existe. Pruebe con otro.",
+        "emailExist": "El email introducido ya está en uso.",
+        "signOut": "No se ha podido cerrar sesión. Contacte con nuestro equipo."
+    },
+    "defaults": {
+        "pieceTitle": "Pieza",
+        "progress": "Sin progreso",
+        "level": "Sin nivel asignado",
+        "title": "Sin título",
+        "description": "Sin descripción.",
+        "price": "N/A",
+        "chessLevel": "N/A",
+        "date": "N/A",
+        "elo": "N/A",
+        "score": "N/A",
+        "rank": "N/A",
+        "author": "Autor/a",
+        "user": "Usuario/a",
+        "opinion": "No hay opinión.",
+        "breadcrumb": "N/A"
+    },
+    "guards": {
+        "courseNotFound": "No se ha encontrado el curso que buscas...",
+        "courseAccessError": "Ha habido un error al intentar acceder al curso...",
+        "mustBuyCourse": "Para acceder al curso primero debes comprarlo...",
+        "checkingCourse": "Comprobando curso..",
+        "loadingCourse": "Cargando curso...",
+        "checkingAuth": "Revisando autorización...",
+        "initDatabase": "Inicializando base de datos...",
+        "checkingSession": "Revisando sesión..."
+    },
+    "error": {
+        "title": "¡Ups! Algo salió mal",
+        "generic": "Ocurrió un error inesperado.",
+        "notFoundTitle": "404 - Página no encontrada",
+        "notFound": "La página que buscas no existe.",
+        "statusTitle": "Error {{status}}",
+        "backHome": "Volver al inicio",
+        "contactIntro": "Si el problema persiste, contacte con nuestro equipo por correo:",
+        "dataStatePrefix": "Lo sentimos mucho, ha ocurrido un error"
+    },
+    "feedback": {
+        "commentSent": "Comentario enviado con éxito",
+        "commentError": "No se ha podido enviar el comentario...",
+        "buySuccess": "¡¡Compra realizada con éxito!!",
+        "buyError": "Error al realizar la compra",
+        "themeCompleted": "Tema completado",
+        "themeCompleteError": "Error al completar el tema"
+    }
+}
