@@ -140,7 +140,7 @@ export function useBuyCourse() {
             });
 
             queryClient.setQueryData<(CourseJSON & IsObtainedCourse)[]>(
-                ["toBuyCourses", data.userID],
+                ["toBuyCourses", data.userID, lang],
                 (old) => {
                     if (!old) return old;
 
@@ -153,7 +153,7 @@ export function useBuyCourse() {
             );
 
             queryClient.setQueryData<(CourseJSON & IsObtainedCourse)[]>(
-                ["bestSellers", data.userID],
+                ["bestSellers", data.userID, lang],
                 (old) => {
                     if (!old) return old;
                     return old.map((o) =>
@@ -165,7 +165,7 @@ export function useBuyCourse() {
             );
 
             queryClient.setQueryData<(CourseJSON & IsObtainedCourse)[]>(
-                ["recentCourses", data.userID],
+                ["recentCourses", data.userID, lang],
                 (old) => {
                     if (!old) return old;
                     return old.map((o) =>
@@ -189,7 +189,7 @@ export function useBuyCourse() {
             );
 
             queryClient.setQueryData<CourseJSON & IsObtainedCourse>(
-                ["bannerCourse", data.userID],
+                ["bannerCourse", data.userID, lang],
                 (old) => {
                     if (!old) return old;
                     if (old.courseID === data.course.courseID)
@@ -199,7 +199,7 @@ export function useBuyCourse() {
             );
 
             queryClient.setQueryData<CourseJSON & IsObtainedCourse>(
-                ["useCourse", data.course.courseID, data.userID],
+                ["useCourse", data.course.courseID, data.userID, lang],
                 (old) => {
                     if (!old) return old;
                     if (old.courseID === data.course.courseID)

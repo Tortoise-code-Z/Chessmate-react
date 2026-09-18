@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { normalizeLanguage } from "../consts/i18n";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import {
     BBDD,
@@ -62,7 +63,8 @@ export function useCompleteThemeOC(
     userID: number | undefined,
     setShowVideo: Dispatch<SetStateAction<VideoData | null>>
 ) {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const lang = normalizeLanguage(i18n.language);
     const queryClient = useQueryClient();
 
     const {
@@ -156,7 +158,7 @@ export function useCompleteThemeOC(
         mutationFn: completeTheme,
         onSuccess: (data: ObtainedCourse) => {
             queryClient.setQueryData<useCourseClassroomApi>(
-                ["useCourseClassroom", courseID, userID],
+                ["useCourseClassroom", courseID, userID, lang],
                 (oldData) => {
                     if (!oldData) return oldData;
                     return {

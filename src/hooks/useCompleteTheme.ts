@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { normalizeLanguage } from "../consts/i18n";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import {
     BBDD,
@@ -57,7 +58,8 @@ export function useCompleteTheme(
     index: number,
     setIndex: Dispatch<SetStateAction<number>>
 ) {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const lang = normalizeLanguage(i18n.language);
     const queryClient = useQueryClient();
     const {
         setState: setFeedbackState,
@@ -141,7 +143,7 @@ export function useCompleteTheme(
             );
 
             queryClient.setQueryData<UseCourseApiType>(
-                ["defaultCourseById", data.courseId],
+                ["defaultCourseById", data.courseId, lang],
                 (oldData) => {
                     if (!oldData) return oldData;
                     return {
