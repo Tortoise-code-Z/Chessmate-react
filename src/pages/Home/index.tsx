@@ -14,8 +14,7 @@ import { useEffect } from "react";
 import FeedbackListener from "../../components/FeedbackListener";
 import ProfessorListener from "../../components/ProfessorListenner";
 import { Helmet } from "react-helmet-async";
-
-type Props = {};
+import { useTranslation } from "react-i18next";
 
 /**
  * Home - React component that renders the landing page of the application,
@@ -37,13 +36,9 @@ type Props = {};
  * @returns JSX.Element: The full homepage layout with promotional, interactive, and informational sections.
  */
 
-function Home({}: Props) {
+function Home() {
+    const { t } = useTranslation("home");
     const { user } = useUserAuthStore();
-
-    if (user) {
-        return <Navigate to={PATHS.dashboard} replace />;
-    }
-
     const { state, path, setPath, setState } = useFeedbackMessageStore();
     const location = useLocation();
 
@@ -54,12 +49,14 @@ function Home({}: Props) {
         }
     }, [state, path, setState, setPath]);
 
+    if (user) {
+        return <Navigate to={PATHS.dashboard} replace />;
+    }
+
     return (
         <>
             <Helmet>
-                <title>
-                    Chessmate - Plataforma de cursos de ajedrez online
-                </title>
+                <title>{t("meta.title")}</title>
             </Helmet>
             <FeedbackListener />
             <ProfessorListener />
@@ -72,8 +69,8 @@ function Home({}: Props) {
             <BestSellersSection
                 limit={3}
                 display="Col"
-                titleText="Nuestros cursos más"
-                titleTextSpan="vendidos"
+                titleText={t("bestSellers.title")}
+                titleTextSpan={t("bestSellers.highlight")}
                 titleDisplay="Col"
             />
             <BestPlayersSection />

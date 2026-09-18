@@ -65,7 +65,7 @@ function Button({
     );
     return (
         <>
-            {!!animatedOptions ? (
+            {animatedOptions ? (
                 <AnimatedInView config={animatedOptions}>
                     {button}
                 </AnimatedInView>

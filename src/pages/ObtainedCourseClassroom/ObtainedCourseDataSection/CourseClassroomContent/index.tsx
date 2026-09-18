@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import styles from "./CourseClassroomContent.module.css";
 import CourseThemes from "./CourseThemes";
@@ -39,6 +40,7 @@ function CourseClassroomContent({ data }: Props) {
 
     const navigate = useNavigate();
     const params = useParams();
+    const { t } = useTranslation("classroom");
 
     return (
         <>
@@ -50,9 +52,9 @@ function CourseClassroomContent({ data }: Props) {
                         <span
                             className={["upperCase", "span-pr-color"].join(" ")}
                         >
-                            contenido
+                            {t("content.highlight")}
                         </span>{" "}
-                        del curso
+                        {t("content.rest")}
                     </TitleHx>
 
                     <CourseThemes data={data} setShowVideo={setShowVideo} />
@@ -71,7 +73,7 @@ function CourseClassroomContent({ data }: Props) {
                         }}
                     >
                         <FaInfoCircle />
-                        Ver detalles del curso
+                        {t("courseDetailsBtn")}
                     </Button>
                 </div>
             </AnimatedInView>

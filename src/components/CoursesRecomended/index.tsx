@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import CoursesDisplay from "../CoursesDisplay";
 import DataStateWrapper from "../DataStateWrapperProps";
 import LightComponent from "../LightComponent";
@@ -52,6 +53,7 @@ function CoursesRecomended({
     );
 
     const safeData = asArray<CourseJSON>(data);
+    const { t } = useTranslation("courseDetail");
 
     const titleClassMap = {
         Col: {
@@ -80,7 +82,7 @@ function CoursesRecomended({
                 <DataStateWrapper
                     isLoading={isLoading}
                     error={error}
-                    errorMsg="No se ha podido recuperar los cursos."
+                    errorMsg={t("recommended.error")}
                 >
                     <CoursesDisplay courses={safeData} display="Col" />
                 </DataStateWrapper>

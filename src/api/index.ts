@@ -231,7 +231,7 @@ export const getRandom = <T>(data: T[]): T => {
     return data[randomIndex];
 };
 
-export const deleteKey: <T extends Record<string, any>, K extends keyof T>(
+export const deleteKey: <T extends Record<string, unknown>, K extends keyof T>(
     data: T,
     key: K
 ) => Omit<T, K> = (data, key) => {

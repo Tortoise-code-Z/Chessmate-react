@@ -29,7 +29,7 @@ export default function useUsersOpinions(key: string) {
             const opinions = data.opinions;
             const filteredOpinions = opinions.slice(0, 4).map((o) => {
                 const user = data.users.find((u) => u.userID === o.idUser);
-                const { idUser, ...rest } = o;
+                const { idUser: _idUser, ...rest } = o;
 
                 return { ...rest, user: user ?? ({} as User) };
             });

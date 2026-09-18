@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import {
     DEFAULT_COURSE_IMAGE,
@@ -32,6 +33,7 @@ type Props = {
  */
 
 function UserObtainedItemDefault({ data }: Props) {
+    const { t } = useTranslation("dashboard");
     return (
         <div className={styles.userObtainedCoursesItemDefault}>
             <div className={styles.container}>
@@ -43,22 +45,20 @@ function UserObtainedItemDefault({ data }: Props) {
                     height={getImageSize(DEFAULT_COURSE_URL_PATH, "height")}
                 />
             </div>
-            <p className={styles.notData}>
-                No se ha podido recuperar los datos de este curso.
-            </p>
-            <p className={styles.contactText}>
-                Contacte con nuestro servicio técnico para más información.
-            </p>
+            <p className={styles.notData}>{t("itemDefault.notData")}</p>
+            <p className={styles.contactText}>{t("itemDefault.contact")}</p>
 
             {isString(data?.title) && (
-                <p className={styles.dataCourse}>Título: {data.title}</p>
+                <p className={styles.dataCourse}>
+                    {t("itemDefault.titleLabel")}: {data.title}
+                </p>
             )}
             <NavLink
                 className={["button", "buttonTerciary"].join(" ")}
                 to={PATHS.contact}
             >
                 <MdOutlineEmail />
-                Contacto
+                {t("common:nav.contact")}
             </NavLink>
         </div>
     );

@@ -63,7 +63,7 @@ function Form<T extends FieldValues>({
     return (
         <>
             <FormProvider {...methods}>
-                {!!animatedOptions ? (
+                {animatedOptions ? (
                     <AnimatedInView config={animatedOptions}>
                         <form
                             className={[...classNames].join(" ")}

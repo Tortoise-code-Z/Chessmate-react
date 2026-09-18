@@ -6,8 +6,6 @@ import { useState } from "react";
 import HamburguerMenu from "./Header/HamburgureMenu";
 import { useSignout } from "../../hooks/useSignout";
 
-type Props = {};
-
 /**
  * Layout - React component that provides the main layout structure for the application.
  *
@@ -24,7 +22,7 @@ type Props = {};
  * @returns JSX.Element: The app layout with header, footer, main content, and optional hamburger menu.
  */
 
-function Layout({}: Props) {
+function Layout() {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const { mutate } = useSignout();
     const handleSignOut = () => mutate();

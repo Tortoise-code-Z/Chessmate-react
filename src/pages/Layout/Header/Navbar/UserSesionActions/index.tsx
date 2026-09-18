@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import styles from "./UserSesionActions.module.css";
 import { PATHS } from "../../../../../consts/paths";
@@ -26,6 +27,8 @@ type Props = {
  */
 
 function UserSesionActions({ setIsOpen }: Props) {
+    const { t } = useTranslation();
+
     return (
         <div className={styles.userActions}>
             <NavLink
@@ -35,19 +38,19 @@ function UserSesionActions({ setIsOpen }: Props) {
                     styles.registerLink,
                 ].join(" ")}
                 to={PATHS.register}
-                title="Registrarme"
+                title={t("session.register")}
             >
                 <PiSignInBold />
-                Registrarme
+                {t("session.register")}
             </NavLink>
             <NavLink
                 className={["button", "buttonSecondary", styles.loginLink].join(
                     " "
                 )}
                 to={PATHS.login}
-                title="Iniciar sesion"
+                title={t("session.login")}
             >
-                Iniciar sesión
+                {t("session.login")}
             </NavLink>
             <HamburguerMenuButton
                 onClick={() => {

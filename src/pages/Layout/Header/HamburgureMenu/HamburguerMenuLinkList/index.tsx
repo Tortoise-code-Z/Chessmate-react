@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import { useUserAuthStore } from "../../../../../hooks/UseUserAuthStore";
 import styles from "./HamburguerMenuLinkList.module.css";
@@ -5,6 +6,7 @@ import { PATHS } from "../../../../../consts/paths";
 import Button from "../../../../../components/Button";
 import { FaSignOutAlt } from "react-icons/fa";
 import { Dispatch, SetStateAction } from "react";
+import LanguageSelector from "../../../../../components/LanguageSelector";
 
 type Props = {
     setIsOpen: Dispatch<SetStateAction<boolean>>;
@@ -31,8 +33,12 @@ type Props = {
 
 function HamburguerMenuLinkList({ handleSignOut, setIsOpen }: Props) {
     const { user } = useUserAuthStore();
+    const { t } = useTranslation();
     return (
         <ul className={styles.linksList}>
+            <li role="none">
+                <LanguageSelector />
+            </li>
             <NavLink
                 className={["button", "buttonSecondary"].join(" ")}
                 onClick={() => {
@@ -40,7 +46,7 @@ function HamburguerMenuLinkList({ handleSignOut, setIsOpen }: Props) {
                 }}
                 to={user ? PATHS.dashboard : PATHS.index}
             >
-                {user ? "Mi portal" : "Inicio"}
+                {user ? t("nav.portal") : t("nav.home")}
             </NavLink>
 
             <NavLink
@@ -50,7 +56,7 @@ function HamburguerMenuLinkList({ handleSignOut, setIsOpen }: Props) {
                     setIsOpen(false);
                 }}
             >
-                Cursos
+                {t("nav.courses")}
             </NavLink>
             <NavLink
                 className={["button", "buttonSecondary"].join(" ")}
@@ -59,7 +65,7 @@ function HamburguerMenuLinkList({ handleSignOut, setIsOpen }: Props) {
                     setIsOpen(false);
                 }}
             >
-                Contacto
+                {t("nav.contact")}
             </NavLink>
             {user ? (
                 <Button
@@ -69,7 +75,7 @@ function HamburguerMenuLinkList({ handleSignOut, setIsOpen }: Props) {
                     }}
                     variant="Red"
                 >
-                    <FaSignOutAlt /> Cerrar sesión
+                    <FaSignOutAlt /> {t("session.logout")}
                 </Button>
             ) : (
                 <NavLink
@@ -79,7 +85,7 @@ function HamburguerMenuLinkList({ handleSignOut, setIsOpen }: Props) {
                         setIsOpen(false);
                     }}
                 >
-                    Iniciar sesión
+                    {t("session.login")}
                 </NavLink>
             )}
         </ul>

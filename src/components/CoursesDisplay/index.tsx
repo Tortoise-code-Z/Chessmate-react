@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import {
     CourseJSON,
     IsObtainedCourse,
@@ -50,6 +51,7 @@ type Props = {
 function CoursesDisplay({ courses, action, display = "Col", msg, svg }: Props) {
     const [warningCoursesMsg, setWarningCoursesMsg] =
         useState<WarningMsgType | null>(null);
+    const { t } = useTranslation();
 
     const className = [
         display === "Col"
@@ -83,7 +85,7 @@ function CoursesDisplay({ courses, action, display = "Col", msg, svg }: Props) {
                     )}
                     emptyNode={
                         <MsgEmpty
-                            msg={msg ? msg : "No hay cursos para mostrar."}
+                            msg={msg ? msg : t("empty.noCourses")}
                             svg={svg ? svg : undefined}
                         />
                     }
@@ -91,8 +93,8 @@ function CoursesDisplay({ courses, action, display = "Col", msg, svg }: Props) {
                         setWarningState: setWarningCoursesMsg,
                         warningState: warningCoursesMsg,
                     }}
-                    msg="Algún curso o datos de este puede estar incompleto. Estamos trabajando para solucionarlo."
-                    msgEmpty="No se han podido recuperar los cursos. Estamos trabajando en ellos para solucionarlo."
+                    msg={t("course.warning")}
+                    msgEmpty={t("course.emptyError")}
                 >
                     {(course, index, canRender) => {
                         return (

@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import Form from "../../../components/Form";
 import {
     registerSchema,
@@ -30,10 +32,13 @@ type Props = {
  */
 
 function RegisterForm({ handleSubmit, isPending }: Props) {
+    const { t, i18n } = useTranslation("validation");
+    const schema = useMemo(() => registerSchema(t), [t, i18n.language]);
+
     return (
         <Form<registerSchemaValues>
             onSubmit={handleSubmit}
-            schema={registerSchema}
+            schema={schema}
             defaultValues={{
                 title: "Sin título",
             }}

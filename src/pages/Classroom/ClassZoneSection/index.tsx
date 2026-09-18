@@ -12,8 +12,6 @@ import ExplanationTheme from "./ExplanationTheme";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-type Props = {};
-
 /**
  * ClassZoneSection - React component that displays the main class zone for a specific course.
  *
@@ -32,7 +30,7 @@ type Props = {};
  * @returns JSX.Element: The course class zone with explanations, interactive board, and warning messages.
  */
 
-function ClassZoneSection({}: Props) {
+function ClassZoneSection() {
     const { user } = useUserAuthStore();
     const params = useParams();
 
@@ -73,7 +71,7 @@ function ClassZoneSection({}: Props) {
                 <div
                     className={[
                         styles.container,
-                        !!classWarning ? styles.classZoneSectionWithMsg : "",
+                        classWarning ? styles.classZoneSectionWithMsg : "",
                     ].join(" ")}
                 >
                     <ExplanationTheme

@@ -1,31 +1,22 @@
+import { useTranslation } from "react-i18next";
 import ItemCourseData from "./ItemCourseData";
 import LightComponent from "../../../components/LightComponent";
-import { coursesDataItem } from "../../../consts/home";
+import { coursesDataImages } from "../../../consts/home";
 import styles from "./CoursesDataSection.module.css";
 import TitleHx from "../../../components/TitleHx";
 import { asNumber } from "../../../utils/general";
 import { AnimatedInView } from "../../../components/AnimatedInView";
 
-type Props = {};
+type CardText = { title: string; description: string };
 
 /**
- * CoursesDataSection - React component that displays a section of featured course items
- * on the homepage to encourage users to explore and enroll.
- *
- * Features:
- * - Wraps content in `AnimatedInView` for animated entrance effects.
- * - Includes decorative `LightComponent` elements for visual enhancement.
- * - Displays a section title using `TitleHx` with highlighted text spans.
- * - Iterates over `coursesDataItem` to render individual `ItemCourseData` components.
- * - Safely generates keys using `asNumber` utility with a fallback to the index.
- *
- * Props:
- * - None.
- *
- * @returns JSX.Element: A homepage section showing featured courses with animation and styling.
+ * CoursesDataSection - Sección de cursos destacados de la Home.
+ * Combina las imágenes (consts/home) con los textos traducibles (namespace home).
  */
+function CoursesDataSection() {
+    const { t } = useTranslation("home");
+    const cards = t("cards", { returnObjects: true }) as unknown as CardText[];
 
-function CoursesDataSection({}: Props) {
     return (
         <AnimatedInView>
             <section className={styles.coursesDataSection}>
@@ -34,20 +25,25 @@ function CoursesDataSection({}: Props) {
 
                 <TitleHx level={2}>
                     <span>
-                        Conviértete en todo un{" "}
+                        {t("featured.part1")}{" "}
                         <span className={["span-pr-color upperCase"].join(" ")}>
-                            profesional
+                            {t("featured.highlight")}
                         </span>{" "}
-                        con
+                        {t("featured.part2")}
                     </span>{" "}
-                    nuestros cursos
+                    {t("featured.part3")}
                 </TitleHx>
                 <div className={styles.itemsContainer}>
-                    {coursesDataItem.map((c, index) => (
+                    {coursesDataImages.map((img, index) => (
                         <ItemCourseData
                             index={index}
-                            key={asNumber(c?.id) || index}
-                            item={c}
+                            key={asNumber(img?.id) || index}
+                            item={{
+                                id: img.id,
+                                url: img.url,
+                                title: cards[index]?.title ?? "",
+                                description: cards[index]?.description ?? "",
+                            }}
                         />
                     ))}
                 </div>

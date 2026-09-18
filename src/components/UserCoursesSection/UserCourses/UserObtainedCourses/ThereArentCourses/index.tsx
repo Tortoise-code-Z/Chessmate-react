@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import { FaBook } from "react-icons/fa";
 import styles from "./ThereArentCourses.module.css";
@@ -21,16 +22,17 @@ type Props = {
  * @returns JSX.Element: A message card with a link to navigate to the courses page.
  */
 
-function ThereArentCourses({ msg = "No tienes cursos aún..." }: Props) {
+function ThereArentCourses({ msg }: Props) {
+    const { t } = useTranslation("dashboard");
     return (
         <div className={styles.msgNotCoursesYet}>
-            <p>{msg}</p>
+            <p>{msg ?? t("obtained.none")}</p>
             <NavLink
                 className={["button", "buttonPrimary"].join(" ")}
                 to={PATHS.courses}
             >
                 <FaBook />
-                Ir a cursos
+                {t("obtained.goToCourses")}
             </NavLink>
         </div>
     );

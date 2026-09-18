@@ -1,5 +1,6 @@
 import {
     ReactElement,
+    Ref,
     cloneElement,
     isValidElement,
     useEffect,
@@ -57,7 +58,7 @@ export const AnimatedInView = ({
         return null;
     }
 
-    return cloneElement(children as React.ReactElement<any>, {
+    return cloneElement(children as ReactElement<{ className?: string; style?: CSSProperties; ref?: Ref<HTMLElement> }>, {
         ref,
         className: `${styles.base} ${
             show
