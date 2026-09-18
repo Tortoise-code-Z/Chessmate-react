@@ -3251,27 +3251,27 @@ export const DATA_BASE: BBDD = {
                 full: "course-image-full-1_1920x1280_.webp",
             },
             sales: 864,
-            title: { es: "Introducción al Ajedrez", en: "Introducción al Ajedrez" },
-            shortDescription: { es: "Aprende las reglas básicas y los conceptos fundamentales para empezar a jugar.", en: "Aprende las reglas básicas y los conceptos fundamentales para empezar a jugar." },
+            title: { es: "Introducción al Ajedrez", en: "Introduction to Chess" },
+            shortDescription: { es: "Aprende las reglas básicas y los conceptos fundamentales para empezar a jugar.", en: "Learn the basic rules and fundamental concepts to start playing." },
             level: "Principiante",
             price: 9.99,
-            detailDescription: { es: "Este curso ofrece una introducción completa para quienes desean iniciarse en el ajedrez, cubriendo desde las reglas hasta las estrategias iniciales que forman la base del juego.", en: "Este curso ofrece una introducción completa para quienes desean iniciarse en el ajedrez, cubriendo desde las reglas hasta las estrategias iniciales que forman la base del juego." },
+            detailDescription: { es: "Este curso ofrece una introducción completa para quienes desean iniciarse en el ajedrez, cubriendo desde las reglas hasta las estrategias iniciales que forman la base del juego.", en: "This course offers a complete introduction for those who want to get started in chess, covering everything from the rules to the initial strategies that form the foundation of the game." },
             content: {
                 themes: [
                     {
                         id: 1,
-                        title: { es: "Reglas del ajedrez", en: "Reglas del ajedrez" },
-                        description: { es: "Conoce el movimiento y captura de cada pieza.", en: "Conoce el movimiento y captura de cada pieza." },
+                        title: { es: "Reglas del ajedrez", en: "Rules of chess" },
+                        description: { es: "Conoce el movimiento y captura de cada pieza.", en: "Learn the movement and capture of each piece." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Movimiento de piezas", en: "Movimiento de piezas" },
+                                title: { es: "Movimiento de piezas", en: "Movement of pieces" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Captura de piezas", en: "Captura de piezas" },
+                                title: { es: "Captura de piezas", en: "Capturing pieces" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3279,18 +3279,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 2,
-                        title: { es: "Objetivo del juego", en: "Objetivo del juego" },
-                        description: { es: "Comprende qué significa dar jaque mate.", en: "Comprende qué significa dar jaque mate." },
+                        title: { es: "Objetivo del juego", en: "Objective of the game" },
+                        description: { es: "Comprende qué significa dar jaque mate.", en: "Understand what it means to deliver checkmate." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Concepto de jaque", en: "Concepto de jaque" },
+                                title: { es: "Concepto de jaque", en: "The concept of check" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Definición de jaque mate", en: "Definición de jaque mate" },
+                                title: { es: "Definición de jaque mate", en: "Definition of checkmate" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3298,24 +3298,24 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 3,
-                        title: { es: "Movimientos especiales", en: "Movimientos especiales" },
-                        description: { es: "Enroque, captura al paso y promoción.", en: "Enroque, captura al paso y promoción." },
+                        title: { es: "Movimientos especiales", en: "Special moves" },
+                        description: { es: "Enroque, captura al paso y promoción.", en: "Castling, en passant and promotion." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Enroque", en: "Enroque" },
+                                title: { es: "Enroque", en: "Castling" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Captura al paso", en: "Captura al paso" },
+                                title: { es: "Captura al paso", en: "En passant" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 3,
-                                title: { es: "Promoción de peones", en: "Promoción de peones" },
+                                title: { es: "Promoción de peones", en: "Pawn promotion" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3323,18 +3323,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 4,
-                        title: { es: "Principios básicos de apertura", en: "Principios básicos de apertura" },
-                        description: { es: "Desarrollar piezas y controlar el centro.", en: "Desarrollar piezas y controlar el centro." },
+                        title: { es: "Principios básicos de apertura", en: "Basic opening principles" },
+                        description: { es: "Desarrollar piezas y controlar el centro.", en: "Develop pieces and control the center." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Desarrollo de piezas", en: "Desarrollo de piezas" },
+                                title: { es: "Desarrollo de piezas", en: "Piece development" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Control del centro", en: "Control del centro" },
+                                title: { es: "Control del centro", en: "Control of the center" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3342,18 +3342,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 5,
-                        title: { es: "Errores comunes", en: "Errores comunes" },
-                        description: { es: "Evita los fallos frecuentes de principiantes.", en: "Evita los fallos frecuentes de principiantes." },
+                        title: { es: "Errores comunes", en: "Common mistakes" },
+                        description: { es: "Evita los fallos frecuentes de principiantes.", en: "Avoid the frequent mistakes made by beginners." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Errores de principiantes", en: "Errores de principiantes" },
+                                title: { es: "Errores de principiantes", en: "Beginner mistakes" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Cómo evitarlos", en: "Cómo evitarlos" },
+                                title: { es: "Cómo evitarlos", en: "How to avoid them" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3366,28 +3366,28 @@ export const DATA_BASE: BBDD = {
                     "Los alumnos aprenderán los principios fundamentales para comenzar la partida con buen pie, incluyendo el desarrollo rápido de piezas y la importancia del control del centro del tablero.",
                     "Además, se analizan los errores más comunes que suelen cometer los principiantes para evitarlos y acelerar el progreso en el aprendizaje.",
                 ], en: [
-                    "En este módulo se explican detalladamente las reglas básicas, desde cómo se mueve cada pieza hasta las normas específicas como el enroque y la captura al paso.",
-                    "Se hace énfasis en entender el objetivo principal del juego, que es dar jaque mate al rey enemigo, y las distintas formas en que se puede alcanzar esta meta.",
-                    "Los alumnos aprenderán los principios fundamentales para comenzar la partida con buen pie, incluyendo el desarrollo rápido de piezas y la importancia del control del centro del tablero.",
-                    "Además, se analizan los errores más comunes que suelen cometer los principiantes para evitarlos y acelerar el progreso en el aprendizaje.",
+                    "This module explains the basic rules in detail, from how each piece moves to specific rules such as castling and en passant.",
+                    "Emphasis is placed on understanding the main objective of the game, which is to checkmate the enemy king, and the different ways this goal can be reached.",
+                    "Students will learn the fundamental principles for starting the game on the right foot, including quick piece development and the importance of controlling the center of the board.",
+                    "In addition, the most common mistakes beginners tend to make are analyzed so as to avoid them and speed up learning progress.",
                 ] },
             },
             toLearn: {
                 themes: [
                     {
                         id: 1,
-                        title: { es: "Bases sólidas", en: "Bases sólidas" },
-                        description: { es: "Establecer un fundamento robusto para progresar en ajedrez.", en: "Establecer un fundamento robusto para progresar en ajedrez." },
+                        title: { es: "Bases sólidas", en: "Solid foundations" },
+                        description: { es: "Establecer un fundamento robusto para progresar en ajedrez.", en: "Establish a robust foundation to progress in chess." },
                     },
                     {
                         id: 2,
-                        title: { es: "Tácticas iniciales", en: "Tácticas iniciales" },
-                        description: { es: "Reconocer patrones básicos de ataque y defensa.", en: "Reconocer patrones básicos de ataque y defensa." },
+                        title: { es: "Tácticas iniciales", en: "Initial tactics" },
+                        description: { es: "Reconocer patrones básicos de ataque y defensa.", en: "Recognize basic patterns of attack and defense." },
                     },
                     {
                         id: 3,
-                        title: { es: "Pensamiento estratégico", en: "Pensamiento estratégico" },
-                        description: { es: "Comenzar a planear jugadas anticipadas.", en: "Comenzar a planear jugadas anticipadas." },
+                        title: { es: "Pensamiento estratégico", en: "Strategic thinking" },
+                        description: { es: "Comenzar a planear jugadas anticipadas.", en: "Begin to plan moves in advance." },
                     },
                 ],
                 detailDescription: { es: [
@@ -3395,9 +3395,9 @@ export const DATA_BASE: BBDD = {
                     "Aprenderás a identificar tácticas básicas que te ayudarán a proteger tus piezas y aprovechar las debilidades del oponente.",
                     "Desarrollarás habilidades de pensamiento estratégico, comenzando a planificar tus movimientos de manera anticipada y a evaluar las consecuencias de tus jugadas.",
                 ], en: [
-                    "Este curso te preparará para construir una base sólida que te permita entender el juego y mejorar con rapidez.",
-                    "Aprenderás a identificar tácticas básicas que te ayudarán a proteger tus piezas y aprovechar las debilidades del oponente.",
-                    "Desarrollarás habilidades de pensamiento estratégico, comenzando a planificar tus movimientos de manera anticipada y a evaluar las consecuencias de tus jugadas.",
+                    "This course will prepare you to build a solid base that lets you understand the game and improve quickly.",
+                    "You will learn to identify basic tactics that will help you protect your pieces and exploit your opponent's weaknesses.",
+                    "You will develop strategic thinking skills, starting to plan your moves in advance and to evaluate the consequences of your moves.",
                 ] },
             },
             authors: [1, 2],
@@ -3411,28 +3411,28 @@ export const DATA_BASE: BBDD = {
                 thumb: "course-image-thumb-2_649x424_.webp",
             },
             sales: 756,
-            title: { es: "Aperturas Fundamentales", en: "Aperturas Fundamentales" },
-            shortDescription: { es: "Domina las aperturas básicas que todo jugador debe conocer.", en: "Domina las aperturas básicas que todo jugador debe conocer." },
+            title: { es: "Aperturas Fundamentales", en: "Fundamental Openings" },
+            shortDescription: { es: "Domina las aperturas básicas que todo jugador debe conocer.", en: "Master the basic openings that every player should know." },
             level: "Principiante",
             price: 12.5,
 
-            detailDescription: { es: "En este curso profundizamos en las aperturas clásicas y sus objetivos estratégicos, para que puedas iniciar tus partidas con confianza y ventaja.", en: "En este curso profundizamos en las aperturas clásicas y sus objetivos estratégicos, para que puedas iniciar tus partidas con confianza y ventaja." },
+            detailDescription: { es: "En este curso profundizamos en las aperturas clásicas y sus objetivos estratégicos, para que puedas iniciar tus partidas con confianza y ventaja.", en: "In this course we delve into the classic openings and their strategic goals, so that you can start your games with confidence and an advantage." },
             content: {
                 themes: [
                     {
                         id: 1,
-                        title: { es: "Apertura Española", en: "Apertura Española" },
-                        description: { es: "Control y presión en el centro.", en: "Control y presión en el centro." },
+                        title: { es: "Apertura Española", en: "Ruy Lopez (Spanish Opening)" },
+                        description: { es: "Control y presión en el centro.", en: "Control and pressure in the center." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Ideas principales", en: "Ideas principales" },
+                                title: { es: "Ideas principales", en: "Main ideas" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Planes típicos", en: "Planes típicos" },
+                                title: { es: "Planes típicos", en: "Typical plans" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3440,18 +3440,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 2,
-                        title: { es: "Apertura Italiana", en: "Apertura Italiana" },
-                        description: { es: "Desarrollo rápido y ataques tempranos.", en: "Desarrollo rápido y ataques tempranos." },
+                        title: { es: "Apertura Italiana", en: "Italian Opening" },
+                        description: { es: "Desarrollo rápido y ataques tempranos.", en: "Quick development and early attacks." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Líneas principales", en: "Líneas principales" },
+                                title: { es: "Líneas principales", en: "Main lines" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Ataques comunes", en: "Ataques comunes" },
+                                title: { es: "Ataques comunes", en: "Common attacks" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3459,18 +3459,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 3,
-                        title: { es: "Defensa Siciliana", en: "Defensa Siciliana" },
-                        description: { es: "Contraataque y dinámica.", en: "Contraataque y dinámica." },
+                        title: { es: "Defensa Siciliana", en: "Sicilian Defense" },
+                        description: { es: "Contraataque y dinámica.", en: "Counterattack and dynamism." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Estructuras típicas", en: "Estructuras típicas" },
+                                title: { es: "Estructuras típicas", en: "Typical structures" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Planes de negras", en: "Planes de negras" },
+                                title: { es: "Planes de negras", en: "Black's plans" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3478,18 +3478,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 4,
-                        title: { es: "Defensa Francesa", en: "Defensa Francesa" },
-                        description: { es: "Solidez y estructura.", en: "Solidez y estructura." },
+                        title: { es: "Defensa Francesa", en: "French Defense" },
+                        description: { es: "Solidez y estructura.", en: "Solidity and structure." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Planes de blancas", en: "Planes de blancas" },
+                                title: { es: "Planes de blancas", en: "White's plans" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Planes de negras", en: "Planes de negras" },
+                                title: { es: "Planes de negras", en: "Black's plans" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3497,18 +3497,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 5,
-                        title: { es: "Estrategias de apertura", en: "Estrategias de apertura" },
-                        description: { es: "Ideas comunes para consolidar la posición.", en: "Ideas comunes para consolidar la posición." },
+                        title: { es: "Estrategias de apertura", en: "Opening strategies" },
+                        description: { es: "Ideas comunes para consolidar la posición.", en: "Common ideas to consolidate the position." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Principios básicos", en: "Principios básicos" },
+                                title: { es: "Principios básicos", en: "Basic principles" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Errores comunes", en: "Errores comunes" },
+                                title: { es: "Errores comunes", en: "Common mistakes" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3521,28 +3521,28 @@ export const DATA_BASE: BBDD = {
                     "Cada apertura será desglosada con ejemplos prácticos y partidas históricas que ilustran sus ventajas y posibles riesgos.",
                     "También se enseñarán los principios fundamentales que subyacen en todas las aperturas, como el control del centro, desarrollo rápido y seguridad del rey.",
                 ], en: [
-                    "Analizaremos en profundidad las aperturas más populares, sus movimientos característicos y la lógica detrás de cada jugada.",
-                    "Se explicará cómo elegir la apertura adecuada según tu estilo de juego y cómo adaptarte a las respuestas del rival.",
-                    "Cada apertura será desglosada con ejemplos prácticos y partidas históricas que ilustran sus ventajas y posibles riesgos.",
-                    "También se enseñarán los principios fundamentales que subyacen en todas las aperturas, como el control del centro, desarrollo rápido y seguridad del rey.",
+                    "We will analyze in depth the most popular openings, their characteristic moves, and the logic behind each move.",
+                    "We will explain how to choose the right opening according to your playing style and how to adapt to your opponent's responses.",
+                    "Each opening will be broken down with practical examples and historic games that illustrate its advantages and possible risks.",
+                    "The fundamental principles underlying all openings will also be taught, such as control of the center, quick development, and king safety.",
                 ] },
             },
             toLearn: {
                 themes: [
                     {
                         id: 1,
-                        title: { es: "Reconocer aperturas", en: "Reconocer aperturas" },
-                        description: { es: "Identificar las principales líneas de juego.", en: "Identificar las principales líneas de juego." },
+                        title: { es: "Reconocer aperturas", en: "Recognize openings" },
+                        description: { es: "Identificar las principales líneas de juego.", en: "Identify the main lines of play." },
                     },
                     {
                         id: 2,
-                        title: { es: "Adaptar estrategia", en: "Adaptar estrategia" },
-                        description: { es: "Modificar planes según la respuesta del rival.", en: "Modificar planes según la respuesta del rival." },
+                        title: { es: "Adaptar estrategia", en: "Adapt strategy" },
+                        description: { es: "Modificar planes según la respuesta del rival.", en: "Modify plans according to the opponent's response." },
                     },
                     {
                         id: 3,
-                        title: { es: "Control del centro", en: "Control del centro" },
-                        description: { es: "Fundamento para una apertura exitosa.", en: "Fundamento para una apertura exitosa." },
+                        title: { es: "Control del centro", en: "Control of the center" },
+                        description: { es: "Fundamento para una apertura exitosa.", en: "The foundation of a successful opening." },
                     },
                 ],
                 detailDescription: { es: [
@@ -3550,9 +3550,9 @@ export const DATA_BASE: BBDD = {
                     "Aprenderás a ajustar tu estrategia según las variantes que el oponente elija, manteniendo siempre el control del centro.",
                     "Desarrollarás un sentido más profundo del valor posicional que las aperturas buscan establecer para lograr ventaja en el medio juego.",
                 ], en: [
-                    "Al completar este curso, podrás identificar y jugar las aperturas básicas con seguridad y coherencia.",
-                    "Aprenderás a ajustar tu estrategia según las variantes que el oponente elija, manteniendo siempre el control del centro.",
-                    "Desarrollarás un sentido más profundo del valor posicional que las aperturas buscan establecer para lograr ventaja en el medio juego.",
+                    "Upon completing this course, you will be able to identify and play the basic openings with confidence and consistency.",
+                    "You will learn to adjust your strategy according to the variations your opponent chooses, always keeping control of the center.",
+                    "You will develop a deeper sense of the positional value that openings aim to establish in order to gain an advantage in the middlegame.",
                 ] },
             },
             authors: [3, 4],
@@ -3566,28 +3566,28 @@ export const DATA_BASE: BBDD = {
                 thumb: "course-image-thumb-3_640x427_.webp",
             },
             sales: 768,
-            title: { es: "Errores Comunes y Cómo Evitarlos", en: "Errores Comunes y Cómo Evitarlos" },
-            shortDescription: { es: "Identifica y corrige los errores más frecuentes en partidas de principiantes.", en: "Identifica y corrige los errores más frecuentes en partidas de principiantes." },
+            title: { es: "Errores Comunes y Cómo Evitarlos", en: "Common Mistakes and How to Avoid Them" },
+            shortDescription: { es: "Identifica y corrige los errores más frecuentes en partidas de principiantes.", en: "Identify and correct the most frequent mistakes in beginners' games." },
             level: "Principiante",
             price: 11.99,
 
-            detailDescription: { es: "Un curso que analiza los errores más comunes cometidos en las primeras etapas del aprendizaje del ajedrez. Aprenderás cómo evitarlos y convertirlos en oportunidades de mejora.", en: "Un curso que analiza los errores más comunes cometidos en las primeras etapas del aprendizaje del ajedrez. Aprenderás cómo evitarlos y convertirlos en oportunidades de mejora." },
+            detailDescription: { es: "Un curso que analiza los errores más comunes cometidos en las primeras etapas del aprendizaje del ajedrez. Aprenderás cómo evitarlos y convertirlos en oportunidades de mejora.", en: "A course that analyzes the most common mistakes made in the early stages of learning chess. You will learn how to avoid them and turn them into opportunities for improvement." },
             content: {
                 themes: [
                     {
                         id: 1,
-                        title: { es: "Mover la misma pieza varias veces", en: "Mover la misma pieza varias veces" },
-                        description: { es: "Cómo desperdiciar tiempos y perder la iniciativa.", en: "Cómo desperdiciar tiempos y perder la iniciativa." },
+                        title: { es: "Mover la misma pieza varias veces", en: "Moving the same piece several times" },
+                        description: { es: "Cómo desperdiciar tiempos y perder la iniciativa.", en: "How you waste tempo and lose the initiative." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Errores al repetir piezas", en: "Errores al repetir piezas" },
+                                title: { es: "Errores al repetir piezas", en: "Mistakes from repeating moves" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Consecuencias del retraso", en: "Consecuencias del retraso" },
+                                title: { es: "Consecuencias del retraso", en: "Consequences of the delay" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3595,18 +3595,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 2,
-                        title: { es: "Olvidar el desarrollo", en: "Olvidar el desarrollo" },
-                        description: { es: "Errores estratégicos al no sacar piezas menores a tiempo.", en: "Errores estratégicos al no sacar piezas menores a tiempo." },
+                        title: { es: "Olvidar el desarrollo", en: "Forgetting development" },
+                        description: { es: "Errores estratégicos al no sacar piezas menores a tiempo.", en: "Strategic mistakes from not developing minor pieces in time." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Importancia del desarrollo", en: "Importancia del desarrollo" },
+                                title: { es: "Importancia del desarrollo", en: "The importance of development" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Errores típicos", en: "Errores típicos" },
+                                title: { es: "Errores típicos", en: "Typical mistakes" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3614,18 +3614,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 3,
-                        title: { es: "No enrocarse", en: "No enrocarse" },
-                        description: { es: "Por qué la seguridad del rey es crucial.", en: "Por qué la seguridad del rey es crucial." },
+                        title: { es: "No enrocarse", en: "Not castling" },
+                        description: { es: "Por qué la seguridad del rey es crucial.", en: "Why king safety is crucial." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Riesgos de no enrocar", en: "Riesgos de no enrocar" },
+                                title: { es: "Riesgos de no enrocar", en: "Risks of not castling" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Ejemplos prácticos", en: "Ejemplos prácticos" },
+                                title: { es: "Ejemplos prácticos", en: "Practical examples" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3633,18 +3633,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 4,
-                        title: { es: "Abrir líneas sin control", en: "Abrir líneas sin control" },
-                        description: { es: "Errores de peones que debilitan la posición.", en: "Errores de peones que debilitan la posición." },
+                        title: { es: "Abrir líneas sin control", en: "Opening lines without control" },
+                        description: { es: "Errores de peones que debilitan la posición.", en: "Pawn mistakes that weaken the position." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Debilidades de peones", en: "Debilidades de peones" },
+                                title: { es: "Debilidades de peones", en: "Pawn weaknesses" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Consecuencias estratégicas", en: "Consecuencias estratégicas" },
+                                title: { es: "Consecuencias estratégicas", en: "Strategic consequences" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3652,18 +3652,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 5,
-                        title: { es: "Ignorar amenazas del rival", en: "Ignorar amenazas del rival" },
-                        description: { es: "Falta de cálculo o sobreconfianza en posiciones aparentemente seguras.", en: "Falta de cálculo o sobreconfianza en posiciones aparentemente seguras." },
+                        title: { es: "Ignorar amenazas del rival", en: "Ignoring the opponent's threats" },
+                        description: { es: "Falta de cálculo o sobreconfianza en posiciones aparentemente seguras.", en: "Lack of calculation or overconfidence in seemingly safe positions." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Ejemplos de amenazas", en: "Ejemplos de amenazas" },
+                                title: { es: "Ejemplos de amenazas", en: "Examples of threats" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Cómo detectarlas", en: "Cómo detectarlas" },
+                                title: { es: "Cómo detectarlas", en: "How to spot them" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3676,28 +3676,28 @@ export const DATA_BASE: BBDD = {
                     "La sección sobre el enroque muestra múltiples ejemplos de cómo retrasar o no enrocar puede ser letal, incluso en posiciones igualadas. Igualmente, se analizan aperturas que debilitan innecesariamente la estructura de peones sin compensación alguna.",
                     "Finalmente, se enfoca en mejorar la visión táctica a través del reconocimiento de amenazas del rival. El curso entrena al alumno a analizar con más profundidad cada jugada, evitando blunders simples y favoreciendo una toma de decisiones más sólida.",
                 ], en: [
-                    "El contenido del curso gira en torno a los patrones de error más frecuentes observados en jugadores de nivel principiante. Cada módulo presenta situaciones reales de partida donde se ha cometido uno de estos fallos y se analiza el porqué, sus consecuencias y cómo prevenirlos.",
-                    "Se explica con profundidad por qué mover la misma pieza varias veces al inicio de la partida ralentiza el desarrollo y concede ventaja al oponente. También se aborda la importancia de sacar todas las piezas menores antes de emprender ataques prematuros.",
-                    "La sección sobre el enroque muestra múltiples ejemplos de cómo retrasar o no enrocar puede ser letal, incluso en posiciones igualadas. Igualmente, se analizan aperturas que debilitan innecesariamente la estructura de peones sin compensación alguna.",
-                    "Finalmente, se enfoca en mejorar la visión táctica a través del reconocimiento de amenazas del rival. El curso entrena al alumno a analizar con más profundidad cada jugada, evitando blunders simples y favoreciendo una toma de decisiones más sólida.",
+                    "The course content revolves around the most frequent error patterns observed in beginner-level players. Each module presents real game situations where one of these mistakes was made and analyzes why, its consequences, and how to prevent it.",
+                    "It explains in depth why moving the same piece several times at the start of the game slows down development and gives the opponent an advantage. It also addresses the importance of developing all minor pieces before launching premature attacks.",
+                    "The section on castling shows multiple examples of how delaying or not castling can be lethal, even in equal positions. It also analyzes openings that unnecessarily weaken the pawn structure without any compensation.",
+                    "Finally, it focuses on improving tactical vision through recognizing the opponent's threats. The course trains the student to analyze each move more deeply, avoiding simple blunders and favoring more solid decision-making.",
                 ] },
             },
             toLearn: {
                 themes: [
                     {
                         id: 1,
-                        title: { es: "Desarrollo eficiente", en: "Desarrollo eficiente" },
-                        description: { es: "Aplicar principios de apertura con lógica.", en: "Aplicar principios de apertura con lógica." },
+                        title: { es: "Desarrollo eficiente", en: "Efficient development" },
+                        description: { es: "Aplicar principios de apertura con lógica.", en: "Apply opening principles with logic." },
                     },
                     {
                         id: 2,
-                        title: { es: "Pensamiento reactivo", en: "Pensamiento reactivo" },
-                        description: { es: "Aprender a detectar amenazas y responder correctamente.", en: "Aprender a detectar amenazas y responder correctamente." },
+                        title: { es: "Pensamiento reactivo", en: "Reactive thinking" },
+                        description: { es: "Aprender a detectar amenazas y responder correctamente.", en: "Learn to detect threats and respond correctly." },
                     },
                     {
                         id: 3,
-                        title: { es: "Disciplina estructural", en: "Disciplina estructural" },
-                        description: { es: "Mantener estructuras de peones sólidas.", en: "Mantener estructuras de peones sólidas." },
+                        title: { es: "Disciplina estructural", en: "Structural discipline" },
+                        description: { es: "Mantener estructuras de peones sólidas.", en: "Maintain solid pawn structures." },
                     },
                 ],
                 detailDescription: { es: [
@@ -3705,9 +3705,9 @@ export const DATA_BASE: BBDD = {
                     "A través de análisis guiados, mejorarás tu pensamiento reactivo, desarrollando una mejor comprensión del ajedrez como juego de amenazas. Aprenderás a anticiparte a lo que tu rival pretende y cómo prevenir ataques antes de que sucedan.",
                     "También se destaca la importancia de la estructura de peones, mostrando cómo pequeños errores en el inicio pueden derivar en debilidades que persisten toda la partida. Aprenderás a construir posiciones sólidas y cómo castigar a quienes no lo hacen.",
                 ], en: [
-                    "Este curso te entrenará para pensar de manera lógica y estratégica desde las primeras jugadas. Entenderás por qué el desarrollo correcto de las piezas es vital para tomar la iniciativa en la partida, y cómo pequeñas decisiones afectan el medio juego.",
-                    "A través de análisis guiados, mejorarás tu pensamiento reactivo, desarrollando una mejor comprensión del ajedrez como juego de amenazas. Aprenderás a anticiparte a lo que tu rival pretende y cómo prevenir ataques antes de que sucedan.",
-                    "También se destaca la importancia de la estructura de peones, mostrando cómo pequeños errores en el inicio pueden derivar en debilidades que persisten toda la partida. Aprenderás a construir posiciones sólidas y cómo castigar a quienes no lo hacen.",
+                    "This course will train you to think logically and strategically from the very first moves. You will understand why developing your pieces correctly is vital to taking the initiative in the game, and how small decisions affect the middlegame.",
+                    "Through guided analysis, you will improve your reactive thinking, developing a better understanding of chess as a game of threats. You will learn to anticipate what your opponent intends and how to prevent attacks before they happen.",
+                    "The importance of pawn structure is also highlighted, showing how small mistakes at the start can lead to weaknesses that persist throughout the game. You will learn to build solid positions and how to punish those who do not.",
                 ] },
             },
             authors: [5, 6],
@@ -3722,28 +3722,28 @@ export const DATA_BASE: BBDD = {
                 thumb: "course-image-thumb-4_640x427_.webp",
             },
             sales: 567,
-            title: { es: "Tácticas Intermedias", en: "Tácticas Intermedias" },
-            shortDescription: { es: "Da el siguiente paso en tu entrenamiento táctico con conceptos más avanzados.", en: "Da el siguiente paso en tu entrenamiento táctico con conceptos más avanzados." },
+            title: { es: "Tácticas Intermedias", en: "Intermediate Tactics" },
+            shortDescription: { es: "Da el siguiente paso en tu entrenamiento táctico con conceptos más avanzados.", en: "Take the next step in your tactical training with more advanced concepts." },
             level: "Intermedio",
             price: 18.99,
 
-            detailDescription: { es: "Para jugadores que ya dominan las tácticas básicas y quieren mejorar su precisión en combinaciones más complejas. Este curso lleva tu visión táctica al siguiente nivel.", en: "Para jugadores que ya dominan las tácticas básicas y quieren mejorar su precisión en combinaciones más complejas. Este curso lleva tu visión táctica al siguiente nivel." },
+            detailDescription: { es: "Para jugadores que ya dominan las tácticas básicas y quieren mejorar su precisión en combinaciones más complejas. Este curso lleva tu visión táctica al siguiente nivel.", en: "For players who already master basic tactics and want to improve their accuracy in more complex combinations. This course takes your tactical vision to the next level." },
             content: {
                 themes: [
                     {
                         id: 1,
-                        title: { es: "Combinaciones múltiples", en: "Combinaciones múltiples" },
-                        description: { es: "Secuencias de táctica encadenada.", en: "Secuencias de táctica encadenada." },
+                        title: { es: "Combinaciones múltiples", en: "Multiple combinations" },
+                        description: { es: "Secuencias de táctica encadenada.", en: "Sequences of chained tactics." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Secuencias largas", en: "Secuencias largas" },
+                                title: { es: "Secuencias largas", en: "Long sequences" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Ejercicios prácticos", en: "Ejercicios prácticos" },
+                                title: { es: "Ejercicios prácticos", en: "Practical exercises" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3751,18 +3751,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 2,
-                        title: { es: "Desviación avanzada", en: "Desviación avanzada" },
-                        description: { es: "Forzar piezas fuera de su posición crítica.", en: "Forzar piezas fuera de su posición crítica." },
+                        title: { es: "Desviación avanzada", en: "Advanced deflection" },
+                        description: { es: "Forzar piezas fuera de su posición crítica.", en: "Forcing pieces away from their critical position." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Conceptos de desviación", en: "Conceptos de desviación" },
+                                title: { es: "Conceptos de desviación", en: "Deflection concepts" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Ejemplos tácticos", en: "Ejemplos tácticos" },
+                                title: { es: "Ejemplos tácticos", en: "Tactical examples" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3770,18 +3770,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 3,
-                        title: { es: "Sacrificios posicionales", en: "Sacrificios posicionales" },
-                        description: { es: "Ofrecer material por iniciativa o ataque.", en: "Ofrecer material por iniciativa o ataque." },
+                        title: { es: "Sacrificios posicionales", en: "Positional sacrifices" },
+                        description: { es: "Ofrecer material por iniciativa o ataque.", en: "Offering material for initiative or attack." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Cuándo sacrificar", en: "Cuándo sacrificar" },
+                                title: { es: "Cuándo sacrificar", en: "When to sacrifice" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Ejemplos históricos", en: "Ejemplos históricos" },
+                                title: { es: "Ejemplos históricos", en: "Historic examples" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3789,18 +3789,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 4,
-                        title: { es: "Doble amenaza con rayos X", en: "Doble amenaza con rayos X" },
-                        description: { es: "Amenazas ocultas a través de piezas.", en: "Amenazas ocultas a través de piezas." },
+                        title: { es: "Doble amenaza con rayos X", en: "Double threat with X-rays" },
+                        description: { es: "Amenazas ocultas a través de piezas.", en: "Hidden threats through pieces." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Rayos X básicos", en: "Rayos X básicos" },
+                                title: { es: "Rayos X básicos", en: "Basic X-rays" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Aplicaciones prácticas", en: "Aplicaciones prácticas" },
+                                title: { es: "Aplicaciones prácticas", en: "Practical applications" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3808,18 +3808,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 5,
-                        title: { es: "Transposición táctica", en: "Transposición táctica" },
-                        description: { es: "Alterar el orden natural para obtener ventaja.", en: "Alterar el orden natural para obtener ventaja." },
+                        title: { es: "Transposición táctica", en: "Tactical transposition" },
+                        description: { es: "Alterar el orden natural para obtener ventaja.", en: "Altering the natural order to gain an advantage." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Concepto de transposición", en: "Concepto de transposición" },
+                                title: { es: "Concepto de transposición", en: "The concept of transposition" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Ejercicios prácticos", en: "Ejercicios prácticos" },
+                                title: { es: "Ejercicios prácticos", en: "Practical exercises" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3832,28 +3832,28 @@ export const DATA_BASE: BBDD = {
                     "A diferencia de los cursos básicos, aquí se enfatiza el cálculo preciso. Aprenderás a anticipar respuestas del oponente y a calcular variantes más allá de tres jugadas. Esto es clave para superar a jugadores del mismo nivel.",
                     "Además, se exploran temas tácticos menos conocidos pero muy eficaces, como la transposición táctica y los ataques con rayos X combinados. Estos conceptos elevan tu juego táctico y te preparan para enfrentar partidas mucho más exigentes.",
                 ], en: [
-                    "Este curso aborda conceptos tácticos más avanzados mediante el estudio de combinaciones complejas en situaciones reales. Las lecciones se centran en desarrollar la capacidad de encontrar secuencias tácticas profundas que requieran cálculo y visualización precisa.",
-                    "Cada táctica se introduce con teoría y luego se explora a través de ejemplos comentados que muestran cómo surgieron y qué decisiones tomó el jugador. Aprenderás cómo sacrificar una pieza en el momento justo para abrir líneas decisivas o desorganizar la defensa rival.",
-                    "A diferencia de los cursos básicos, aquí se enfatiza el cálculo preciso. Aprenderás a anticipar respuestas del oponente y a calcular variantes más allá de tres jugadas. Esto es clave para superar a jugadores del mismo nivel.",
-                    "Además, se exploran temas tácticos menos conocidos pero muy eficaces, como la transposición táctica y los ataques con rayos X combinados. Estos conceptos elevan tu juego táctico y te preparan para enfrentar partidas mucho más exigentes.",
+                    "This course addresses more advanced tactical concepts through the study of complex combinations in real situations. The lessons focus on developing the ability to find deep tactical sequences that require precise calculation and visualization.",
+                    "Each tactic is introduced with theory and then explored through annotated examples showing how they arose and what decisions the player made. You will learn how to sacrifice a piece at the right moment to open decisive lines or disrupt the opponent's defense.",
+                    "Unlike the basic courses, here the emphasis is on precise calculation. You will learn to anticipate the opponent's responses and to calculate variations beyond three moves. This is key to beating players of the same level.",
+                    "In addition, lesser-known but very effective tactical themes are explored, such as tactical transposition and combined X-ray attacks. These concepts raise your tactical game and prepare you to face much more demanding games.",
                 ] },
             },
             toLearn: {
                 themes: [
                     {
                         id: 1,
-                        title: { es: "Cálculo profundo", en: "Cálculo profundo" },
-                        description: { es: "Visualizar combinaciones con precisión.", en: "Visualizar combinaciones con precisión." },
+                        title: { es: "Cálculo profundo", en: "Deep calculation" },
+                        description: { es: "Visualizar combinaciones con precisión.", en: "Visualize combinations accurately." },
                     },
                     {
                         id: 2,
-                        title: { es: "Sacrificios intuitivos", en: "Sacrificios intuitivos" },
-                        description: { es: "Confiar en la iniciativa aún sin evaluación concreta.", en: "Confiar en la iniciativa aún sin evaluación concreta." },
+                        title: { es: "Sacrificios intuitivos", en: "Intuitive sacrifices" },
+                        description: { es: "Confiar en la iniciativa aún sin evaluación concreta.", en: "Trust the initiative even without a concrete evaluation." },
                     },
                     {
                         id: 3,
-                        title: { es: "Análisis post-partida", en: "Análisis post-partida" },
-                        description: { es: "Revisar tácticas fallidas y aprender de ellas.", en: "Revisar tácticas fallidas y aprender de ellas." },
+                        title: { es: "Análisis post-partida", en: "Post-game analysis" },
+                        description: { es: "Revisar tácticas fallidas y aprender de ellas.", en: "Review failed tactics and learn from them." },
                     },
                 ],
                 detailDescription: { es: [
@@ -3861,9 +3861,9 @@ export const DATA_BASE: BBDD = {
                     "También aprenderás cuándo hacer sacrificios sin tener certeza completa, confiando en patrones y conceptos posicionales que respaldan la decisión. Estas habilidades son esenciales en partidas dinámicas y de ataque.",
                     "Finalmente, se promueve la reflexión post-partida como hábito clave para el crecimiento. Aprenderás a detectar qué combinaciones fallaste, por qué lo hiciste, y cómo no volver a cometer los mismos errores tácticos.",
                 ], en: [
-                    "Este curso te ayudará a mejorar tu capacidad de cálculo mediante ejercicios progresivos que entrenan tu visualización, concentración y memoria de variantes. El objetivo es que seas capaz de calcular 4 o 5 jugadas con confianza.",
-                    "También aprenderás cuándo hacer sacrificios sin tener certeza completa, confiando en patrones y conceptos posicionales que respaldan la decisión. Estas habilidades son esenciales en partidas dinámicas y de ataque.",
-                    "Finalmente, se promueve la reflexión post-partida como hábito clave para el crecimiento. Aprenderás a detectar qué combinaciones fallaste, por qué lo hiciste, y cómo no volver a cometer los mismos errores tácticos.",
+                    "This course will help you improve your calculation ability through progressive exercises that train your visualization, concentration, and memory of variations. The goal is for you to be able to calculate 4 or 5 moves with confidence.",
+                    "You will also learn when to make sacrifices without complete certainty, trusting patterns and positional concepts that support the decision. These skills are essential in dynamic, attacking games.",
+                    "Finally, post-game reflection is promoted as a key habit for growth. You will learn to detect which combinations you missed, why you did, and how to avoid making the same tactical mistakes again.",
                 ] },
             },
             authors: [7, 8],
@@ -3878,28 +3878,28 @@ export const DATA_BASE: BBDD = {
                 thumb: "course-image-thumb-5_640x427_.webp",
             },
             sales: 1987,
-            title: { es: "Estrategia Posicional Básica", en: "Estrategia Posicional Básica" },
-            shortDescription: { es: "Aprende los principios que rigen el ajedrez más allá de las tácticas inmediatas.", en: "Aprende los principios que rigen el ajedrez más allá de las tácticas inmediatas." },
+            title: { es: "Estrategia Posicional Básica", en: "Basic Positional Strategy" },
+            shortDescription: { es: "Aprende los principios que rigen el ajedrez más allá de las tácticas inmediatas.", en: "Learn the principles that govern chess beyond immediate tactics." },
             level: "Intermedio",
             price: 16.5,
 
-            detailDescription: { es: "Curso esencial para aquellos que ya dominan la táctica básica y desean profundizar en los fundamentos estratégicos del ajedrez posicional.", en: "Curso esencial para aquellos que ya dominan la táctica básica y desean profundizar en los fundamentos estratégicos del ajedrez posicional." },
+            detailDescription: { es: "Curso esencial para aquellos que ya dominan la táctica básica y desean profundizar en los fundamentos estratégicos del ajedrez posicional.", en: "An essential course for those who already master basic tactics and want to deepen their understanding of the strategic fundamentals of positional chess." },
             content: {
                 themes: [
                     {
                         id: 1,
-                        title: { es: "Casillas débiles", en: "Casillas débiles" },
-                        description: { es: "Identificar y explotar puntos vulnerables.", en: "Identificar y explotar puntos vulnerables." },
+                        title: { es: "Casillas débiles", en: "Weak squares" },
+                        description: { es: "Identificar y explotar puntos vulnerables.", en: "Identify and exploit vulnerable points." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Detectar casillas débiles", en: "Detectar casillas débiles" },
+                                title: { es: "Detectar casillas débiles", en: "Detecting weak squares" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Explotación práctica", en: "Explotación práctica" },
+                                title: { es: "Explotación práctica", en: "Practical exploitation" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3907,18 +3907,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 2,
-                        title: { es: "Mayoría de peones", en: "Mayoría de peones" },
-                        description: { es: "Cómo utilizarla para generar ventajas.", en: "Cómo utilizarla para generar ventajas." },
+                        title: { es: "Mayoría de peones", en: "Pawn majority" },
+                        description: { es: "Cómo utilizarla para generar ventajas.", en: "How to use it to create advantages." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Conceptos básicos", en: "Conceptos básicos" },
+                                title: { es: "Conceptos básicos", en: "Basic concepts" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Ejemplos de uso", en: "Ejemplos de uso" },
+                                title: { es: "Ejemplos de uso", en: "Examples of use" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3926,18 +3926,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 3,
-                        title: { es: "Buenas y malas piezas", en: "Buenas y malas piezas" },
-                        description: { es: "Diferenciar piezas activas y pasivas.", en: "Diferenciar piezas activas y pasivas." },
+                        title: { es: "Buenas y malas piezas", en: "Good and bad pieces" },
+                        description: { es: "Diferenciar piezas activas y pasivas.", en: "Distinguish active and passive pieces." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Buenas piezas", en: "Buenas piezas" },
+                                title: { es: "Buenas piezas", en: "Good pieces" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Piezas pasivas", en: "Piezas pasivas" },
+                                title: { es: "Piezas pasivas", en: "Passive pieces" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3945,18 +3945,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 4,
-                        title: { es: "Control de columnas abiertas", en: "Control de columnas abiertas" },
-                        description: { es: "Cómo usar las torres estratégicamente.", en: "Cómo usar las torres estratégicamente." },
+                        title: { es: "Control de columnas abiertas", en: "Control of open files" },
+                        description: { es: "Cómo usar las torres estratégicamente.", en: "How to use the rooks strategically." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Columna abierta", en: "Columna abierta" },
+                                title: { es: "Columna abierta", en: "The open file" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Ejemplos con torres", en: "Ejemplos con torres" },
+                                title: { es: "Ejemplos con torres", en: "Examples with rooks" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3964,18 +3964,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 5,
-                        title: { es: "Planes a largo plazo", en: "Planes a largo plazo" },
-                        description: { es: "Tomar decisiones más allá de la táctica inmediata.", en: "Tomar decisiones más allá de la táctica inmediata." },
+                        title: { es: "Planes a largo plazo", en: "Long-term plans" },
+                        description: { es: "Tomar decisiones más allá de la táctica inmediata.", en: "Make decisions beyond immediate tactics." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Planificación estratégica", en: "Planificación estratégica" },
+                                title: { es: "Planificación estratégica", en: "Strategic planning" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Errores comunes", en: "Errores comunes" },
+                                title: { es: "Errores comunes", en: "Common mistakes" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -3988,28 +3988,28 @@ export const DATA_BASE: BBDD = {
                     "También se trabajan temas como el uso correcto de la mayoría de peones en un flanco, o cómo convertir una columna abierta en una autopista de ataque para las torres. Estas ideas marcan la diferencia entre un jugador táctico y uno estratégico.",
                     "Cada lección incluye ejemplos prácticos y desafíos que entrenan tu comprensión global de las posiciones, para que puedas construir planes coherentes incluso sin tácticas inmediatas a la vista.",
                 ], en: [
-                    "Este curso proporciona las bases de pensamiento posicional necesarias para mejorar tu nivel general de ajedrez. Se explican conceptos esenciales como casillas débiles, estructuras de peones y planes a largo plazo que definen la calidad de una posición.",
-                    "A través del análisis de partidas modelo, se enseñan técnicas para explotar debilidades, entender cuándo cambiar piezas y cómo transformar una ventaja pequeña en una ganancia definitiva.",
-                    "También se trabajan temas como el uso correcto de la mayoría de peones en un flanco, o cómo convertir una columna abierta en una autopista de ataque para las torres. Estas ideas marcan la diferencia entre un jugador táctico y uno estratégico.",
-                    "Cada lección incluye ejemplos prácticos y desafíos que entrenan tu comprensión global de las posiciones, para que puedas construir planes coherentes incluso sin tácticas inmediatas a la vista.",
+                    "This course provides the positional thinking foundations needed to improve your overall chess level. It explains essential concepts such as weak squares, pawn structures, and long-term plans that define the quality of a position.",
+                    "Through the analysis of model games, it teaches techniques to exploit weaknesses, understand when to exchange pieces, and how to turn a small advantage into a decisive gain.",
+                    "Topics such as the correct use of a pawn majority on one wing, or how to turn an open file into an attacking highway for the rooks, are also covered. These ideas make the difference between a tactical player and a strategic one.",
+                    "Each lesson includes practical examples and challenges that train your overall understanding of positions, so that you can build coherent plans even without immediate tactics in sight.",
                 ] },
             },
             toLearn: {
                 themes: [
                     {
                         id: 1,
-                        title: { es: "Pensamiento estratégico", en: "Pensamiento estratégico" },
-                        description: { es: "Planear en función del tipo de posición.", en: "Planear en función del tipo de posición." },
+                        title: { es: "Pensamiento estratégico", en: "Strategic thinking" },
+                        description: { es: "Planear en función del tipo de posición.", en: "Plan according to the type of position." },
                     },
                     {
                         id: 2,
-                        title: { es: "Gestión del material", en: "Gestión del material" },
-                        description: { es: "Cambiar o conservar piezas según su función.", en: "Cambiar o conservar piezas según su función." },
+                        title: { es: "Gestión del material", en: "Material management" },
+                        description: { es: "Cambiar o conservar piezas según su función.", en: "Exchange or keep pieces according to their role." },
                     },
                     {
                         id: 3,
-                        title: { es: "Paciencia y maniobras", en: "Paciencia y maniobras" },
-                        description: { es: "Aprender a ganar con lentitud y lógica.", en: "Aprender a ganar con lentitud y lógica." },
+                        title: { es: "Paciencia y maniobras", en: "Patience and maneuvering" },
+                        description: { es: "Aprender a ganar con lentitud y lógica.", en: "Learn to win slowly and logically." },
                     },
                 ],
                 detailDescription: { es: [
@@ -4017,9 +4017,9 @@ export const DATA_BASE: BBDD = {
                     "El curso entrena la gestión eficiente del material: cuándo cambiar, cuándo conservar y cómo valorar la actividad de cada pieza más allá de su valor numérico.",
                     "Además, se trabaja la paciencia como virtud del jugador posicional. Aprenderás a maniobrar tus piezas durante varios turnos con un objetivo claro, generando ventajas sin necesidad de combinaciones tácticas inmediatas.",
                 ], en: [
-                    "Tras finalizar este curso, comprenderás que el ajedrez no es solo cálculo, sino también planificación. Serás capaz de identificar las debilidades estructurales en una posición y construir un plan para explotarlas.",
-                    "El curso entrena la gestión eficiente del material: cuándo cambiar, cuándo conservar y cómo valorar la actividad de cada pieza más allá de su valor numérico.",
-                    "Además, se trabaja la paciencia como virtud del jugador posicional. Aprenderás a maniobrar tus piezas durante varios turnos con un objetivo claro, generando ventajas sin necesidad de combinaciones tácticas inmediatas.",
+                    "After finishing this course, you will understand that chess is not only calculation, but also planning. You will be able to identify the structural weaknesses in a position and build a plan to exploit them.",
+                    "The course trains efficient material management: when to exchange, when to keep, and how to assess the activity of each piece beyond its numerical value.",
+                    "In addition, patience is developed as a virtue of the positional player. You will learn to maneuver your pieces over several turns with a clear goal, creating advantages without the need for immediate tactical combinations.",
                 ] },
             },
             authors: [9, 10],
