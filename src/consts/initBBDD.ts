@@ -4812,28 +4812,28 @@ export const DATA_BASE: BBDD = {
                 thumb: "course-image-thumb-11_640x426_.webp",
             },
             sales: 567,
-            title: { es: "Torneos y Competición", en: "Torneos y Competición" },
-            shortDescription: { es: "Prepárate para competir y destacar en torneos de ajedrez.", en: "Prepárate para competir y destacar en torneos de ajedrez." },
+            title: { es: "Torneos y Competición", en: "Tournaments and Competition" },
+            shortDescription: { es: "Prepárate para competir y destacar en torneos de ajedrez.", en: "Get ready to compete and stand out in chess tournaments." },
             level: "Intermedio",
             price: 19.5,
 
-            detailDescription: { es: "Este curso te guía a través de todo lo que necesitas saber para participar con éxito en torneos, desde la preparación hasta la gestión del tiempo y la evaluación post-partida.", en: "Este curso te guía a través de todo lo que necesitas saber para participar con éxito en torneos, desde la preparación hasta la gestión del tiempo y la evaluación post-partida." },
+            detailDescription: { es: "Este curso te guía a través de todo lo que necesitas saber para participar con éxito en torneos, desde la preparación hasta la gestión del tiempo y la evaluación post-partida.", en: "This course guides you through everything you need to know to take part successfully in tournaments, from preparation to time management and post-game evaluation." },
             content: {
                 themes: [
                     {
                         id: 1,
-                        title: { es: "Reglas de torneos", en: "Reglas de torneos" },
-                        description: { es: "Normativas y formatos comunes.", en: "Normativas y formatos comunes." },
+                        title: { es: "Reglas de torneos", en: "Tournament rules" },
+                        description: { es: "Normativas y formatos comunes.", en: "Regulations and common formats." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Reglamento básico", en: "Reglamento básico" },
+                                title: { es: "Reglamento básico", en: "Basic regulations" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Errores comunes", en: "Errores comunes" },
+                                title: { es: "Errores comunes", en: "Common mistakes" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -4841,18 +4841,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 2,
-                        title: { es: "Preparación previa", en: "Preparación previa" },
-                        description: { es: "Cómo estudiar y mentalizarse para competir.", en: "Cómo estudiar y mentalizarse para competir." },
+                        title: { es: "Preparación previa", en: "Advance preparation" },
+                        description: { es: "Cómo estudiar y mentalizarse para competir.", en: "How to study and get in the right mindset to compete." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Preparación física", en: "Preparación física" },
+                                title: { es: "Preparación física", en: "Physical preparation" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Preparación mental", en: "Preparación mental" },
+                                title: { es: "Preparación mental", en: "Mental preparation" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -4860,18 +4860,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 3,
-                        title: { es: "Gestión del tiempo", en: "Gestión del tiempo" },
-                        description: { es: "Uso efectivo del reloj en partidas rápidas y clásicas.", en: "Uso efectivo del reloj en partidas rápidas y clásicas." },
+                        title: { es: "Gestión del tiempo", en: "Time management" },
+                        description: { es: "Uso efectivo del reloj en partidas rápidas y clásicas.", en: "Effective use of the clock in rapid and classical games." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Blitz y rápidas", en: "Blitz y rápidas" },
+                                title: { es: "Blitz y rápidas", en: "Blitz and rapid" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Clásicas", en: "Clásicas" },
+                                title: { es: "Clásicas", en: "Classical" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -4879,18 +4879,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 4,
-                        title: { es: "Análisis post-partida", en: "Análisis post-partida" },
-                        description: { es: "Aprender de tus errores y aciertos.", en: "Aprender de tus errores y aciertos." },
+                        title: { es: "Análisis post-partida", en: "Post-game analysis" },
+                        description: { es: "Aprender de tus errores y aciertos.", en: "Learn from your mistakes and successes." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Métodos de análisis", en: "Métodos de análisis" },
+                                title: { es: "Métodos de análisis", en: "Analysis methods" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Ejemplos prácticos", en: "Ejemplos prácticos" },
+                                title: { es: "Ejemplos prácticos", en: "Practical examples" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -4898,18 +4898,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 5,
-                        title: { es: "Estrategias psicológicas", en: "Estrategias psicológicas" },
-                        description: { es: "Mantener la calma y controlar el nerviosismo.", en: "Mantener la calma y controlar el nerviosismo." },
+                        title: { es: "Estrategias psicológicas", en: "Psychological strategies" },
+                        description: { es: "Mantener la calma y controlar el nerviosismo.", en: "Stay calm and control nervousness." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Control del nerviosismo", en: "Control del nerviosismo" },
+                                title: { es: "Control del nerviosismo", en: "Controlling nervousness" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Ejercicios prácticos", en: "Ejercicios prácticos" },
+                                title: { es: "Ejercicios prácticos", en: "Practical exercises" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -4923,29 +4923,29 @@ export const DATA_BASE: BBDD = {
                     "También se enseña cómo analizar tus partidas para identificar áreas de mejora y consolidar fortalezas.",
                     "Finalmente, se incluyen estrategias para controlar el nerviosismo y mantener la concentración durante la competición.",
                 ], en: [
-                    "En este módulo conocerás las reglas específicas de los diferentes formatos de torneo, lo que te permitirá evitar errores formales y aprovechar las oportunidades.",
-                    "Aprenderás técnicas para una preparación efectiva que abarque tanto el estudio del ajedrez como la preparación mental y física.",
-                    "Se abordan métodos para administrar correctamente el tiempo de juego, evitando apuros y errores derivados de la presión.",
-                    "También se enseña cómo analizar tus partidas para identificar áreas de mejora y consolidar fortalezas.",
-                    "Finalmente, se incluyen estrategias para controlar el nerviosismo y mantener la concentración durante la competición.",
+                    "In this module you will learn the specific rules of the different tournament formats, which will let you avoid formal mistakes and seize opportunities.",
+                    "You will learn techniques for effective preparation that covers both the study of chess and mental and physical preparation.",
+                    "It covers methods to properly manage your playing time, avoiding time trouble and mistakes caused by pressure.",
+                    "It also teaches how to analyze your games to identify areas for improvement and consolidate your strengths.",
+                    "Finally, it includes strategies to control nervousness and keep your concentration during competition.",
                 ] },
             },
             toLearn: {
                 themes: [
                     {
                         id: 1,
-                        title: { es: "Disciplina en torneos", en: "Disciplina en torneos" },
-                        description: { es: "Conocer y respetar las reglas.", en: "Conocer y respetar las reglas." },
+                        title: { es: "Disciplina en torneos", en: "Tournament discipline" },
+                        description: { es: "Conocer y respetar las reglas.", en: "Know and respect the rules." },
                     },
                     {
                         id: 2,
-                        title: { es: "Preparación integral", en: "Preparación integral" },
-                        description: { es: "Combinar estudio, mente y cuerpo.", en: "Combinar estudio, mente y cuerpo." },
+                        title: { es: "Preparación integral", en: "Comprehensive preparation" },
+                        description: { es: "Combinar estudio, mente y cuerpo.", en: "Combine study, mind and body." },
                     },
                     {
                         id: 3,
-                        title: { es: "Autocrítica constructiva", en: "Autocrítica constructiva" },
-                        description: { es: "Usar el análisis para mejorar.", en: "Usar el análisis para mejorar." },
+                        title: { es: "Autocrítica constructiva", en: "Constructive self-criticism" },
+                        description: { es: "Usar el análisis para mejorar.", en: "Use analysis to improve." },
                     },
                 ],
                 detailDescription: { es: [
@@ -4953,9 +4953,9 @@ export const DATA_BASE: BBDD = {
                     "Aprenderás a organizar tu estudio y preparación física y mental para estar en óptimas condiciones.",
                     "Desarrollarás la habilidad de evaluar tus partidas de forma objetiva para crecer constantemente como jugador.",
                 ], en: [
-                    "Con este curso, estarás listo para afrontar cualquier torneo con la confianza y preparación necesarias para rendir al máximo.",
-                    "Aprenderás a organizar tu estudio y preparación física y mental para estar en óptimas condiciones.",
-                    "Desarrollarás la habilidad de evaluar tus partidas de forma objetiva para crecer constantemente como jugador.",
+                    "With this course, you will be ready to face any tournament with the confidence and preparation needed to perform at your best.",
+                    "You will learn to organize your study and your physical and mental preparation to be in optimal condition.",
+                    "You will develop the ability to evaluate your games objectively in order to keep growing as a player.",
                 ] },
             },
             authors: [3, 6],
@@ -4969,27 +4969,27 @@ export const DATA_BASE: BBDD = {
                 thumb: "course-image-thumb-12_640x426_.webp",
             },
             sales: 276,
-            title: { es: "Ataques y Defensa", en: "Ataques y Defensa" },
-            shortDescription: { es: "Domina técnicas para atacar y defender eficazmente en cualquier posición.", en: "Domina técnicas para atacar y defender eficazmente en cualquier posición." },
+            title: { es: "Ataques y Defensa", en: "Attack and Defense" },
+            shortDescription: { es: "Domina técnicas para atacar y defender eficazmente en cualquier posición.", en: "Master techniques to attack and defend effectively in any position." },
             level: "Intermedio",
             price: 20.0,
-            detailDescription: { es: "Este curso te ayudará a mejorar tu capacidad para lanzar ataques potentes y defender posiciones difíciles, combinando teoría y práctica para obtener resultados inmediatos.", en: "Este curso te ayudará a mejorar tu capacidad para lanzar ataques potentes y defender posiciones difíciles, combinando teoría y práctica para obtener resultados inmediatos." },
+            detailDescription: { es: "Este curso te ayudará a mejorar tu capacidad para lanzar ataques potentes y defender posiciones difíciles, combinando teoría y práctica para obtener resultados inmediatos.", en: "This course will help you improve your ability to launch powerful attacks and defend difficult positions, combining theory and practice for immediate results." },
             content: {
                 themes: [
                     {
                         id: 1,
-                        title: { es: "Ataques directos", en: "Ataques directos" },
-                        description: { es: "Técnicas para penetrar la defensa rival.", en: "Técnicas para penetrar la defensa rival." },
+                        title: { es: "Ataques directos", en: "Direct attacks" },
+                        description: { es: "Técnicas para penetrar la defensa rival.", en: "Techniques to break through the opponent's defense." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Ataque al rey", en: "Ataque al rey" },
+                                title: { es: "Ataque al rey", en: "Attack on the king" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Ejemplos prácticos", en: "Ejemplos prácticos" },
+                                title: { es: "Ejemplos prácticos", en: "Practical examples" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -4997,18 +4997,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 2,
-                        title: { es: "Defensas activas", en: "Defensas activas" },
-                        description: { es: "Cómo neutralizar amenazas y contraatacar.", en: "Cómo neutralizar amenazas y contraatacar." },
+                        title: { es: "Defensas activas", en: "Active defenses" },
+                        description: { es: "Cómo neutralizar amenazas y contraatacar.", en: "How to neutralize threats and counterattack." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Defensa activa básica", en: "Defensa activa básica" },
+                                title: { es: "Defensa activa básica", en: "Basic active defense" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Ejercicios prácticos", en: "Ejercicios prácticos" },
+                                title: { es: "Ejercicios prácticos", en: "Practical exercises" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -5016,18 +5016,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 3,
-                        title: { es: "Sacrificios estratégicos", en: "Sacrificios estratégicos" },
-                        description: { es: "Cuándo y cómo ofrecer material.", en: "Cuándo y cómo ofrecer material." },
+                        title: { es: "Sacrificios estratégicos", en: "Strategic sacrifices" },
+                        description: { es: "Cuándo y cómo ofrecer material.", en: "When and how to offer material." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Sacrificios comunes", en: "Sacrificios comunes" },
+                                title: { es: "Sacrificios comunes", en: "Common sacrifices" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Errores frecuentes", en: "Errores frecuentes" },
+                                title: { es: "Errores frecuentes", en: "Frequent mistakes" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -5035,18 +5035,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 4,
-                        title: { es: "Contraataques tácticos", en: "Contraataques tácticos" },
-                        description: { es: "Transformar la defensa en ataque.", en: "Transformar la defensa en ataque." },
+                        title: { es: "Contraataques tácticos", en: "Tactical counterattacks" },
+                        description: { es: "Transformar la defensa en ataque.", en: "Turn defense into attack." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Ejemplos prácticos", en: "Ejemplos prácticos" },
+                                title: { es: "Ejemplos prácticos", en: "Practical examples" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Errores comunes", en: "Errores comunes" },
+                                title: { es: "Errores comunes", en: "Common mistakes" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -5054,18 +5054,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 5,
-                        title: { es: "Evaluación dinámica", en: "Evaluación dinámica" },
-                        description: { es: "Reconocer momentos para atacar o defender.", en: "Reconocer momentos para atacar o defender." },
+                        title: { es: "Evaluación dinámica", en: "Dynamic evaluation" },
+                        description: { es: "Reconocer momentos para atacar o defender.", en: "Recognize the right moments to attack or defend." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Métodos de evaluación", en: "Métodos de evaluación" },
+                                title: { es: "Métodos de evaluación", en: "Evaluation methods" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Ejercicios prácticos", en: "Ejercicios prácticos" },
+                                title: { es: "Ejercicios prácticos", en: "Practical exercises" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -5079,29 +5079,29 @@ export const DATA_BASE: BBDD = {
                     "Se profundiza en la importancia del contraataque táctico para transformar situaciones defensivas en oportunidades de victoria.",
                     "Finalmente, se enseñan métodos para evaluar dinámicamente la posición y decidir el momento ideal para atacar o defender.",
                 ], en: [
-                    "El curso comienza con fundamentos para realizar ataques directos que desestabilicen al oponente y creen oportunidades decisivas.",
-                    "Se estudian técnicas de defensa activa que no solo protegen, sino que permiten contraatacar y tomar la iniciativa.",
-                    "Aprenderás cuándo y cómo realizar sacrificios estratégicos para obtener ventajas posicionales o materiales.",
-                    "Se profundiza en la importancia del contraataque táctico para transformar situaciones defensivas en oportunidades de victoria.",
-                    "Finalmente, se enseñan métodos para evaluar dinámicamente la posición y decidir el momento ideal para atacar o defender.",
+                    "The course begins with the fundamentals for carrying out direct attacks that destabilize the opponent and create decisive opportunities.",
+                    "It studies active defense techniques that not only protect, but also allow you to counterattack and take the initiative.",
+                    "You will learn when and how to make strategic sacrifices to gain positional or material advantages.",
+                    "It delves into the importance of the tactical counterattack to turn defensive situations into winning opportunities.",
+                    "Finally, it teaches methods to dynamically evaluate the position and decide the ideal moment to attack or defend.",
                 ] },
             },
             toLearn: {
                 themes: [
                     {
                         id: 1,
-                        title: { es: "Timing perfecto", en: "Timing perfecto" },
-                        description: { es: "Reconocer el momento ideal para acciones tácticas.", en: "Reconocer el momento ideal para acciones tácticas." },
+                        title: { es: "Timing perfecto", en: "Perfect timing" },
+                        description: { es: "Reconocer el momento ideal para acciones tácticas.", en: "Recognize the ideal moment for tactical actions." },
                     },
                     {
                         id: 2,
-                        title: { es: "Equilibrio entre ataque y defensa", en: "Equilibrio entre ataque y defensa" },
-                        description: { es: "Mantener el control en la partida.", en: "Mantener el control en la partida." },
+                        title: { es: "Equilibrio entre ataque y defensa", en: "Balance between attack and defense" },
+                        description: { es: "Mantener el control en la partida.", en: "Keep control of the game." },
                     },
                     {
                         id: 3,
-                        title: { es: "Sacrificios calculados", en: "Sacrificios calculados" },
-                        description: { es: "Maximizar el impacto de tus movimientos.", en: "Maximizar el impacto de tus movimientos." },
+                        title: { es: "Sacrificios calculados", en: "Calculated sacrifices" },
+                        description: { es: "Maximizar el impacto de tus movimientos.", en: "Maximize the impact of your moves." },
                     },
                 ],
                 detailDescription: { es: [
@@ -5109,9 +5109,9 @@ export const DATA_BASE: BBDD = {
                     "Desarrollarás un sentido agudo para identificar el momento adecuado para lanzar ataques o reforzar la defensa.",
                     "Además, adquirirás la confianza para realizar sacrificios que te proporcionen ventajas duraderas en la partida.",
                 ], en: [
-                    "Este curso te permitirá encontrar el balance entre ser agresivo y prudente, maximizando tus oportunidades de victoria.",
-                    "Desarrollarás un sentido agudo para identificar el momento adecuado para lanzar ataques o reforzar la defensa.",
-                    "Además, adquirirás la confianza para realizar sacrificios que te proporcionen ventajas duraderas en la partida.",
+                    "This course will help you find the balance between being aggressive and prudent, maximizing your chances of winning.",
+                    "You will develop a sharp sense for identifying the right moment to launch attacks or reinforce your defense.",
+                    "In addition, you will gain the confidence to make sacrifices that give you lasting advantages in the game.",
                 ] },
             },
             authors: [8],
@@ -5125,28 +5125,28 @@ export const DATA_BASE: BBDD = {
                 thumb: "course-image-thumb-13_640x426_.webp",
             },
             sales: 876,
-            title: { es: "Jaque Mate en 1 y 2 Movimientos", en: "Jaque Mate en 1 y 2 Movimientos" },
-            shortDescription: { es: "Ejercita y perfecciona mates rápidos para cerrar partidas con estilo.", en: "Ejercita y perfecciona mates rápidos para cerrar partidas con estilo." },
+            title: { es: "Jaque Mate en 1 y 2 Movimientos", en: "Checkmate in 1 and 2 Moves" },
+            shortDescription: { es: "Ejercita y perfecciona mates rápidos para cerrar partidas con estilo.", en: "Practice and perfect quick mates to finish games in style." },
             level: "Principiante",
             price: 10.0,
 
-            detailDescription: { es: "En este curso descubrirás patrones de mates rápidos para sorprender a tu adversario desde las primeras jugadas y cerrar la partida eficazmente.", en: "En este curso descubrirás patrones de mates rápidos para sorprender a tu adversario desde las primeras jugadas y cerrar la partida eficazmente." },
+            detailDescription: { es: "En este curso descubrirás patrones de mates rápidos para sorprender a tu adversario desde las primeras jugadas y cerrar la partida eficazmente.", en: "In this course you will discover quick-mate patterns to surprise your opponent from the very first moves and finish the game effectively." },
             content: {
                 themes: [
                     {
                         id: 1,
-                        title: { es: "Patrones básicos de jaque mate", en: "Patrones básicos de jaque mate" },
-                        description: { es: "Formas comunes de dar mate.", en: "Formas comunes de dar mate." },
+                        title: { es: "Patrones básicos de jaque mate", en: "Basic checkmate patterns" },
+                        description: { es: "Formas comunes de dar mate.", en: "Common ways to deliver mate." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Mate del pasillo", en: "Mate del pasillo" },
+                                title: { es: "Mate del pasillo", en: "Back-rank mate" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Mate de la escalera", en: "Mate de la escalera" },
+                                title: { es: "Mate de la escalera", en: "Ladder mate" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -5154,18 +5154,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 2,
-                        title: { es: "Jaque mate en 1 movimiento", en: "Jaque mate en 1 movimiento" },
-                        description: { es: "Ejercicios y ejemplos prácticos.", en: "Ejercicios y ejemplos prácticos." },
+                        title: { es: "Jaque mate en 1 movimiento", en: "Checkmate in 1 move" },
+                        description: { es: "Ejercicios y ejemplos prácticos.", en: "Exercises and practical examples." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Ejercicios básicos", en: "Ejercicios básicos" },
+                                title: { es: "Ejercicios básicos", en: "Basic exercises" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Ejercicios avanzados", en: "Ejercicios avanzados" },
+                                title: { es: "Ejercicios avanzados", en: "Advanced exercises" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -5173,18 +5173,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 3,
-                        title: { es: "Jaque mate en 2 movimientos", en: "Jaque mate en 2 movimientos" },
-                        description: { es: "Combinaciones y trucos.", en: "Combinaciones y trucos." },
+                        title: { es: "Jaque mate en 2 movimientos", en: "Checkmate in 2 moves" },
+                        description: { es: "Combinaciones y trucos.", en: "Combinations and tricks." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Ejemplos básicos", en: "Ejemplos básicos" },
+                                title: { es: "Ejemplos básicos", en: "Basic examples" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Ejercicios prácticos", en: "Ejercicios prácticos" },
+                                title: { es: "Ejercicios prácticos", en: "Practical exercises" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -5192,18 +5192,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 4,
-                        title: { es: "Errores que facilitan mate rápido", en: "Errores que facilitan mate rápido" },
-                        description: { es: "Cómo evitarlos.", en: "Cómo evitarlos." },
+                        title: { es: "Errores que facilitan mate rápido", en: "Mistakes that allow a quick mate" },
+                        description: { es: "Cómo evitarlos.", en: "How to avoid them." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Errores típicos", en: "Errores típicos" },
+                                title: { es: "Errores típicos", en: "Typical mistakes" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Prevención", en: "Prevención" },
+                                title: { es: "Prevención", en: "Prevention" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -5211,18 +5211,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 5,
-                        title: { es: "Práctica con problemas tácticos", en: "Práctica con problemas tácticos" },
-                        description: { es: "Ejercicios para reforzar habilidades.", en: "Ejercicios para reforzar habilidades." },
+                        title: { es: "Práctica con problemas tácticos", en: "Practice with tactical problems" },
+                        description: { es: "Ejercicios para reforzar habilidades.", en: "Exercises to reinforce your skills." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Ejercicios prácticos", en: "Ejercicios prácticos" },
+                                title: { es: "Ejercicios prácticos", en: "Practical exercises" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Ejercicios avanzados", en: "Ejercicios avanzados" },
+                                title: { es: "Ejercicios avanzados", en: "Advanced exercises" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -5235,31 +5235,31 @@ export const DATA_BASE: BBDD = {
                     "Se identifican errores típicos que facilitan a los rivales dar jaque mate y cómo evitarlos para proteger tu rey.",
                     "Además, se incluyen problemas tácticos que refuerzan la comprensión y aplicación de estos conceptos.",
                 ], en: [
-                    "Se analizan y explican los patrones más comunes para dar jaque mate en 1 y 2 movimientos, incluyendo ejemplos visuales y explicativos.",
-                    "El curso ofrece ejercicios prácticos para que los alumnos puedan entrenar y memorizar estos mates rápidos.",
-                    "Se identifican errores típicos que facilitan a los rivales dar jaque mate y cómo evitarlos para proteger tu rey.",
-                    "Además, se incluyen problemas tácticos que refuerzan la comprensión y aplicación de estos conceptos.",
+                    "The most common patterns for delivering checkmate in 1 and 2 moves are analyzed and explained, including visual and illustrative examples.",
+                    "The course offers practical exercises so that students can train and memorize these quick mates.",
+                    "It identifies typical mistakes that let opponents deliver checkmate, and how to avoid them to protect your king.",
+                    "In addition, it includes tactical problems that reinforce the understanding and application of these concepts.",
                 ] },
             },
             toLearn: {
                 themes: [
                     {
                         id: 1,
-                        title: { es: "Reconocimiento de patrones", en: "Reconocimiento de patrones" },
-                        description: { es: "Detectar mates rápidos en el tablero.", en: "Detectar mates rápidos en el tablero." },
+                        title: { es: "Reconocimiento de patrones", en: "Pattern recognition" },
+                        description: { es: "Detectar mates rápidos en el tablero.", en: "Spot quick mates on the board." },
                     },
                     {
                         id: 2,
-                        title: { es: "Velocidad y precisión", en: "Velocidad y precisión" },
-                        description: { es: "Ejecutar mates sin errores.", en: "Ejecutar mates sin errores." },
+                        title: { es: "Velocidad y precisión", en: "Speed and precision" },
+                        description: { es: "Ejecutar mates sin errores.", en: "Execute mates without mistakes." },
                     },
                 ],
                 detailDescription: { es: [
                     "Al finalizar, tendrás la capacidad de identificar rápidamente oportunidades para dar jaque mate en 1 o 2 movimientos.",
                     "Mejorarás tu velocidad y precisión para cerrar partidas con movimientos contundentes y efectivos.",
                 ], en: [
-                    "Al finalizar, tendrás la capacidad de identificar rápidamente oportunidades para dar jaque mate en 1 o 2 movimientos.",
-                    "Mejorarás tu velocidad y precisión para cerrar partidas con movimientos contundentes y efectivos.",
+                    "By the end, you will be able to quickly identify opportunities to deliver checkmate in 1 or 2 moves.",
+                    "You will improve your speed and precision to finish games with forceful, effective moves.",
                 ] },
             },
             authors: [10, 1],
@@ -5273,28 +5273,28 @@ export const DATA_BASE: BBDD = {
                 thumb: "course-image-thumb-14_640x480_.webp",
             },
             sales: 987,
-            title: { es: "Estrategias para el Medio Juego", en: "Estrategias para el Medio Juego" },
-            shortDescription: { es: "Aprende a manejar el medio juego con tácticas y planes efectivos.", en: "Aprende a manejar el medio juego con tácticas y planes efectivos." },
+            title: { es: "Estrategias para el Medio Juego", en: "Middlegame Strategies" },
+            shortDescription: { es: "Aprende a manejar el medio juego con tácticas y planes efectivos.", en: "Learn to handle the middlegame with effective tactics and plans." },
             level: "Intermedio",
             price: 18.5,
 
-            detailDescription: { es: "Este curso cubre los fundamentos del medio juego, enfocándose en la toma de decisiones, planificación estratégica y ejecución de tácticas para dominar esta fase vital.", en: "Este curso cubre los fundamentos del medio juego, enfocándose en la toma de decisiones, planificación estratégica y ejecución de tácticas para dominar esta fase vital." },
+            detailDescription: { es: "Este curso cubre los fundamentos del medio juego, enfocándose en la toma de decisiones, planificación estratégica y ejecución de tácticas para dominar esta fase vital.", en: "This course covers the fundamentals of the middlegame, focusing on decision-making, strategic planning, and executing tactics to master this vital phase." },
             content: {
                 themes: [
                     {
                         id: 1,
-                        title: { es: "Evaluación de la posición", en: "Evaluación de la posición" },
-                        description: { es: "Cómo analizar la estructura y piezas.", en: "Cómo analizar la estructura y piezas." },
+                        title: { es: "Evaluación de la posición", en: "Evaluating the position" },
+                        description: { es: "Cómo analizar la estructura y piezas.", en: "How to analyze the structure and pieces." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Factores clave", en: "Factores clave" },
+                                title: { es: "Factores clave", en: "Key factors" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Ejemplos prácticos", en: "Ejemplos prácticos" },
+                                title: { es: "Ejemplos prácticos", en: "Practical examples" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -5302,18 +5302,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 2,
-                        title: { es: "Planes comunes", en: "Planes comunes" },
-                        description: { es: "Desarrollo de estrategias según la posición.", en: "Desarrollo de estrategias según la posición." },
+                        title: { es: "Planes comunes", en: "Common plans" },
+                        description: { es: "Desarrollo de estrategias según la posición.", en: "Developing strategies according to the position." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Planes en flanco de rey", en: "Planes en flanco de rey" },
+                                title: { es: "Planes en flanco de rey", en: "Kingside plans" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Planes en flanco de dama", en: "Planes en flanco de dama" },
+                                title: { es: "Planes en flanco de dama", en: "Queenside plans" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -5321,18 +5321,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 3,
-                        title: { es: "Tácticas para el medio juego", en: "Tácticas para el medio juego" },
-                        description: { es: "Identificación y aplicación.", en: "Identificación y aplicación." },
+                        title: { es: "Tácticas para el medio juego", en: "Middlegame tactics" },
+                        description: { es: "Identificación y aplicación.", en: "Identification and application." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Ejercicios básicos", en: "Ejercicios básicos" },
+                                title: { es: "Ejercicios básicos", en: "Basic exercises" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Ejercicios avanzados", en: "Ejercicios avanzados" },
+                                title: { es: "Ejercicios avanzados", en: "Advanced exercises" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -5340,18 +5340,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 4,
-                        title: { es: "Intercambios y transformaciones", en: "Intercambios y transformaciones" },
-                        description: { es: "Decidir qué piezas cambiar.", en: "Decidir qué piezas cambiar." },
+                        title: { es: "Intercambios y transformaciones", en: "Exchanges and transformations" },
+                        description: { es: "Decidir qué piezas cambiar.", en: "Deciding which pieces to exchange." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Cuándo cambiar piezas", en: "Cuándo cambiar piezas" },
+                                title: { es: "Cuándo cambiar piezas", en: "When to exchange pieces" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Errores comunes", en: "Errores comunes" },
+                                title: { es: "Errores comunes", en: "Common mistakes" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -5359,18 +5359,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 5,
-                        title: { es: "Errores frecuentes", en: "Errores frecuentes" },
-                        description: { es: "Evitar fallos típicos en esta fase.", en: "Evitar fallos típicos en esta fase." },
+                        title: { es: "Errores frecuentes", en: "Frequent mistakes" },
+                        description: { es: "Evitar fallos típicos en esta fase.", en: "Avoid typical mistakes in this phase." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Errores comunes", en: "Errores comunes" },
+                                title: { es: "Errores comunes", en: "Common mistakes" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Cómo evitarlos", en: "Cómo evitarlos" },
+                                title: { es: "Cómo evitarlos", en: "How to avoid them" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -5384,29 +5384,29 @@ export const DATA_BASE: BBDD = {
                     "También se aborda la importancia de decidir qué piezas intercambiar y cuándo para mejorar la posición general.",
                     "Finalmente, se analizan errores comunes que pueden costar ventaja o incluso la partida, para que los evites eficazmente.",
                 ], en: [
-                    "Se enseñan métodos para evaluar correctamente la posición del tablero, considerando factores como estructura de peones y actividad de piezas.",
-                    "El curso desarrolla planes estratégicos adaptados a diferentes tipos de posiciones y estilos de juego.",
-                    "Se profundiza en la identificación y uso efectivo de tácticas específicas del medio juego, que pueden cambiar el curso de la partida.",
-                    "También se aborda la importancia de decidir qué piezas intercambiar y cuándo para mejorar la posición general.",
-                    "Finalmente, se analizan errores comunes que pueden costar ventaja o incluso la partida, para que los evites eficazmente.",
+                    "It teaches methods to correctly evaluate the position on the board, considering factors such as pawn structure and piece activity.",
+                    "The course develops strategic plans adapted to different types of positions and playing styles.",
+                    "It delves into identifying and effectively using specific middlegame tactics that can change the course of the game.",
+                    "It also addresses the importance of deciding which pieces to exchange and when, in order to improve the overall position.",
+                    "Finally, it analyzes common mistakes that can cost you an advantage or even the game, so that you can avoid them effectively.",
                 ] },
             },
             toLearn: {
                 themes: [
                     {
                         id: 1,
-                        title: { es: "Toma de decisiones", en: "Toma de decisiones" },
-                        description: { es: "Mejorar la elección de jugadas.", en: "Mejorar la elección de jugadas." },
+                        title: { es: "Toma de decisiones", en: "Decision-making" },
+                        description: { es: "Mejorar la elección de jugadas.", en: "Improve your choice of moves." },
                     },
                     {
                         id: 2,
-                        title: { es: "Planificación estratégica", en: "Planificación estratégica" },
-                        description: { es: "Diseñar y ejecutar planes coherentes.", en: "Diseñar y ejecutar planes coherentes." },
+                        title: { es: "Planificación estratégica", en: "Strategic planning" },
+                        description: { es: "Diseñar y ejecutar planes coherentes.", en: "Design and execute coherent plans." },
                     },
                     {
                         id: 3,
-                        title: { es: "Precisión táctica", en: "Precisión táctica" },
-                        description: { es: "Aplicar tácticas con efectividad.", en: "Aplicar tácticas con efectividad." },
+                        title: { es: "Precisión táctica", en: "Tactical precision" },
+                        description: { es: "Aplicar tácticas con efectividad.", en: "Apply tactics effectively." },
                     },
                 ],
                 detailDescription: { es: [
@@ -5414,9 +5414,9 @@ export const DATA_BASE: BBDD = {
                     "Aprenderás a planificar de forma estratégica, adaptando tus planes según la evolución de la partida.",
                     "Desarrollarás una mayor precisión en la aplicación de tácticas para aprovechar oportunidades y evitar amenazas.",
                 ], en: [
-                    "Con este curso, mejorarás tu capacidad para decidir la mejor jugada en cada situación del medio juego.",
-                    "Aprenderás a planificar de forma estratégica, adaptando tus planes según la evolución de la partida.",
-                    "Desarrollarás una mayor precisión en la aplicación de tácticas para aprovechar oportunidades y evitar amenazas.",
+                    "With this course, you will improve your ability to decide the best move in each middlegame situation.",
+                    "You will learn to plan strategically, adapting your plans according to how the game develops.",
+                    "You will develop greater precision in applying tactics to seize opportunities and avoid threats.",
                 ] },
             },
             authors: [3],
@@ -5430,28 +5430,28 @@ export const DATA_BASE: BBDD = {
                 thumb: "course-image-thumb-15_640x426_.webp",
             },
             sales: 1045,
-            title: { es: "Entrenamiento de Cálculo", en: "Entrenamiento de Cálculo" },
-            shortDescription: { es: "Ejercita tu mente para calcular variantes y mejorar tu juego.", en: "Ejercita tu mente para calcular variantes y mejorar tu juego." },
+            title: { es: "Entrenamiento de Cálculo", en: "Calculation Training" },
+            shortDescription: { es: "Ejercita tu mente para calcular variantes y mejorar tu juego.", en: "Train your mind to calculate variations and improve your game." },
             level: "Intermedio",
             price: 17.5,
 
-            detailDescription: { es: "Este curso está diseñado para mejorar tu capacidad de cálculo y análisis, clave para prever jugadas y planificar estrategias complejas.", en: "Este curso está diseñado para mejorar tu capacidad de cálculo y análisis, clave para prever jugadas y planificar estrategias complejas." },
+            detailDescription: { es: "Este curso está diseñado para mejorar tu capacidad de cálculo y análisis, clave para prever jugadas y planificar estrategias complejas.", en: "This course is designed to improve your calculation and analysis ability, key to foreseeing moves and planning complex strategies." },
             content: {
                 themes: [
                     {
                         id: 1,
-                        title: { es: "Técnicas de cálculo", en: "Técnicas de cálculo" },
-                        description: { es: "Métodos para analizar variantes.", en: "Métodos para analizar variantes." },
+                        title: { es: "Técnicas de cálculo", en: "Calculation techniques" },
+                        description: { es: "Métodos para analizar variantes.", en: "Methods to analyze variations." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Método paso a paso", en: "Método paso a paso" },
+                                title: { es: "Método paso a paso", en: "Step-by-step method" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Errores frecuentes", en: "Errores frecuentes" },
+                                title: { es: "Errores frecuentes", en: "Frequent mistakes" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -5459,18 +5459,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 2,
-                        title: { es: "Visualización de movimientos", en: "Visualización de movimientos" },
-                        description: { es: "Entrenamiento para ver jugadas futuras.", en: "Entrenamiento para ver jugadas futuras." },
+                        title: { es: "Visualización de movimientos", en: "Move visualization" },
+                        description: { es: "Entrenamiento para ver jugadas futuras.", en: "Training to see future moves." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Ejercicios básicos", en: "Ejercicios básicos" },
+                                title: { es: "Ejercicios básicos", en: "Basic exercises" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Ejercicios avanzados", en: "Ejercicios avanzados" },
+                                title: { es: "Ejercicios avanzados", en: "Advanced exercises" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -5478,18 +5478,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 3,
-                        title: { es: "Evaluación de posiciones", en: "Evaluación de posiciones" },
-                        description: { es: "Decidir el mejor camino a seguir.", en: "Decidir el mejor camino a seguir." },
+                        title: { es: "Evaluación de posiciones", en: "Evaluating positions" },
+                        description: { es: "Decidir el mejor camino a seguir.", en: "Decide the best path to follow." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Métodos prácticos", en: "Métodos prácticos" },
+                                title: { es: "Métodos prácticos", en: "Practical methods" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Ejemplos", en: "Ejemplos" },
+                                title: { es: "Ejemplos", en: "Examples" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -5497,18 +5497,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 4,
-                        title: { es: "Ejercicios prácticos", en: "Ejercicios prácticos" },
-                        description: { es: "Problemas para fortalecer la capacidad de cálculo.", en: "Problemas para fortalecer la capacidad de cálculo." },
+                        title: { es: "Ejercicios prácticos", en: "Practical exercises" },
+                        description: { es: "Problemas para fortalecer la capacidad de cálculo.", en: "Problems to strengthen your calculation ability." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Ejercicios básicos", en: "Ejercicios básicos" },
+                                title: { es: "Ejercicios básicos", en: "Basic exercises" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Ejercicios complejos", en: "Ejercicios complejos" },
+                                title: { es: "Ejercicios complejos", en: "Complex exercises" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -5516,18 +5516,18 @@ export const DATA_BASE: BBDD = {
                     },
                     {
                         id: 5,
-                        title: { es: "Control del error", en: "Control del error" },
-                        description: { es: "Reducir errores durante el análisis.", en: "Reducir errores durante el análisis." },
+                        title: { es: "Control del error", en: "Error control" },
+                        description: { es: "Reducir errores durante el análisis.", en: "Reduce mistakes during analysis." },
                         content: [
                             {
                                 id: 1,
-                                title: { es: "Errores típicos", en: "Errores típicos" },
+                                title: { es: "Errores típicos", en: "Typical mistakes" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
                             {
                                 id: 2,
-                                title: { es: "Cómo evitarlos", en: "Cómo evitarlos" },
+                                title: { es: "Cómo evitarlos", en: "How to avoid them" },
                                 cover: "static-image-muestra-subtemas_1143x547_.webp",
                                 video: "video-muestra-subtemas_1920x1080_.mp4",
                             },
@@ -5541,29 +5541,29 @@ export const DATA_BASE: BBDD = {
                     "Los ejercicios prácticos están diseñados para fortalecer tu capacidad analítica y la precisión en el cálculo.",
                     "Finalmente, se abordan métodos para minimizar errores durante el análisis y mejorar la confianza en tus decisiones.",
                 ], en: [
-                    "Se enseñan técnicas para calcular variantes de forma estructurada y eficiente, evitando omisiones y errores.",
-                    "El curso incluye ejercicios para mejorar la visualización mental de jugadas y posiciones futuras.",
-                    "Aprenderás a evaluar posiciones para decidir cuál es la mejor jugada en cada escenario.",
-                    "Los ejercicios prácticos están diseñados para fortalecer tu capacidad analítica y la precisión en el cálculo.",
-                    "Finalmente, se abordan métodos para minimizar errores durante el análisis y mejorar la confianza en tus decisiones.",
+                    "It teaches techniques to calculate variations in a structured and efficient way, avoiding omissions and mistakes.",
+                    "The course includes exercises to improve the mental visualization of future moves and positions.",
+                    "You will learn to evaluate positions to decide the best move in each scenario.",
+                    "The practical exercises are designed to strengthen your analytical ability and calculation accuracy.",
+                    "Finally, it covers methods to minimize mistakes during analysis and improve confidence in your decisions.",
                 ] },
             },
             toLearn: {
                 themes: [
                     {
                         id: 1,
-                        title: { es: "Cálculo eficiente", en: "Cálculo eficiente" },
-                        description: { es: "Mejorar la velocidad y precisión.", en: "Mejorar la velocidad y precisión." },
+                        title: { es: "Cálculo eficiente", en: "Efficient calculation" },
+                        description: { es: "Mejorar la velocidad y precisión.", en: "Improve speed and precision." },
                     },
                     {
                         id: 2,
-                        title: { es: "Visualización mental", en: "Visualización mental" },
-                        description: { es: "Fortalecer la capacidad de imaginar jugadas.", en: "Fortalecer la capacidad de imaginar jugadas." },
+                        title: { es: "Visualización mental", en: "Mental visualization" },
+                        description: { es: "Fortalecer la capacidad de imaginar jugadas.", en: "Strengthen your ability to imagine moves." },
                     },
                     {
                         id: 3,
-                        title: { es: "Reducción de errores", en: "Reducción de errores" },
-                        description: { es: "Evitar fallos comunes durante el análisis.", en: "Evitar fallos comunes durante el análisis." },
+                        title: { es: "Reducción de errores", en: "Error reduction" },
+                        description: { es: "Evitar fallos comunes durante el análisis.", en: "Avoid common mistakes during analysis." },
                     },
                 ],
                 detailDescription: { es: [
@@ -5571,9 +5571,9 @@ export const DATA_BASE: BBDD = {
                     "Desarrollarás una visualización mental más clara, anticipando jugadas y respuestas con eficacia.",
                     "Reducirás errores habituales durante el análisis, aumentando la confianza en tus decisiones sobre el tablero.",
                 ], en: [
-                    "Al terminar el curso, podrás calcular variantes con mayor rapidez y seguridad, mejorando notablemente tu rendimiento en partidas.",
-                    "Desarrollarás una visualización mental más clara, anticipando jugadas y respuestas con eficacia.",
-                    "Reducirás errores habituales durante el análisis, aumentando la confianza en tus decisiones sobre el tablero.",
+                    "By the end of the course, you will be able to calculate variations more quickly and confidently, notably improving your performance in games.",
+                    "You will develop clearer mental visualization, anticipating moves and responses effectively.",
+                    "You will reduce habitual mistakes during analysis, increasing confidence in your decisions over the board.",
                 ] },
             },
             authors: [4],
