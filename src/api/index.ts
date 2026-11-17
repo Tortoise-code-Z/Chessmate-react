@@ -10,6 +10,7 @@ import {
     ObtainedCourse,
     ObtainedDefaultCourse,
     Progress,
+    StoredCourse,
     ThemesUserStates,
     ThemesUserStatesOC,
     User,
@@ -21,6 +22,7 @@ import {
     resolveDefaultCourse,
     resolveOpinion,
 } from "./localize";
+import { isArray, isObject, isString } from "../utils/general";
 
 // Users
 export const getUsers: (data: BBDD) => User[] = (data) => {
@@ -108,11 +110,26 @@ export const getUserObtainedCourse: (
 };
 
 // ObtainedCourses
+
+/**
+ * Cursos almacenados que al menos son objetos (ADR-021).
+ *
+ * localStorage es editable: `data.courses` puede no ser una lista o traer
+ * entradas que no son objetos (`null`, un numero...). Esas entradas no tienen
+ * nada que pintar y tumbarian a quien lea sus campos, asi que se descartan.
+ * Un curso que SI es objeto pero tiene campos rotos se conserva: lo avisa la
+ * vista (`SecurityRendering`), como pide ADR-018 y la demo del README.
+ */
+const getStoredCourses: (data: BBDD) => StoredCourse[] = (data) =>
+    isArray<StoredCourse>(data.courses)
+        ? data.courses.filter((course) => isObject(course))
+        : [];
+
 export const getCourses: (data: BBDD, lang: Language) => CourseJSON[] = (
     data,
     lang
 ) => {
-    return (data.courses || []).map((course) => resolveCourse(course, lang));
+    return getStoredCourses(data).map((course) => resolveCourse(course, lang));
 };
 
 // DefaultCourses
@@ -184,13 +201,27 @@ export const getFilteredCourses = (
     data: BBDD,
     lang: Language
 ): (CourseJSON & IsObtainedCourse)[] => {
+    const storedCourses = getStoredCourses(data);
     const coursesToMap =
         filter === "Todos"
-            ? data.courses
-            : data.courses.filter((c) => c.level === filter);
+            ? storedCourses
+            : storedCourses.filter((c) => c.level === filter);
 
-    return (coursesToMap || []).map((course) => resolveCourse(course, lang));
+    return coursesToMap.map((course) => resolveCourse(course, lang));
 };
+
+/**
+ * Indica si algun campo de texto del curso contiene `searchLower`.
+ * Un campo que no es string (dato corrupto) simplemente no coincide.
+ */
+const matchesSearch: (course: CourseJSON, searchLower: string) => boolean = (
+    course,
+    searchLower
+) =>
+    [course.title, course.shortDescription, course.level].some(
+        (field: unknown) =>
+            isString(field) && field.toLowerCase().includes(searchLower)
+    );
 
 export const getSearchedCourses = (
     search: string,
@@ -198,17 +229,10 @@ export const getSearchedCourses = (
     lang: Language
 ): (CourseJSON & IsObtainedCourse)[] => {
     const searchLower = search.toLowerCase();
-    const resolvedCourses = (data.courses || []).map((course) =>
-        resolveCourse(course, lang)
-    );
-    const searchedCourses = resolvedCourses.filter(
-        (c) =>
-            c.title.toLowerCase().includes(searchLower) ||
-            c.shortDescription.toLowerCase().includes(searchLower) ||
-            c.level.toLowerCase().includes(searchLower)
-    );
 
-    return searchedCourses || ([] as (CourseJSON & IsObtainedCourse)[]);
+    return getCourses(data, lang).filter((course) =>
+        matchesSearch(course, searchLower)
+    );
 };
 
 export const getCourseById: (
@@ -216,7 +240,7 @@ export const getCourseById: (
     courseID: number,
     lang: Language
 ) => CourseJSON | undefined = (data, courseID, lang) => {
-    const course = data.courses.find((c) => c.courseID === courseID);
+    const course = getStoredCourses(data).find((c) => c.courseID === courseID);
     return course ? resolveCourse(course, lang) : undefined;
 };
 
