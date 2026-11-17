@@ -54,6 +54,7 @@ With Chessmate, users can:
 ## Features ✨
 
 - **Responsive design** that works well on mobile and desktop.
+- **Multilingual (Spanish / English)** with i18next: UI and course content, with the language remembered between visits.
 - **Smooth animations** that make interactions feel natural.
 - **Form validation** with Zod and React Hook Form.
 - **Global state** with Zustand, so data stays consistent across pages.
@@ -70,7 +71,7 @@ With Chessmate, users can:
 
 ### Prerequisites
 
-- **Node.js** 18 or later
+- **Node.js** 22.12 or later
 - **npm**
 - **Git**
 
@@ -88,6 +89,9 @@ npm install
 
 # Start the development server
 npm run dev
+
+# Run the tests (optional)
+npm run test:run
 ```
 
 ---
@@ -133,7 +137,7 @@ You can edit the simulated "database" from the browser console to see the fallba
 
 ```js
 // Load the simulated database from localStorage
-const bbdd = JSON.parse(localStorage.getItem("DATA_BASE"));
+const bbdd = JSON.parse(localStorage.getItem("DATA_BASE_v2"));
 
 const newCourses = bbdd.courses.map((c) => {
     if (c.courseID === 1) {
@@ -200,12 +204,12 @@ const newBBDD = {
 };
 
 // Save to localStorage
-localStorage.setItem("DATA_BASE", JSON.stringify(newBBDD));
+localStorage.setItem("DATA_BASE_v2", JSON.stringify(newBBDD));
 
 // Check that the data was saved
 console.log(
     "Courses updated in localStorage:",
-    JSON.parse(localStorage.getItem("DATA_BASE"))
+    JSON.parse(localStorage.getItem("DATA_BASE_v2"))
 );
 ```
 
@@ -215,6 +219,8 @@ console.log(
 - **Purchased courses:** open **"Aperturas fundamentales"** (Fundamental openings, ID 2, bought in step 2) to see feedback messages and topics disabled for safety.
 
 > To keep the interface clean, errors are only forced on some elements, enough to show how the app behaves.
+
+> **Multilingual note:** course text is stored per language (`{ es, en }`). If a whole text field is set to `null` (like the `description` in the snippet), that part loads **with a warning** and the rest of the section displays normally. If only one language is missing, the other one is shown.
 
 **Also worth trying:** switch to `createBrowserRouter` locally to test route protection and direct navigation (`/dashboard`, `/course/:id`, `/classroom`) as you would with a real backend.
 
@@ -242,8 +248,11 @@ Chessmate/
 │   ├── components/
 │   ├── consts/
 │   ├── hooks/
+│   ├── i18n/
+│   ├── locales/
 │   ├── pages/
-│   ├── schemas/
+│   ├── Schemas/
+│   ├── test/
 │   ├── types/
 │   ├── utils/
 │   ├── App.tsx
@@ -278,6 +287,11 @@ Chessmate/
 - Zustand: global state
 - Embla Carousel: sliders and carousels
 - React Player: video playback
+- i18next + react-i18next: internationalisation (Spanish / English)
+
+**Testing**
+
+- Vitest + Testing Library
 
 **Styling**
 
