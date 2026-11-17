@@ -109,5 +109,9 @@
         "buyError": "Error completing the purchase",
         "themeCompleted": "Theme completed",
         "themeCompleteError": "Error completing the theme"
+    },
+    "safeRendering": {
+        "warning": "Some content may be incomplete. We're working on fixing it as soon as possible.",
+        "emptyError": "Couldn't retrieve the data."
     }
 }
