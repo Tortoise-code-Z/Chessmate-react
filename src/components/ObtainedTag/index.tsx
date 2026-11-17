@@ -1,7 +1,6 @@
+import { useTranslation } from "react-i18next";
 import styles from "./ObtainedTag.module.css";
 import { FaCheckCircle } from "react-icons/fa";
-
-type Props = {};
 
 /**
  * Component to display a tag indicating that a course or item has been obtained.
@@ -15,11 +14,12 @@ type Props = {};
  * @returns A styled tag element indicating acquisition.
  */
 
-function ObtainedTag({}: Props) {
+function ObtainedTag() {
+    const { t } = useTranslation();
     return (
         <div className={styles.obtainedTag}>
             <FaCheckCircle />
-            Obtenido
+            {t("course.obtained")}
         </div>
     );
 }

@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { FaChevronDown } from "react-icons/fa";
 import styles from "./ThemeButton.module.css";
 import { Dispatch, SetStateAction } from "react";
@@ -8,10 +9,7 @@ import {
     ThemesUserStatesOC,
 } from "../../../../../../../types/types";
 import TitleHx from "../../../../../../../components/TitleHx";
-import {
-    DESCRIPTION_DEFAULT_MSG,
-    TITLE_DEFAULT_MSG,
-} from "../../../../../../../consts/general";
+
 import CheckSvgComponent from "../../../../../../../components/CheckSvgComponent";
 import {
     asBoolean,
@@ -56,6 +54,7 @@ function ThemeButton({
     disabled = false,
     userThemeData,
 }: Props) {
+    const { t } = useTranslation();
     return (
         <Button
             disabled={disabled}
@@ -77,7 +76,7 @@ function ThemeButton({
                     )}
                 >
                     <TitleHx classNames={[styles.themeTitle]} level={3}>
-                        {asString(theme?.title) || TITLE_DEFAULT_MSG}
+                        {asString(theme?.title) || t("common:defaults.title")}
                     </TitleHx>
 
                     {isArray<SubthemesUserStatesOC>(
@@ -94,7 +93,7 @@ function ThemeButton({
                 </div>
 
                 <p className={styles.themeDescription}>
-                    {asString(theme?.description) || DESCRIPTION_DEFAULT_MSG}
+                    {asString(theme?.description) || t("common:defaults.description")}
                 </p>
             </div>
             <FaChevronDown

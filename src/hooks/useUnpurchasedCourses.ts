@@ -1,6 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
+import { normalizeLanguage } from "../consts/i18n";
 import { BBDD, CourseJSON, IsObtainedCourse } from "../types/types";
 import {
+    getCourses,
     getDataLocalStorage,
     getUserObtainedCourses,
     orderedMayorToMenorByKey,
@@ -32,6 +35,9 @@ export default function useUnpurchasedCourses(
     limit: number | undefined,
     userID?: number
 ) {
+    const { i18n } = useTranslation();
+    const lang = normalizeLanguage(i18n.language);
+
     const queryFunction: () => Promise<
         (CourseJSON & IsObtainedCourse)[]
     > = async () => {
@@ -40,7 +46,7 @@ export default function useUnpurchasedCourses(
 
             if (!data) throw new Error(ERROR_GET_DATA_MSG);
 
-            const courses = orderedMayorToMenorByKey(data.courses, "sales");
+            const courses = orderedMayorToMenorByKey(getCourses(data, lang), "sales");
 
             if (userID) {
                 const userCourses = getUserObtainedCourses(userID, data);
@@ -77,7 +83,7 @@ export default function useUnpurchasedCourses(
     };
 
     return useQuery({
-        queryKey: ["toBuyCourses", userID],
+        queryKey: ["toBuyCourses", userID, lang],
         queryFn: queryFunction,
     });
 }

@@ -1,0 +1,38 @@
+{
+    "meta": { "title": "Chessmate - Detalle de curso" },
+    "recommended": {
+        "titlePart": "También te puede",
+        "highlight": "Interesar",
+        "error": "No se ha podido recuperar los cursos."
+    },
+    "sections": {
+        "contentHighlight": "contenido",
+        "contentRest": "del curso",
+        "learnPart": "¿Qué harás y",
+        "learnHighlight": "aprenderás"
+    },
+    "goToCourse": "Ir al curso",
+    "description": "Descripción",
+    "authors": "Autores",
+    "details": {
+        "warning": "Algunos datos no se han podido recuperar. Estamos trabajando en ello.",
+        "emptyError": "No se han podido recuperar los datos. Estamos trabajando en ello.",
+        "noThemes": "No hay temas para este curso.",
+        "noDescription": "Sin descripción."
+    },
+    "authorsList": {
+        "warning": "No ha sido posible rescatar la información de algún autor. Pronto lo solucionaremos.",
+        "empty": "No hay autores para mostrar."
+    },
+    "comments": {
+        "title": "Opiniones de los",
+        "titleHighlight": "usuarios",
+        "prompt": "Deja tu opinión sobre este curso",
+        "placeholder": "Escribe tu opinión...",
+        "sending": "Enviando...",
+        "send": "Enviar",
+        "warning": "Algunos comentarios (o datos de estos) pueden no haberse recuperado. Estamos trabajando en ello.",
+        "emptyError": "No hemos podido recuperar todos los comentarios. Estamos trabajando para solucionarlo.",
+        "empty": "Este curso aún no tiene comentarios. ¡Sé el primero en dejar tu opinión!"
+    }
+}

@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { FieldValues, Path, PathValue, useFormContext } from "react-hook-form";
 import styles from "./ButtonGroupSelect.module.css";
 import Label from "../Label";
@@ -8,6 +9,7 @@ type Props<T extends FieldValues> = {
     values: PathValue<T, Path<T>>[];
     label?: string;
     name: Path<T>;
+    getLabel?: (value: PathValue<T, Path<T>>) => string;
 };
 
 /**
@@ -31,7 +33,9 @@ function ButtonGroupSelect<T extends FieldValues>({
     values,
     name,
     label,
+    getLabel,
 }: Props<T>) {
+    const { t } = useTranslation();
     const {
         register,
         setValue,
@@ -53,7 +57,7 @@ function ButtonGroupSelect<T extends FieldValues>({
                         }}
                         variant={selected === v ? "Complementary" : "Terciary"}
                     >
-                        {!v ? "Ninguno" : v}
+                        {!v ? t("none") : getLabel ? getLabel(v) : v}
                     </Button>
                 ))}
             </div>

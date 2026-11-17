@@ -8,7 +8,7 @@ import FigureImage from "../../../../FigureImage";
 import { getImage, getImageSize } from "../../../../../utils/images";
 import { DEFAULT_DEFAULT_COURSE_IMAGE } from "../../../../../consts/images";
 import { asString } from "../../../../../utils/general";
-import { PIECE_TITLE_DEFAULT_MSG } from "../../../../../consts/general";
+import { useTranslation } from "react-i18next";
 
 type Props = {
     data: DefualtCourse & Progress;
@@ -31,6 +31,7 @@ type Props = {
  */
 
 function UserDefaultCourseItem({ data }: Props) {
+    const { t } = useTranslation();
     return (
         <>
             <Link
@@ -41,13 +42,13 @@ function UserDefaultCourseItem({ data }: Props) {
                 <FigureImage
                     otherImage={DEFAULT_DEFAULT_COURSE_IMAGE}
                     src={getImage(data?.imageUrl?.general, ["defaultCourses"])}
-                    alt={asString(data?.title) || PIECE_TITLE_DEFAULT_MSG}
-                    title={asString(data?.title) || PIECE_TITLE_DEFAULT_MSG}
+                    alt={asString(data?.title) || t("common:defaults.pieceTitle")}
+                    title={asString(data?.title) || t("common:defaults.pieceTitle")}
                     width={getImageSize(data?.imageUrl?.general, "height")}
                     height={getImageSize(data?.imageUrl?.general, "height")}
                 />
                 <TitleHx classNames={[styles.title]} level={4}>
-                    {asString(data?.title) || PIECE_TITLE_DEFAULT_MSG}
+                    {asString(data?.title) || t("common:defaults.pieceTitle")}
                 </TitleHx>
             </Link>
         </>

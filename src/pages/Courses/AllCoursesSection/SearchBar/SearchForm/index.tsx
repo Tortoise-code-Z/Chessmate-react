@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+import { useMemo } from "react";
 import { FaSearch } from "react-icons/fa";
 import Button from "../../../../../components/Button";
 import Form from "../../../../../components/Form";
@@ -27,16 +29,19 @@ type Props = {
  */
 
 function SearchForm({ handleSubmit }: Props) {
+    const { t } = useTranslation("courses");
+    const { t: tv, i18n } = useTranslation("validation");
+    const schema = useMemo(() => searchSchema(tv), [tv, i18n.language]);
     return (
-        <Form<searchSchemaValues> onSubmit={handleSubmit} schema={searchSchema}>
+        <Form<searchSchemaValues> onSubmit={handleSubmit} schema={schema}>
             <InputGroup<searchSchemaValues>
                 errorMsg={false}
                 name={"search"}
-                placeholder="Buscar..."
+                placeholder={t("search.placeholder")}
             >
                 <Button variant="Complementary" type="submit">
                     <FaSearch />
-                    Buscar
+                    {t("search.button")}
                 </Button>
             </InputGroup>
         </Form>

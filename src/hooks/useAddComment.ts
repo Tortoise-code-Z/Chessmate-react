@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { BBDD, Comments, CommentsJSON } from "../types/types";
 import { DATABASE_KEY } from "../consts/dataBaseKey";
@@ -44,6 +45,7 @@ type AddCommentApi = {
  */
 
 export function useAddComment() {
+    const { t } = useTranslation();
     const queryClient = useQueryClient();
     const {
         setState: setFeedbackState,
@@ -116,6 +118,7 @@ export function useAddComment() {
 
             return { ...rest, user };
         } catch (error) {
+            console.error(error);
             throw error;
         }
     };
@@ -126,7 +129,7 @@ export function useAddComment() {
             setFeedbackState(true);
             setPath(location.pathname);
             setType("success");
-            setMsg("Comentario enviado con éxito");
+            setMsg(t("common:feedback.commentSent"));
 
             queryClient.setQueryData<Comments[]>(
                 ["courseComments", data.idCourse],
@@ -146,7 +149,7 @@ export function useAddComment() {
                 setFeedbackState(true);
                 setPath(location.pathname);
                 setType("error");
-                setMsg("No se ha podido enviar el comentario...");
+                setMsg(t("common:feedback.commentError"));
             }
         },
     });

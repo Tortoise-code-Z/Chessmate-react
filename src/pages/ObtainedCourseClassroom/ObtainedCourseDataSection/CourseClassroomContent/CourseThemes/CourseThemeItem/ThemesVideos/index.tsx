@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Dispatch, SetStateAction, useState } from "react";
 import styles from "./ThemeVideos.module.css";
 import {
@@ -12,7 +13,7 @@ import Button from "../../../../../../../components/Button";
 import FigureImage from "../../../../../../../components/FigureImage";
 import { getImage, getImageSize } from "../../../../../../../utils/images";
 import TitleHx from "../../../../../../../components/TitleHx";
-import { TITLE_DEFAULT_MSG } from "../../../../../../../consts/general";
+
 import SecurityRendering from "../../../../../../../components/SecurityRendering";
 import WarningMsg from "../../../../../../../components/WarningMsg";
 import CheckSvgComponent from "../../../../../../../components/CheckSvgComponent";
@@ -55,6 +56,7 @@ function ThemeVideos({ setShowVideo, theme, userThemeData }: Props) {
     const [videoWarning, setVideoWarning] = useState<WarningMsgType | null>(
         null
     );
+    const { t } = useTranslation("classroom");
     return (
         <>
             {(videoWarning?.emptyMsg || videoWarning?.msg) && (
@@ -77,7 +79,7 @@ function ThemeVideos({ setShowVideo, theme, userThemeData }: Props) {
                         setWarningState: setVideoWarning,
                         warningState: videoWarning,
                     }}
-                    msgEmpty="No se han podido recuperar el temario. Estamos trabajando para solucionarlo lo antes posibles."
+                    msgEmpty={t("themes.videosEmptyError")}
                 >
                     {(subtheme, index, canRender) => {
                         return (
@@ -114,7 +116,7 @@ function ThemeVideos({ setShowVideo, theme, userThemeData }: Props) {
                                 />
                                 <TitleHx level={3} classNames={[styles.title]}>
                                     {asString(subtheme?.title) ||
-                                        TITLE_DEFAULT_MSG}
+                                        t("common:defaults.title")}
                                 </TitleHx>
 
                                 {asArray<SubthemesUserStatesOC>(

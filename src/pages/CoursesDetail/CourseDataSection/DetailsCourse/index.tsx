@@ -1,8 +1,9 @@
+import { useTranslation } from "react-i18next";
 import { ReactNode, useState } from "react";
 import { Course, Theme, WarningMsgType } from "../../../../types/types";
 import styles from "./DetailsCourse.module.css";
 import TitleHx from "../../../../components/TitleHx";
-import { TITLE_DEFAULT_MSG } from "../../../../consts/general";
+
 import SecurityRendering from "../../../../components/SecurityRendering";
 import { asNumber, asString, isString } from "../../../../utils/general";
 import MsgEmpty from "../../../../components/MsgEmpty";
@@ -39,6 +40,7 @@ type Props = {
 
 function DetailsCourse({ data, titleContain, type }: Props) {
     const typeData = type === "content" ? "content" : "toLearn";
+    const { t } = useTranslation("courseDetail");
 
     const [warningDetailContent, setWarningDetailContent] =
         useState<WarningMsgType | null>(null);
@@ -62,11 +64,9 @@ function DetailsCourse({ data, titleContain, type }: Props) {
             typeData === "content" ? warningDetailContent : warningDetailLearn,
     };
 
-    const commonMsg =
-        "Algunos datos no se han podido recuperar. Estamos trabajando en ello.";
+    const commonMsg = t("details.warning");
 
-    const commonEmptyMsg =
-        "No se han podido recuperar los datos. Estamos trabajando en ello.";
+    const commonEmptyMsg = t("details.emptyError");
 
     return (
         <AnimatedInView>
@@ -93,7 +93,7 @@ function DetailsCourse({ data, titleContain, type }: Props) {
                         msg={commonMsg}
                         msgEmpty={commonEmptyMsg}
                         emptyNode={
-                            <MsgEmpty msg="No hay temas para este curso." />
+                            <MsgEmpty msg={t("details.noThemes")} />
                         }
                     >
                         {(theme, index, _canRender) => {
@@ -107,7 +107,7 @@ function DetailsCourse({ data, titleContain, type }: Props) {
                                     key={asNumber(theme?.id) || index}
                                 >
                                     {asString(theme?.title) ||
-                                        TITLE_DEFAULT_MSG}
+                                        t("common:defaults.title")}
                                 </li>
                             );
                         }}
@@ -123,7 +123,7 @@ function DetailsCourse({ data, titleContain, type }: Props) {
                         msg={commonMsg}
                         msgEmpty={commonEmptyMsg}
                         sameState={true}
-                        emptyNode={<MsgEmpty msg="Sin descripción." />}
+                        emptyNode={<MsgEmpty msg={t("details.noDescription")} />}
                     >
                         {(description, index, canRender) => {
                             if (!canRender) return null;

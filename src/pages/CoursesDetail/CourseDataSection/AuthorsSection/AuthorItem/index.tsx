@@ -1,15 +1,12 @@
 import ChessTitle from "../../../../../components/ChessTitle";
 import FigureImage from "../../../../../components/FigureImage";
-import {
-    AUTHOR_DEFAULT_MSG,
-    DESCRIPTION_DEFAULT_MSG,
-    ELO_DEFAULT_MSG,
-} from "../../../../../consts/general";
+
 import { DEFAULT_AUTHOR_IMAGE } from "../../../../../consts/images";
 import { AuthorCurseData } from "../../../../../types/types";
 import { asString, isNumber } from "../../../../../utils/general";
 import { getImage, getImageSize } from "../../../../../utils/images";
 import styles from "./AuthorsItem.module.css";
+import { useTranslation } from "react-i18next";
 
 type Props = {
     author: AuthorCurseData;
@@ -32,6 +29,7 @@ type Props = {
  */
 
 function AuthorsItem({ author }: Props) {
+    const { t } = useTranslation();
     return (
         <div className={styles.authorsItem}>
             <FigureImage
@@ -46,17 +44,17 @@ function AuthorsItem({ author }: Props) {
             <div className={styles.authorItemData}>
                 <div className={styles.data}>
                     <p className={styles.name}>
-                        {asString(author?.name) || AUTHOR_DEFAULT_MSG}
+                        {asString(author?.name) || t("common:defaults.author")}
                     </p>
                     <ChessTitle title={author?.level} />
                     <p className={styles.elo}>
                         {isNumber(author?.elo)
                             ? `${author.elo} ELO`
-                            : ELO_DEFAULT_MSG}
+                            : t("common:defaults.elo")}
                     </p>
                 </div>
                 <p className={styles.description}>
-                    {asString(author?.description) || DESCRIPTION_DEFAULT_MSG}
+                    {asString(author?.description) || t("common:defaults.description")}
                 </p>
             </div>
         </div>

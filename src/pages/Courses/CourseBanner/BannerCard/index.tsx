@@ -1,16 +1,11 @@
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import PurchaseAction from "../../../../components/PurchaseAction";
 import { PATHS } from "../../../../consts/paths";
 import { CourseJSON, IsObtainedCourse, Level } from "../../../../types/types";
 import styles from "./BannerCard.module.css";
 import TitleHx from "../../../../components/TitleHx";
-import {
-    DESCRIPTION_DEFAULT_MSG,
-    LEVEL_DEFAULT_MSG,
-    LEVELS,
-    PRICE_DEFAULT_MSG,
-    TITLE_DEFAULT_MSG,
-} from "../../../../consts/general";
+import { LEVELS } from "../../../../consts/general";
 import {
     asBoolean,
     asNumber,
@@ -43,6 +38,8 @@ type Props = {
 
 function BannerCard({ data }: Props) {
     const navigate = useNavigate();
+    const { t } = useTranslation();
+    const level = isOnValues<Level>(data?.level, LEVELS);
     const bannerCardHandleClick = () => {
         if (isNumber(data?.courseID))
             navigate(
@@ -58,11 +55,11 @@ function BannerCard({ data }: Props) {
             >
                 <div className={styles.courseData}>
                     <TitleHx level={1}>
-                        {asString(data?.title) || TITLE_DEFAULT_MSG}
+                        {asString(data?.title) || t("common:defaults.title")}
                     </TitleHx>
                     <p className={styles.description}>
                         {asString(data?.shortDescription) ||
-                            DESCRIPTION_DEFAULT_MSG}
+                            t("common:defaults.description")}
                     </p>
                     <span
                         className={[
@@ -71,13 +68,12 @@ function BannerCard({ data }: Props) {
                             styles.level,
                         ].join(" ")}
                     >
-                        {isOnValues<Level>(data?.level, LEVELS) ||
-                            LEVEL_DEFAULT_MSG}
+                        {level ? t(`levels.${level}`) : t("common:defaults.level")}
                     </span>
                     <p className={styles.price}>
                         {isNumber(data?.price)
                             ? `${data.price}$`
-                            : PRICE_DEFAULT_MSG}
+                            : t("common:defaults.price")}
                     </p>
                 </div>
 

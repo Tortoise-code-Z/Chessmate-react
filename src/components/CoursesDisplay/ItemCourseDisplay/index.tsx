@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { CourseJSON, IsObtainedCourse, Level } from "../../../types/types";
 import { getImage, getImageSize } from "../../../utils/images";
@@ -6,13 +7,7 @@ import styles from "./ItemCourseDisplay.module.css";
 import PurchaseAction from "../../PurchaseAction";
 import TitleHx from "../../TitleHx";
 import FigureImage from "../../FigureImage";
-import {
-    DESCRIPTION_DEFAULT_MSG,
-    LEVEL_DEFAULT_MSG,
-    LEVELS,
-    PRICE_DEFAULT_MSG,
-    TITLE_DEFAULT_MSG,
-} from "../../../consts/general";
+import { LEVELS } from "../../../consts/general";
 import {
     asBoolean,
     asNumber,
@@ -57,6 +52,8 @@ function ItemCourseDisplay({
     canNavigate = true,
 }: Props) {
     const navigate = useNavigate();
+    const { t } = useTranslation();
+    const level = isOnValues<Level>(data?.level, LEVELS);
 
     const handleClickCard = () => {
         if (canNavigate && courseID)
@@ -86,15 +83,14 @@ function ItemCourseDisplay({
             <div className={styles.itemDataContainer}>
                 <div className={styles.itemData}>
                     <TitleHx level={3}>
-                        {asString(data?.title) || TITLE_DEFAULT_MSG}
+                        {asString(data?.title) || t("common:defaults.title")}
                     </TitleHx>
                     <p className={styles.description}>
                         {asString(data?.shortDescription) ||
-                            DESCRIPTION_DEFAULT_MSG}
+                            t("common:defaults.description")}
                     </p>
                     <p className={styles.level}>
-                        {isOnValues<Level>(data?.level, LEVELS) ||
-                            LEVEL_DEFAULT_MSG}
+                        {level ? t(`levels.${level}`) : t("common:defaults.level")}
                     </p>
                 </div>
                 {action && (
@@ -108,7 +104,7 @@ function ItemCourseDisplay({
                         <p className={styles.price}>
                             {isNumber(data?.price)
                                 ? `${data.price}$`
-                                : PRICE_DEFAULT_MSG}
+                                : t("common:defaults.price")}
                         </p>
                     </div>
                 )}

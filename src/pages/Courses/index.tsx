@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import AllCoursesSection from "./AllCoursesSection";
 import BestSellersSection from "../../components/BestSellersSection";
 import CourseBanner from "./CourseBanner";
@@ -7,8 +8,6 @@ import ProfessorFixedMessage from "../../components/ProfessorFixedMessage";
 import FeedbackListener from "../../components/FeedbackListener";
 import ProfessorListener from "../../components/ProfessorListenner";
 import { Helmet } from "react-helmet-async";
-
-type Props = {};
 
 /**
  * Courses - React component that renders the main courses page with various course sections and feedback components.
@@ -27,11 +26,12 @@ type Props = {};
  * @returns JSX.Element: The courses page combining banners, course sections, and feedback components.
  */
 
-function Courses({}: Props) {
+function Courses() {
+    const { t } = useTranslation("courses");
     return (
         <>
             <Helmet>
-                <title>Chessmate - Cursos</title>
+                <title>{t("meta.title")}</title>
             </Helmet>
             <FeedbackListener />
             <ProfessorListener />
@@ -44,8 +44,8 @@ function Courses({}: Props) {
             <BestSellersSection
                 limit={4}
                 display="Col"
-                titleText="Más"
-                titleTextSpan="vendidos"
+                titleText={t("bestSellers.title")}
+                titleTextSpan={t("bestSellers.highlight")}
                 titleDisplay="Row"
                 classNames={["pt-50"]}
             />

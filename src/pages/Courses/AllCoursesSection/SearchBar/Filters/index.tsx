@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import Button from "../../../../../components/Button";
 import { FILTERS } from "../../../../../consts/general";
 import styles from "./Filters.module.css";
@@ -25,6 +26,7 @@ type Props = {
  */
 
 function Filters({ filter, handleFilterClick }: Props) {
+    const { t } = useTranslation();
     return (
         <div className={styles.filters}>
             {FILTERS.map((f) => (
@@ -37,7 +39,7 @@ function Filters({ filter, handleFilterClick }: Props) {
                             : "Terciary"
                     }
                 >
-                    {f}
+                    {t(`levels.${f}`)}
                 </Button>
             ))}
         </div>

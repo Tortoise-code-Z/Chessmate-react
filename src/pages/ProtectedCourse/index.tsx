@@ -2,8 +2,6 @@ import IsAuthorized from "../IsAutorized";
 import IsAutorizedToCourse from "../IsAutorizedToCourse";
 import Layout from "../Layout";
 
-type Props = {};
-
 /**
  * ProtectedCourse - React component that wraps course content with authorization checks.
  *
@@ -18,7 +16,7 @@ type Props = {};
  * @returns JSX.Element: A protected course layout that only renders for authorized users.
  */
 
-function ProtectedCourse({}: Props) {
+function ProtectedCourse() {
     return (
         <IsAuthorized>
             <IsAutorizedToCourse>

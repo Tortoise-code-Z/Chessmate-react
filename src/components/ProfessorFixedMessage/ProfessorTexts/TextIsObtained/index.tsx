@@ -1,19 +1,8 @@
-type Props = {};
+import { useTranslation } from "react-i18next";
 
-/**
- * Component displaying a message indicating an error in determining course ownership.
- *
- * - Informs the user that the system could not verify if the course is already obtained.
- * - Explains that purchase has been disabled in this section for security reasons.
- * - Advises the user to check their portal for course ownership status.
- *
- * Props:
- * - None.
- *
- * @returns A set of paragraphs with the error and guidance messages.
- */
-
-function TextIsObtained({}: Props) {
+/** Mensaje del profesor: error al determinar si el curso está obtenido. */
+function TextIsObtained() {
+    const { t } = useTranslation("professor");
     return (
         <>
             <p>
@@ -24,18 +13,13 @@ function TextIsObtained({}: Props) {
                         "size-140",
                     ].join(" ")}
                 >
-                    ¡Hola!
+                    {t("greeting")}
                 </span>{" "}
-                Ha habido un error al determinar si este curso lo tienes
-                obtenido.
+                {t("isObtained.p1")}
             </p>
-
-            <p>
-                Por motivos de seguridad hemos desabilitado su compra en esta
-                sección.
-            </p>
-            <p>Revisa si lo tienes obtenido en tu portal.</p>
-            <p>¡Lo sentimos mucho!</p>
+            <p>{t("isObtained.p2")}</p>
+            <p>{t("isObtained.p3")}</p>
+            <p>{t("sorry")}</p>
         </>
     );
 }

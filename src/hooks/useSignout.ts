@@ -6,6 +6,7 @@ import { PATHS } from "../consts/paths";
 import { removeItemLocalStorage } from "../api";
 import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
 import { ERROR_SIGN_OUT_MSG } from "../consts/api";
+import { useTranslation } from "react-i18next";
 
 /**
  * useSignout - Custom React hook for signing out the current user.
@@ -26,6 +27,7 @@ import { ERROR_SIGN_OUT_MSG } from "../consts/api";
  */
 
 export function useSignout() {
+    const { t } = useTranslation();
     const { setUser } = useUserAuthStore();
     const navigate = useNavigate();
     const queryClient = useQueryClient();
@@ -42,6 +44,7 @@ export function useSignout() {
         try {
             removeItemLocalStorage(USER_AUTH_KEY);
         } catch (error) {
+            console.error(error);
             throw error;
         }
     };
@@ -57,7 +60,7 @@ export function useSignout() {
             console.error(error);
             setFeedbackState(true);
             setPath(location.pathname);
-            setMsg(ERROR_SIGN_OUT_MSG);
+            setMsg(t(ERROR_SIGN_OUT_MSG));
             setType("error");
         },
     });

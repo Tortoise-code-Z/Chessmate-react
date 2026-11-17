@@ -6,6 +6,7 @@ import UserLoggedIn from "./UserLoggedIn";
 import FigureImage from "../../../../components/FigureImage";
 import UserSesionActions from "./UserSesionActions";
 import NavbarLinkList from "./NavbarLinkList";
+import LanguageSelector from "../../../../components/LanguageSelector";
 
 type Props = {
     setIsOpen: Dispatch<SetStateAction<boolean>>;
@@ -46,6 +47,7 @@ function Navbar({ setIsOpen, handleSignOut }: Props) {
                     classNames={[styles.logo]}
                 />
                 <NavbarLinkList />
+                <LanguageSelector classNames={[styles.langSelector]} />
             </div>
             {user ? (
                 <UserLoggedIn

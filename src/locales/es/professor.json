@@ -1,0 +1,42 @@
+{
+    "greeting": "¡Hola!",
+    "sorry": "¡Lo sentimos mucho!",
+    "buttons": { "close": "Cerrar y volver", "start": "Comenzar" },
+    "isObtained": {
+        "p1": "Ha habido un error al determinar si este curso lo tienes obtenido.",
+        "p2": "Por motivos de seguridad hemos deshabilitado su compra en esta sección.",
+        "p3": "Revisa si lo tienes obtenido en tu portal."
+    },
+    "noId": {
+        "p1": "En esta sección hemos cancelado la compra de este curso por motivos de seguridad.",
+        "p2": "Estamos trabajando duro para poder solucionar el problema. Una vez se solucione, podrás comprarlo sin compromiso."
+    },
+    "noPrice": {
+        "p1": "En este momento no hemos podido recuperar el precio de este curso.",
+        "p2": "Estamos trabajando duro para poder solucionar el problema. Una vez se solucione, podrás comprarlo sin compromiso."
+    },
+    "cantComment": {
+        "p1pre": "Para poder comentar este curso, necesitas",
+        "p1highlight": "comprarlo",
+        "p2": "Es por seguridad de todos. Para mantener el orden en los comentarios.",
+        "p3": "¡Espero compres el curso y te guste!"
+    },
+    "firstLogin": {
+        "titleHighlight": "Bienvenido a tu portal",
+        "titleEnd": "de Chessmate",
+        "p1pre": "Me presento, soy Mate-o tu guía y profesor. Es un placer conocerte",
+        "defaultStudent": "Estudiante",
+        "p2": "Conmigo irás paso a paso convirtiéndote en un super jugador de ajedrez. Soy quién te explicará cada sección de tus cursos.",
+        "p3": "Pero bueno, no quiero marearte, espero que disfrutes de la experiencia, te espero en el tablero."
+    },
+    "noSession": {
+        "p1pre": "Para poder",
+        "buy": "comprar",
+        "comment": "comentar",
+        "p1mid": "un curso, necesitas",
+        "hlBuy": "comprarlo",
+        "hlSession": "iniciar sesión o registrarte",
+        "p2": "¡Y es completamente gratuito! Si decides registrarte, te estaré esperando en tu portal de estudiante.",
+        "p3": "¡Espero verte pronto!"
+    }
+}

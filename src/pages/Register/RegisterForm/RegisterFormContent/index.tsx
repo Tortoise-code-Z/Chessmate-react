@@ -1,10 +1,9 @@
+import { useTranslation } from "react-i18next";
 import ButtonGroupSelect from "../../../../components/ButtonGroupSelect";
 import InputGroup from "../../../../components/InputGroup";
 import { CHESS_LEVEL } from "../../../../consts/general";
 import { registerSchemaValues } from "../../../../Schemas/registerSchema";
 import styles from "./RegisterFormContent.module.css";
-
-type Props = {};
 
 /**
  * RegisterFormContent - React component that renders the input fields for the registration form.
@@ -21,45 +20,49 @@ type Props = {};
  * @returns JSX.Element: The main content of the registration form with all required input fields and selection options.
  */
 
-function RegisterFormContent({}: Props) {
+function RegisterFormContent() {
+    const { t } = useTranslation("auth");
     return (
         <div className={styles.formContent}>
             <InputGroup<registerSchemaValues>
-                label="Nombre de usuario"
+                label={t("register.usernameLabel")}
                 name="username"
-                placeholder="chessmate_33..."
+                placeholder={t("register.usernamePlaceholder")}
                 errorMsg={true}
             />
             <InputGroup<registerSchemaValues>
-                label="Contraseña"
+                label={t("register.passwordLabel")}
                 name="password"
-                placeholder="Su contraseña..."
+                placeholder={t("register.passwordPlaceholder")}
                 errorMsg={true}
                 inputType="password"
             />
             <InputGroup<registerSchemaValues>
-                label="Repetir contraseña"
+                label={t("register.repeatPasswordLabel")}
                 name="repeatPassword"
-                placeholder="Escriba de nuevo su contraseña..."
+                placeholder={t("register.repeatPasswordPlaceholder")}
                 errorMsg={true}
                 inputType="password"
             />
             <InputGroup<registerSchemaValues>
-                label="Correo electrónico"
+                label={t("register.emailLabel")}
                 name="email"
-                placeholder="chessmate_33@chessmate.com..."
+                placeholder={t("register.emailPlaceholder")}
                 errorMsg={true}
             />
             <InputGroup<registerSchemaValues>
-                label="ELO"
+                label={t("register.eloLabel")}
                 name="elo"
-                placeholder="1500..."
+                placeholder={t("register.eloPlaceholder")}
                 errorMsg={true}
             />
             <ButtonGroupSelect
-                label="Título"
+                label={t("register.titleLabel")}
                 values={[...CHESS_LEVEL]}
                 name="title"
+                getLabel={(v) =>
+                    v === "Sin título" ? t("common:chessTitles.untitled") : v
+                }
             />
         </div>
     );

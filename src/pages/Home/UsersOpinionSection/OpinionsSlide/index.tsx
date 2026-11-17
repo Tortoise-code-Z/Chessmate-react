@@ -1,10 +1,8 @@
-import {
-    OPINION_DEFAULT_MSG,
-    USER_DEFAULT_MSG,
-} from "../../../../consts/general";
+
 import { Opinion } from "../../../../types/types";
 import { asNumber, asString } from "../../../../utils/general";
 import styles from "./OpinionsSlide.module.css";
+import { useTranslation } from "react-i18next";
 
 type Props = {
     data: Opinion;
@@ -15,7 +13,7 @@ type Props = {
  *
  * Features:
  * - Displays user information including username, title, and ELO rating when available.
- * - Shows the opinion text or falls back to `OPINION_DEFAULT_MSG` if missing.
+ * - Shows the opinion text or falls back to `common:defaults.opinion` if missing.
  * - Safely handles undefined or invalid values using `asString` and `asNumber` utilities.
  * - Structured with styled CSS classes for user data and opinion text.
  *
@@ -26,11 +24,12 @@ type Props = {
  */
 
 function OpinionsSlide({ data }: Props) {
+    const { t } = useTranslation();
     return (
         <div className={styles.opinionContainer}>
             <div className={styles.userData}>
                 <p className={styles.username}>
-                    {asString(data?.user?.username) || USER_DEFAULT_MSG}
+                    {asString(data?.user?.username) || t("common:defaults.user")}
                 </p>
                 {asString(data?.user?.title) && (
                     <p className={styles.userTitle}>{data.user.title}</p>
@@ -40,7 +39,7 @@ function OpinionsSlide({ data }: Props) {
                 )}
             </div>
             <p className={styles.userOpinion}>
-                "{asString(data?.text) || OPINION_DEFAULT_MSG}"
+                "{asString(data?.text) || t("common:defaults.opinion")}"
             </p>
         </div>
     );

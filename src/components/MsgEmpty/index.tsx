@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import styles from "./MsgEmpty.module.css";
 import { ReactNode } from "react";
 import { FaInfoCircle } from "react-icons/fa";
@@ -27,11 +28,12 @@ type Props = {
  */
 
 function MsgEmpty({
-    msg = "No hay datos para mostrar.",
+    msg,
     svg,
     direction = "Row",
     position = "Start",
 }: Props) {
+    const { t } = useTranslation();
     return (
         <div
             className={[
@@ -41,7 +43,7 @@ function MsgEmpty({
             ].join(" ")}
         >
             {svg ? svg : <FaInfoCircle />}
-            <p>{msg}</p>
+            <p>{msg ?? t("empty.default")}</p>
         </div>
     );
 }

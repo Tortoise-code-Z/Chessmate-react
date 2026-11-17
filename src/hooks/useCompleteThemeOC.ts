@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+import { normalizeLanguage } from "../consts/i18n";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import {
     BBDD,
@@ -61,6 +63,8 @@ export function useCompleteThemeOC(
     userID: number | undefined,
     setShowVideo: Dispatch<SetStateAction<VideoData | null>>
 ) {
+    const { t, i18n } = useTranslation();
+    const lang = normalizeLanguage(i18n.language);
     const queryClient = useQueryClient();
 
     const {
@@ -145,6 +149,7 @@ export function useCompleteThemeOC(
             setItemLocalStorage<BBDD>(DATABASE_KEY, newData);
             return finalCourseData;
         } catch (error) {
+            console.error(error);
             throw error;
         }
     };
@@ -153,7 +158,7 @@ export function useCompleteThemeOC(
         mutationFn: completeTheme,
         onSuccess: (data: ObtainedCourse) => {
             queryClient.setQueryData<useCourseClassroomApi>(
-                ["useCourseClassroom", courseID, userID],
+                ["useCourseClassroom", courseID, userID, lang],
                 (oldData) => {
                     if (!oldData) return oldData;
                     return {
@@ -164,7 +169,7 @@ export function useCompleteThemeOC(
             );
 
             queryClient.setQueriesData<(CourseJSON & IsObtainedCourse)[]>(
-                { queryKey: ["courses", courseID], exact: false },
+                { queryKey: ["courses"], exact: false },
                 (oldData) => {
                     if (!oldData) return oldData;
 
@@ -179,14 +184,14 @@ export function useCompleteThemeOC(
             setShowVideo(null);
             setFeedbackState(true);
             setPath(location.pathname);
-            setMsg("Tema completado");
+            setMsg(t("common:feedback.themeCompleted"));
             setType("success");
         },
         onError: (error) => {
             console.error(error);
             setFeedbackState(true);
             setPath(location.pathname);
-            setMsg("Error al completar el tema");
+            setMsg(t("common:feedback.themeCompleteError"));
             setType("error");
         },
     });

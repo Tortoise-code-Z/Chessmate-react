@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+import { useMemo } from "react";
 import { FaCommentDots } from "react-icons/fa";
 
 import styles from "./CommentsForm.module.css";
@@ -15,8 +17,6 @@ import InputGroup from "../../InputGroup";
 import Button from "../../Button";
 import { asNumber } from "../../../utils/general";
 
-type Props = {};
-
 /**
  * Form component for submitting a new comment on a course.
  *
@@ -31,12 +31,15 @@ type Props = {};
  * @returns Comment submission form with validation, loading state, and user authentication handling.
  */
 
-function CommentForm({}: Props) {
+function CommentForm() {
     const params = useParams();
     const { user } = useUserAuthStore();
     const { setState, setValue, setPath } = useProfessorMsgStore();
     const { mutate, isPending } = useAddComment();
     const location = useLocation();
+    const { t } = useTranslation("courseDetail");
+    const { t: tv, i18n } = useTranslation("validation");
+    const schema = useMemo(() => commentsSchema(tv), [tv, i18n.language]);
 
     const handleSubmit = (
         data: commentsSchemaValues,
@@ -63,24 +66,24 @@ function CommentForm({}: Props) {
 
     return (
         <div className={styles.commentFormContainer}>
-            <p>Deja tu opinion sobre este curso</p>
+            <p>{t("comments.prompt")}</p>
             <Form<commentsSchemaValues>
                 onSubmit={handleSubmit}
-                schema={commentsSchema}
+                schema={schema}
                 classNames={[styles.commentForm]}
             >
                 <InputGroup<commentsSchemaValues>
                     name={"comment"}
                     errorMsg={false}
-                    placeholder="Escribe tu opinión..."
+                    placeholder={t("comments.placeholder")}
                 >
                     <Button type="submit" variant="Complementary">
                         {isPending ? (
-                            <>Enviando...</>
+                            <>{t("comments.sending")}</>
                         ) : (
                             <>
                                 <FaCommentDots />
-                                Enviar
+                                {t("comments.send")}
                             </>
                         )}
                     </Button>

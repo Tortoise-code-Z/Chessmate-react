@@ -1,55 +1,36 @@
+import { useTranslation } from "react-i18next";
 import TitleHx from "../../../TitleHx";
 import { useUserAuthStore } from "../../../../hooks/UseUserAuthStore";
 import styles from "./TextsFirstLogin.module.css";
 
-type Props = {};
-
-/**
- * Component displaying a welcome message for first-time users.
- *
- * - Greets the user by name if available, otherwise defaults to "Estudiante".
- * - Introduces "Mate-o" as the guide and professor for the courses.
- * - Provides an encouraging and friendly introduction to the learning experience.
- * - Uses `TitleHx` for the main title and styles from `TextsFirstLogin.module.css`.
- *
- * Props:
- * - None.
- *
- * @returns A styled welcome message for first-time users, including title and introduction paragraphs.
- */
-
-function TextsFirstLogin({}: Props) {
+/** Mensaje de bienvenida del profesor en el primer inicio de sesión. */
+function TextsFirstLogin() {
     const { user } = useUserAuthStore();
+    const { t } = useTranslation("professor");
     return (
         <>
             <TitleHx classNames={[styles.welcomeTitle]} level={2}>
-                ¡Hola!{" "}
+                {t("greeting")}{" "}
                 <span className={["span-pr-color", "upperCase"].join(" ")}>
-                    Bienvenido a tu portal
+                    {t("firstLogin.titleHighlight")}
                 </span>{" "}
-                de Chessmate
+                {t("firstLogin.titleEnd")}
             </TitleHx>
 
             <div className={styles.msgContainer}>
                 <p>
-                    Me presento, soy Mate-o tu guía y profesor. Es un placer
-                    conocerte{" "}
+                    {t("firstLogin.p1pre")}{" "}
                     <span
                         className={["span-compl-color", "text-medium"].join(
                             " "
                         )}
                     >
-                        {user ? user.username : "Estudiante"}
+                        {user ? user.username : t("firstLogin.defaultStudent")}
                     </span>
                 </p>
-                <p className={styles.respPar2}>
-                    Conmigo irás paso a paso convirtiéndote en un super jugador
-                    de ajedrez. Soy quién te explicará cada sección de tus
-                    cursos.{" "}
-                </p>
+                <p className={styles.respPar2}>{t("firstLogin.p2")}</p>
                 <p className={["text-medium", styles.respPar].join(" ")}>
-                    Pero bueno, no quiero marearte, espero que disfrutes de la
-                    experiencia, te espero en el tablero.
+                    {t("firstLogin.p3")}
                 </p>
             </div>
         </>

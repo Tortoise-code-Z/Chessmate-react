@@ -1,0 +1,18 @@
+{
+    "meta": { "title": "Chessmate - Portal" },
+    "myCourses": { "title": "My", "highlight": "courses" },
+    "recommended": { "highlight": "Buy", "rest": "courses" },
+    "sections": { "free": "Free", "obtained": "Acquired" },
+    "defaultCourses": { "error": "We couldn't load the courses.", "disabled": "Disabled" },
+    "obtained": {
+        "none": "You don't have any courses yet...",
+        "goToCourses": "Go to courses",
+        "details": "View details",
+        "progressLabel": "Progress"
+    },
+    "itemDefault": {
+        "notData": "We couldn't load this course's data.",
+        "contact": "Contact our technical support for more information.",
+        "titleLabel": "Title"
+    }
+}

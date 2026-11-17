@@ -1,8 +1,10 @@
 import { z } from "zod";
-import { MSG_EMPTY } from "../consts/schemas";
+import type { TFunction } from "i18next";
 
-export const commentsSchema = z.object({
-    comment: z.string().min(1, { message: MSG_EMPTY }),
-});
+/** Esquema del formulario de comentarios. */
+export const commentsSchema = (t: TFunction) =>
+    z.object({
+        comment: z.string().min(1, { message: t("empty") }),
+    });
 
-export type commentsSchemaValues = z.infer<typeof commentsSchema>;
+export type commentsSchemaValues = z.infer<ReturnType<typeof commentsSchema>>;

@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import styles from "./CourseBanner.module.css";
 import useBannerCourse from "../../../hooks/useBannerCourse";
 import DataStateWrapper from "../../../components/DataStateWrapperProps";
@@ -8,8 +9,6 @@ import BannerCard from "./BannerCard";
 import FigureImage from "../../../components/FigureImage";
 import { asNumber, asObject } from "../../../utils/general";
 import { CourseJSON, IsObtainedCourse } from "../../../types/types";
-
-type Props = {};
 
 /**
  * CourseBanner - React component that displays the main course banner with featured course information.
@@ -27,8 +26,9 @@ type Props = {};
  * @returns JSX.Element: A section containing a featured course banner image and course details card.
  */
 
-function CourseBanner({}: Props) {
+function CourseBanner() {
     const { user } = useUserAuthStore();
+    const { t } = useTranslation("courses");
 
     const { data, isLoading, error } = useBannerCourse(DATABASE_KEY, {
         required: !!user,
@@ -47,7 +47,7 @@ function CourseBanner({}: Props) {
                 isLoading={isLoading}
                 error={error}
                 paddingErrorLateral={true}
-                errorMsg="No se ha podido recuperar el curso..."
+                errorMsg={t("banner.error")}
             >
                 <>
                     <FigureImage

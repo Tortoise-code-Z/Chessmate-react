@@ -1,4 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
+import { normalizeLanguage } from "../consts/i18n";
 import { BBDD, CourseJSON, Progress } from "../types/types";
 import {
     getCourseById,
@@ -37,6 +39,9 @@ export default function useObtainedCourses(
     limit?: number,
     currentCourseID?: number
 ) {
+    const { i18n } = useTranslation();
+    const lang = normalizeLanguage(i18n.language);
+
     const queryFunction: () => Promise<
         (CourseJSON & Progress)[]
     > = async () => {
@@ -51,7 +56,7 @@ export default function useObtainedCourses(
 
             let mappingUserCourses = userCourses.map((uc) => {
                 const id = uc.courseId;
-                const course = getCourseById(data, id);
+                const course = getCourseById(data, id, lang);
                 if (!course) return {} as CourseJSON & Progress;
 
                 return { ...course, progress: uc?.progress };
@@ -74,7 +79,7 @@ export default function useObtainedCourses(
     };
 
     return useQuery({
-        queryKey: ["courses", limit, currentCourseID],
+        queryKey: ["courses", limit, currentCourseID, lang],
         queryFn: queryFunction,
     });
 }

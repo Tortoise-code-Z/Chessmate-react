@@ -1,19 +1,8 @@
-type Props = {};
+import { useTranslation } from "react-i18next";
 
-/**
- * Component displaying a message when the course price is unavailable.
- *
- * - Informs the user that the system could not retrieve the course price.
- * - Explains that the issue is being resolved and purchase will be possible once fixed.
- * - Provides an apology for the inconvenience.
- *
- * Props:
- * - None.
- *
- * @returns A set of paragraphs explaining the price issue and next steps.
- */
-
-function TextNoPrice({}: Props) {
+/** Mensaje del profesor: no se ha podido recuperar el precio del curso. */
+function TextNoPrice() {
+    const { t } = useTranslation("professor");
     return (
         <>
             <p>
@@ -24,17 +13,12 @@ function TextNoPrice({}: Props) {
                         "size-140",
                     ].join(" ")}
                 >
-                    ¡Hola!
+                    {t("greeting")}
                 </span>{" "}
-                En este momento no hemos podido recuperar el precio de este
-                curso.
+                {t("noPrice.p1")}
             </p>
-
-            <p>
-                Estamos trabajando duro para poder solucionar el problema. Una
-                vez se solucione, podrás comprarlo sin compromiso.
-            </p>
-            <p>¡Lo sentimos mucho!</p>
+            <p>{t("noPrice.p2")}</p>
+            <p>{t("sorry")}</p>
         </>
     );
 }

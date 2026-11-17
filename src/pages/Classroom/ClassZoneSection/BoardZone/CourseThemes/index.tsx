@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import Button from "../../../../../components/Button";
 import styles from "./CourseThemes.module.css";
 import {
@@ -7,7 +8,7 @@ import {
     WarningMsgType,
 } from "../../../../../types/types";
 import { Dispatch, SetStateAction } from "react";
-import { TITLE_DEFAULT_MSG } from "../../../../../consts/general";
+
 import SecurityRendering from "../../../../../components/SecurityRendering";
 import {
     asArray,
@@ -59,6 +60,7 @@ function CourseThemes({
     classWarning,
     setClassWarning,
 }: Props) {
+    const { t } = useTranslation("classroom");
     const themesCondition = (data: UseCourseApiType | undefined) => {
         if (!isArray(data?.courses?.content?.themes)) return [false];
         return data.courses.content.themes.map(
@@ -89,7 +91,7 @@ function CourseThemes({
                         setWarningState: setClassWarning,
                         warningState: classWarning,
                     }}
-                    msg="No se han podido recuperar algunos datos del curso. Estamos trabajando para poder solucionarlo."
+                    msg={t("board.warning")}
                 >
                     {(theme, _i, _canRender) => {
                         return (
@@ -115,7 +117,7 @@ function CourseThemes({
                                     <CheckSvgComponent top={-10} right={-10} />
                                 )}
 
-                                {asString(theme?.title) || TITLE_DEFAULT_MSG}
+                                {asString(theme?.title) || t("common:defaults.title")}
                             </Button>
                         );
                     }}

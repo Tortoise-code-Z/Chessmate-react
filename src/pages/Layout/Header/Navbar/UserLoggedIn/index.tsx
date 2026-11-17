@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { FaSignOutAlt } from "react-icons/fa";
 import Button from "../../../../../components/Button";
 import { AVATAR_DEFAULT_IMAGE } from "../../../../../consts/images";
@@ -7,7 +8,6 @@ import FigureImage from "../../../../../components/FigureImage";
 import HamburguerMenuButton from "../../HamburguerMenuButton";
 import { Dispatch, SetStateAction } from "react";
 import { asString } from "../../../../../utils/general";
-import { USER_DEFAULT_MSG } from "../../../../../consts/general";
 
 type Props = {
     handleSignOut: () => void;
@@ -34,6 +34,7 @@ type Props = {
 
 function UserLoggedIn({ handleSignOut, setIsOpen }: Props) {
     const { user } = useUserAuthStore();
+    const { t } = useTranslation();
 
     return (
         <div className={styles.userOptions}>
@@ -48,7 +49,7 @@ function UserLoggedIn({ handleSignOut, setIsOpen }: Props) {
                 />
 
                 <p className={styles.username}>
-                    {asString(user?.username) || USER_DEFAULT_MSG}
+                    {asString(user?.username) || t("session.defaultUser")}
                 </p>
             </div>
             <Button
@@ -56,7 +57,7 @@ function UserLoggedIn({ handleSignOut, setIsOpen }: Props) {
                 onClick={() => handleSignOut()}
                 variant="Red"
             >
-                <FaSignOutAlt /> Cerrar sesión
+                <FaSignOutAlt /> {t("session.logout")}
             </Button>
             <HamburguerMenuButton
                 onClick={() => {

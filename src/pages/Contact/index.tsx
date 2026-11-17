@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
 import { AnimatedInView } from "../../components/AnimatedInView";
 import FeedbackListener from "../../components/FeedbackListener";
@@ -6,8 +7,6 @@ import ProfessorListener from "../../components/ProfessorListenner";
 import TitleHx from "../../components/TitleHx";
 import styles from "./Contact.module.css";
 import ContactForm from "./ContactForm";
-
-type Props = {};
 
 /**
  * Contact - React component that renders the contact page with a form and feedback system.
@@ -25,11 +24,12 @@ type Props = {};
  * @returns JSX.Element: The contact page including feedback handling and a submission form.
  */
 
-function Contact({}: Props) {
+function Contact() {
+    const { t } = useTranslation("auth");
     return (
         <>
             <Helmet>
-                <title>Chessmate - Contacto</title>
+                <title>{t("contact.meta")}</title>
             </Helmet>
             <FeedbackListener />
             <ProfessorListener />
@@ -40,15 +40,12 @@ function Contact({}: Props) {
                 <AnimatedInView config={{ direction: "right" }}>
                     <div className={styles.imageContact}>
                         <TitleHx level={1}>
-                            Envíanos tu duda de{" "}
+                            {t("contact.titlePart")}{" "}
                             <span className={"span-pr-color"}>
-                                forma directa
+                                {t("contact.titleHighlight")}
                             </span>
                         </TitleHx>
-                        <p>
-                            ¡Nuestro equipo se encargará de contestarla lo antes
-                            posible!
-                        </p>
+                        <p>{t("contact.subtitle")}</p>
                     </div>
                 </AnimatedInView>
                 <ContactForm />

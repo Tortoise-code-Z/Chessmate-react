@@ -1,0 +1,42 @@
+{
+    "greeting": "Hi!",
+    "sorry": "We're really sorry!",
+    "buttons": { "close": "Close and go back", "start": "Get started" },
+    "isObtained": {
+        "p1": "There was an error determining whether you already own this course.",
+        "p2": "For security reasons we've disabled its purchase in this section.",
+        "p3": "Check whether you own it in your portal."
+    },
+    "noId": {
+        "p1": "In this section we've cancelled the purchase of this course for security reasons.",
+        "p2": "We're working hard to fix the problem. Once it's fixed, you'll be able to buy it with no commitment."
+    },
+    "noPrice": {
+        "p1": "Right now we couldn't retrieve the price of this course.",
+        "p2": "We're working hard to fix the problem. Once it's fixed, you'll be able to buy it with no commitment."
+    },
+    "cantComment": {
+        "p1pre": "To comment on this course, you need to",
+        "p1highlight": "buy it",
+        "p2": "It's for everyone's security, to keep order in the comments.",
+        "p3": "I hope you buy the course and enjoy it!"
+    },
+    "firstLogin": {
+        "titleHighlight": "Welcome to your portal",
+        "titleEnd": "at Chessmate",
+        "p1pre": "Let me introduce myself, I'm Mate-o, your guide and professor. It's a pleasure to meet you",
+        "defaultStudent": "Student",
+        "p2": "With me you'll gradually become a super chess player. I'm the one who will explain every section of your courses.",
+        "p3": "Anyway, I don't want to overwhelm you, I hope you enjoy the experience, I'll be waiting for you at the board."
+    },
+    "noSession": {
+        "p1pre": "To",
+        "buy": "buy",
+        "comment": "comment on",
+        "p1mid": "a course, you need to",
+        "hlBuy": "buy it",
+        "hlSession": "log in or sign up",
+        "p2": "And it's completely free! If you decide to sign up, I'll be waiting for you in your student portal.",
+        "p3": "I hope to see you soon!"
+    }
+}

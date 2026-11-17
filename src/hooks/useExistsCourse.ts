@@ -1,4 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
+import { normalizeLanguage } from "../consts/i18n";
 import { getCourses, getDataLocalStorage } from "../api";
 import { ERROR_GET_COURSE_ID_MSG, ERROR_GET_DATA_MSG } from "../consts/api";
 import { BBDD } from "../types/types";
@@ -24,6 +26,9 @@ export default function useCourseExists(
     courseID: number | undefined,
     key: string
 ) {
+    const { i18n } = useTranslation();
+    const lang = normalizeLanguage(i18n.language);
+
     const queryFunction = async (): Promise<boolean> => {
         try {
             const data = getDataLocalStorage<BBDD>(key);
@@ -31,7 +36,7 @@ export default function useCourseExists(
             if (!data) throw new Error(ERROR_GET_DATA_MSG);
             if (!courseID) throw new Error(ERROR_GET_COURSE_ID_MSG);
 
-            const courses = getCourses(data);
+            const courses = getCourses(data, lang);
 
             const existsCourse = courses.some(
                 (course) => course.courseID === courseID

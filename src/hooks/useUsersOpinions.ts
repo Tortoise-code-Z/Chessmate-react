@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
+import { normalizeLanguage } from "../consts/i18n";
 import { BBDD, Opinion, User } from "../types/types";
-import { getDataLocalStorage } from "../api";
+import { getDataLocalStorage, getOpinions } from "../api";
 import { ERROR_GET_DATA_MSG } from "../consts/api";
 
 /**
@@ -21,15 +23,18 @@ import { ERROR_GET_DATA_MSG } from "../consts/api";
  */
 
 export default function useUsersOpinions(key: string) {
+    const { i18n } = useTranslation();
+    const lang = normalizeLanguage(i18n.language);
+
     const queryFunction: () => Promise<Opinion[]> = async () => {
         try {
             const data = getDataLocalStorage<BBDD>(key);
             if (!data) throw new Error(ERROR_GET_DATA_MSG);
 
-            const opinions = data.opinions;
+            const opinions = getOpinions(data, lang);
             const filteredOpinions = opinions.slice(0, 4).map((o) => {
                 const user = data.users.find((u) => u.userID === o.idUser);
-                const { idUser, ...rest } = o;
+                const { idUser: _idUser, ...rest } = o;
 
                 return { ...rest, user: user ?? ({} as User) };
             });
@@ -42,7 +47,7 @@ export default function useUsersOpinions(key: string) {
     };
 
     return useQuery({
-        queryKey: ["usersOpinions"],
+        queryKey: ["usersOpinions", lang],
         queryFn: queryFunction,
         staleTime: 1000 * 60 * 5,
     });

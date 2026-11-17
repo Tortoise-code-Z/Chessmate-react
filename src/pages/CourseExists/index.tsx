@@ -6,6 +6,7 @@ import useCourseExists from "../../hooks/useExistsCourse";
 import { ReactNode, useEffect } from "react";
 import { asNumber, isBoolean } from "../../utils/general";
 import { useFeedbackMessageStore } from "../../hooks/useFeedbackMesssageStore";
+import { useTranslation } from "react-i18next";
 
 type Props = {
     children: ReactNode;
@@ -32,6 +33,8 @@ function CourseExists({ children }: Props) {
 
     const { setPath, setMsg, setState, setType } = useFeedbackMessageStore();
 
+    const { t } = useTranslation();
+
     const { data, isLoading, error } = useCourseExists(
         asNumber(Number(params.id)),
         DATABASE_KEY
@@ -40,20 +43,20 @@ function CourseExists({ children }: Props) {
     useEffect(() => {
         if (isBoolean(data) && !data) {
             setType("error");
-            setMsg("No se ha encontrado el curso que buscas...");
+            setMsg(t("common:guards.courseNotFound"));
             setState(true);
             setPath(PATHS.courses);
         }
 
         if (error) {
             setType("error");
-            setMsg("Ha habido un error al intentar acceder al curso...");
+            setMsg(t("common:guards.courseAccessError"));
             setState(true);
             setPath(PATHS.courses);
         }
-    }, [data, setType, setMsg, setState, error]);
+    }, [data, setType, setMsg, setState, error, t]);
 
-    if (isLoading) return <LoadingPage msg="Comprobando curso.." />;
+    if (isLoading) return <LoadingPage msg={t("common:guards.checkingCourse")} />;
 
     if (!data) {
         return <Navigate to={PATHS.courses} />;

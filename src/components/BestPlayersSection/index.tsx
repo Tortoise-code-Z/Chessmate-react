@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { PLAYERS_CHESS } from "../../consts/url";
 import useBestPlayersApi from "../../hooks/useBestPlayersApi";
 import { BestPlayerChessData } from "../../types/types";
@@ -9,8 +10,6 @@ import LightComponent from "../LightComponent";
 import TitleHx from "../TitleHx";
 import BestPlayersContainer from "./BestPlayersContainer";
 import styles from "./BestPlayersSection.module.css";
-
-type Props = {};
 
 /**
  * Section that displays the top Chess.com players.
@@ -26,7 +25,8 @@ type Props = {};
  * @returns A section containing a title, a player carousel, and proper loading/error handling.
  */
 
-function BestPlayersSection({}: Props) {
+function BestPlayersSection() {
+    const { t } = useTranslation("home");
     const { data, isLoading, error } = useBestPlayersApi(PLAYERS_CHESS);
 
     const safeData = asArray<BestPlayerChessData>(data);
@@ -38,15 +38,15 @@ function BestPlayersSection({}: Props) {
 
                 <TitleHx level={2}>
                     <span className={["span-pr-color", "upperCase"].join(" ")}>
-                        Rating players
+                        {t("bestPlayers.highlight")}
                     </span>
-                    Chess.com
+                    {t("bestPlayers.rest")}
                 </TitleHx>
 
                 <DataStateWrapper
                     isLoading={isLoading}
                     error={error}
-                    errorMsg={"No se ha podido recuperar los datos"}
+                    errorMsg={t("bestPlayers.error")}
                     paddingErrorLateral={true}
                 >
                     <div className={styles.sliderContainer}>

@@ -31,7 +31,7 @@ function Textarea({ placeholder, name, classNames = [] }: Props) {
             placeholder={placeholder}
             className={[
                 styles.textarea,
-                ...classNames?.map((c) => styles[c]),
+                ...(classNames?.map((c) => styles[c]) ?? []),
             ].join(" ")}
             rows={8}
         />

@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import styles from "./Register.module.css";
 import { registerSchemaValues } from "../../Schemas/registerSchema";
 import { SIGNIN_IMAGE } from "../../consts/images";
@@ -10,8 +11,7 @@ import FeedbackListener from "../../components/FeedbackListener";
 import { AnimatedInView } from "../../components/AnimatedInView";
 import ProfessorListener from "../../components/ProfessorListenner";
 import { Helmet } from "react-helmet-async";
-
-type Props = {};
+import LanguageSelector from "../../components/LanguageSelector";
 
 /**
  * Register - React component that renders the user registration page.
@@ -29,14 +29,16 @@ type Props = {};
  * @returns JSX.Element: A registration page with animated title, form, feedback messages, and a decorative image.
  */
 
-function Register({}: Props) {
+function Register() {
     const { mutate, isPending } = useRegister();
     const handleSubmit = (data: registerSchemaValues) => mutate(data);
+    const { t } = useTranslation("auth");
 
     return (
         <>
+            <LanguageSelector fixed />
             <Helmet>
-                <title>Chessmate - Registro</title>
+                <title>{t("register.meta")}</title>
             </Helmet>
             <section className={styles.register}>
                 <ProfessorListener />
@@ -45,13 +47,13 @@ function Register({}: Props) {
                 <AnimatedInView config={{ direction: "right" }}>
                     <div className={styles.formContainer}>
                         <TitleHx classNames={[styles.title]}>
-                            Regístrate
+                            {t("register.titleMain")}
                             <span>
-                                ... y{" "}
+                                {t("register.titlePre")}{" "}
                                 <span className={"span-pr-color"}>
-                                    comienza
+                                    {t("register.titleHighlight")}
                                 </span>{" "}
-                                tu aventura
+                                {t("register.titleEnd")}
                             </span>
                         </TitleHx>
 

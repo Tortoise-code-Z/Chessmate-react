@@ -1,0 +1,12 @@
+{
+    "meta": { "title": "Chessmate - Cursos" },
+    "allTitle": { "highlight": "todos", "rest": "los cursos" },
+    "recent": { "title": "Recién", "highlight": "llegados" },
+    "bestSellers": { "title": "Más", "highlight": "vendidos" },
+    "banner": { "error": "No se ha podido recuperar el curso..." },
+    "search": {
+        "placeholder": "Buscar...",
+        "button": "Buscar",
+        "noResults": "No se han encontrado cursos..."
+    }
+}

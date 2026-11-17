@@ -1,4 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
+import { normalizeLanguage } from "../consts/i18n";
 import { BBDD, DefualtCourse, Progress } from "../types/types";
 import {
     getDataLocalStorage,
@@ -36,6 +38,9 @@ export default function useDefaultCourses(
     userID: number | undefined,
     currentCourseID?: number
 ) {
+    const { i18n } = useTranslation();
+    const lang = normalizeLanguage(i18n.language);
+
     const queryFunction: () => Promise<
         (DefualtCourse & Progress)[]
     > = async () => {
@@ -48,7 +53,7 @@ export default function useDefaultCourses(
             const user = getUserById(userID, data);
             if (!user) throw new Error(ERROR_GET_USER_MSG);
 
-            let defaultCourses = getDefaultCoursesWithProgress(data, user);
+            let defaultCourses = getDefaultCoursesWithProgress(data, user, lang);
             if (!defaultCourses) throw new Error(ERROR_GET_COURSES_MSG);
 
             if (currentCourseID) {
@@ -65,7 +70,7 @@ export default function useDefaultCourses(
     };
 
     return useQuery({
-        queryKey: ["defaultCourses", currentCourseID],
+        queryKey: ["defaultCourses", currentCourseID, lang],
         queryFn: queryFunction,
     });
 }

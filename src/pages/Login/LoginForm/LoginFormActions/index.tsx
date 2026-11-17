@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import styles from "./LoginFormActions.module.css";
 import Button from "../../../../components/Button";
@@ -26,6 +27,7 @@ type Props = {
  */
 
 function LoginFormActions({ isPending }: Props) {
+    const { t } = useTranslation("auth");
     return (
         <>
             <div className={styles.actions}>
@@ -34,25 +36,25 @@ function LoginFormActions({ isPending }: Props) {
                         className={["button", "buttonSecondary"].join(" ")}
                         to={PATHS.index}
                     >
-                        Volver a inicio
+                        {t("login.backHome")}
                     </NavLink>
                     <Button disabled={isPending} type="submit">
                         {isPending ? (
                             <>
                                 <ClipLoader color="white" />
-                                Cargando...
+                                {t("login.loading")}
                             </>
                         ) : (
                             <>
                                 <FaUserLock />
-                                Iniciar sesión
+                                {t("login.submit")}
                             </>
                         )}
                     </Button>
                 </div>
 
                 <NavLink className={"linkToLoginSigin"} to={PATHS.register}>
-                    ¿Aún no tienes una cuenta? Regístrate aquí.
+                    {t("login.noAccount")}
                 </NavLink>
             </div>
         </>

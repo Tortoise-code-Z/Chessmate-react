@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { PiSignInBold } from "react-icons/pi";
 import Button from "../../Button";
 import styles from "./ProfessorButtons.module.css";
@@ -7,8 +8,6 @@ import { PATHS } from "../../../consts/paths";
 import { useFirstLogin } from "../../../hooks/useFirstLogin";
 import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import { FaChessPawn } from "react-icons/fa";
-
-type Props = {};
 
 /**
  * Component rendering action buttons for the professor message overlay.
@@ -26,11 +25,12 @@ type Props = {};
  * @returns A set of context-sensitive action buttons for the professor overlay.
  */
 
-function ProfessorButtons({}: Props) {
+function ProfessorButtons() {
     const { setState, value } = useProfessorMsgStore();
     const navigate = useNavigate();
     const { mutate } = useFirstLogin();
     const { user } = useUserAuthStore();
+    const { t } = useTranslation();
 
     return (
         <div className={styles.actions}>
@@ -43,7 +43,7 @@ function ProfessorButtons({}: Props) {
                             navigate(PATHS.login);
                         }}
                     >
-                        Iniciar sesión
+                        {t("session.login")}
                     </Button>
                     <Button
                         onClick={() => {
@@ -52,10 +52,10 @@ function ProfessorButtons({}: Props) {
                         }}
                     >
                         <PiSignInBold />
-                        Registrarme
+                        {t("session.register")}
                     </Button>
                     <Button variant="Secondary" onClick={() => setState(false)}>
-                        Cerrar y volver
+                        {t("professor:buttons.close")}
                     </Button>
                 </>
             )}
@@ -64,7 +64,9 @@ function ProfessorButtons({}: Props) {
                 value === "noPrice" ||
                 value === "noID" ||
                 value === "isObtained") && (
-                <Button onClick={() => setState(false)}>Cerrar y volver</Button>
+                <Button onClick={() => setState(false)}>
+                    {t("professor:buttons.close")}
+                </Button>
             )}
 
             {value === "firstLogin" && (
@@ -75,7 +77,7 @@ function ProfessorButtons({}: Props) {
                     }}
                 >
                     <FaChessPawn />
-                    Comenzar
+                    {t("professor:buttons.start")}
                 </Button>
             )}
         </div>

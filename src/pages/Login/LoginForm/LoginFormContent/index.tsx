@@ -1,7 +1,6 @@
+import { useTranslation } from "react-i18next";
 import InputGroup from "../../../../components/InputGroup";
 import { LoginSchemaValues } from "../../../../Schemas/loginSchema";
-
-type Props = {};
 
 /**
  * LoginFormContent - React component that renders the input fields for the login form.
@@ -18,20 +17,21 @@ type Props = {};
  * @returns JSX.Element: The input fields for username and password within the login form.
  */
 
-function LoginFormContent({}: Props) {
+function LoginFormContent() {
+    const { t } = useTranslation("auth");
     return (
         <>
             <InputGroup<LoginSchemaValues>
                 name="username"
-                label="Nombre de usuario"
-                placeholder="chessmate_33..."
+                label={t("login.usernameLabel")}
+                placeholder={t("login.usernamePlaceholder")}
                 errorMsg={true}
                 inputType="text"
             />
             <InputGroup<LoginSchemaValues>
                 name="password"
-                label="Contraseña"
-                placeholder="Contraseña..."
+                label={t("login.passwordLabel")}
+                placeholder={t("login.passwordPlaceholder")}
                 errorMsg={true}
                 inputType="password"
             />

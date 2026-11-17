@@ -4,8 +4,7 @@ import LoadingPage from "./components/LoadingPage";
 import ErrorElement from "./pages/ErrorElement";
 import useInitDataBase from "./hooks/useInitDataBase";
 import useUserAuth from "./hooks/UseUserAuth";
-
-type Props = {};
+import { useTranslation } from "react-i18next";
 
 /**
  * App component that initializes the application, handles authentication and database state,
@@ -21,7 +20,8 @@ type Props = {};
  * @returns JSX element rendering the main application, including loading, error, or routed content.
  */
 
-function App({}: Props) {
+function App() {
+    const { t } = useTranslation();
     const { dbError, isDataBaseSent } = useInitDataBase();
 
     const {
@@ -29,9 +29,9 @@ function App({}: Props) {
     } = useUserAuth();
 
     if (!isDataBaseSent)
-        return <LoadingPage msg="Inicializando base de datos..." />;
+        return <LoadingPage msg={t("common:guards.initDatabase")} />;
 
-    if (isLoading) return <LoadingPage msg="Revisando sesión..." />;
+    if (isLoading) return <LoadingPage msg={t("common:guards.checkingSession")} />;
 
     if (dbError) {
         return <ErrorElement msg={dbError} />;

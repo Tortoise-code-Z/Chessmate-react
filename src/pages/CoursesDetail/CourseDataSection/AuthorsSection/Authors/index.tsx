@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import SecurityRendering from "../../../../../components/SecurityRendering";
 import {
@@ -45,6 +46,7 @@ function Authors({ data }: Props) {
     const [authorWarning, setAuthorWarning] = useState<WarningMsgType | null>(
         null
     );
+    const { t } = useTranslation("courseDetail");
     return (
         <>
             {(authorWarning?.emptyMsg || authorWarning?.msg) && (
@@ -69,8 +71,8 @@ function Authors({ data }: Props) {
                         setWarningState: setAuthorWarning,
                         warningState: authorWarning,
                     }}
-                    msg="No ha sido posible rescatar la información de algún autor. Pronto lo solucionaremos."
-                    emptyNode={<MsgEmpty msg="No hay autores para mostrar." />}
+                    msg={t("authorsList.warning")}
+                    emptyNode={<MsgEmpty msg={t("authorsList.empty")} />}
                 >
                     {(author, index, canRender) => {
                         if (!canRender)

@@ -1,4 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
+import { normalizeLanguage } from "../consts/i18n";
 import { BBDD, UseCourseApiType } from "../types/types";
 import {
     getDataLocalStorage,
@@ -36,6 +38,9 @@ export default function useDefaultCourseById(
     courseID: number | undefined,
     userID: number | undefined
 ) {
+    const { i18n } = useTranslation();
+    const lang = normalizeLanguage(i18n.language);
+
     const queryFunction: () => Promise<UseCourseApiType> = async () => {
         try {
             const data = getDataLocalStorage<BBDD>(key);
@@ -44,7 +49,7 @@ export default function useDefaultCourseById(
             if (!userID) throw new Error(ERROR_GET_USER_ID_MSG);
             if (!courseID) throw new Error(ERROR_GET_COURSE_ID_MSG);
 
-            const course = getDefaultCourse(data, courseID);
+            const course = getDefaultCourse(data, courseID, lang);
             if (!course) throw new Error(ERROR_GET_COURSE_MSG);
 
             const userDefaultCourseThemes = getUserDefaultCourseThemes(
@@ -67,7 +72,7 @@ export default function useDefaultCourseById(
     };
 
     return useQuery<UseCourseApiType>({
-        queryKey: ["defaultCourseById", courseID],
+        queryKey: ["defaultCourseById", courseID, lang],
         queryFn: queryFunction,
         staleTime: 1000 * 60 * 5,
     });

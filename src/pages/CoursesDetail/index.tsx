@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import CoursesRecomended from "../../components/CoursesRecomended";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
 import CourseDataSection from "./CourseDataSection";
@@ -8,8 +9,6 @@ import { asNumber } from "../../utils/general";
 import FeedbackListener from "../../components/FeedbackListener";
 import ProfessorListener from "../../components/ProfessorListenner";
 import { Helmet } from "react-helmet-async";
-
-type Props = {};
 
 /**
  * CoursesDetail - React component that renders the detailed view of a specific course.
@@ -28,13 +27,14 @@ type Props = {};
  * @returns JSX.Element: A detailed course page with information, comments, and recommended courses.
  */
 
-function CoursesDetail({}: Props) {
+function CoursesDetail() {
     const { user } = useUserAuthStore();
+    const { t } = useTranslation("courseDetail");
 
     return (
         <>
             <Helmet>
-                <title>Chessmate - Detalle de curso</title>
+                <title>{t("meta.title")}</title>
             </Helmet>
             <FeedbackListener />
             <ProfessorListener />
@@ -47,11 +47,11 @@ function CoursesDetail({}: Props) {
             <CoursesRecomended
                 titleContain={
                     <>
-                        Tambien te puede{" "}
+                        {t("recommended.titlePart")}{" "}
                         <span
                             className={["span-pr-color", "upperCase"].join(" ")}
                         >
-                            Interesar
+                            {t("recommended.highlight")}
                         </span>
                     </>
                 }

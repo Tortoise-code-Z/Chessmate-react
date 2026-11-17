@@ -1,13 +1,11 @@
 import { NavLink } from "react-router-dom";
 import { asString, isString } from "../../../../utils/general";
 import styles from "./BreadCrumb.module.css";
-import {
-    BREADCRUMB_DEFAULT_MSG,
-    TITLE_DEFAULT_MSG,
-} from "../../../../consts/general";
+
 import { PathsType } from "../../../../types/types";
 import { PATHS } from "../../../../consts/paths";
 import { Fragment } from "react/jsx-runtime";
+import { useTranslation } from "react-i18next";
 
 type BreadCrumbItem = {
     label: string | undefined;
@@ -24,7 +22,7 @@ type Props = {
  * Features:
  * - Iterates through a list of breadcrumb items (`breadCrumbs`) to render navigation hierarchy.
  * - Renders links using `NavLink` when a valid path is provided.
- * - Falls back to default messages (`BREADCRUMB_DEFAULT_MSG`, `TITLE_DEFAULT_MSG`) when labels are missing.
+ * - Falls back to default messages (`common:defaults.breadcrumb`, `common:defaults.title`) when labels are missing.
  * - Safely handles undefined or invalid values with utility functions (`asString`, `isString`).
  * - Inserts a ">" separator between breadcrumb items.
  *
@@ -37,6 +35,7 @@ type Props = {
  */
 
 function BreadCrumb({ breadCrumbs }: Props) {
+    const { t } = useTranslation();
     return (
         <div className={styles.breadcrumb}>
             {breadCrumbs.map((b, i) => {
@@ -46,14 +45,14 @@ function BreadCrumb({ breadCrumbs }: Props) {
                         {asString(b.link) ? (
                             <NavLink
                                 title={
-                                    asString(b.label) || BREADCRUMB_DEFAULT_MSG
+                                    asString(b.label) || t("common:defaults.breadcrumb")
                                 }
                                 to={isString(b.link) ? PATHS[b.link] : ""}
                             >
-                                {asString(b.label) || BREADCRUMB_DEFAULT_MSG}
+                                {asString(b.label) || t("common:defaults.breadcrumb")}
                             </NavLink>
                         ) : (
-                            <p>{asString(b.label) || TITLE_DEFAULT_MSG}</p>
+                            <p>{asString(b.label) || t("common:defaults.title")}</p>
                         )}
                     </Fragment>
                 );

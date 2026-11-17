@@ -1,0 +1,23 @@
+{
+    "meta": { "title": "Chessmate - Clase" },
+    "otherCourses": { "highlight": "Otros", "rest": "de mis cursos" },
+    "noMoreCourses": "Parece que no tienes más cursos...",
+    "board": { "warning": "No se han podido recuperar algunos datos del curso. Estamos trabajando para poder solucionarlo." },
+    "actions": { "previous": "Anterior", "next": "Siguiente", "complete": "Completar" },
+    "backToPortal": "Volver al portal",
+    "welcome": "Bienvenido a tu curso",
+    "content": { "highlight": "contenido", "rest": "del curso" },
+    "courseDetailsBtn": "Ver detalles del curso",
+    "intro": {
+        "pre": "En esta sección encontrarás una serie de temas organizados, sobre el curso",
+        "mid": "de manera clara y práctica, pensados para guiarte paso a paso en tu aprendizaje. Cada tema está compuesto por diferentes",
+        "subthemes": "subtemas",
+        "end": ", y para cada uno de ellos tendrás acceso a una clase en video que explica el contenido de forma sencilla y detallada."
+    },
+    "themes": {
+        "warning": "Algunos temas no se han obtenido de forma correcta. Estamos trabajando para solucionarlo.",
+        "emptyError": "No se han podido recuperar los temas. Estamos trabajando para solucionarlo.",
+        "videosEmptyError": "No se ha podido recuperar el temario. Estamos trabajando para solucionarlo lo antes posible."
+    },
+    "video": { "back": "Volver", "complete": "Completar" }
+}

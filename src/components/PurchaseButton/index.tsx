@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { HiMiniShoppingBag } from "react-icons/hi2";
 import Button from "../Button";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
@@ -20,7 +21,7 @@ type Props = {
  * - Checks user authentication and course purchase eligibility before allowing purchase.
  * - If purchase is allowed, calls `useBuyCourse` mutation with `courseID` and `userID`.
  * - If purchase is not allowed, triggers professor messages for guidance:
- *   - User not logged in → `cantCommentSesion`.
+ *   - User not logged in → `cantBuySesion`.
  *   - Invalid course ID → `noID`.
  *   - Course already obtained → `isObtained`.
  *   - Course cannot be bought due to missing price → `noPrice`.
@@ -46,11 +47,12 @@ function PurchaseButton({
     const { setState, setValue, setPath } = useProfessorMsgStore();
     const { mutate, isPending } = useBuyCourse();
     const location = useLocation();
+    const { t } = useTranslation();
 
     const cantBuyCourse = () => {
         setState(true);
         setPath(location.pathname);
-        if (!user) return setValue("cantCommentSesion");
+        if (!user) return setValue("cantBuySesion");
         if (!isNumber(courseID)) return setValue("noID");
         if (!isBoolean(isObtained)) return setValue("isObtained");
         if (!asBoolean(canBuy)) return setValue("noPrice");
@@ -79,7 +81,7 @@ function PurchaseButton({
             }
         >
             {isPending ? (
-                "Comprando..."
+                t("course.buying")
             ) : (
                 <>
                     {!isBoolean(isObtained) || !asBoolean(canBuy) ? (
@@ -87,7 +89,7 @@ function PurchaseButton({
                     ) : (
                         <HiMiniShoppingBag />
                     )}
-                    Comprar
+                    {t("course.buy")}
                 </>
             )}
         </Button>

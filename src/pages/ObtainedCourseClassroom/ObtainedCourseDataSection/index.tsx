@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import DataStateWrapper from "../../../components/DataStateWrapperProps";
 import { PATHS } from "../../../consts/paths";
@@ -10,8 +11,6 @@ import useCourseClassroom, {
 } from "../../../hooks/useCourseClassroom";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import { asNumber, asObject } from "../../../utils/general";
-
-type Props = {};
 
 /**
  * ObtainedCourseDataSection - React component that renders the data section for an obtained course
@@ -30,17 +29,18 @@ type Props = {};
  * @returns JSX.Element: A section displaying the obtained course's classroom data with loading and error handling.
  */
 
-function ObtainedCourseDataSection({}: Props) {
+function ObtainedCourseDataSection() {
     const params = useParams();
     const { user } = useUserAuthStore();
 
-    let { data, isLoading, error } = useCourseClassroom(
+    const { data, isLoading, error } = useCourseClassroom(
         DATABASE_KEY,
         asNumber(Number(params?.id)),
         asNumber(user?.userID)
     );
 
     const safeData = asObject<useCourseClassroomApi>(data);
+    const { t } = useTranslation("classroom");
 
     return (
         <section className={styles.obtainedCourseDataSection}>
@@ -51,7 +51,7 @@ function ObtainedCourseDataSection({}: Props) {
                 errorMsg={error?.message}
                 errorClassName={["paddign-top-navbar-height"]}
                 errorLinkAction={{
-                    text: "Volver al portal",
+                    text: t("backToPortal"),
                     to: `/${PATHS.dashboard}`,
                 }}
                 paddingErrorLateral={true}

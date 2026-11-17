@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "title": "Chessmate - Plataforma de cursos de ajedrez online"
+    },
+    "hero": {
+        "subtitle": "Tu sitio web para aprender ajedrez."
+    },
+    "featured": {
+        "part1": "Conviértete en todo un",
+        "highlight": "profesional",
+        "part2": "con",
+        "part3": "nuestros cursos"
+    },
+    "cards": [
+        {
+            "title": "Primeros pasos",
+            "description": "Con nuestros cursos para principiantes aprenderás a dominar todo sobre el tablero (nomenclatura, posición, etc) y además los movimientos y habilidades de cada una de las piezas del ajedrez"
+        },
+        {
+            "title": "Aperturas",
+            "description": "Aprenderás las aperturas más comunes del ajedrez, así como a dominar el inicio de las partidas como todo un profesional"
+        },
+        {
+            "title": "Finales",
+            "description": "Te enseñaremos las mejores técnicas y la teoría más reciente para que te conviertas en todo un profesional en los finales de ajedrez y puedas dar jaque mate a tus rivales como nadie"
+        }
+    ],
+    "signup": {
+        "titleHighlight": "Regístrate",
+        "titleRest": "Y comienza a aprender",
+        "subtitle": "Accede a cursos gratuitos y lecciones exclusivas"
+    },
+    "close": {
+        "thanks": "Muchas gracias por",
+        "trust": "confiar",
+        "us": "en nosotros",
+        "waiting": "Te esperamos con ilusión en",
+        "portal": "tu portal de alumno"
+    },
+    "opinions": {
+        "title": "Lo que dicen",
+        "highlight": "nuestros alumnos",
+        "error": "No se ha podido recuperar las opiniones."
+    },
+    "bestSellers": {
+        "title": "Nuestros cursos más",
+        "highlight": "vendidos"
+    },
+    "bestPlayers": {
+        "highlight": "Rating players",
+        "rest": "Chess.com",
+        "error": "No se han podido recuperar los datos",
+        "rank": "Puesto",
+        "viewProfile": "Ver perfil"
+    }
+}

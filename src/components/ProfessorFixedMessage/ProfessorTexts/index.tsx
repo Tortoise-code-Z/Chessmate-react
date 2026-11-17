@@ -6,8 +6,6 @@ import TextNoPrice from "./TextNoPrice";
 import TextsCantCommenHasntBuy from "./TextsCantCommenHasntBuy";
 import TextsFirstLogin from "./TextsFirstLogin";
 import TextsNoSesion from "./TextsNoSesion";
-type Props = {};
-
 /**
  * Component to display dynamic professor messages based on current state.
  *
@@ -26,7 +24,7 @@ type Props = {};
  * @returns A container displaying the appropriate professor message based on state.
  */
 
-function ProfessorTexts({}: Props) {
+function ProfessorTexts() {
     const { value } = useProfessorMsgStore();
 
     return (

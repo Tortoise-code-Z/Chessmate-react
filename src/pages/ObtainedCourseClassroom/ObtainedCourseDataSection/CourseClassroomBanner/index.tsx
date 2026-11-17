@@ -1,7 +1,8 @@
+import { useTranslation } from "react-i18next";
 import { AnimatedInView } from "../../../../components/AnimatedInView";
 import FigureImage from "../../../../components/FigureImage";
 import TitleHx from "../../../../components/TitleHx";
-import { TITLE_DEFAULT_MSG } from "../../../../consts/general";
+
 import { useCourseClassroomApi } from "../../../../hooks/useCourseClassroom";
 import { asString } from "../../../../utils/general";
 
@@ -30,13 +31,14 @@ type Props = {
  */
 
 function CourseClassroomBanner({ data }: Props) {
+    const { t } = useTranslation("classroom");
     return (
         <div className={styles.courseClassroomBanner}>
             <AnimatedInView>
                 <div className={styles.titleContainer}>
-                    <p>Bienvenido a tu curso</p>
+                    <p>{t("welcome")}</p>
                     <TitleHx>
-                        {asString(data?.course?.title) || TITLE_DEFAULT_MSG}
+                        {asString(data?.course?.title) || t("common:defaults.title")}
                     </TitleHx>
                 </div>
             </AnimatedInView>

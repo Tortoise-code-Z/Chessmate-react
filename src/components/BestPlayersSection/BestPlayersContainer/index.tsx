@@ -1,15 +1,11 @@
+import { useTranslation } from "react-i18next";
 import { BestPlayerChessData, ChessLevel } from "../../../types/types";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 import styles from "./BestPlayersContainer.module.css";
 import ChessTitle from "../../ChessTitle";
 import { asNumber, asString, isOnValues } from "../../../utils/general";
-import {
-    CHESS_LEVEL,
-    RANK_DEFAULT_MSG,
-    SCORE_DEFAULT_MSG,
-    USER_DEFAULT_MSG,
-} from "../../../consts/general";
+import { CHESS_LEVEL } from "../../../consts/general";
 
 type Props = {
     data: BestPlayerChessData;
@@ -29,22 +25,24 @@ type Props = {
  */
 
 function BestPlayersContainer({ data }: Props) {
+    const { t } = useTranslation("home");
     return (
         <div className={styles.bestPlayersContainer}>
             <div>
                 <div className={styles.userData}>
                     <p className={styles.username}>
-                        {asString(data?.username) || USER_DEFAULT_MSG}
+                        {asString(data?.username) || t("common:defaults.user")}
                     </p>
                     <ChessTitle
                         title={isOnValues<ChessLevel>(data?.title, CHESS_LEVEL)}
                     />
                 </div>
                 <p className={styles.userScore}>
-                    {asNumber(data?.score) || SCORE_DEFAULT_MSG}
+                    {asNumber(data?.score) || t("common:defaults.score")}
                 </p>
                 <p className={styles.userRank}>
-                    Rank: {asNumber(data?.rank) || RANK_DEFAULT_MSG}
+                    {t("bestPlayers.rank")}:{" "}
+                    {asNumber(data?.rank) || t("common:defaults.rank")}
                 </p>
             </div>
             <a
@@ -55,7 +53,7 @@ function BestPlayersContainer({ data }: Props) {
                 target="_blank"
             >
                 <FaArrowUpRightFromSquare />
-                Ver perfil
+                {t("bestPlayers.viewProfile")}
             </a>
         </div>
     );

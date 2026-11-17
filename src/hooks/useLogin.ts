@@ -14,6 +14,7 @@ import {
 } from "../api";
 import { useFeedbackMessageStore } from "./useFeedbackMesssageStore";
 import { ERROR_GET_DATA_MSG, ERROR_USER_PASSWORD_MSG } from "../consts/api";
+import { useTranslation } from "react-i18next";
 
 /**
  * useLogin - Custom React hook for handling user login.
@@ -33,6 +34,7 @@ import { ERROR_GET_DATA_MSG, ERROR_USER_PASSWORD_MSG } from "../consts/api";
  */
 
 export function useLogin() {
+    const { t } = useTranslation();
     const { setUser } = useUserAuthStore();
     const navigate = useNavigate();
 
@@ -80,6 +82,7 @@ export function useLogin() {
                 firstLogin: user.isFirstLogin,
             };
         } catch (error) {
+            console.error(error);
             throw error;
         }
     };
@@ -95,7 +98,7 @@ export function useLogin() {
             console.error(error);
             setFeedbackState(true);
             setPath(location.pathname);
-            setMsg(error.message);
+            setMsg(t(error.message));
             setType("error");
         },
     });

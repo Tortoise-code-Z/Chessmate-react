@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Dispatch, SetStateAction, useState } from "react";
 import styles from "./CourseThemes.module.css";
 import CourseThemeItem from "./CourseThemeItem";
@@ -7,7 +8,7 @@ import {
     VideoData,
     WarningMsgType,
 } from "../../../../../types/types";
-import { TITLE_DEFAULT_MSG } from "../../../../../consts/general";
+
 import SecurityRendering from "../../../../../components/SecurityRendering";
 import WarningMsg from "../../../../../components/WarningMsg";
 import { useCourseClassroomApi } from "../../../../../hooks/useCourseClassroom";
@@ -52,31 +53,27 @@ function CourseThemes({ data, setShowVideo }: Props) {
     const [themesWarning, setThemesWarnings] = useState<WarningMsgType | null>(
         null
     );
+    const { t } = useTranslation("classroom");
 
     return (
         <div className={styles.themesContainer}>
             <div className={styles.introductionContainer}>
                 <p className={styles.introduction}>
-                    En esta sección encontrarás una serie de temas organizados,
-                    sobre el curso{" "}
+                    {t("intro.pre")}{" "}
                     <span
                         className={["span-pr-color", "text-medium"].join(" ")}
                     >
-                        {asString(data?.course?.title) || TITLE_DEFAULT_MSG}
+                        {asString(data?.course?.title) || t("common:defaults.title")}
                     </span>{" "}
-                    de manera clara y práctica, pensados para guiarte paso a
-                    paso en tu aprendizaje. Cada tema está compuesto por
-                    diferentes{" "}
+                    {t("intro.mid")}{" "}
                     <span
                         className={["span-compl-color", "text-medium"].join(
                             " "
                         )}
                     >
-                        subtemas
-                    </span>{" "}
-                    , y para cada uno de ellos tendrás acceso a una clase en
-                    video que explica el contenido de forma sencilla y
-                    detallada.
+                        {t("intro.subthemes")}
+                    </span>
+                    {t("intro.end")}
                 </p>
             </div>
 
@@ -102,8 +99,8 @@ function CourseThemes({ data, setShowVideo }: Props) {
                     setWarningState: setThemesWarnings,
                     warningState: themesWarning,
                 }}
-                msg="Algunos temas no se han obtenido de forma correcta. Estamos trabajando para solucionarlo."
-                msgEmpty="No se han podido recuperar los temas. Estamos trabajando para solucionarlo."
+                msg={t("themes.warning")}
+                msgEmpty={t("themes.emptyError")}
                 emptyNode={<MsgEmpty />}
             >
                 {(theme, index, canRender) => {

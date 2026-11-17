@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import SearchBar from "./SearchBar";
 import {
@@ -17,8 +18,6 @@ import TitleHx from "../../../components/TitleHx";
 import { asArray, asNumber } from "../../../utils/general";
 import { AnimatedInView } from "../../../components/AnimatedInView";
 
-type Props = {};
-
 /**
  * AllCoursesSection - React component that displays all courses with search and filter functionality.
  *
@@ -37,7 +36,7 @@ type Props = {};
  * @returns JSX.Element: A section displaying all courses with search, filter, and responsive loading/error handling.
  */
 
-function AllCoursesSection({}: Props) {
+function AllCoursesSection() {
     const [search, setSearch] = useState<string>("");
     const [filter, setFilter] = useState<FilterOptions | undefined>();
 
@@ -51,6 +50,7 @@ function AllCoursesSection({}: Props) {
     );
 
     const safeData = asArray<CourseJSON & IsObtainedCourse>(data);
+    const { t } = useTranslation("courses");
 
     return (
         <AnimatedInView config={{ options: { threshold: 0.08 } }}>
@@ -58,9 +58,9 @@ function AllCoursesSection({}: Props) {
                 <LightComponent top={20} right={40} />
                 <TitleHx level={2}>
                     <span className={["span-pr-color", "upperCase"].join(" ")}>
-                        todos
+                        {t("allTitle.highlight")}
                     </span>{" "}
-                    los cursos
+                    {t("allTitle.rest")}
                 </TitleHx>
 
                 <SearchBar
@@ -78,7 +78,7 @@ function AllCoursesSection({}: Props) {
                         action={true}
                         courses={safeData}
                         display="Row"
-                        msg={"No se han encontrado cursos..."}
+                        msg={t("search.noResults")}
                         svg={<FaHandsPraying />}
                     />
                 </DataStateWrapper>

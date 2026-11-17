@@ -10,10 +10,19 @@ import {
     ObtainedCourse,
     ObtainedDefaultCourse,
     Progress,
+    StoredCourse,
     ThemesUserStates,
     ThemesUserStatesOC,
     User,
 } from "../types/types";
+import { Language } from "../consts/i18n";
+import {
+    resolveAuthor,
+    resolveCourse,
+    resolveDefaultCourse,
+    resolveOpinion,
+} from "./localize";
+import { isArray, isObject, isString } from "../utils/general";
 
 // Users
 export const getUsers: (data: BBDD) => User[] = (data) => {
@@ -29,12 +38,13 @@ export const getEmail: (data: BBDD, email: string) => boolean = (
 
 export const getDefaultCoursesWithProgress: (
     data: BBDD,
-    user: User
-) => (DefualtCourse & Progress)[] | undefined = (data, user) => {
+    user: User,
+    lang: Language
+) => (DefualtCourse & Progress)[] | undefined = (data, user, lang) => {
     return data?.defaultCourses?.map((df) =>
         df
             ? {
-                  ...df,
+                  ...resolveDefaultCourse(df, lang),
                   progress:
                       user?.defaultCourses?.find(
                           (udf) => udf.courseId === df.courseID
@@ -100,14 +110,35 @@ export const getUserObtainedCourse: (
 };
 
 // ObtainedCourses
-export const getCourses: (data: BBDD) => CourseJSON[] = (data) => {
-    return data.courses || ([] as CourseJSON[]);
+
+/**
+ * Cursos almacenados que al menos son objetos (ADR-021).
+ *
+ * localStorage es editable: `data.courses` puede no ser una lista o traer
+ * entradas que no son objetos (`null`, un numero...). Esas entradas no tienen
+ * nada que pintar y tumbarian a quien lea sus campos, asi que se descartan.
+ * Un curso que SI es objeto pero tiene campos rotos se conserva: lo avisa la
+ * vista (`SecurityRendering`), como pide ADR-018 y la demo del README.
+ */
+const getStoredCourses: (data: BBDD) => StoredCourse[] = (data) =>
+    isArray<StoredCourse>(data.courses)
+        ? data.courses.filter((course) => isObject(course))
+        : [];
+
+export const getCourses: (data: BBDD, lang: Language) => CourseJSON[] = (
+    data,
+    lang
+) => {
+    return getStoredCourses(data).map((course) => resolveCourse(course, lang));
 };
 
 // DefaultCourses
-export const getDefaultCourses: (data: BBDD) => DefualtCourse[] = (data) => {
-    return data.defaultCourses || ([] as DefualtCourse[]);
-};
+export const getDefaultCourses: (data: BBDD, lang: Language) => DefualtCourse[] =
+    (data, lang) => {
+        return (data.defaultCourses || []).map((course) =>
+            resolveDefaultCourse(course, lang)
+        );
+    };
 
 export const getUserDefaultCourseThemes: (
     data: BBDD,
@@ -134,14 +165,19 @@ export const getUserCourseThemes: (
 
 export const getDefaultCourse: (
     data: BBDD,
-    courseID: number | undefined
-) => DefualtCourse | undefined = (data, courseID) => {
-    return data.defaultCourses.find((dc) => dc?.courseID === courseID);
+    courseID: number | undefined,
+    lang: Language
+) => DefualtCourse | undefined = (data, courseID, lang) => {
+    const course = data.defaultCourses.find((dc) => dc?.courseID === courseID);
+    return course ? resolveDefaultCourse(course, lang) : undefined;
 };
 
 // Authors
-export const getAuthors: (data: BBDD) => AuthorCurseData[] = (data) => {
-    return data.authors || ([] as AuthorCurseData[]);
+export const getAuthors: (data: BBDD, lang: Language) => AuthorCurseData[] = (
+    data,
+    lang
+) => {
+    return (data.authors || []).map((author) => resolveAuthor(author, lang));
 };
 
 // Comments
@@ -151,44 +187,61 @@ export const getComments: (data: BBDD) => JsonComments[] = (data) => {
 
 // Opinions
 
-export const getOpinions: (data: BBDD) => JsonOpinion[] = (data) => {
-    return data.opinions || ([] as JsonOpinion[]);
+export const getOpinions: (data: BBDD, lang: Language) => JsonOpinion[] = (
+    data,
+    lang
+) => {
+    return (data.opinions || []).map((opinion) => resolveOpinion(opinion, lang));
 };
 
 // General
 
 export const getFilteredCourses = (
     filter: FilterOptions | undefined,
-    data: BBDD
+    data: BBDD,
+    lang: Language
 ): (CourseJSON & IsObtainedCourse)[] => {
+    const storedCourses = getStoredCourses(data);
     const coursesToMap =
         filter === "Todos"
-            ? data.courses
-            : data.courses.filter((c) => c.level === filter);
+            ? storedCourses
+            : storedCourses.filter((c) => c.level === filter);
 
-    return coursesToMap || ([] as (CourseJSON & IsObtainedCourse)[]);
+    return coursesToMap.map((course) => resolveCourse(course, lang));
 };
+
+/**
+ * Indica si algun campo de texto del curso contiene `searchLower`.
+ * Un campo que no es string (dato corrupto) simplemente no coincide.
+ */
+const matchesSearch: (course: CourseJSON, searchLower: string) => boolean = (
+    course,
+    searchLower
+) =>
+    [course.title, course.shortDescription, course.level].some(
+        (field: unknown) =>
+            isString(field) && field.toLowerCase().includes(searchLower)
+    );
 
 export const getSearchedCourses = (
     search: string,
-    data: BBDD
+    data: BBDD,
+    lang: Language
 ): (CourseJSON & IsObtainedCourse)[] => {
     const searchLower = search.toLowerCase();
-    const searchedCourses = data.courses.filter(
-        (c) =>
-            c.title.toLowerCase().includes(searchLower) ||
-            c.shortDescription.toLowerCase().includes(searchLower) ||
-            c.level.toLowerCase().includes(searchLower)
-    );
 
-    return searchedCourses || ([] as (CourseJSON & IsObtainedCourse)[]);
+    return getCourses(data, lang).filter((course) =>
+        matchesSearch(course, searchLower)
+    );
 };
 
 export const getCourseById: (
     data: BBDD,
-    courseID: number
-) => CourseJSON | undefined = (data, courseID) => {
-    return data.courses.find((c) => c.courseID === courseID);
+    courseID: number,
+    lang: Language
+) => CourseJSON | undefined = (data, courseID, lang) => {
+    const course = getStoredCourses(data).find((c) => c.courseID === courseID);
+    return course ? resolveCourse(course, lang) : undefined;
 };
 
 export const getDataLocalStorage: <T>(key: string) => T | null = (key) => {
@@ -231,7 +284,7 @@ export const getRandom = <T>(data: T[]): T => {
     return data[randomIndex];
 };
 
-export const deleteKey: <T extends Record<string, any>, K extends keyof T>(
+export const deleteKey: <T extends Record<string, unknown>, K extends keyof T>(
     data: T,
     key: K
 ) => Omit<T, K> = (data, key) => {

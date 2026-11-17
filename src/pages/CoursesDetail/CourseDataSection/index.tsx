@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import AuthorsSection from "./AuthorsSection";
 import styles from "./CourseDataSection.module.css";
@@ -12,8 +13,6 @@ import { useUserAuthStore } from "../../../hooks/UseUserAuthStore";
 import { DATABASE_KEY } from "../../../consts/dataBaseKey";
 import { asNumber, asObject } from "../../../utils/general";
 import BreadCrumb from "./BreadCrumb";
-
-type Props = {};
 
 /**
  * CourseDataSection - React component that displays detailed information for a specific course.
@@ -35,7 +34,7 @@ type Props = {};
  * @returns JSX.Element: A section containing full course details, including authors, description, and content/learning objectives.
  */
 
-function CourseDataSection({}: Props) {
+function CourseDataSection() {
     const { user } = useUserAuthStore();
     const params = useParams();
 
@@ -46,6 +45,7 @@ function CourseDataSection({}: Props) {
     );
 
     const safeData = asObject<Course & IsObtainedCourse>(data);
+    const { t } = useTranslation("courseDetail");
 
     return (
         <section className={styles.courseDataSection}>
@@ -56,7 +56,7 @@ function CourseDataSection({}: Props) {
                 <BreadCrumb
                     breadCrumbs={[
                         {
-                            label: "Cursos",
+                            label: t("common:nav.courses"),
                             link: "courses",
                         },
                         {
@@ -77,9 +77,9 @@ function CourseDataSection({}: Props) {
                                     " "
                                 )}
                             >
-                                contenido
+                                {t("sections.contentHighlight")}
                             </span>{" "}
-                            del curso
+                            {t("sections.contentRest")}
                         </>
                     }
                 />
@@ -88,13 +88,13 @@ function CourseDataSection({}: Props) {
                     type={"learn"}
                     titleContain={
                         <>
-                            ¿Qué harás y{" "}
+                            {t("sections.learnPart")}{" "}
                             <span
                                 className={["span-pr-color", "upperCase"].join(
                                     " "
                                 )}
                             >
-                                aprenderás
+                                {t("sections.learnHighlight")}
                             </span>
                             ?
                         </>

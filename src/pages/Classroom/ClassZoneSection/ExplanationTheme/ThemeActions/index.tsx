@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Button from "../../../../../components/Button";
 import styles from "./ThemeActions.module.css";
@@ -42,6 +43,7 @@ type Props = {
 function ThemeActions({ data, index, setImageSliderLoading, setIndex }: Props) {
     const { user } = useUserAuthStore();
     const { mutate } = useCompleteTheme(index, setIndex);
+    const { t } = useTranslation("classroom");
 
     return (
         <div className={styles.professorAndActions}>
@@ -59,7 +61,7 @@ function ThemeActions({ data, index, setImageSliderLoading, setIndex }: Props) {
                     variant="Secondary"
                 >
                     <FaChevronLeft />
-                    Anterior
+                    {t("actions.previous")}
                 </Button>
                 <Button
                     disabled={
@@ -75,7 +77,7 @@ function ThemeActions({ data, index, setImageSliderLoading, setIndex }: Props) {
                         setIndex(index + 1);
                     }}
                 >
-                    Siguiente
+                    {t("actions.next")}
                     <FaChevronRight />
                 </Button>
                 <Button
@@ -98,7 +100,7 @@ function ThemeActions({ data, index, setImageSliderLoading, setIndex }: Props) {
                         )
                     }
                 >
-                    Completar
+                    {t("actions.complete")}
                 </Button>
             </div>
             <div className={styles.professorContainer}>

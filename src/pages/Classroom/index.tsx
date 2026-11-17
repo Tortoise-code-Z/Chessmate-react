@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import UserCoursesSection from "../../components/UserCoursesSection";
 import ClassZoneSection from "./ClassZoneSection";
@@ -6,8 +7,6 @@ import FeedbackMessage from "../../components/FeedbackMessage";
 import FeedbackListener from "../../components/FeedbackListener";
 import ProfessorListener from "../../components/ProfessorListenner";
 import { Helmet } from "react-helmet-async";
-
-type Props = {};
 
 /**
  * Classroom - React component representing a user's classroom page.
@@ -25,13 +24,14 @@ type Props = {};
  * @returns JSX.Element: The classroom page containing course sections and feedback components.
  */
 
-function Classroom({}: Props) {
+function Classroom() {
     const params = useParams();
+    const { t } = useTranslation("classroom");
 
     return (
         <>
             <Helmet>
-                <title>Chessmate - Clase</title>
+                <title>{t("meta.title")}</title>
             </Helmet>
             <FeedbackListener />
             <ProfessorListener />
@@ -45,9 +45,9 @@ function Classroom({}: Props) {
             >
                 <TitleHx level={2}>
                     <span className={["span-pr-color", "upperCase"].join(" ")}>
-                        Otros
+                        {t("otherCourses.highlight")}
                     </span>{" "}
-                    de mis cursos
+                    {t("otherCourses.rest")}
                 </TitleHx>
             </UserCoursesSection>
         </>

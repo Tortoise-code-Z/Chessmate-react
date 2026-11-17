@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import BestPlayersSection from "../../components/BestPlayersSection";
 import CoursesRecomended from "../../components/CoursesRecomended";
 import { useUserAuthStore } from "../../hooks/UseUserAuthStore";
@@ -8,8 +9,6 @@ import ProfessorFixedMessage from "../../components/ProfessorFixedMessage";
 import FeedbackListener from "../../components/FeedbackListener";
 import ProfessorListener from "../../components/ProfessorListenner";
 import { Helmet } from "react-helmet-async";
-
-type Props = {};
 
 /**
  * Dashboard - React component that serves as the main user dashboard,
@@ -29,13 +28,14 @@ type Props = {};
  * @returns JSX.Element: The complete user dashboard with multiple sections (courses, recommendations, feedback, and rankings).
  */
 
-function Dashboard({}: Props) {
+function Dashboard() {
     const { user } = useUserAuthStore();
+    const { t } = useTranslation("dashboard");
 
     return (
         <>
             <Helmet>
-                <title>Chessmate - Portal</title>
+                <title>{t("meta.title")}</title>
             </Helmet>
             <FeedbackListener />
             <ProfessorListener />
@@ -45,9 +45,9 @@ function Dashboard({}: Props) {
 
             <UserCoursesSection navbarHeight={true}>
                 <TitleHx level={2}>
-                    Mis{" "}
+                    {t("myCourses.title")}{" "}
                     <span className={["span-pr-color", "upperCase"].join(" ")}>
-                        cursos
+                        {t("myCourses.highlight")}
                     </span>
                 </TitleHx>
             </UserCoursesSection>
@@ -58,9 +58,9 @@ function Dashboard({}: Props) {
                         <span
                             className={["span-pr-color", "upperCase"].join(" ")}
                         >
-                            Comprar
+                            {t("recommended.highlight")}
                         </span>{" "}
-                        cursos
+                        {t("recommended.rest")}
                     </>
                 }
                 titleDisplay={"Row"}

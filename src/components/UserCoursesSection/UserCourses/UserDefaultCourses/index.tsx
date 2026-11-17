@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import UserDefaultCourseItem from "./UserDefaultCourseItem";
 import styles from "./UserDefaultCourses.module.css";
@@ -54,14 +55,15 @@ function UserDefaultCourses({ setDefaultWarning, defaultWarning }: Props) {
         asNumber(Number(params.id))
     );
 
-    let safeData = asArray<DefualtCourse & Progress>(data);
+    const safeData = asArray<DefualtCourse & Progress>(data);
+    const { t } = useTranslation("dashboard");
 
     return (
         <div className={[styles.userDefaultCourses].join(" ")}>
             <DataStateWrapper
                 isLoading={isLoading}
                 error={error}
-                errorMsg="No hemos podido recuperar los cursos."
+                errorMsg={t("defaultCourses.error")}
             >
                 <SecurityRendering<DefualtCourse & Progress>
                     data={safeData}
@@ -78,7 +80,7 @@ function UserDefaultCourses({ setDefaultWarning, defaultWarning }: Props) {
                                 isString(course?.imageUrl?.general)) &&
                             isNumber(course?.progress)
                     )}
-                    emptyNode={<MsgEmpty msg="No hay cursos para mostrar." />}
+                    emptyNode={<MsgEmpty msg={t("common:empty.noCourses")} />}
                 >
                     {(course, index, canRendered) => {
                         if (!canRendered) {

@@ -2,6 +2,7 @@ import { FaInfoCircle } from "react-icons/fa";
 import styles from "./ErrorElement.module.css";
 import Button from "../Button";
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 type Props = {
     error: Error;
@@ -51,7 +52,11 @@ function ErrorElement({
     paddingLateral,
     paddingNavbar,
 }: Props) {
+    const { t } = useTranslation();
     console.error(error.message);
+    const translatedMsg = errorMsg
+        ? t(errorMsg, { defaultValue: errorMsg })
+        : "";
     return (
         <div
             className={[
@@ -64,8 +69,10 @@ function ErrorElement({
             <div className={styles.container}>
                 <FaInfoCircle />
                 <span className={styles.errorMsg}>
-                    Lo sentimos mucho, ha ocurrido un error
-                    {errorMsg ? `: ${errorMsg.toLowerCase()}` : "."}
+                    {t("common:error.dataStatePrefix")}
+                    {translatedMsg
+                        ? `: ${translatedMsg.toLowerCase()}`
+                        : "."}
                 </span>
                 {buttonAction &&
                     buttonAction?.onClick &&
