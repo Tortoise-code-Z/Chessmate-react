@@ -238,6 +238,8 @@ Podrás observar **mensajes por defecto y feedback visual** en las secciones que
 
 > Nota: Para mantener la interfaz limpia, no se han forzado errores en todos los elementos, solo en algunos, con el objetivo de mostrar la funcionalidad de manera clara.
 
+> Nota (multilenguaje): los textos de contenido se guardan por idioma (`{ es, en }`). Si se pone a `null` un campo de texto entero (como el `description` del snippet), esa parte se carga **con aviso** y el resto de la sección se muestra con normalidad; si solo falta la variante de un idioma, se muestra la del otro.
+
 #### 🔍 Qué más puedes probar
 
 -   **Cambiar a `createBrowserRouter` en tu entorno local**  
