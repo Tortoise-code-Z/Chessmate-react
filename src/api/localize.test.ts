@@ -162,3 +162,98 @@ describe("resolveOpinion", () => {
         expect(resolveOpinion(op, "es").text).toBe("buena");
     });
 });
+
+// Datos corruptos (ADR-018): localStorage es editable y puede no cumplir los
+// tipos Stored*. Los resolvedores no deben lanzar: dejan `undefined` en el
+// hueco para que la vista muestre su aviso, y resuelven el resto.
+
+/** Simula un dato de localStorage que no cumple su tipo. */
+const corrupt = <T>(value: unknown): T => value as T;
+
+describe("pick / pickList con datos corruptos", () => {
+    it("no lanza y devuelve undefined si el campo no es un objeto", () => {
+        expect(pick(corrupt(null), "en")).toBeUndefined();
+        expect(pick(corrupt(undefined), "es")).toBeUndefined();
+        expect(pick(corrupt("hola"), "es")).toBeUndefined();
+        expect(pickList(corrupt(null), "en")).toBeUndefined();
+    });
+
+    it("usa la variante de otro idioma si falta la pedida", () => {
+        expect(pick(corrupt({ es: "hola", en: null }), "en")).toBe("hola");
+        expect(pick(corrupt({ es: 42, en: "hi" }), "es")).toBe("hi");
+        expect(pickList(corrupt({ es: ["a"], en: null }), "en")).toEqual([
+            "a",
+        ]);
+    });
+
+    it("devuelve undefined si ninguna variante es válida", () => {
+        expect(pick(corrupt({ es: null, en: null }), "es")).toBeUndefined();
+        expect(pickList(corrupt({ es: "a", en: {} }), "en")).toBeUndefined();
+    });
+
+    it("conserva la cadena vacía (es un string válido)", () => {
+        expect(pick({ es: "", en: "hi" }, "es")).toBe("");
+    });
+});
+
+describe("resolvedores con datos corruptos", () => {
+    it("caso del README: description a null en un tema de curso por defecto", () => {
+        const broken = corrupt<StoredDefaultCourse>({
+            ...defaultCourse,
+            content: {
+                ...defaultCourse.content,
+                themes: [{ ...defaultCourse.content.themes[0], description: null }],
+            },
+        });
+
+        const dc = resolveDefaultCourse(broken, "en");
+        expect(dc.title).toBe("Pawns");
+        expect(dc.content.themes[0].title).toBe("Starting position");
+        expect(dc.content.themes[0].description).toBeUndefined();
+    });
+
+    it("una lista que no es array queda como hueco sin tumbar el curso", () => {
+        const broken = corrupt<StoredCourse>({
+            ...course,
+            content: { ...course.content, themes: null },
+            toLearn: null,
+        });
+
+        const c = resolveCourse(broken, "en");
+        expect(c.title).toBe("Pawns");
+        expect(c.content.themes).toBeUndefined();
+        expect(c.content.detailDescription).toEqual(["q1"]);
+        expect(c.toLearn).toBeUndefined();
+    });
+
+    it("un elemento roto de una lista queda como hueco y el resto se resuelve", () => {
+        const broken = corrupt<StoredCourse>({
+            ...course,
+            content: {
+                ...course.content,
+                themes: [null, course.content.themes[0]],
+            },
+        });
+
+        const themes = resolveCourse(broken, "es").content.themes;
+        expect(themes).toHaveLength(2);
+        expect(themes[0]).toBeUndefined();
+        expect(themes[1].title).toBe("Tema");
+    });
+
+    it("una entidad entera que no es objeto devuelve undefined", () => {
+        expect(resolveCourse(corrupt(null), "es")).toBeUndefined();
+        expect(resolveDefaultCourse(corrupt(null), "es")).toBeUndefined();
+        expect(resolveAuthor(corrupt(null), "es")).toBeUndefined();
+        expect(resolveOpinion(corrupt(null), "es")).toBeUndefined();
+    });
+
+    it("no localizables a null se conservan tal cual (los valida la vista)", () => {
+        const broken = corrupt<StoredOpinion>({ id: null, idUser: 7, text: null });
+        expect(resolveOpinion(broken, "en")).toEqual({
+            id: null,
+            idUser: 7,
+            text: undefined,
+        });
+    });
+});
