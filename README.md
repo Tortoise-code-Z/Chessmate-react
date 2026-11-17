@@ -1,154 +1,143 @@
-# CHESSMATE - Página de aprendizaje de ajedrez - Víctor Pérez
+# ♟️ Chessmate: Chess Learning Platform
 
-Aplicación web **frontend moderna** (con backend simulado del lado del cliente) para **cursos online**, totalmente **responsive** y diseñada 100% por mí desde cero en **Figma**.  
-Desarrollada con un **stack moderno**, la plataforma contó con el apoyo de la **IA como copiloto**, que me ayudó a generar ideas y resolver dudas durante el desarrollo.
+A **responsive frontend web app** for online chess courses, with a **client-side simulated backend**. I designed the whole interface from scratch in **Figma** and built it with React and TypeScript.
+I used **AI as a copilot** during development to brainstorm ideas and work through questions.
 
-La plataforma permite a los usuarios:
+With Chessmate, users can:
 
--   Registrarse y gestionar su perfil.
--   Explorar y filtrar cursos disponibles.
--   Acceder a detalles completos de cada curso.
--   Comprar cursos y seguir su progreso en un **dashboard personalizado** y un **classroom virtual**.
+- Sign up and manage their profile.
+- Browse and filter the available courses.
+- See full details for each course.
+- Buy courses and track their progress in a **personal dashboard** and a **virtual classroom**.
 
-Es ideal para **estudiantes** que buscan aprender en línea y para **empresas** que quieran ofrecer **formación digital** a sus equipos.
-
-![Chessmate - Home](./src/assets/images//screenshots/screenshot-index.png)
+![Chessmate - Home](./src/assets/images/screenshots/screenshot-index.png)
 
 ---
 
-## Tabla de Contenidos 🧭
+## Table of contents 🧭
 
--   [Demo](#demo)
--   [Características](#características)
--   [Instalación](#instalación)
--   [Uso](#uso)
--   [Estructura del proyecto](#estructura-del-proyecto)
--   [Tecnologías utilizadas](#tecnologías-utilizadas)
--   [Licencia](#licencia)
--   [Contacto](#contacto)
+- [Demo](#demo-)
+- [Features](#features-)
+- [Installation](#installation-)
+- [Usage](#usage-)
+- [Challenges and what I learned](#challenges-and-what-i-learned-)
+- [Project structure](#project-structure-)
+- [Tech stack](#tech-stack-)
+- [Licence](#licence-)
+- [Contact](#contact-)
 
 ---
 
 ## Demo 🚀
 
--   Live: https://tortoise-code-z.github.io/Chessmate-react/
--   Imágenes del proyecto:  
-    ![Home](./src/assets/images/screenshots/screenshot-index.png)  
-    ![Courses](./src/assets/images/screenshots/screenshot-courses.png)
-    ![CourseDetail](./src/assets/images/screenshots/screenshot-course-detail.png)
-    ![Contact](./src/assets/images/screenshots/screenshot-contact.png)
-    ![Dashboard](./src/assets/images/screenshots/screenshot-dashboard.png)
-    ![Classroom](./src/assets/images/screenshots/screenshot-classroom.png)
-    ![CourseObtainedClassroom](./src/assets/images/screenshots/screenshot-course-obtained-classroom.png)
-    ![Login](./src/assets/images/screenshots/screenshot-login.png)
-    ![Register](./src/assets/images/screenshots/screenshot-register.png)
+**Live:** https://tortoise-code-z.github.io/Chessmate-react/
+
+**Demo account:** username `admin` · password `1234` (or register a new user).
+
+<details>
+<summary><b>Screenshots</b></summary>
+
+![Home](./src/assets/images/screenshots/screenshot-index.png)
+![Courses](./src/assets/images/screenshots/screenshot-courses.png)
+![Course detail](./src/assets/images/screenshots/screenshot-course-detail.png)
+![Contact](./src/assets/images/screenshots/screenshot-contact.png)
+![Dashboard](./src/assets/images/screenshots/screenshot-dashboard.png)
+![Classroom](./src/assets/images/screenshots/screenshot-classroom.png)
+![Purchased course in the classroom](./src/assets/images/screenshots/screenshot-course-obtained-classroom.png)
+![Login](./src/assets/images/screenshots/screenshot-login.png)
+![Register](./src/assets/images/screenshots/screenshot-register.png)
+
+</details>
 
 ---
 
-## Características ✨
+## Features ✨
 
--   Diseño responsive para móviles y escritorio, ofreciendo buena experiencia en cualquier dispositivo
--   Animaciones suaves que mejoran la interacción del usuario
--   Validación de formularios con Zod para evitar errores en formularios
--   Gestión de estado global con Zustand para mantener datos consistentes entre páginas
--   Simulación de backend con localStorage para pruebas sin servidor real
--   Uso de React-query para manejar asincronías de forma eficiente
--   React-router-dom para una navegación fluida entre secciones
--   React-player para reproducción de videos dentro del classroom
--   Protección de rutas para evitar accesos no permitidos (Dashboard, course-classroom)
--   Feedback al usuario con mensajes de éxito, error y warnings para posibles datos de cursos incompletos
+- **Responsive design** that works well on mobile and desktop.
+- **Smooth animations** that make interactions feel natural.
+- **Form validation** with Zod and React Hook Form.
+- **Global state** with Zustand, so data stays consistent across pages.
+- **Simulated backend** on top of `localStorage`, so the app runs without a real server.
+- **Async data handling** with TanStack Query (React Query).
+- **Client-side routing** with React Router.
+- **Video playback** in the classroom with React Player.
+- **Protected routes** for the dashboard and the course classroom.
+- **User feedback** with success, error and warning messages, including for incomplete course data.
 
 ---
 
-## Instalación 🛠️
+## Installation 🛠️
 
-### Prerrequisitos
+### Prerequisites
 
--   **Node.js** (versión 18 o superior) — necesario para ejecutar el proyecto y las dependencias de npm.
--   **npm** — gestor de paquetes para instalar dependencias.
--   **Vite** — herramienta de build moderna utilizada para el proyecto (se instala automáticamente con `npm install`).
--   **Git** — si van a clonar el repositorio.
+- **Node.js** 18 or later
+- **npm**
+- **Git**
 
-### Pasos de instalación
+### Steps
 
 ```bash
-# Clonar el repositorio
+# Clone the repository
 git clone https://github.com/Tortoise-code-Z/Chessmate-react
 
-# Entrar en el directorio
+# Go into the project folder
 cd Chessmate-react
 
-# Instalar dependencias
+# Install dependencies
 npm install
+
+# Start the development server
+npm run dev
 ```
 
 ---
 
-## Uso 💻
+## Usage 💻
 
--   Live: https://tortoise-code-z.github.io/Chessmate-react/
+The app simulates a backend with `localStorage`. This makes it possible to **test how the frontend copes with missing data, invalid course IDs and protected routes** without a real server.
 
-### Casos de uso y comportamiento dinámico ⚙️
+### Validation and flow control 🧠
 
-La aplicación implementa **comportamientos avanzados de validación y control de flujo**, simulando un backend a través de `localStorage`.  
-Esto permite **probar la robustez del frontend** frente a datos faltantes, errores en el ID de curso o rutas protegidas, incluso sin un servidor real.
+1. **No course `id` or `price` → the purchase is blocked.**
+   To avoid invalid or duplicate purchases, a course can only be bought if it has both fields. The user sees a clear error message.
 
----
+2. **No course `id` → no access to the classroom.**
+   If the user tries to open a class without a valid identifier, the route is rejected and they are redirected with visual feedback.
 
-#### 🧠 Lógica de validación principal
+3. **Missing non-critical data (title, description, etc.) → visual feedback.**
+   The app renders **fallback course cards** with informative messages, so the UI stays stable.
 
-1. **Sin `id` o sin `precio` del curso → se bloquea la compra**  
-   Por motivos de seguridad y para evitar duplicidades, no se permite ejecutar una compra si el curso no contiene ambos campos.  
-   El sistema muestra un mensaje de error claro al usuario.
-
-2. **Sin `id` del curso → acceso bloqueado al classroom**  
-   Si el usuario intenta ingresar directamente a la clase sin un identificador válido, la ruta se invalida y se redirige con feedback visual.
-
-3. **Sin `id` o con datos no críticos faltantes (título, descripción, etc.) → feedback visual**  
-   En estos casos, se renderizan **cards de curso por defecto** con mensajes informativos, manteniendo la UI estable y consistente.
-
-4. **Protección de rutas con `createHashRouter` y `createBrowserRouter`**  
-   En la versión desplegada en GitHub Pages, se utiliza `createHashRouter` porque GitHub solo sirve contenido estático y no permite redirecciones dinámicas a rutas profundas (`/dashboard`, `/classroom`, etc.).
-    - Esto se debe a que GitHub Pages **no tiene soporte de servidor para rutas "limpias"**, por lo que al refrescar una ruta interna, el navegador intenta acceder a una URL física (`/dashboard/index.html`), que no existe.
-    - El `HashRouter` agrega un `#` en la URL (por ejemplo: `/#/dashboard`) para que la navegación ocurra solo en el cliente y no haya errores 404.
-    - Sin embargo, **en desarrollo local**, puedes cambiar a `createBrowserRouter` para probar la navegación real con URLs limpias y proteger rutas como en un entorno de producción con servidor real.
+4. **Routing: `createHashRouter` vs `createBrowserRouter`.**
+   The deployed version uses `createHashRouter` because **GitHub Pages only serves static files** and has no server-side support for clean routes.
+   - Refreshing a deep route such as `/dashboard` would make the browser request a file that doesn't exist (`/dashboard/index.html`) and return a 404.
+   - The hash router adds a `#` to the URL (e.g. `/#/dashboard`), so navigation happens entirely on the client.
+   - **Locally**, you can switch to `createBrowserRouter` to test clean URLs and route protection as you would with a real server.
 
 ```tsx
-// En local (para pruebas)
+// Locally (for testing)
 import { createBrowserRouter } from "react-router-dom";
 
-// En GitHub Pages (por defecto)
+// On GitHub Pages (default)
 import { createHashRouter } from "react-router-dom";
 ```
 
----
+### Try the error handling yourself 🧩
 
-#### 🧩 Pruebas en `localStorage`
+You can edit the simulated "database" from the browser console to see the fallback states and feedback messages. Use the live demo or the local dev server (`npm run dev`).
 
-Para probar comportamientos de error o feedback dinámico, puedes ejecutar directamente código en la consola del navegador para manipular los datos simulados de la “base de datos local”.
+**Step 1: Log in.** Register, or use `admin` / `1234`. You need to be logged in to see the dashboard.
 
-Asegúrate de tener la aplicación abierta en modo desarrollo (`npm run dev`) o en la demo activa.
+**Step 2: "Buy" some courses.** Go to **Courses** and, under **All courses**, buy the first two.
 
-##### 🔧 Paso 1: Iniciar sesión o registrarte
-
-Recuerda iniciar sesión en la web (puedes registrarte o usar: usuario -> admin, contraseña -> 1234; si quieres saltarte el paso del registro), para poder estar en el Dashboard y ver toda la lógica de una vez (si estar logueado puedes verlo igual, pero no podrás ver la parte del Dashboard)
-
-##### 🔧 Paso 2: "Compra" varios cursos
-
-Una vez inicias sesión, ve a la page "Cursos" y en la sección "Todos los cursos" compra los 2 primeros.
-
-##### 🔧 Paso 3: Código para ejecutar en la consola del navegador
+**Step 3: Run this in the browser console.**
 
 ```js
-// Simular base de datos de cursos en localStorage
+// Load the simulated database from localStorage
 const bbdd = JSON.parse(localStorage.getItem("DATA_BASE"));
 
 const newCourses = bbdd.courses.map((c) => {
     if (c.courseID === 1) {
-        return {
-            ...c,
-            courseID: null,
-        };
+        return { ...c, courseID: null };
     }
 
     if (c.courseID === 3) {
@@ -210,50 +199,37 @@ const newBBDD = {
     comments: newComments,
 };
 
-// Guardar en localStorage
+// Save to localStorage
 localStorage.setItem("DATA_BASE", JSON.stringify(newBBDD));
 
-// Confirmar que los datos se guardaron correctamente
+// Check that the data was saved
 console.log(
-    "Cursos actualizados en localStorage:",
+    "Courses updated in localStorage:",
     JSON.parse(localStorage.getItem("DATA_BASE"))
 );
 ```
 
-##### 🔧 Paso 4: Refrescar la página y explorar la aplicación
+**Step 4: Refresh the page and explore.** You'll see fallback content and feedback messages wherever data is missing:
 
-Después de guardar los cambios en `localStorage`, simplemente **refresca la página**.
+- **Default courses:** open **"Caballos"** (Knights) to see the feedback message in its classroom.
+- **Purchased courses:** open **"Aperturas fundamentales"** (Fundamental openings, ID 2, bought in step 2) to see feedback messages and topics disabled for safety.
 
-Podrás observar **mensajes por defecto y feedback visual** en las secciones que lo requieran.
+> To keep the interface clean, errors are only forced on some elements, enough to show how the app behaves.
 
-###### Aclaraciones:
-
--   **Cursos por defecto:**  
-    Ingresa a **"Caballos"** para ver el mensaje de feedback en su Classroom.
-
--   **Cursos obtenidos:**  
-    Ingresa a **"Aperturas fundamentales"** (ID: 2, previamente comprado en el Paso 2) para observar:
-    -   Mensajes de feedback.
-    -   Temas desactivados por seguridad.
-
-> Nota: Para mantener la interfaz limpia, no se han forzado errores en todos los elementos, solo en algunos, con el objetivo de mostrar la funcionalidad de manera clara.
-
-#### 🔍 Qué más puedes probar
-
--   **Cambiar a `createBrowserRouter` en tu entorno local**  
-    → Te permitirá probar protección de rutas y navegación directa (`/dashboard`, `/course/:id`, `/classroom`) como en un entorno de backend real.
+**Also worth trying:** switch to `createBrowserRouter` locally to test route protection and direct navigation (`/dashboard`, `/course/:id`, `/classroom`) as you would with a real backend.
 
 ---
 
-```bash
-# Ejecutar el servidor de desarrollo en local
-npm run dev
+## Challenges and what I learned 💡
 
-```
+- **Deploying a single-page app on static hosting.** Deep routes returned 404s on GitHub Pages after a refresh. I learned why (there's no server to rewrite routes) and solved it with a hash router, while keeping the browser router for local testing.
+- **Designing for missing or broken data.** By simulating the backend, I could break the data on purpose and make sure the UI degrades gracefully: purchases blocked when data is invalid, fallback cards and protected routes.
+- **Separating server state from UI state.** TanStack Query handles the async "API" calls and Zustand handles global UI state.
+- **From design to code.** I designed every screen in Figma first and then built it as responsive components.
 
 ---
 
-## Estructura del proyecto 📁
+## Project structure 📁
 
 ```plaintext
 Chessmate/
@@ -270,8 +246,8 @@ Chessmate/
 │   ├── schemas/
 │   ├── types/
 │   ├── utils/
-│   └── App.tsx
-│   └── index.css
+│   ├── App.tsx
+│   ├── index.css
 │   └── main.tsx
 │
 ├── package.json
@@ -280,58 +256,56 @@ Chessmate/
 
 ---
 
-## Tecnologías utilizadas 🧰
+## Tech stack 🧰
 
-**Diseño:**
+**Design**
 
--   Figma — diseño de toda la interfaz desde cero, responsive y centrado en UX/UI
+- Figma: the whole interface, designed from scratch, responsive and UX/UI-focused
 
-**Programación y herramientas:**
+**Core**
 
--   React + TypeScript — desarrollo del frontend
--   LocalStorage — simulación de backend y almacenamiento de datos del usuario
--   Git — control de versiones
--   GitHub — repositorio público y gestión del proyecto en la nube
--   npm — gestor de paquetes
--   Vite — herramienta de build y servidor de desarrollo
--   Inteligencia Artificial — apoyo como copiloto y generación de datos de la web
+- React + TypeScript
+- Vite: build tool and dev server
+- `localStorage`: simulated backend and user data
+- Git, GitHub and npm
+- AI assistant: copilot for ideas and questions, and to generate the site's sample data
 
-**Librerías y utilidades:**
+**Libraries**
 
--   React-Query — gestión eficiente de datos asincrónicos
--   React-Router-Dom — navegación y gestión de rutas
--   Zod + Resolvers — validación de formularios
--   React-Hook-Form — manejo de formularios
--   Zustand — gestión de estado global
--   EmblaCarousel — sliders y carrousels
--   React-Player — reproducción de videos
+- TanStack Query (React Query): async data handling
+- React Router: navigation and routing
+- React Hook Form + Zod (with resolvers): forms and validation
+- Zustand: global state
+- Embla Carousel: sliders and carousels
+- React Player: video playback
 
-**Estilos:**
+**Styling**
 
--   CSS Modules — estilos modulados para componentes, manteniendo scoped CSS
+- CSS Modules: component-scoped styles
 
 ---
 
-## Licencia 🧾
+## Licence 🧾
 
-Este proyecto no tiene licencia formal.
+This project has no formal licence.
 
--   **Puedes:**
+**You may:**
 
-    -   Ver el código en GitHub.
-    -   Clonar el repositorio y ejecutar el proyecto localmente.
-    -   Acceder al sitio en vivo y usarlo como referencia o inspiración.
-    -   Mostrar capturas o la página en tu portfolio o redes sociales (LinkedIn, Behance, etc.).
+- View the code on GitHub.
+- Clone the repository and run the project locally.
+- Visit the live site and use it as a reference or for inspiration.
+- Share screenshots or the site on your portfolio or social media (LinkedIn, Behance, etc.).
 
--   **No puedes:**
-    -   Redistribuir, copiar o incluir el código en otros proyectos sin permiso explícito.
-    -   Vender o usar el código con fines comerciales.
+**You may not:**
+
+- Redistribute, copy or include the code in other projects without explicit permission.
+- Sell the code or use it for commercial purposes.
 
 ---
 
-## Contacto 📬
+## Contact 📬
 
--   Portfolio: https://portfolio-pink-psi-5fclt31av9.vercel.app/
--   Email: victorperez.brmte@passmail.com
--   LinkedIn: www.linkedin.com/in/víctor-pérez-developer
--   GitHub: https://github.com/Tortoise-code-Z
+- **Portfolio:** [tortoisecode.dev](https://tortoisecode.dev)
+- **Email:** victorperez@tortoisecode.dev
+- **LinkedIn:** [linkedin.com/in/víctor-pérez-developer](https://www.linkedin.com/in/v%C3%ADctor-p%C3%A9rez-developer)
+- **GitHub:** [github.com/Tortoise-code-Z](https://github.com/Tortoise-code-Z)
